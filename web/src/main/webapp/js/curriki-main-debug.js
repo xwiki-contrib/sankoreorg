@@ -1634,7 +1634,8 @@ Ext.Ajax.defaultHeaders = {
 	,'Content-Type': 'application/json; charset=utf-8'
 };
 Ext.Ajax.disableCaching=false;
-Ext.Ajax.timeout=120000;
+// removed timeout, may fix issues with ajax requests failing
+//Ext.Ajax.timeout=120000;
 
 
 if (!('console' in window) || !('firebug' in console)){
