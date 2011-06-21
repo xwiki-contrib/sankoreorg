@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>XWiki</web>
+<name>GlobalClassTranslations</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1305037722000</creationDate>
+<date>1305037722000</date>
+<contentUpdateDate>1305037722000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>## GLOBAL CLASS TRANSLATIONS
+
+##I am pulling out many of the keys that are class based from individual translation files, such as Groups and Forms, and pulling them into this translation file. This is being done to avoid duplicate lookup strings across translation files. 
+
+## To view the different classes, go here.  http://next.dev.curriki.org/xwiki/bin/edit/XWiki/CurrikiSpaceClass?editor=class
+
+## I am also adding to this trans file elements that are used globally but not in class. Media Type roll over text for example.
+
+##FROM GWT or XWIKI CORE
+loading.loading_msg=Loading, please wait... 
+problemoccured=A problem occurred while trying to process your request. Please email webmaster@curriki.org if this happens again.
+
+##
+##ASSET CLASS USED IN RESOURCES
+
+## CATEGORIES / MEDIA TYPES PLUS COLLECTIONS AND FOLDERS
+
+
+CurrikiCode.AssetClass_category_document=Attached File
+CurrikiCode.AssetClass_category_archive=Archive
+CurrikiCode.AssetClass_category_audio=Audio
+CurrikiCode.AssetClass_category_image=Image
+CurrikiCode.AssetClass_category_interactive=Interactive
+CurrikiCode.AssetClass_category_external=Web Link
+CurrikiCode.AssetClass_category_unknown=Other
+CurrikiCode.AssetClass_category_text=Text
+CurrikiCode.AssetClass_category_video=Video
+CurrikiCode.AssetClass_category_collection={0}
+collection.collection=Collection
+collection.folder=Folder
+
+##CATEGORY AND / OR FILE TYPE 
+##Although the below are not taken from the Assets, that is, these most of these values are NOT stored in the classes, I am adding them to this file because they are global. Todd December 31, 2008.
+
+archive.sco=Archive: sco
+archive.zip=Archive: zip
+archive.gz=Archive: gz
+archive.xo=Archive: xo
+archive.sit=Achive: sit
+archive.gtar=Archive: gtar
+archive.tar=Archive: tar
+audio.wav=Audio: wav
+audio.mp3=Audio: mp3
+##The next two are duplicates from above. Should be able to remove these once the above are approved. If the above changes, then these will need stay.
+collection.collection=Collection
+collection.folder=Folder
+document.notebook=Attached File: notebook
+document.odt=Attached File: odt
+document.odg=Attached File: odg
+document.odp=Attached File: odp
+document.ods=Attached File: ods
+document.odc=Attached File: odc
+document.odf=Attached File: odf
+document.odb=Attached File: odb
+document.odi=Attached File: odi
+document.ppt=Attached File: ppt
+document.pptx=Attached File: pptx
+document.doc=Attached File: doc
+document.docx=Attached File: docx
+document.pdf=Attached File: pdf
+document.xls=Attached File: xls
+document.xlsx=Attached File: xlsx
+document.txt=Attached File: txt
+document.xml=Attached File: xml
+document.css=Attached File: css
+document.rtf =Attached File: rtf
+document.dcr=Attached File: cdcr
+document.dir=Attached File: dir
+document.exe=Attached File: exe
+document.bin=Attached File: bin
+document.iha=Attached File: iha
+document.izh=Attached File: izh
+document.class=Attached File: class
+document.php=Attached File: php
+document.jar=Attached File: jar
+document.ps=Attached File: ps
+unknown.unknown=Unknown
+##I added the below string as the one above is not working. This trans needs to be fixed so the above one works.
+search.resource.icon.Unknown.rollover=Unknown
+document.htm=Attached File: htm
+document.html=Attached File: html
+image.svg=Image: svg
+image.gif=Image: gif
+image.jpg=Image: jpg
+image.tif=Image: tif
+image.bmp=Image: bmp
+image.jpe=Image: jpg
+image.jpeg=Image: jpg
+image.png=Image: png
+image.psd=Image: psd
+interactive.swf=Interactive: swf
+text.xhtml=Text: html
+text.xwiki=Text: wiki
+video.qt=Video: qt
+video.wmv=Video: wmv
+video.asf=Video: asf
+video.avi=Video: avi
+video.mpg=Video: mpg
+video.mov=Video: mov
+video.viditalk=Video: vidi
+external.url=Web Link: www
+## The next two external are included for completeness but are not used and cannot be tested at this time. Todd Jan-07-2009
+external.www=Web Link: www
+external.http=Web Link: www
+
+
+## SUBJECT
+
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.WebHome=Subjects Index
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Arts_and_Culture=Arts and Culture
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Architecture_Design=Architecture Design
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Applied_Arts=Applied Arts
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Fine_Arts=Fine Arts
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Visual_Arts=Visual Arts
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Cinema=Cinema
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Folklore=Folklore
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Dance=Dance
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Music=Music
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Photography=Photography
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Theatre=Theatre
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Health_Education=Health Education
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Anatomy_and_Physiology=Anatomy and Physiology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Health=Health
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Nutrition=Nutrition
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Physical_Education_and_Sports=Physical Education and Sports
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sexual_Education=Sexual Education
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Environmental_Sustainability=Environmental Sustainability
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Safety_and_Risk_Prevention=Safety and Risk Prevention
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Media_Education=Media Education
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Media_Ethics=Media Ethics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Source_Assessment=Source Assessment
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Research_Methods_and_Documentation=Research Methods and Documentation
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Digital_Education=Digital Education
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Security=Security
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Preparation=Preparation
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Technology_Education=Technology Education
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Agriculture_and_Aquaculture=Agriculture and Aquaculture
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Automatism=Automatism
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Buildings_and_Public_Works=Buildings and Public Works
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Biotechnology=Biotechnology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Commercial_Banks_Insurance=Commercial Banks Insurance
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Domestic_Economy=Domestic Economy
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Electronics=Electronics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Forest=Forest
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Career_Guidance=Career Guidance
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Digital_Tools=Digital Tools
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Industrial_Science_and_Technology=Industrial Science and Technology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Human_Services=Human Services
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Materials_Technology=Materials Technology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Tourism_Hotellerie_and_Restaurants=Tourism Hotellerie and Restaurants
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Language_Proficiency=Language Proficiency
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Literacy=Literacy
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Comprehension=Written Comprehension
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Grammar=Grammar
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Literature=Literature
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Orthography=Orthography
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Phonetics=Phonetics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Expression=Written Expression
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Oral_Expression=Oral Expression
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Research=Research
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Vocabulary=Vocabulary
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Foreign_Languages=Foreign Languages
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Comprehension_Foreign=Written Comprehension
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Oral_Comprehension_Foreign=Oral Comprehension
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Ancient_Languages=Ancient Languages
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.LSF_and_Related_Languages=LSF and Related Languages
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Expression_Foreign=Written Expression
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Oral_Expression_Foreign=Oral Expression
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Mathematics=Mathematics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Algebra=Algebra
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Data_Analysis_Probability=Data Analysis Probability
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Arithmetic=Arithmetic
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Computation=Computation
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Equations=Equations
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Geometry=Geometry
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Applied_Mathematics=Applied Mathematics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Measurement=Measurement
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Patterns=Patterns
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Problem_Solving=Problem Solving
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Statistics=Statistics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Trigonometry=Trigonometry
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sciences=Sciences
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Agriculture_and_Agrifood=Agriculture and Agrifood
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Astronomy=Astronomy
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Other_Sciences=Other Sciences
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Biology=Biology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Chemistry=Chemistry
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Botanical_Ecology=Botanical Ecology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Geography=Geography
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.History_of_Science=History of Science
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Computer_and_Telecom_Network=Computer and Telecom Network
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Engineering=Engineering
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Medicine_and_Health=Medicine and Health
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Meteorology=Meteorology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Physics=Physics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Earth_Sciences=Earth Sciences
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Life_Sciences=Life Sciences
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Technology=Technology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Humanities=Humanities
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Anthropology=Anthropology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Law=Law
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Economics=Economics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Civics=Civics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Religious_Facts=Religious Facts
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Geography_Humanities=Geography
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Politics=Politics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.History=History
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Journalism=Journalism
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Philosophy=Philosophy
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Psychology=Psychology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Educational_Sciences=Educational Sciences
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sociology=Sociology
+CurrikiCode.AssetClass_fw_items_FW_masterFramework._Other=Other
+
+
+## EDUCATIONAL LEVEL
+
+CurrikiCode.AssetClass_educational_level_primary_3-11=3-11 / Primary
+CurrikiCode.AssetClass_educational_level_primary_3-6=3-6 / Primary / Cycle 1
+CurrikiCode.AssetClass_educational_level_primary_6-8=6-8 / Primary / Cycle 2
+CurrikiCode.AssetClass_educational_level_primary_8-11=8-11 / Primary / Cycle 3
+CurrikiCode.AssetClass_educational_level_secondary_11-18=11-18 / Secondary
+CurrikiCode.AssetClass_educational_level_secondary_11-15=11-15 / Secondary / College
+CurrikiCode.AssetClass_educational_level_secondary_11-12=11-12 / Secondary / College / Adaptation cycle
+CurrikiCode.AssetClass_educational_level_secondary_12-14=12-14 / Secondary / College / Main cycle
+CurrikiCode.AssetClass_educational_level_secondary_14-15=14-15 / Secondary / College / Guidance cycle
+CurrikiCode.AssetClass_educational_level_secondary_15-18=15-18 / Secondary / High School
+CurrikiCode.AssetClass_educational_level_secondary_15-16=15-16 / Secondary / High School / 2de
+CurrikiCode.AssetClass_educational_level_secondary_16-17=16-17 / Secondary / High School / 1re
+CurrikiCode.AssetClass_educational_level_secondary_17-18=17-18 / Secondary / High School / Senior year
+CurrikiCode.AssetClass_educational_level_secondarytech_15-18=15-18 / Secondary - Technologic 
+CurrikiCode.AssetClass_educational_level_secondarytech_11-15=11-15 / Secondary - Technologic / College
+CurrikiCode.AssetClass_educational_level_secondarytech_college_agricole=15-18 / Secondary - Technologic / College / Agricultural
+CurrikiCode.AssetClass_educational_level_secondarytech_lyceum=15-18 / Secondary - Technologic / High School
+CurrikiCode.AssetClass_educational_level_secondarytech_lyceum_agricole= 15-18 / Secondary - Technologie / High School / Agricultural
+CurrikiCode.AssetClass_educational_level_secondarytech_technical_school=15-18 / Secondary-Technologie / High School / Technical
+CurrikiCode.AssetClass_educational_level_secondarytech_technical_college=15-18 / Secondary-Technologie / High School / Vocational
+CurrikiCode.AssetClass_educational_level_higher_education=18+ / Higher Education
+CurrikiCode.AssetClass_educational_level_higher_education_technology=18+ / Higher Education / Technology
+CurrikiCode.AssetClass_educational_level_higher_education_bachelor=18+ / Higher Education / Bachelor
+CurrikiCode.AssetClass_educational_level_higher_education_master=18+ / Higher Education / Master
+CurrikiCode.AssetClass_educational_level_higher_education_phd=18+ / Higher Education / PhD
+CurrikiCode.AssetClass_educational_level_special_education=Special Education
+CurrikiCode.AssetClass_educational_level_supplementary_education=18+ / Supplementary Education
+
+## ICT
+CurrikiCode.AssetClass_instructional_component_collection=Collection
+CurrikiCode.AssetClass_instructional_component_collection_documents=Collection:Collection of documents
+CurrikiCode.AssetClass_instructional_component_collection_videos=Collection:Video bank
+CurrikiCode.AssetClass_instructional_component_collection_images=Collection:Images bank
+CurrikiCode.AssetClass_instructional_component_collection_atlas=Collection:Atlas
+CurrikiCode.AssetClass_instructional_component_collection_ebooks=Collection:EBooks
+CurrikiCode.AssetClass_instructional_component_dataset=Dataset
+CurrikiCode.AssetClass_instructional_component_dataset_worksheets=Dataset:Worksheets
+CurrikiCode.AssetClass_instructional_component_image=Image
+CurrikiCode.AssetClass_instructional_component_image_map=Image:Map
+CurrikiCode.AssetClass_instructional_component_image_mindmap=Image:MindMap
+CurrikiCode.AssetClass_instructional_component_image_digital=Image:Digital Image
+CurrikiCode.AssetClass_instructional_component_image_partition=Image:Partition
+CurrikiCode.AssetClass_instructional_component_image_graph=Image:Graph
+CurrikiCode.AssetClass_instructional_component_image_table=Image:Table
+CurrikiCode.AssetClass_instructional_component_motionpicture=Motion Picture
+CurrikiCode.AssetClass_instructional_component_motionpicture_conference=Motion Picture:Conference
+CurrikiCode.AssetClass_instructional_component_motionpicture_tutorial=Motion Picture:Tutorial
+CurrikiCode.AssetClass_instructional_component_software=Software
+CurrikiCode.AssetClass_instructional_component_software_misc=Software
+CurrikiCode.AssetClass_instructional_component_text=Text
+CurrikiCode.AssetClass_instructional_component_text_misc=Text
+CurrikiCode.AssetClass_instructional_component_text_article=Text:Article
+CurrikiCode.AssetClass_instructional_component_text_bibliography=Text:Bibliography
+CurrikiCode.AssetClass_instructional_component_text_technicalfile=Text:Technical File
+CurrikiCode.AssetClass_instructional_component_text_curriculum=Text:Curriculum
+CurrikiCode.AssetClass_instructional_component_text_report=Text:Report
+CurrikiCode.AssetClass_instructional_component_text_competence=Text:Competence
+CurrikiCode.AssetClass_instructional_component_text_tutorial=Text:Tutorial
+CurrikiCode.AssetClass_instructional_component_interactive=Interactive
+CurrikiCode.AssetClass_instructional_component_interactive_animation=Interactive:Animation
+CurrikiCode.AssetClass_instructional_component_interactive_selfassesment=Interactive:Self assesment
+CurrikiCode.AssetClass_instructional_component_interactive_simulation=Interactive:Simulation
+CurrikiCode.AssetClass_instructional_component_interactive_slideshow=Interactive:Slideshow
+CurrikiCode.AssetClass_instructional_component_interactive_3d=Interactive:3D
+CurrikiCode.AssetClass_instructional_component_interactive_siteweb=Interactive:Site web
+CurrikiCode.AssetClass_instructional_component_interactive_webmedia=Interactive:Web media
+CurrikiCode.AssetClass_instructional_component_sound=Sound
+CurrikiCode.AssetClass_instructional_component_sound_podcast=Sound:Podcast
+CurrikiCode.AssetClass_instructional_component_misc=Misc
+CurrikiCode.AssetClass_instructional_component_misc_course=Course
+CurrikiCode.AssetClass_instructional_component_misc_demonstration=Demonstration
+CurrikiCode.AssetClass_instructional_component_misc_casestudy=Case study
+CurrikiCode.AssetClass_instructional_component_misc_evaluation=Evaluation
+CurrikiCode.AssetClass_instructional_component_misc_examination=Examination
+CurrikiCode.AssetClass_instructional_component_misc_exercise=Exercise
+CurrikiCode.AssetClass_instructional_component_misc_guide=Guide
+CurrikiCode.AssetClass_instructional_component_misc_quiz=Quiz
+CurrikiCode.AssetClass_instructional_component_misc_lesson=Lesson
+CurrikiCode.AssetClass_instructional_component_other=Other
+#This one below is not a value in the class but we need for several location, such as My Contributions
+CurrikiCode.AssetClass_instructional_component_multiple=Multiple
+CurrikiCode.AssetClass_instructional_component_collection_UNSPECIFIED=Collection: Any
+CurrikiCode.AssetClass_instructional_component_dataset_UNSPECIFIED=Dataset: Any
+CurrikiCode.AssetClass_instructional_component_image_UNSPECIFIED=Image: Any
+CurrikiCode.AssetClass_instructional_component_motionpicture_UNSPECIFIED=Motion Picture: Any
+CurrikiCode.AssetClass_instructional_component_text_UNSPECIFIED=Text: Any
+CurrikiCode.AssetClass_instructional_component_interactive_UNSPECIFIED=Interactive: Any
+CurrikiCode.AssetClass_instructional_component_sound_UNSPECIFIED=Sound: Any
+CurrikiCode.AssetClass_instructional_component_misc_UNSPECIFIED=Misc: Any
+
+
+## ACCESS RIGHTS
+CurrikiCode.AssetClass_rights_public=Public: Available to anyone and any member can edit.
+CurrikiCode.AssetClass_rights_members=Protected: Available to anyone but only you (or your group members) can edit this copy
+CurrikiCode.AssetClass_rights_private=Private: Only you (or your group members) can view or edit.
+
+## LANGUAGE
+CurrikiCode.AssetClass_language_eng=English
+CurrikiCode.AssetClass_language_ind=Bahasa Indonesia
+CurrikiCode.AssetClass_language_zho=Chinese
+CurrikiCode.AssetClass_language_nld=Dutch
+CurrikiCode.AssetClass_language_fra=French
+CurrikiCode.AssetClass_language_deu=German
+CurrikiCode.AssetClass_language_hin=Hindi
+CurrikiCode.AssetClass_language_ita=Italian
+CurrikiCode.AssetClass_language_jpn=Japanese
+CurrikiCode.AssetClass_language_kor=Korean
+CurrikiCode.AssetClass_language_nep=Nepali
+CurrikiCode.AssetClass_language_por=Portuguese
+CurrikiCode.AssetClass_language_rus=Russian
+CurrikiCode.AssetClass_language_sin=Sinhalese
+CurrikiCode.AssetClass_language_spa=Spanish
+CurrikiCode.AssetClass_language_tam=Tamil
+CurrikiCode.AssetClass_language_999=Other
+
+## LICENSES
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CurrikiLicense=Curriki License (Creative Commons Attributions 3.0)
+CurrikiCode.AssetLicenseClass_licenseType_Licences.PublicDomain=Public Domain
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-Commercial=Creative Commons Attribution Non-Commercial
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-CommercialNoDerivatives=Creative Commons Attribution Non-Commercial No Derivatives
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNoDerivatives=Creative Commons Attribution No Derivatives
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionSharealike=Creative Commons Attribution Share Alike
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-CommercialShareAlike=Creative Commons Attribution Non-Commercial Share Alike
+
+##
+##
+## CURRIKI SPACE CLASS Used by GROUPS 
+## Note that Groups also uses other classes.
+
+## SUBJECT
+
+
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.WebHome=Subjects Index
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Arts_and_Culture=Arts and Culture
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Architecture_Design=Architecture Design
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Applied_Arts=Applied Arts
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Fine_Arts=Fine Arts
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Visual_Arts=Visual Arts
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Cinema=Cinema
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Folklore=Folklore
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Dance=Dance
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Music=Music
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Photography=Photography
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Theatre=Theatre
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Health_Education=Health Education
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Anatomy_and_Physiology=Anatomy and Physiology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Health=Health
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Nutrition=Nutrition
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Physical_Education_and_Sports=Physical Education and Sports
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sexual_Education=Sexual Education
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Environmental_Sustainability=Environmental Sustainability
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Safety_and_Risk_Prevention=Safety and Risk Prevention
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Media_Education=Media Education
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Media_Ethics=Media Ethics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Source_Assessment=Source Assessment
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Research_Methods_and_Documentation=Research Methods and Documentation
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Digital_Education=Digital Education
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Security=Security
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Preparation=Preparation
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Technology_Education=Technology Education
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Agriculture_and_Aquaculture=Agriculture and Aquaculture
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Automatism=Automatism
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Buildings_and_Public_Works=Buildings and Public Works
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Biotechnology=Biotechnology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Commercial_Banks_Insurance=Commercial Banks Insurance
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Domestic_Economy=Domestic Economy
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Electronics=Electronics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Forest=Forest
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Career_Guidance=Career Guidance
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Digital_Tools=Digital Tools
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Industrial_Science_and_Technology=Industrial Science and Technology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Human_Services=Human Services
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Materials_Technology=Materials Technology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Tourism_Hotellerie_and_Restaurants=Tourism Hotellerie and Restaurants
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Language_Proficiency=Language Proficiency
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Literacy=Literacy
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Written_Comprehension=Written Comprehension
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Grammar=Grammar
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Literature=Literature
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Orthography=Orthography
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Phonetics=Phonetics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Written_Expression=Written Expression
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Oral_Expression=Oral Expression
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Research=Research
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Vocabulary=Vocabulary
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Foreign_Languages=Foreign Languages
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Written_Comprehension_Foreign=Written Comprehension
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Oral_Comprehension_Foreign=Oral Comprehension
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Ancient_Languages=Ancient Languages
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.LSF_and_Related_Languages=LSF and Related Languages
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Written_Expression_Foreign=Written Expression
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Oral_Expression_Foreign=Oral Expression
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Mathematics=Mathematics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Algebra=Algebra
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Data_Analysis_Probability=Data Analysis Probability
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Arithmetic=Arithmetic
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Computation=Computation
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Equations=Equations
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Geometry=Geometry
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Applied_Mathematics=Applied Mathematics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Measurement=Measurement
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Patterns=Patterns
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Problem_Solving=Problem Solving
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Statistics=Statistics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Trigonometry=Trigonometry
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sciences=Sciences
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Agriculture_and_Agrifood=Agriculture and Agrifood
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Astronomy=Astronomy
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Other_Sciences=Other Sciences
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Biology=Biology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Chemistry=Chemistry
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Botanical_Ecology=Botanical Ecology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Geography=Geography
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.History_of_Science=History of Science
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Computer_and_Telecom_Network=Computer and Telecom Network
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Engineering=Engineering
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Medicine_and_Health=Medicine and Health
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Meteorology=Meteorology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Physics=Physics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Earth_Sciences=Earth Sciences
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Life_Sciences=Life Sciences
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Technology=Technology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Humanities=Humanities
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Anthropology=Anthropology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Law=Law
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Economics=Economics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Civics=Civics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Religious_Facts=Religious Facts
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Geography_Humanities=Geography
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Politics=Politics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.History=History
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Journalism=Journalism
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Philosophy=Philosophy
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Psychology=Psychology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Educational_Sciences=Educational Sciences
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sociology=Sociology
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework._Other=Other
+
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Arts_and_Culture.UNSPECIFIED=Arts and Culture: Any
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Digital_Education.UNSPECIFIED=Digital Education: Any
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Foreign_Languages.UNSPECIFIED=Foreign Language: Any
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Health_Education.UNSPECIFIED=Health Education: Any
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Mathematics.UNSPECIFIED=Mathematics: Any
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Humanities.UNSPECIFIED=Humanities: Any
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Language_Proficiency.UNSPECIFIED=Language Proficiency: Any
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Media_Education.UNSPECIFIED=Media Education: Any
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sciences.UNSPECIFIED=Sciences: Any
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Technology_Education.UNSPECIFIED=Technology Education: Any
+
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Arts_and_Culture.UNSPECIFIED=Arts and Culture: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Digital_Education.UNSPECIFIED=Digital Education: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Foreign_Languages.UNSPECIFIED=Foreign Language: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Health_Education.UNSPECIFIED=Health Education: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Mathematics.UNSPECIFIED=Mathematics: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Humanities.UNSPECIFIED=Humanities: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Language_Proficiency.UNSPECIFIED=Language Proficiency: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Media_Education.UNSPECIFIED=Media Education: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sciences.UNSPECIFIED=Sciences: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Technology_Education.UNSPECIFIED=Technology Education: Any
+
+
+
+
+
+## EDUCATION LEVEL
+XWiki.CurrikiSpaceClass_educationLevel_primary_3-11=3-11 / Primary
+XWiki.CurrikiSpaceClass_educationLevel_primary_3-6=3-6 / Primary / Cycle 1
+XWiki.CurrikiSpaceClass_educationLevel_primary_6-8=6-8 / Primary / Cycle 2
+XWiki.CurrikiSpaceClass_educationLevel_primary_8-11=8-11 / Primary / Cycle 3
+XWiki.CurrikiSpaceClass_educationLevel_secondary_11-18=11-18 / Secondary
+XWiki.CurrikiSpaceClass_educationLevel_secondary_11-15=11-15 / Secondary / College
+XWiki.CurrikiSpaceClass_educationLevel_secondary_11-12=11-12 / Secondary / College / Adaptation cycle
+XWiki.CurrikiSpaceClass_educationLevel_secondary_12-14=12-14 / Secondary / College / Main cycle
+XWiki.CurrikiSpaceClass_educationLevel_secondary_14-15=14-15 / Secondary / College / Guidance cycle
+XWiki.CurrikiSpaceClass_educationLevel_secondary_15-18=15-18 / Secondary / High School
+XWiki.CurrikiSpaceClass_educationLevel_secondary_15-16=15-16 / Secondary / High School / 2de
+XWiki.CurrikiSpaceClass_educationLevel_secondary_16-17=16-17 / Secondary / High School / 1re
+XWiki.CurrikiSpaceClass_educationLevel_secondary_17-18=17-18 / Secondary / High School / Senior year
+XWiki.CurrikiSpaceClass_educationLevel_secondarytech_15-18=15-18 / Secondary - Technologic 
+XWiki.CurrikiSpaceClass_educationLevel_secondarytech_11-15=11-15 / Secondary - Technologic / College
+XWiki.CurrikiSpaceClass_educationLevel_secondarytech_college_agricole=15-18 / Secondary - Technologic / College / Agricultural
+XWiki.CurrikiSpaceClass_educationLevel_secondarytech_lyceum=15-18 / Secondary - Technologic / High School
+XWiki.CurrikiSpaceClass_educationLevel_secondarytech_lyceum_agricole= 15-18 / Secondary - Technologie / High School / Agricultural
+XWiki.CurrikiSpaceClass_educationLevel_secondarytech_technical_school=15-18 / Secondary-Technologie / High School / Technical
+XWiki.CurrikiSpaceClass_educationLevel_secondarytech_technical_college=15-18 / Secondary-Technologie / High School / Vocational
+XWiki.CurrikiSpaceClass_educationLevel_higher_education=18+ / Higher Education
+XWiki.CurrikiSpaceClass_educationLevel_higher_education_technology=18+ / Higher Education / Technology
+XWiki.CurrikiSpaceClass_educationLevel_higher_education_bachelor=18+ / Higher Education / Bachelor
+XWiki.CurrikiSpaceClass_educationLevel_higher_education_master=18+ / Higher Education / Master
+XWiki.CurrikiSpaceClass_educationLevel_higher_education_phd=18+ / Higher Education / PhD
+XWiki.CurrikiSpaceClass_educationLevel_special_education=Special Education
+XWiki.CurrikiSpaceClass_educationLevel_supplementary_education=18+ / Supplementary Education
+
+## LANGUAGE
+
+XWiki.CurrikiSpaceClass_language_eng=English
+XWiki.CurrikiSpaceClass_language_ind=Bahasa Indonesia
+XWiki.CurrikiSpaceClass_language_zho=Chinese
+XWiki.CurrikiSpaceClass_language_nld=Dutch
+XWiki.CurrikiSpaceClass_language_fra=French
+XWiki.CurrikiSpaceClass_language_deu=German
+XWiki.CurrikiSpaceClass_language_hin=Hindi
+XWiki.CurrikiSpaceClass_language_ita=Italian
+XWiki.CurrikiSpaceClass_language_jpn=Japanese
+XWiki.CurrikiSpaceClass_language_kor=Korean
+XWiki.CurrikiSpaceClass_language_nep=Nepali
+XWiki.CurrikiSpaceClass_language_por=Portuguese
+XWiki.CurrikiSpaceClass_language_rus=Russian
+XWiki.CurrikiSpaceClass_language_sin=Sinhalese
+XWiki.CurrikiSpaceClass_language_spa=Spanish
+XWiki.CurrikiSpaceClass_language_tam=Tamil
+XWiki.CurrikiSpaceClass_language_999=Other
+
+## LICENSES
+
+XWiki.CurrikiSpaceClass_licence_Licences.CurrikiLicense=Curriki License (Creative Commons Attributions 3.0)
+XWiki.CurrikiSpaceClass_licence_Licences.PublicDomain=Public Domain
+XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNon-Commercial=Creative Commons Attribution Non-Commercial
+XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNon-CommercialNoDerivatives=Creative Commons Attribution Non-Commercial No Derivatives
+XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNoDerivatives=Creative Commons Attribution No Derivatives
+XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionSharealike=Creative Commons Attribution Share Alike
+XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNon-CommercialShareAlike=Creative Commons Attribution Non-Commercial Share Alike
+
+
+##
+##
+## MEMBERS
+
+## MEMBER TYPE
+XWiki.XWikiUsers_member_type_student=Student
+XWiki.XWikiUsers_member_type_teacher=Teacher
+XWiki.XWikiUsers_member_type_professional=Professional
+XWiki.XWikiUsers_member_type_parent=Parent
+
+##COUNTRY
+
+XWiki.XWikiUsers_country_AD=Andorra
+XWiki.XWikiUsers_country_AE=United Arab Emirates
+XWiki.XWikiUsers_country_AF=Afghanistan
+XWiki.XWikiUsers_country_AG=Antigua and Barbuda
+XWiki.XWikiUsers_country_AI=Anguilla
+XWiki.XWikiUsers_country_AL=Albania
+XWiki.XWikiUsers_country_AM=Armenia
+XWiki.XWikiUsers_country_AN=Netherlands Antilles
+XWiki.XWikiUsers_country_AO=Angola
+XWiki.XWikiUsers_country_AQ=Antarctica
+XWiki.XWikiUsers_country_AR=Argentina
+XWiki.XWikiUsers_country_AS=American Samoa
+XWiki.XWikiUsers_country_AT=Austria
+XWiki.XWikiUsers_country_AU=Australia
+XWiki.XWikiUsers_country_AW=Aruba
+XWiki.XWikiUsers_country_AX=Åland Islands
+XWiki.XWikiUsers_country_AZ=Azerbaijan
+XWiki.XWikiUsers_country_BA=Bosnia and Herzegovina
+XWiki.XWikiUsers_country_BB=Barbados
+XWiki.XWikiUsers_country_BD=Bangladesh
+XWiki.XWikiUsers_country_BE=Belgium
+XWiki.XWikiUsers_country_BF=Burkina Faso
+XWiki.XWikiUsers_country_BG=Bulgaria
+XWiki.XWikiUsers_country_BH=Bahrain
+XWiki.XWikiUsers_country_BI=Burundi
+XWiki.XWikiUsers_country_BJ=Benin
+XWiki.XWikiUsers_country_BM=Bermuda
+XWiki.XWikiUsers_country_BN=Brunei Darussalam
+XWiki.XWikiUsers_country_BO=Bolivia
+XWiki.XWikiUsers_country_BR=Brazil
+XWiki.XWikiUsers_country_BS=Bahamas
+XWiki.XWikiUsers_country_BT=Bhutan
+XWiki.XWikiUsers_country_BV=Bouvet Island
+XWiki.XWikiUsers_country_BW=Botswana
+XWiki.XWikiUsers_country_BY=Belarus
+XWiki.XWikiUsers_country_BZ=Belize
+XWiki.XWikiUsers_country_CA=Canada
+XWiki.XWikiUsers_country_CC=Cocos (Keeling) Islands
+XWiki.XWikiUsers_country_CD=Congo, the Democratic Republic of the
+XWiki.XWikiUsers_country_CF=Central African Republic
+XWiki.XWikiUsers_country_CG=Congo
+XWiki.XWikiUsers_country_CH=Switzerland
+XWiki.XWikiUsers_country_CI=Côte d'Ivoire
+XWiki.XWikiUsers_country_CK=Cook Islands
+XWiki.XWikiUsers_country_CL=Chile
+XWiki.XWikiUsers_country_CM=Cameroon
+XWiki.XWikiUsers_country_CN=China
+XWiki.XWikiUsers_country_CO=Colombia
+XWiki.XWikiUsers_country_CR=Costa Rica
+XWiki.XWikiUsers_country_CU=Cuba
+XWiki.XWikiUsers_country_CV=Cape Verde
+XWiki.XWikiUsers_country_CX=Christmas Island
+XWiki.XWikiUsers_country_CY=Cyprus
+XWiki.XWikiUsers_country_CZ=Czech Republic
+XWiki.XWikiUsers_country_DE=Germany
+XWiki.XWikiUsers_country_DJ=Djibouti
+XWiki.XWikiUsers_country_DK=Denmark
+XWiki.XWikiUsers_country_DM=Dominica
+XWiki.XWikiUsers_country_DO=Dominican Republic
+XWiki.XWikiUsers_country_DZ=Algeria
+XWiki.XWikiUsers_country_EC=Ecuador
+XWiki.XWikiUsers_country_EE=Estonia
+XWiki.XWikiUsers_country_EG=Egypt
+XWiki.XWikiUsers_country_EH=Western Sahara
+XWiki.XWikiUsers_country_ER=Eritrea
+XWiki.XWikiUsers_country_ES=Spain
+XWiki.XWikiUsers_country_ET=Ethiopia
+XWiki.XWikiUsers_country_FI=Finland
+XWiki.XWikiUsers_country_FJ=Fiji
+XWiki.XWikiUsers_country_FK=Falkland Islands (Malvinas)
+XWiki.XWikiUsers_country_FM=Micronesia, Federated States of
+XWiki.XWikiUsers_country_FO=Faroe Islands
+XWiki.XWikiUsers_country_FR=France
+XWiki.XWikiUsers_country_GA=Gabon
+XWiki.XWikiUsers_country_GB=United Kingdom
+XWiki.XWikiUsers_country_GD=Grenada
+XWiki.XWikiUsers_country_GE=Georgia
+XWiki.XWikiUsers_country_GF=French Guiana
+XWiki.XWikiUsers_country_GG=Guernsey
+XWiki.XWikiUsers_country_GH=Ghana
+XWiki.XWikiUsers_country_GI=Gibraltar
+XWiki.XWikiUsers_country_GL=Greenland
+XWiki.XWikiUsers_country_GM=Gambia
+XWiki.XWikiUsers_country_GN=Guinea
+XWiki.XWikiUsers_country_GP=Guadeloupe
+XWiki.XWikiUsers_country_GQ=Equatorial Guinea
+XWiki.XWikiUsers_country_GR=Greece
+XWiki.XWikiUsers_country_GS=South Georgia and the South Sandwich Islands
+XWiki.XWikiUsers_country_GT=Guatemala
+XWiki.XWikiUsers_country_GU=Guam
+XWiki.XWikiUsers_country_GW=Guinea-Bissau
+XWiki.XWikiUsers_country_GY=Guyana
+XWiki.XWikiUsers_country_HK=Hong Kong
+XWiki.XWikiUsers_country_HM=Heard Island and McDonald Islands
+XWiki.XWikiUsers_country_HN=Honduras
+XWiki.XWikiUsers_country_HR=Croatia
+XWiki.XWikiUsers_country_HT=Haiti
+XWiki.XWikiUsers_country_HU=Hungary
+XWiki.XWikiUsers_country_ID=Indonesia
+XWiki.XWikiUsers_country_IE=Ireland
+XWiki.XWikiUsers_country_IL=Israel
+XWiki.XWikiUsers_country_IM=Isle of Man
+XWiki.XWikiUsers_country_IN=India
+XWiki.XWikiUsers_country_IO=British Indian Ocean Territory
+XWiki.XWikiUsers_country_IQ=Iraq
+XWiki.XWikiUsers_country_IR=Iran, Islamic Republic of
+XWiki.XWikiUsers_country_IS=Iceland
+XWiki.XWikiUsers_country_IT=Italy
+XWiki.XWikiUsers_country_JE=Jersey
+XWiki.XWikiUsers_country_JM=Jamaica
+XWiki.XWikiUsers_country_JO=Jordan
+XWiki.XWikiUsers_country_JP=Japan
+XWiki.XWikiUsers_country_KE=Kenya
+XWiki.XWikiUsers_country_KG=Kyrgyzstan
+XWiki.XWikiUsers_country_KH=Cambodia
+XWiki.XWikiUsers_country_KI=Kiribati
+XWiki.XWikiUsers_country_KM=Comoros
+
+XWiki.XWikiUsers_country_KN=Saint Kitts and Nevis
+XWiki.XWikiUsers_country_KP=Korea, Democratic People's Republic of
+XWiki.XWikiUsers_country_KR=Korea, Republic of
+XWiki.XWikiUsers_country_KW=Kuwait
+XWiki.XWikiUsers_country_KY=Cayman Islands
+XWiki.XWikiUsers_country_KZ=Kazakhstan
+XWiki.XWikiUsers_country_LA=Lao People's Democratic Republic
+XWiki.XWikiUsers_country_LB=Lebanon
+XWiki.XWikiUsers_country_LC=Saint Lucia
+XWiki.XWikiUsers_country_LI=Liechtenstein
+XWiki.XWikiUsers_country_LK=Sri Lanka
+XWiki.XWikiUsers_country_LR=Liberia
+XWiki.XWikiUsers_country_LS=Lesotho
+XWiki.XWikiUsers_country_LT=Lithuania
+XWiki.XWikiUsers_country_LU=Luxembourg
+XWiki.XWikiUsers_country_LV=Latvia
+XWiki.XWikiUsers_country_LY=Libyan Arab Jamahiriya
+XWiki.XWikiUsers_country_MA=Morocco
+XWiki.XWikiUsers_country_MC=Monaco
+XWiki.XWikiUsers_country_MD=Moldova, Republic of
+XWiki.XWikiUsers_country_ME=Montenegro
+XWiki.XWikiUsers_country_MG=Madagascar
+XWiki.XWikiUsers_country_MH=Marshall Islands
+XWiki.XWikiUsers_country_MK=Macedonia, the former Yugoslav Republic of
+XWiki.XWikiUsers_country_ML=Mali
+XWiki.XWikiUsers_country_MM=Myanmar
+XWiki.XWikiUsers_country_MN=Mongolia
+XWiki.XWikiUsers_country_MO=Macao
+XWiki.XWikiUsers_country_MP=Northern Mariana Islands
+XWiki.XWikiUsers_country_MQ=Martinique
+XWiki.XWikiUsers_country_MR=Mauritania
+XWiki.XWikiUsers_country_MS=Montserrat
+XWiki.XWikiUsers_country_MT=Malta
+XWiki.XWikiUsers_country_MU=Mauritius
+XWiki.XWikiUsers_country_MV=Maldives
+XWiki.XWikiUsers_country_MW=Malawi
+XWiki.XWikiUsers_country_MX=Mexico
+XWiki.XWikiUsers_country_MY=Malaysia
+XWiki.XWikiUsers_country_MZ=Mozambique
+XWiki.XWikiUsers_country_NA=Namibia
+XWiki.XWikiUsers_country_NC=New Caledonia
+XWiki.XWikiUsers_country_NE=Niger
+XWiki.XWikiUsers_country_NF=Norfolk Island
+XWiki.XWikiUsers_country_NG=Nigeria
+XWiki.XWikiUsers_country_NI=Nicaragua
+XWiki.XWikiUsers_country_NL=Netherlands
+XWiki.XWikiUsers_country_NO=Norway
+XWiki.XWikiUsers_country_NP=Nepal
+XWiki.XWikiUsers_country_NR=Nauru
+XWiki.XWikiUsers_country_NU=Niue
+XWiki.XWikiUsers_country_NZ=New Zealand
+XWiki.XWikiUsers_country_OM=Oman
+XWiki.XWikiUsers_country_PA=Panama
+XWiki.XWikiUsers_country_PE=Peru
+XWiki.XWikiUsers_country_PF=French Polynesia
+XWiki.XWikiUsers_country_PG=Papua New Guinea
+XWiki.XWikiUsers_country_PH=Philippines
+XWiki.XWikiUsers_country_PK=Pakistan
+XWiki.XWikiUsers_country_PL=Poland
+XWiki.XWikiUsers_country_PM=Saint Pierre and Miquelon
+XWiki.XWikiUsers_country_PN=Pitcairn
+XWiki.XWikiUsers_country_PR=Puerto Rico
+XWiki.XWikiUsers_country_PS=Palestinian Territory, Occupied
+XWiki.XWikiUsers_country_PT=Portugal
+XWiki.XWikiUsers_country_PW=Palau
+XWiki.XWikiUsers_country_PY=Paraguay
+XWiki.XWikiUsers_country_QA=Qatar
+XWiki.XWikiUsers_country_RE=Réunion
+XWiki.XWikiUsers_country_RO=Romania
+XWiki.XWikiUsers_country_RS=Serbia
+XWiki.XWikiUsers_country_RU=Russian Federation
+XWiki.XWikiUsers_country_RW=Rwanda
+XWiki.XWikiUsers_country_SA=Saudi Arabia
+XWiki.XWikiUsers_country_SB=Solomon Islands
+XWiki.XWikiUsers_country_SC=Seychelles
+XWiki.XWikiUsers_country_SD=Sudan
+XWiki.XWikiUsers_country_SE=Sweden
+XWiki.XWikiUsers_country_SG=Singapore
+XWiki.XWikiUsers_country_SH=Saint Helena
+XWiki.XWikiUsers_country_SI=Slovenia
+XWiki.XWikiUsers_country_SJ=Svalbard and Jan Mayen
+XWiki.XWikiUsers_country_SK=Slovakia
+XWiki.XWikiUsers_country_SL=Sierra Leone
+XWiki.XWikiUsers_country_SM=San Marino
+XWiki.XWikiUsers_country_SN=Senegal
+XWiki.XWikiUsers_country_SO=Somalia
+XWiki.XWikiUsers_country_SR=Suriname
+XWiki.XWikiUsers_country_ST=Sao Tome and Principe
+XWiki.XWikiUsers_country_SV=El Salvador
+XWiki.XWikiUsers_country_SY=Syrian Arab Republic
+XWiki.XWikiUsers_country_SZ=Swaziland
+XWiki.XWikiUsers_country_TC=Turks and Caicos Islands
+XWiki.XWikiUsers_country_TD=Chad
+XWiki.XWikiUsers_country_TF=French Southern Territories
+XWiki.XWikiUsers_country_TG=Togo
+XWiki.XWikiUsers_country_TH=Thailand
+XWiki.XWikiUsers_country_TJ=Tajikistan
+XWiki.XWikiUsers_country_TK=Tokelau
+XWiki.XWikiUsers_country_TL=Timor-Leste
+XWiki.XWikiUsers_country_TM=Turkmenistan
+XWiki.XWikiUsers_country_TN=Tunisia
+XWiki.XWikiUsers_country_TO=Tonga
+XWiki.XWikiUsers_country_TR=Turkey
+XWiki.XWikiUsers_country_TT=Trinidad and Tobago
+XWiki.XWikiUsers_country_TV=Tuvalu
+XWiki.XWikiUsers_country_TW=Taiwan, Province of China
+XWiki.XWikiUsers_country_TZ=Tanzania, United Republic of
+XWiki.XWikiUsers_country_UA=Ukraine
+XWiki.XWikiUsers_country_UG=Uganda
+XWiki.XWikiUsers_country_UM=United States Minor Outlying Islands
+XWiki.XWikiUsers_country_US=United States
+XWiki.XWikiUsers_country_UY=Uruguay
+XWiki.XWikiUsers_country_UZ=Uzbekistan
+XWiki.XWikiUsers_country_VA=Holy See (Vatican City State)
+XWiki.XWikiUsers_country_VC=Saint Vincent and the Grenadines
+XWiki.XWikiUsers_country_VE=Venezuela
+XWiki.XWikiUsers_country_VG=Virgin Islands, British
+XWiki.XWikiUsers_country_VI=Virgin Islands, U.S.
+XWiki.XWikiUsers_country_VN=Viet Nam
+XWiki.XWikiUsers_country_VU=Vanuatu
+XWiki.XWikiUsers_country_WF=Wallis and Futuna
+XWiki.XWikiUsers_country_WS=Samoa
+XWiki.XWikiUsers_country_YE=Yemen
+XWiki.XWikiUsers_country_YT=Mayotte
+XWiki.XWikiUsers_country_ZA=South Africa
+XWiki.XWikiUsers_country_ZM=Zambia
+XWiki.XWikiUsers_country_ZW=Zimbabwe
+
+
+
+## TOPICS
+
+XWiki.XWikiUsers_topics_FW_masterFramework.WebHome=Subjects Index
+XWiki.XWikiUsers_topics_FW_masterFramework.Arts_and_Culture=Arts and Culture
+XWiki.XWikiUsers_topics_FW_masterFramework.Architecture_Design=Architecture Design
+XWiki.XWikiUsers_topics_FW_masterFramework.Applied_Arts=Applied Arts
+XWiki.XWikiUsers_topics_FW_masterFramework.Fine_Arts=Fine Arts
+XWiki.XWikiUsers_topics_FW_masterFramework.Visual_Arts=Visual Arts
+XWiki.XWikiUsers_topics_FW_masterFramework.Cinema=Cinema
+XWiki.XWikiUsers_topics_FW_masterFramework.Folklore=Folklore
+XWiki.XWikiUsers_topics_FW_masterFramework.Dance=Dance
+XWiki.XWikiUsers_topics_FW_masterFramework.Music=Music
+XWiki.XWikiUsers_topics_FW_masterFramework.Photography=Photography
+XWiki.XWikiUsers_topics_FW_masterFramework.Theatre=Theatre
+XWiki.XWikiUsers_topics_FW_masterFramework.Health_Education=Health Education
+XWiki.XWikiUsers_topics_FW_masterFramework.Anatomy_and_Physiology=Anatomy and Physiology
+XWiki.XWikiUsers_topics_FW_masterFramework.Health=Health
+XWiki.XWikiUsers_topics_FW_masterFramework.Nutrition=Nutrition
+XWiki.XWikiUsers_topics_FW_masterFramework.Physical_Education_and_Sports=Physical Education and Sports
+XWiki.XWikiUsers_topics_FW_masterFramework.Sexual_Education=Sexual Education
+XWiki.XWikiUsers_topics_FW_masterFramework.Environmental_Sustainability=Environmental Sustainability
+XWiki.XWikiUsers_topics_FW_masterFramework.Safety_and_Risk_Prevention=Safety and Risk Prevention
+XWiki.XWikiUsers_topics_FW_masterFramework.Media_Education=Media Education
+XWiki.XWikiUsers_topics_FW_masterFramework.Media_Ethics=Media Ethics
+XWiki.XWikiUsers_topics_FW_masterFramework.Source_Assessment=Source Assessment
+XWiki.XWikiUsers_topics_FW_masterFramework.Research_Methods_and_Documentation=Research Methods and Documentation
+XWiki.XWikiUsers_topics_FW_masterFramework.Digital_Education=Digital Education
+XWiki.XWikiUsers_topics_FW_masterFramework.Security=Security
+XWiki.XWikiUsers_topics_FW_masterFramework.Preparation=Preparation
+XWiki.XWikiUsers_topics_FW_masterFramework.Technology_Education=Technology Education
+XWiki.XWikiUsers_topics_FW_masterFramework.Agriculture_and_Aquaculture=Agriculture and Aquaculture
+XWiki.XWikiUsers_topics_FW_masterFramework.Automatism=Automatism
+XWiki.XWikiUsers_topics_FW_masterFramework.Buildings_and_Public_Works=Buildings and Public Works
+XWiki.XWikiUsers_topics_FW_masterFramework.Biotechnology=Biotechnology
+XWiki.XWikiUsers_topics_FW_masterFramework.Commercial_Banks_Insurance=Commercial Banks Insurance
+XWiki.XWikiUsers_topics_FW_masterFramework.Domestic_Economy=Domestic Economy
+XWiki.XWikiUsers_topics_FW_masterFramework.Electronics=Electronics
+XWiki.XWikiUsers_topics_FW_masterFramework.Forest=Forest
+XWiki.XWikiUsers_topics_FW_masterFramework.Career_Guidance=Career Guidance
+XWiki.XWikiUsers_topics_FW_masterFramework.Digital_Tools=Digital Tools
+XWiki.XWikiUsers_topics_FW_masterFramework.Industrial_Science_and_Technology=Industrial Science and Technology
+XWiki.XWikiUsers_topics_FW_masterFramework.Human_Services=Human Services
+XWiki.XWikiUsers_topics_FW_masterFramework.Materials_Technology=Materials Technology
+XWiki.XWikiUsers_topics_FW_masterFramework.Tourism_Hotellerie_and_Restaurants=Tourism Hotellerie and Restaurants
+XWiki.XWikiUsers_topics_FW_masterFramework.Language_Proficiency=Language Proficiency
+XWiki.XWikiUsers_topics_FW_masterFramework.Literacy=Literacy
+XWiki.XWikiUsers_topics_FW_masterFramework.Written_Comprehension=Written Comprehension
+XWiki.XWikiUsers_topics_FW_masterFramework.Grammar=Grammar
+XWiki.XWikiUsers_topics_FW_masterFramework.Literature=Literature
+XWiki.XWikiUsers_topics_FW_masterFramework.Orthography=Orthography
+XWiki.XWikiUsers_topics_FW_masterFramework.Phonetics=Phonetics
+XWiki.XWikiUsers_topics_FW_masterFramework.Written_Expression=Written Expression
+XWiki.XWikiUsers_topics_FW_masterFramework.Oral_Expression=Oral Expression
+XWiki.XWikiUsers_topics_FW_masterFramework.Research=Research
+XWiki.XWikiUsers_topics_FW_masterFramework.Vocabulary=Vocabulary
+XWiki.XWikiUsers_topics_FW_masterFramework.Foreign_Languages=Foreign Languages
+XWiki.XWikiUsers_topics_FW_masterFramework.Written_Comprehension_Foreign=Written Comprehension
+XWiki.XWikiUsers_topics_FW_masterFramework.Oral_Comprehension_Foreign=Oral Comprehension
+XWiki.XWikiUsers_topics_FW_masterFramework.Ancient_Languages=Ancient Languages
+XWiki.XWikiUsers_topics_FW_masterFramework.LSF_and_Related_Languages=LSF and Related Languages
+XWiki.XWikiUsers_topics_FW_masterFramework.Written_Expression_Foreign=Written Expression
+XWiki.XWikiUsers_topics_FW_masterFramework.Oral_Expression_Foreign=Oral Expression
+XWiki.XWikiUsers_topics_FW_masterFramework.Mathematics=Mathematics
+XWiki.XWikiUsers_topics_FW_masterFramework.Algebra=Algebra
+XWiki.XWikiUsers_topics_FW_masterFramework.Data_Analysis_Probability=Data Analysis Probability
+XWiki.XWikiUsers_topics_FW_masterFramework.Arithmetic=Arithmetic
+XWiki.XWikiUsers_topics_FW_masterFramework.Computation=Computation
+XWiki.XWikiUsers_topics_FW_masterFramework.Equations=Equations
+XWiki.XWikiUsers_topics_FW_masterFramework.Geometry=Geometry
+XWiki.XWikiUsers_topics_FW_masterFramework.Applied_Mathematics=Applied Mathematics
+XWiki.XWikiUsers_topics_FW_masterFramework.Measurement=Measurement
+XWiki.XWikiUsers_topics_FW_masterFramework.Patterns=Patterns
+XWiki.XWikiUsers_topics_FW_masterFramework.Problem_Solving=Problem Solving
+XWiki.XWikiUsers_topics_FW_masterFramework.Statistics=Statistics
+XWiki.XWikiUsers_topics_FW_masterFramework.Trigonometry=Trigonometry
+XWiki.XWikiUsers_topics_FW_masterFramework.Sciences=Sciences
+XWiki.XWikiUsers_topics_FW_masterFramework.Agriculture_and_Agrifood=Agriculture and Agrifood
+XWiki.XWikiUsers_topics_FW_masterFramework.Astronomy=Astronomy
+XWiki.XWikiUsers_topics_FW_masterFramework.Other_Sciences=Other Sciences
+XWiki.XWikiUsers_topics_FW_masterFramework.Biology=Biology
+XWiki.XWikiUsers_topics_FW_masterFramework.Chemistry=Chemistry
+XWiki.XWikiUsers_topics_FW_masterFramework.Botanical_Ecology=Botanical Ecology
+XWiki.XWikiUsers_topics_FW_masterFramework.Geography=Geography
+XWiki.XWikiUsers_topics_FW_masterFramework.History_of_Science=History of Science
+XWiki.XWikiUsers_topics_FW_masterFramework.Computer_and_Telecom_Network=Computer and Telecom Network
+XWiki.XWikiUsers_topics_FW_masterFramework.Engineering=Engineering
+XWiki.XWikiUsers_topics_FW_masterFramework.Medicine_and_Health=Medicine and Health
+XWiki.XWikiUsers_topics_FW_masterFramework.Meteorology=Meteorology
+XWiki.XWikiUsers_topics_FW_masterFramework.Physics=Physics
+XWiki.XWikiUsers_topics_FW_masterFramework.Earth_Sciences=Earth Sciences
+XWiki.XWikiUsers_topics_FW_masterFramework.Life_Sciences=Life Sciences
+XWiki.XWikiUsers_topics_FW_masterFramework.Technology=Technology
+XWiki.XWikiUsers_topics_FW_masterFramework.Humanities=Humanities
+XWiki.XWikiUsers_topics_FW_masterFramework.Anthropology=Anthropology
+XWiki.XWikiUsers_topics_FW_masterFramework.Law=Law
+XWiki.XWikiUsers_topics_FW_masterFramework.Economics=Economics
+XWiki.XWikiUsers_topics_FW_masterFramework.Civics=Civics
+XWiki.XWikiUsers_topics_FW_masterFramework.Religious_Facts=Religious Facts
+XWiki.XWikiUsers_topics_FW_masterFramework.Geography_Humanities=Geography
+XWiki.XWikiUsers_topics_FW_masterFramework.Politics=Politics
+XWiki.XWikiUsers_topics_FW_masterFramework.History=History
+XWiki.XWikiUsers_topics_FW_masterFramework.Journalism=Journalism
+XWiki.XWikiUsers_topics_FW_masterFramework.Philosophy=Philosophy
+XWiki.XWikiUsers_topics_FW_masterFramework.Psychology=Psychology
+XWiki.XWikiUsers_topics_FW_masterFramework.Educational_Sciences=Educational Sciences
+XWiki.XWikiUsers_topics_FW_masterFramework.Sociology=Sociology
+XWiki.XWikiUsers_topics_FW_masterFramework._Other=Other
+
+XWiki.XWikiUsers_topics_FW_masterFramework.Arts_and_Culture.UNSPECIFIED=Arts and Culture: Any
+XWiki.XWikiUsers_topics_FW_masterFramework.Digital_Education.UNSPECIFIED=Digital Education: Any
+XWiki.XWikiUsers_topics_FW_masterFramework.Foreign_Languages.UNSPECIFIED=Foreign Language: Any
+XWiki.XWikiUsers_topics_FW_masterFramework.Health_Education.UNSPECIFIED=Health Education: Any
+XWiki.XWikiUsers_topics_FW_masterFramework.Mathematics.UNSPECIFIED=Mathematics: Any
+XWiki.XWikiUsers_topics_FW_masterFramework.Humanities.UNSPECIFIED=Humanities: Any
+XWiki.XWikiUsers_topics_FW_masterFramework.Language_Proficiency.UNSPECIFIED=Language Proficiency: Any
+XWiki.XWikiUsers_topics_FW_masterFramework.Media_Education.UNSPECIFIED=Media Education: Any
+XWiki.XWikiUsers_topics_FW_masterFramework.Sciences.UNSPECIFIED=Sciences: Any
+XWiki.XWikiUsers_topics_FW_masterFramework.Technology_Education.UNSPECIFIED=Technology Education: Any
+
+##CRS
+
+##CRS.CurrikiReviewStatusClass_status_1=curriki.crs.basic
+##CRS.CurrikiReviewStatusClass_status_2=curriki.crs.good
+##CRS.CurrikiReviewStatusClass_status_3=curriki.crs.exemplary
+##CRS.CurrikiReviewStatusClass_status_P=curriki.crs.partner
+
+## Space.Class Used in Group Creation
+
+## Language - XWiki.SpaceClass
+## I have no idea where this is used. Todd Sept-16-2008
+##
+XWiki.SpaceClass_language_eng=English
+XWiki.SpaceClass_language_ind=Bahasa Indonesia
+XWiki.SpaceClass_language_zho=Chinese
+XWiki.SpaceClass_language_nld=Dutch
+XWiki.SpaceClass_language_fra=French
+XWiki.SpaceClass_language_deu=German
+XWiki.SpaceClass_language_hin=Hindi
+XWiki.SpaceClass_language_ita=Italian
+XWiki.SpaceClass_language_jpn=Japanese
+XWiki.SpaceClass_language_kor=Korean
+XWiki.SpaceClass_language_nep=Nepali
+XWiki.SpaceClass_language_por=Portuguese
+XWiki.SpaceClass_language_rus=Russian
+XWiki.SpaceClass_language_sin=Sinhalese
+XWiki.SpaceClass_language_spa=Spanish
+XWiki.SpaceClass_language_tam=Tamil
+XWiki.SpaceClass_language_999=Other
+
+##GLOBAL TRANSLATIONS
+
+##PAGE NOT FOUND
+
+global.notfound.header=Resource or Page Not Found
+global.notfound.message=The requested resource or page cannot be found.
+global.notfound.goback_link=Go Back
+global.notfound.goback_url=
+global.notfound.home_link=Curriki Home
+global.notfound.home_url=/xwiki/bin/view/Main/WebHome
+global.notfound.help_link=Help
+global.notfound.help_url=/xwiki/bin/view/Coll_curriki/CurrikiHelp
+
+
+##TITLE ROLLOVER POPUP
+
+global.title.popup.title=&lt;strong&gt;Title:&lt;/strong&gt;
+global.title.popup.description=&lt;strong&gt;Description:&lt;/strong&gt;
+global.title.popup.subject=&lt;strong&gt;Subject(s):&lt;/strong&gt;
+global.title.popup.educationlevel=&lt;strong&gt;Education Level(s):&lt;/strong&gt;
+global.title.popup.ict=&lt;strong&gt;Instructional Component Type(s):&lt;/strong&gt;
+global.title.popup.none.selected=-- None Selected --
+##Used in left TOC for no ICT value:
+global.title.popup.ict.missing=-- None Selected --
+
+##COMPARE VERSIONS
+## Jen is seeing if we still need this.
+changes.changesofpage=Changes
+changes.in=in
+changes.space=space
+changes.from=From
+changes.to=To
+changes.comment=Change comment
+changes.nocomment=There is no comment for this version
+changes.version=version
+changes.editedby=Edited by
+changes.on=on
+changes.metadatachanges=Metadata changes
+changes.property=Property
+changes.nometadatachanges=There are no metadata changes
+changes.contentchanges=Content changes
+changes.nocontentchanges=There are no content changes
+changes.attachmentchanges=Attachment changes
+changes.noattachmentchanges=There are no attachment changes
+changes.filename=Filename
+changes.action=Action
+changes.commentchanges=Comment changes
+changes.nocommentchanges=There are no comment changes
+changes.metadata.parent=Parent
+changes.metadata.web=Space
+changes.metadata.name=Page Name
+changes.metadata.author=Author
+changes.metadata.language=Language
+changes.metadata.defaultLanguage=Default Language
+changes.attachmentadded=Attachment has been added
+changes.attachmentdeleted=Attachment has been deleted
+changes.attachmentupdatedfromversion=Attachment has been updated from version
+changes.toversion=to version
+changes.commentchange=Comment change
+changes.commentAdded=Comment number {0} added
+changes.commentRemoved=Comment number {0} removed
+changes.comment.property=Property
+changes.comment.previousvalue=Previous value
+changes.comment.newvalue=New value
+changes.comment.author=Author
+changes.comment.date=Date
+changes.comment.comment=Comment
+changes.comment.highlight=Highlighted text
+changes.comment.replyto=Reply to
+changes.blog.title=Title
+changes.blog.extract=Extract
+changes.blog.category=Categories
+changes.blog.editcategories=Edit categories
+
+
+changes.blog.addnewcategory=Add a Category
+changes.tag.tags=Tags
+changes.objectchanges=Object Changes
+changes.objectAdded=Object added
+changes.objectRemoved=Object removed
+changes.ofclass=of class
+changes.noobjectchanges=No Object Changes
+changes.classeschanges=Class Changes
+changes.noclasseschanges=No Class Changes
+
+history.errorgettinghistory=Error getting history information from the server
+history.to=To
+
+history.rollback.exception=An error occurred while rolling back this resource. Please try again.
+history.rollback.confirm.message=Are you sure you want to rollback this asset to version {0}
+
+## compare page
+changes.changesofpage=Changes for Resource or Page
+changes.in=in
+changes.space=space
+changes.from=From
+changes.to=To
+changes.comment=&lt;strong&gt;Revision Note&lt;/strong&gt;
+changes.nocomment=There is no revision note for this version.
+changes.version=Version
+changes.editedby=edited by
+changes.on=on
+changes.metadatachanges=Information Changes
+changes.property=Property
+changes.nometadatachanges=There are no information changes.
+changes.contentchanges=Content Changes
+changes.nocontentchanges=There are no content changes.
+changes.attachmentchanges=Attachment Changes
+changes.noattachmentchanges=There are no attachment changes.
+changes.filename=Filename
+changes.action=Action
+changes.commentchanges=Comment Changes
+changes.nocommentchanges=There are no comment changes.
+changes.metadata.parent=Parent
+changes.metadata.web=Space
+changes.metadata.name=Page Name
+changes.metadata.author=Author
+changes.metadata.language=Language
+changes.metadata.defaultLanguage=Default Language
+changes.asset.title=Title
+changes.asset.description=Description
+changes.asset.keywords=Keywords
+changes.asset.aggregation_level=Aggregation Level
+changes.asset.difficulty=Difficulty
+changes.asset.status=Status
+changes.asset.fw_items=Subjects
+changes.asset.instructional_component=Instructional Component Type
+changes.asset.category=Category
+changes.asset.rights=Rights
+changes.asset.educational_level=Educational Level
+changes.asset.educational_level2=Educational Level
+changes.asset.language=Language
+changes.asset.instructional_component2=Instructional Component
+changes.asset.caption_desc=Caption Description
+changes.asset.alt_desc=Alternate Description
+changes.asset.tracking=File Resource
+changes.asset.fcdate=File Check Date
+changes.asset.link=Web Link
+changes.asset.hidden_from_search=Hidden from Search
+changes.attachmentadded=Attachment added
+changes.attachmentdeleted=Attachment deleted
+changes.attachmentupdatedfromversion=Attachment updated from version
+changes.toversion=to version
+changes.commentchange=Comment Change
+changes.comment.property=Property
+changes.comment.previousvalue=Previous Value
+changes.comment.newvalue=New Value
+changes.comment.author=Author
+changes.comment.date=Date
+changes.comment.comment=Comment
+
+##
+
+
+
+## COMMENTS FOR HISTORY
+
+##HISTORY: INFRASTRUCTURE
+curriki.comment.initmetadatafornewcollection=Initializing information for new collection...
+curriki.comment.initmetadatafornewasset=Initializing information for new resource...
+curriki.comment.datamodelmigration=Resource automatically migrated to new Curriki data model
+
+HITORY: CREATE NEW
+curriki.comment.createrootcollection=Created collection
+curriki.comment.startcreatingcompositeasset=Created resource
+curriki.comment.createnewsourceasset=Created new resource
+curriki.comment.createtextsourceasset=Created text resource
+curriki.comment.createlinksourceasset=Created web link resource
+curriki.comment.finishcreatingsubasset=Created sub-resource of category {0}
+
+##HISTORY: PRIOR MOVE &amp; REMOVE AND ADD, MAY STILL BE IN USE
+curriki.comment.insertsubassetincompositeasset=Inserted sub-resource {0} ({1}) of category {2} at position {3}
+curriki.comment.removesubassetincompositeasset=Removed sub-resource {0} ({1}) from position {2}
+curriki.comment.addingsubassettocompositeasset=Added sub-resource {0} ({1}) of category {2} at position {3}
+
+## HISTORY: ORGANIZE
+organize.history.removed_note=Removed sub-resource {0} from position {1};
+organize.history.inserted_note=Inserted {0} at position {1};
+
+##HISTORY: INFO EDITING
+curriki.comment.updatemetadata=Updated resource information
+curriki.comment.updatemetadata.nochange=Resource information saved with no changes
+curriki.comment.applyrights=Applied rights
+curriki.comment.protectspace=Protected space
+
+##HISTORY: CONTENT EDITING
+rve.content.edit.revision.defaultnote=Edited resource
+curriki.comment.reordered=Reordered
+curriki.comment.addsubasset=Added sub-resource
+curriki.comment.createfoldersourceasset=Created folder sub-resource
+core.comment.uploadAttachmentComment=Uploaded new attachment
+core.comment.uploadImageComment=Uploaded new image
+core.comment.deleteAttachmentComment=Deleted attachment
+core.comment.deleteImageComment=Deleted image
+
+##HISTORY: CRS
+curriki.comment.unnominateasset=Resource un-nominated
+curriki.comment.crsvalueadded=Resource set to CRS value of {0}
+curriki.comment.crsvalueremoved=Resource value of {0} removed
+
+
+## FUTURE HISTORY: FLAG
+
+flag.revision.history.note=Resource flagged by {0}, who submitted the resource for evaluation because s/he felt it was {1}.
+
+flag.revision.history.note.alt_reason=Resource flagged by {0}, who submitted the resource for evaluation for the reason specified to Curriki.
+
+
+
+##TBD if we need these
+comment.loadingcomments=Loading comments
+comment.errorgettingcomments=Error getting comments
+history.loadinghistory=Loading history
+comment.errorgettinghistory=Error getting history
+preview.loadingpreview=Loading preview
+preview.errorgettingpreview=Error getting preview
+
+##Todd added the below strings. Currently the old ones are hard coded. Nov-5-2008 - I have no recollection added this. Todd
+
+
+</content></xwikidoc>
