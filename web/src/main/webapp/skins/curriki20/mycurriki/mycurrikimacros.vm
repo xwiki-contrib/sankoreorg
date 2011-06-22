@@ -406,7 +406,7 @@ $msg.get("mycurriki.macro.access.${access}")
 #set($text = $msg.get($text))
 #end ## if not multiple ## }
 #end ## if not empty ## }
-<img class="${icon}" ext:qtip="${text}" src="/xwiki/skins/curriki8/extjs/resources/images/default/s.gif" />
+<span>${text}</span>
 #end ## Macro ## }
 
 
