@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Groups</web>
+<name>Browse</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>Groups.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1308837931000</creationDate>
+<date>1308837931000</date>
+<contentUpdateDate>1308837931000</contentUpdateDate>
+<version>1.1</version>
+<title>Browse</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#*
+ * SHOW ALL MAIN SUBJECTS
+ ; * @param $sm Space Manager
+ *#
+#macro(groups_browse_showsubjects2)
+## Getting the count of all spaces where their topic is main topic
+#set($cnt = $sm.countSpacesByTopic("FW_masterFramework.WebHome"))
+## Initializes the map that will store the counts
+#set($countmap = {"init":0})
+#foreach($subj in $cnt)
+  #set($i = 0)
+  #set($k = "")
+  #set($v = 0)
+  #foreach($item in $subj)
+    #if($i == 0)
+      #set($k = $item)
+    #elseif($i == 1)
+      #set($v = $item)
+    #end
+    #set($i = $i + 1)
+  #end
+  #set($t = $countmap.put($k,$v))
+#end
+#set($allgroups = $sm.getSpaceNames(0, 0))
+#set($all= $allgroups.size())
+#set($query = "where doc.space='FW_masterFramework' and doc.parent='FW_masterFramework.WebHome' order by doc.title")
+#set($topics = $xwiki.searchDocuments($query))
+## We have 2 "Promo" cards
+#set($cells = $topics.size() + 2)
+#set($perpage = 4)
+#set($rows = $cells / $perpage)
+#set($rest = $cells % $perpage)
+#if($rest &gt; 0)
+  #set($rows = $rows+1)
+#end
+#curriki_titlebar($msg.get("browseGroups.titlebar") "" "" "red")
+&lt;div class="browse-groups-info"&gt;$msg.get("browseGroups.info")&lt;/div&gt;
+#set($cell = 0)
+#set($row = 0)
+&lt;table border="0"&gt;
+#foreach($topic in $topics)
+  #if($cell % $perpage == 0)
+    #if($cell &gt; 0)
+    &lt;/tr&gt;
+    #end
+    &lt;tr&gt;
+    #set($row = $row + 1)
+  #end
+  #if($row == $rows &amp;&amp; $cell % $perpage == 0)
+    &lt;td&gt;
+    $msg.get("browseGroups.promo_card_1")
+    #set($cell = $cell + 1)
+    &lt;/td&gt;
+  #end
+  &lt;td&gt;
+  #groups_browse_subjectcard2($topic, $countmap.get($topic))
+  &lt;/td&gt;
+  #set($cell = $cell + 1)
+#end
+#if($cell % $perpage == 0)
+  &lt;/tr&gt;&lt;tr&gt;
+#end
+&lt;td&gt;
+$msg.get("browseGroups.promo_card_2")
+#set($cell = $cell + 1)
+&lt;/td&gt;
+#set($total = $perpage * $rows)
+#set($rest = $total - $cells)
+#if($rest &gt; 0)
+  &lt;td colspan="$rest"&gt;&amp;nbsp;&lt;/td&gt;
+#end
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;div class="all-subjects"&gt;
+  #set($searchpage = $xwiki.getURL("Search.WebHome"))
+  #set($topiclink = "${searchpage}#o%3As%3Ds%253Agroup%5Et%3Ds%253Asearch-group-tab%5Ea%3Do%253Agroup%253Do%25253Aa%25253Db%2525253A1%5Ef%3Do%253Agroup%253Do%25253Asubjectparent%25253Ds%2525253A")
+  &lt;a href="$topiclink"&gt;
+    &lt;span class="subject-title"&gt;$msg.get("browse.subject.title.All_Groups")&lt;/span&gt;
+    &lt;span class="subject-title-count"&gt;($all)&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+#end ## end macro groups_browse_showsubjects
+#*
+ * Groups Browse Subject Card: displays a box for one subject
+ * @param $subject Subject for which to display the card
+ * @param $count number of groups for this subject
+ *#
+#macro(groups_browse_subjectcard2 $subject $count)
+  #set($sdoc = $xwiki.getDocument($subject))
+  #set($searchpage = $xwiki.getURL("Search.WebHome"))
+  #set($topiclink = "${searchpage}#o%3As%3Ds%253Agroup%5Et%3Ds%253Asearch-group-tab%5Ea%3Do%253Agroup%253Do%25253Aa%25253Db%2525253A1%5Ef%3Do%253Agroup%253Do%25253Asubjectparent%25253Ds%2525253A${subject}")
+  &lt;div class="subject-card"&gt;
+    &lt;div class="subject-link"&gt;
+      &lt;a href="$topiclink"&gt;
+        &lt;span class="subject-title"&gt;$msg.get("browse.subject.title.${subject}")&lt;/span&gt;
+        &lt;span class="subject-title-count"&gt;(#if($count)$count#{else}0#end)&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+#*
+  &lt;div class="subject-image"&gt;
+    &lt;a href="$topiclink"&gt;
+      &lt;img src="${msg.get("browse.subject.image.${subject}")}" alt="$msg.get("browse.subject.title.${subject}")")" title="$msg.get("browse.subject.title.${subject}")" /&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class="subject-desc"&gt;
+   #if(${msg.get("browse.subject.description.$subject")} != "-")
+     ${msg.get("browse.subject.description.$subject")}
+   #end
+  &lt;/div&gt;
+*###
+&lt;/div&gt;
+#end
+#*
+ * Browse Groups by subjects
+ * @type script
+ * @refactored ludovic
+ *#
+#set($sm = $xwiki.csm)
+#if($request.subject)
+  #groups_browse_showsubject2($request.subject $request.ipp $request.startIndex)
+#else
+  #groups_browse_showsubjects2()
+#end</content></xwikidoc>
