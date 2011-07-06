@@ -36,16 +36,29 @@
     <dependency>
       <groupId>org.curriki</groupId>
       <artifactId>curriki-web</artifactId>
-      <version>${curriki.version}</version>
+      <version>2.1-SNAPSHOT</version>
       <type>war</type>
-    </dependency>    
+    </dependency>
+    <dependency>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-sankore-plugins-asset</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-sankore-plugins-curriki</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>2.0</version>        
+        <version>2.0</version>
+        <configuration>
+          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-SNAPSHOT.jar</dependentWarExcludes>
+        </configuration>
       </plugin>
     </plugins>
   </build>
@@ -62,99 +75,6 @@
       </activation>
       <build>
         <plugins>
-          <!-- Inject XWiki's configuration (only xwiki.cfg, not hibernate.cfg.xml) -->
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-remote-resources-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>xwiki-configuration-resources</id>
-                 <!-- The remote resources plugin adds its output directory as a resource directory
-                      so that the Maven resources plugin copies these resources to target/classes.
-                      However copying them to target/classes will make them appear in WEB-INF/classes
-                      in the generated WAR since the WAR plugin copies resources in target/classes in
-                      WEB-INF/classes. Thus to prevent this we're binding this execution to a phase
-                      that comes after the execution of the resources plugin (which executes in the
-                      process-resources phase). Thus this remote resources plugin will execute just
-                      after the resources plugin and the resources won't be copied, which is why we're
-                      adding a webResource configuration element below in the WAR plugin's
-                      configuration. -->
-                <phase>process-resources</phase>
-                <goals>
-                  <goal>process</goal>
-                </goals>
-                <configuration>
-                  <resourceBundles>
-                    <resourceBundle>org.xwiki.platform.tools:xwiki-configuration-resources:${platform.tool.configuration.version}</resourceBundle>
-                  </resourceBundles>
-                  <properties>
-                    <xwikiDbHbmCommonExtraMappings>activitystream.hbm.xml</xwikiDbHbmCommonExtraMappings>
-                    <xwikiCfgEditCommentMandatory>1</xwikiCfgEditCommentMandatory>
-                    <xwikiCfgDefaultSkin>curriki20</xwikiCfgDefaultSkin>
-                    <xwikiCfgDefaultBaseSkin>albatross</xwikiCfgDefaultBaseSkin>
-                    <xwikiCfgPlugins>\
-              com.xpn.xwiki.monitor.api.MonitorPlugin,\
-              com.xpn.xwiki.plugin.skinx.JsSkinExtensionPlugin,\
-              com.xpn.xwiki.plugin.skinx.CssSkinExtensionPlugin,\
-              com.xpn.xwiki.plugin.skinx.JsSkinFileExtensionPlugin,\
-              com.xpn.xwiki.plugin.skinx.CssSkinFileExtensionPlugin,\
-              com.xpn.xwiki.plugin.packaging.PackagePlugin,\
-              com.xpn.xwiki.plugin.query.QueryPlugin,\
-              com.xpn.xwiki.plugin.fileupload.FileUploadPlugin,\
-              com.xpn.xwiki.plugin.image.ImagePlugin,\
-              com.xpn.xwiki.plugin.userdirectory.UserDirectoryPlugin,\
-              com.xpn.xwiki.plugin.usertools.XWikiUserManagementToolsImpl,\
-              org.curriki.xwiki.plugin.curriki.CurrikiPlugin,\
-              org.curriki.xwiki.plugin.framework.FrameworkManagerPlugin,\
-              org.curriki.xwiki.plugin.licence.LicenceManagerPlugin,\
-              org.curriki.xwiki.plugin.mimetype.MimeTypePlugin,\
-              com.xpn.xwiki.plugin.zipexplorer.ZipExplorerPlugin,\
-              com.xpn.xwiki.plugin.scheduler.SchedulerPlugin,\
-              com.xpn.xwiki.plugin.diff.DiffPlugin,\
-              com.xpn.xwiki.plugin.lucene.LucenePlugin,\
-              com.xpn.xwiki.plugin.rightsmanager.RightsManagerPlugin,\
-              org.curriki.plugin.spacemanager.impl.CurrikiSpaceManager,\
-              com.xpn.xwiki.plugin.invitationmanager.plugin.InvitationManagerPlugin,\
-              com.xpn.xwiki.plugin.mailsender.MailSenderPlugin,\
-              org.curriki.plugin.activitystream.plugin.CurrikiActivityStreamPlugin              
-                    </xwikiCfgPlugins>
-                    <xwikiCfgAdditionalProperties>
-# Make edit comment mandatory
-xwiki.editcomment.mandatory=0
-            
-## Spacemanager settings
-# Configure the spacemanager extension
-xwiki.spacemanager.extension=org.xwiki.plugin.spacemanager.impl.CurrikiSpaceManagerExtension
-
-# Set the groupname prefix
-xwiki.spacemanager.prefix=Group_
-
-# override the macro list
-xwiki.render.velocity.macrolist=/templates/macros.vm,/skins/albatross/macros.vm,\
-                /skins/curriki20/macros.vm,/skins/curriki20/blog/blogmacros.vm,\
-                /skins/curriki20/assets/assetsmacros.vm,/skins/curriki20/pages/pagesmacros.vm,\
-                /skins/curriki20/mycurriki/mycurrikimacros.vm,\
-                /skins/curriki20/groups/groupsmacros.vm,\
-                /skins/curriki20/groups/groupscontributions.vm,\
-                /skins/curriki20/groups/groupsdocs.vm,\
-                /skins/curriki20/groups/groupsmembers.vm,\
-                /skins/curriki20/groups/groupsmessages.vm,\
-                /skins/curriki20/groups/groupsroles.vm,\
-                /skins/curriki20/groups/groupsmycurriki.vm,\
-                /skins/curriki20/crs/crsmacros.vm,\
-                /skins/curriki20/bfcs/bfcsmacros.vm
-
-xwiki.invitationmanager.resourcespace=Groups
-                    </xwikiCfgAdditionalProperties>
-                    <xwikiCfgVirtual>0</xwikiCfgVirtual>
-                    <xwikiCfgExo>0</xwikiCfgExo>
-                    <xwikiCfgDefaultBaseSkin>albatross</xwikiCfgDefaultBaseSkin>
-                    <xwikiCfgEncoding>UTF-8</xwikiCfgEncoding>
-                  </properties>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
           <!-- Use the build number plugin to add the SVN revision number to XWiki's
                version.properties file so that it's included when displaying XWiki's version.
                Note: This plugin works by making the buildNumber property available. We then filter

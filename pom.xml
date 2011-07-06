@@ -47,6 +47,7 @@
     <url>http://svn.xwikisas.com/svnroot/xwiki/projects/sankore/trunk</url>
   </scm>
   <modules>    
+    <module>plugins</module>
     <module>web</module>
     <module>wiki</module>
   </modules>
