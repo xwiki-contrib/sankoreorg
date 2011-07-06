@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1305189845000</creationDate>
-<date>1305189845000</date>
-<contentUpdateDate>1305189845000</contentUpdateDate>
+<creationDate>1309872633000</creationDate>
+<date>1309872633000</date>
+<contentUpdateDate>1309872633000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -770,17 +770,11 @@ sri.educational_level_txt=Select one or more level(s).
 sri.educational_level_content=
 sri.educational_level_tooltip=Level(s) for which your resource is appropriate
 
-## CURRENT
-sri.educational_level2_title=Educational Level:
-sri.educational_level2_txt=Select one or more level(s).
-sri.educational_level2_content=
-sri.educational_level2_tooltip=Level(s) for which your resource is appropriate
-
 ## INSTRUCTIONAL COMPONENT TYPE
-sri.instructional_component2_title=Instructional Component Type:
-sri.instructional_component2_txt=Scroll to find the best option. You can select multiple options by hitting the Ctrl (PC) or Apple (Mac) key as you click to select. Click &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/InstructionalComponentTypeICT" target="_blank"&gt;here&lt;/a&gt; for definitions.
-sri.instructional_component2_content=
-sri.instructional_component2_tooltip=Type or format of content that best matches your resource
+sri.instructional_component_title=Instructional Component Type:
+sri.instructional_component_txt=Scroll to find the best option. You can select multiple options by hitting the Ctrl (PC) or Apple (Mac) key as you click to select. Click &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/InstructionalComponentTypeICT" target="_blank"&gt;here&lt;/a&gt; for definitions.
+sri.instructional_component_content=
+sri.instructional_component_tooltip=Type or format of content that best matches your resource
 
 ## ICT list is below in Asset Class
 
