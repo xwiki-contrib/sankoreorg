@@ -2042,24 +2042,7 @@ Ext.util.Observable.capture(Curriki.data.EventManager, function(event){
 
 Ext.ns('Curriki.data.ict');
 Curriki.data.EventManager.addListener('Curriki.data.ict:ready', function() {
-  Curriki.data.ict.data = [];
-  Curriki.data.ict.list.each(function(ict) {
-    var sort = _('CurrikiCode.AssetClass_instructional_component_'+ict);
-    if (ict === 'other') {
-      sort = 'zzz';
-    }    
-    Curriki.data.ict.data.push([
-      ict
-      ,_('CurrikiCode.AssetClass_instructional_component_'+ict)
-      ,sort
-    ]);
-  });
-  Curriki.data.ict.store = new Ext.data.SimpleStore({
-    fields: ['id', 'ict', 'sortValue']
-    ,sortInfo: {field:'sortValue', direction:'ASC'}
-    ,data: Curriki.data.ict.data
-    ,id: 0
-  });
+  Curriki.data.ict.ictChildren = Curriki.data.ict.ictAddNode(Curriki.data.ict.ictMap, 'AssetMetadata.WebHome').children;
 });
 Ext.Ajax.request({
   url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/instructional_component",
@@ -2069,7 +2052,7 @@ Ext.Ajax.request({
   },
   success:function(response,options) {
     try {    
-      Curriki.data.ict.list = Ext.util.JSON.decode(response.responseText).allowedValues;      
+      Curriki.data.ict.ictMap = Ext.util.JSON.decode(response.responseText).allowedValueMap;      
     } catch(e) {
       console.error('Invalid metadata information', response, options);      
     }
@@ -2080,22 +2063,99 @@ Ext.Ajax.request({
   }
 });
 
-Curriki.data.ict.getRolloverDisplay = function(el_ict){
-	var icts = el_ict||[];
-	var ict = "";
+Curriki.data.ict.ictCheckListener = function(node, checked){
+	var validator = Ext.getCmp('instructional_component-validation');
+	if (validator) {
+		validator.setValue(validator.getValue()+(checked?1:-1));
+	}
+	if (checked){
+		if ("undefined" !== typeof node.parentNode){
+			if (!node.parentNode.ui.isChecked()){
+				node.parentNode.ui.toggleCheck();
+			}
+		}
+	} else {
+		if (Ext.isArray(node.childNodes)){
+			node.childNodes.each(function(node){
+				if (node.ui.isChecked()) {
+					node.ui.toggleCheck();
+				}
+			});
+		}
+	}
+};
 
-	var wrap = '<div class="ict-{0}"><img class="ict-icon" src="/xwiki/skins/curriki8/extjs/resources/images/default/s.gif" /><span class="ict-title">{1}</span></div>';
+Curriki.data.ict.ictAddNode = function(ictMap, nodeName){
+	var nodeInfo = {
+		 id:nodeName
+		,text:_('CurrikiCode.AssetClass_instructional_component_'+nodeName)
+		,checked:false
+		,listeners:{
+			checkchange: Curriki.data.ict.ictCheckListener
+		}
+	};
+	if ("undefined" !== typeof ictMap[nodeName]){
+		var children = [];
+		ictMap[nodeName].each(function(childNode){
+			children.push(Curriki.data.ict.ictAddNode(ictMap, childNode.id));
+		});
+		nodeInfo.children = children;
+		nodeInfo.cls = 'ict-item ict-item-parent';
+	} else {
+		nodeInfo.leaf = true;
+		nodeInfo.cls = 'ict-item ict-item-bottom';
+	}
+
+	return nodeInfo;
+};
+
+Curriki.data.ict.getRolloverDisplay = function(ict_array){
+	var icts = ict_array||[];
+	var ict = "";
+	var ictMap = Curriki.data.ict.ictMap;
+
+	if (icts[0] === 'AssetMetadata.WebHome') {
+		icts.shift();
+	}
 
 	if ("undefined" !== typeof icts && "undefined" !== typeof icts[0]) {
-		ict += String.format(wrap, icts[0].replace(/_.*/, ''), _('CurrikiCode.AssetClass_instructional_component_'+icts[0]));
+		var ictD = "";
+		var icti = icts[0];
+		var ictParent = ictMap['AssetMetadata.WebHome'].find(function(item){
+			return (ictMap[item.id].find(function(sub){
+				return sub.id==icti;
+			}));
+		});
+
+		if (!Ext.type(ictParent)) {
+			ictD = _('CurrikiCode.AssetClass_instructional_component_'+icti);
+		} else {
+			ictParent = ictParent.id;
+			ictD = _('CurrikiCode.AssetClass_instructional_component_'+ictParent) + " > "+_('CurrikiCode.AssetClass_instructional_component_'+icti);
+		}
+		ict += Ext.util.Format.htmlEncode(ictD) + "<br />";
 		if ("undefined" !== typeof icts[1]) {
-			ict += String.format(wrap, icts[1].replace(/_.*/, ''), _('CurrikiCode.AssetClass_instructional_component_'+icts[1]));
+			var ictD = "";
+			var icti = icts[1];
+			var ictParent = ictMap['AssetMetadata.WebHome'].find(function(item){
+				return (ictMap[item.id].find(function(sub){
+					return sub.id==icti;
+				}));
+			});
+
+			if (!Ext.type(ictParent)) {
+				ictD = _('CurrikiCode.AssetClass_instructional_component_'+icti);
+			} else {
+				ictParent = ictParent.id;
+				ictD = _('CurrikiCode.AssetClass_instructional_component_'+ictParent) + " > "+_('CurrikiCode.AssetClass_instructional_component_'+icti);
+			}
+			ict += Ext.util.Format.htmlEncode(ictD) + "<br />";
 			if ("undefined" !== typeof icts[2]) {
 				ict += "...<br />";
 			}
 		}
 	} else {
-		ict += String.format(wrap, 'none', _('global.title.popup.ict.missing'));
+		ict += _('global.title.popup.none.selected')+'<br />';
 	}
 
 	return ict;
@@ -2104,13 +2164,7 @@ Curriki.data.ict.getRolloverDisplay = function(el_ict){
 Ext.ns('Curriki.data.el');
 
 Curriki.data.EventManager.addListener('Curriki.data.el:ready', function() {
-  Curriki.data.el.data = [];
-  Curriki.data.el.list.each(function(el){
-    Curriki.data.el.data.push({
-      inputValue:el
-      ,boxLabel:_('CurrikiCode.AssetClass_educational_level_'+el)
-    });
-  });
+  Curriki.data.el.elChildren = Curriki.data.el.elAddNode(Curriki.data.el.elMap, 'AssetMetadata.WebHome').children;
 });
 
 Ext.Ajax.request({
@@ -2121,7 +2175,7 @@ Ext.Ajax.request({
   },
   success:function(response,options) {
     try {
-      Curriki.data.el.list = Ext.util.JSON.decode(response.responseText).allowedValues;      
+      Curriki.data.el.elMap = Ext.util.JSON.decode(response.responseText).allowedValueMap;      
     } catch(e) {
       console.error('Invalid metadata information', response, options);
     }
@@ -2132,24 +2186,104 @@ Ext.Ajax.request({
   }
 });
 
-Curriki.data.el.getRolloverDisplay = function(el_array){
-	var lvls = el_array||undefined;
-	var lvl = "";
-
-	if ("undefined" !== typeof lvls && "undefined" !== typeof lvls[0]) {
-		lvl += Ext.util.Format.htmlEncode(_('CurrikiCode.AssetClass_educational_level_'+lvls[0]))+"<br />";
-		if ("undefined" !== typeof lvls[1]) {
-			lvl += Ext.util.Format.htmlEncode(_('CurrikiCode.AssetClass_educational_level_'+lvls[1]))+"<br />";
-			if ("undefined" !== typeof lvls[2]) {
-				lvl += "...<br />";
+Curriki.data.el.elCheckListener = function(node, checked){
+	var validator = Ext.getCmp('educational_level-validation');
+	if (validator) {
+		validator.setValue(validator.getValue()+(checked?1:-1));
+	}
+	if (checked){
+		if ("undefined" !== typeof node.parentNode){
+			if (!node.parentNode.ui.isChecked()){
+				node.parentNode.ui.toggleCheck();
 			}
 		}
 	} else {
-		lvl += _('global.title.popup.none.selected');
+		if (Ext.isArray(node.childNodes)){
+			node.childNodes.each(function(node){
+				if (node.ui.isChecked()) {
+					node.ui.toggleCheck();
+				}
+			});
+		}
+	}
+};
+
+Curriki.data.el.elAddNode = function(elMap, nodeName){
+	var nodeInfo = {
+		 id:nodeName
+		,text:_('CurrikiCode.AssetClass_educational_level_'+nodeName)
+		,checked:false
+		,listeners:{
+			checkchange: Curriki.data.el.elCheckListener
+		}
+	};
+	if ("undefined" !== typeof elMap[nodeName]){
+		var children = [];
+		elMap[nodeName].each(function(childNode){
+			children.push(Curriki.data.el.elAddNode(elMap, childNode.id));
+		});
+		nodeInfo.children = children;
+		nodeInfo.cls = 'el-item el-item-parent';
+	} else {
+		nodeInfo.leaf = true;
+		nodeInfo.cls = 'el-item el-item-bottom';
 	}
 
-	return lvl;
+	return nodeInfo;
 };
+
+Curriki.data.el.getRolloverDisplay = function(el_array){
+	var els = el_array||[];
+	var el = "";
+	var elMap = Curriki.data.el.elMap;
+
+	if (els[0] === 'AssetMetadata.WebHome') {
+		fws.shift();
+	}
+
+	if ("undefined" !== typeof els && "undefined" !== typeof els[0]) {
+		var elD = "";
+		var eli = els[0];
+		var elParent = elMap['AssetMetadata.WebHome'].find(function(item){
+			return (elMap[item.id].find(function(sub){
+				return sub.id==eli;
+			}));
+		});
+
+		if (!Ext.type(elParent)) {
+			elD = _('CurrikiCode.AssetClass_educational_level_'+eli);
+		} else {
+			elParent = elParent.id;
+			elD = _('CurrikiCode.AssetClass_educational_level_'+elParent) + " > "+_('CurrikiCode.AssetClass_educational_level_'+eli);
+		}
+		el += Ext.util.Format.htmlEncode(elD) + "<br />";
+		if ("undefined" !== typeof fws[1]) {
+			var elD = "";
+			var eli = els[1];
+			var elParent = elMap['AssetMetadata.WebHome'].find(function(item){
+				return (elMap[item.id].find(function(sub){
+					return sub.id==eli;
+				}));
+			});
+
+			if (!Ext.type(elParent)) {
+				elD = _('CurrikiCode.AssetClass_educational_level_'+eli);
+			} else {
+				elParent = elParent.id;
+				elD = _('CurrikiCode.AssetClass_educational_level_'+elParent) + " > "+_('CurrikiCode.AssetClass_educational_level_'+eli);
+			}
+			el += Ext.util.Format.htmlEncode(elD) + "<br />";
+			if ("undefined" !== typeof els[2]) {
+				el += "...<br />";
+			}
+		}
+	} else {
+		el += _('global.title.popup.none.selected')+'<br />';
+	}
+
+	return el;
+};
+
 
 Ext.ns('Curriki.data.rights');
 Curriki.data.EventManager.addListener('Curriki.data.rights:ready', function() {
@@ -2427,6 +2561,58 @@ Curriki.ui.component.asset.getFwTree = function(){
 			,leaf:false
 			,expanded:true
 			,children:Curriki.data.fw_item.fwChildren
+		})
+	};
+};
+
+Curriki.ui.component.asset.getElTree = function(){
+	return {
+		 xtype:'treepanel'
+		,loader: new Ext.tree.TreeLoader({
+			preloadChildren:true
+		})
+		,id:'el-tree'
+		,useArrows:true
+		,autoHeight:true
+		,border:false
+		,cls:'el-tree'
+		,animate:true
+		,enableDD:false
+		,containerScroll:true
+		,rootVisible:true
+		,root: new Ext.tree.AsyncTreeNode({
+			 text:_('CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome')
+			,id:'AssetMetadata.WebHome'
+			,cls:'el-item-top el-item-parent el-item'
+			,leaf:false
+			,expanded:true
+			,children:Curriki.data.el.elChildren
+		})
+	};
+};
+
+Curriki.ui.component.asset.getIctTree = function(){
+	return {
+		 xtype:'treepanel'
+		,loader: new Ext.tree.TreeLoader({
+			preloadChildren:true
+		})
+		,id:'ict-tree'
+		,useArrows:true
+		,autoHeight:true
+		,border:false
+		,cls:'ict-tree'
+		,animate:true
+		,enableDD:false
+		,containerScroll:true
+		,rootVisible:true
+		,root: new Ext.tree.AsyncTreeNode({
+			 text:_('CurrikiCode.AssetClass_instructional_component_AssetMetadata.WebHome')
+			,id:'AssetMetadata.WebHome'
+			,cls:'ict-item-top ict-item-parent ict-item'
+			,leaf:false
+			,expanded:true
+			,children:Curriki.data.ict.ictChildren
 		})
 	};
 };

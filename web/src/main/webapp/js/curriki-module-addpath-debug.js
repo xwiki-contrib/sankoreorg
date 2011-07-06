@@ -575,6 +575,7 @@ Curriki.module.addpath.init = function(){
 				Ext.apply(this, {
 					 title:_('add.setrequiredinfo.part1.title')
 					,cls:'addpath addpath-metadata resource resource-add'
+					,width:750
 					,items:[{
 						 xtype:'panel'
 						,cls:'guidingquestion-container'
@@ -646,7 +647,7 @@ Curriki.module.addpath.init = function(){
 													case 'title':
 													case 'description':
 													case 'ict':
-														if (!this.form.findField(item).isValid()){
+														if (!this.form.findField('instructional_component-validation').isValid()){
 															invalid = item;
 														}
 														break;
@@ -658,7 +659,7 @@ Curriki.module.addpath.init = function(){
 														break;
 
 													case 'level':
-														if (!this.form.findField('educational_level2-validation').isValid()){
+														if (!this.form.findField('educational_level-validation').isValid()){
 															invalid = item;
 														}
 														break;
@@ -670,7 +671,7 @@ Curriki.module.addpath.init = function(){
 												if (Ext.isEmpty(title)) {
 													switch (invalid){
 														case 'ict':
-															title = Ext.get('metadata-instructional_component2-title');
+															title = Ext.get('metadata-instructional_component-title');
 															break;
 
 														case 'subject':
@@ -678,7 +679,7 @@ Curriki.module.addpath.init = function(){
 															break;
 
 														case 'level':
-															title = Ext.get('metadata-educational_level2-title');
+															title = Ext.get('metadata-educational_level-title');
 															break;
 													}
 												}
@@ -810,7 +811,7 @@ Curriki.module.addpath.init = function(){
 							,border:false
 							,defaults:{border:false}
 							,items:[{
-								 columnWidth:0.5
+								 columnWidth:0.33
 								,items:[{
 									 xtype:'box'
 									,autoEl:{
@@ -907,55 +908,60 @@ Curriki.module.addpath.init = function(){
 
 		// Educational Level
 							},{
-								 columnWidth:0.5
+								 columnWidth:0.33
 								,items:[{
 									 xtype:'box'
 									,autoEl:{
 										 tag:'div'
-										,id:'metadata-educational_level2'
+										,id:'metadata-educational_level'
 										,cls:'information-header information-header-required'
 										,children:[{
 											 tag:'em'
-											,id:'metadata-educational_level2-required'
+											,id:'metadata-educational_level-required'
 											,cls:'required-indicator'
 											,html:_('form.required.fields.indicator')
 										},{
 											 tag:'span'
-											,id:'metadata-educational_level2-title'
+											,id:'metadata-educational_level-title'
 											,cls:'metadata-title'
-											,html:_('sri.educational_level2_title')
+											,html:_('sri.educational_level_title')
 										},{
 											 tag:'img'
-											,id:'metadata-educational_level2-info'
+											,id:'metadata-educational_level-info'
 											,cls:'metadata-tooltip'
 											,src:Curriki.ui.InfoImg
-											,qtip:_('sri.educational_level2_tooltip')
+											,qtip:_('sri.educational_level_tooltip')
 										}]
 									}
 								},{
 									 xtype:'box'
 									,autoEl:{
 										 tag:'div'
-										,html:_('sri.educational_level2_txt')
+										,html:_('sri.educational_level_txt')
 										,cls:'directions'
 									}
 								},{
-									// A "CheckBoxGroup" would be nice here
+									// A "TreeCheckBoxGroup" would be nice here
 									 xtype:'numberfield'
-									,id:'educational_level2-validation'
+									,id:'educational_level-validation'
 									,allowBlank:false
 									,preventMark:true
 									,minValue:1
-									,invalidText:'TRANSLATE: This field is required'
 									,hidden:true
 									,listeners:{
 										 valid:function(field){
-											var fieldset = Ext.getCmp('educational_level2-set');
+											if (!this.rendered || this.preventMark) {
+												return;
+											}
+											var fieldset = Ext.getCmp('el-tree');
 											fieldset.removeClass('x-form-invalid');
 											fieldset.el.dom.qtip = '';
 										}
 										,invalid:function(field, msg){
-											var fieldset = Ext.getCmp('educational_level2-set');
+											if (!this.rendered || this.preventMark) {
+												return;
+											}
+											var fieldset = Ext.getCmp('el-tree');
 											fieldset.addClass('x-form-invalid');
 											var iMsg = field.invalidText;
 											fieldset.el.dom.qtip = iMsg;
@@ -965,110 +971,137 @@ Curriki.module.addpath.init = function(){
 											}
 
 										}
-										,render:function(comp){
-											comp.findParentByType('apSRI1').on('show', function() {
-												if (!Ext.isEmpty(Curriki.current.metadata)) {
-													var md = Curriki.current.metadata;
-
-													if (!Ext.isEmpty(md.educational_level) && Ext.isArray(md.educational_level)){
-														md.educational_level.each(function(el){
-															Ext.getCmp(Ext.select('input[type="checkbox"][name="educational_level2"][value="'+el+'"]').first().dom.id).setValue(true);
-														});
+									}
+								}
+								,(function(){
+									var checkedCount = 0;
+									var md = Curriki.current.metadata;
+									if (md) {
+										var el = md.educational_level;
+										Ext.isArray(el) && (function(ca){
+											var childrenFn = arguments.callee;
+											Ext.each(ca, function(c){
+												if (c.id) {
+													if (c.checked = (el.indexOf(c.id) !== -1)) {
+														checkedCount++;
+													}
+													if (c.children) {
+														childrenFn(c.children);
 													}
 												}
 											});
-										}
+										})(Curriki.data.el.elChildren);
 									}
-								},{
-									 xtype:'fieldset'
-									,id:'educational_level2-set'
-									,border:false
-									,autoHeight:true
-									,preventMark:true
-									,defaults:{
-										 xtype:'checkbox'
-										,name:'educational_level2'
-										,hideLabel:true
-										,labelSeparator:''
-										,listeners:{
-											check:function(e, checked){
-												var validator = Ext.getCmp('educational_level2-validation');
-												validator.setValue(validator.getValue()+(checked?1:-1));
+									return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(), {
+										listeners: {
+											render:function(comp){
+												comp.findParentByType('apSRI1').on('show', function() {
+													Ext.getCmp('educational_level-validation').setValue(checkedCount)
+												});
 											}
 										}
-									}
-									,items:Curriki.data.el.data
-								}]
-							}]
+									})
+								})()]
 
 		// Instructional Component Type
 						},{
-							 xtype:'box'
-							,autoEl:{
-								 tag:'div'
-								,id:'metadata-instructional_component2'
-								,cls:'information-header information-header-required'
-								,children:[{
-									 tag:'em'
-									,id:'metadata-instructional_component2-required'
-									,cls:'required-indicator'
-									,html:_('form.required.fields.indicator')
+								 columnWidth:0.33
+								,items:[{
+									 xtype:'box'
+									,autoEl:{
+										 tag:'div'
+										,id:'metadata-instructional_component'
+										,cls:'information-header information-header-required'
+										,children:[{
+											 tag:'em'
+											,id:'metadata-instructional_component-required'
+											,cls:'required-indicator'
+											,html:_('form.required.fields.indicator')
+										},{
+											 tag:'span'
+											,id:'metadata-instructional_component-title'
+											,cls:'metadata-title'
+											,html:_('sri.instructional_component_title')
+										},{
+											 tag:'img'
+											,id:'metadata-instructional_component-info'
+											,cls:'metadata-tooltip'
+											,src:Curriki.ui.InfoImg
+											,qtip:_('sri.instructional_component_tooltip')
+										}]
+									}
 								},{
-									 tag:'span'
-									,id:'metadata-instructional_component2-title'
-									,cls:'metadata-title'
-									,html:_('sri.instructional_component2_title')
+									 xtype:'box'
+									,autoEl:{
+										 tag:'div'
+										,html:_('sri.instructional_component_txt')
+										,cls:'directions'
+									}
 								},{
-									 tag:'img'
-									,id:'metadata-instructional_component2-info'
-									,cls:'metadata-tooltip'
-									,src:Curriki.ui.InfoImg
-									,qtip:_('sri.instructional_component2_tooltip')
-								}]
-							}
-						},{
-							 xtype:'box'
-							,autoEl:{
-								 tag:'div'
-								,html:_('sri.instructional_component2_txt')
-								,cls:'directions'
-							}
-						},{
+									// A "TreeCheckBoxGroup" would be nice here
+									 xtype:'numberfield'
+									,id:'instructional_component-validation'
+									,allowBlank:false
+									,preventMark:true
+									,minValue:1
+									,hidden:true
+									,listeners:{
+										 valid:function(field){
+											if (!this.rendered || this.preventMark) {
+												return;
+											}
+											var fieldset = Ext.getCmp('ict-tree');
+											fieldset.removeClass('x-form-invalid');
+											fieldset.el.dom.qtip = '';
+										}
+										,invalid:function(field, msg){
+											if (!this.rendered || this.preventMark) {
+												return;
+											}
+											var fieldset = Ext.getCmp('ict-tree');
+											fieldset.addClass('x-form-invalid');
+											var iMsg = field.invalidText;
+											fieldset.el.dom.qtip = iMsg;
+											fieldset.el.dom.qclass = 'x-form-invalid-tip';
+											if(Ext.QuickTips){ // fix for floating editors interacting with DND
+												Ext.QuickTips.enable();
+											}
 
-							 xtype:'multiselect'
-							,name:'ict'
-							,hideLabel:true
-							,enableToolbar:false
-							//,legend:_('sri.instructional_component2_title')
-							,legend:' '
-							,store:Curriki.data.ict.store
-							,valueField:'id'
-							,displayField:'ict'
-							,width:250
-							,height:100
-							,allowBlank:false
-							,preventMark:true
-							,minLength:1
-							,isFormField:true
-		/*
-						},{
-							 xtype:'combo'
-							,id:'metadata-instructional_component2-entry'
-							,hiddenName:'instructional_component2'
-							,hideLabel:true
-							,mode:'local'
-							,store:Curriki.data.ict.store
-							,displayField:'ict'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:'Select an ICT...'
-							,selectOnFocus:true
-							,forceSelection:true
-		*/
-
+										}
+									}
+								}
+								,(function(){
+									var checkedCount = 0;
+									var md = Curriki.current.metadata;
+									if (md) {
+										var ict = md.instructional_component;
+										Ext.isArray(ict) && (function(ca){
+											var childrenFn = arguments.callee;
+											Ext.each(ca, function(c){
+												if (c.id) {
+													if (c.checked = (ict.indexOf(c.id) !== -1)) {
+														checkedCount++;
+													}
+													if (c.children) {
+														childrenFn(c.children);
+													}
+												}
+											});
+										})(Curriki.data.ict.ictChildren);
+									}
+									return Ext.apply(AddPath.ictTree = Curriki.ui.component.asset.getIctTree(), {
+										listeners: {
+											render:function(comp){
+												comp.findParentByType('apSRI1').on('show', function() {
+													Ext.getCmp('instructional_component-validation').setValue(checkedCount)
+												});
+											}
+										}
+									})
+								})()]
+						  }]
 						}]
-					}]
+						}]
 				});
 
 				AddPath.Metadata1.superclass.initComponent.call(this);
@@ -1554,8 +1587,8 @@ Curriki.module.addpath.init = function(){
 			if ("string" === typeof Curriki.current.sri1.ict){
 				Curriki.current.sri1.ict = Curriki.current.sri1.ict.split(',');
 			}
-			if ("string" === typeof Curriki.current.sri1.educational_level2){
-				Curriki.current.sri1.educational_level2 = Curriki.current.sri1.educational_level2.split(',');
+			if ("string" === typeof Curriki.current.sri1.educational_level){
+				Curriki.current.sri1.educational_level = Curriki.current.sri1.educational_level.split(',');
 			}
 
 			var metadata = Curriki.current.sri1;
@@ -2006,7 +2039,7 @@ console.log("Published CB: ", newAsset);
 					,title:_('add.chooselocation.title')
 					,cls:'addpath addpath-ctv resource resource-add'
 					,autoScroll:false
-					,width:634
+					,width:750
 					,items:[{
 						 xtype:'panel'
 						,id:'guidingquestion-container'
