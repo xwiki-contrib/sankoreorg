@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CreateResources</web>
+<name>UniboardUpload</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1310046929000</creationDate>
+<date>1310046929000</date>
+<contentUpdateDate>1310046929000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>{{groovy}}
+import javax.servlet.http.Cookie;
+import com.xpn.xwiki.user.impl.xwiki.*;
+import org.apache.commons.lang.StringUtils;
+
+def authorization = request.getHeader("Authorization");
+def dauthorization = (authorization==null) ? null : MyBasicAuthenticator.decodeBasicAuthorizationString(authorization);
+
+if (dauthorization!=null) {
+   println "Authorization present: ${dauthorization}"
+   def dcred = dauthorization.split(":");
+   def username = dcred[0];
+   def password = dcred[1];
+   // setting the authorization cookie
+   def persistent = new MyPersistentLoginManager();
+   if (xwiki.getXWiki().Param("xwiki.authentication.cookieprefix") != null) {
+       persistent.setCookiePrefix(xwiki.getXWiki().Param("xwiki.authentication.cookieprefix"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.cookiepath") != null) {
+       persistent.setCookiePath(xwiki.getXWiki().Param("xwiki.authentication.cookiepath"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.cookiedomains") != null) {
+       String[] cdomains = StringUtils.split(xwiki.getXWiki().Param("xwiki.authentication.cookiedomains"), ",");
+       persistent.setCookieDomains(cdomains);
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.cookielife") != null) {
+       persistent.setCookieLife(xwiki.getXWiki().Param("xwiki.authentication.cookielife"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.protection") != null) {
+       persistent.setProtection(xwiki.getXWiki().Param("xwiki.authentication.protection"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.useip") != null) {
+       persistent.setUseIP(xwiki.getXWiki().Param("xwiki.authentication.useip"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.encryptionalgorithm") != null) {
+       persistent.setEncryptionAlgorithm(xwiki.getXWiki().Param("xwiki.authentication.encryptionalgorithm"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.encryptionmode") != null) {
+       persistent.setEncryptionMode(xwiki.getXWiki().Param("xwiki.authentication.encryptionmode"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.encryptionpadding") != null) {
+       persistent.setEncryptionPadding(xwiki.getXWiki().Param("xwiki.authentication.encryptionpadding"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.validationKey") != null) {
+       persistent.setValidationKey(xwiki.getXWiki().Param("xwiki.authentication.validationKey"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.encryptionKey") != null) {
+       persistent.setEncryptionKey(xwiki.getXWiki().Param("xwiki.authentication.encryptionKey"));
+   }
+
+   println persistent.getCookieLife()
+   persistent.rememberLogin(request.request, response.response, username, password);
+}
+
+println "=== Cookie ==="
+def cookie = request.getCookie("username")
+if (cookie!=null) {
+   println "Cookie username is present: ${cookie.value}"
+}
+println """
+=== User ===
+
+${xcontext.user}
+"""
+
+println "=== Request parameters ==="
+for(param in request.getParameterNames()) {
+  println param + "=" + request.getParameter(param)
+}
+
+if(xcontext.user != 'XWiki.XWikiGuest') {
+  
+  def fupl= xwiki.get("fileupload");
+  def myfiles = fupl.getFileItems();
+  if(myfiles &amp;&amp; myfiles.size() &gt; 0) {
+    println "File submited";
+    def filename = fupl.getFileName('file')
+    println "File: " + filename
+    def filedata = fupl.getFileItemData('file')
+    if(xcontext.user != 'XWiki.XWikiGuest') {
+    def asset = xwiki.curriki.createAsset("");
+    InputStream ubz = new ByteArrayInputStream(filedata);
+    asset.addAttachment(ubz, filename);
+    asset.processAttachment();
+    println "File uploaded now redirect."
+    Cookie statusCookie = new Cookie("assetStatus", 'UPLOADED')
+    response.addCookie(statusCookie)
+    response.sendRedirect(xwiki.getURL('CreateResources.UniboardResource', 'view', 'template='+asset.fullName))
+    }
+  } else {
+    Cookie statusCookie = new Cookie("assetStatus", 'FAIL')
+    response.addCookie(statusCookie)
+    println "No files uploaded"
+  }
+}
+{{/groovy}}
+{{velocity}}
+{{html clean="false"}}
+&lt;form action="/xwiki/bin/view/CreateResources/UniboardUpload?xpage=plain&amp;outputSyntax=plain" enctype="multipart/form-data" method="post"&gt;
+&lt;table border="0"&gt;
+&lt;td&gt;File:&lt;/td&gt;&lt;td&gt;&lt;input type="file" name="file" /&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td colspan="2" align="center"&gt;
+&lt;input type="submit" name="submit" /&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/form&gt;
+{{/html}}
+{{/velocity}}</content></xwikidoc>

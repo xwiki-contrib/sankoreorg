@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CreateResources</web>
+<name>UniboardResource</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>CreateResources.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1310047363000</creationDate>
+<date>1310047363000</date>
+<contentUpdateDate>1310047363000</contentUpdateDate>
+<version>1.1</version>
+<title>UniboardResource</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>{{groovy}}
+import javax.servlet.http.Cookie;
+import com.xpn.xwiki.user.impl.xwiki.*;
+import org.apache.commons.lang.StringUtils;
+
+def authorization = request.getHeader("Authorization");
+def dauthorization = (authorization==null) ? null : MyBasicAuthenticator.decodeBasicAuthorizationString(authorization);
+
+if (dauthorization!=null) {
+   println "Authorization present: ${dauthorization}"
+   def dcred = dauthorization.split(":");
+   def username = dcred[0];
+   def password = dcred[1];
+   // setting the authorization cookie
+   def persistent = new MyPersistentLoginManager();
+   if (xwiki.getXWiki().Param("xwiki.authentication.cookieprefix") != null) {
+       persistent.setCookiePrefix(xwiki.getXWiki().Param("xwiki.authentication.cookieprefix"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.cookiepath") != null) {
+       persistent.setCookiePath(xwiki.getXWiki().Param("xwiki.authentication.cookiepath"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.cookiedomains") != null) {
+       String[] cdomains = StringUtils.split(xwiki.getXWiki().Param("xwiki.authentication.cookiedomains"), ",");
+       persistent.setCookieDomains(cdomains);
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.cookielife") != null) {
+       persistent.setCookieLife(xwiki.getXWiki().Param("xwiki.authentication.cookielife"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.protection") != null) {
+       persistent.setProtection(xwiki.getXWiki().Param("xwiki.authentication.protection"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.useip") != null) {
+       persistent.setUseIP(xwiki.getXWiki().Param("xwiki.authentication.useip"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.encryptionalgorithm") != null) {
+       persistent.setEncryptionAlgorithm(xwiki.getXWiki().Param("xwiki.authentication.encryptionalgorithm"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.encryptionmode") != null) {
+       persistent.setEncryptionMode(xwiki.getXWiki().Param("xwiki.authentication.encryptionmode"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.encryptionpadding") != null) {
+       persistent.setEncryptionPadding(xwiki.getXWiki().Param("xwiki.authentication.encryptionpadding"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.validationKey") != null) {
+       persistent.setValidationKey(xwiki.getXWiki().Param("xwiki.authentication.validationKey"));
+   }
+   if (xwiki.getXWiki().Param("xwiki.authentication.encryptionKey") != null) {
+       persistent.setEncryptionKey(xwiki.getXWiki().Param("xwiki.authentication.encryptionKey"));
+   }
+   persistent.rememberLogin(request.request, response.response, username, password);
+}
+
+println "=== Cookie ==="
+def cookie = request.getCookie("username")
+if (cookie!=null) {
+   println "Cookie username is present: ${cookie.value}"
+}
+println """
+=== User ===
+
+${xcontext.user}
+"""
+
+if(request.submit &amp;&amp; xcontext.user != 'XWiki.XWikiGuest') {
+  newAsset = xwiki.curriki.fetchAssetOrNull(request.template)
+  newAsset.updateObjectFromRequest("CurrikiCode.AssetClass")
+  newAsset.updateObjectFromRequest("CurrikiCode.AssetLicenseClass")
+  if(newAsset.validate() &amp;&amp; request.title &amp;&amp; request.parent) {
+    newAsset.setTitle(request.title)
+    parentAsset = xwiki.curriki.fetchAssetOrNull(request.parent)
+    newAsset.publish(parentAsset.space, request.title, true)
+    parentAsset.addSubasset(newAsset.fullName)
+    parentAsset.saveWithProgrammingRights()
+    Cookie statusCookie = new Cookie("assetStatus", "DONE")
+    response.addCookie(statusCookie)
+    response.sendRedirect(newAsset.URL)
+  }
+}
+{{/groovy}}
+{{velocity}}
+#if(!$isGuest)
+#set($newAsset = $xwiki.curriki.fetchAssetOrNull($request.template))
+#if($newAsset &amp;&amp; "$!request.submit" == "")
+$xwiki.ssfx.use('js/yui/treeview/assets/tree.css')
+#includeMacros("CreateResources.StyledMacros")
+
+{{html wiki="true"}}
+&lt;form action="" class="curriki-form" id="inline" method="post"&gt;
+&lt;input type="hidden" name="template" value="$!request.template"&gt;
+#curriki_formpart_begin($msg.get("form.scratch.step1.header"))
+#curriki_forminstructions($msg.get("form.scratch.step1.instruction"))
+#curriki_formprompt($msg.get("sri.title_title"), $msg.get("form.scratch.title_tooltip"), $msg.get("form.scratch.title_txt"), true, "medium")
+&lt;label&gt;Title:&lt;/label&gt;
+&lt;input type="text" id="title" name="title" /&gt;
+#curriki_formprompt($msg.get("sri.description_title"), $msg.get("form.scratch.description_tooltip"), $msg.get("form.scratch.description_txt"), true, "medium")
+$newAsset.display('description', 'edit')
+&lt;table class="subject-educational"&gt;
+&lt;tr&gt;&lt;td width="33%"&gt;
+#curriki_formprompt($msg.get("sri.fw_items_title"), $msg.get("sri.fw_items_tooltip"), $msg.get("sri.fw_items_txt"), true, "")
+$newAsset.display('fw_items', 'edit')
+&lt;/td&gt;&lt;td width="33%"&gt;
+#curriki_formprompt($msg.get("sri.educational_level_title"), $msg.get("sri.educational_level_tooltip"), $msg.get("sri.educational_level_txt"), true, "medium")
+$newAsset.display('educational_level', 'edit')
+&lt;/td&gt;&lt;td width="33%"&gt;
+#curriki_formprompt($msg.get("sri.instructional_component2_title"), $msg.get("sri.instructional_component2_tooltip"), $msg.get("sri.instructional_component2_txt"), true, "medium")
+$newAsset.display('instructional_component', 'edit')
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt; ##class="subject-educational"
+#curriki_formprompt($msg.get("sri.keywords_title"), $msg.get("sri.keywords_tooltip"), $msg.get("sri.keywords_txt"), false, "medium")
+$newAsset.display('keywords', 'edit')
+#curriki_formprompt($msg.get("sri.language_title"), $msg.get("sri.language_tooltip"), $msg.get("sri.language_txt"), false, "medium")
+$newAsset.display('language', 'edit')
+#curriki_formpart_end()
+#curriki_formpart_begin($msg.get("form.scratch.step2.header"))
+#curriki_forminstructions($msg.get("form.scratch.step2.instruction"))
+#foreach($attachment in $newAsset.getAttachmentList())
+&lt;p class="text-link"&gt;
+     #if($attachment.filesize)
+     #set($filesize = $attachment.filesize / 1024)
+     ##set($filesize = $attachment.filesize)
+     #else
+     #set($filesize = 0)
+     #end
+     &lt;span&gt;$attachment.filename&lt;/span&gt; $attachment.version (${filesize}kb)
+ &lt;/p&gt;
+#end
+#curriki_formpart_end()
+#curriki_formpart_begin($msg.get("form.scratch.step3.header"))
+#curriki_forminstructions($msg.get("form.scratch.step3.instruction"))
+#curriki_formprompt($msg.get("sri.hidden_from_search_title"), $msg.get("sri.hidden_from_search_tooltip"), $msg.get("sri.hidden_from_search_txt"), false, "medium")
+$newAsset.display('hidden_from_search', 'edit')
+&lt;label&gt;$msg.get("sri.hidden_from_search_after")&lt;/label&gt; ##special case where text is needed after display(), which appears as label-less toggle
+#curriki_formprompt($msg.get("sri.right_holder_title"), $msg.get("sri.right_holder_tooltip"), $msg.get("sri.right_holder_txt"), true, "medium")
+$newAsset.display('rightsHolder', 'edit')
+#curriki_formprompt($msg.get("sri.rights_title"), $msg.get("sri.rights_tooltip"), $msg.get("sri.rights_txt"), false, "medium")
+$newAsset.display('rights', 'edit')
+#curriki_formprompt($msg.get("sri.license_type_title"), $msg.get("sri.license_type_tooltip"), $msg.get("sri.license_type_txt"), false, "medium")
+$newAsset.display("licenseType","edit")
+#curriki_formpart_end()
+#curriki_formpart_begin($msg.get("form.scratch.step4.header"))
+#curriki_forminstructions($msg.get("form.scratch.step4.instruction"))
+#curriki_forminstructions("Choose a collection to add this resource to!")
+#set($collections = $xwiki.curriki.fetchUserCollectionsList())
+#set($groups = $xwiki.curriki.fetchUserGroups())
+#foreach($groupName in $groups.keySet())
+  #set($groupInfo = $groups.get($groupName))  
+  #set($groupcolls = $xwiki.curriki.fetchGroupCollectionsList("$groupName"))
+  #if($groupcolls.size() &gt; 0)    
+    &lt;fieldset&gt;&lt;legend&gt;Group $groupInfo.displayTitle Collections:&lt;/legend&gt;&lt;br /&gt;
+    #foreach($collection in $groupcolls)
+      #set($coll = $xwiki.curriki.fetchAssetOrNull($collection))
+      #asset_findtitle($coll)
+      &lt;input type="radio" name="parent" value="$coll.fullName" /&gt; $currikiTitle&lt;br /&gt;
+    #end
+    &lt;/fieldset&gt;
+  #end
+#end
+&lt;fieldset&gt;&lt;legend&gt;$xwiki.getUserName($context.user, false) Collections:&lt;/legend&gt;&lt;br /&gt;
+#foreach($collection in $collections)
+  #set($coll = $xwiki.curriki.fetchAssetOrNull($collection))
+  #asset_findtitle($coll)
+  &lt;input type="radio" name="parent" value="$coll.fullName" /&gt; $currikiTitle&lt;br /&gt;
+#end
+&lt;/fieldset&gt;
+&lt;p class="links"&gt;
+  &lt;button name="submit" value="submit"&gt;$msg.get("form.scratch.submit.button")&lt;/button&gt;
+  #set($cancelURL = $xwiki.getURL("Main.WebHome"))
+  &lt;button class="cancel"&gt;$msg.get("form.scratch.cancel.button")&lt;/button&gt;
+&lt;/p&gt;
+#curriki_formpart_end()
+&lt;/form&gt;
+{{/html}}
+#end
+#end
+{{/velocity}}</content></xwikidoc>
