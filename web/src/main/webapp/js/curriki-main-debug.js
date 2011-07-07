@@ -2012,6 +2012,7 @@ Curriki.DataObservable = function() {
 Ext.extend(Curriki.DataObservable, Ext.util.Observable);
 Curriki.data.EventManager = new Curriki.DataObservable();
 
+/*
 Ext.util.Observable.capture(Curriki.data.EventManager, function(event){
   if(event == 'Curriki.data.ict:ready') {
     Curriki.data.ict.initialized = true;
@@ -2039,11 +2040,15 @@ Ext.util.Observable.capture(Curriki.data.EventManager, function(event){
     Curriki.data.EventManager.fireEvent('Curriki.data:ready');    
   }
 });
+*/
+Curriki.data.EventManager.addListener('Curriki.data.fw_item:ready', function() {
+  Curriki.data.EventManager.fireEvent('Curriki.data:ready');
+});
 
 Ext.ns('Curriki.data.ict');
 Curriki.data.EventManager.addListener('Curriki.data.ict:ready', function() {
-  Curriki.data.ict.ictChildren = Curriki.data.ict.ictAddNode(Curriki.data.ict.ictMap, 'AssetMetadata.WebHome').children;
-});
+  Curriki.data.ict.ictChildren = Curriki.data.ict.ictAddNode(Curriki.data.ict.ictMap, 'TREEROOTNODE').children;
+}); 
 Ext.Ajax.request({
   url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/instructional_component",
   method: 'GET',
@@ -2114,17 +2119,19 @@ Curriki.data.ict.getRolloverDisplay = function(ict_array){
 	var ict = "";
 	var ictMap = Curriki.data.ict.ictMap;
 
-	if (icts[0] === 'AssetMetadata.WebHome') {
+	if (icts[0] === 'TREEROOTNODE') {
 		icts.shift();
 	}
 
 	if ("undefined" !== typeof icts && "undefined" !== typeof icts[0]) {
 		var ictD = "";
 		var icti = icts[0];
-		var ictParent = ictMap['AssetMetadata.WebHome'].find(function(item){
-			return (ictMap[item.id].find(function(sub){
-				return sub.id==icti;
-			}));
+		var ictParent = ictMap['TREEROOTNODE'].find(function(item){
+		  if("undefined" !== typeof ictMap[item.id])
+			  return (ictMap[item.id].find(function(sub){
+				  return sub.id==icti;
+			  }));
+			return;
 		});
 
 		if (!Ext.type(ictParent)) {
@@ -2137,10 +2144,12 @@ Curriki.data.ict.getRolloverDisplay = function(ict_array){
 		if ("undefined" !== typeof icts[1]) {
 			var ictD = "";
 			var icti = icts[1];
-			var ictParent = ictMap['AssetMetadata.WebHome'].find(function(item){
-				return (ictMap[item.id].find(function(sub){
-					return sub.id==icti;
-				}));
+			var ictParent = ictMap['TREEROOTNODE'].find(function(item){
+				if("undefined" !== typeof ictMap[item.id])
+			    return (ictMap[item.id].find(function(sub){
+				    return sub.id==icti;
+			    }));
+			  return;
 			});
 
 			if (!Ext.type(ictParent)) {
@@ -2164,9 +2173,10 @@ Curriki.data.ict.getRolloverDisplay = function(ict_array){
 Ext.ns('Curriki.data.el');
 
 Curriki.data.EventManager.addListener('Curriki.data.el:ready', function() {
-  Curriki.data.el.elChildren = Curriki.data.el.elAddNode(Curriki.data.el.elMap, 'AssetMetadata.WebHome').children;
+  Curriki.data.el.elChildren = Curriki.data.el.elAddNode(Curriki.data.el.elMap, 'TREEROOTNODE').children;
 });
 
+Curriki.data.EventManager.on('Curriki.data.ict:ready', function(){
 Ext.Ajax.request({
   url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/educational_level",
   method: 'GET',
@@ -2184,6 +2194,7 @@ Ext.Ajax.request({
   failure:function(response,options) {
     console.error('Cannot get metadata information', response, options);
   }
+});
 });
 
 Curriki.data.el.elCheckListener = function(node, checked){
@@ -2237,17 +2248,19 @@ Curriki.data.el.getRolloverDisplay = function(el_array){
 	var el = "";
 	var elMap = Curriki.data.el.elMap;
 
-	if (els[0] === 'AssetMetadata.WebHome') {
-		fws.shift();
+	if (els[0] === 'TREEROOTNODE') {
+		els.shift();
 	}
 
 	if ("undefined" !== typeof els && "undefined" !== typeof els[0]) {
 		var elD = "";
 		var eli = els[0];
-		var elParent = elMap['AssetMetadata.WebHome'].find(function(item){
-			return (elMap[item.id].find(function(sub){
-				return sub.id==eli;
-			}));
+		var elParent = elMap['TREEROOTNODE'].find(function(item){
+		  if("undefined" !== typeof elMap[item.id]) 
+			  return (elMap[item.id].find(function(sub){
+				  return sub.id==eli;
+			  }));
+			return;
 		});
 
 		if (!Ext.type(elParent)) {
@@ -2257,13 +2270,15 @@ Curriki.data.el.getRolloverDisplay = function(el_array){
 			elD = _('CurrikiCode.AssetClass_educational_level_'+elParent) + " > "+_('CurrikiCode.AssetClass_educational_level_'+eli);
 		}
 		el += Ext.util.Format.htmlEncode(elD) + "<br />";
-		if ("undefined" !== typeof fws[1]) {
+		if ("undefined" !== typeof els[1]) {
 			var elD = "";
 			var eli = els[1];
-			var elParent = elMap['AssetMetadata.WebHome'].find(function(item){
-				return (elMap[item.id].find(function(sub){
-					return sub.id==eli;
-				}));
+			var elParent = elMap['TREEROOTNODE'].find(function(item){
+				if("undefined" !== typeof elMap[item.id]) 
+			    return (elMap[item.id].find(function(sub){
+				    return sub.id==eli;
+			    }));
+			  return;
 			});
 
 			if (!Ext.type(elParent)) {
@@ -2298,6 +2313,7 @@ Curriki.data.EventManager.addListener('Curriki.data.rights:ready', function() {
   });
 });
 
+Curriki.data.EventManager.on('Curriki.data.el:ready', function(){
 Ext.Ajax.request({
   url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/rights",
   method: 'GET',
@@ -2316,6 +2332,7 @@ Ext.Ajax.request({
     console.error('Cannot get metadata information', response, options);
   }
 });
+});
 
 Ext.ns('Curriki.data.language');
 Curriki.data.EventManager.addListener('Curriki.data.language:ready', function() {
@@ -2333,6 +2350,7 @@ Curriki.data.EventManager.addListener('Curriki.data.language:ready', function() 
   });  
 });
 
+Curriki.data.EventManager.on('Curriki.data.rights:ready', function(){
 Ext.Ajax.request({
   url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/language",
   method: 'GET',
@@ -2351,6 +2369,7 @@ Ext.Ajax.request({
     console.error('Cannot get metadata information', response, options);
   }
 });
+});
 
 Ext.ns('Curriki.data.category');
 Curriki.data.EventManager.addListener('Curriki.data.category:ready', function() {
@@ -2362,6 +2381,7 @@ Curriki.data.EventManager.addListener('Curriki.data.category:ready', function() 
     });
   });
 });
+Curriki.data.EventManager.on('Curriki.data.language:ready', function(){
 Ext.Ajax.request({
   url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/category",
   method: 'GET',
@@ -2380,6 +2400,7 @@ Ext.Ajax.request({
     console.error('Cannot get metadata information', response, options);
   }
 });
+});
 
 Ext.ns('Curriki.data.license');
 Curriki.data.EventManager.addListener('Curriki.data.license:ready', function() {
@@ -2396,6 +2417,7 @@ Curriki.data.EventManager.addListener('Curriki.data.license:ready', function() {
       data: Curriki.data.license.data
     });
 });
+Curriki.data.EventManager.on('Curriki.data.category:ready', function(){
 Ext.Ajax.request({
   url: "/xwiki/curriki/metadata/CurrikiCode.AssetLicenseClass/fields/licenseType",
   method: 'GET',
@@ -2414,12 +2436,14 @@ Ext.Ajax.request({
     console.error('Cannot get metadata information', response, options);
   }
 });
+});
 
 
 Ext.ns('Curriki.data.fw_item');
 Curriki.data.EventManager.addListener('Curriki.data.fw_item:ready', function() {  
-  Curriki.data.fw_item.fwChildren = Curriki.data.fw_item.fwAddNode(Curriki.data.fw_item.fwMap, 'FW_masterFramework.WebHome').children;
+  Curriki.data.fw_item.fwChildren = Curriki.data.fw_item.fwAddNode(Curriki.data.fw_item.fwMap, 'TREEROOTNODE').children;
 });
+Curriki.data.EventManager.on('Curriki.data.license:ready', function(){
 Ext.Ajax.request({
   url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/fw_items",
   method: 'GET',
@@ -2437,6 +2461,7 @@ Ext.Ajax.request({
   failure:function(response,options) {
     console.error('Cannot get metadata information', response, options);
   }
+});
 });
 // For fwTree
 Curriki.data.fw_item.fwCheckListener = function(node, checked){
@@ -2490,17 +2515,19 @@ Curriki.data.fw_item.getRolloverDisplay = function(fw_array){
 	var fw = "";
 	var fwMap = Curriki.data.fw_item.fwMap;
 
-	if (fws[0] === 'FW_masterFramework.WebHome') {
+	if (fws[0] === 'TREEROOTNODE') {
 		fws.shift();
 	}
 
 	if ("undefined" !== typeof fws && "undefined" !== typeof fws[0]) {
 		var fwD = "";
 		var fwi = fws[0];
-		var fwParent = fwMap['FW_masterFramework.WebHome'].find(function(item){
-			return (fwMap[item.id].find(function(sub){
-				return sub.id==fwi;
-			}));
+		var fwParent = fwMap['TREEROOTNODE'].find(function(item){
+		  if("undefined" !== typeof fwMap[item.id])
+			  return (fwMap[item.id].find(function(sub){
+				  return sub.id==fwi;
+			  }));
+			return;
 		});
 
 		if (!Ext.type(fwParent)) {
@@ -2513,10 +2540,12 @@ Curriki.data.fw_item.getRolloverDisplay = function(fw_array){
 		if ("undefined" !== typeof fws[1]) {
 			var fwD = "";
 			var fwi = fws[1];
-			var fwParent = fwMap['FW_masterFramework.WebHome'].find(function(item){
-				return (fwMap[item.id].find(function(sub){
-					return sub.id==fwi;
-				}));
+			var fwParent = fwMap['TREEROOTNODE'].find(function(item){
+				if("undefined" !== typeof fwMap[item.id])
+			    return (fwMap[item.id].find(function(sub){
+				    return sub.id==fwi;
+			    }));
+			  return;
 			});
 
 			if (!Ext.type(fwParent)) {
@@ -2582,7 +2611,7 @@ Curriki.ui.component.asset.getElTree = function(){
 		,rootVisible:true
 		,root: new Ext.tree.AsyncTreeNode({
 			 text:_('CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome')
-			,id:'AssetMetadata.WebHome'
+			,id:'TREEROOTNODE'
 			,cls:'el-item-top el-item-parent el-item'
 			,leaf:false
 			,expanded:true
@@ -2608,7 +2637,7 @@ Curriki.ui.component.asset.getIctTree = function(){
 		,rootVisible:true
 		,root: new Ext.tree.AsyncTreeNode({
 			 text:_('CurrikiCode.AssetClass_instructional_component_AssetMetadata.WebHome')
-			,id:'AssetMetadata.WebHome'
+			,id:'TREEROOTNODE'
 			,cls:'ict-item-top ict-item-parent ict-item'
 			,leaf:false
 			,expanded:true

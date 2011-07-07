@@ -628,6 +628,8 @@ Curriki.module.addpath.init = function(){
 										if (form.isValid()){
 											Curriki.current.sri1 = form.getValues(false);
 											Curriki.current.sri1.fw_items = this.findByType('treepanel')[0].getChecked('id');
+											Curriki.current.sri1.educational_level = this.findByType('treepanel')[1].getChecked('id');
+											Curriki.current.sri1.instructional_component = this.findByType('treepanel')[2].getChecked('id');
 
 											this.close();
 
@@ -1583,13 +1585,6 @@ Curriki.module.addpath.init = function(){
 			// 1. Fill in metadata
 			// 2. Publish asset
 			// 3. Display "Done" message
-
-			if ("string" === typeof Curriki.current.sri1.ict){
-				Curriki.current.sri1.ict = Curriki.current.sri1.ict.split(',');
-			}
-			if ("string" === typeof Curriki.current.sri1.educational_level){
-				Curriki.current.sri1.educational_level = Curriki.current.sri1.educational_level.split(',');
-			}
 
 			var metadata = Curriki.current.sri1;
 			Ext.apply(metadata, Curriki.current.sri2);
