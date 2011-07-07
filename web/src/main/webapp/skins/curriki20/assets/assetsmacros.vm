@@ -491,6 +491,8 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
   * Displays the subjects of an asset for the information areas
   *#
 #macro(asset_info_subject $asset $popup)
+$asset.display('fw_items', 'view')
+#*
 <ul class="asset-info-subject">
     #set($subjects = $!asset.getValue("fw_items"))
     #set($subjectCounter = 0)
@@ -511,12 +513,15 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
     #end
     #end
 </ul>
+*#
 #end
 
 #**
   * Displays the education level of an asset for the information areas
   *#
 #macro(asset_info_edlevel $asset $popup)
+$asset.display('educational_level', 'view')
+#*
 <ul class="asset-info-edlevel">
     #set($edlevels = $!asset.getValue("educational_level"))
     #set($edlevelsCounter = 0)
@@ -537,12 +542,15 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
     #end
     #end
 </ul>
+*#
 #end
 
 #**
   * Displays the instructional component of an asset for the information areas
   *#
 #macro(asset_info_ict $asset $popup)
+$asset.display('instructional_component', 'view')
+#*
 <ul class="asset-info-subject">
     #set($icts = $!asset.getValue("instructional_component"))
     #set($ictCounter = 0)
@@ -563,6 +571,7 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
     #end
     #end
 </ul>
+*#
 #end
 
 
@@ -618,13 +627,13 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
                             </tr>
                             <tr>
                                 <td>
-                                    #asset_info_subject($asset false)
+                                    #asset_info_subject($asset false)                                   
                                 </td>
                                 <td>
-                                    #asset_info_edlevel($asset false)
+                                    #asset_info_edlevel($asset false)                                    
                                 </td>
                                 <td>
-                                    #asset_info_ict($asset false)
+                                    #asset_info_ict($asset false)                                    
                                 </td>
                             </tr>
                         </table>
