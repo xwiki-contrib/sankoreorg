@@ -2035,6 +2035,9 @@ console.log("Published CB: ", newAsset);
 					,cls:'addpath addpath-ctv resource resource-add'
 					,autoScroll:false
 					,width:750
+					,maxHeight:'auto'
+					,collapsible:true
+					,resizeable:true
 					,items:[{
 						 xtype:'panel'
 						,id:'guidingquestion-container'
@@ -2217,19 +2220,6 @@ console.log("Published CB: ", newAsset);
 											wnd.fireEvent('afterlayout', wnd, wnd.getLayout());
 										}
 										,scope:this
-									}
-									,render:function(tPanel){
-//TODO: Try to generalize this (for different # of panels)
-										tPanel.ownerCt.ownerCt.ownerCt.on(
-											'bodyresize'
-											,function(wPanel, width, height){
-												if (height === 'auto') {
-													tPanel.setHeight('auto');
-												} else {
-													tPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+wPanel.findByType('panel')[0].el.getMargins('tb')+wPanel.findByType('panel')[1].getBox().height+wPanel.items.get(1).getFrameHeight()+wPanel.findByType('panel')[1].el.getMargins('tb')+(Ext.isIE?AddPath.ie_size_shift:0)+(Ext.isMac?(2*AddPath.ie_size_shift):0)));
-												}
-											}
-										);
 									}
 								}
 								,root: new Ext.tree.AsyncTreeNode({
