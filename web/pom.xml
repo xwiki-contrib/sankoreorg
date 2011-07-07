@@ -49,6 +49,11 @@
       <artifactId>xwiki-sankore-plugins-curriki</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-sankore-plugins-servlet</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -57,7 +62,7 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>2.0</version>
         <configuration>
-          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-SNAPSHOT.jar</dependentWarExcludes>
+          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-servlet-2.1-SNAPSHOT.jar</dependentWarExcludes>
         </configuration>
       </plugin>
     </plugins>

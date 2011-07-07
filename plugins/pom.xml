@@ -46,5 +46,6 @@
   <modules>
     <module>asset</module>
     <module>curriki</module>
+    <module>servlet</module>
   </modules>
 </project>
