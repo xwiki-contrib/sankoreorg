@@ -51,7 +51,7 @@ function editWelcomeBlockCallback(ajaxreq) {
   //new WysiwygEditor({hookId:'XWiki.CurrikiWelcomeBlockClass_0_content'});
 }
 function cancelEditWelcomeBlock(spaceName,pageName,divid) {
- if (confirm('$msg.groups_welcomeblock_confirmcancel')) {
+ if (confirm("$msg.groups_welcomeblock_confirmcancel")) {
    if(Prototype.Browser.IE) {
     history.go(0); 
    } else {
@@ -117,7 +117,7 @@ function checkFileExtension() {
     isValid = false;
   }
   if (!isValid) {
-    alert("$msg.get("mycurriki.profile.needPicture")");
+    alert("$msg.get('mycurriki.profile.needPicture')");
   }
   return isValid;
 }
@@ -143,7 +143,7 @@ function editGroupInfoCallback(ajaxreq) {
  $(divid).innerHTML = ajaxreq.transport.responseText;
 }
 function cancelEditGroupInfo(spaceName,divid) {
-  if (confirm('$msg.groups_welcomeblock_confirmcancel')) {
+  if (confirm("$msg.groups_welcomeblock_confirmcancel")) {
    var pars = "space=" + spaceName + "&divid=" + divid + "&xpage=plain";
    $(divid).innerHTML = "<p>${msg.groups_loadinginprogress}</p>";
    // call url to get the edit html to edit the profile
