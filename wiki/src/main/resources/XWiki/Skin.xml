@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1307371298000</creationDate>
-<date>1307371298000</date>
-<contentUpdateDate>1307371298000</contentUpdateDate>
+<creationDate>1310399234000</creationDate>
+<date>1310399234000</date>
+<contentUpdateDate>1310399234000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -2729,10 +2729,14 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
       placeHolder.style.display = '';
     }
   }
+
+  function clearLoginUsername(input) {
+    if(input.value == "$msg.get('header.login_username')"){input.value=''} else {input.select()};
+  }
 &lt;/script&gt;
 &lt;form action="$xwiki.getURL("XWiki.XWikiLogin", "loginsubmit", "$logredir")" method="post"&gt;
   &lt;input type="hidden" name="srid" value="$!request.srid" /&gt;
-  &lt;input class="input" id="j_loginname" tabindex="1" type="text" name="j_username" value="#if("$!request.j_username" != "")$request.j_username#else${msg.get("header.login_username")}#end" onfocus="if (this.value=='$msg.get("header.login_username")'){this.value=''} else {this.select()};" onblur="if (this.value==''){this.value='$msg.get("header.login_username")';}"/&gt;
+  &lt;input class="input" id="j_loginname" tabindex="1" type="text" name="j_username" value="#if("$!request.j_username" != "")$request.j_username#else${msg.get("header.login_username")}#end" onfocus="clearLoginUsername(this);" onblur="if (this.value==''){this.value='$msg.get("header.login_username")';}" /&gt;
   &lt;input class="input password" id="j_loginpwd_placeholder" tabindex="2" type="text" value="$msg.get("header.login_password")" onfocus="showLoginPasswordInput.apply(this)"/&gt;
   &lt;input class="input password" id="j_loginpwd" tabindex="2" type="password" name="j_password" onfocus="this.select()" onblur="hideLoginPasswordInput.apply(this)" style="display:none;"/&gt;
   &lt;!-- remember me --&gt;
@@ -5088,6 +5092,7 @@ document.write(unescape("%3Clink rel='stylesheet' type='text/css' href='" + ejcL
 ##we should not need that one
 ##&lt;link href="$xwiki.getSkinFile("curriki/style2.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("sankore.css", false)" rel="stylesheet" type="text/css"  /&gt;
+&lt;link href="$xwiki.getSkinFile("js/yui/treeview/assets/tree.css", false)" rel="stylesheet" type="text/css"  /&gt;
 ## ext-js script taken from here
 
 #if($doc.getObject("CurrikiCode.AssetClass"))
@@ -5112,5 +5117,4 @@ document.write(unescape("%3Clink rel='stylesheet' type='text/css' href='" + ejcL
 ## Hook for inserting CSS skin extensions
 &lt;!-- com.xpn.xwiki.plugin.skinx.CssSkinExtensionPlugin --&gt;
 &lt;!-- com.xpn.xwiki.plugin.skinx.CssSkinFileExtensionPlugin --&gt;
- 
 </stylesheets.vm></property><property><view.vm></view.vm></property><property><viewheader.vm></viewheader.vm></property><property><views.css></views.css></property></object><content></content></xwikidoc>
