@@ -2582,7 +2582,7 @@ Curriki.ui.component.asset.getFwTree = function(){
 		,animate:true
 		,enableDD:false
 		,containerScroll:true
-		,rootVisible:true
+		,rootVisible:false
 		,root: new Ext.tree.AsyncTreeNode({
 			 text:_('CurrikiCode.AssetClass_fw_items_FW_masterFramework.WebHome')
 			,id:'FW_masterFramework.WebHome'
@@ -2608,7 +2608,7 @@ Curriki.ui.component.asset.getElTree = function(){
 		,animate:true
 		,enableDD:false
 		,containerScroll:true
-		,rootVisible:true
+		,rootVisible:false
 		,root: new Ext.tree.AsyncTreeNode({
 			 text:_('CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome')
 			,id:'TREEROOTNODE'
@@ -2634,7 +2634,7 @@ Curriki.ui.component.asset.getIctTree = function(){
 		,animate:true
 		,enableDD:false
 		,containerScroll:true
-		,rootVisible:true
+		,rootVisible:false
 		,root: new Ext.tree.AsyncTreeNode({
 			 text:_('CurrikiCode.AssetClass_instructional_component_AssetMetadata.WebHome')
 			,id:'TREEROOTNODE'
