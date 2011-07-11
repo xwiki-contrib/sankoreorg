@@ -793,9 +793,9 @@ $s.display("description","edit")
 #if($logofilename&&$logoattach)
 #set($redirect = $xwiki.requestURL)
 #set($url = $doc.getAttachmentURL($logofilename, "delattachment", "xredirect=${redirect}"))
-$msg.get("groups_home_editmasthead_logo_infotxt_withlogo", [$url])
+{{html}}$msg.get("groups_home_editmasthead_logo_infotxt_withlogo", [$url]){{/html}}
 #else
-$msg.groups_home_editmasthead_logo_infotxt_withoutlogo
+{{html}}$msg.groups_home_editmasthead_logo_infotxt_withoutlogo{{/html}}
 #end
 </p>
 </div>
