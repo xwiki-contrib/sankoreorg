@@ -789,26 +789,20 @@ $asset.use("CurrikiCode.AssetClass")
          var title = form.title.value;
          var desc = form["CurrikiCode.AssetClass_0_description"].value;
          var subject = form["CurrikiCode.AssetClass_0_fw_items"].value;
-         var ict = form["CurrikiCode.AssetClass_0_instructional_component"][0].value;
+         var ict = form["CurrikiCode.AssetClass_0_instructional_component"].value;
 #if($isOriginalAuthorOrAdmin)
          var rightsholder = form["CurrikiCode.AssetLicenseClass_0_rightsHolder"].value;
 #end
-         var edlevels = form["CurrikiCode.AssetClass_0_educational_level"];
-         var edlevelchecked = false;
-         for (var i=0;i<edlevels.length;i++) {
-             var el = edlevels[i];
-             if (el.checked)
-              edlevelchecked = true;
-         }
-
+         var edlevels = form["CurrikiCode.AssetClass_0_educational_level"].value;
+         
          // hack to add line breaks
          if (title=="")
           message += "%0A" + "$xwiki.curriki.escapeForJS($msg.get("rve.information.error.required.title"))";
          if (desc=="")
           message += "%0A" + "$xwiki.curriki.escapeForJS($msg.get("rve.information.error.required.description"))";
-         if (subject=="FW_masterFramework.WebHome")
+         if (subject=="")
           message += "%0A" + "$xwiki.curriki.escapeForJS($msg.get("rve.information.error.required.subject"))";
-         if (!edlevelchecked)
+         if (edlevels=="")
           message += "%0A" + "$xwiki.curriki.escapeForJS($msg.get("rve.information.error.required.edlevel"))";
          if (ict=="")
           message += "%0A" + "$xwiki.curriki.escapeForJS($msg.get("rve.information.error.required.ict"))";
