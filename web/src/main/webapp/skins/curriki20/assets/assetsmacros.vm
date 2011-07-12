@@ -968,67 +968,53 @@ nr.applyToMarkup('XWiki.XWikiComments_rating');
  * Delete Comment Service called from CurrikiCode.DeleteCommentService
  *#
 #macro(asset_deletecomment_service)
-<!-- Message Start -->
-## since this is called from the Groups.DeleteCommentServicePage we need to change the
-## $doc so that it finds the right space name
-#set($doc = $xwiki.getDocument($request.docname))
-#if("$!request.confirm" == "1") ## {
-#set($deletedoc = $xwiki.getDocument($request.docname))
-#if("$!request.date" != "") ## {
-#set($comments = $deletedoc.getComments())
-#set($resource = $deletedoc.getObject("CurrikiCode.AssetClass"))
-#foreach($comment in $comments) ## {
-#set($time = $deletedoc.getValue('date', $comment).time)
-#if(($request.date == "$time") && ( ($comment.author == $context.user) || $xwiki.hasAdminRights())) ## {
-#set($Integer = 0)
-#set($rating = "")
-#set($rating = $!comment.rating)
-#if("$!rating" != "" && "$!rating" != "0") ##{
-#set($rating = $Integer.parseInt($rating))
-##
-#set($rating_count = 0)
-#set($rating_count = $!resource.rating_count)
-#if("$!rating_count" == "" || "$!rating_count" == "0") ##{
-#set($rating_count = 0)
-#else ##}{
-#set($rating_count = $Integer.parseInt($resource.rating_count))
-#set($rating_count = $rating_count - 1)
-#end ##}
-##
-#set($rating_sum = 0)
-#set($rating_sum = $!resource.rating_sum)
-#if("$!rating_sum" == "" || "$!rating_sum" == "0") ##{
-#set($rating_sum = 0)
-#else ##}{
-#set($rating_sum = $Integer.parseInt($resource.rating_sum))
-#set($rating_sum = $rating_sum - $rating)
-#end ##}
-##
-#if($rating_count != 0) ##{
-#set($res_rating = $rating_sum / $rating_count)
-#set($res_rating_rem = $rating_sum % $rating_count)
-#set($res_rating = $res_rating + (($res_rating_rem * 2) / $rating_count))
-#set($ok = $resource.set("rating_count", $rating_count.longValue()))
-#set($ok = $resource.set("rating_sum", $rating_sum.longValue()))
-#set($ok = $resource.set("rating", $res_rating))
-#else ##}{
-#set($ok = $resource.set("rating_count", "0"))
-#set($ok = $resource.set("rating_sum", "0"))
-#set($ok = $resource.set("rating", "0"))
-#end ##}
-#end ##}
-#set($junk = $deletedoc.removeObject($comment))
-#set($junk = $deletedoc.saveWithProgrammingRights($msg.get("rve.comments.comment.revision.delete")))
-DELETED
-#end ## }  ## if
-#end ## }  ## foreach
-$response.sendRedirect($request.xredirect)
+#if("$!request.confirm" == "1")
+  #set($asset = $xwiki.curriki.fetchAssetOrNull($!request.docname))
+  #if("$!request.date" != "")
+    #set($comments = $asset.getComments())
+    #set($resource = $asset.getObject("CurrikiCode.AssetClass"))
+    #foreach($comment in $comments)
+      #set($time = $comment.getProperty("date").value)
+      #set($time = $time.time)
+      #if(($request.date == "$!time") && (($comment.author == $context.user) || $xwiki.hasAdminRights()))
+        #set($rating = $comment.getProperty("rating").value)
+        #set($rating = $util.parseInt("$!rating"))
+        #if($rating > 0)
+          #set($rating_count = $!resource.getProperty("rating_count").value)
+          #set($rating_count = $util.parseInt("$!rating_count"))
+          #if($rating_count > 0)
+            #set($rating_count = $rating_count - 1)
+          #end
+          #set($rating_sum = $resource.getProperty("rating_sum").value)
+          #set($rating_sum = $util.parseInt("$!rating_sum"))
+          #if($rating_sum > 0)
+            #set($rating_sum = $rating_sum - $rating)
+          #end
+          #if($rating_count != 0)
+            #set($res_rating = $rating_sum / $rating_count)
+            #set($res_rating_rem = $rating_sum % $rating_count)
+            #set($res_rating = $res_rating + (($res_rating_rem * 2) / $rating_count))
+            $resource.set("rating_count", $rating_count.longValue())
+            $resource.set("rating_sum", $rating_sum.longValue())
+            $resource.set("rating", $res_rating.longValue())
+          #else
+            $resource.set("rating_count", "0")
+            $resource.set("rating_sum", "0")
+            $resource.set("rating", "0")
+          #end
+        #end
+        $asset.removeObject($comment)
+        $asset.saveWithProgrammingRights($msg.get("rve.comments.comment.revision.delete"))
+        DELETED
+      #end
+    #end
+    $response.sendRedirect($request.xredirect)
+  #else
+    #warning("Request invalid: comment date was not provided.")
+  #end
 #else
-#warning("Request invalid: comment date was not provided.")
-#end ## end if date
-#else
-#warning("Request invalid: call was not made from a javascript link.")
-#end ## end if confirm
+  #warning("Request invalid: call was not made from a javascript link.")
+#end
 #end ## end macro
 
 #**
@@ -1221,85 +1207,64 @@ $msg.get("rve.comments.commentrating.comment.add_title")
 #macro(asset_createcomment_service)
 {pre}
 #set($page = $request.page)
-#set($asset = $xwiki.getDocument($page))
-#if($xwiki.hasAccessLevel("comment", "$page")) ##{
-#set($comment = $asset.newObject("XWiki.XWikiComments"))
-#set($ok = $asset.use($comment))
-$asset.set("author", $context.user)
-$asset.set("comment", $request.get("XWiki.XWikiComments_comment"))
-$asset.set("date", $xwiki.date)
-#set($cRating = "")
-#set($cRating = $request.get("XWiki.XWikiComments_rating"))
-#set($autonominate = false)
-#if("$!cRating" != "" && "$!cRating" != 0) ##{
-$asset.set("rating", $cRating)
-## Add any new rating
-#set($Integer = 0)
-#set($rating = $Integer.parseInt($cRating))
-#set($resource = $asset.getObject("CurrikiCode.AssetClass"))
-##
-#set($rating_count = 0)
-#set($rating_count = $!resource.rating_count)
-#if("$!rating_count" == "" || "$!rating_count" == "0") ##{
-#set($rating_count = 0)
-#else ##}{
-#set($rating_count = $Integer.parseInt($resource.rating_count))
-#end ##}
-#set($rating_count = $rating_count + 1)
-##
-#set($rating_sum = 0)
-#set($rating_sum = $!resource.rating_sum)
-#if("$!rating_sum" == "" || "$!rating_sum" == "0") ##{
-#set($rating_sum = 0)
-#else ##}{
-#set($rating_sum = $Integer.parseInt($resource.rating_sum))
-#end ##}
-#set($rating_sum = $rating_sum + $rating)
-##
-#set($res_rating = $rating_sum / $rating_count)
-#set($res_rating_rem = $rating_sum % $rating_count)
-#set($res_rating = $res_rating + (($res_rating_rem * 2) / $rating_count))
-#set($ok = $resource.set("rating_count", $rating_count.longValue()))
-#set($ok = $resource.set("rating_sum", $rating_sum.longValue()))
-#set($ok = $resource.set("rating", $res_rating))
-##
-## IF no CRS status + rated >=3 then auto nominate
-#if($res_rating >= 3) ##{
-#set($ok = $asset.use("CurrikiCode.AssetClass"))
-#set($rights = $!asset.getValue("rights"))
-#if($asset.getObject("CRS.CurrikiReviewStatusClass")) ##{
-#set($ok = $asset.use("CRS.CurrikiReviewStatusClass"))
-#set($status = $asset.getValue("status"))
-#else ##}{
-#set($status = "")
-#end ##}
-#set($ok = $asset.use("CRS.CurrikiReviewStatusClass"))
-#set($nomination = $!asset.getValue("reviewpending"))
-#if("$!nomination"=="1") ##{
-## asset is in review pending status
-## already nominated
-#elseif((!$status)||($status=="100")||($status=="")) ##}{
-## no crs rating has been set
-#if("$!rights" == "private") ##{
-## Ignored for nomination
-#else ##}{
-#set($autonominate = true)
-#end ##}
-#end ##}
-#end ##}
-##
-#end ##}
-$asset.saveWithProgrammingRights($msg.get("rve.comments.comment.revision.add"))
-#if($autonominate) ##{
-#set($ok = $asset.nominate($msg.get("curriki.crs.nominate.automatic_due_to_rating.note")))
-#end ##}
-#set($redirect = "")
-#set($redirect = $!request.xredirect)
-#set($redirect = $redirect.replace('addcomment=true', ''))
-$response.sendRedirect($redirect)
-#else ##}{
-#curriki_noaccess()
-#end ##}
+#set($asset = $xwiki.curriki.fetchAssetOrNull($page))
+#if($xwiki.hasAccessLevel("comment", "$page"))
+  #set($comment = $asset.newObject("XWiki.XWikiComments"))
+  $comment.set("author", $context.user)
+  $comment.set("comment", $request.get("XWiki.XWikiComments_comment"))
+  $comment.set("date", $util.date)
+  #set($rating = $!request.get("XWiki.XWikiComments_rating"))
+  #set($rating = $util.parseInt("$!rating"))
+  #set($autonominate = false)
+  #if($rating != 0)
+    $comment.set("rating", $rating.longValue())
+    ## Add any new rating
+    #set($resource = $asset.getObject("CurrikiCode.AssetClass"))
+    #set($rating_count = $resource.getProperty("rating_count").value)
+    #set($rating_count = $util.parseInt("$!rating_count"))
+    #set($rating_count = $rating_count + 1)
+    #set($rating_sum = $resource.getProperty("rating_sum").value)
+    #set($rating_sum = $util.parseInt("$!rating_sum"))
+    #set($rating_sum = $rating_sum + $rating)
+    #set($res_rating = $rating_sum / $rating_count)
+    #set($res_rating_rem = $rating_sum % $rating_count)
+    #set($res_rating = $res_rating + (($res_rating_rem * 2) / $rating_count))
+    #set($res_rating = $util.parseInt("$!res_rating"))
+    $resource.set("rating_count", $rating_count.longValue())
+    $resource.set("rating_sum", $rating_sum.longValue())
+    $resource.set("rating", $res_rating.longValue())
+    ##
+    ## IF no CRS status + rated >=3 then auto nominate
+    #if($res_rating >= 3)
+      #set($rights = $!resource.getProperty("rights").value)
+      #set($reviewstatus = $asset.getObject("CRS.CurrikiReviewStatusClass"))
+      #if($reviewstatus)
+        #set($status = $!reviewstatus.getProperty("status").value)
+        #set($nomination = $!reviewstatus.getProperty("reviewpending").value)
+      #end
+      #if("$!nomination" == "1")
+        ## asset is in review pending status
+        ## already nominated
+      #elseif((!$status)||($status=="100")||($status==""))
+        ## no crs rating has been set
+        #if("$!rights" == "private")
+          ## Ignored for nomination
+        #else
+          #set($autonominate = true)
+        #end
+      #end
+    #end
+  #end
+  $asset.saveWithProgrammingRights($msg.get("rve.comments.comment.revision.add"))
+  #if($autonominate)
+    $asset.nominate($msg.get("curriki.crs.nominate.automatic_due_to_rating.note"))
+  #end
+  #set($redirect = $!request.xredirect)
+  #set($redirect = $redirect.replace('addcomment=true', ''))
+  $response.sendRedirect($redirect)
+#else
+  #curriki_noaccess()
+#end
 {/pre}
 #end
 
@@ -1310,100 +1275,81 @@ $response.sendRedirect($redirect)
 #macro(asset_savecomment_service)
 {pre}
 #set($page = $request.page)
-#set($asset = $xwiki.getDocument($page))
-#set($commentnb = $xwiki.parseInt($request.nb))
+#set($asset = $xwiki.curriki.fetchAssetOrNull($page))
+#set($commentnb = $util.parseInt($request.nb))
 #set($comment = $asset.getObject("XWiki.XWikiComments", $commentnb))
-#set($ok = $asset.use($comment))
-#set($author = $asset.getValue("author"))
+##set($ok = $asset.use($comment))
+#set($author = $comment.getProperty("author").value)
 #if(($author==$context.user)||$hasGlobalAdmin) ##{
-## Update summary rating
-#set($resource = $asset.getObject("CurrikiCode.AssetClass"))
-#set($Integer = 0)
-##
-## Remove any old rating values
-#set($rating_count = 0)
-#set($rating_count = $!resource.rating_count)
-#if("$!rating_count" == "" || "$!rating_count" == "0") ##{
-#set($rating_count = 0)
-#else ##}{
-#set($rating_count = $Integer.parseInt($resource.rating_count))
-#end ##}
-##
-#set($rating_sum = 0)
-#set($rating_sum = $!resource.rating_sum)
-#if("$!rating_sum" == "" || "$!rating_sum" == "0") ##{
-#set($rating_sum = 0)
-#else ##}{
-#set($rating_sum = $Integer.parseInt($resource.rating_sum))
-#end ##}
-##
-#set($oldRating = "")
-#set($oldRating = $!comment.rating)
-#if("$!oldRating" != "" && "$!oldRating" != "0") ##{
-#set($oldRating = $Integer.parseInt($oldRating))
-#set($rating_count = $rating_count - 1)
-#set($rating_sum = $rating_sum - $oldRating)
-#else ##}{
-#set($oldRating = 0)
-#end ##}
-##
-## Update comment
-$asset.set("comment", $request.get("XWiki.XWikiComments_${commentnb}_comment"))
-$asset.set("rating", $request.get("XWiki.XWikiComments_${commentnb}_rating"))
-$asset.set("date", $xwiki.date)
-##
-## Add any new rating
-#set($newRating = "")
-#set($newRating = $request.get("XWiki.XWikiComments_${commentnb}_rating"))
-#if("$!newRating" != "" && "$!newRating" != "0") ##{
-#set($newRating = $Integer.parseInt($newRating))
-#set($rating_count = $rating_count + 1)
-#set($rating_sum = $rating_sum + $newRating)
-#end ##}
-##
-#if($rating_count != 0) ##{
-#set($res_rating = $rating_sum / $rating_count)
-#set($res_rating_rem = $rating_sum % $rating_count)
-#set($res_rating = $res_rating + (($res_rating_rem * 2) / $rating_count))
-#set($ok = $resource.set("rating_count", $rating_count.longValue()))
-#set($ok = $resource.set("rating_sum", $rating_sum.longValue()))
-#set($ok = $resource.set("rating", $res_rating))
-#else ##}{
-#set($ok = $resource.set("rating_count", "0"))
-#set($ok = $resource.set("rating_sum", "0"))
-#set($ok = $resource.set("rating", "0"))
-#end ##}
-$asset.saveWithProgrammingRights($msg.get("rve.comments.comment.revision.edit"))
-##
-## IF no CRS status + rated >=3 then auto nominate
-#if($res_rating >= 3) ##{
-#set($ok = $asset.use("CurrikiCode.AssetClass"))
-#set($rights = $!asset.getValue("rights"))
-#if($asset.getObject("CRS.CurrikiReviewStatusClass")) ##{
-#set($ok = $asset.use("CRS.CurrikiReviewStatusClass"))
-#set($status = $asset.getValue("status"))
-#else ##}{
-#set($status = "")
-#end ##}
-#set($ok = $asset.use("CRS.CurrikiReviewStatusClass"))
-#set($nomination = $!asset.getValue("reviewpending"))
-#if("$!nomination"=="1") ##{
-## asset is in review pending status
-## already nominated
-#elseif((!$status)||($status=="100")||($status=="")) ##}{
-## no crs rating has been set
-#if("$!rights" == "private") ##{
-## Ignored for nomination
-#else ##}{
-#set($ok = $asset.nominate($msg.get("curriki.crs.nominate.automatic_due_to_rating.note")))
-#end ##}
-#end ##}
-#end ##}
-##
-$response.sendRedirect($request.xredirect)
-#else ##}{
-#curriki_noaccess()
-#end ##}
+  ## Update summary rating
+  #set($resource = $asset.getObject("CurrikiCode.AssetClass"))
+  ##
+  ## Remove any old rating values
+  #set($rating_count = $!resource.getProperty("rating_count").value)
+  #set($rating_count = $util.parseInt("$!rating_count"))
+  ##
+  #set($rating_sum = $!resource.getProperty("rating_sum").value)
+  #set($rating_sum = $util.parseInt("$!rating_sum"))
+  ##
+  #set($oldRating = $!comment.getProperty("rating").value)
+  #set($oldRating = $util.parseInt("$!oldRating"))
+  #if($oldRating > 0)
+    #set($rating_count = $rating_count - 1)
+    #set($rating_sum = $rating_sum - $oldRating)
+  #end
+  ## Add any new rating
+  #set($newRating = $!request.get("XWiki.XWikiComments_${commentnb}_rating"))
+  #set($newRating = $util.parseInt("$!newRating"))
+  ##
+  ## Update comment
+  #set($discard = $comment.set("comment", $!request.get("XWiki.XWikiComments_${commentnb}_comment")))
+  #set($discard = $comment.set("rating", $newRating.longValue()))
+  #set($discard = $comment.set("date", $util.date))
+  ##
+  #if($newRating > 0)
+    #set($rating_count = $rating_count + 1)
+    #set($rating_sum = $rating_sum + $newRating)
+  #end
+  ##
+  #if($rating_count != 0)
+    #set($res_rating = $rating_sum / $rating_count)
+    #set($res_rating_rem = $rating_sum % $rating_count)
+    #set($res_rating = $res_rating + (($res_rating_rem * 2) / $rating_count))
+    #set($discard = $resource.set("rating_count", $rating_count.longValue()))
+    #set($discard = $resource.set("rating_sum", $rating_sum.longValue()))
+    #set($discard = $resource.set("rating", $res_rating.longValue()))
+  #else
+    #set($discard = $resource.set("rating_count", 0))
+    #set($discard = $resource.set("rating_sum", 0))
+    #set($discard = $resource.set("rating", 0))
+  #end
+  $asset.saveWithProgrammingRights($msg.get("rve.comments.comment.revision.edit"))
+  ##
+  ## IF no CRS status + rated >=3 then auto nominate
+  #if($res_rating >= 3)
+    #set($rights = $!resource.getProperty("rights").value)
+    #set($reviewstatus = $asset.getObject("CRS.CurrikiReviewStatusClass"))
+    #if($reviewstatus)
+      #set($status = $!reviewstatus.getProperty("status").value)
+      #set($nomination = $!reviewstatus.getProperty("reviewpending").value)
+    #end
+    #if("$!nomination"=="1")
+      ## asset is in review pending status
+      ## already nominated
+    #elseif((!$status)||($status=="100")||($status==""))
+      ## no crs rating has been set
+      #if("$!rights" == "private")
+        ## Ignored for nomination
+      #else
+        #set($discard = $asset.nominate($msg.get("curriki.crs.nominate.automatic_due_to_rating.note")))
+      #end
+    #end
+  #end
+  ##
+  $response.sendRedirect($request.xredirect)
+#else
+  #curriki_noaccess()
+#end
 {/pre}
 #end
 
