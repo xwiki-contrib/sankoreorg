@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1310995514000</creationDate>
-<date>1310995514000</date>
-<contentUpdateDate>1310995514000</contentUpdateDate>
+<creationDate>1311006023000</creationDate>
+<date>1311006023000</date>
+<contentUpdateDate>1311006023000</contentUpdateDate>
 <version>1.1</version>
 <title>About Finding &amp; Collecting</title>
 <template></template>
@@ -25,8 +25,8 @@
 <filename>placer.jpg</filename>
 <filesize>20898</filesize>
 <author>XWiki.jeromy</author>
-<date>1214598834000</date>
-<version>1.4</version>
+<date>1311000368000</date>
+<version>1.5</version>
 <comment></comment><content>/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAXAAA/+4ADkFkb2JlAGTAAAAAAf/b
 AIQAAQEBAQEBAQEBAQEBAQEBAgEBAQECAgICAgICAgMCAgICAgIDAwMDAwMDAwQEBAQEBAYGBgYG
 BwcHBwcHBwcHBwEBAQECAgIEAwMEBgUEBQYHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcH
@@ -397,8 +397,8 @@ upLzrLd7iNlIVWoARVff8o10lujS7quSPlYXNH8IdT5UK//Z</content></attachment><attachme
 <filename>VideoIcon.png</filename>
 <filesize>3184</filesize>
 <author>XWiki.jeromy</author>
-<date>1214598834000</date>
-<version>1.4</version>
+<date>1311000368000</date>
+<version>1.5</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABYAAAAaCAYAAACzdqxAAAAACXBIWXMAAAsTAAALEwEAmpwYAAAK
 T2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AU
 kSYqIQkQSoghodkVUcERRUUEG8igiAOOjoCMFVEsDIoK2AfkIaKOg6OIisr74Xuja9a89+bN/rXX
@@ -459,8 +459,8 @@ qQ9ziCFFeF6950jD7BvSst/ve7Pwnt+y7O6/om+wZXN5pXdnx3EHc+z3ef9tx47rDsexNMx/x58c
 <filename>AboutFindImage.jpg</filename>
 <filesize>54051</filesize>
 <author>XWiki.jeromy</author>
-<date>1214598834000</date>
-<version>1.4</version>
+<date>1311000368000</date>
+<version>1.5</version>
 <comment></comment><content>/9j/4AAQSkZJRgABAgEASABIAAD/4RlFRXhpZgAATU0AKgAAAAgACwEOAAIAAAFOAAAAkgEPAAIA
 AAASAAAB4AEQAAIAAAAKAAAB8gESAAMAAAABAAEAAAEaAAUAAAABAAAB/AEbAAUAAAABAAACBAEo
 AAMAAAABAAIAAAExAAIAAAAeAAACDAEyAAIAAAAUAAACKgE7AAIAAAAOAAACPodpAAQAAAABAAAC
@@ -1413,29 +1413,16 @@ jpr9n+9/2P2v1ZHqzf/Z</content></attachment>
 <content>&lt;div style="text-align:right;margin-top:-15px;"&gt;&lt;a href="/xwiki/bin/view/Main/AboutContributing"&gt;About Contributing&lt;/a&gt; | &lt;a href="/xwiki/bin/view/Main/AboutConnecting"&gt;About Connecting&lt;/a&gt;&lt;/div&gt;
 &lt;h1 style="color:#ff7f00;"&gt;About Finding &amp;amp; Collecting&lt;/h1&gt;
 &lt;br /&gt;
-&lt;img src="/xwiki/bin/download/Main/AboutFindingCollecting/VideoIcon.png" style="float:left;margin:-3px 5px 0 0;" alt="" width="22" height="26" border="0" /&gt;&lt;a href="/xwiki/bin/view/Coll_curriki/Tutorial3SearchBrowseforResources?bc=;Coll_curriki.Tutorials;Coll_curriki.SearchBrowseforResources"&gt;Tutorial: Search &amp;amp; Browse&lt;/a&gt;
+&lt;p&gt;
+&lt;img src="/xwiki/bin/download/Main/AboutFindingCollecting/VideoIcon.png" style="float:left;margin:-3px 5px 0 0;" alt="" width="22" height="26" border="0" /&gt;&lt;a target="_blank" href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/VideoTutorialHowToUseAdvancedSearch?bc=;Coll_curriki.Tutorials;Coll_curriki.TutorialsHowtoSearchBrowseFindResources"&gt;Tutorial: How to use Advanced Search&lt;/a&gt;
+&lt;/p&gt;
 &lt;br /&gt;
-&lt;div class="headerbar orange"&gt;Finding Resources on Curriki&lt;/div&gt;
-&lt;div style="float:right;margin-top:-7px;font-size:10px;text-align:right;"&gt;&lt;img src="/xwiki/bin/download/Main/AboutFindingCollecting/AboutFindImage.jpg" alt="" width="230" height="170" border="0" /&gt;&lt;br /&gt;Photo Credit: Lloyd Gallman&lt;/div&gt;
+&lt;div class="titleheader titleheader-blue"&gt;&lt;h2&gt;Finding Resources on Curriki&lt;/h2&gt;&lt;/div&gt;
+&lt;div style="float:right;font-size:10px;text-align:right;"&gt;&lt;img src="/xwiki/bin/download/Main/AboutFindingCollecting/AboutFindImage.jpg" alt="" width="230" height="170" border="0" /&gt;&lt;br /&gt;Photo Credit: Lloyd Gallman&lt;/div&gt;
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;Access top-rated curricula in core subjects.&lt;/p&gt;
-{pre}
-    &lt;table border="0" width="300" cellpadding="5"&gt;
-    &lt;tr&gt;
-      &lt;td width="30%"&gt;&lt;a href="/xwiki/bin/view/Main/GWTSearch#XWiki.AssetClass.fw_items=FW_masterFramework.Mathematics&amp;__crs=topreviewed&amp;__go=1"&gt;&amp;raquo; Math&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/xwiki/bin/view/Main/GWTSearch#XWiki.AssetClass.fw_items=FW_masterFramework.LanguageArts&amp;__crs=topreviewed&amp;__go=1"&gt;&amp;raquo; English Language Arts&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/xwiki/bin/view/Main/GWTSearch#XWiki.AssetClass.fw_items=FW_masterFramework.Science&amp;__crs=topreviewed&amp;__go=1"&gt;&amp;raquo; Science&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/xwiki/bin/view/Main/GWTSearch#XWiki.AssetClass.fw_items=FW_masterFramework.SocialStudies&amp;__crs=topreviewed&amp;__go=1"&gt;&amp;raquo; Social Studies&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;/table&gt;
-{/pre}
-  &lt;/li&gt;
-  &lt;li&gt;
     &lt;p&gt;Search Curriki’s growing repository.&lt;/p&gt;
-    &lt;p&gt;&lt;a href="http://www.curriki.org/xwiki/bin/view/Main/GWTSearch#__advShow=1"&gt;&amp;raquo; Try an Advanced Search&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href="/xwiki/bin/view/Search/"&gt;&amp;raquo; Try an Advanced Search&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Locate resources in any subject area.&lt;/p&gt;
@@ -1443,7 +1430,7 @@ jpr9n+9/2P2v1ZHqzf/Z</content></attachment>
   &lt;/li&gt;
 &lt;/ul&gt;
 &lt;br clear="all" /&gt;&lt;br /&gt;
-&lt;div class="headerbar orange"&gt;How to Collect Resources&lt;/div&gt;
+&lt;div class="titleheader titleheader-blue"&gt;&lt;h2&gt;How to Collect Resources&lt;/h2&gt;&lt;/div&gt;
 &lt;div style="padding:6px"&gt;
   &lt;p&gt;
   #if($context.user=="XWiki.XWikiGuest")
@@ -1455,43 +1442,36 @@ jpr9n+9/2P2v1ZHqzf/Z</content></attachment>
   &lt;br /&gt;
   &lt;table border="0" width="100%"&gt;
   &lt;tr valign="top"&gt;
-    &lt;td width="50%" style="padding:10px 50px 10px 0;border-right:1px solid #ff7f00;"&gt;
-      &lt;h2&gt;Search &amp;amp; Bookmark Using&lt;br /&gt;Your Favorites&lt;/h2&gt;
+    &lt;th width="50%" style="padding:10px 50px 10px 0;border:none;background-color:#fff;"&gt;&lt;h3&gt;Search &amp;amp; Bookmark Using&lt;br /&gt;Your Favorites&lt;/h3&gt;&lt;/th&gt;
+    &lt;th width="50%" style="padding:10px 30px 10px 30px;border:none;background-color:#fff;"&gt;&lt;h3&gt;Organize &amp;amp; Present Resources&lt;br /&gt;in a Collection&lt;/h3&gt;&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr valign="top"&gt;
+    &lt;td width="50%" style="padding:10px 50px 10px 0;border:none;"&gt;      
       &lt;p&gt;Collecting this way is quick and easy.&lt;/p&gt;
-      &lt;div style="padding:15px;"&gt;
-        &lt;h2 style="color:#ff7f00;"&gt;Step 1&lt;/h2&gt;
-        &lt;p&gt;Search for resources&lt;/p&gt;
-        &lt;br /&gt;
-        &lt;h2 style="color:#ff7f00;"&gt;Step 2&lt;/h2&gt;
-        &lt;p&gt;For any resource you want to remember, click the "Favorite" link&lt;/p&gt;
-        &lt;br /&gt;
-        &lt;h2 style="color:#ff7f00;"&gt;Step 3&lt;/h2&gt;
-        &lt;p&gt;Find the resource again in My Curriki&lt;/p&gt;
-        &lt;br /&gt;
-        &lt;p&gt;&amp;nbsp;&lt;a href="/xwiki/bin/view/Main/GWTSearch#__advShow=1"&gt;&amp;raquo; Start Searching&lt;/a&gt;&lt;/p&gt;
-      &lt;/div&gt;
+      &lt;h4 style="color:#ff7f00;"&gt;Step 1&lt;/h4&gt;
+      &lt;p&gt;Search for resources&lt;/p&gt;
+      &lt;h4 style="color:#ff7f00;"&gt;Step 2&lt;/h4&gt;
+      &lt;p&gt;For any resource you want to remember, click the "Favorite" link&lt;/p&gt;
+      &lt;h4 style="color:#ff7f00;"&gt;Step 3&lt;/h4&gt;
+      &lt;p&gt;Find the resource again in My Curriki&lt;/p&gt;
     &lt;/td&gt;
-    &lt;td width="50%" style="padding:10px 30px 10px 30px;"&gt;
-      &lt;h2&gt;Organize &amp;amp; Present Resources&lt;br /&gt;in a Collection&lt;/h2&gt;
+    &lt;td width="50%" style="padding:10px 30px 10px 30px;border:none;"&gt;      
       &lt;p&gt;Collecting this way lets you organize resources by topic according to your needs&lt;/p&gt;
-      &lt;div style="padding:15px;"&gt;
-        &lt;h2 style="color:#ff7f00;"&gt;Step 1&lt;/h2&gt;
-        &lt;p&gt;Add a collection – enter a name, description, and information tags&lt;/p&gt;
-        &lt;br /&gt;
-        &lt;h2 style="color:#ff7f00;"&gt;Step 2&lt;/h2&gt;
-        &lt;p&gt;Build and organize that collection in the Currikulum Builder; or&lt;/p&gt;
-        &lt;br /&gt;
-        &lt;h2 style="color:#ff7f00;"&gt;Step 3&lt;/h2&gt;
-        &lt;p&gt;Access your new collection in My Curriki and add from there&lt;/p&gt;
-        &lt;br /&gt;
-        &lt;p&gt;#if($context.user=="XWiki.XWikiGuest")&amp;nbsp;&lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;&amp;raquo; Add a Collection&lt;/a&gt; #else &amp;nbsp;&lt;a href="javascript:Curriki.module.addpath.startPath('C');"&gt;&amp;raquo; Add a Collection&lt;/a&gt; #end
-        &amp;nbsp;&lt;a href="/xwiki/bin/view/Coll_cmytko/FishMummy"&gt;&amp;raquo; View a Sample Collection&lt;/a&gt;&lt;/p&gt;
-      &lt;/div&gt;
+      &lt;h4 style="color:#ff7f00;"&gt;Step 1&lt;/h4&gt;
+      &lt;p&gt;Add a collection – enter a name, description, and information tags&lt;/p&gt;
+      &lt;h4 style="color:#ff7f00;"&gt;Step 2&lt;/h4&gt;
+      &lt;p&gt;Build and organize that collection in the Currikulum Builder; or&lt;/p&gt;
+      &lt;h4 style="color:#ff7f00;"&gt;Step 3&lt;/h4&gt;
+      &lt;p&gt;Access your new collection in My Curriki and add from there&lt;/p&gt;
     &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td width="50%" style="padding:10px 50px 10px 0;border:none;"&gt;&lt;p&gt;&amp;nbsp;&lt;a href="xwiki/bin/view/Search/"&gt;&amp;raquo; Start Searching&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
+    &lt;td width="50%" style="padding:10px 30px 10px 30px;border:none;"&gt;&lt;p&gt;#if($context.user=="XWiki.XWikiGuest")&amp;nbsp;&lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;&amp;raquo; Add a Collection&lt;/a&gt; #else &amp;nbsp;&lt;a href="javascript:Curriki.module.addpath.startPath('C');"&gt;&amp;raquo; Add a Collection&lt;/a&gt; #end&lt;/p&gt;&lt;/td&gt;
   &lt;/tr&gt;
   &lt;/table&gt;
   &lt;br /&gt;
-  &lt;div class="headerbar orange"&gt;Tips on Finding &amp;amp; Collecting Resources&lt;/div&gt;
+  &lt;div class="titleheader titleheader-blue"&gt;&lt;h2&gt;Tips on Finding &amp;amp; Collecting Resources&lt;/h2&gt;&lt;/div&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;strong&gt;Found a really great resource?&lt;/strong&gt;&lt;br /&gt;Click “Nominate” to get it rated by the Curriki Review System.&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
     &lt;li&gt;&lt;strong&gt;Interested in finding materials contributed by Curriki’s partners?&lt;/strong&gt;&lt;br /&gt;Look for the “P” icon in search results&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
