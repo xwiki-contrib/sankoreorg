@@ -1,0 +1,24 @@
+#**
+  * Asset Archive Displayer in View mode
+  *
+  *#
+#asset_displaycontentheader("")
+<div class="asset-display-text">
+    <div class="asset-display-text-inner">
+        #set($caption = "")
+        #set($ok = $asset.use("CurrikiCode.AttachmentAssetClass"))
+        #set($caption = $!asset.caption_text)
+        #set($ok = $asset.use("CurrikiCode.AssetClass"))
+        #if($!caption == "")
+        #set($caption = $!asset.display("description"))
+        #end       
+        $!caption
+        #if("$!asset.fileType" == "ubw")
+          #foreach($attachment in $asset.getAttachmentList())
+            $asset.getRenderedContent("{{sankore file=${escapetool.q}$!{attachment.filename}${escapetool.q} width='600' /}}", "xwiki/2.0")
+          #end
+        #end      
+    </div>
+</div>
+#asset_attachments($asset)
+#asset_displaycontentfooter()
