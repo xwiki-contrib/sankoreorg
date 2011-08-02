@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1310046929000</creationDate>
-<date>1310046929000</date>
-<contentUpdateDate>1310046929000</contentUpdateDate>
+<creationDate>1312282128000</creationDate>
+<date>1312282128000</date>
+<contentUpdateDate>1312282128000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -26,6 +26,7 @@
 import javax.servlet.http.Cookie;
 import com.xpn.xwiki.user.impl.xwiki.*;
 import org.apache.commons.lang.StringUtils;
+import org.apache.velocity.VelocityContext;
 
 def authorization = request.getHeader("Authorization");
 def dauthorization = (authorization==null) ? null : MyBasicAuthenticator.decodeBasicAuthorizationString(authorization);
@@ -72,7 +73,6 @@ if (dauthorization!=null) {
        persistent.setEncryptionKey(xwiki.getXWiki().Param("xwiki.authentication.encryptionKey"));
    }
 
-   println persistent.getCookieLife()
    persistent.rememberLogin(request.request, response.response, username, password);
 }
 
@@ -99,18 +99,39 @@ if(xcontext.user != 'XWiki.XWikiGuest') {
   if(myfiles &amp;&amp; myfiles.size() &gt; 0) {
     println "File submited";
     def filename = fupl.getFileName('file')
+    print myfiles
     println "File: " + filename
     def filedata = fupl.getFileItemData('file')
     if(xcontext.user != 'XWiki.XWikiGuest') {
-    def asset = xwiki.curriki.createAsset("");
-    InputStream ubz = new ByteArrayInputStream(filedata);
-    asset.addAttachment(ubz, filename);
-    asset.processAttachment();
-    println "File uploaded now redirect."
-    Cookie statusCookie = new Cookie("assetStatus", 'UPLOADED')
-    response.addCookie(statusCookie)
-    response.sendRedirect(xwiki.getURL('CreateResources.UniboardResource', 'view', 'template='+asset.fullName))
-    }
+      def asset = xwiki.curriki.createAsset("");
+      if(asset) {
+        InputStream ubz = new ByteArrayInputStream(filedata);
+        asset.addAttachment(ubz, filename);
+        asset.processAttachment();    
+        println "File uploaded"
+        def title = request.getCookie("title")
+        if(title != null &amp;&amp; !title.isEmpty()) {
+          asset.setTitle(title)    
+        }
+        def description = request.getCookie("description")
+        if(description != null &amp;&amp; !description.isEmpty()) {
+          def assetObj = asset.getObject('CurrikiCode.AssetClass')
+          assetObj.set('description', description)
+        }
+        if((title != null &amp;&amp; !title.isEmpty()) || (description != null &amp;&amp; !description.isEmpty())) {
+          asset.save()
+        }
+        def redirdoc = xwiki.getDocument("CreateResources.UniboardResource")
+        xwiki.mailsender.sendMessageFromTemplate(xwiki.getXWikiPreference("admin_email"), xwiki.getUser(xcontext.user).getEmail(), null, null, 'en', 'CreateResources.MailTemplateUniboardUploaded', ['user': xwiki.getUserName(xcontext.user, false), 'url': redirdoc.getExternalURL("view", 'template='+asset.fullName)])
+        Cookie statusCookie = new Cookie("assetStatus", 'UPLOADED')
+        response.addCookie(statusCookie)
+        if(request.xpage != "plain") {
+          response.sendRedirect(xwiki.getURL('CreateResources.UniboardResource', 'view', 'template='+asset.fullName))
+        }
+      } else {
+        println "asset FAIL"
+      }
+    } 
   } else {
     Cookie statusCookie = new Cookie("assetStatus", 'FAIL')
     response.addCookie(statusCookie)
