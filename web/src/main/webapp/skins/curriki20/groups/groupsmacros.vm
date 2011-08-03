@@ -750,67 +750,98 @@ $msg.get("groups_home_firsttimewelcome_title")
   #set($ok = $sm.updateSpaceFromRequest($s))
 #end
 #if($ok)
-  #if($filename&&($filename!=""))
-    $xwiki.getDocument("${doc.space}.WebHome").addAttachments()
-    #set($filename = $context.addedAttachments.get(0).filename)
-    $s.set("logo", $filename)
+  #if($filename&&($filename!=""))    
+    #set($ok = $xwiki.getDocument("${doc.space}.WebHome").addAttachments("filepath"))    
+    #if($ok)
+      $s.set("logo", $filename)
+      $s.save()
+    #end
   #end
-  $s.save()
   $response.sendRedirect($s.getHomeURL())
 #else
 <div class="frame">
-<form class="CreateNewGroup" action="#" enctype="multipart/form-data" method="post" onsubmit="if (!checkFileExtension()) return false; else return true;">
-<input type="hidden" name="action" value="editmasthead" />
-#curriki_titlebar($msg.get("groups_home_editmasthead_title"), "", "", "blue")
-<div class="frame-content">
-<div class="section">
-<br />
-$s.display("displayTitle","edit")
-#tooltip("group-title" $msg.groups_home_editmasthead_groupname_tooltip)
-#validateGroup( "title-exists" "" $msg.groups_validation_title_exists)
-#validateGroup( "title-short" "" $msg.groups_validation_title_short)
-#validateGroup("title-long"  "" $msg.groups_validation_title_long)
-#validateGroup("title-invalid"  "" $msg.groups_validation_title_invalid)
-#validateGroup( "space-exists" "" $msg.groups_validation_space_exists)
-<div id="form-info-top">
-$s.display("description","edit")
-#tooltip("group-description" $msg.groups_home_editmasthead_groupdescription_tooltip)
-</div>
-#validateGroup( "desc-short" "" $msg.groups_validation_desc_short)
-#validateGroup( "desc-long" "" $msg.groups_validation_desc_long)
-</div>
-#set($logofilename = $xwiki.getDocument("${doc.space}.WebPreferences").display("logo"))
-#set($logoattach = $doc.getAttachment($logofilename))
-#if(!$logoattach)
-#set($logofilename = "")
-#end
-<div class="section">
-<div class="frame-inset-logo">
-#groups_grouplogo($s)
-</div>
-<div class="frame-inset-description">
-<p>
-#if($logofilename&&$logoattach)
-#set($redirect = $xwiki.requestURL)
-#set($url = $doc.getAttachmentURL($logofilename, "delattachment", "xredirect=${redirect}"))
-{{html}}$msg.get("groups_home_editmasthead_logo_infotxt_withlogo", [$url]){{/html}}
-#else
-{{html}}$msg.groups_home_editmasthead_logo_infotxt_withoutlogo{{/html}}
-#end
-</p>
-</div>
-</div> ## end section
-<div class="section">
-<input id="xwikiuploadname" type="hidden" name="filename" value="" />
-<div><input id="xwikiuploadfile" type="file" name="filepath" value="" size="40"/></div>
-</div>
-</div>
-</div>
-<div class="center mgn-vrt-15"><input class="button button-confirm mgn-rt" type="submit" value="$msg.groups_home_editmasthead_submit_btt" />#button(  "$msg.groups_home_editinformation_cancel_btt"  "cancel"  "reset"  ""  "if(confirm('$msg.groups_home_editmasthead_cancel_confirm')) window.location='$s.getHomeURL()';" )</div>
-</form>
+  <form class="CreateNewGroup" action="#" enctype="multipart/form-data" method="post" onsubmit="if (!checkFileExtension()) return false; else return true;">
+    <input type="hidden" name="action" value="editmasthead" />
+    #curriki_titlebar($msg.get("groups_home_editmasthead_title"), "", "", "blue")
+    <div class="frame-content">
+      <div class="section">
+        <br />
+        $s.display("displayTitle","edit")
+        #tooltip("group-title" $msg.groups_home_editmasthead_groupname_tooltip)
+        #validateGroup( "title-exists" "" $msg.groups_validation_title_exists)
+        #validateGroup( "title-short" "" $msg.groups_validation_title_short)
+        #validateGroup("title-long"  "" $msg.groups_validation_title_long)
+        #validateGroup("title-invalid"  "" $msg.groups_validation_title_invalid)
+        #validateGroup( "space-exists" "" $msg.groups_validation_space_exists)
+        <div id="form-info-top">
+          $s.display("description","edit")
+          #tooltip("group-description" $msg.groups_home_editmasthead_groupdescription_tooltip)
+        </div>
+        #validateGroup( "desc-short" "" $msg.groups_validation_desc_short)
+        #validateGroup( "desc-long" "" $msg.groups_validation_desc_long)
+      </div> ## end section
+      #set($logofilename = $xwiki.getDocument("${doc.space}.WebPreferences").display("logo"))
+      #set($logoattach = $doc.getAttachment($logofilename))
+      #if(!$logoattach)
+        #set($logofilename = "")
+      #end
+      <div class="section">
+        <div class="frame-inset-logo">
+          #groups_grouplogo($s)
+        </div>
+        <div class="frame-inset-description">
+          <p>
+          #if($logofilename&&$logoattach)
+            #set($redirect = $xwiki.requestURL)
+            #set($url = $doc.getAttachmentURL($logofilename, "delattachment", "xredirect=${redirect}"))
+            $msg.get("groups_home_editmasthead_logo_infotxt_withlogo", [$url])
+          #else
+            $msg.groups_home_editmasthead_logo_infotxt_withoutlogo
+          #end
+          </p>
+        </div>
+      </div> ## end section
+      <div class="section">
+        <input id="xwikiuploadname" type="hidden" name="filename" value="" />
+        <div><input id="xwikiuploadfile" type="file" name="filepath" value="" size="40"/></div>
+      </div> ## end section
+{pre}
+<script type="text/javascript">
+function checkFileExtension() {
+  var isValid = true;
+  var ext = getFileExtension();
+  if (ext) {
+    if (ext != "ok" && ext != "ai" && ext != "gif" && ext != "jpg" && ext != "tif" && ext != "bmp" && ext != "jpe" && ext != "psd" && ext != "png") {
+      isValid = false;
+    }
+  } else {
+    isValid = false;
+  }
+  if (!isValid) {
+    alert("$msg.get("mycurriki.profile.needPicture")");
+  }
+  return isValid;
+}
+function getFileExtension() {
+  var fileName = document.getElementById("xwikiuploadfile").value;
+  if (fileName.length){
+   fileName = fileName.toLowerCase();
+   var pos = fileName.lastIndexOf(".");
+   if (pos > 0){
+     return fileName.substring(pos + 1);
+   }
+  }
+  return "ok";
+}
+</script>
+{/pre}
+    </div> ## frame-content
+    <div class="center mgn-vrt-15"><input class="button button-confirm mgn-rt" type="submit" value="$msg.groups_home_editmasthead_submit_btt" />#button(  "$msg.groups_home_editinformation_cancel_btt"  "cancel"  "reset"  ""  "if(confirm('$msg.groups_home_editmasthead_cancel_confirm')) window.location='$s.getHomeURL()';" )</div>    
+  </form>
+</div> ## frame
 #end
 <div class="tooltips">
-$xwiki.addTooltipJS()
+  $xwiki.addTooltipJS()
 </div>
 #end
 
