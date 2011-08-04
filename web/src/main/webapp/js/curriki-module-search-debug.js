@@ -319,7 +319,7 @@ data.init = function(){
 	f.data = {};
 
 	f.data.subject =  {
-		mapping: Curriki.data.fw_item.fwMap['FW_masterFramework.WebHome']
+		mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
 		,list: []
 		,data: [
 			['', _('CurrikiCode.AssetClass_fw_items_FW_masterFramework.UNSPECIFIED')]
@@ -359,12 +359,20 @@ data.init = function(){
 		});
 	});
 
-	f.data.level =  {
-		list: Curriki.data.el.list
+  f.data.level =  {
+		mapping: Curriki.data.el.elMap['TREEROOTNODE']
+		,list: []
 		,data: [
-			['', _('CurrikiCode.AssetClass_educational_level_UNSPECIFIED')]
+			['', _('CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED')]
 		]
 	};
+	f.data.level.mapping.each(function(value){
+		f.data.level.list.push(value.id);
+	});
+
+	// CURRIKI-2872
+	f.data.level.list.push('UNCATEGORIZED');
+
 	f.data.level.list.each(function(value){
 		f.data.level.data.push([
 			value
@@ -372,19 +380,43 @@ data.init = function(){
 		]);
 	});
 
-	f.data.ict =  {
-		fullList: Curriki.data.ict.list
-		,parentList: {}
-		,list: []
+	f.data.level2 =  {
+		mapping: Curriki.data.el.elMap
 		,data: [
-			['', _('CurrikiCode.AssetClass_instructional_component_UNSPECIFIED')]
 		]
 	};
-	f.data.ict.fullList.each(function(value){
-		var name = value.replace(/_.*/, '');
-		f.data.ict.parentList[name] = name;
+	f.data.level.mapping.each(function(parentItem){
+		f.data.level2.data.push([
+			parentItem.id
+			,_('CurrikiCode.AssetClass_educational_level_'+parentItem.id+'.UNSPECIFIED')
+			,parentItem.id
+		]);
+    if(f.data.level2.mapping[parentItem.id]) {
+		  f.data.level2.mapping[parentItem.id].each(function(el){
+			  f.data.level2.data.push([
+	  			el.id
+		  		,_('CurrikiCode.AssetClass_educational_level_'+el.id)
+	  			,parentItem.id
+	  		]);
+	  	});
+    }
 	});
-	Object.keys(f.data.ict.parentList).each(function(value){
+
+  f.data.ict =  {
+		mapping: Curriki.data.ict.ictMap['TREEROOTNODE']
+		,list: []
+		,data: [
+			['', _('CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED')]
+		]
+	};
+	f.data.ict.mapping.each(function(value){
+		f.data.ict.list.push(value.id);
+	});
+
+	// CURRIKI-2872
+	f.data.ict.list.push('UNCATEGORIZED');
+
+	f.data.ict.list.each(function(value){
 		f.data.ict.data.push([
 			value
 			,_('CurrikiCode.AssetClass_instructional_component_'+value)
@@ -392,28 +424,25 @@ data.init = function(){
 	});
 
 	f.data.subict =  {
-		list: Curriki.data.ict.list
-		,parents: {}
+		mapping: Curriki.data.ict.ictMap
 		,data: [
 		]
 	};
-	f.data.subict.list.each(function(value){
-		var parentICT = value.replace(/_.*/, '');
-		if (parentICT !== value) {
-			if (Ext.isEmpty(f.data.subict.parents[parentICT])) {
-				f.data.subict.data.push([
-					parentICT+'*'
-					,_('CurrikiCode.AssetClass_instructional_component_'+parentICT+'_UNSPECIFIED')
-					,parentICT
-				]);
-				f.data.subict.parents[parentICT] = parentICT;
-			}
-			f.data.subict.data.push([
-				value
-				,_('CurrikiCode.AssetClass_instructional_component_'+value)
-				,parentICT
-			]);
-		}
+	f.data.ict.mapping.each(function(parentItem){
+		f.data.subict.data.push([
+			parentItem.id
+			,_('CurrikiCode.AssetClass_instructional_component_'+parentItem.id+'.UNSPECIFIED')
+			,parentItem.id
+		]);
+    if(f.data.subict.mapping[parentItem.id]) {
+		  f.data.subict.mapping[parentItem.id].each(function(ict){
+		  	f.data.subict.data.push([
+		  		ict.id
+	  			,_('CurrikiCode.AssetClass_instructional_component_'+ict.id)
+		  		,parentItem.id
+	  		]);
+	  	});
+    }
 	});
 
 	f.data.language =  {
@@ -499,6 +528,12 @@ data.init = function(){
 			,id: 0
 		})
 
+    ,level2: new Ext.data.SimpleStore({
+      fields: ['id', 'level', 'parentItem']
+      ,data: f.data.level2.data
+      ,id: 0
+    })
+
 		,ict: new Ext.data.SimpleStore({
 			fields: ['id', 'ict']
 			,data: f.data.ict.data
@@ -506,7 +541,7 @@ data.init = function(){
 		})
 
 		,subict: new Ext.data.SimpleStore({
-			fields: ['id', 'ict', 'parentICT']
+			fields: ['id', 'ict', 'parentItem']
 			,data: f.data.subict.data
 			,id: 0
 		})
@@ -547,9 +582,6 @@ data.init = function(){
 		,{ name: 'assetType' }
 		,{ name: 'category' }
 		,{ name: 'subcategory' }
-		,{ name: 'ict' }
-		,{ name: 'ictText' }
-		,{ name: 'ictIcon' }
 		,{ name: 'contributor' }
 		,{ name: 'contributorName' }
 		,{ name: 'rating', mapping: 'review' }
@@ -617,28 +649,6 @@ data.init = function(){
 			return String.format('<img class="x-tree-node-icon assettype-icon" src="{3}" ext:qtip="{4}" /><a href="/xwiki/bin/view/{0}" class="asset-title" ext:qtip="{2}">{1}</a>', page, Ext.util.Format.ellipsis(value, 80), desc, Ext.BLANK_IMAGE_URL, rollover);
 		}
 
-		,ict: function(value, metadata, record, rowIndex, colIndex, store){
-			var css;
-			var dotIct;
-			var ict = record.data.ict;
-			if (!Ext.isEmpty(ict)){
-				// Find CSS classes needed
-				var topIct = ict.replace(/_.*/, '');
-				css = 'ict-'+topIct;
-				if (topIct !== ict) {
-					css = css + ' ict-'+ict;
-				}
-
-				// Get value to use in lookup key
-				dotIct = ict.replace(/_/, '.');
-			} else {
-				css = 'ict-unknown';
-				dotIct = 'unknown';
-			}
-			metadata.css = css;
-			return String.format('<img class="ict-icon" src="{1}" /><span class="ict-title">{0}</span>', _('search.resource.ict.'+dotIct), Ext.BLANK_IMAGE_URL);
-		}
-
 		,contributor: function(value, metadata, record, rowIndex, colIndex, store){
 			var page = value.replace(/\./, '/');
 			return String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, record.data.contributorName);
@@ -701,47 +711,6 @@ form.init = function(){
 
 	var comboWidth = 140;
 	var comboListWidth = 250;
-
-	// Plugin to add icons to ICT combo box
-	form.ictCombo = function(config) {
-		Ext.apply(this, config);
-	};
-	Ext.extend(form.ictCombo, Ext.util.Observable, {
-		init:function(combo){
-			Ext.apply(combo, {
-				tpl:  '<tpl for=".">'
-					+ '<div class="x-combo-list-item ict-icon-combo-item '
-					+ 'ict-{' + combo.valueField + '}">'
-					+ '<img class="ict-icon" src="'+Ext.BLANK_IMAGE_URL+'"/>'
-					+ '<span class="ict-title">{' + combo.displayField + '}</span>'
-					+ '</div></tpl>',
-
-				onRender:combo.onRender.createSequence(function(ct, position) {
-					// adjust styles
-					this.wrap.applyStyles({position:'relative'});
-					this.el.addClass('ict-icon-combo-input');
-
-					// add div for icon
-					this.icon = Ext.DomHelper.append(this.el.up('div.x-form-field-wrap'), {
-						tag:'div'
-						,style:'position:absolute'
-						,children:{tag:'div', cls:'ict-icon'}
-					});
-				}), // end of function onRender
-
-				setIconCls:function() {
-					var rec = this.store.query(this.valueField, this.getValue()).itemAt(0);
-					if(rec) {
-						this.icon.className = 'ict-icon-combo-icon ict-'+rec.get(this.valueField);
-					}
-				}, // end of function setIconCls
-
-				setValue:combo.setValue.createSequence(function(value) {
-					this.setIconCls();
-				})
-			});
-		}
-	});
 
 	// Plugin to add icons to Category combo box
 	form.categoryCombo = function(config) {
@@ -935,18 +904,60 @@ form.init = function(){
 							xtype:'combo'
 							,id:'combo-level-'+modName
 							,fieldLabel:'Level'
-							,mode:'local'
+							,hiddenName:'levelparent'
 							,width:comboWidth
 							,listWidth:comboListWidth
+							,mode:'local'
 							,store:data.filter.store.level
-							,hiddenName:'level'
 							,displayField:'level'
 							,valueField:'id'
 							,typeAhead:true
 							,triggerAction:'all'
-							,emptyText:_('CurrikiCode.AssetClass_educational_level_UNSPECIFIED')
+							,emptyText:_('CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED')
 							,selectOnFocus:true
 							,forceSelection:true
+							,listeners:{
+								select:{
+									fn:function(combo, value){
+										var level2 = Ext.getCmp('combo-level2-'+modName);
+										if (combo.getValue() === '') {
+											level2.clearValue();
+											level2.hide();
+										// Special case - UNCATEGORIZED does not show sub-items
+										} else if (combo.getValue() === 'UNCATEGORIZED') {
+											level2.show();
+											level2.clearValue();
+											level2.store.filter('parentItem', combo.getValue());
+											level2.setValue(combo.getValue());
+											level2.hide();
+										} else {
+											level2.show();
+											level2.clearValue();
+											level2.store.filter('parentItem', combo.getValue());
+											level2.setValue(combo.getValue());
+										}
+									}
+								}
+							}
+						},{
+							xtype:'combo'
+							,fieldLabel:'Level 2'
+							,id:'combo-level2-'+modName
+							,hiddenName:'level'
+							,width:comboWidth
+							,listWidth:comboListWidth
+							,mode:'local'
+							,store:data.filter.store.level2
+							,displayField:'level'
+							,valueField:'id'
+							,typeAhead:true
+							,triggerAction:'all'
+	//						,emptyText:'Select a Sub Subject...'
+							,selectOnFocus:true
+							,forceSelection:true
+							,lastQuery:''
+							,hidden:true
+							,hideMode:'visibility'
 						},{
 							xtype:'combo'
 							,id:'combo-language-'+modName
@@ -988,63 +999,63 @@ form.init = function(){
 						}
 						,items:[{
 							xtype:'combo'
-							,id:'combo-ictprfx-'+modName
-							,fieldLabel:'Instructional Type'
-							,hiddenName:'ictprfx'
+							,id:'combo-ict-'+modName
+							,fieldLabel:'ICT'
+							,hiddenName:'ictparent'
 							,width:comboWidth
 							,listWidth:comboListWidth
 							,mode:'local'
 							,store:data.filter.store.ict
 							,displayField:'ict'
 							,valueField:'id'
-							,plugins:new form.ictCombo()
 							,typeAhead:true
 							,triggerAction:'all'
-							,emptyText:_('CurrikiCode.AssetClass_instructional_component_UNSPECIFIED')
+							,emptyText:_('CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED')
 							,selectOnFocus:true
 							,forceSelection:true
 							,listeners:{
 								select:{
 									fn:function(combo, value){
-										var subICT = Ext.getCmp('combo-subICT-'+modName);
+										var subict = Ext.getCmp('combo-subict-'+modName);
 										if (combo.getValue() === '') {
-											subICT.clearValue();
-											subICT.hide();
+											subict.clearValue();
+											subict.hide();
+										// Special case - UNCATEGORIZED does not show sub-items
+										} else if (combo.getValue() === 'UNCATEGORIZED') {
+											subict.show();
+											subict.clearValue();
+											subict.store.filter('parentItem', combo.getValue());
+											subict.setValue(combo.getValue());
+											subict.hide();
 										} else {
-											subICT.clearValue();
-											subICT.store.filter('parentICT', combo.getValue());
-											var p = subICT.store.getById(combo.getValue()+'*');
-											if (Ext.isEmpty(p)) {
-												subICT.setValue(combo.getValue());
-												subICT.hide();
-											} else {
-												subICT.setValue(combo.getValue()+'*');
-												subICT.show();
-											}
+											subict.show();
+											subict.clearValue();
+											subict.store.filter('parentItem', combo.getValue());
+											subict.setValue(combo.getValue());
 										}
 									}
 								}
 							}
 						},{
 							xtype:'combo'
-							,fieldLabel:'Sub ICT'
+							,fieldLabel:'SubICT'
+							,id:'combo-subict-'+modName
 							,hiddenName:'ict'
 							,width:comboWidth
 							,listWidth:comboListWidth
-							,id:'combo-subICT-'+modName
 							,mode:'local'
 							,store:data.filter.store.subict
 							,displayField:'ict'
 							,valueField:'id'
 							,typeAhead:true
 							,triggerAction:'all'
-							,emptyText:'Select a Sub ICT...'
+	//						,emptyText:'Select a Sub Subject...'
 							,selectOnFocus:true
 							,forceSelection:true
 							,lastQuery:''
 							,hidden:true
 							,hideMode:'visibility'
-						},{
+            },{
 							xtype:'combo'
 							,id:'combo-special-'+modName
 							,fieldLabel:'Special Filters'
@@ -1060,7 +1071,7 @@ form.init = function(){
 							,emptyText:_('search.resource.special.selector.UNSPECIFIED')
 							,selectOnFocus:true
 							,forceSelection:true
-						}]
+             }]
 					}]
 				}]
 			}
@@ -1149,14 +1160,6 @@ form.init = function(){
 			,hideable:false
 			,renderer: data.renderer.title
 //			,tooltip:_('search.resource.column.header.title')
-		},{
-			id: 'ict'
-			,width: 108
-			,header: _('search.resource.column.header.ict')
-			,dataIndex:'ictText'
-			,sortable:true
-			,renderer: data.renderer.ict
-//			,tooltip: _('search.resource.column.header.ict')
 		},{
 			id: 'contributor'
 			,width: 110
@@ -1292,10 +1295,10 @@ data.init = function(){
 	f.data = {};
 
 	f.data.subject =  {
-		mapping: Curriki.data.fw_item.fwMap['FW_masterFramework.WebHome']
+		mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
 		,list: []
 		,data: [
-			['', _('XWiki.CurrikiSpaceClass_topic_FW_masterFramework.WebHome.UNSPECIFIED')]
+			['', _('XWiki.CurrikiSpaceClass_topic_TREEROOTNODE.UNSPECIFIED')]
 		]
 	};
 	f.data.subject.mapping.each(function(value){
@@ -1329,16 +1332,46 @@ data.init = function(){
 	});
 
 	f.data.level =  {
-		list: Curriki.data.el.list
+		mapping: Curriki.data.el.elMap['TREEROOTNODE']
+		,list: []
 		,data: [
-			['', _('XWiki.CurrikiSpaceClass_educationLevel_UNSPECIFIED')]
+			['', _('XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.UNSPECIFIED')]
 		]
 	};
+	f.data.level.mapping.each(function(value){
+		f.data.level.list.push(value.id);
+	});
+
+	// CURRIKI-2872
+	f.data.level.list.push('UNCATEGORIZED');
+
 	f.data.level.list.each(function(value){
 		f.data.level.data.push([
 			value
-			,_('XWiki.CurrikiSpaceClass_educationLevel_'+value)
+			,_('XWiki.CurrikiSpaceClass_educational_level_'+value)
 		]);
+	});
+
+	f.data.level2 =  {
+		mapping: Curriki.data.el.elMap
+		,data: [
+		]
+	};
+	f.data.level.mapping.each(function(parentItem){
+		f.data.level2.data.push([
+			parentItem.id
+			,_('XWiki.CurrikiSpaceClass_educational_level_'+parentItem.id+'.UNSPECIFIED')
+			,parentItem.id
+		]);
+    if(f.data.level2.mapping[parentItem.id]) {
+		  f.data.level2.mapping[parentItem.id].each(function(el){
+			  f.data.level2.data.push([
+	  			el.id
+		  		,_('XWiki.CurrikiSpaceClass_educational_level_'+el.id)
+	  			,parentItem.id
+	  		]);
+	  	});
+    }
 	});
 
 	f.data.policy =  {
@@ -1385,6 +1418,12 @@ data.init = function(){
 			,data: f.data.level.data
 			,id: 0
 		})
+
+    ,level2: new Ext.data.SimpleStore({
+			fields: ['id', 'level', 'parentItem']
+			,data: f.data.level2.data
+			,id: 0
+		}) 
 
 		,policy: new Ext.data.SimpleStore({
 			fields: ['id', 'policy']
@@ -1569,7 +1608,7 @@ form.init = function(){
 							,valueField:'id'
 							,typeAhead:true
 							,triggerAction:'all'
-							,emptyText:_('XWiki.CurrikiSpaceClass_topic_FW_masterFramework.WebHome.UNSPECIFIED')
+							,emptyText:_('XWiki.CurrikiSpaceClass_topic_TREEROOTNODE.UNSPECIFIED')
 							,selectOnFocus:true
 							,forceSelection:true
 							,listeners:{
@@ -1616,36 +1655,55 @@ form.init = function(){
 						}
 						,items:[{
 							xtype:'combo'
-							,id:'combo-level-'+modName
 							,fieldLabel:'Level'
-							,mode:'local'
+							,id:'combo-level-'+modName
+							,hiddenName:'levelparent'
 							,width:comboWidth
 							,listWidth:comboListWidth
+							,mode:'local'
 							,store:data.filter.store.level
-							,hiddenName:'level'
 							,displayField:'level'
 							,valueField:'id'
 							,typeAhead:true
 							,triggerAction:'all'
-							,emptyText:_('XWiki.CurrikiSpaceClass_educationLevel_UNSPECIFIED')
+							,emptyText:_('XWiki.CurrikiSpaceClass_educational_level_TREEROOTNODE.UNSPECIFIED')
 							,selectOnFocus:true
 							,forceSelection:true
+							,listeners:{
+								select:{
+									fn:function(combo, value){
+										var level2 = Ext.getCmp('combo-level2-'+modName);
+										if (combo.getValue() === '') {
+											level2.clearValue();
+											level2.hide();
+										} else {
+											level2.show();
+											level2.clearValue();
+											level2.store.filter('parentItem', combo.getValue());
+											level2.setValue(combo.getValue());
+										}
+									}
+								}
+							}
 						},{
 							xtype:'combo'
-							,id:'combo-language-'+modName
-							,fieldLabel:'Language'
-							,hiddenName:'language'
-							,mode:'local'
+							,fieldLabel:'Level 2'
+							,id:'combo-level2-'+modName
+							,hiddenName:'level'
 							,width:comboWidth
 							,listWidth:comboListWidth
-							,store:data.filter.store.language
-							,displayField:'language'
+							,mode:'local'
+							,store:data.filter.store.level2
+							,displayField:'level'
 							,valueField:'id'
 							,typeAhead:true
 							,triggerAction:'all'
-							,emptyText:_('XWiki.CurrikiSpaceClass_language_UNSPECIFIED')
+	//						,emptyText:'Select a Sub Subject...'
 							,selectOnFocus:true
 							,forceSelection:true
+							,lastQuery:''
+							,hidden:true
+							,hideMode:'visibility'
 						}]
 					},{
 						columnWidth:0.34
@@ -1667,6 +1725,22 @@ form.init = function(){
 							,typeAhead:true
 							,triggerAction:'all'
 							,emptyText:_('search.XWiki.SpaceClass_policy_UNSPECIFIED')
+							,selectOnFocus:true
+							,forceSelection:true
+            },{
+							xtype:'combo'
+							,id:'combo-language-'+modName
+							,fieldLabel:'Language'
+							,hiddenName:'language'
+							,mode:'local'
+							,width:comboWidth
+							,listWidth:comboListWidth
+							,store:data.filter.store.language
+							,displayField:'language'
+							,valueField:'id'
+							,typeAhead:true
+							,triggerAction:'all'
+							,emptyText:_('XWiki.CurrikiSpaceClass_language_UNSPECIFIED')
 							,selectOnFocus:true
 							,forceSelection:true
 						}]
@@ -1811,10 +1885,10 @@ data.init = function(){
 	f.data = {};
 
 	f.data.subject =  {
-		mapping: Curriki.data.fw_item.fwMap['FW_masterFramework.WebHome']
+		mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
 		,list: []
 		,data: [
-			['', _('XWiki.XWikiUsers_topics_FW_masterFramework.WebHome.UNSPECIFIED')]
+			['', _('XWiki.XWikiUsers_topics_TREEROOTNODE.UNSPECIFIED')]
 		]
 	};
 	f.data.subject.mapping.each(function(value){
@@ -2069,7 +2143,7 @@ form.init = function(){
 							,valueField:'id'
 							,typeAhead:true
 							,triggerAction:'all'
-							,emptyText:_('XWiki.XWikiUsers_topics_FW_masterFramework.WebHome.UNSPECIFIED')
+							,emptyText:_('XWiki.XWikiUsers_topics_TREEROOTNODE.UNSPECIFIED')
 							,selectOnFocus:true
 							,forceSelection:true
 							,listeners:{
@@ -2874,9 +2948,6 @@ console.log('now util.doSearch', tab, pagerValues);
 				Search.tabPanel
 			]
 		};
-
-
-
 
 		Ext.ns('Curriki.module.search.history');
 		var History = Search.history;
