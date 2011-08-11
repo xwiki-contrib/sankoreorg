@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1304957501000</creationDate>
-<date>1304957501000</date>
-<contentUpdateDate>1304957501000</contentUpdateDate>
+<creationDate>1310397636000</creationDate>
+<date>1310397636000</date>
+<contentUpdateDate>1310397636000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -55,25 +55,27 @@
 </accessprivileges>
 <educationLevel>
 <cache>0</cache>
-<customDisplay></customDisplay>
+<classname></classname>
 <disabled>0</disabled>
 <displayType>checkbox</displayType>
+<idField></idField>
 <multiSelect>1</multiSelect>
 <name>educationLevel</name>
-<number>3</number>
+<number>6</number>
+<parentField></parentField>
 <picker>1</picker>
-<prettyName>Educational level</prettyName>
+<prettyName>educationLevel</prettyName>
 <relationalStorage>1</relationalStorage>
-<separator>#--#</separator>
-<separators> ,|</separators>
-<size>12</size>
+<separator> </separator>
+<separators>|</separators>
+<size>10</size>
 <sort>none</sort>
-<tooltip></tooltip>
+<sql>select doc.fullName, doc.title, doc.parent from XWikiDocument as doc, BaseObject as obj where doc.space in ('AssetMetadata') and doc.fullName=obj.name and obj.className='CurrikiCode.EducationalLevelClass' order by doc.fullName</sql>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
-<values>primary_3-11|primary_3-6|primary_6-8|primary_8-11|secondary_11-18|secondary_11-15|secondary_11-12|secondary_12-14|secondary_14-15|secondary_15-18|secondary_15-16|secondary_16-17|secondary_17-18|secondarytech_15-18|secondarytech_11-15|secondarytech_college_agricole|secondarytech_lyceum|secondarytech_lyceum_agricole|secondarytech_technical_school|secondarytech_technical_college|higher_education|higher_education_technology|higher_education_bachelor|higher_education_master|higher_education_phd|special_education|supplementary_education</values>
-<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+<valueField></valueField>
+<classType>com.xpn.xwiki.objects.classes.DBTreeListClass</classType>
 </educationLevel>
 <language>
 <cache>0</cache>

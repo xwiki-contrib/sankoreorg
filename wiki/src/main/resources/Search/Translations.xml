@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1234466628000</creationDate>
-<date>1234466628000</date>
-<contentUpdateDate>1234466628000</contentUpdateDate>
+<creationDate>1313058951000</creationDate>
+<date>1313058951000</date>
+<contentUpdateDate>1313058951000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -248,6 +248,8 @@ search.resource.column.header.ict=Instructional Type
 search.resource.column.header.contributor=Contributor
 search.resource.column.header.rating=Rating
 search.resource.column.header.updated=Updated
+search.resource.column.header.member.rating=Member Rating
+search.resource.review.selector.members.highest_rated=Top-Rated by members
 
 
 search.resource.icon.plus.rollover=This resource is part of a collection or folder. Click to expand.
@@ -401,6 +403,7 @@ search.blog.column.header.name=Members
 search.blog.column.header.text=Text
 search.blog.column.header.comments=Comments
 search.blog.column.header.updated=Updated
+
 
 ##
 ##
