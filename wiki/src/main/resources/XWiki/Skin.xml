@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1310399234000</creationDate>
-<date>1310399234000</date>
-<contentUpdateDate>1310399234000</contentUpdateDate>
+<creationDate>1313485459000</creationDate>
+<date>1313485459000</date>
+<contentUpdateDate>1313485459000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -1511,6 +1511,39 @@ sSDA1QDD1EDI08ACE+vAirzIjNzIP3oEgNu3R8AMDTBKBnDFu1DJo4TJtqDJosTJmWACQxDJpBy4
 ecwIQ6CuL9u5HosE/ysIKFwAqyy5HlutmBuus4y4tQzKZCzLZfux3BqxvBzLIVzKfauutuy6Fiu/
 wnzLVmvABiyuyYy7KQwBNnDN2JzNNgCvNGy/2VqtBlDKl1zGEPDKYhDAAmzJOjTAQ3DKTRzOpHzJ
 ygAB6izPyXAE0EzAk2wWgQAAOw==
+</content></attachment><attachment>
+<filename>menuhome.png</filename>
+<filesize>211</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1313484838000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAAkAAAALCAMAAACah1cpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAC1QTFRFr6un////19XT8O/utLCt+vr5vru49fT0w8C90tDO5uXjubay
+zcvI4d/eyMXDPWWnWgAAADxJREFUeNpcxgsKwCAMBNGJJlb7u/9xuwSl4MAmD1Oj6qA9+JE6gRZS
+dYnXiIvsprGyMv+m0pdyvz4BBgAtTgCmg6YzqgAAAABJRU5ErkJggg==
+</content></attachment><attachment>
+<filename>arrowdown.png</filename>
+<filesize>180</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1313484960000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAYAAAD+Bd/7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAFZJREFUeNpiDA+POs/AwGDAgB1cYAISjkD8AYskSMyREcQCmgIy4Tya
+AseVK5cdYAaxrl69/EJHR/chkBkAlSwESq7AMBNo0nwQRhZj/P//PwM+ABBgAEqtGLn4843xAAAA
+AElFTkSuQmCC</content></attachment><attachment>
+<filename>arrowDownload.png</filename>
+<filesize>401</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1313485422000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAB0AAAAaCAYAAABLlle3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAATNJREFUeNpiZCAA2qet1AZS/AzEgY+VWeFX8Sn4//8/AyMhU758/T4P
+SJkSaelpHm7OJEKWshAyhZuLQxFI6RBp6RtiFDExDAAYtXTU0lFLRy3FCliABTorkLYCYj5sCr5+
++yECLAqJMgykFmieLw7pT0B8DIh/gwpgASA+/5/24DzULnDwfgXiaiA+QcMQ3QvEBVC74NUNKxCb
+AvFGGvhwNhAbIFdt6HWdNhBPoJJlX4C4FYiV0OtTbJWsLBDnQTWRBf7++/cGSGUBsQS2ShxX7c4H
+xHFAfI8MO0F6/EFm4Go54GtWcAGxFxAfJ8HCPT9//XYCpRF8zRUGAu0ZohPYn79/5yEnGLItJTKB
+ffnz528HeoKh2FJcCQxfgqGKpVgSGN4EQzVLkRMYoQSDz1KAAAMAuJXGghwh6KgAAAAASUVORK5C
+YII=
 </content></attachment>
 <object>
 <class>
@@ -1522,6 +1555,23 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <defaultWeb></defaultWeb>
 <nameField></nameField>
 <validationScript></validationScript>
+<advancedsearch.vm>
+<contenttype>FullyRenderedText</contenttype>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>---</editor>
+<name>advancedsearch.vm</name>
+<number>28</number>
+<picker>1</picker>
+<prettyName>advancedsearch.vm</prettyName>
+<rows>40</rows>
+<size>100</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</advancedsearch.vm>
 <baseskin>
 <customDisplay></customDisplay>
 <disabled>0</disabled>
@@ -1553,23 +1603,6 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
 </comments.vm>
-<contentview.vm>
-<contenttype>FullyRenderedText</contenttype>
-<customDisplay></customDisplay>
-<disabled>0</disabled>
-<editor>---</editor>
-<name>contentview.vm</name>
-<number>28</number>
-<picker>1</picker>
-<prettyName>Content view</prettyName>
-<rows>15</rows>
-<size>100</size>
-<tooltip></tooltip>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-</contentview.vm>
 <curriki.css>
 <disabled>0</disabled>
 <editor>---</editor>
@@ -1577,8 +1610,8 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <number>28</number>
 <picker>0</picker>
 <prettyName>curriki.css</prettyName>
-<rows>5</rows>
-<size>40</size>
+<rows>15</rows>
+<size>100</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
@@ -1611,7 +1644,7 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <picker>1</picker>
 <prettyName>editmeta.vm</prettyName>
 <rows>15</rows>
-<size>80</size>
+<size>100</size>
 <tooltip></tooltip>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
@@ -1669,6 +1702,23 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
 </footer.vm>
+<global.vm>
+<contenttype>FullyRenderedText</contenttype>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>---</editor>
+<name>global.vm</name>
+<number>32</number>
+<picker>1</picker>
+<prettyName>global.vm</prettyName>
+<rows>15</rows>
+<size>100</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</global.vm>
 <header.vm>
 <contenttype>FullyRenderedText</contenttype>
 <customDisplay></customDisplay>
@@ -1696,7 +1746,7 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <picker>1</picker>
 <prettyName>htmlheader.vm</prettyName>
 <rows>15</rows>
-<size>70</size>
+<size>100</size>
 <tooltip></tooltip>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
@@ -1744,8 +1794,8 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <number>26</number>
 <picker>0</picker>
 <prettyName>logininline.vm</prettyName>
-<rows>5</rows>
-<size>40</size>
+<rows>15</rows>
+<size>100</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
@@ -1772,7 +1822,7 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <number>31</number>
 <picker>1</picker>
 <prettyName>menuedit.vm</prettyName>
-<rows>25</rows>
+<rows>15</rows>
 <size>100</size>
 <tooltip></tooltip>
 <unmodifiable>0</unmodifiable>
@@ -1804,8 +1854,8 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <number>27</number>
 <picker>0</picker>
 <prettyName>mycurriki.css</prettyName>
-<rows>18</rows>
-<size>40</size>
+<rows>15</rows>
+<size>100</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
@@ -1850,7 +1900,7 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <picker>0</picker>
 <prettyName>panels.css</prettyName>
 <rows>15</rows>
-<size>40</size>
+<size>100</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
@@ -1880,8 +1930,8 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <number>29</number>
 <picker>0</picker>
 <prettyName>sankore.css</prettyName>
-<rows>25</rows>
-<size>40</size>
+<rows>15</rows>
+<size>100</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
@@ -1894,30 +1944,13 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <number>31</number>
 <picker>0</picker>
 <prettyName>siteembed.vm</prettyName>
-<rows>10</rows>
-<size>80</size>
+<rows>15</rows>
+<size>100</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
 </siteembed.vm>
-<space.vm>
-<contenttype>FullyRenderedText</contenttype>
-<customDisplay></customDisplay>
-<disabled>0</disabled>
-<editor>---</editor>
-<name>space.vm</name>
-<number>32</number>
-<picker>1</picker>
-<prettyName>space.vm</prettyName>
-<rows>20</rows>
-<size>80</size>
-<tooltip></tooltip>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-</space.vm>
 <startpage.vm>
 <contenttype>FullyRenderedText</contenttype>
 <customDisplay></customDisplay>
@@ -1960,7 +1993,7 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <picker>0</picker>
 <prettyName>stylesheets.vm</prettyName>
 <rows>15</rows>
-<size>40</size>
+<size>100</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
@@ -2007,8 +2040,8 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <number>30</number>
 <picker>0</picker>
 <prettyName>views.css</prettyName>
-<rows>25</rows>
-<size>40</size>
+<rows>15</rows>
+<size>100</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
@@ -2020,13 +2053,29 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <className>XWiki.XWikiSkins</className>
 <guid>d471eda1-a1e8-4e4f-a15f-cf51f1f64ee0</guid>
 <property>
+<advancedsearch.vm>#set($defaultsearchtext = $msg.get("header.defaultsearchtext"))
+&lt;div id="header-search"&gt;
+  &lt;p&gt;Search for free and open educational resource&lt;/p&gt;
+  &lt;form id="searchform" name="searchform" class="search-box" action="$xwiki.getURL("Search.WebHome")" onsubmit="document.location.href=document.searchform.action+'#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Aterms%25253Ds%2525253A'+escape(escape(escape(escape(($('curriki-searchbox').value!=='$defaultsearchtext')?$('curriki-searchbox').value:'')))); return false;"&gt;  
+    &lt;input type="hidden" class="hidden" name="area" value=""/&gt;
+    #set($brsqry = $request.brsqry)
+    #if(!$brsqry || $brsqry == "")
+      #set($brsqry = $defaultsearchtext)
+    #end
+    &lt;input type="text" id="curriki-searchbox" name="brsqry" class="input" value="$!brsqry" onfocus="if (this.value=='$defaultsearchtext') this.value=''; else this.select()" onblur="if (this.value=='') this.value='$defaultsearchtext'" size="25" /&gt;
+    &lt;button type="submit" id="searchbtn" name="btn"&gt;$msg.get("header.search_go")&lt;/button&gt;      
+  &lt;/form&gt;
+  &lt;p&gt;
+    &lt;a href="$xwiki.getURL("Search.WebHome")" onclick="this.href='/xwiki/bin/view/Search/#o%3Aa%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1%5Ef%3Do%253Aresource%253Do%25253Aterms%25253Ds%2525253A'+escape(escape(escape(escape($('curriki-searchbox').value.replace(/^$defaultsearchtext/, ''))))); return true;"&gt;$msg.get("header.advanced_search")&lt;/a&gt; |
+    &lt;a href="$xwiki.getURL("Main.Browse")"&gt;$msg.get("header.browse_subjects")&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/div&gt;</advancedsearch.vm>
+</property>
+<property>
 <baseskin>curriki20</baseskin>
 </property>
 <property>
 <comments.vm></comments.vm>
-</property>
-<property>
-<contentview.vm></contentview.vm>
 </property>
 <property>
 <curriki.css>#template('colorThemeInit.vm')
@@ -2675,6 +2724,75 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 <footer.vm></footer.vm>
 </property>
 <property>
+<global.vm>###
+### Global header
+###
+### The uppermost area of each page
+### Contains the company logo, links to global actions and the search facility
+###
+#if($isInServletMode) ## Visible only in a page
+&lt;div id="headerglobal" class="layoutsection"&gt;
+#if($context.action == "view")
+&lt;div class="minwidthb"&gt;&lt;/div&gt;
+#else
+&lt;div class="minwidthd"&gt;&lt;/div&gt;
+#end
+  &lt;div id="company"&gt;
+  &lt;div id="companylogo"&gt;
+    &lt;a style="display:block;" href="$!xwiki.getURL("Main.WebHome", "view")" title="Home" rel="home"&gt;
+#if("$!{themeDocFullName}" == '')
+  #set($themeDocFullName = "$!xwiki.getUserPreference('colorTheme')")
+#end
+#if($themeDocFullName == '')
+  #set($themeDocFullName = 'ColorThemes.DefaultColorTheme')
+#end
+#set($themeDoc = $xwiki.getDocument($themeDocFullName))
+#set($themeObj = $themeDoc.getObject('ColorThemes.ColorThemeClass'))
+#set($logoname = $themeObj.getProperty('logoImage').value)
+#if("$!{logoname}" != '')
+  #set($logourl = $themeDoc.getAttachmentURL($logoname))
+#else
+  #set($logoname = $xwiki.getSkinPreference('logo', 'logo.png'))
+  #set($logo = $!prefdoc.getAttachment($logoname))
+  #if(!$logo)
+    #set($logourl = $xwiki.getSkinFile($logoname))
+  #else
+    #set($logourl = $prefdoc.getAttachmentURL($logo.filename))
+  #end
+#end
+    &lt;img src="$!logourl" alt="Wiki Logo"/&gt;
+    &lt;/a&gt;   
+  &lt;/div&gt; ## companylogo
+  &lt;div id="name-and-slogan"&gt;
+     &lt;div id="site-slogan"&gt;L'éducation numérique libre en partage&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;/div&gt; ## company
+#if("$!viewer" == "print")
+&lt;div id="print-banner-wrapper"&gt;
+        &lt;div id="print-meta"&gt;
+            &lt;div id="print-meta-inner"&gt;
+                &lt;h4&gt;$msg.get("mode.print.header_title")&lt;/h4&gt;
+                &lt;p&gt;$msg.get("mode.print.header_txt", [$doc.displayTitle])&lt;/p&gt;
+                &lt;a href="$doc.getURL("view", "bc=$!{request.bc}")"&gt;$msg.get("mode.print.header.view_link")&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div id="print-close"&gt;
+            &lt;div id="print-close-inner"&gt;
+                &lt;button class="button button-cancel mgn-rt" onclick="window.close();"&gt;$msg.get("mode.print.header.close_button")&lt;/button&gt;
+                &lt;button class="button button-confirm" onclick="document.getElementById('print-banner-wrapper').style.display='none'; window.print(); "&gt;$msg.get("mode.print.header.print_button")&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+#else
+##
+#end
+  &lt;div class="clearfloats"&gt;&lt;/div&gt;
+  #displaypanel("Panels.SankoreNavigationPanel")
+&lt;/div&gt; ## headerglobal
+#end
+### TODO: Format the header for pdf output</global.vm>
+</property>
+<property>
 <header.vm></header.vm>
 </property>
 <property>
@@ -2687,9 +2805,7 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 <login.vm></login.vm>
 </property>
 <property>
-<logininline.vm>&lt;!-- LOGIN BOX --&gt;
-&lt;!-- member area --&gt;
-&lt;div id="header-member"&gt;
+<logininline.vm>&lt;div id="header-member"&gt;
 #if($isguest)
   #if($request.xredirect)
     #set($logredir = $request.xredirect)
@@ -2707,8 +2823,8 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
   #elseif($request.srid)
     #set($logredir = "srid=$request.srid")
   #end
-&lt;!-- login area --&gt;
-&lt;script type="text/javascript"&gt;
+  &lt;script type="text/javascript"&gt;
+  //&lt;![CDATA[
   // In IE we can't change the type of a password input (we can't toggle between text and password type) so we have to
   // use a place holder in order to display the password label when the password field is empty.
   function showLoginPasswordInput() {
@@ -2733,52 +2849,285 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
   function clearLoginUsername(input) {
     if(input.value == "$msg.get('header.login_username')"){input.value=''} else {input.select()};
   }
-&lt;/script&gt;
-&lt;form action="$xwiki.getURL("XWiki.XWikiLogin", "loginsubmit", "$logredir")" method="post"&gt;
-  &lt;input type="hidden" name="srid" value="$!request.srid" /&gt;
-  &lt;input class="input" id="j_loginname" tabindex="1" type="text" name="j_username" value="#if("$!request.j_username" != "")$request.j_username#else${msg.get("header.login_username")}#end" onfocus="clearLoginUsername(this);" onblur="if (this.value==''){this.value='$msg.get("header.login_username")';}" /&gt;
-  &lt;input class="input password" id="j_loginpwd_placeholder" tabindex="2" type="text" value="$msg.get("header.login_password")" onfocus="showLoginPasswordInput.apply(this)"/&gt;
-  &lt;input class="input password" id="j_loginpwd" tabindex="2" type="password" name="j_password" onfocus="this.select()" onblur="hideLoginPasswordInput.apply(this)" style="display:none;"/&gt;
-  &lt;!-- remember me --&gt;
-  &lt;div id="remember-forgot"&gt;
-    &lt;input tabindex="3" type="checkbox" class="checkbox" name="j_rememberme" value="true"/&gt;$msg.get("header.login_rememberme")&lt;/label&gt;
-    &lt;a href="$xwiki.getURL("XWiki.ForgotUsernameOrPassword")" title=""&gt;$msg.get("header.login_forgot")&lt;/a&gt;
-  &lt;/div&gt;
-  &lt;!-- end of remember me --&gt;
-
-  &lt;button class="login-button" type="submit" id="loginbtn" tabindex="4"&gt;$msg.get("header.login_go")&lt;/button&gt;
-
-  &lt;!-- registration --&gt;
-  #set($regurl = $xwiki.getURL("Main.JoinCurriki"))
-  &lt;a href="$regurl" class="register"&gt;&lt;span&gt;$msg.get("header.becomemember_part1") &lt;/span&gt; $msg.get("header.becomemember_part2")&lt;/a&gt;
-  &lt;!-- end of registration --&gt;
-
-&lt;/form&gt;
-&lt;!-- end of login area --&gt;
-
+  //]]&gt;
+  &lt;/script&gt;
+  &lt;form action="$xwiki.getURL("XWiki.XWikiLogin", "loginsubmit", "$logredir")" method="post"&gt;
+    &lt;input type="hidden" name="srid" value="$!request.srid" /&gt;
+    &lt;input type="hidden" name="form_token" value="$!services.csrf.getToken()" /&gt;
+    &lt;input class="input" id="j_loginname" tabindex="1" type="text" name="j_username" value="#if("$!request.j_username" != "")$request.j_username#else${msg.get("header.login_username")}#end" onfocus="clearLoginUsername(this);" onblur="if (this.value==''){this.value='$msg.get("header.login_username")';}" /&gt;
+    &lt;input class="input password" id="j_loginpwd_placeholder" tabindex="2" type="text" value="$msg.get("header.login_password")" onfocus="showLoginPasswordInput.apply(this)"/&gt;
+    &lt;input class="input password" id="j_loginpwd" tabindex="2" type="password" name="j_password" onfocus="this.select()" onblur="hideLoginPasswordInput.apply(this)" style="display:none;"/&gt;
+    &lt;div id="remember-forgot"&gt;
+      &lt;label for="j_rememberme"&gt;$msg.get("header.login_rememberme")&lt;/label&gt;
+      &lt;input tabindex="3" type="checkbox" class="checkbox" name="j_rememberme" value="true"/&gt;&lt;br /&gt;
+      &lt;a href="$xwiki.getURL("XWiki.ForgotUsernameOrPassword")" title=""&gt;$msg.get("header.login_forgot")&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;input id="signin" class="login-button" type="submit" id="loginbtn" value="Connexion" /&gt;
+    &lt;div class="clearfloats"&gt;&lt;/div&gt;
+  &lt;/form&gt;
+  &lt;ul class="disc inside"&gt;&lt;li&gt;Pour créer des ressources pédagogiques libres&lt;/li&gt;
+	&lt;li&gt;Pour les partager sous creative commons&lt;/li&gt;
+	&lt;li&gt;Pour créer des groupes thématiques&lt;/li&gt;	
+	&lt;li&gt;Pour participer à des communautés d'intérêt
+		&lt;ul class="disc inside"&gt;&lt;li&gt;par pays&lt;/li&gt;
+			&lt;li&gt;par discipline&lt;/li&gt;
+			&lt;li&gt;par niveaux scolaire&lt;/li&gt;
+			&lt;/ul&gt;&lt;/li&gt;
+	&lt;li&gt;Pour évaluer les ressources libres publiées&lt;/li&gt;
+	&lt;li&gt;Pour rédiger votre blog et le diffuser&lt;/li&gt;
+       &lt;li&gt;Pour participer aux palmes du numérique&lt;/li&gt;
+&lt;/ul&gt;
+  &lt;p&gt;&lt;a class="voirPlus" href="#"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a id="signup" href="/xwiki/bin/view/Main/JoinCurriki"&gt;Créez-vous un compte&lt;/a&gt;&lt;/p&gt;
 #else
   ## is logged in
   ## crtUserDoc is set in fudocs.vm
   #set($fname = $crtUserDoc.display("first_name","view"))
   #set($lname = $crtUserDoc.display("last_name", "view"))
   &lt;span class="welcome-message"&gt;$msg.get("welcome") &lt;strong&gt;$fname $lname&lt;/strong&gt;&lt;/span&gt;
-    &lt;ul class="login-links"&gt;
-    #if($hasAdmin)
-      #set($url = $xwiki.getURL("XWiki.XWikiPreferences", "admin"))
-      &lt;li&gt;&lt;a class="administration-link" href="$!url"&gt;$msg.get("core.menu.admin")&lt;/a&gt;&lt;/li&gt;
-    #end
-      #set($url = $xwiki.getURL("MyCurriki.Profile", "view"))
-      &lt;li&gt;&lt;a class="profile-link" href="$!url"&gt;$msg.get("core.menu.profile")&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;#set($logredir = $xwiki.getURL("Main.WebHome"))
-  #set($logouturl = $xwiki.getURL("XWiki.XWikiLogout","logout", "xredirect=$logredir"))
-  &lt;a class="button button-confirm" href="$logouturl" class="logout"&gt;$msg.get("logout")&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  
+  &lt;ul class="login-links"&gt;
+  #if($hasAdmin)
+    &lt;li&gt;&lt;a class="administration-link" href="$xwiki.getURL('XWiki.XWikiPreferences', 'admin')"&gt;$msg.get("core.menu.admin")&lt;/a&gt;&lt;/li&gt;
+  #end
+    &lt;li&gt;&lt;a class="profile-link" href="$xwiki.getURL('MyCurriki.Profile', 'view')"&gt;$msg.get("core.menu.profile")&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;
+      #set($logredir = $xwiki.getURL("Main.WebHome"))
+      #set($logoutUrl = $xwiki.getURL("XWiki.XWikiLogout","logout", "xredirect=$logredir"))
+      &lt;a class="button button-confirm" href="$logoutUrl" class="logout"&gt;$msg.get("logout")&lt;/a&gt;
+    &lt;/li&gt; 
+  &lt;/ul&gt;
+  &lt;div class="clearfloats"&gt;&lt;/div&gt;
 #end
 &lt;/div&gt;
-##header-member
-&lt;!-- end of member area --&gt;
-</logininline.vm></property><property><logo></logo></property><property><menuedit.vm></menuedit.vm></property><property><menuview.vm></menuview.vm></property><property><mycurriki.css>#template('colorThemeInit.vm')
+</logininline.vm></property><property><logo></logo></property><property><menuedit.vm></menuedit.vm></property><property><menuview.vm>#if($isInServletMode &amp;&amp; !$isGuest)## Visible only in a page
+&lt;div id="mainmenu" class="layoutsubsection actionmenu"&gt;
+&lt;strong id="xwikimenutitle" class="hidden"&gt;$msg.get('core.menu.main.title')&lt;/strong&gt;
+&lt;div class="rightmenu"&gt;
+##
+## User
+##
+#if(!$xcontext.action.startsWith('login'))
+  #if($isGuest)
+    #set($loginurl = $xwiki.getURL('XWiki.XWikiLogin', 'login', "xredirect=$escapetool.url($xwiki.getRequestURL())"))
+    #xwikitopmenuentry($!loginurl $!msg.get('login') 'tmLogin')
+  #else
+    #set($logouturl = $xwiki.getURL('XWiki.XWikiLogout', 'logout', "xredirect=$escapetool.url($xwiki.getRequestURL())"))
+    #xwikitopmenuentry($!logouturl $!msg.get('logout') 'tmLogout')
+  #end
+#end
+#if($isGuest &amp;&amp; $xwiki.hasAccessLevel('register', 'XWiki.XWikiPreferences'))
+  #set($regurl = $xwiki.getURL('XWiki.Register', 'register'))
+  #xwikitopmenuentry($!regurl $!msg.get('core.register') 'tmRegister')
+#end
+##
+##
+#if (!$isGuest)
+#if ($isSuperAdmin)
+  #xwikitopmenuentry('#' $!msg.get('superadmin') 'tmUser' 'hasIcon')
+#else
+  #xwikitopmenuentrystart($xwiki.getURL($xcontext.user, 'view') "$msg.get('core.menu.type.profile')__SEPARATOR__$!xwiki.getUserName($xcontext.user, false)" 'tmUser' 'hasIcon')
+  #submenuitem($xwiki.getURL($xcontext.user, 'view') $msg.get('core.menu.profile') 'tmProfile', '')
+  #submenuitem($xwiki.getURL($xcontext.user, 'view', 'category=preferences') $msg.get('core.menu.userPreferences') 'tmUserPreferences', '')
+  #if($hasWatch)
+    #submenuitem($xwiki.getURL($xcontext.user, 'view', 'category=watchlist') $msg.get('core.menu.watchlist.management') 'tmWatchlistManager', '')
+  #end
+  #xwikitopmenuentryend()
+#end
+#end
+&lt;/div&gt;
+&lt;div class="leftmenu"&gt;
+##
+## Create
+##
+#set ($displayCreateSubmenu = $hasCreateSpace || $hasCreatePage || $hasComment)
+#if($displayCreateSubmenu)
+  #xwikitopmenuentrystart('' $msg.get('core.menu.create') 'tmCreate' 'hasIcon')
+  #set ($hasPreviousMenuSection = false)
+  #if ($hasCreateSpace)
+    #submenuitem("$doc.getURL('create', 'tocreate=space')" $msg.get('core.menu.create.space') 'tmCreateSpace', '')
+    #set ($hasPreviousMenuSection = true)
+  #end
+  #if ($hasCreatePage)
+    #if ($hasPreviousMenuSection)
+      #submenuseparator()
+    #end
+    #submenuitem("$doc.getURL('create')" $msg.get('core.menu.create.page') 'tmCreatePage', '')
+    ## Only display the Office Importer menu action if the Office Importer application is installed
+    #set($officeImporterMainDocument = $xwiki.getDocument('XWiki.OfficeImporter'))
+    #if("$!{officeImporterMainDocument.isNew()}" == 'false')
+      #submenuitem($officeImporterMainDocument.getURL('view', "&amp;amp;parent=$!{escapetool.url($doc.fullName)}") $msg.get('core.menu.create.pageFromOffice') 'tmCreatePageFromOffice', '')
+    #end
+    #set ($hasPreviousMenuSection = true)
+  #end
+  #if ((($hasComment &amp;&amp; $showcomments) || ($hasEdit &amp;&amp; $showattachments)) &amp;&amp; $hasPreviousMenuSection)
+    #submenuseparator()
+  #end
+  #if ($hasComment &amp;&amp; $showcomments)
+    #submenuitem("$doc.getURL('view', 'viewer=comments')" $msg.get('core.menu.create.comment') 'tmCreateComment', '')
+    &lt;script type="text/javascript"&gt;
+      //&lt;![CDATA[
+        document.observe('xwiki:dom:loaded', function() {
+          $('tmCreateComment').observe('click', function(event) {
+            event.stop();
+            XWiki.displayDocExtra('Comments', 'commentsinline.vm', true);
+            return false;
+          });
+        });
+      //]]&gt;
+    &lt;/script&gt;
+    #set ($hasPreviousMenuSection = true)
+  #end
+  #if ($hasEdit &amp;&amp; $showattachments)
+    #submenuitem("$doc.getURL('view', 'viewer=attachments')" $msg.get('core.menu.create.attachment') 'tmCreateAttachment', '')
+    &lt;script type="text/javascript"&gt;
+      //&lt;![CDATA[
+        document.observe('xwiki:dom:loaded', function() {
+          $('tmCreateAttachment').observe('click', function(event) {
+            event.stop();
+            XWiki.displayDocExtra('Attachments', 'attachmentsinline.vm', true);
+            return false;
+          });
+        });
+      //]]&gt;
+    &lt;/script&gt;
+    #set ($hasPreviousMenuSection = true)
+  #end
+  #xwikitopmenuentryend()
+#end
+##
+## Wiki
+##
+#set($isAdminAppInstalled = $xwiki.exists('XWiki.AdminSheet'))
+#set ($displayWikiSubmenu = $hasWatch || $hasGlobalAdmin || $xwiki.exists('Main.AllDocs'))
+#set($wikiEntryText = $msg.get('core.menu.type.wiki'))
+#if($xwiki.isVirtualMode() &amp;&amp; $xwiki.wikimanager)
+  #set($wikiName = $xwiki.wikimanager.getWikiDocument($xcontext.getDatabase()).getWikiPrettyName())
+  #if("$!wikiName.trim()" == '')
+    #set($wikiName = $xcontext.getDatabase())
+  #end
+  #set($wikiEntryText = "${wikiEntryText}__SEPARATOR__${wikiName}")
+#end
+#if(!$displayWikiSubmenu)
+  #xwikitopmenuentry($xwiki.getURL('Main.WebHome', 'view') $wikiEntryText 'tmWiki' 'hasIcon')
+#else
+  #xwikitopmenuentrystart($xwiki.getURL('Main.WebHome', 'view') $wikiEntryText 'tmWiki' 'hasIcon')
+  #set ($hasPreviousMenuSection = false)
+  #if ($hasWatch)
+    #set($watchClasses = '')
+    #set($unwatchClasses = 'hidden')
+    #if($xwiki.watchlist.isWikiWatched())
+      #set($watchClasses = 'hidden')
+      #set($unwatchClasses = '')
+    #end
+    #submenuitem("$doc.getURL('view', 'xpage=watch&amp;amp;do=addwiki')&amp;amp;xredirect=$escapetool.url($doc.getURL())" $msg.get('core.menu.watchlist.add.wiki', [$escapetool.xml($doc.wiki)]) 'tmWatchWiki', $watchClasses)
+    #submenuitem("$doc.getURL('view', 'xpage=watch&amp;amp;do=removewiki')&amp;amp;xredirect=$escapetool.url($doc.getURL())" $msg.get('core.menu.watchlist.remove.wiki') 'tmUnwatchWiki', $unwatchClasses)
+    #set ($hasPreviousMenuSection = true)
+  #end
+  #if($hasGlobalAdmin)
+    #set ($adminwikiaction = $!xwiki.getURL('XWiki.XWikiPreferences', 'admin'))
+    #set ($importaction = $!xwiki.getURL('XWiki.XWikiPreferences', 'import'))
+    #if($isAdminAppInstalled)
+      #submenuitem($adminwikiaction $msg.get('core.menu.admin.wiki') 'tmAdminWiki', '')
+    #else
+      #submenuitem($importaction $msg.get('core.menu.admin') 'tmAdminWiki' '')
+    #end
+    #set ($hasPreviousMenuSection = true)
+  #end
+  #if ($xwiki.exists('Main.AllDocs'))
+    #if ($hasPreviousMenuSection)
+      #submenuseparator()
+    #end
+    #submenuitem("$xwiki.getURL('Main.AllDocs')" $msg.get('core.menu.wiki.documentindex') 'tmWikiDocumentIndex' '')
+  #end
+  #xwikitopmenuentryend()
+#end
+##
+## Space
+##
+#set ($displaySpaceSubmenu = $hasWatch || $hasSpaceAdmin || $xwiki.exists('Main.SpaceIndex'))
+#xwikitopmenuseparator()
+#if(!$displaySpaceSubmenu)
+  #xwikitopmenuentry($xwiki.getURL("${doc.space}.WebHome", 'view') "$msg.get('core.menu.type.space')__SEPARATOR__$!{escapetool.xml($doc.space)}" 'tmSpace' 'hasIcon')
+#else
+  #xwikitopmenuentrystart($xwiki.getURL("${doc.space}.WebHome", 'view') "$msg.get('core.menu.type.space')__SEPARATOR__$!{escapetool.xml($doc.space)}" 'tmSpace' 'hasIcon')
+  #set ($hasPreviousMenuSection = false)
+  #if ($hasWatch)
+    #set($watchClasses = '')
+    #set($unwatchClasses = 'hidden')
+    #if($xwiki.watchlist.isSpaceWatched())
+      #set($watchClasses = 'hidden')
+      #set($unwatchClasses = '')
+    #end
+    #submenuitem("$doc.getURL('view', 'xpage=watch&amp;amp;do=addspace')&amp;amp;xredirect=$escapetool.url($doc.getURL())" $msg.get('core.menu.watchlist.add.space', [$escapetool.xml($doc.space)]) 'tmWatchSpace', $watchClasses)
+    #submenuitem("$doc.getURL('view', 'xpage=watch&amp;amp;do=removespace')&amp;amp;xredirect=$escapetool.url($doc.getURL())" $msg.get('core.menu.watchlist.remove.space') 'tmUnwatchSpace', $unwatchClasses)
+    #set ($hasPreviousMenuSection = true)
+  #end
+  #if($hasSpaceAdmin)
+    #set ($adminspaceaction = $!xwiki.getURL("${doc.space}.WebPreferences", 'admin'))
+    #submenuitem($adminspaceaction $msg.get('core.menu.admin.space', [$escapetool.xml($doc.space)]) 'tmAdminSpace')
+    #set ($hasPreviousMenuSection = true)
+  #end
+  #if ($xwiki.exists('Main.SpaceIndex'))
+    #if ($hasPreviousMenuSection)
+      #submenuseparator()
+    #end
+    #set ($spaceIndexUrl = $xwiki.getURL('Main.SpaceIndex', 'view',"space=${escapetool.url($doc.space)}"))
+    #submenuitem($spaceIndexUrl $msg.get('core.menu.space.documentindex') 'tmSpaceDocumentIndex' '')
+    #set ($hasPreviousMenuSection = true)
+  #end
+  #xwikitopmenuentryend()
+#end
+##
+## Page
+##
+#set ($displayPageSubmenu = $hasWatch)
+#xwikitopmenuseparator()
+#if(!$displayPageSubmenu)
+  #xwikitopmenuentry($xwiki.getURL("${doc.name}", 'view') "$msg.get('core.menu.type.page')__SEPARATOR__$!{escapetool.xml($doc.name)}" 'tmPage' 'hasIcon')
+#else
+  #xwikitopmenuentrystart($xwiki.getURL("${doc.name}", 'view') "$msg.get('core.menu.type.page')__SEPARATOR__$!{escapetool.xml($doc.name)}" 'tmPage' 'hasIcon')
+  #if ($hasWatch &amp;&amp; !$doc.isNew())
+    #set($watchClasses = 'hasIcon')
+    #set($unwatchClasses = 'hasIcon hidden')
+    #if($xwiki.watchlist.isDocumentWatched())
+      #set($watchClasses = 'hasIcon hidden')
+      #set($unwatchClasses = 'hasIcon')
+    #end
+    #submenuitem("$doc.getURL('view', 'xpage=watch&amp;amp;do=adddocument')&amp;amp;xredirect=$escapetool.url($doc.getURL())" $msg.get('core.menu.watchlist.add.page') 'tmWatchDocument' $watchClasses)
+    #submenuitem("$doc.getURL('view', 'xpage=watch&amp;amp;do=removedocument')&amp;amp;xredirect=$escapetool.url($doc.getURL())" $msg.get('core.menu.watchlist.remove.page') 'tmUnwatchDocument' $unwatchClasses)
+  #end
+  #if ($xwiki.exists('XWiki.SharePage') &amp;&amp; !$isGuest)
+    #submenuitem($doc.getURL('view', 'viewer=share') $msg.get('core.menu.share') 'tmActionShare', '')
+    $xwiki.jsx.use('XWiki.SharePage')
+    $xwiki.ssx.use('XWiki.SharePage')
+  #end
+  #set ($canDelete = !$doc.isNew() &amp;&amp; $xwiki.checkAccess($doc.fullName, 'delete'))
+  #if($canDelete || $xwiki.hasProgrammingRights())
+    #submenuseparator()
+  #end
+  #if($xwiki.hasProgrammingRights())
+    #submenuitem($doc.getURL('view', 'xpage=copy') $msg.get('core.menu.copy') 'tmActionCopy', '')
+  #end
+  #if($canDelete)
+    #submenuitem($doc.getURL('view', 'xpage=rename&amp;amp;step=1') $msg.get('core.menu.rename') 'tmActionRename', '')
+    #submenuitem($doc.getURL('delete', $!languageparams) $msg.get('core.menu.delete') 'tmActionDelete', '')
+  #end
+  #xwikitopmenuentryend()
+  #if($canDelete &amp;&amp; $keyboardShortcutsEnabled)
+    &lt;script type="text/javascript"&gt;
+      //&lt;![CDATA[
+      shortcut.add("$msg.get('core.shortcuts.view.delete')",function() { location.href=$('tmActionDelete').href; }, { 'type':'keypress', 'propagate':false, 'disable_in_input':true });
+      shortcut.add("$msg.get('core.shortcuts.view.rename')",function() { location.href=$('tmActionRename').href; }, { 'type':'keypress', 'propagate':false, 'disable_in_input':true });
+      //]]&gt;
+    &lt;/script&gt;
+  #end
+#end
+&lt;/div&gt;
+&lt;/div&gt;
+#end</menuview.vm>
+</property>
+<property>
+<mycurriki.css>#template('colorThemeInit.vm')
 #mycurriki-blog h2 {
 	color: #000;
 	font-size: 16px;
@@ -2821,10 +3170,6 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 	padding: 10px;
 	min-height: 100px;
 }
-.subject-card { margin-bottom: 1em; padding: 5px; }
-
-.subject-link { padding: 0pt 0pt 5px; }
-.subject-link a span { font-size: 12px; }
 .all-subjects  { text-align: center; }
 .all-subjects a { font-size: 15px; font-weight: bold; text-decoration: none; }
 .all-subjects a .subject-title-count { color: #FF4100; }
@@ -2985,7 +3330,7 @@ display:none;
 .expanded #right-panel { margin-left: 220px; padding: 0; }
 
 /** PANELS **/
-.panel { width: 203px; }
+.panel { width: 275px; }
 .panel a {color:#1963AA;}
 .panel a:hover {color:#FF4100;}
 
@@ -3104,10 +3449,6 @@ font-weight:bold;}
 #mainContentArea, #mainEditArea {
   margin-left:0;
 }
-#headerglobal {
-  background:url("$xwiki.getSkinFile('header-bg.jpg')") left top no-repeat;
-  margin-bottom:20px;
-}
 
 #breadcrumb {
   background:#fafafa;
@@ -3122,6 +3463,7 @@ font-weight:bold;}
 ul.login-links a {
   box-shadow:1px 1px 0 rgba(0,0,0,0.5);
   background:$theme.panelCollapsedBackgroundColor;
+  padding: 4px 5px;
 }
 
 ul.login-links a:hover{
@@ -3133,8 +3475,16 @@ ul.login-links a.administration-link,ul.login-links a.profile-link {
   border-right:1px solid $theme.borderColor;
 }
 
-.welcome-message {
-  color:$theme.panelCollapsedBackgroundColor;
+#header-search {
+  float:none;
+  color: inherit;
+  margin: 0;
+  padding:0;
+  height: auto;
+}
+
+#header-search p {
+  color: inherit;
 }
 
 #header-search a {
@@ -3143,10 +3493,6 @@ ul.login-links a.administration-link,ul.login-links a.profile-link {
 
 #curriki-searchbox{
   border:none;
-}
-
-#remember-forgot a,#header-member .register,#header-member #remember-forgot {
-  color:$theme.panelCollapsedBackgroundColor;
 }
 
 .welcome-section {
@@ -3742,6 +4088,515 @@ fieldset#search-advanced-group, fieldset#search-advanced-resource, fieldset#sear
 
 .curriki-form textarea {
   width: 100%;
+}
+
+
+### SANKORE DRUPAL CSS RULES
+
+
+#navigation ul.menu {
+    margin: 0;
+    padding: 0;
+}
+
+ul.menu {
+    border: medium none;
+    list-style: none outside none;
+    text-align: left;
+}
+
+#navigation ul.menu li {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#navigation .content &gt; ul.menu &gt; li.expanded {
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    position: relative;
+    top: -1px;
+    z-index: 100;
+}
+
+#navigation ul.menu {
+    margin: 0;
+    padding: 0;
+}
+#navigation ul.menu li {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+#navigation ul.menu li a {
+    border-right: 1px solid #AFABA7;
+    color: #777777;
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 11px;
+    padding: 3px 8px 2px;
+}
+#navigation ul.menu li a.active-trail {
+    color: #3E3D40;
+}
+#navigation ul.menu li.last a {
+    border: 0 none;
+}
+#navigation .content &gt; ul.menu &gt; li.first &gt; a {
+    background: url(/xwiki/bin/download/XWiki/Skin/menuhome.png) no-repeat scroll 4px 2px transparent;
+    overflow: hidden;
+    text-indent: -999px;
+    width: 9px;
+}
+#navigation .content &gt; ul.menu &gt; li &gt; ul {
+    background: -moz-linear-gradient(center top , #FBFBFB, #D8D9DA) repeat scroll 0 0 transparent;
+    border: 1px solid #C5C6C8;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 2px 2px 3px #888888;
+    display: none;
+    left: -1px;
+    padding: 10px;
+    position: absolute;
+    width: 330px;
+}
+#navigation .content &gt; ul.menu &gt; li.expanded {
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    position: relative;
+    top: -1px;
+    z-index: 100;
+}
+#navigation .content &gt; ul.menu &gt; li.expanded &gt; a {
+    background: url("/xwiki/bin/download/XWiki/Skin/arrowdown.png") no-repeat scroll 4px 6px transparent;
+    padding-left: 15px;
+    position: relative;
+    top: 1px;
+}
+#navigation .content &gt; ul.menu &gt; li.expanded:hover &gt; a {
+    background-color: #FBFBFB;
+    height: 16px;
+    z-index: 200;
+}
+#navigation .content &gt; ul.menu &gt; li.expanded:hover {
+    background: none repeat scroll 0 0 #FBFBFB;
+    border-left: 1px solid #C5C6C8;
+    border-right: 1px solid #C5C6C8;
+    border-top: 1px solid #C5C6C8;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+#navigation ul.menu li:hover ul {
+    display: block;
+}
+#navigation ul.menu li li {
+    float: none;
+}
+#navigation ul.menu li li a {
+    border: medium none;
+    color: #58585A;
+    font-weight: normal;
+    width: 157px;
+}
+#navigation ul.menu li li ul.menu {
+    position: static;
+}
+
+ul.menu {
+    border: medium none;
+    list-style: none outside none;
+    text-align: left;
+}
+ul.menu li {
+    margin: 0 0 0 0.5em;
+}
+ul li.expanded {
+    list-style-image: url("../../misc/menu-expanded.png");
+    list-style-type: circle;
+}
+ul li.collapsed {
+    list-style-image: url("../../misc/menu-collapsed.png");
+    list-style-type: disc;
+}
+ul li.leaf {
+    list-style-image: url("../../misc/menu-leaf.png");
+    list-style-type: square;
+}
+li.expanded, li.collapsed, li.leaf {
+    margin: 0;
+    padding: 0.2em 0.5em 0 0;
+}
+li a.active {
+    color: #000000;
+}
+
+### SANKORE PANELS CSS
+#planete {
+  margin-top: -150px;
+}
+#planete h2 {
+    color: #C92A1C;
+}
+#planete h3 {
+    margin-top: 10px;
+}
+#planete .voirPlus {
+    color: #C22D1C;
+}
+#planete p, #rechercher p, #logiciel p {
+    margin-bottom: 0;
+}
+#*
+#planete form .input {
+    border: 1px solid #E4E4E4;
+    float: left;
+    height: 18px;
+    margin-right: 4px;
+    width: 86px;
+}
+#planete form #j_loginpwd {
+    margin-top: -18px;
+}
+#planete form #loginbtn {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #868789;
+    border-color: -moz-use-text-color -moz-use-text-color #636363;
+    border-radius: 4px 4px 4px 4px;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: left;
+    font-weight: bold;
+    height: 20px;
+    margin-left: 190px;
+    margin-top: -35px;
+    width: 86px;
+}
+#remember-forgot, #remember-forgot a {
+    color: #978E78;
+    font-style: italic;
+    text-decoration: underline;
+}
+#remember-forgot label {
+    cursor: pointer;
+    display: inline;
+}
+#remember-forgot input {
+    margin-left: 8px;
+}
+#remember-forgot a {
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+*#
+#planete #signup {
+    background: none repeat scroll 0 0 #C92A1C;
+    border-bottom: 1px solid #681A14;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: auto;
+    padding: 5px 0;
+    text-align: center;
+}
+#planete #signup:hover {
+    text-decoration: none;
+}
+
+#rightPanels {
+    float: right;
+    margin: 0 0 0 -280px;
+    width: 280px;
+}
+
+
+#block-search-form {
+    margin-bottom: 2px;
+    padding: 10px 0;
+}
+#block-search-form h2 {
+    margin-left: 17px;
+}
+.rechercher, #block-search-form {
+    background-color: #DAE39C;
+    border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.rechercher h2 {
+    color: #617F2D;
+}
+.rechercher .voirPlus {
+    color: #3F5620;
+}
+#edit-search-block-form--4 {
+    border: medium none;
+    font-size: 13px;
+    height: 24px;
+    margin-left: 17px;
+    padding: 0 5px;
+    width: 230px;
+}
+#edit-submit--2 {
+    background-color: transparent;
+    background-image: url("../images/loupe.png");
+    background-repeat: no-repeat;
+    border: medium none;
+    cursor: pointer;
+    height: 34px;
+    margin-left: -5px;
+    width: 34px;
+}
+
+.download-link {
+    background-image: url("/xwiki/bin/download/XWiki/Skin/arrowDownload.png");
+    background-position: 150px 11px;
+    background-repeat: no-repeat;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 43px;
+  margin:auto;
+    padding: 5px 60px 0 15px;
+    text-decoration: none;
+    width: 120px;
+}
+.download:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+#rechercher .download-link {
+    background-color: #739D35;
+    border-bottom: 2px solid #3F5620;
+}
+#planete .download-link {
+  background-color: #C92A1C;
+  border-bottom: 2px solid #3F5620;
+  padding-top: 14px;
+  height: 29px;
+  width: 130px;
+  background-position: 160px 11px;
+}
+
+#logiciel .download-link {
+    background-color: #24769D;
+    border-bottom: 2px solid #195175;
+}
+#logiciel h2, #logiciel h3, #logiciel .voirPlus {
+    color: #195175;
+}
+#edit-search-block-form--4 {
+    border: medium none;
+    font-size: 13px;
+    height: 24px;
+    margin-left: 17px;
+    padding: 0 5px;
+    width: 230px;
+}
+#edit-submit--2 {
+    background-color: transparent;
+    background-image: url("../images/loupe.png");
+    background-repeat: no-repeat;
+    border: medium none;
+    cursor: pointer;
+    height: 34px;
+    margin-left: -5px;
+    width: 34px;
+}
+
+.block-inner h2 {
+  margin-top: 10px;
+  text-align: center;
+  border-bottom: none;
+}
+
+#planete .xwikipanelcontents {
+  background: transparent;
+}
+#planete #signin {
+  background: none repeat scroll 0 0 #C92A1C;
+  border-bottom: 1px solid #681A14;
+  border-right: 1px solid #C92A1C;
+  border-top: 1px solid #C92A1C;
+  border-left: 1px solid #C92A1C;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px 0 15px 0px;
+    padding: 5px 0;
+    text-align: center;
+    width: 80px;
+  float:right;
+}
+
+#remember-forgot, #remember-forgot a {
+    color: #978E78;
+    font-style: italic;
+    margin-top: -10px;
+    text-decoration: underline;
+}
+
+#remember-forgot a {
+  margin-left:0;
+}
+
+ul.circle {list-style-type:circle}
+ul.disc {list-style-type:disc}
+ul.inside {list-style-position:inside;}
+
+.block-title {
+  text-align: center;
+}
+
+.block-block {
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  padding: 0;
+  margin-top:15px;
+}
+
+#rechercher a {
+  color: #3F5620;
+  font-size: inherit;
+}
+
+#rechercher h3 {
+  margin:0;
+}
+
+#rechercher .block-title {
+  background-color: #DAE39C;
+  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+}
+#logiciel .block-title {
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+#planete .block-title {
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+.block-title {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: none;
+  margin: 0;
+  padding: 20px 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+#rechercher .block-contents-top {
+  background-color: #DAE39C;
+  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+}
+#logiciel .block-contents-top {
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+#planete .block-contents-top {
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+.block-contents-top {
+  border-style: solid;
+  border-width: 1px;
+  border-top: none;
+  margin-bottom: 2px;
+  padding: 10px 15px;
+}
+
+#rechercher .block-contents-inner {
+  background-color: #DAE39C;
+  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+}
+#logiciel .block-contents-inner {
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+#planete .block-contents-inner {
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+.block-contents-inner {
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 2px;
+  padding: 10px 15px;
+}
+
+#rechercher .block-contents-bottom {
+  background-color: #DAE39C;
+  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+}
+#logiciel .block-contents-bottom {
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+#planete .block-contents-bottom {
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+.block-contents-bottom {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  padding: 10px 15px;
+}
+
+#curriki-searchbox {
+  border: solid 1px #B7BC7A;
+}
+
+#planete a {
+  color: #C22D1C;
+}
+
+.subject-link {
+  padding:0;
+}
+.subject-card {
+  margin:0;
+  padding:0;
+}
+
+#company {
+  margin-bottom:10px;
+}
+
+
+#name-and-slogan #site-slogan {
+  margin-top: -15px;
+    color: #C22D1C;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.profile-links td, .profile-links th, .profile-links tr {
+  border:none !important;
 }</sankore.css>
 </property>
 <property>
@@ -3801,7 +4656,7 @@ fieldset#search-advanced-group, fieldset#search-advanced-resource, fieldset#sear
 #end
 #template("htmlfooter.vm")
 
-</siteembed.vm></property><property><space.vm></space.vm></property><property><startpage.vm></startpage.vm></property><property><style.css>@import "microformats.css";
+</siteembed.vm></property><property><startpage.vm></startpage.vm></property><property><style.css>@import "microformats.css";
 @import "colibri.css";
 #template('colorThemeInit.vm')
 
@@ -3821,29 +4676,18 @@ body.main ul {
   background-color:$theme.pageContentBackgroundColor;
   width:1140px;
   margin:0 auto;
-  border:1px solid $theme.borderColor;
 }
 #headerglobal {
-  margin-bottom:20px;
   float:left;
   height:150px;
   min-height:150px;
   border-top:4px solid $theme.panelHeaderBackgroundColor;
   margin-bottom:0.5em;
 }
-#contentcontainer {
-  padding:0 10px;
-}
-#company {
-  width:40%;
-  display:inline-block;
-  height:75%;
-  float:left;
-}
 
 #companylogo a img {
   margin-top:30px;
-  margin-left:10px;
+  float: none;
 }
 
 #document-title h1 {
@@ -3888,26 +4732,16 @@ h4 {
 } 
 
 /*!!!*/
-#header-member{
-  border-right:1px dotted $theme.borderColor;
-  /*border-left:1px dotted $theme.borderColor;*/
-  float:left;
-  padding:0;
-  width:28%; 
-  padding:0 15px 0 15px;
-  margin-top:30px;
-}
-#header-member form {
-  margin-top:-10px;
-}
+
 #header-member a:hover {
   text-decoration:underline;
+  color: #FFEECE;
 }
 
 #header-member #remember-forgot {
-  font-size:0.75em;
   margin-bottom:1em;
   margin-top:0.5em;
+  float: left;
 }
 
 #remember-forgot a{
@@ -3940,11 +4774,12 @@ h4 {
   margin-bottom:0.3em;
   width:200px;
 }
+
 .welcome-message {
-  margin:10px 0;
-  display:block;
-  width:75%;
-  text-align:left;
+    display: block;
+    font-size: 1.2em;
+    margin: 0 0 20px;
+    text-align: left;
 }
 ul.login-links {
   border-radius:3px;
@@ -4008,13 +4843,6 @@ ul.login-links a.button{
 #header-search a{
   color:$theme.linkColor;
   font-size:0.78em;
-}
-
-#header-member ul {
-  float:left;
-  margin:5px 15px 5px 0;
-  list-style-type:none;
-  width:101%;
 }
 
  
@@ -4089,7 +4917,11 @@ display:none;
 }
 
 #body.hideright #contentcolumn .main  {
-  margin-left:240px;
+  margin-left:240px; 
+}
+
+#body {
+  background-color: #ffffff;
 }
 
 .main{
@@ -5071,7 +5903,31 @@ li.input-select select {width: 40%;}
     height: auto;
     padding: 0;
 }
-</style.css></property><property><stylesheets.vm>&lt;script type="text/javascript"&gt;
+
+#body.hideleft #contentcolumn .main {
+    margin: 0 300px 0 0;
+}
+
+.block-icon {
+    left: -20px;
+    position: absolute;
+    top: -20px;
+}
+
+#rightPanels .block {
+    position: relative;
+}
+
+#contentmenu, #contentmenu.submenu, #contenteditmenu, #contenteditmenu.submenu {
+  z-index: 99;
+}
+
+body {
+  position: inherit !important;
+}</style.css>
+</property>
+<property>
+<stylesheets.vm>&lt;script type="text/javascript"&gt;
 //&lt;![CDATA[
 var ejcLoc = (("https:" == document.location.protocol) ? "https://"+document.location.host+"/xwiki/skins/curriki20/extjs/" : "http://extjs.cachefly.net/ext-2.3.0/");
 document.write(unescape("%3Clink rel='stylesheet' type='text/css' href='" + ejcLoc + "resources/css/ext-all.css' /%3E"));

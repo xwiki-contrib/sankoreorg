@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Panels</web>
+<name>SankoreDownloadPanel</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>Panels.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1313484581000</creationDate>
+<date>1313484581000</date>
+<contentUpdateDate>1313484581000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden><attachment>
+<filename>BGlogiciel.png</filename>
+<filesize>1048</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1313484525000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAFEAAABACAMAAABV22s6AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAOpQTFRFAAAA////////Rpi5////////Rpi5////////Rpi5hLrQ////
+lcTX////Rpi50eXu////Rpi5a63H////vNrm////Rpi5ZanF4O7z////jcDU////Rpi5////////
+Rpi5////UZ69ksPW1Ofv6fP3Rpi5b6/J1ujvUJ29sdTixd/pRpi5WaLAo8zctdbjT528lcTXp87e
+Rpi5msfZj8DURpi5hLrQerXNRpi5VKC+cbDJW6PBaKvGRpi5YafDWaPARpi5Up++TJu7Rpi5aavG
+dLLLgLjPi7/To8zcxd/p0eXu3Ozy8/n7////+2cX4wAAAEN0Uk5TAAAIEBAYICAoMDAwODhAQEBQ
+UFBYWGBgYGBoaHBweICAiIiIiI+QkJeYmJ+foKCnqKivsLi/wMfPz8/X19/f5+/v976/Pr4AAAJ1
+SURBVFjD1dhre9IwFADgYy8URLoiFsWtJSpYLYrCoJsI9BK8of3/f8cUWNewNQ1Lvux8g6fP25ye
+nPQAPJEd8DhE4A91GmF83dh/kCKOcBZRX5p4gQ+xassRG/g2pqoEUV0VRPxeERenRRAHLWGxTYF4
+bImKakSBMTJERTpnPHEqK6Oa3f5oPl/huxHV7uS8QHW2WBvdJ+XxUavROYeDTsV+vMbM8Az6gsQ7
+V9jikA2u0aejOrsau2dMNph4E/qLABkVfb1ii2M/oR8isipOigYbvByE9JL986rTrMsEr9DiKGdX
+rxIvWGCIvuKjZrGgSjSZVXlH78Sl50Cl2GaIM/fbUa/YWrXYLwcX6C29QtS57fSHiPHgFZVzMrBB
+TJw5X/BmU9hIrmKKiX4r+pGm203ejc3R3OAQy7saPcM/0zT9tznk3DPxuschzstFE/8mYrrdPVTf
+VYYSxG0mprsyOzrpLklitkbfhqxdxcXNn/Tvr6zMSN91K5cYlYvqzU730Nl+5uESy1sGwa7GxOs8
+PxyiguIYIhxfIrfzNH+3iopG7fPAaZqjwjtHTLwyQHv9hnoPxmLifeFIFxGHuJIuzqWLQ+li9xQw
+5hHV6ARxzVNr6J8i8uxHgA/84oRPhBeLOF9EwhyCyGzLJYLWccYkPITQ9/IBgxxCTeAUszBIkIGh
+sD3DCblLEASz5TIIJj45hDQ4RTxEvzjX1cldLMtq2bZl1XX6wgeIM1dn/R45XQxRC6SIeQvdzLLC
+opnP77pccZ3PspLExOuBLLFxqLMmTYT9MNsCaaK6G25tkCeaWbM4ikRRfRn4rg4SRVDqFg8Ij/if
+uP8PouGv6OR7UAAAAABJRU5ErkJggg==
+</content></attachment>
+<object>
+<class>
+<name>Panels.PanelClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<category>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>category</name>
+<number>5</number>
+<prettyName>Category</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>Information|Navigation|Tools|Administration|Other</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</category>
+<content>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>content</name>
+<number>4</number>
+<prettyName>Content</prettyName>
+<rows>25</rows>
+<size>60</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</content>
+<description>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>description</name>
+<number>3</number>
+<prettyName>Description</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</description>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<type>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>type</name>
+<number>2</number>
+<prettyName>Panel type</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>view|edit</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</type>
+</class>
+<name>Panels.SankoreDownloadPanel</name>
+<number>0</number>
+<className>Panels.PanelClass</className>
+<guid>fc503b76-3b6f-41cd-b5b2-3ea5c1d6a25e</guid>
+<property>
+<category>Information</category>
+</property>
+<property>
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
+&lt;p&gt;&lt;/p&gt;
+&lt;div id="logiciel" class="block block-block clearfix"&gt;
+  &lt;img width="81px" src="/xwiki/bin/download/Panels/SankoreDownloadPanel/BGlogiciel.png" typeof="foaf:Image" class="block-icon"&gt; 
+  &lt;h2 class="block-title"&gt;Le logiciel gratuit Sankoré&lt;/h2&gt;
+  &lt;div class="block-contents-top"&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Création de contenu facile&lt;/li&gt;
+      &lt;li&gt;Fonctionne sur tous les matériel&lt;/li&gt;
+      &lt;li&gt;Navigateur web intégré&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;&lt;a class="voirPlus" href="#"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a class="download-link" href="#"&gt;Download the Sankore Application&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="block-contents-bottom"&gt;
+    &lt;h3&gt;Participez au développement&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Création de contenu facile&lt;/li&gt;
+      &lt;li&gt;Fonctionne sur tous les matériel&lt;/li&gt;
+      &lt;li&gt;Navigateur web intégré&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;&lt;a class="voirPlus" href="#"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+{{/html}}
+{{/velocity}}</content>
+</property>
+<property>
+<description>Sankore Download Panel</description>
+</property>
+<property>
+<name>SankoreDownloadPanel</name>
+</property>
+<property>
+<type>view</type>
+</property>
+</object>
+<content>{{include document="Panels.PanelSheet"/}}</content></xwikidoc>

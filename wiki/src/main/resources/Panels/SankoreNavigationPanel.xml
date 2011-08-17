@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Panels</web>
+<name>SankoreNavigationPanel</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>Panels.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1313167160000</creationDate>
+<date>1313167160000</date>
+<contentUpdateDate>1313167160000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>Panels.PanelClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<category>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>category</name>
+<number>5</number>
+<prettyName>Category</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>Information|Navigation|Tools|Administration|Other</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</category>
+<content>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>content</name>
+<number>4</number>
+<prettyName>Content</prettyName>
+<rows>25</rows>
+<size>60</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</content>
+<description>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>description</name>
+<number>3</number>
+<prettyName>Description</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</description>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<type>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>type</name>
+<number>2</number>
+<prettyName>Panel type</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>view|edit</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</type>
+</class>
+<name>Panels.SankoreNavigationPanel</name>
+<number>0</number>
+<className>Panels.PanelClass</className>
+<guid>e5914c5a-6807-43f1-92a1-2d134dd47e1c</guid>
+<property>
+<category>Information</category>
+</property>
+<property>
+<content>&lt;div class="menu" id="navigation"&gt;
+  &lt;div class="region region-navigation"&gt;
+    &lt;div class="block block-system block-menu clearfix" id="block-system-main-menu"&gt;
+      &lt;div class="block-inner"&gt;
+        &lt;div class="content"&gt;
+          &lt;ul class="menu"&gt;
+          &lt;li class="first leaf"&gt;&lt;a class="active" href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="expanded"&gt;&lt;a href="$xwiki.getURL('MyCurriki.Profile', 'view')"&gt;$msg.get('panel.navigation.mycurriki')&lt;/a&gt;
+            &lt;ul class="menu"&gt;
+              &lt;li class="first collapsed"&gt;&lt;a href="$xwiki.getURL('MyCurriki.Profile', 'view')"&gt;$msg.get('panel.navigation.myprofile')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="$xwiki.getURL('MyCurriki.Favorites', 'view')"&gt;$msg.get('panel.navigation.myfavorites')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="$xwiki.getURL('MyCurriki.Contributions', 'view')"&gt;$msg.get('panel.navigation.mycontributors')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="$xwiki.getURL('MyCurriki.Collections', 'view')"&gt;$msg.get('panel.navigation.mycollection')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="$xwiki.getURL('MyCurriki.Blog', 'view')"&gt;$msg.get('panel.navigation.myblogs')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="$xwiki.getURL('MyCurriki.Groups', 'view')"&gt;$msg.get('panel.navigation.mygroups')&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li class="leaf"&gt;&lt;a href=""&gt;$msg.get('panel.navigation.community')&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="expanded"&gt;&lt;a href="$xwiki.getURL('Search.WebHome', 'view')"&gt;$msg.get("panel.navigation.find")&lt;/a&gt;
+            &lt;ul class="menu"&gt;
+              &lt;li class="first collapsed"&gt;&lt;a href="/xwiki/bin/view/Search/#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-resource-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1%255Egroup%253Do%25253Aa%25253Db%2525253A1%255Emember%253Do%25253Aa%25253Db%2525253A1"&gt;$msg.get('panel.navigation.find.resources')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="/xwiki/bin/view/Search/#o%3As%3Ds%253Agroup%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-group-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1%255Egroup%253Do%25253Aa%25253Db%2525253A1%255Emember%253Do%25253Aa%25253Db%2525253A1"&gt;$msg.get('panel.navigation.find.groups')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="/xwiki/bin/view/Search/#o%3As%3Ds%253Amember%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-member-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1%255Egroup%253Do%25253Aa%25253Db%2525253A1%255Emember%253Do%25253Aa%25253Db%2525253A1"&gt;$msg.get('panel.navigation.find.members')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="/xwiki/bin/view/Search/#o%3As%3Ds%253Ablog%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-blog-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1%255Egroup%253Do%25253Aa%25253Db%2525253A1%255Emember%253Do%25253Aa%25253Db%2525253A1"&gt;$msg.get('panel.navigation.find.blogs')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="/xwiki/bin/view/Search/#o%3As%3Ds%253Acurriki%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-curriki-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1%255Egroup%253Do%25253Aa%25253Db%2525253A1%255Emember%253Do%25253Aa%25253Db%2525253A1"&gt;$msg.get('panel.navigation.find.pages')&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li class="leaf "&gt;&lt;a href=""&gt;$msg.get("panel.navigation.news")&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="leaf last"&gt;&lt;a href=""&gt;$msg.get("panel.navigation.about")&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;  
+      &lt;/div&gt;
+      &lt;div class="clearfloats"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt; &lt;!-- /block-inner /block --&gt;  &lt;/div&gt;
+&lt;/div&gt;</content>
+</property>
+<property>
+<description>Panel Description</description>
+</property>
+<property>
+<name>SankoreNavigationPanel</name>
+</property>
+<property>
+<type>view</type>
+</property>
+</object>
+<content>#includeForm("Panels.PanelSheet")</content></xwikidoc>

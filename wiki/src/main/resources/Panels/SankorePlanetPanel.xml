@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Panels</web>
+<name>SankorePlanetPanel</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>Panels.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1313484338000</creationDate>
+<date>1313484338000</date>
+<contentUpdateDate>1313484338000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden><attachment>
+<filename>BGplanete.png</filename>
+<filesize>2171</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1313484190000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAFEAAAA/CAMAAACvr9QuAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAhlQTFRFAAAA////////////1k01////////////1k01////////77iu
+////////1k01////////1k01////////////1k01////8L62////////1k018cS8////////5pKD
+////2mBK+eXh////6Z6R////////1k019dPN////////+urn+uro1k019tjS++zp5Y+A8se/////
+1k01////5pSG66aa77iu++3r3GdS7Kqf++7s++7s1k016Z6R////////8cG433Rh++/t////5pOE
+////+OHd/PDu////////1k015Ih59dPN+OLe////9dPN/PDu////8sW++OLe66md////2FQ94n9u
+6JyO9dTP+OPf////77mv8se/9dXP////8sjA+ePg////1k0133Zk7K2i8sjB+eTg////6aGU9tbR
++eTg/PHw////6aGV8Lyz/PLw////6qKW7bCl88rD9tfS////55aI/PLw////6qSY9tjT/PLw3nFe
+5Ix855iL7bKo88zF+eXi1k013GdS33Rh5Y1+7bOp88zG9tnU4oJx66eb7rSq4oJx883G6JyO66ic
+7rWr8cG52l9K4Hhm44R07rWr4Hln44V15pKD6Z6R66qf3m9b4Xtp6Z+S4Xxq5Ih45pSF1k012VlD
+3GZR5Il53GdS3GdT4X9t2l1H3GlU33Ri11M82l9J3WpW2FU+2mBL2FdA1k01HZ7GkwAAALJ0Uk5T
+AAAICxAQFhggICEoKC0wMDhAQENIUFBYWVtgYGBnaGhrbG91eHqAgICGiIqPkJWYmJyfn6CgoKGn
+qKisr7CytLa3t7e4uby8vL6/wMDBwcPDw8XFxsbHx8jIyMjKysrKzc3Nz8/Pz8/P0tLS0tLU1NTU
+1tbW1tfZ2dnb29vc3d3e3t7f3+Dg4ODg4uLi4+Pl5eXl5+fn5+np6urq7Ozs7u7u7+/x8fLz8/X1
+9vf4+Pr6/Z77TIgAAAU6SURBVFjDrZj/X9tEGMcZbd3AsVVwOBHFL3N2OuY2Fb/Nq7a0hhE7Gq3f
+KFaBah3CQGdjFDtl6EadVaEytaEKax1Y1i/3F3qXS5qU5S4pr31+6OvVS+6d57l77nnurmXPnVbL
+nhaG7uroOozU0eGgvmKT6Dx09CySrEgU44Lv1KNdjt0Te87A21TJzgQfd++O2HMZUlSIn+pqnug8
+Cxnaih9rb5J4YAOyVeAPN0UkwHIpn89vVinMmWMO+0QMLC1L0nQiEomM/6pTivmlzKb2J32i3S5x
+HwZKiSFfXBRnAABbEObm8xiyHosEuKm8anbh5XZ7ROcEcng+AfgK6nUlDEQElMLXFciPPvQFf+Sb
+MkE+77BFPA5hbWnaC+T/itVVKVRAf6VwUHX1vBcEBQACV2oK8oTDBvEe9OZqMgBANDEdmwsB/mq+
+lAQzBFiVAkC4xCFDQ7/h/2sPWhOdKLA3pRDqA4aAosCb8EtQIMTVOQDECxGlfQybedFtScQ+L4wD
+o+KwJmsmok9FI0NCHLe/gVteclgQsc+5pL+BKNejB5uIbRcvhOJBAPDU/X0/m4h9rkph3C+lAYN1
+YJWMBgBCZARWoiCFGz91MInIZ5hRDInKo3WnG03E4kQ801u4sfYIi4h9Lkl4KoHv/YRPCAKfz+D0
+PDFREEXed7Pe+nMrgziBTUwQM7x+8Rbnl7Pn6l3Lkhc/wObBuKivzcfoxB7dRGxlZX0uaswN69O4
+mVdsrt7S21faaETnhsFEbEv5p4qRmB9tGFVsNUkbT9OIPcp0clGBELd25q/iJzLQQl39xqzy0o2D
+FOJlMp3yn4rfgllS/AUHTKkGS0irtfXliBJA8Flz4gH0aBtNJ8wocZOipe+i9NlVKYE0khwd4hWb
+Vw6aEnEsTia9AswoNhZoxEwMeMnsebWZh32mRBw678ZQlllS3qeWmNKHPsMS5ZW2ATOiEz95NQyy
+NZSxtDfNdclrQCpzM9BmQsTrBb7F8ShRKKuQQVwm6SwK6uNtSjyKn/z79RbMhOsrg0YkmTM1VHeb
+TsQiw5ilA8vrhCiQXFKhEc9APfGr71G0+oealrg0j5KeTCNq25LcHOCDrGEsLaVj6sqH3wfglCUx
+E05lf/dToxHVjNwXKjEKFzhYvmlFLHJgdDwGrqG+ZTNiLrn2kZrKU1XJTxr7WURYwdvPOHhvQUrO
+mjCRD+NqHZKLc+pC8LhMiMcbpnM2BAJ+08W9xPFavajkYxqxhRU9GDg/7d1RBvXSEAABUhkAn4zw
+DOIhE6AZcflcVEzjpVd5HaPHcNuiKXGfIZFqQDOirr8+59WMMtlrmnv0fXcpAuwQa/9cDJBF+Eq3
+KfG0HiAJW0QIYxxJ9f3mGVcfyFxYI2aZwJJEMsqKx2VeZ/TdfFYQtHrIUhX58i12uo9SuYwR+QEH
+rLIk0jXwFC5OT9JqoWG2IUlAwSCbWH7mYfQ7fKSVtqc4bVgZiokzY9fZyB82sImd1F2K03AukhWn
+z38MLTWITaTtpAzrBn6nbD4DKSvgisfN2j8a/IYiyaoFWKuyiCf72HvcCePZL6gg10pfMYDDnr3s
+fXgDEkFRXHqnEvEa3edOy9PH241d0shQPxix8Jl5Qmp9YUendNQXly18tjhpPnQD2tSg5rPVafju
+12zxtgc8brsn9tb7Jq2BK/1H2pq4p3A98M42Gzjs6XM1d5fiuve5SfqATvbrQ9jEDdL+7ideHF5c
+vA23ONjv6Xbt6k4KWbq/s7fXgzWg6aTH0+t27fKWq0FtmvbavOW60/ofqZeJYbVY1qIAAAAASUVO
+RK5CYII=
+</content></attachment>
+<object>
+<class>
+<name>Panels.PanelClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<category>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>category</name>
+<number>5</number>
+<prettyName>Category</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>Information|Navigation|Tools|Administration|Other</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</category>
+<content>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>content</name>
+<number>4</number>
+<prettyName>Content</prettyName>
+<rows>25</rows>
+<size>60</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</content>
+<description>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>description</name>
+<number>3</number>
+<prettyName>Description</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</description>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<type>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>type</name>
+<number>2</number>
+<prettyName>Panel type</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>view|edit</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</type>
+</class>
+<name>Panels.SankorePlanetPanel</name>
+<number>0</number>
+<className>Panels.PanelClass</className>
+<guid>2d4c990b-d155-4d26-bd5a-9c0f17db04df</guid>
+<property>
+<category>Navigation</category>
+</property>
+<property>
+<content>{{include document="CurrikiCode.BrowseMacros" /}}
+{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
+&lt;div id="planete" class="block block-block clearfix"&gt;
+  &lt;img width="81px" src="/xwiki/bin/download/Panels/SankorePlanetPanel/BGplanete.png" typeof="foaf:Image" class="block-icon"&gt;
+  &lt;h2 class="block-title"&gt;Planète Sankoré&lt;/h2&gt;
+  &lt;div class="block-contents-top"&gt;
+    {{html}}
+    #template("logininline.vm")     
+    {{/html}}
+    &lt;div class="clearfloats"&gt;&lt;/div&gt;
+  #if(!$isGuest)
+    &lt;p&gt;&lt;a class="download-link" href="javascript:Curriki.module.addpath.startPath('B');"&gt;Ajoutez une resource&lt;/a&gt;&lt;/p&gt;
+  #end
+  &lt;/div&gt;
+  &lt;div class="block-contents-bottom"&gt;
+    &lt;h3&gt;Naviguer par sujets&lt;/h3&gt;
+    &lt;div class="browse-page"&gt;
+      &lt;p class="browse-text"&gt;$msg.get("browse.info")&lt;/p&gt;
+      #foreach($subj in $subjects)
+        #simplesubjectcard($subj)
+      #end
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+{{/html}}
+{{/velocity}}</content>
+</property>
+<property>
+<description>Login/Register panel</description>
+</property>
+<property>
+<name>SankorePlanetPanel</name>
+</property>
+<property>
+<type>view</type>
+</property>
+</object>
+<content>{{include document="Panels.PanelSheet"/}}</content></xwikidoc>

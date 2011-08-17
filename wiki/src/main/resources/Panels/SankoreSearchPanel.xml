@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Panels</web>
+<name>SankoreSearchPanel</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>Panels.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1313484450000</creationDate>
+<date>1313484450000</date>
+<contentUpdateDate>1313484450000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden><attachment>
+<filename>BGrechercher.png</filename>
+<filesize>1598</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1313484406000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAFEAAABCCAMAAAAYE8oxAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAARRQTFRFAAAA////////c501////////c501////////c501////////
+c501////g6hM////c501q8SG////zNu2////c501////////c501r8eMw9Wp6/Hi////////c501
+3OfN7vPm////nLpxzty43ujQ7/Tnc5014OnS0+C/////c501gadJ////x9iulLRlvNCfc501////
+s8qRqsOEc501iq1X////or55mrluc501k7Rk1OHB9Pfvja9b////c501faRDh6tSr8eM////eKA8
+gqdKc501fKRD////eKA8k7Njc501fKNChalOja9blrZon7x0qMKBsMiNuc6awtSny9qz0+DA3OfN
+5e3Z7vPm9vny////bvSJgAAAAEt0Uk5TAAAIEBAYICAoMDA4QEBISFBQUFhYYGBocHBwcHB4gICA
+gIiIiIiPkJiYn5+foKior6+wuL+/v8DHz8/Pz9fX39/f39/n5+/v7/f3Sn9CTwAABGlJREFUWMPV
+mHt3okYYh6fIijdqSg2xXeOWbW61tVq1RW3tlm6zrgVBRSTi9/8eneE6DDMYTf7p75ycoyCPr/Pe
+A754bQH09ywVCsc+8VxiudZu90efdP1L7qXEYq3dQaRIXeEFxPLl3UgndTax1sYNeymx2OzrTJ1B
+vJzoeTqD2KZxltbG3q3Rq8HpxBoBszaOe/Blo7dq5WRiIYEZq+3TIdEGXZuKp3vmQ2hbioZkocua
+dDqxEwAPGRno+kI+ndhkEQPbvwPF8onEMoP4FIYPB6Nh0mmWT4hw/0EbY3k7e2UZobuGwkXw4lPn
+svhM4ggneruNmYqmcRWLr0mz+BzinR/Ttu3Y9mqZCXatno5YEkojXuSmoS6L5JUUlFop8on3razh
++uSykFfNsDq2XNsGWSukFfWb+gGUSozqrLXdR+mMSRW2pkE3v98s0IlR+cEKBKap+MfhsHd39sbK
+Mr/mqMTImZ5PdElnSz/FgWqS9xSeSozKz85/zCGeWsitdPHANJAzvxp2q0JcflbulhaR12K6eGBf
+dltJEy86CPWeA/388AERcE8e8TWHEYsRZlahdgZzZTvu1g8f/mNIJA+kJ+HRE9fuRSPdGQxrs3X3
+gU0BUfiFfoxzpZSKx/jGDdYZ1k5QyT3XXptxO/xxba0dL2PiuAXoxB4Pog67caFg4C3TDTY4FTJ0
+9Id6mhhPJGop7AwMDYQa9fqj8oZB1MSwM5AN23U3YYP92zKzxOEVYBDncso1yDFelCQoAFURINc8
+bYmKcV8liEnItEB0qGbM8l3t+Oc5E8E717/hOdgBzxSeSeyC2DWBp10HNpr44XkDfAVtNW0UUsmv
+HzQAkwhnm9g1pmVl8vAdEDwHBZPlegaegQQxaQbw6Ju5zubB56CpGUYqAwli4g3o7HIecVoBv2Ge
+iko7YBPRJJJHhLOPYgcnvEoyUMgQk4b1703SGejtEEimvoRjoGOkMpDsM+E92Pv/5IOmzdCjAvhf
+yRJXzyUe4PDMws3VWe8qc/8xCEaCGDZVOE1sWa6ZT7tKS2yUMqPw4Io2AWBH9wPFNdp48KC0JIE2
+eETBSCdCG92PGH+hzdRh915R5HoFFZdC7aJ9N/qQaQc5Nlp7dJAwhbSp2n1QlGu5IVYFHtTgbjii
+7yZdiTr3JO7deCIofgOtkkTBNyvYMpmKg5EgYv3KUgDg/U8VkGH6EQ1b4BhR/90fissItvjrGFC/
+rdKJafdNRqFps5uf5/nAqcLRifTuoS++5cXv1ce8XVECJxF1vVMGb8S3PVVbMJJSYBALlAXTV7AX
+cCVRvumqUy1TLq+Yc3jsaTSQYDucP0H+4ycuL4iSfNsdqtqcki8sYmY38okzLEI4oSrKre5wik53
+fM0xiaFzd2iQgINepGCxVhuZZUioSm9747iOsYl0qfQ1mCvVeTaxfwYxf4tr/w+ItdxUe3Xi0X8n
+ULc4XYNFVoUVO9JQRdKgdE0+hwgUGRZZEVbsSFURSYZSTia+rv4D6+ZIEcj4CqcAAAAASUVORK5C
+YII=
+</content></attachment>
+<object>
+<class>
+<name>Panels.PanelClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<category>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>category</name>
+<number>5</number>
+<prettyName>Category</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>Information|Navigation|Tools|Administration|Other</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</category>
+<content>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>content</name>
+<number>4</number>
+<prettyName>Content</prettyName>
+<rows>25</rows>
+<size>60</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</content>
+<description>
+<disabled>0</disabled>
+<editor>Text</editor>
+<name>description</name>
+<number>3</number>
+<prettyName>Description</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</description>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<type>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>type</name>
+<number>2</number>
+<prettyName>Panel type</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>view|edit</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</type>
+</class>
+<name>Panels.SankoreSearchPanel</name>
+<number>0</number>
+<className>Panels.PanelClass</className>
+<guid>90ae43c1-4c25-46a9-8438-633242d4d46a</guid>
+<property>
+<category>Information</category>
+</property>
+<property>
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
+&lt;div id="rechercher" class="block block-block clearfix"&gt;
+  &lt;img width="81px" src="/xwiki/bin/download/Panels/SankoreSearchPanel/BGrechercher.png" typeof="foaf:Image" class="block-icon"&gt;
+  &lt;h2 class="block-title"&gt;Rechercher&lt;/h2&gt;
+  &lt;div class="block-contents-top"&gt;
+    &lt;h3&gt;Recherche et partage de vos ressources favorites&lt;/h3&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore&lt;/p&gt;
+    &lt;p&gt;&lt;a class="voirPlus" href="#"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="block-contents-inner"&gt;
+    #template("advancedsearch.vm")
+  &lt;/div&gt;
+  &lt;div class="block-contents-bottom"&gt;
+    &lt;p&gt;Le plugin Sankoré vous permet de Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed.&lt;/p&gt;
+    &lt;p&gt;&lt;a class="download-link" href="#"&gt;Télécharger le plugin Sankoré&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+{{/html}}
+{{/velocity}}</content>
+</property>
+<property>
+<description>Sankore Search Panel</description>
+</property>
+<property>
+<name>SankoreSearchPanel</name>
+</property>
+<property>
+<type>view</type>
+</property>
+</object>
+<content>{{include document="Panels.PanelSheet"/}}</content></xwikidoc>

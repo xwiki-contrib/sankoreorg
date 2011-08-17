@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1308836111000</creationDate>
-<date>1308836111000</date>
-<contentUpdateDate>1308836111000</contentUpdateDate>
+<creationDate>1313067179000</creationDate>
+<date>1313067179000</date>
+<contentUpdateDate>1313067179000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -39,6 +39,14 @@ panel.navigation.advanced_search=Advanced Search
 panel.navigation.featured_resources=Featured Resources
 panel.navigation.reviewed_resources=Reviewed Resources
 
+panel.navigation.find.resources=Resources
+panel.navigation.find.groups=Groups
+panel.navigation.find.members=Members
+panel.navigation.find.blogs=Blogs
+panel.navigation.find.pages=Pages
+
+panel.navigation.community=Community
+
 panel.navigation.contribute=CONTRIBUTE
 panel.navigation.contribute.rollover=Add or create something new
 panel.navigation.contribute.about=About Contributing
@@ -54,14 +62,14 @@ panel.navigation.featuredGroups=Featured Groups
 panel.navigation.browseGroups=Browse Groups by Subject
 panel.navigation.createGroup=Create a New Group
 
-panel.navigation.mycurriki=MY CURRIKI
+panel.navigation.mycurriki=My Profile
 panel.navigation.mycurriki.rollover=Access your member profile and much more
-panel.navigation.myprofile=My Profile
-panel.navigation.myfavorites=My Favorites
-panel.navigation.mycontributors=My Contributions
-panel.navigation.mycollection=My Collections
-panel.navigation.myblogs=My Blog
-panel.navigation.mygroups=My Groups
+panel.navigation.myprofile=Profile
+panel.navigation.myfavorites=Favorites
+panel.navigation.mycontributors=Contributions
+panel.navigation.mycollection=Collections
+panel.navigation.myblogs=Blog
+panel.navigation.mygroups=Groups
 
 panel.navigation.partners_sponsers=PARTNERS &amp; SPONSORS
 panel.navigation.partners_sponsers.rollover=Learn about Curriki's partners and sponsors

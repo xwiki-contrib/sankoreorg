@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1308838698000</creationDate>
-<date>1308838698000</date>
-<contentUpdateDate>1308838698000</contentUpdateDate>
+<creationDate>1313167102000</creationDate>
+<date>1313167102000</date>
+<contentUpdateDate>1313167102000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -31,13 +31,15 @@ loading.loading_msg=Chargement
 panel.navigation.home=ACCUEIL
 panel.navigation.home.rollover=Curriki - Géométrie Interactive
 
-panel.navigation.find=TROUVER
+panel.navigation.find=Trouver
 panel.navigation.find.rollover=Collecter les plans de leçon et collections
 panel.navigation.find.about=A propos de Rechercher &amp;amp; Collecter
 panel.navigation.browse_by_subject=Parcourir les Ressources par Sujet
 panel.navigation.advanced_search=Recherche Avancée
 panel.navigation.featured_resources=Ressources Présentes
 panel.navigation.reviewed_resources=Ressources Evaluées
+
+panel.navigation
 
 panel.navigation.contribute=CONTRIBUER
 panel.navigation.contribute.rollover=Ajouter ou créer quelque chose de nouveau
@@ -47,6 +49,16 @@ panel.navigation.addresource.rollover.member=Ajoutez vos meilleurs matériels é
 panel.navigation.addresource.rollover.visitor=Les membres de Curriki peuvent ajouter et créer des matériels éducatifs
 panel.navigation.crs=Système de Revue Curriki
 
+##HORIZONTAL NAVBAR FOR SANKORE
+
+panel.navigation.find.resources=Des ressources
+panel.navigation.find.groups=Des groupes
+panel.navigation.find.members=Des membres
+panel.navigation.find.blogs=Des blogs
+panel.navigation.find.pages=Des pages
+
+panel.navigation.community=Communaute
+
 panel.navigation.connect=CONNECTER
 panel.navigation.connect.rollover=Collaborer avec d'autres éducateurs
 panel.navigation.connect.about=A propos de la connexion
@@ -54,7 +66,7 @@ panel.navigation.featuredGroups=Groupes Disponibles
 panel.navigation.browseGroups=Parcourir les Groupes par Sujet
 panel.navigation.createGroup=Créer un Nouveau Groupe
 
-panel.navigation.mycurriki=MON CURRIKI
+panel.navigation.mycurriki=Mon Profil
 panel.navigation.mycurriki.rollover=Accédez votre profil de membre et plus encore
 panel.navigation.myprofile=Mon Profil
 panel.navigation.myfavorites=Mes Favoris
@@ -75,6 +87,9 @@ panel.navigation.help.rollover=Trouver des informations, instructions, et tutori
 panel.navigation.help_collection=Collection d'Aide
 panel.navigation.tutorials=Tutoriaux
 panel.navigation.contact_us=Nous Contacter
+
+
+panel.navigation.about=A propos
 
 panel.navigation.about_curriki=A propos de Curriki
 panel.navigation.about_curriki.rollover=Trouver des informations sur CURRIKI nouvelles, leadership, volontaires, et plus encore
@@ -442,15 +457,23 @@ browseSearch.noResult=Votre recherche n'a pas trouvé de ressources.
 browse.titlebar=Naviguer dans les ressources par sujet
 browse.info=Cliquez sur un sujet pour voir la liste de toutes les ressources d'apprentissage dans cette catégorie. Le nombre entre parenthèses est le nombre de ressources indexées dans le moteur de recherche
 
+# Sankore translations for Browsepage
 
-
+browse.subject.title.FW_masterFramework.Technology_Education=Enseignement technologique
+browse.subject.title.FW_masterFramework.Mathematics=Mathématiques
+browse.subject.title.FW_masterFramework.Humanities=Sciences Humaines
+browse.subject.title.FW_masterFramework.Media_Education=Education aux médias
+browse.subject.title.FW_masterFramework.Arts_and_Culture=Arts et Cultures
+browse.subject.title.FW_masterFramework.Digital_Education=Education Numérique (TUIC)
+browse.subject.title.FW_masterFramework.Foreign_Languages=Langues du monde (étrangères)
+browse.subject.title.FW_masterFramework.Language_Proficiency=Langage / Maîtrise de la langue
+browse.subject.title.FW_masterFramework.Health_Education=Education à la santé
 
 browse.subject.title.Uncategorized=Non catégorisé
 browse.subject.image.Uncategorized=/xwiki/bin/download/Main/Browse/SubjectAreaImages.zip/Uncategorized.png
 browse.subject.description.Uncategorized=-
 browse.subject.title.All_Resources=Toutes les Ressources
 
-browse.subject.title.FW_masterFramework.Arts_and_Culture=Arts and Culture
 browse.subject.title.FW_masterFramework.Architecture_Design=Architecture Design
 browse.subject.title.FW_masterFramework.Applied_Arts=Applied Arts
 browse.subject.title.FW_masterFramework.Fine_Arts=Fine Arts
@@ -461,7 +484,7 @@ browse.subject.title.FW_masterFramework.Dance=Dance
 browse.subject.title.FW_masterFramework.Music=Music
 browse.subject.title.FW_masterFramework.Photography=Photography
 browse.subject.title.FW_masterFramework.Theatre=Theatre
-browse.subject.title.FW_masterFramework.Health_Education=Health Education
+
 browse.subject.title.FW_masterFramework.Anatomy_and_Physiology=Anatomy and Physiology
 browse.subject.title.FW_masterFramework.Health=Health
 browse.subject.title.FW_masterFramework.Nutrition=Nutrition
@@ -469,14 +492,14 @@ browse.subject.title.FW_masterFramework.Physical_Education_and_Sports=Physical E
 browse.subject.title.FW_masterFramework.Sexual_Education=Sexual Education
 browse.subject.title.FW_masterFramework.Environmental_Sustainability=Environmental Sustainability
 browse.subject.title.FW_masterFramework.Safety_and_Risk_Prevention=Safety and Risk Prevention
-browse.subject.title.FW_masterFramework.Media_Education=Media Education
+
 browse.subject.title.FW_masterFramework.Media_Ethics=Media Ethics
 browse.subject.title.FW_masterFramework.Source_Assessment=Source Assessment
 browse.subject.title.FW_masterFramework.Research_Methods_and_Documentation=Research Methods and Documentation
-browse.subject.title.FW_masterFramework.Digital_Education=Digital Education
+
 browse.subject.title.FW_masterFramework.Security=Security
 browse.subject.title.FW_masterFramework.Preparation=Preparation
-browse.subject.title.FW_masterFramework.Technology_Education=Technology Education
+
 browse.subject.title.FW_masterFramework.Agriculture_and_Aquaculture=Agriculture and Aquaculture
 browse.subject.title.FW_masterFramework.Automatism=Automatism
 browse.subject.title.FW_masterFramework.Buildings_and_Public_Works=Buildings and Public Works
@@ -491,7 +514,7 @@ browse.subject.title.FW_masterFramework.Industrial_Science_and_Technology=Indust
 browse.subject.title.FW_masterFramework.Human_Services=Human Services
 browse.subject.title.FW_masterFramework.Materials_Technology=Materials Technology
 browse.subject.title.FW_masterFramework.Tourism_Hotellerie_and_Restaurants=Tourism Hotellerie and Restaurants
-browse.subject.title.FW_masterFramework.Language_Proficiency=Language Proficiency
+
 browse.subject.title.FW_masterFramework.Literacy=Literacy
 browse.subject.title.FW_masterFramework.Written_Comprehension=Written Comprehension
 browse.subject.title.FW_masterFramework.Grammar=Grammar
@@ -502,14 +525,14 @@ browse.subject.title.FW_masterFramework.Written_Expression=Written Expression
 browse.subject.title.FW_masterFramework.Oral_Expression=Oral Expression
 browse.subject.title.FW_masterFramework.Research=Research
 browse.subject.title.FW_masterFramework.Vocabulary=Vocabulary
-browse.subject.title.FW_masterFramework.Foreign_Languages=Foreign Languages
+
 browse.subject.title.FW_masterFramework.Written_Comprehension_Foreign=Written Comprehension
 browse.subject.title.FW_masterFramework.Oral_Comprehension_Foreign=Oral Comprehension
 browse.subject.title.FW_masterFramework.Ancient_Languages=Ancient Languages
 browse.subject.title.FW_masterFramework.LSF_and_Related_Languages=LSF and Related Languages
 browse.subject.title.FW_masterFramework.Written_Expression_Foreign=Written Expression
 browse.subject.title.FW_masterFramework.Oral_Expression_Foreign=Oral Expression
-browse.subject.title.FW_masterFramework.Mathematics=Mathematics
+
 browse.subject.title.FW_masterFramework.Algebra=Algebra
 browse.subject.title.FW_masterFramework.Data_Analysis_Probability=Data Analysis Probability
 browse.subject.title.FW_masterFramework.Arithmetic=Arithmetic
@@ -539,7 +562,7 @@ browse.subject.title.FW_masterFramework.Physics=Physics
 browse.subject.title.FW_masterFramework.Earth_Sciences=Earth Sciences
 browse.subject.title.FW_masterFramework.Life_Sciences=Life Sciences
 browse.subject.title.FW_masterFramework.Technology=Technology
-browse.subject.title.FW_masterFramework.Humanities=Humanities
+
 browse.subject.title.FW_masterFramework.Anthropology=Anthropology
 browse.subject.title.FW_masterFramework.Law=Law
 browse.subject.title.FW_masterFramework.Economics=Economics
