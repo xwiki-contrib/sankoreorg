@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CurrikiCode</web>
+<name>SearchCriteria</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>CurrikiCode.WebHome</parent>
+<creator>XWiki.sorzu</creator>
+<author>XWiki.sorzu</author>
+<customClass></customClass>
+<contentAuthor>XWiki.sorzu</contentAuthor>
+<creationDate>1313770213000</creationDate>
+<date>1313770213000</date>
+<contentUpdateDate>1313770213000</contentUpdateDate>
+<version>1.1</version>
+<title>SearchCriteria</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>{{velocity}}
+{{html clean="false"}}
+&lt;form action="#" method="get"&gt;
+  &lt;table id="search-criteria"&gt;
+    &lt;tr&gt;
+      &lt;th colspan="2"&gt;
+        $msg.get('SearchCriteria.teacher_resources_by_grade_subject')
+      &lt;/th&gt;
+      &lt;th colspan="2"&gt;
+        $msg.get('SearchCriteria.teacher_resources_by_type')
+      &lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;
+        &lt;span class="criterion-title"&gt;$msg.get('SearchCriteria.grade_range_age_range'):&lt;/span&gt;
+        #set($query = ", BaseObject obj where obj.name=doc.fullName and doc.space='AssetMetadata' and doc.parent='' and obj.className='CurrikiCode.EducationalLevelClass' order by doc.fullName")
+        #set($crits = $xwiki.searchDocuments($query))
+        &lt;ul&gt;
+          &lt;li&gt;&lt;input type="radio" name="criteria_grade_age_range" value="" checked="checked"/&gt;$msg.get('UNSPECIFIED')&lt;/li&gt;
+          #foreach($crit in $crits)
+          &lt;li&gt;
+            #set($critVal = $msg.get("CurrikiCode.AssetClass_educational_level_${crit}"))
+            &lt;input type="radio" name="criteria_grade_age_range" value="$critVal"/&gt;
+            $critVal
+          &lt;/li&gt;
+          #end
+        &lt;/ul&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;span class="criterion-title"&gt;$msg.get('SearchCriteria.subject'):&lt;/span&gt;
+        #set($query = ", BaseObject obj where obj.name=doc.fullName and doc.space='FW_masterFramework' and doc.parent='' and obj.className='XWiki.FrameworkItemClass' order by doc.fullName")
+        #set($crits = $xwiki.searchDocuments($query))
+        &lt;ul&gt;
+          &lt;li&gt;&lt;input type="radio" name="criteria_subject" value="" checked="checked"/&gt;$msg.get('UNSPECIFIED')&lt;/li&gt;
+          #foreach($crit in $crits)
+          &lt;li&gt;
+            #set($critVal = $msg.get("CurrikiCode.AssetClass_fw_items_${crit}"))
+            &lt;input type="radio" name="criteria_subject" value="$critVal"/&gt;
+            $critVal
+          &lt;/li&gt;
+          #end
+        &lt;/ul&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;span class="criterion-title"&gt;$msg.get('SearchCriteria.type_of_resource'):&lt;/span&gt;
+        #set($assetClass = $xwiki.getClass('CurrikiCode.AssetClass'))
+        #set($categPropVals = $assetClass.get('category').getListValues())
+        &lt;ul&gt;
+          &lt;li&gt;&lt;input type="radio" name="criteria_resource_type" value="" checked="checked"/&gt;$msg.get('UNSPECIFIED')&lt;/li&gt;
+          #foreach($cpv in $categPropVals)
+          &lt;li&gt;
+            &lt;input type="radio" name="criteria_resource_type" value="$cpv"/&gt;$cpv
+          &lt;/li&gt;
+          #end
+        &lt;/ul&gt;
+      &lt;/td&gt;
+      &lt;td&gt;
+        &lt;span class="criterion-title"&gt;$msg.get('SearchCriteria.type_of_usage'):&lt;/span&gt;
+        #set($query = ", BaseObject obj where obj.name=doc.fullName and doc.space='AssetMetadata' and doc.parent='' and obj.className='CurrikiCode.InstructionalComponentClass' order by doc.fullName")
+        #set($crits = $xwiki.searchDocuments($query))
+        &lt;ul&gt;
+          &lt;li&gt;&lt;input type="radio" name="criteria_usage_type" value="" checked="checked"/&gt;$msg.get('UNSPECIFIED')&lt;/li&gt;
+          #foreach($crit in $crits)
+          &lt;li&gt;
+            #set($critVal = $msg.get("CurrikiCode.AssetClass_instructional_component_${crit}"))
+            &lt;input type="radio" name="criteria_usage_type" value="$critVal"/&gt;
+            $critVal
+          &lt;/li&gt;
+          #end
+        &lt;/ul&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td colspan="4"&gt;
+        &lt;input type="submit" value="go &amp;raquo;"/&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/form&gt;
+{{/html}}
+{{/velocity}}</content></xwikidoc>
