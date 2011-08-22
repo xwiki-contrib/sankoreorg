@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.curriki</groupId>
     <artifactId>curriki-parent</artifactId>
-    <version>2.1-SNAPSHOT</version>
+    <version>2.1</version>
   </parent>
   <groupId>com.xwiki.projects</groupId>
   <artifactId>xwiki-sankore</artifactId>
@@ -35,9 +35,9 @@
   <name>XWiki Projects - Sankore - Parent POM</name>
   <version>1.0-SNAPSHOT</version>
   <properties>
-    <curriki.version>2.1-SNAPSHOT</curriki.version>
-    <platform.core.version>2.7.1</platform.core.version>
-    <enterprise.version>2.7.1</enterprise.version>
+    <curriki.version>2.1</curriki.version>
+    <platform.version>3.1</platform.version>
+    <enterprise.version>3.1</enterprise.version>
     <platform.tools.xar-handler.version>1.9</platform.tools.xar-handler.version>
     <platform.tools.xar-plugin.version>1.14</platform.tools.xar-plugin.version>
   </properties>
