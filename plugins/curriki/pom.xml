@@ -35,6 +35,14 @@
   <description>XWiki Projects - Sankore - Plugins - Curriki Plugin</description>
   <dependencies>
     <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <!-- Note: The 2.4 version is not technically correct as 2.4 corresponds to a specification
+           # and is not an implementation version. The central repo would need to be fixed... -->
+      <version>2.4</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>com.xwiki.projects</groupId>
       <artifactId>xwiki-sankore-plugins-asset</artifactId>
       <version>${pom.version}</version>
