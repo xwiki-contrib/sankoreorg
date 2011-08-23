@@ -37,7 +37,7 @@
     <dependency>
       <groupId>com.xwiki.projects</groupId>
       <artifactId>xwiki-sankore-plugins-asset</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${pom.version}</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
