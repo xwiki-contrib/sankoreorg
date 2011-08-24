@@ -140,10 +140,19 @@ dt {
   margin: 10px 0 0;
 }
 
-input[type="text"], input[type="password"], textarea, select {
+input[type="text"], input[type="password"] {
   background-color: $theme.pageContentBackgroundColor ;
   border: 1px solid $theme.borderColor;
   color: $theme.textColor;
+}
+/* Duplicated because IE6 chokes on the first two selectors. Don't recombine! */
+textarea, select {
+  background-color: $theme.pageContentBackgroundColor ;
+  border: 1px solid $theme.borderColor;
+  color: $theme.textColor;
+}
+textarea {
+  max-width: 100%; /* Prevent resizing beyond the visible area in modern browsers */
 }
 
 /* -----------------------Tables-------------------------*/
@@ -175,7 +184,11 @@ table pre {
 -------------------------------------------------------------- */
 tt.wikimodel-verbatim {
   font-family: sans-serif;
-  white-space: pre;
+  white-space: pre-wrap;
+}
+/* Reset for verbatim inside monospace */
+tt .wikimodel-verbatim {
+  font-family: monospace;
 }
 
 /* -----------------------Tables-------------------------*/
@@ -262,13 +275,15 @@ span.wikicreatelink a:after {
 
 .edit_section a {
   background: transparent url("$xwiki.getSkinFile('icons/xwiki/edit-section.png')") no-repeat left top;
-  margin: 0 -52px 0 0;
+  line-height: 999px;
+  margin: 0;
   overflow: hidden;
-  padding: 0 0 0 50px;
+  padding: 0;
   position: absolute;
   right: 0;
   top: 0;
   visibility:visible;
+  width: 20px;
 }
 
 /* -----------------General Elements---------------------*/
@@ -388,8 +403,21 @@ th.avatar {
   text-align: right;
 }
 
+#headerlanguages a {
+  background: $theme.menuBackgroundColor;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  color: $theme.menuLinkColor;
+  display: inline-block;
+  margin: 2px;
+  padding: 2px 4px;
+}
+
 .language-current {
   font-weight: 700;
+  background: $theme.menuSelectedEntryBackgroundColor !important;
+  color: $theme.menuSelectedEntryLinkColor !important;
 }
 
 .language-default {
@@ -676,11 +704,11 @@ div.buttonwrapper {
 }
 
 .diffaddword {
-  color: #287f00;
+  color: $theme.notificationSuccessColor;
 }
 
 .diffremoveword {
-  color: #ca9a9b;
+  color: $theme.notificationErrorColor;
   text-decoration: line-through;
 }
 
@@ -741,7 +769,7 @@ div.buttonwrapper {
   width: 99.8%;
 }
 
-.editbody #hierarchy {
+.inlinebody #hierarchy, .editbody #hierarchy {
   display: inline-block;
   border-right: 1px solid $theme.pageContentBackgroundColor; /* Fixes an IE8 layout issue */
 }
@@ -751,7 +779,8 @@ div.buttonwrapper {
   display: inline-block;
   vertical-align: middle;
 }
-#mainEditArea:target #hierarchy, #mainEditArea:target .edit-meta-tools {
+#mainEditArea:target #hierarchy, #mainEditArea:target .edit-meta-tools,
+#mainContentArea:target #hierarchy, #mainContentArea:target .edit-meta-tools {
   display: none;
 }
 .edit-meta-tools a {
@@ -771,7 +800,7 @@ div.buttonwrapper {
 }
 
 /* Parent editing area */
-#mainEditArea #parentinput {
+#mainEditArea #parentinput, #mainContentArea #parentinput {
   display: none;
   background: $theme.backgroundSecondaryColor;
   padding: 4px 12px;
@@ -779,10 +808,10 @@ div.buttonwrapper {
   font-size: 90%;
 }
 /* Don't combine the following two rules, otherwise IE will fail to recognize either of them */
-#mainEditArea:target #parentinput {
+#mainEditArea:target #parentinput, #mainContentArea:target #parentinput {
   display: block;
 }
-#mainEditArea #parentinput.active {
+#mainEditArea #parentinput.active, #mainContentArea #parentinput.active {
   display: block;
 }
 #parentinput label {
@@ -861,7 +890,7 @@ table.xRichTextEditorTabPanel td {
 .xwikirenderingerror {
   background: $theme.backgroundSecondaryColor url("$xwiki.getSkinFile('icons/silk/exclamation.gif')") no-repeat 8px 50%;
   border: 1px dotted $theme.borderColor;
-  color: #e14726;
+  color: $theme.notificationErrorColor;
   display: block;
   padding: 2px 28px;
 }
@@ -1059,7 +1088,7 @@ div#xwikiobjects input[type="checkbox"], div#xwikiclassproperties input[type="ch
 }
 
 .submenuitem a {
-  background: no-repeat 0px 0px;
+  background: no-repeat 0;
   height: 16px;
   line-height: 20px;
   margin-bottom: 4px;
@@ -1070,16 +1099,21 @@ div#xwikiobjects input[type="checkbox"], div#xwikiclassproperties input[type="ch
   font-weight: normal;
   height: auto;
   line-height: 1.2em;
+  min-height: 14px; /* Make sure the menu icons fit */
   padding: 2px 20px 0;
   text-align: left;
   text-transform: none;
 }
 
 .actionmenu .tmCreate {
-  background-color: #4D9244; /* $theme.buttonPrimaryBackgroundColor */
+  background-color: $theme.menuAddEntryBackgroundColor;
   margin-right: 2em;
   padding-left: 10px;
   position: relative;
+}
+
+.actionmenu .tmCreate a.tme, .tmCreate .menuarrow  {
+  color: $theme.menuAddEntryLinkColor;
 }
 
 .tmCreate .submenu {
@@ -1160,6 +1194,10 @@ div#xwikiobjects input[type="checkbox"], div#xwikiclassproperties input[type="ch
   background-image: url("$xwiki.getSkinFile('icons/silk/page_white_acrobat.gif')");
 }
 
+.actionmenu .tmExportOdt {
+  background-image: url("$xwiki.getSkinFile('icons/xwiki/odf_textdocument.png')");
+}
+
 .actionmenu .tmExportRtf {
   background-image: url("$xwiki.getSkinFile('icons/silk/page_white_word.gif')");
 }
@@ -1204,20 +1242,133 @@ div#xwikiobjects input[type="checkbox"], div#xwikiclassproperties input[type="ch
   background-image: url("$xwiki.getSkinFile('icons/silk/wrench.gif')");
 }
 
-.actionmenu .tmWatchlistManager {
-  background-image: url("$xwiki.getSkinFile('icons/silk/star.gif')");
-}
-
 .actionmenu .tmWatchWiki, .actionmenu .tmWatchSpace, .actionmenu .tmWatchDocument {
   background-image: url("$xwiki.getSkinFile('icons/xwiki/star-gray.png')");
 }
 
-.actionmenu .tmUnwatchWiki, .actionmenu .tmUnwatchSpace, .actionmenu .tmUnwatchDocument {
+.actionmenu .tmWatchlistManager, .actionmenu .tmUnwatchWiki, .actionmenu .tmUnwatchSpace, .actionmenu .tmUnwatchDocument {
   background-image: url("$xwiki.getSkinFile('icons/xwiki/star-yellow.png')");
 }
 
 .actionmenu .tmWikiDocumentIndex, .actionmenu .tmSpaceDocumentIndex {
   background-image: url("$xwiki.getSkinFile('icons/silk/book_open.gif')");
+}
+.actionmenu .tmUserNetwork {
+  background-image: url("$xwiki.getSkinFile('icons/silk/group.gif')");
+}
+
+/* @group FORMS */
+/* --------------------------------------------------------------
+  * forms components
+-------------------------------------------------------------- */
+.xform h2, .xform legend {
+  border-bottom: 1px dotted $theme.borderColor;
+  color: $theme.titleColor;
+  display: block;
+  font-size: 1.2em;
+  font-weight: 900;
+  line-height: 1.2em;
+  overflow: hidden;
+  width: 100%;
+}
+.xform h2 {
+  margin: 2em 0 0;
+}
+/* Legend elements have an intrinsic 8px left padding; compensate that by a negative left margin */
+* html .xform legend {
+  margin-left: -8px;
+}
+*+html .xform legend {
+  margin-left: -8px;
+}
+.xform fieldset h2 {
+  margin: 0;
+}
+
+.xform fieldset {
+  margin: 2em 0;
+}
+.xform fieldset:first-of-type {
+  margin-top: 1em;
+}
+.xform fieldset:last-of-type {
+  margin-bottom: 1em;
+}
+
+.xform input[type="text"], .xform input[type="password"] {
+  width: 99%;
+}
+/* Duplicated because IE6 chokes on the first two selectors. Don't recombine! */
+.xform select, .xform textarea {
+  width: 99%;
+}
+
+.xform dt {
+  margin-top: 1.2em;
+}
+
+.xform dt label, .xformInline label {
+  color: $theme.textColor;
+  font-size: .85em;
+  font-weight: 700;
+  margin-bottom: .3em;
+  text-transform: uppercase;
+}
+
+.xform dt label {
+  display: block;
+}
+
+/* Buttons next to the labels, for example the Customize buttons in Administration->Presentation */
+.xform dt label .buttonwrapper {
+  float: right;
+  margin: 0 1% .3em;
+}
+
+.xform .xRequired {
+  color: $theme.textSecondaryColor;
+  font-size: .9em;
+  font-style: italic;
+  font-weight: normal;
+  margin-left: 1ex;
+  text-transform: none;
+}
+
+.xform .xHint {
+  color: $theme.textSecondaryColor;
+  display: block;
+  font-size: .8em;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: .3em;
+}
+
+.xform .xHelp {
+  background: transparent url("$xwiki.getSkinFile('icons/silk/information.gif')") 0 0 no-repeat;
+  float: right;
+  height: 16px;
+  line-height: 250px; /* Push the text away. */
+  margin-top: -20px; /* Should be 16px + 0.3em */
+  margin-right: 1px; /* Compensate for the border on the input elements */
+  overflow: hidden;
+  text-align: left !important; /* Make sure the text is left-aligned so that the inner box always starts at the top-left corner */
+  width: 16px;
+}
+
+.xform .xErrorMsg {
+  color: $theme.notificationErrorColor;
+  display: block;
+  font-size: .8em;
+  font-weight: normal;
+  margin-bottom: .3em;
+}
+
+.xform .xErrorField {
+  border: 1px solid $theme.notificationErrorColor;
+}
+
+.xform .buttons {
+  margin: .8em 0;
 }
 
 /* @group BUTTONS */
@@ -1247,6 +1398,102 @@ input.button:hover , .buttonwrapper  a:hover{
   background-color: $theme.buttonSecondaryBackgroundColor;
   color: $theme.buttonSecondaryTextColor;
   text-decoration: none;
+}
+
+.buttonwrapper input.secondary, .buttonwrapper a.secondary, 
+.buttonwrapper a.secondary:link, .buttonwrapper a.secondary:visited,
+.buttonwrapper a.secondary:active /* Needed for IE6 */ {
+  background-color: $theme.buttonSecondaryBackgroundColor;
+  color: $theme.buttonSecondaryTextColor;
+}
+
+/* @group VERTICAL MENU */
+/* General styling */
+.vertical-menu {
+  border: 1px solid $theme.borderColor;
+  border-top-width: 0;
+  float: left;
+  font-size: .857em;/* 14px -> 12px */
+  margin: 0 2em 2em 0;
+  width: 15em;
+}
+
+.vertical-menu ul {
+  list-style-type: none;
+  margin: 0;
+}
+.vertical-menu ul ul ul {
+  margin-left: 2em;
+}
+
+.vertical-menu li {
+  border-top: 1px solid $theme.borderColor;
+  position: relative;
+}
+
+.vertical-menu span {
+  background: none no-repeat scroll 7px transparent;
+  display: block;
+}
+
+.vertical-menu a {
+  display: block;
+  padding: .5em .5em .5em 30px;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+/* Section titles */
+.vertical-menu .group {
+  background-color: $theme.panelCollapsedBackgroundColor;
+  font-weight: 700;
+  font-variant: small-caps;
+}
+.vertical-menu .group * {
+  color: $theme.panelCollapsedTextColor;
+}
+
+/* Highlight items when hovering */
+.vertical-menu span:hover {
+  background-color: $theme.highlightColor;
+}
+.vertical-menu .group:hover {
+  background-color: $theme.panelHeaderBackgroundColor;
+}
+.vertical-menu .group:hover * {
+  color: $theme.panelHeaderTextColor;
+}
+
+/* Selected item */
+.vertical-menu .current {
+  background-color: $theme.highlightColor;
+  font-weight: bold;
+}
+.vertical-menu .current-group {
+  background-color: $theme.panelHeaderBackgroundColor;
+  color: $theme.panelHeaderTextColor;
+}
+.vertical-menu .current-group *, .vertical-menu .current-group *:visited, .vertical-menu .current-group *:active {
+  color: $theme.panelHeaderTextColor;
+}
+
+/* Draw an arrow pointing right for the selected item */
+.vertical-menu .current:after, .vertical-menu .current a:after {
+  border-left: 10px solid $theme.highlightColor;
+  border-top: 1.2em solid transparent;
+  border-bottom: 1.2em solid transparent;
+  content: "";
+  display: block;
+  position: absolute;
+  right: -10px;
+  top: 0%;
+}
+.vertical-menu .current a:after {
+  border-left-color: $theme.borderColor;
+  right: -11px;
+}
+.vertical-menu .current-group:after {
+  border-left-color: $theme.panelHeaderBackgroundColor !important;
 }
 
 /* @group PANELS */
@@ -1322,6 +1569,9 @@ h1.xwikipaneltitle {
 .panelitem {
   display: block;
   overflow: hidden;
+  word-wrap: break-word;
+  padding-left: 1em;
+  text-indent: -1em;
 }
 
 .pitemseparator {
@@ -1432,6 +1682,13 @@ ul.xlist li.xitem div.xitemcontainer ul.xlist {
   padding: 0 1px;
 }
 
+.box>*:first-child {
+  margin-top: 0;
+}
+.box>*:last-child {
+  margin-bottom: 0;
+}
+
 .code, .box {
   background-color: $theme.backgroundSecondaryColor;
   border: 1px dotted $theme.borderColor;
@@ -1443,7 +1700,7 @@ ul.xlist li.xitem div.xitemcontainer ul.xlist {
 }
 
 /* ----------------------Messages------------------------*/
-.errormessage, .warningmessage, .infomessage, .plainmessage {
+.errormessage, .warningmessage, .infomessage, .successmessage, .plainmessage {
   background: $theme.backgroundSecondaryColor 6px 8px no-repeat;
   border: 1px dotted $theme.borderColor;
   margin: 4px 0;
@@ -1454,17 +1711,22 @@ ul.xlist li.xitem div.xitemcontainer ul.xlist {
 
 .infomessage {
   background-image: url("$xwiki.getSkinFile('icons/silk/information.gif')");
-  color: #369;
+  color: $theme.notificationInfoColor;
 }
 
 .warningmessage {
   background-image: url("$xwiki.getSkinFile('icons/silk/error.gif')");
-  color: #D5A13D;
+  color: $theme.notificationWarningColor;
 }
 
 .errormessage {
   background-image: url("$xwiki.getSkinFile('icons/silk/exclamation.gif')");
-  color: #e14726;
+  color: $theme.notificationErrorColor;
+}
+
+.successmessage {
+  background-image: url("$xwiki.getSkinFile('icons/silk/tick.gif')");
+  color: $theme.notificationSuccessColor;
 }
 
 .messagetype {
@@ -1670,7 +1932,7 @@ ol.footnotes {
 
 /* --------------------RSS Macro-------------------------*/
 .rssfeed {
-  background-color: #fff;
+  background-color: $theme.pageContentBackgroundColor;
   border: 1px dotted $theme.borderColor;
   padding: 8px;
   width: 300px;
@@ -1726,10 +1988,6 @@ ol.footnotes {
 /* --------------------------------------------------------------
   * These classes should be moved in AdminSheet ssx
 -------------------------------------------------------------- */
-#admin-page-content .bottombuttons {
-  padding-left: 20px;
-}
-
 /* Overwrites AdminSheet ssx */
 #admin-page-content fieldset p label {
   text-align: left;
