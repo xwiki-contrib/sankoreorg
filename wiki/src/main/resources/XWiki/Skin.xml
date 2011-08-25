@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314204928000</creationDate>
-<date>1314204928000</date>
-<contentUpdateDate>1314204928000</contentUpdateDate>
+<creationDate>1314267128000</creationDate>
+<date>1314267128000</date>
+<contentUpdateDate>1314267128000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -3218,23 +3218,6 @@ $xwiki.get('ssfx').use('uicomponents/widgets/validation/livevalidation.css')
     &lt;input id="signin" class="login-button" type="submit" id="loginbtn" value="Connexion" /&gt;
     &lt;div class="clearfloats"&gt;&lt;/div&gt;
   &lt;/form&gt;
-  &lt;ul class="disc inside"&gt;
-    &lt;li&gt;Pour créer des ressources pédagogiques libres&lt;/li&gt;
-    &lt;li&gt;Pour les partager sous creative commons&lt;/li&gt;
-    &lt;li&gt;Pour créer des groupes thématiques&lt;/li&gt;	
-    &lt;li&gt;Pour participer à des communautés d'intérêt
-      &lt;ul class="disc inside"&gt;
-        &lt;li&gt;par pays&lt;/li&gt;
-        &lt;li&gt;par discipline&lt;/li&gt;
-        &lt;li&gt;par niveaux scolaire&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Pour évaluer les ressources libres publiées&lt;/li&gt;
-    &lt;li&gt;Pour rédiger votre blog et le diffuser&lt;/li&gt;
-    &lt;li&gt;Pour participer aux palmes du numérique&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;p&gt;&lt;a class="voirPlus" href="#"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;a id="signup" href="/xwiki/bin/view/Main/JoinCurriki"&gt;Créez-vous un compte&lt;/a&gt;&lt;/p&gt;
 #else
   ## is logged in
   ## crtUserDoc is set in fudocs.vm
@@ -3803,10 +3786,21 @@ font-weight:bold;}
 
 }
 
-
-
-
-</panels.css></property><property><rightpanels.vm></rightpanels.vm></property><property><sankore.css>#template('colorThemeInit.vm')
+#rechercher .form-submit {
+    background-color: transparent;
+    background-image: url(/xwiki/bin/download/Panels/SankoreSearchPanel/loupe.png);
+    background-repeat: no-repeat;
+    border: medium none;
+    cursor: pointer;
+    height: 34px;
+    width: 34px;
+}</panels.css>
+</property>
+<property>
+<rightpanels.vm></rightpanels.vm>
+</property>
+<property>
+<sankore.css>#template('colorThemeInit.vm')
 
 #mainContentArea, #mainEditArea {
   margin-left:0;
@@ -4828,10 +4822,6 @@ ul.circle {list-style-type:circle}
 ul.disc {list-style-type:disc}
 ul.inside {list-style-position:inside;}
 
-.block-title {
-  text-align: center;
-}
-
 .block-block {
   font-family: Arial,sans-serif;
   font-size: 12px;
@@ -4865,9 +4855,11 @@ ul.inside {list-style-position:inside;}
   border-width: 1px;
   border-bottom: none;
   margin: 0;
-  padding: 20px 0;
+  padding: 10px 10px 10px 60px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 #rechercher .block-contents-top {
@@ -6342,6 +6334,8 @@ document.write(unescape("%3Clink rel='stylesheet' type='text/css' href='" + ejcL
 &lt;link href="$xwiki.getSkinFile("curriki/embed.css", false)" rel="stylesheet" type="text/css"  /&gt;
 #end
 #end
+## Sankore specific
+&lt;link href="http://asset0.zendesk.com/external/zenbox/v2.1/zenbox.css" rel="stylesheet" type="text/css"  /&gt;
 #if("$!request.viewer"=="print")  
   &lt;link href="$xwiki.getSkinFile("curriki/print.css", true)" rel="stylesheet" type="text/css" media="all" /&gt;
 #end

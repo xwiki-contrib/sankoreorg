@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1313484338000</creationDate>
-<date>1313484338000</date>
-<contentUpdateDate>1313484338000</contentUpdateDate>
+<creationDate>1314269795000</creationDate>
+<date>1314269795000</date>
+<contentUpdateDate>1314269795000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -154,25 +154,31 @@ RK5CYII=
 {{html clean="false" wiki="true"}}
 &lt;div id="planete" class="block block-block clearfix"&gt;
   &lt;img width="81px" src="/xwiki/bin/download/Panels/SankorePlanetPanel/BGplanete.png" typeof="foaf:Image" class="block-icon"&gt;
-  &lt;h2 class="block-title"&gt;Planète Sankoré&lt;/h2&gt;
+  &lt;h2 class="block-title"&gt;$msg.get("panel.sankoreplanet.title")&lt;/h2&gt;
   &lt;div class="block-contents-top"&gt;
     {{html}}
     #template("logininline.vm")     
     {{/html}}
     &lt;div class="clearfloats"&gt;&lt;/div&gt;
   #if(!$isGuest)
-    &lt;p&gt;&lt;a class="download-link" href="javascript:Curriki.module.addpath.startPath('B');"&gt;Ajoutez une resource&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a class="download-link" href="javascript:Curriki.module.addpath.startPath('B');"&gt;$msg.get("panel.sankoreplanet.addresource")&lt;/a&gt;&lt;/p&gt;
   #end
   &lt;/div&gt;
+  #if($isGuest)
+  &lt;div class="block-contents-bottom"&gt;  
+    {{include document="Main.JoinTemplate" /}}
+  &lt;/div&gt;
+  #else
   &lt;div class="block-contents-bottom"&gt;
-    &lt;h3&gt;Naviguer par sujets&lt;/h3&gt;
+    &lt;h3&gt;$msg.get("browse.title")&lt;/h3&gt;
     &lt;div class="browse-page"&gt;
       &lt;p class="browse-text"&gt;$msg.get("browse.info")&lt;/p&gt;
-      #foreach($subj in $subjects)
-        #simplesubjectcard($subj)
+      #foreach($subject in $subjects)
+        #simplesubjectcard($subject)
       #end
     &lt;/div&gt;
   &lt;/div&gt;
+  #end
 &lt;/div&gt;
 {{/html}}
 {{/velocity}}</content>
