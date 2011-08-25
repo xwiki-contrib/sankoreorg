@@ -6,13 +6,13 @@
 <defaultLanguage>en</defaultLanguage>
 <translation>0</translation>
 <parent></parent>
-<creator>XWiki.sorzu</creator>
-<author>XWiki.sorzu</author>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
 <customClass></customClass>
-<contentAuthor>XWiki.sorzu</contentAuthor>
-<creationDate>1313769948000</creationDate>
-<date>1313769948000</date>
-<contentUpdateDate>1313769948000</contentUpdateDate>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1314276123000</creationDate>
+<date>1314276123000</date>
+<contentUpdateDate>1314276123000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -340,10 +340,12 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.Dataset=Dataset
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.DatasetWorksheets=Worksheets
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CaseStudy=Case study
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Course=Course
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete=Course complete
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Demonstration=Demonstration
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Evaluation=Evaluation
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Examination=Examination
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Exercise=Exercise
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.FreeSoftware=Free software
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Guide=Guide
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Image=Image
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.ImageDigital=Digital
@@ -437,6 +439,8 @@ CurrikiCode.AssetClass_instructional_component_text_UNSPECIFIED=Text: Any
 CurrikiCode.AssetClass_instructional_component_interactive_UNSPECIFIED=Interactive: Any
 CurrikiCode.AssetClass_instructional_component_sound_UNSPECIFIED=Sound: Any
 CurrikiCode.AssetClass_instructional_component_misc_UNSPECIFIED=Misc: Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.FreeSoftware.UNSPECIFIED=Free software: Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete.UNSPECIFIED=Course complete: Any
 
 
 
@@ -466,7 +470,7 @@ CurrikiCode.AssetClass_language_tam=Tamil
 CurrikiCode.AssetClass_language_999=Other
 
 ## LICENSES
-CurrikiCode.AssetLicenseClass_licenseType_Licences.CurrikiLicense=Curriki License (Creative Commons Attributions 3.0)
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CurrikiLicense=Planète Sankoré License (Creative Commons Attributions 3.0)
 CurrikiCode.AssetLicenseClass_licenseType_Licences.PublicDomain=Public Domain
 CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-Commercial=Creative Commons Attribution Non-Commercial
 CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-CommercialNoDerivatives=Creative Commons Attribution Non-Commercial No Derivatives
@@ -665,7 +669,7 @@ XWiki.CurrikiSpaceClass_language_999=Other
 
 ## LICENSES
 
-XWiki.CurrikiSpaceClass_licence_Licences.CurrikiLicense=Curriki License (Creative Commons Attributions 3.0)
+XWiki.CurrikiSpaceClass_licence_Licences.CurrikiLicense=Planète Sankoré License (Creative Commons Attributions 3.0)
 XWiki.CurrikiSpaceClass_licence_Licences.PublicDomain=Public Domain
 XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNon-Commercial=Creative Commons Attribution Non-Commercial
 XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNon-CommercialNoDerivatives=Creative Commons Attribution Non-Commercial No Derivatives
@@ -1092,7 +1096,7 @@ global.notfound.header=Resource or Page Not Found
 global.notfound.message=The requested resource or page cannot be found.
 global.notfound.goback_link=Go Back
 global.notfound.goback_url=
-global.notfound.home_link=Curriki Home
+global.notfound.home_link=Planète Sankoré Home
 global.notfound.home_url=/xwiki/bin/view/Main/WebHome
 global.notfound.help_link=Help
 global.notfound.help_url=/xwiki/bin/view/Coll_curriki/CurrikiHelp
@@ -1244,7 +1248,7 @@ changes.comment.comment=Comment
 ##HISTORY: INFRASTRUCTURE
 curriki.comment.initmetadatafornewcollection=Initializing information for new collection...
 curriki.comment.initmetadatafornewasset=Initializing information for new resource...
-curriki.comment.datamodelmigration=Resource automatically migrated to new Curriki data model
+curriki.comment.datamodelmigration=Resource automatically migrated to new Planète Sankoré data model
 
 HITORY: CREATE NEW
 curriki.comment.createrootcollection=Created collection
@@ -1289,7 +1293,7 @@ curriki.comment.crsvalueremoved=Resource value of {0} removed
 
 flag.revision.history.note=Resource flagged by {0}, who submitted the resource for evaluation because s/he felt it was {1}.
 
-flag.revision.history.note.alt_reason=Resource flagged by {0}, who submitted the resource for evaluation for the reason specified to Curriki.
+flag.revision.history.note.alt_reason=Resource flagged by {0}, who submitted the resource for evaluation for the reason specified to Planète Sankoré.
 
 
 
