@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1312377019000</creationDate>
-<date>1312377019000</date>
-<contentUpdateDate>1312377019000</contentUpdateDate>
+<creationDate>1314280885000</creationDate>
+<date>1314280885000</date>
+<contentUpdateDate>1314280885000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -139,7 +139,10 @@ if(xcontext.user != 'XWiki.XWikiGuest') {
           asset.save()
         }
         def redirdoc = xwiki.getDocument("CreateResources.UniboardResource")
-        xwiki.mailsender.sendMessageFromTemplate(xwiki.getXWikiPreference("admin_email"), xwiki.getUser(xcontext.user).getEmail(), null, null, 'en', 'CreateResources.MailTemplateUniboardUploaded', ['user': xwiki.getUserName(xcontext.user, false), 'url': redirdoc.getExternalURL("view", 'template='+asset.fullName)])
+        def vcontext = new VelocityContext()
+        vcontext.put('user', xwiki.getUserName(xcontext.user, false))
+        vcontext.put('url', redirdoc.getExternalURL("view", 'template='+asset.fullName))
+        xwiki.mailsender.sendMessageFromTemplate(xwiki.getXWikiPreference("admin_email"), xwiki.getUser(xcontext.user).getEmail(), null, null, 'en', 'CreateResources.MailTemplateUniboardUploaded', vcontext)
         Cookie statusCookie = new Cookie("assetStatus", 'UPLOADED')
         response.addCookie(statusCookie)
         println "UPLOADED"
@@ -184,6 +187,10 @@ if(xcontext.user != 'XWiki.XWikiGuest') {
 &lt;form action="/xwiki/bin/view/CreateResources/UniboardUpload?xpage=plain&amp;outputSyntax=plain" enctype="multipart/form-data" method="post"&gt;
 &lt;table border="0"&gt;
 &lt;td&gt;File:&lt;/td&gt;&lt;td&gt;&lt;input type="file" name="file" /&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Title:&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="title" /&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td&gt;Description:&lt;/td&gt;&lt;td&gt;&lt;input type="text" name="description" /&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;tr&gt;
 &lt;td colspan="2" align="center"&gt;
 &lt;input type="submit" name="submit" /&gt;
