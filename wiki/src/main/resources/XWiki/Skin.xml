@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314616256000</creationDate>
-<date>1314616256000</date>
-<contentUpdateDate>1314616256000</contentUpdateDate>
+<creationDate>1314622520000</creationDate>
+<date>1314622520000</date>
+<contentUpdateDate>1314622520000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -2047,6 +2047,23 @@ TkSuQmCC</content></attachment>
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
 </header.vm>
+<htmlfooter.vm>
+<contenttype>FullyRenderedText</contenttype>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>---</editor>
+<name>htmlfooter.vm</name>
+<number>11</number>
+<picker>1</picker>
+<prettyName>htmlfooter.vm</prettyName>
+<rows>15</rows>
+<size>100</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</htmlfooter.vm>
 <htmlheader.vm>
 <contenttype>FullyRenderedText</contenttype>
 <customDisplay></customDisplay>
@@ -2081,23 +2098,6 @@ TkSuQmCC</content></attachment>
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
 </javascript.vm>
-<leftpanels.vm>
-<contenttype>FullyRenderedText</contenttype>
-<customDisplay></customDisplay>
-<disabled>0</disabled>
-<editor>---</editor>
-<name>leftpanels.vm</name>
-<number>11</number>
-<picker>1</picker>
-<prettyName>leftpanels.vm</prettyName>
-<rows>15</rows>
-<size>100</size>
-<tooltip></tooltip>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-</leftpanels.vm>
 <login.vm>
 <contenttype>FullyRenderedText</contenttype>
 <customDisplay></customDisplay>
@@ -3017,7 +3017,7 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
   #if($editor == 'wiki' || $editor == 'wysiwyg')
     &lt;/form&gt;
   #end
-  #template("footer.vm")
+#template("footer.vm")
   #template("htmlfooter.vm")
 #end</edit.vm>
 </property>
@@ -3049,7 +3049,68 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 <editpanels.vm></editpanels.vm>
 </property>
 <property>
-<footer.vm></footer.vm>
+<footer.vm>#if($isInServletMode)## Visible only in a page
+&lt;/div&gt;## xwikimaincontainerinner
+&lt;/div&gt;## xwikimaincontainer
+&lt;div id="footerglobal" class="layoutsection"&gt;
+&lt;div class="minwidth"&gt;&lt;/div&gt;
+&lt;hr/&gt;
+&lt;div class="region region-footer"&gt;
+    &lt;div class="block block-system block-menu clearfix" id="footer-main-menu"&gt;
+  &lt;div class="block-inner"&gt;
+                    		
+		&lt;div class="content"&gt;
+		  &lt;ul class="menu"&gt;&lt;li class="first leaf"&gt;&lt;a class="active" href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+&lt;li class="expanded"&gt;&lt;a title="" href="/article/all"&gt;Actualités&lt;/a&gt;&lt;ul class="menu"&gt;&lt;li class="first leaf"&gt;&lt;a title="" href="/article/les-evenements-sankore"&gt;Les événements Sankoré&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a title="" href="/article/ils-parlent-de-sankore"&gt;Ils parlent de Sankoré&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a title="" href="/article/actus-du-libre"&gt;Actus du libre&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a title="" href="/article/actus-pays"&gt;Actus pays&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a title="" href="/article/actus-pedagogiques"&gt;Actus pédagogiques&lt;/a&gt;&lt;/li&gt;
+&lt;li class="last leaf"&gt;&lt;a href="/node/2070"&gt;Actus en vidéos&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li class="expanded"&gt;&lt;a title="" href="/node/2127"&gt;Le programme&lt;/a&gt;&lt;ul class="menu"&gt;&lt;li class="first leaf"&gt;&lt;a href="/node/2127"&gt;La charte Sankoré&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a href="/node/2053"&gt;Comment est né le programme Sankoré?&lt;/a&gt;&lt;/li&gt;
+&lt;li class="collapsed"&gt;&lt;a href="/node/2047"&gt;Ce qu’est le programme Sankoré&lt;/a&gt;&lt;/li&gt;
+&lt;li class="last leaf"&gt;&lt;a title="" href="/node/2064"&gt;Les palmes du numérique&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li class="expanded"&gt;&lt;a title="" href="/logiciel/all"&gt;Les ressources&lt;/a&gt;&lt;ul class="menu"&gt;&lt;li class="first leaf"&gt;&lt;a title="" href="/logiciel/all"&gt;La logithèque&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a title="" href="/ressource/all"&gt;Les ressources et les sites libres&lt;/a&gt;&lt;/li&gt;
+&lt;li class="last leaf"&gt;&lt;a href="/node/2069"&gt;Les tutoriels&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li class="last expanded"&gt;&lt;a title="" href="/node/2133"&gt;Enseigner avec le numérique&lt;/a&gt;&lt;ul class="menu"&gt;&lt;li class="first leaf"&gt;&lt;a href="/node/2133"&gt;La classe numérique&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a href="/node/2134"&gt;Les avantages du numérique&lt;/a&gt;&lt;/li&gt;
+&lt;li class="last leaf"&gt;&lt;a title="" href="/node/2051"&gt;Le labo de recherche&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;		&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt; &lt;!-- /block-inner /block --&gt;&lt;div class="block block-menu clearfix" id="block-menu-menu-social-links"&gt;
+  &lt;div class="block-inner"&gt;
+                    		
+		&lt;div class="content"&gt;
+		  &lt;ul class="menu"&gt;&lt;li class="first leaf"&gt;&lt;a title="" href="http://www.youtube.com/user/getuniboard"&gt;La chaîne Youtube&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a title="" href="https://twitter.com/#!/sankore2015"&gt;Suivez-nous sur twitter&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a title="" href="https://www.facebook.com/profile.php?id=100001366923928"&gt;Devenez fan sur facebook&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a title="" href="/article/all/feed"&gt;Abonnez-vous aux news&lt;/a&gt;&lt;/li&gt;
+&lt;li class="last leaf"&gt;&lt;a title="" href="/contact"&gt;Contactez-nous&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;		&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt; &lt;!-- /block-inner /block --&gt;&lt;div class="block block-menu clearfix" id="block-menu-menu-footer-menu"&gt;
+  &lt;div class="block-inner"&gt;
+                    		
+		&lt;div class="content"&gt;
+		  &lt;ul class="menu"&gt;&lt;li class="first leaf"&gt;&lt;a title="" href="/node/2127"&gt;Charte Sankoré&lt;/a&gt;&lt;/li&gt;
+&lt;li class="leaf"&gt;&lt;a class="active" title="" href="/"&gt;Politique de confidentialité&lt;/a&gt;&lt;/li&gt;
+&lt;li class="last leaf"&gt;&lt;a title="" href="http://creativecommons.org/licenses/by-sa/3.0/"&gt;Contenu du site sous licence Creative Commons (CC BY-SA 3.0) &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;		&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt; &lt;!-- /block-inner /block --&gt;  &lt;/div&gt;
+&lt;hr/&gt;
+&lt;/div&gt;
+#end
+### TODO: Format the footer for pdf output</footer.vm>
 </property>
 <property>
 <global.vm>###
@@ -3141,10 +3202,13 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 <header.vm></header.vm>
 </property>
 <property>
-<htmlheader.vm></htmlheader.vm>
-</property>
-<property>
-<javascript.vm>#**
+<htmlfooter.vm>#if($isInServletMode)
+&lt;/body&gt;
+&lt;/html&gt;
+#else ## Portlet Mode
+&lt;/div&gt;
+#end
+</htmlfooter.vm></property><property><htmlheader.vm></htmlheader.vm></property><property><javascript.vm>#**
   * Setup the external Javascript files loaded for the curriki pages
   * @author Curriki dev team
   *#
@@ -3315,9 +3379,6 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 ## Placed at the very end of the stream so that skin file extensions code can be deprecated easily as well.
 ##
 &lt;script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/compatibility.js", false)" defer="defer"&gt;&lt;/script&gt;</javascript.vm>
-</property>
-<property>
-<leftpanels.vm></leftpanels.vm>
 </property>
 <property>
 <login.vm></login.vm>
@@ -3887,7 +3948,6 @@ display:none;
         overflow: hidden;
 	padding:0;
         margin-left:5px;
-	width:203px;
 }
 
 #resource-toc .x-panel-bwrap {
@@ -5673,7 +5733,6 @@ img.rating-icon {
 
 body.hideright #footerglobal { 
   margin:30px auto;
-  text-transform:capitalize;
   font-size:0.8em;
 }
 .footer-nav{
@@ -6549,6 +6608,86 @@ body {
 #headerglobal #sankore-toplinks li a {
   color: #575757;
   font-size: 12px;
+}
+
+## FOOTER CSS
+#footerglobal {
+    background: none repeat scroll 0 0 #E2E1DC;
+    clear: both;
+    line-height: 1;
+    min-height: 180px;
+    padding-top: 20px;
+    width: 100%;
+  text-transform: none;
+}
+#footerglobal .region-footer {
+    margin: auto;
+    position: relative;
+    width: 960px;
+}
+
+#footerglobal ul.menu {
+    margin: 0;
+    padding: 0;
+}
+#footerglobal ul.menu li {
+    font-size: 11px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#footerglobal a, #footerglobal a:visited {
+    color: #303030;
+}
+#footer-main-menu {
+    float: left;
+    line-height: 1.5;
+    width: 640px;
+}
+#footer-main-menu ul.menu .first {
+    display: none;
+}
+#footer-main-menu ul.menu li {
+    float: left;
+    font-weight: bold;
+    margin: 0 10px 5px 0;
+    padding: 0;
+    width: 150px;
+}
+#footer-main-menu ul.menu li a {
+    display: block;
+    margin-bottom: 8px;
+}
+#footer-main-menu ul.menu {
+    margin: 0;
+    padding: 0;
+}
+#footer-main-menu ul.menu li ul.menu li {
+    float: none;
+    font-size: 11px;
+    font-weight: normal;
+}
+#footer-main-menu ul.menu li ul.menu li a {
+    margin: 0;
+}
+
+#block-menu-menu-social-links {
+    background: url("http://test.sankore.org/sites/all/themes/sankore/images/footer-share.png") no-repeat scroll 0 0 transparent;
+    float: right;
+    width: 320px;
+}
+#block-menu-menu-social-links ul.menu li a {
+    display: block;
+    margin: 4px 0 0;
+    padding: 0 0 8px 44px;
+}
+#block-menu-menu-footer-menu {
+    clear: both;
+    padding-top: 20px;
+}
+#block-menu-menu-footer-menu ul.menu li {
+    display: inline;
+    padding-right: 10px;
 }</style.css>
 </property>
 <property>
