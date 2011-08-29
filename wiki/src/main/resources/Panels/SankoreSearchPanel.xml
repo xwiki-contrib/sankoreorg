@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314266458000</creationDate>
-<date>1314266458000</date>
-<contentUpdateDate>1314266458000</contentUpdateDate>
+<creationDate>1314611379000</creationDate>
+<date>1314611379000</date>
+<contentUpdateDate>1314611379000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -156,6 +156,7 @@ YII=
 </property>
 <property>
 <content>{{velocity filter="none"}}
+#if($doc.fullName == "Main.WebHome")
 {{html clean="false" wiki="true"}}
 &lt;div id="rechercher" class="block block-block clearfix"&gt;
   &lt;img width="81px" src="/xwiki/bin/download/Panels/SankoreSearchPanel/BGrechercher.png" typeof="foaf:Image" class="block-icon"&gt;
@@ -180,6 +181,7 @@ au plugin Sankoré.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 {{/html}}
+#end
 {{/velocity}}</content>
 </property>
 <property>
