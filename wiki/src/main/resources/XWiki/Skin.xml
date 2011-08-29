@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314267128000</creationDate>
-<date>1314267128000</date>
-<contentUpdateDate>1314267128000</contentUpdateDate>
+<creationDate>1314616256000</creationDate>
+<date>1314616256000</date>
+<contentUpdateDate>1314616256000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -1512,6 +1512,163 @@ ecwIQ6CuL9u5HosE/ysIKFwAqyy5HlutmBuus4y4tQzKZCzLZfux3BqxvBzLIVzKfauutuy6Fiu/
 wnzLVmvABiyuyYy7KQwBNnDN2JzNNgCvNGy/2VqtBlDKl1zGEPDKYhDAAmzJOjTAQ3DKTRzOpHzJ
 ygAB6izPyXAE0EzAk2wWgQAAOw==
 </content></attachment><attachment>
+<filename>bg-logiciel.png</filename>
+<filesize>676</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1314372791000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAEQAAAAqCAYAAAAK7f2YAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAkZJREFUeNrsmkFygjAUhsVxX25QjoAnKPYEeoOy7E423dZtu1E37bJ4
+gvYCrXoCuUG5gfQE9r2ZnylVMHFAJyR5MxkmgNB8ee/9L6HObrfrWPuznip/iOM4F3nP7f2DSwcf
+3fTr9TnNr7FzdA10gim1JdqGAI3/TYwqIXMJD6HBT+jwWHJpRS36fHlKjPEQghFUwGAL4DFmhAzy
+xpvgtswYIPAMT3DPQimV2ZtRH0rAg7guGUxQMrvJ3rmEFCRCqIwFr2SlmSmZVGkAm4Is1jFOlCNq
+39RcQagMCF6inOwSjGlDMPIQeBfAYAsZRt7pKgTDk3BtWYsRZoHoPoLxoWSlSnbX0HN4ttcSqsJ5
+I1K2dG/IOB+EeU0hsIi8I9MdSASJlUqiZRd1qkNiDHYouG9UBUM3IBEWbjEktwpagjWN8kCuavw2
+X8J7NPssowPkkrIkyiF10wYgfk0gfgFMh6DEheqVj31I8VE1024tg4UcH4eAlKFi9aA+rglAXPKI
+FQa9JRhbVKkxPMOXgaGT7Pp7ssog5uhPJZRHvzoEodIHEB/J8+TqV6fCbAkYQZ2H6ASkkVWyibvu
+rQGytkAOy2oLpFBZpiig0gu8blF1QckPVdgY9tCKG8h1txh5d2yOIu7AmEWrvtxhz3Us2uMA0Pw8
+1yfZsSV/EUjbZPen4vy8OOAqDzBFdvn7y0RHlZGxrORcqKvsSnnDXj+SyQ2mhMyKYMx0LsxODZ3R
+OR7ca2HIhEik2Vnk3/7TnV3tWiAWiAXSnP0KMADD98KypN9T+QAAAABJRU5ErkJggg==
+</content></attachment><attachment>
+<filename>bg-planete.png</filename>
+<filesize>1003</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1314372856000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAEUAAAAqCAYAAADlL5amAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAA41JREFUeNrsms2x2jAQx00mBfhdczINJFBBSAUPKgAOyRVcAY8KgGsu
+8CoAKsCpAL80EHJIzk4FZJf5a7LRrMFg3sx6xprRCBtZ0v7YL8k0jsdjUJf/y5saQQ2lhnJreWth
+EY1Go3Dfr+/fdalpUf2ofJ1S/UP1wPXL99/JNetw/rVhwdEWgUIwxtSMqEZXDr+huigCqDJQCEZI
+zZpqp+Q0DGVIcA6VhgIgO5gLm8YWbYZ7eZqTwoQYZCju83MxgVmdg2Ld0TogLEgbgjKIEV3PqX1G
+v5iqFDSl73tUH1g7YEIBAC0J9qCS0YcWPgOQDQOga/7cB5gpBJsAwBx9XRkIwUMGRG0PGhRcAmPS
+fGjBHWgJA2iTUNkZeD+gDTtxmyNPU8Cd8mceB9dj9GtKH2PdfGbOLBwQ+BctPEcekMBBQFlAiyLW
+DhovhtMN4MDtmw8t/AlCJCTARgCZKN0flXuZdKTQhFT4k73o28J8ds0HfsMt+pPMLei7yPMbJ9/g
+RRcuc2iDe26NPimiUUtZwsmMrJqPM5vET7bwi88g4AyqHypjfBNAGFoXMMZnEr+lSU0RzvWkJRCY
+HWYq/Me6wHArPLv1hfVKW2jlac7PL78Sa5rSFzlGIq7P+Q+tDKAdDkgP0akJ2Nw+AHaizG9jQ4jS
+Rbt1TtBpCcqtaT6bzApR7KBEqY4/vglNgYMNvTwlU4S71U9F3nwR/FQi5omshWTpMEfwHVsP0q0l
+kwIrY61Mnqd4YdIBSkXC1iq5Ow5FFEtYM0V+8lP0MwUlzBFmgPbxxnFThOhE8V8ZDqo6VjNabW+z
+B4wZUvUY0aN3xbhbZLi+g/0gstzQqvmkOVHDRY6N5ygLD+xSfnGMyXM9w4y0rYMZKHmnYZyzDMvk
+PiR434s+GbTOncPs/R/GhPlAvbOCvubaHCVSxpwo479Y3CVvNCgcQl1e8QqaGWnzW4KyyNGUnfJr
+JyXncqBdVFvJgywzUJS9SKCl+DhGPNxhyrXYWkwtHzINc3zLBO99nJrHdwDjEsKpH7JNQcHi4rw9
+DA6MIqh6D2DmJX3L3Gry5ucVwzM76T0Oq0McTk+1/UtRzdQOxc2+DEOytbwQltPg3zHjtRGKzeZJ
+3qjSG8IZ9kD33FKobwkr9YId4XMC8ymT0CUAom0rqvevA+88pINNXZiTtfqawTAu/vPAFBRrpf4n
+Uw2lhlJDqaG8cvkrwAAkC5XdK8i+ogAAAABJRU5ErkJggg==
+</content></attachment><attachment>
+<filename>bg-plugin.png</filename>
+<filesize>565</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1314372886000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAEUAAAAqCAYAAADlL5amAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAddJREFUeNrsmu1twjAQhnHF/4YN2gnIBg0jZALCABQ6AWWCfg0AGzSd
+IGGCphM0I3iD9E4ykms5KCUxOtd3kmXFgQQ/Od+95yCaphmx/TbBUAhDEUJ0+txqOc2gm6tDCW37
+8vZV9bm3yWDs0xMEIAV0iTGMx5Mh73PlEZDMAgQtgnNJkFDAbi51I5+gyDPP/Wsoecvk676B1lso
+MPEaO8upRRApGQJnjAFUD6bQcOwa2tr46lZ5kOktFYDstKxMBmSgrO9jzC47V/EIAE26QqG0fKYO
+rx35GlNiKj+EoRCHEjEUwsZQLDYObcKggbCGytThXolCsjql0eqYB9WvWirjc2ymrrUxxtPn1yqn
+6ikl1jEIRFOiOTzZnfZk+1jRMj5XdRVtmW9x+W+HWwcleMrMx0BbB5l9cPfsxA6aS2H3QTkl45ov
+AMwntEiD9TSQsEtVsM2NOLb3Ifscf+wB2t2Q2QcCeNmlSqaqU5IBYbCiDRGKVMsA8/etqS9ChbI4
+xgWU59BSF+naq1ccAMHmGVXonmJqm8hFQPYJCr4efTTG3kcONqcoQemyDDbq9Yeeugc3alWy/OOE
+5QlPqbUgLNuEm7U45T/tMBSGwlAYCkNhKAyFqP0IMADgQLGR4aG1HgAAAABJRU5ErkJggg==
+</content></attachment><attachment>
+<filename>resources.png</filename>
+<filesize>3589</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1314375449000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAJAAAACVCAYAAAC3i3MLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAA+VpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
+bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6
+eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEz
+NDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo
+dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw
+dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEu
+MC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVz
+b3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5z
+OmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1
+bWVudElEPSJ1dWlkOjVEMjA4OTI0OTNCRkRCMTE5MTRBODU5MEQzMTUwOEM4IiB4bXBNTTpEb2N1
+bWVudElEPSJ4bXAuZGlkOjE2QkUzQUM0Q0ZFMzExRTBCRTdCODMzRDgwQzQ0QjBDIiB4bXBNTTpJ
+bnN0YW5jZUlEPSJ4bXAuaWlkOjE2QkUzQUMzQ0ZFMzExRTBCRTdCODMzRDgwQzQ0QjBDIiB4bXA6
+Q3JlYXRvclRvb2w9IkFkb2JlIElsbHVzdHJhdG9yIENTNSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBz
+dFJlZjppbnN0YW5jZUlEPSJ1dWlkOmY0YjFkY2QyLTVhMTItMmU0Zi05ZWQ2LTdkZjA2OTEwMGMx
+YyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGOTdGMTE3NDA3MjA2ODExODA4MzgxNDAwRkFF
+QTMxRSIvPiA8ZGM6dGl0bGU+IDxyZGY6QWx0PiA8cmRmOmxpIHhtbDpsYW5nPSJ4LWRlZmF1bHQi
+PmJvdXRvbnNfMDI8L3JkZjpsaT4gPC9yZGY6QWx0PiA8L2RjOnRpdGxlPiA8L3JkZjpEZXNjcmlw
+dGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PrxafHYAAAm2
+SURBVHja7J1NVttYEIUfHObtTHvS8gY69gpirwBYAfIkU+wVEFYAPe0J7hXgrCDOCnCyAZRJpvES
+WuWUyEORZEnvryTdOodDkzZGfvp069b7VQpRGf/+/Wecfj2gJYrjFE1wNG7SL0AEgFqpzyz9FvGP
+BNEdWgUANYmr3M/LFKILNMuvOEETlKoPKc9zwf9K0q/p+6/f92glKFBVxCX/TmAt0TwAqGn60uM6
+VagRmggAlaWvC808F8WoQqEAEEKd13jNNZoJJrpIfUhdftR8+Tg10wkUCFHHPBfFDCkM0cQ85+Mt
+AELo6WuSfps0+JUJAEK0VR8EADLyP/BAAOhV+qK+H3QOAiCkLwDkX31IedqMsu8AEEK1hIdiD4AQ
+FBiWAECt01ek2vfnfAZACJMZhkhh4McofQ3eRA96NJ6HLp7a/v77r99PcpXcaGij80NXIJO+n7z6
+xAQjQwmA4H8aA0Qwkgp9YmMOgAaQvkxu9Odc+sqUh/77BgDBPB+LbYWSxUOZdD9kgEzSV5Izy+eW
+3x8ACU9fpiPvm9zPs4LXRACov3Fu+Pufc16qCMZ3AAjpq43/GVQMDiAL6WubWxdfpjQJAEL6KoqP
+ufJ9VvK6bwAI6etY+ppVvG4PgPqXvmLD9EXl+66mUb4bwoZUQ1Mg0/S1rVG+67FkaAFQD9Sn7bzn
+svJdH75QR5QoAkDwPhSbBuqTRa/HxoYEkGn62tUs34si7qsKDQIgS+lra6hoNwBo2OnriwYkqUkU
+4BoAUKCwsep028L/vPJCfdwiuPcAsVrMDN9mn5u+0Xag9BwADTN97Sy95wwADTN91Zm+USeivk26
+7zVAhqtO9UgsKtoMAHUnYkvvk1j0MVcAaFjp6wUgS4o26VOnYm8BsrBs5yW0CsxWGd6bcv6sB6Dk
+PUXEXy7mJNtStKKzNvZc7e26dBLQiUAgIk05Mjj+UK8X7nmtZGgNfMXxTy5in+s6WOXmIQ1XgTTF
+yL5nSmFSHruMbYC0o0+VTZrC43OjhzMHgEw0lRhpgHS1fB0Frp5uGzyYVwz6iFXsTdHDm4K1DZrC
+NEhmWnqJVH8X002VwTYwJtVferPHNe7FXcEDSsMvbzRFust1a+y4uvzC35M2YJ0dITpTkiFAUml6
+JapPeo8+qOJpIqQ+cw2eTwW+MTvW4UJ7P91/EVTfOIUnZemQzOGSQXmbSz2IsEHV2LQCngdV3FFK
+N39BvqkCHhNjT8M620ytSIHOFbbslxirFvBsGJ6sG+DBYsWaWRb6ukmvgf7GP2cskwBIVqzL/EgF
+PPQ7i9zrXFaOB6N+yhd6j3smJvZl6sOeJy5Jd4vM81RAZvs616eaWUtw70TEbVFPNM9mvKky21yR
+fVJ+DgQ+pMqTXDn4hPsnzzhzL/hTRXEzZrhiT9f5ki5fBlO5t3OBeyjSOD8cqYyfPcKz06/z1Wh8
+CtGa6MJ9lGOc2fdIKXIInrmeYn+bzsHSBIgEGGe2FTdS4SkESJPSHe5rOOPMnYCPQq5vWwRPKUD8
+wjkg8hI0TFDUjULKEwm4vvv0+uZlc5RKZyRqECGdOVafgtRFnmcpIK1Sqb6qelGt0XhPHVNDVZ9x
+QXs/B1afl/G0Yy+sNSeajfUK99uL+sSB4aGUNa07ia3RfCCW1keF0Xon6sPG+TlQ+1LKumw6J6jR
+qgx+8ynMtZX4r+DfloHgoVH8cZsJZa0n1fMGkktw0DrG+UlaaZv+8AzQnrsQWg+mt14Xxu58rnBu
+aKsnvgCe2DM8Wceg0UwMo4WFLHlj9fvhI4jq+Fjwbz57nNcMj7EVsbYujKcbPCgY7Mbpi9XnwVPK
+ovLc2gNvbWkzXxTUqF71lQRQn0MBZBMeCqvrwrj3+hJqdNR76MpNhUjk+G+uTL2OcwWCGtUOfbNO
+13tI71h1nE1ZdrY7B6lR+nVJioRK7TcfkoVLlb63ZZSDAAQ1qk5hnLouHAFKPcorH7t8eN2dA97o
+EHP2PA+O4Lz0salCEIAYoqzxZgMFaONIeV6tC+stQBpIH1SPDyHxHCuXRlkkQAwRzfl9VMPcsMFW
+LHgxhBocQFop+6iwvLqtWd6GvAgxW9xhdL+5GQ8Nj5cyvkG5T6P7WNhY3/NsJVyIqG1+OZdjisjx
++EvKhYjbJ5qfLEBUHTEAqoZoB4gqQ8zZY2J3qsdmD0fjHAAdj3fgpDQuCna7B0D5RgIn5WlMQvuI
+BajlwbZIYwAI6tMwjUUAqDiuwIf8B00kQGwOJ2CjVlwDIKQvkwh6kK9UgM7BRTfSvVSAZmCiUcQA
+6Jf/yc67QtSPYEMbEhUI6atDaUwiQEhfLQuPEEMbogCyeVQ3vNAwFQidhx1rP2kAIX2ZxcT30IYY
+gPiDo/fZPK4HCZBC73Mn21ESQJg8Zie8Dm2IAIjLTyhQB820FAWCee5oOS8FIPQ+2w1vQxtSAEL6
+6uhDGRwgNnwYPO3oQ3k6lA+KNNZfgKT7n8N5EurnStmu7fPovGsk9AZTkfp5vJHESBicjb5ZJR95
+RVv0RR0AqPBAuz4BFCs/W/w3Bqdq1y9tf+cu7Gc0dbnV71ngDyep9/lw9Had7eJYkVYpSHRoivQD
++MgHOQPoVMCHk+Jxxk33GuzIaUVOPWbIXVqpfH8K3LgbVp3EwuehdHYnFKI3rjYdD6lAIdWHgKEN
+Kq1tys3b7E75vSWmsd6lsFD+5145OPaIIdoxRNuhlPNBUhhXMT8CqM7C1+aUwnaddVbOh1KgWQCv
+M/W5s6m266yEbfqczREKBZCv9JUd8Xjp4+SaAoioqpsL8UWzPgHkQ4Gyw9bWIe+aIF/0thcAedq6
+5fDk+zz26AhEdPjenA08FEi4+lDKWoRIWcJ9UeRiyU8IgFz5n72ElNXAF+0C/PlJHwByoUB0M8au
+zwe17IvmnGo7DZDvIy9d9P8EOanPYpvE6ucQiI8B2S17sc4qkG31WXUZHi2l+arSOp/CbH2ArH/n
+XvUgqFpkZVg5Ntgj21vA+AbonSV45tLNckuQsgHZTQce4k6msKxzcKd6GqxGlw4rtaiTAPFcYiMD
+qAR1DnoAiQwvqRF5vEQqQD6ntJoAtO66WTY02Wuu1q4sqLjVIQ2fKazthd8OFZ48SJrRNjLSXQWo
+zYVTpfVBIfJG26SAiLoKUBPp7W2lZQmihQFEnQWobiRKyJnoPYaotwD1vkyXAJHN2Yk+ATqmKGtW
+HpzU3ByipkXGqIsAfTxWaQEeo1J/qgJMEfEJ0LrgA+5RaVmDaMcdj7fK44S1U48f8FBZaaksQaXl
+pJ3pYaQlPCsfihRqXRiZuAQpy0tbR1y6zzTVX9tq+/8FGACZ2Ih8B6WTJQAAAABJRU5ErkJggg==
+</content></attachment><attachment>
+<filename>resources2.png</filename>
+<filesize>1328</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1314375756000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAACkAAAAqCAYAAAAu9HJYAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sIGhAoGgfgTtYAAASwSURBVFjD
+zZhNqFRlHMZ/z1iQHwl9mXPSMo20dE5FFuUVKbVNIRRtSlxk0juVULQwykUUlbnow0WbOUEQIRVB
+btq06EvRrCzhnCIjiUI9R0WoTZKGPi1mRsfrjF5nzsX7wjCHmf/5v8/7/L9fKHklcfRsEkf3lamz
+QvnraeDDJI40JkEmcbQEiIwngdeMSZC2XzZGCNCKMQUyiSMAJN3UBAjADWMKZEhzklq0HDyhySjY
+7O48wNgwt2i4/SiQ+KxRi8aFNC9BdTmmrhr2CbcggiEWfh/zGtJHg4CtlGFq4B6B2gCBw/U0z0DT
+kB4YlM1KSWG9Dpu2PwJ/JnE0GbgMOH7efTKJo3lIV7VJbH19BqxuiTycxNGCQfa4oAQe7z+FVECm
+gdja8es7wNzzZ27zyOnh6F8xl7YwYzNn1M3dK9clcXQNYtawdLELM8dNfGol+UoSR492yjXi6uAp
+qBFHUvMQan2mArOBedjTkKqGuwTRMGa/BO9GemxYcP2LtNP2T5K+Dmm+8QQBZlzI8mNJrUrIit4g
+G7XqXIkFoDsNdwguBiYAFwHjO2XtNkUn3bBD5w7j+Tr1/AarQ+yDkObLkzgaB3wHHME8gdgE/tbo
+a8HWkOYZgBq16AuJu09qazcIp20+0nQEUo93bazDiEmGibL3I30JvAps76FxUwX8ZGeC62Cgv2ok
+0RMgkuXV2BXBPmAS9iHj7e0g6/Lehko9K3YBtyMdZzSXJWBPPS3eQ1oHntwq8itF14Mdw14a0mKz
+kjhqdjFx9RbQj+0TjwJKY25EXI61pZedWnT+LTMnZPmBJI6oNAFGhLTYCVwL+q0l6XJB6p+QFbts
+1qOuum0bQUNmShtgSPNmnuxoAP4IaT7b4m3cQ1Vf+R6Atxq1aLakoR7+flTSQyHNH0f814nrNOGk
+FhGynKRWrSL9gKmiUlzgNswniGkd+7azwM8hzeeNuOKErGX+rChsIsTrLYAD8uqPEdOHhzvwYhtg
+0qMKVc7QIyJBSPM1wBLMIEANmjE89wpWhjR/qV12Q1oM1pkncTQTeyfSZMpz1VtDmu8sp8GoVQlp
+/rvF/jLDHfvN0mecJI5cfvb01HpWHCiln0zi6BmXDhEkLSuz6X1+FOqQMU8NbO5GLULiEsxBVMq4
+0W1dHdJ8T99M1rMczOxRA9i87nhhcHPLa0e+44lC6BE6pYHFA4Fs1KoVYNnZtrSN4QvwItB04Csz
+okZFSDOTWnV8XyCTWhVJd7h3j94GsFfS4npaLMVsAfaGNF8sWM/IgGLpub4DJ4mra41e0emyzRHb
+freeFau6Tpg2luYLvm8VxDONJIdCml/Rp0/q3l4AgQX1rFiV1KKu9T9kBfU03wFcanzwDAANXJzE
+0cR+A2eoS2wUQDWk+TeNuNnaneVS6696VlwJbLC7BpWAC4GJ3WZ8naXKLAS2dAYH0rZ6mg/1c0XY
+mgIWgd8FzepinKGQ5tvOjUn7QZ9awjbW03yon9vbE92/vTmkxXXAUuDoML4Wnru5petlWjcmhJDm
+Kxq1iEHuG0NWtFn9HHPzsOif049PvoF8BHFvSPN3kjhqVqASLl6b3X/+CzAD+LT115Ru8v8DT9f8
+/Ii5FFsAAAAASUVORK5CYII=
+</content></attachment><attachment>
 <filename>menuhome.png</filename>
 <filesize>211</filesize>
 <author>XWiki.FlaviusOlaru</author>
@@ -2234,8 +2391,7 @@ TkSuQmCC</content></attachment>
 <property>
 <advancedsearch.vm>#set($defaultsearchtext = $msg.get("header.defaultsearchtext"))
 &lt;div id="header-search"&gt;
-  &lt;p&gt;Search for free and open educational resource&lt;/p&gt;
-  &lt;form id="searchform" name="searchform" class="search-box" action="$xwiki.getURL("Search.WebHome")" onsubmit="document.location.href=document.searchform.action+'#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Aterms%25253Ds%2525253A'+escape(escape(escape(escape(($('curriki-searchbox').value!=='$defaultsearchtext')?$('curriki-searchbox').value:'')))); return false;"&gt;  
+  &lt;form id="searchform" name="searchform" class="search-box" action="$xwiki.getURL('Search.WebHome')" onsubmit="document.location.href=this.action+'#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Aterms%25253Ds%2525253A'+escape(escape(escape(escape(($('curriki-searchbox').value!=='$defaultsearchtext')?$('curriki-searchbox').value:'')))); return false;"&gt;  
     &lt;input type="hidden" class="hidden" name="area" value=""/&gt;
     #set($brsqry = $request.brsqry)
     #if(!$brsqry || $brsqry == "")
@@ -2244,10 +2400,6 @@ TkSuQmCC</content></attachment>
     &lt;input type="text" id="curriki-searchbox" name="brsqry" class="input" value="$!brsqry" onfocus="if (this.value=='$defaultsearchtext') this.value=''; else this.select()" onblur="if (this.value=='') this.value='$defaultsearchtext'" size="25" /&gt;
     &lt;button type="submit" id="searchbtn" name="btn"&gt;$msg.get("header.search_go")&lt;/button&gt;      
   &lt;/form&gt;
-  &lt;p&gt;
-    &lt;a href="$xwiki.getURL("Search.WebHome")" onclick="this.href='/xwiki/bin/view/Search/#o%3Aa%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1%5Ef%3Do%253Aresource%253Do%25253Aterms%25253Ds%2525253A'+escape(escape(escape(escape($('curriki-searchbox').value.replace(/^$defaultsearchtext/, ''))))); return true;"&gt;$msg.get("header.advanced_search")&lt;/a&gt; |
-    &lt;a href="$xwiki.getURL("Main.Browse")"&gt;$msg.get("header.browse_subjects")&lt;/a&gt;
-  &lt;/p&gt;
 &lt;/div&gt;</advancedsearch.vm>
 </property>
 <property>
@@ -2913,6 +3065,12 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 #else
 &lt;div class="minwidthd"&gt;&lt;/div&gt;
 #end
+  &lt;div id="sankore-toplinks"&gt;
+    &lt;ul class="menu"&gt;
+      &lt;li class="first leaf"&gt;&lt;a title="" href="http://open-sankore.org"&gt;open-sankore.org&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="last leaf"&gt;&lt;a title="" href="http://planete.sankore.org"&gt;planete.sankore.org&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/div&gt;
   &lt;div id="company"&gt;
   &lt;div id="companylogo"&gt;
     &lt;a style="display:block;" href="$!xwiki.getURL("Main.WebHome", "view")" title="Home" rel="home"&gt;
@@ -2962,6 +3120,17 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 #else
 ##
 #end
+  #if($doc.fullName != "Main.WebHome")
+    #template("advancedsearch.vm")
+&lt;div id="header-icons"&gt;
+&lt;ul&gt;
+  &lt;li class="logiciel"&gt;&lt;a href="#"&gt;Télécharger le logiciel &lt;strong&gt;Sankoré&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="plugin"&gt;&lt;a href="#"&gt;Télécharger le  &lt;strong&gt;plug-in&lt;/strong&gt;&lt;/a&gt;
+&lt;/li&gt;
+  &lt;li class="resources"&gt;&lt;a href="#"&gt;Evaluer les &lt;strong&gt;ressources&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+  #end
   &lt;div class="clearfloats"&gt;&lt;/div&gt;
   #displaypanel("Panels.SankoreNavigationPanel")
 &lt;/div&gt; ## headerglobal
@@ -3083,58 +3252,54 @@ window.docgeturl = "${doc.getURL('get')}";
 $xwiki.get('jsfx').use('uicomponents/widgets/validation/livevalidation_prototype.js')
 $xwiki.get('ssfx').use('uicomponents/widgets/validation/livevalidation.css')
 &lt;script type="text/javascript"&gt;
-// &lt;![CDATA[
- var cancelEditNextOnunload;
- var cancelCancelEditFlag = true;
- var  lockEditFlag = false;
+var cancelEditNextOnunload;
+var cancelCancelEditFlag = true;
+var lockEditFlag = false;
 
- function cancelEditResponse(){
- }
+function cancelEditResponse() {
+}
 
- function cancelEdit(){
-     if (cancelCancelEditFlag) {
-       var surl = "$doc.getExternalURL("cancel", "ajax=1")";
-       var myAjax = new Ajax.Request(
-                 surl,
-                 {
-                     method: 'get',
-                     parameters: "",
-                     asynchronous: true,
-                     discardResponse: true
-                 });
-        cancelCancelEditFlag = false;
-     }
-     if (cancelEditNextOnunload!=null)
-           cancelEditNextOnunload();
- }
+function cancelEdit() {
+  if (cancelCancelEditFlag) {
+    var surl = "$doc.getExternalURL('cancel', 'ajax=1')";
+    var myAjax = new Ajax.Request(surl, {
+      method: 'get',
+      parameters: "",
+      asynchronous: true,
+      discardResponse: true
+    });
+    cancelCancelEditFlag = false;
+  }
+  if (cancelEditNextOnunload) {
+    cancelEditNextOnunload();
+  }
+}
 
- function lockEdit(){
-    if (lockEditFlag==false) {
-#if($xcontext.action=="inline")
-      var surl = "$doc.getExternalURL("lock")?action=inline&amp;ajax=1&amp;${docvariant.replaceAll("&amp;amp;", "&amp;")}";
+function lockEdit() {
+  if (!lockEditFlag) {
+#if ($xcontext.action == 'inline')
+    var surl = "$doc.getExternalURL('lock', "action=inline&amp;ajax=1&amp;${docvariant.replace('&amp;amp;', '&amp;')}")";
 #else
-      var surl = "$doc.getExternalURL("lock")?ajax=1&amp;${docvariant.replaceAll("&amp;amp;", "&amp;")}";
+    var surl = "$doc.getExternalURL('lock', "ajax=1&amp;${docvariant.replace('&amp;amp;', '&amp;')}")";
 #end
-      var myAjax = new Ajax.Request(
-                surl,
-                {
-                    method: 'get',
-                    parameters: "",
-                    asynchronous: true
-                });
-       lockEditFlag = false;
-    }
- }
+    var myAjax = new Ajax.Request(surl, {
+      method: 'get',
+      parameters: "",
+      asynchronous: true
+    });
+    lockEditFlag = false;
+  }
+}
 
- function prepareCancelEdit() {
-    lockEdit();
- }
- function cancelCancelEdit() {
-     cancelCancelEditFlag = false;
- }
-    Event.observe(window, "unload", cancelEdit);
-    Event.observe(window, "pagehide", cancelEdit);
-    Event.observe(document, "dom:loaded", prepareCancelEdit);
+function prepareCancelEdit() {
+  lockEdit();
+}
+function cancelCancelEdit() {
+  cancelCancelEditFlag = false;
+}
+Event.observe(window, "unload", cancelEdit);
+Event.observe(window, "pagehide", cancelEdit);
+Event.observe(document, "dom:loaded", prepareCancelEdit);
 // ]]&gt;
 &lt;/script&gt;
 #end
@@ -4595,9 +4760,11 @@ li a.active {
 }
 
 ### SANKORE PANELS CSS
+
 #planete {
-  margin-top: -150px;
+margin-top: -60px;
 }
+
 #planete h2 {
     color: #C92A1C;
 }
@@ -5032,9 +5199,8 @@ body.main ul {
 }
 #headerglobal {
   float:left;
-  height:150px;
+  height:170px;
   min-height:150px;
-  border-top:4px solid $theme.panelHeaderBackgroundColor;
   margin-bottom:0.5em;
 }
 
@@ -6277,6 +6443,112 @@ li.input-select select {width: 40%;}
 
 body {
   position: inherit !important;
+}
+
+#company {
+  float: left;
+}
+
+#headerglobal #header-search {
+  float: right;
+  margin-top:10px;
+  padding:5px;
+  background-color: #DAE39C;
+}
+
+#headerglobal #header-icons {
+  clear: right;
+  float: right;
+}
+
+#headerglobal #header-icons li {
+  background-color: transparent;
+    border: medium none;
+    display: block;
+    float: left;
+    margin-left: 7px;
+    padding-top: 50px;
+    text-align: center;
+}
+#headerglobal #header-icons li.logiciel {
+  background-image: url("/xwiki/bin/download/XWiki/Skin/bg-logiciel.png");
+    background-repeat: no-repeat;
+}
+
+#headerglobal #header-icons li.plugin {
+  background-image: url("/xwiki/bin/download/XWiki/Skin/bg-plugin.png");
+  background-repeat: no-repeat;
+}
+
+#headerglobal #header-icons li.planete {
+  background-image: url("/xwiki/bin/download/XWiki/Skin/bg-planete.png");
+  background-repeat: no-repeat;
+}
+
+#headerglobal #header-icons li.resources {
+  height: 42px;
+  background-image: url("/xwiki/bin/download/XWiki/Skin/resources2.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+#headerglobal #header-icons li a {
+    border-radius: 6px 6px 6px 6px;
+    display: block;
+    padding: 6px;
+    width: 87px;
+  font-size: 11px;
+}
+
+
+#headerglobal #header-icons li.logiciel a {
+    background-color: #CDE1E8;
+    border-bottom: 1px solid #A2B9BF;
+    color: #19485B;
+}
+
+#headerglobal #header-icons li.plugin a {
+    background-color: #D3D37E;
+    border-bottom: 1px solid #B7B563;
+    color: #514C1F;
+}
+
+#headerglobal #header-icons li.planete a {
+    background-color: #9A2E1B;
+    border-bottom: 1px solid #681B14;
+    color: #F6F6F6;
+}
+
+#headerglobal #header-icons li.resources a {
+    background-color: #9A2E1B;
+    border-bottom: 1px solid #681B14;
+    color: #F6F6F6;
+}
+
+#headerglobal #sankore-toplinks {
+  background-color: #F0EFEB;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: absolute;
+  left: 50%;
+}
+
+#headerglobal #sankore-toplinks ul {
+  list-style: none;
+  margin: 5px 8px;
+  padding: 0;
+}
+
+#headerglobal #sankore-toplinks li {
+  list-style: none;
+  display: inline;
+  margin-left: 3px;
+  padding: 0.2em 0.5em 0 0;
+}
+
+#headerglobal #sankore-toplinks li a {
+  color: #575757;
+  font-size: 12px;
 }</style.css>
 </property>
 <property>
