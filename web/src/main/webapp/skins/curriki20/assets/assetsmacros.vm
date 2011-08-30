@@ -723,6 +723,8 @@ $asset.use("CurrikiCode.AssetClass")
             <span><em>!</em><label for="edit-description">$msg.get("rve.information.description.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.description.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.description.edit_txt")</p>
             $asset.display("description", "edit", true)
+            #wysiwyg_import(true)
+            #wysiwyg_editProperty($asset "CurrikiCode.AssetClass_0_description" true)
         </li>
         <li id="info-edit-subject" class="field-important input-tree">
             <span><em>!</em><label for="edit-subject">$msg.get("rve.information.subject.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.subject.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
@@ -1444,6 +1446,10 @@ $asset.use($classname)
     $fieldcontent
     #else
     $asset.display($fieldname, "edit", true)
+    #if($fieldtype=="textarea")
+      #wysiwyg_import(true)
+      #wysiwyg_editProperty($asset "${classname}_0_${fieldname}" true)
+    #end
     #end
     </div>
 </li>
