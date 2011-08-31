@@ -1622,48 +1622,55 @@ public class Asset extends CurrikiDocument {
         try {
             // getting the name for the newly uploaded file
             String fname = fileupload.getFileName(name, context);
-            int i = fname.lastIndexOf("\\");
-            if (i==-1)
-                i = fname.lastIndexOf("/");
-            String filename = fname.substring(i+1);
-            filename = filename.replaceAll("\\+"," ");
-            
-            boolean replaceAttach = false;
-            // if the attachment exists and it has a different name 
-            if (attachment != null && !filename.equals(attachment.getFilename())) {
-                replaceAttach = true;                
-                // delete it
+            if (fname.length() > 0) {
+                int i = fname.lastIndexOf("\\");
+                if (i == -1) {
+                    i = fname.lastIndexOf("/");
+                }
+                String filename = fname.substring(i + 1);
+                filename = filename.replaceAll("\\+", " ");
+                
+                boolean replaceAttach = false;
+                // if the attachment exists and it has a different name 
+                if (attachment != null && !filename.equals(attachment.getFilename())) {
+                    replaceAttach = true;
+                    // delete it
+                    if (LOG.isDebugEnabled()) {
+                        LOG.debug("Deleting previous attachment");
+                    }
+                    doc.deleteAttachment(attachment, context);
+                }
+                
+                if (attachment == null || replaceAttach) {
+                    if (LOG.isDebugEnabled() && attachment == null) {
+                        LOG.debug("Creating attachment from scratch attachment");
+                    }
+                    // create a new attachment to add the new content in it
+                    newFileName = true;
+                    attachment = new XWikiAttachment();
+                    doc.getAttachmentList().add(attachment);
+                    attachment.setDoc(doc);
+                }
+    
+                // now save the attachment under the new name
                 if (LOG.isDebugEnabled()) {
-                    LOG.debug("Deleting previous attachment");
+                    LOG.debug("Saving attachment");
                 }
-                doc.deleteAttachment(attachment, context);
+                attachment.setContent(fileupload.getFileItemInputStream(name, context));
+                attachment.setFilename(filename);
+                attachment.setAuthor(context.getUser());
+                doc.setAuthor(context.getUser());
+    
+                // if it's a new file name we should run the category updater
+                if (newFileName)
+                    determineFileTypeAndCategory(attachment);
+    
+                return true;
+            } else {
+                // the filename is empty, it means there's nothing to replace, we'll consider this a successful 
+                // replacement
+                return true;
             }
-            
-            if (attachment == null || replaceAttach) {
-                if (LOG.isDebugEnabled() && attachment == null) {
-                    LOG.debug("Creating attachment from scratch attachment");
-                }
-                // create a new attachment to add the new content in it
-                newFileName = true;
-                attachment = new XWikiAttachment();
-                doc.getAttachmentList().add(attachment);
-                attachment.setDoc(doc);
-            }
-
-            // now save the attachment under the new name
-            if (LOG.isDebugEnabled()) {
-                LOG.debug("Saving attachment");
-            }
-            attachment.setContent(fileupload.getFileItemInputStream(name, context));
-            attachment.setFilename(filename);
-            attachment.setAuthor(context.getUser());
-            doc.setAuthor(context.getUser());
-
-            // if it's a new file name we should run the category updater
-            if (newFileName)
-                determineFileTypeAndCategory(attachment);
-
-            return true;
         } catch (XWikiException e) {
             e.printStackTrace();
             context.put("exception", e);
