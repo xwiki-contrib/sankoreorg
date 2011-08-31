@@ -62,7 +62,7 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>2.0</version>
         <configuration>
-          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-servlet-2.1-NEXT-SNAPSHOT.jar</dependentWarExcludes>
+          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-servlet-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/xwiki-plugin-spacemanager-1.1.1.jar</dependentWarExcludes>
         </configuration>
       </plugin>
     </plugins>
