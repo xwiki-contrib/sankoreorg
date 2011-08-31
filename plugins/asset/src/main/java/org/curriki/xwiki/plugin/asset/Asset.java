@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.util.*;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.commons.collections.ListUtils;
@@ -1622,7 +1623,7 @@ public class Asset extends CurrikiDocument {
         try {
             // getting the name for the newly uploaded file
             String fname = fileupload.getFileName(name, context);
-            if (fname.length() > 0) {
+            if (!StringUtils.isEmpty(fname) && fname.length() > 0) {
                 int i = fname.lastIndexOf("\\");
                 if (i == -1) {
                     i = fname.lastIndexOf("/");
@@ -1667,9 +1668,8 @@ public class Asset extends CurrikiDocument {
     
                 return true;
             } else {
-                // the filename is empty, it means there's nothing to replace, we'll consider this a successful 
-                // replacement
-                return true;
+                // No files in fileupload plugin, no replacements
+                return false;
             }
         } catch (XWikiException e) {
             e.printStackTrace();
