@@ -40,7 +40,7 @@
     <platform.version>3.1</platform.version>
     <curriki.version>2.1</curriki.version>
     <platform.plugins.invitationmanager.version>1.0.1</platform.plugins.invitationmanager.version>
-    <platform.plugins.spacemanager.version>1.1.1</platform.plugins.spacemanager.version>
+    <platform.plugins.spacemanager.version>1.1.1-3.1</platform.plugins.spacemanager.version>
   </properties>
   <dependencies>
     <dependency>
