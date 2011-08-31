@@ -1,0 +1,1320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ *
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.xwiki.platform</groupId>
+    <artifactId>xwiki-platform-core</artifactId>
+    <version>3.1</version>
+  </parent>
+  <artifactId>xwiki-platform-oldcore</artifactId>
+  <name>XWiki Platform - Old Core</name>
+  <packaging>jar</packaging>
+  <description>XWiki Platform - Old Core</description>
+  <dependencies>
+
+    <!-- Dependencies that we need to fix so that we don't need to have them in our custom remote repository -->
+
+    <!-- The JRCS JARS are are in our repo till we get them published on the central repository.
+         JRCS home page: http://www.suigeneris.org/kb/display/jrcs/JRCS+Home -->
+    <dependency>
+      <groupId>org.suigeneris</groupId>
+      <artifactId>jrcs.diff</artifactId>
+      <version>0.4.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.suigeneris</groupId>
+      <artifactId>jrcs.rcs</artifactId>
+      <version>0.4.2</version>
+    </dependency>
+
+    <!-- Version 1.1 of jackrabbit core needs to be uploaded to central repository. In addition there was a  POM
+         issue in version 1.0.1, see http://jira.codehaus.org/browse/MEV-453 -->
+    <!-- TODO: Version 1.4.2 is published in the central repo, can we use that? -->
+    <dependency>
+      <groupId>org.apache.jackrabbit</groupId>
+      <artifactId>jackrabbit-core</artifactId>
+      <version>1.1-xwiki</version>
+    </dependency>
+
+    <!-- We need to find what version of the googleapi we're using and get that to the central repository if the
+         license allows it -->
+    <dependency>
+      <groupId>com.google</groupId>
+      <artifactId>googleapi</artifactId>
+      <version>UNKNOWN</version>
+      <classifier>xwiki</classifier>
+    </dependency>
+
+    <!-- There's no release of Graffito yet (http://incubator.apache.org/graffito/jcr-mapping/index.html) -->
+    <dependency>
+      <groupId>org.apache.portals</groupId>
+      <artifactId>graffito-jcr-mapping</artifactId>
+      <version>1.0-a1-amelentev-dev</version>
+    </dependency>
+
+    <!-- VMA: I'm not sure if we have the right to distribute this jar. It's not on the central repository because
+         of licensing issues. -->
+    <!-- Sergiu: No, we cannot redistribute it. And we definitely shouldn't put it in our repo.
+         We can redistribute version 1.1, but we should make users approve their License Agreement.
+         Can we drop this completely? Why is it needed? -->
+    <!-- TODO: Version 1.1 is available, should we upgrade? -->
+    <dependency>
+      <groupId>javax.transaction</groupId>
+      <artifactId>jta</artifactId>
+      <version>1.0.1B</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.novell.ldap</groupId>
+      <artifactId>jldap</artifactId>
+      <version>4.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>jfree</groupId>
+      <artifactId>jfreechart</artifactId>
+    </dependency>
+    <!-- JFreeChart 1.0.13 has no POM file in the Maven Central Repository and thus we need to manually define
+         its own Maven dependency on JFree Common. Remove this dependency when it's fixed. -->
+    <dependency>
+      <groupId>jfree</groupId>
+      <artifactId>jcommon</artifactId>
+    </dependency>
+
+    <!-- See http://jira.codehaus.org/browse/MEV-488 -->
+    <dependency>
+      <groupId>javax.jcr</groupId>
+      <artifactId>jcr</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <!-- We need to create a JIRA issue on the Maven project to upload these artifacts -->
+    <dependency>
+      <groupId>info.informatica</groupId>
+      <artifactId>css4j</artifactId>
+      <version>0.10</version>
+    </dependency>
+    <!-- TODO: Check if this dependency is really required at runtime -->
+    <dependency>
+      <groupId>info.informatica</groupId>
+      <artifactId>jclf</artifactId>
+      <version>2.3.0</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- JTidy hasn't been released for ages (since 2001). A snapshot version exists at
+         http://jtidy.sourceforge.net/snapshots/ but Maven requires non-snapshots in order to
+         allow a release (this is for reproducibility). Thus we've had to upload JTidy into
+         our custom repository -->
+    <dependency>
+      <groupId>jtidy</groupId>
+      <artifactId>jtidy</artifactId>
+      <version>8.0-20060801.131059-3-dev</version>
+      <exclusions>
+        <exclusion>
+          <groupId>xerces</groupId>
+          <artifactId>dom3-xml-apis</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    
+    <!-- Required by the XML-RPC implementation and tests.
+         Hopefully they will eventually make it into a swizzle release. -->
+    <dependency>
+      <groupId>org.codehaus.swizzle</groupId>
+      <artifactId>swizzle-confluence</artifactId>
+      <version>1.2-20080419</version>
+      <classifier>xwiki</classifier>
+      <exclusions>
+        <!-- We need to explicitely exclude JUnit since swizzle confluence depends transitively
+             on Apache WS Common which wrongly defines a compile dependency on JUnit.
+             See JIRA issue: http://jira.codehaus.org/browse/MEV-567 -->
+        <exclusion>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>xmlrpc</groupId>
+          <artifactId>xmlrpc-client</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Standard dependencies found in the central repository -->
+    <!-- Apache Commons -->
+    <!-- The versions for these are defined in the parent pom -->
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-net</groupId>
+      <artifactId>commons-net</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+    </dependency>
+    
+    <!-- For extracting metadata from various document types -->
+    <dependency>
+      <groupId>org.apache.tika</groupId>
+      <artifactId>tika-core</artifactId>
+      <version>0.9</version>
+    </dependency>
+
+    <!-- XML processing -->
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xercesImpl</artifactId>
+      <version>2.8.1</version>
+    </dependency>
+
+    <!-- The platform -->
+    <!-- Web part -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>portlet-api</groupId>
+      <artifactId>portlet-api</artifactId>
+      <version>1.0</version>
+      <!-- TODO: Ideally the scope should be "provided". However before we can do this we'll need
+           to fully remove all references to the Portlet API in XWiki Core so that using it in
+           a Servlet environment will not fail with a ClassNotFoundException -->
+    </dependency>
+    <dependency>
+      <groupId>struts</groupId>
+      <artifactId>struts</artifactId>
+      <version>1.2.9</version>
+      <exclusions>
+        <!-- There is conflict with hibernate antlr-2.7.6 dependency -->
+        <exclusion>
+          <groupId>antlr</groupId>
+          <artifactId>antlr</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- Rendering -->
+    <dependency>
+      <groupId>radeox</groupId>
+      <artifactId>radeox</artifactId>
+      <version>1.0-b2</version>
+    </dependency>
+
+    <!-- Storage -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate</artifactId>
+      <version>3.2.6.ga</version>
+    </dependency>
+
+    <!-- Authentication -->
+    <dependency>
+      <groupId>securityfilter</groupId>
+      <artifactId>securityfilter</artifactId>
+      <version>2.0</version>
+    </dependency>
+
+    <!-- XML processing -->
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+    <dependency>
+      <groupId>xml-apis</groupId>
+      <artifactId>xml-apis</artifactId>
+      <version>1.3.04</version>
+    </dependency>
+    <dependency>
+      <groupId>xml-apis</groupId>
+      <artifactId>xmlParserAPIs</artifactId>
+      <version>2.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>xpp3</groupId>
+      <artifactId>xpp3</artifactId>
+      <version>1.1.3.4-RC8</version>
+    </dependency>
+    <!-- TODO: We should drop ECS -->
+    <dependency>
+      <groupId>ecs</groupId>
+      <artifactId>ecs</artifactId>
+      <version>1.4.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.xml</groupId>
+      <artifactId>jaxrpc-api</artifactId>
+      <version>1.1</version>
+    </dependency>
+
+    <!-- JSON -->
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.3</version>
+      <classifier>jdk15</classifier>
+    </dependency>
+
+    <!-- XmlRpc -->
+    <dependency>
+      <groupId>org.apache.xmlrpc</groupId>
+      <artifactId>xmlrpc-common</artifactId>
+      <version>3.1</version>
+      <exclusions>
+        <!-- We need to explicitely exclude JUnit since WS Common 1.0.1 used by XMLRPC Commons is
+             having an invalid compile time dependency on it.
+             See JIRA issue: http://jira.codehaus.org/browse/MEV-567 -->
+        <exclusion>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.xmlrpc</groupId>
+      <artifactId>xmlrpc-server</artifactId>
+      <version>3.1</version>
+      <exclusions>
+        <!-- We need to explicitely exclude JUnit since xmlrpc Server depends transitively
+             on Apache WS Common which wrongly defines a compile dependency on JUnit.
+             See JIRA issue: http://jira.codehaus.org/browse/MEV-567 -->
+        <exclusion>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <!-- PDF export, image processing -->
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>fop</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.avalon.framework</groupId>
+      <artifactId>avalon-framework-impl</artifactId>
+      <version>4.3.1</version>
+    </dependency>
+    <!-- fop depends on batik 1.7, but the batik folks did not release the rasterizer module
+         for this version, which we need. Since the 1.6 and 1.7 releases are fairly compatible,
+         but use different groupId names, we can use all the modules from 1.7, and exclude all
+         the 1.6 dependencies pulled by the rasterizer, until we can depend on a clean 1.7
+         rasterizer module.
+         See https://issues.apache.org/bugzilla/show_bug.cgi?id=45020 -->
+    <dependency>
+      <groupId>batik</groupId>
+      <artifactId>batik-rasterizer</artifactId>
+      <version>1.6</version>
+      <exclusions>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-awt-util</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-bridge</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-css</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-dom</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-gvt</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-parser</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-script</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-svg-dom</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-transcoder</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-util</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>batik</groupId>
+          <artifactId>batik-xml</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- fop gets us batik but not batik-codec and we need this one for SVGPlugin -->
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-codec</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+
+    <!-- Misc -->
+    <!-- CSS and JS compression tool, used in SkinExtensions -->
+    <dependency>
+      <groupId>com.yahoo.platform.yui</groupId>
+      <artifactId>yuicompressor</artifactId>
+      <!-- See http://jira.xwiki.org/jira/browse/XWIKI-6148 to understand why we use a specially packaged version of
+           yuicompressor -->
+      <version>2.4.2-xwiki</version>
+    </dependency>
+    <!-- Better date manipulation than what JDK provides -->
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>1.6</version>
+    </dependency>
+    <!-- RSS Feed processing -->
+    <dependency>
+      <groupId>rome</groupId>
+      <artifactId>rome</artifactId>
+      <version>1.0</version>
+      <!-- Exclude JDOM since Rome depends on JDOM 1.0 and we want to use JDOM 1.1 -->
+      <exclusions>
+        <exclusion>
+          <groupId>jdom</groupId>
+          <artifactId>jdom</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>rome</groupId>
+      <artifactId>rome-fetcher</artifactId>
+      <version>1.0</version>
+      <!-- Exclude JDOM since Rome depends on JDOM 1.0 and we want to use JDOM 1.1 -->
+      <exclusions>
+        <exclusion>
+          <groupId>jdom</groupId>
+          <artifactId>jdom</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- Mail sender -->
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4</version>
+    </dependency>
+    <!-- Used by another tool, it should be removed some time -->
+    <dependency>
+      <groupId>picocontainer</groupId>
+      <artifactId>picocontainer</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <!-- This Axis dependency is not used directly and shouldn't be declared. However it's used
+         by the Google API used in the Google Plugin API. It should be declared in that project's
+         POM but it's not so we have to declare it in the meantime... -->
+    <dependency>
+      <groupId>org.apache.axis</groupId>
+      <artifactId>axis</artifactId>
+      <version>1.4</version>
+    </dependency>
+    <!-- Regular expressions -->
+    <dependency>
+      <groupId>oro</groupId>
+      <artifactId>oro</artifactId>
+      <version>2.0.8</version>
+    </dependency>
+    <!-- Used by XWiki 1.0 Groovy macro -->
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+    </dependency>
+
+    <!-- Other XWiki modules -->
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-configuration-default</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-observation-local</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-observation-remote</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-velocity-webapp</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.commons</groupId>
+      <artifactId>xwiki-commons-script</artifactId>
+      <version>${commons.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.commons</groupId>
+      <artifactId>xwiki-commons-context</artifactId>
+      <version>${commons.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-container-portlet</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-xmlrpc-model</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-bridge</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.rendering</groupId>
+      <artifactId>xwiki-rendering-api</artifactId>
+      <version>${rendering.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-rendering-xwiki</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-chart-renderer</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-url-default</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-url-container</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <!-- Used by com.xpn.xwiki.web.CommentAction -->
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-captcha</artifactId>
+      <version>${project.version}</version>
+      <!-- Core does not depend on this to run so it shouldn't be pulled in unless it is a dependency somewhere else. -->
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-rendering-wikimacro-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-rendering-macro-script</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-rendering-macro-context</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.rendering</groupId>
+      <artifactId>xwiki-rendering-transformation-icon</artifactId>
+      <version>${rendering.version}</version>
+      <!-- Only needed at runtime since it's a component implementation -->
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.rendering</groupId>
+      <artifactId>xwiki-rendering-transformation-wikiword</artifactId>
+      <version>${rendering.version}</version>
+      <!-- Only needed at runtime since it's a component implementation -->
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-formula-renderer</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-cache-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-cache-jbosscache</artifactId>
+      <version>${project.version}</version>
+      <!-- Only needed at runtime since it's a component implementation -->
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-cache-oscache</artifactId>
+      <version>${project.version}</version>
+      <!-- Only needed at runtime since it's a component implementation -->
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.commons</groupId>
+      <artifactId>xwiki-commons-xml</artifactId>
+      <version>${commons.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-query-manager</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-office-importer</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-component-multi</artifactId>
+      <version>${project.version}</version>
+      <!-- Only required at runtime (ie in the distribution) -->
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-query-xwql</artifactId>
+      <version>${project.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-csrf</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- Used to mock XWiki class -->
+    <dependency>
+      <groupId>org.jmock</groupId>
+      <artifactId>jmock-legacy</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-rendering-macro-script</artifactId>
+      <version>${project.version}</version>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-rendering-macro-velocity</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-rendering-macro-groovy</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- XWiki syntax parsers -->
+    <dependency>
+      <groupId>org.xwiki.rendering</groupId>
+      <artifactId>xwiki-rendering-syntax-xwiki2</artifactId>
+      <version>${rendering.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.rendering</groupId>
+      <artifactId>xwiki-rendering-syntax-xhtml</artifactId>
+      <version>${rendering.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.rendering</groupId>
+      <artifactId>xwiki-rendering-syntax-xwiki10</artifactId>
+      <version>${rendering.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Build tools -->
+    <!-- Needed for backward compatibility Aspects -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.6.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.commons</groupId>
+      <artifactId>xwiki-commons-test</artifactId>
+      <version>${commons.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>      
+      <!-- Publish a Core Test JAR -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <!-- We must have an ID here, as otherwise the configuration is used for generating the normal jar, too.
+                 See XWIKI-2757 -->
+            <id>build-test-jar</id>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+            <configuration>
+              <includes>
+                <include>**/test/*.class</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Apply Backward compatibility Aspects using the strategy described at
+           http://blogs.sonatype.com/john/2007/11/09/1194630418546.html -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>aspectj-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>backward-compatibility-aspects</id>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <aspectDirectory>src/main/aspect/compatibility</aspectDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <!-- Generate Javadoc only for the Public API -->
+          <subpackages>com.xpn.xwiki.api</subpackages>
+        </configuration>
+      </plugin>
+      <plugin>
+        <!-- Apply the Checkstyle configurations defined in the top level pom.xml file -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <excludes>
+              **/XWikiConfig.java,
+              **/XWikiConstant.java,
+              **/XWikiContext.java,
+              **/XWikiException.java,
+              **/XWiki.java,
+              **/api/Attachment.java,
+              **/api/Class.java,
+              **/api/Collection.java,
+              **/api/CriteriaService.java,
+              **/api/Document.java,
+              **/api/DocumentSection.java,
+              **/api/Object.java,
+              **/api/Util.java,
+              **/api/XWiki.java,
+              **/atom/lifeblog/LifeblogServices.java,
+              **/atom/lifeblog/UserBlog.java,
+              **/atom/WSSEHttpHeader.java,
+              **/atom/XWikiHelper.java,
+              **/cache/api/internal/XWikiCacheServiceStub.java,
+              **/cache/api/internal/XWikiCacheStub.java,
+              **/cache/api/XWikiCache.java,
+              **/cache/api/XWikiCacheNeedsRefreshException.java,
+              **/cache/api/XWikiCacheService.java,
+              **/content/parsers/RenamePageReplaceLinkHandler.java,
+              **/criteria/api/XWikiCriteriaService.java,
+              **/criteria/impl/DurationFactory.java,
+              **/criteria/impl/Duration.java,
+              **/criteria/impl/PeriodFactory.java,
+              **/criteria/impl/Period.java,
+              **/criteria/impl/RangeFactory.java,
+              **/criteria/impl/Range.java,
+              **/criteria/impl/RevisionCriteriaFactory.java,
+              **/criteria/impl/RevisionCriteria.java,
+              **/criteria/impl/ScopeFactory.java,
+              **/criteria/impl/Scope.java,
+              **/criteria/impl/XWikiCriteriaServiceImpl.java,
+              **/DefaultSkinAccessBridge.java,
+              **/doc/AttachmentDiff.java,
+              **/doc/DefaultDocumentAccessBridge.java,
+              **/doc/DeletedAttachment.java,
+              **/doc/DocumentErrorHandler.java,
+              **/doc/LazyXWikiDocument.java,
+              **/doc/MetaDataDiff.java,
+              **/doc/rcs/XWikiPatchUtils.java,
+              **/doc/rcs/XWikiRCSArchive.java,
+              **/doc/XWikiAttachment.java,
+              **/doc/XWikiDocument.java,
+              **/doc/XWikiLink.java,
+              **/doc/XWikiLock.java,
+              **/export/html/HtmlPackager.java,
+              **/i18n/i18n.java,
+              **/internal/ComponentManagerBridgeEventListener.java,
+              **/internal/DefaultCoreConfiguration.java,
+              **/internal/macro/DefaultWikiMacroFactory.java,
+              **/internal/macro/DefaultWikiMacroInitializer.java,
+              **/internal/macro/WikiMacroConstants.java,
+              **/internal/DefaultXWikiStubContextProvider.java,
+              **/internal/model/reference/CompactStringEntityReferenceSerializer.java,
+              **/internal/model/reference/CompactWikiStringEntityReferenceSerializer.java,
+              **/internal/model/reference/CurrentEntityReferenceValueProvider.java,
+              **/internal/model/reference/CurrentMixedEntityReferenceValueProvider.java,
+              **/internal/model/reference/CurrentMixedReferenceDocumentReferenceResolver.java,
+              **/internal/model/reference/CurrentMixedReferenceEntityReferenceResolver.java,
+              **/internal/model/reference/CurrentMixedStringDocumentReferenceResolver.java,
+              **/internal/model/reference/CurrentReferenceDocumentReferenceResolver.java,
+              **/internal/model/reference/CurrentReferenceEntityReferenceResolver.java,
+              **/internal/model/reference/CurrentStringAttachmentReferenceResolver.java,
+              **/internal/model/reference/CurrentStringDocumentReferenceResolver.java,
+              **/internal/model/reference/CurrentStringEntityReferenceResolver.java,
+              **/internal/observation/remote/converter/AbstractXWikiEventConverter.java,
+              **/internal/observation/remote/converter/ActionExecutionEventConverter.java,
+              **/monitor/api/MonitorData.java,
+              **/monitor/api/MonitorPlugin.java,
+              **/monitor/api/MonitorTimer.java,
+              **/monitor/api/MonitorTimerSummary.java,
+              **/notify/DocChangeRule.java,
+              **/notify/DocObjectChangedRule.java,
+              **/notify/PropertyChangedRule.java,
+              **/notify/XWikiActionNotificationInterface.java,
+              **/notify/XWikiActionRule.java,
+              **/notify/XWikiDocChangeNotificationInterface.java,
+              **/notify/XWikiNotificationInterface.java,
+              **/notify/XWikiNotificationManager.java,
+              **/notify/XWikiNotificationRule.java,
+              **/notify/XWikiPageNotification.java,
+              **/objects/BaseCollection.java,
+              **/objects/BaseElement.java,
+              **/objects/BaseObject.java,
+              **/objects/BaseProperty.java,
+              **/objects/BaseStringProperty.java,
+              **/objects/classes/BaseClass.java,
+              **/objects/classes/BooleanClass.java,
+              **/objects/classes/ClassInterface.java,
+              **/objects/classes/DateClass.java,
+              **/objects/classes/DBListClass.java,
+              **/objects/classes/DBTreeListClass.java,
+              **/objects/classes/GroupsClass.java,
+              **/objects/classes/LevelsClass.java,
+              **/objects/classes/ListClass.java,
+              **/objects/classes/ListItem.java,
+              **/objects/classes/NumberClass.java,
+              **/objects/classes/PasswordClass.java,
+              **/objects/classes/PropertyClassInterface.java,
+              **/objects/classes/PropertyClass.java,
+              **/objects/classes/StaticListClass.java,
+              **/objects/classes/StringClass.java,
+              **/objects/classes/TextAreaClass.java,
+              **/objects/classes/UsersClass.java,
+              **/objects/DateProperty.java,
+              **/objects/DBStringListProperty.java,
+              **/objects/DoubleProperty.java,
+              **/objects/ElementComparator.java,
+              **/objects/ElementInterface.java,
+              **/objects/FloatProperty.java,
+              **/objects/IntegerProperty.java,
+              **/objects/LargeStringProperty.java,
+              **/objects/ListProperty.java,
+              **/objects/LongProperty.java,
+              **/objects/meta/BooleanMetaClass.java,
+              **/objects/meta/DateMetaClass.java,
+              **/objects/meta/DBListMetaClass.java,
+              **/objects/meta/DBTreeListMetaClass.java,
+              **/objects/meta/GroupsMetaClass.java,
+              **/objects/meta/LevelsMetaClass.java,
+              **/objects/meta/ListMetaClass.java,
+              **/objects/meta/MetaClass.java,
+              **/objects/meta/NumberMetaClass.java,
+              **/objects/meta/PasswordMetaClass.java,
+              **/objects/meta/PropertyMetaClass.java,
+              **/objects/meta/StaticListMetaClass.java,
+              **/objects/meta/StringMetaClass.java,
+              **/objects/meta/TextAreaMetaClass.java,
+              **/objects/meta/UsersMetaClass.java,
+              **/objects/NumberProperty.java,
+              **/objects/ObjectDiff.java,
+              **/objects/ObjectInterface.java,
+              **/objects/PropertyInterface.java,
+              **/objects/StringListProperty.java,
+              **/pdf/impl/PdfExportImpl.java,
+              **/pdf/impl/PdfURLFactory.java,
+              **/plugin/autotag/AutoTagPluginAPI.java,
+              **/plugin/autotag/AutoTagPlugin.java,
+              **/plugin/autotag/FrenchStemmer.java,
+              **/plugin/autotag/TagCloud.java,
+              **/plugin/autotag/Tag.java,
+              **/plugin/charts/actions/ChartingAction.java,
+              **/plugin/charts/actions/ChartWizardAction.java,
+              **/plugin/charts/actions/CreateChartAction.java,
+              **/plugin/charts/actions/PreviewChartAction.java,
+              **/plugin/charts/ChartCustomizer.java,
+              **/plugin/charts/ChartImpl.java,
+              **/plugin/charts/ChartingMacro.java,
+              **/plugin/charts/ChartingPluginApi.java,
+              **/plugin/charts/ChartingPlugin.java,
+              **/plugin/charts/Chart.java,
+              **/plugin/charts/CustomXWikiRenderingEngine.java,
+              **/plugin/charts/exceptions/ChartingException.java,
+              **/plugin/charts/exceptions/ColumnIndexOutOfBoundsException.java,
+              **/plugin/charts/exceptions/DataSourceException.java,
+              **/plugin/charts/exceptions/EmptyDataSourceException.java,
+              **/plugin/charts/exceptions/GenerateException.java,
+              **/plugin/charts/exceptions/InvalidArgumentException.java,
+              **/plugin/charts/exceptions/InvalidParamException.java,
+              **/plugin/charts/exceptions/MissingArgumentException.java,
+              **/plugin/charts/exceptions/MissingDataSourceException.java,
+              **/plugin/charts/exceptions/MissingMandatoryParamException.java,
+              **/plugin/charts/exceptions/NoHeaderColumnException.java,
+              **/plugin/charts/exceptions/NoHeaderRowException.java,
+              **/plugin/charts/exceptions/ParamException.java,
+              **/plugin/charts/exceptions/RowIndexOutOfBoundsException.java,
+              **/plugin/charts/params/AbstractChartParam.java,
+              **/plugin/charts/params/BooleanChartParam.java,
+              **/plugin/charts/params/CategoryLabelPositionsChartParam.java,
+              **/plugin/charts/params/ChartParam.java,
+              **/plugin/charts/params/ChartParams.java,
+              **/plugin/charts/params/ChoiceChartParam.java,
+              **/plugin/charts/params/ColorChartParam.java,
+              **/plugin/charts/params/DateChartParam.java,
+              **/plugin/charts/params/DateFormatChartParam.java,
+              **/plugin/charts/params/DateTickMarkPositionChartParam.java,
+              **/plugin/charts/params/DateTickUnitChartParam.java,
+              **/plugin/charts/params/DefaultChartParams2.java,
+              **/plugin/charts/params/DefaultChartParams.java,
+              **/plugin/charts/params/DoubleChartParam.java,
+              **/plugin/charts/params/FloatChartParam.java,
+              **/plugin/charts/params/FontChartParam.java,
+              **/plugin/charts/params/HorizontalAlignmentChartParam.java,
+              **/plugin/charts/params/IntegerChartParam.java,
+              **/plugin/charts/params/ListChartParam.java,
+              **/plugin/charts/params/LocaleChartParam.java,
+              **/plugin/charts/params/MapChartParam.java,
+              **/plugin/charts/params/NumberFormatChartParam.java,
+              **/plugin/charts/params/NumberTickUnitChartParam.java,
+              **/plugin/charts/params/PlotOrientationChartParam.java,
+              **/plugin/charts/params/Point2DChartParam.java,
+              **/plugin/charts/params/RangeTypeChartParam.java,
+              **/plugin/charts/params/RectangleAnchorChartParam.java,
+              **/plugin/charts/params/RectangleEdgeChartParam.java,
+              **/plugin/charts/params/RectangleInsetsChartParam.java,
+              **/plugin/charts/params/RendererClassChartParam.java,
+              **/plugin/charts/params/ShapeChartParam.java,
+              **/plugin/charts/params/StringChartParam.java,
+              **/plugin/charts/params/StrokeChartParam.java,
+              **/plugin/charts/params/TimePeriodClassChartParam.java,
+              **/plugin/charts/params/VerticalAlignmentChartParam.java,
+              **/plugin/charts/plots/AreaPlotFactory.java,
+              **/plugin/charts/plots/BarPlotFactory.java,
+              **/plugin/charts/plots/CategoryPlotFactory.java,
+              **/plugin/charts/plots/LinePlotFactory.java,
+              **/plugin/charts/plots/PiePlotFactory.java,
+              **/plugin/charts/plots/PlotFactory.java,
+              **/plugin/charts/plots/TableXYDatasetFactory.java,
+              **/plugin/charts/plots/TimePlotFactory.java,
+              **/plugin/charts/plots/TimeSeriesCollectionFactory.java,
+              **/plugin/charts/plots/XYPlotFactory.java,
+              **/plugin/charts/RadeoxHelper.java,
+              **/plugin/charts/source/DataSourceFactory.java,
+              **/plugin/charts/source/DataSource.java,
+              **/plugin/charts/source/DefaultDataSource.java,
+              **/plugin/charts/source/MainDataSourceFactory.java,
+              **/plugin/charts/source/ObjectDataSourceFactory.java,
+              **/plugin/charts/source/ObjectidDataSourceFactory.java,
+              **/plugin/charts/source/TableDataSourceFactory.java,
+              **/plugin/charts/source/TableDataSource.java,
+              **/plugin/charts/wizard/DatasourceDefaultsHelper.java,
+              **/plugin/charts/wizard/FontHelper.java,
+              **/plugin/diff/DiffPluginApi.java,
+              **/plugin/diff/DiffPlugin.java,
+              **/plugin/feed/FeedPluginApi.java,
+              **/plugin/feed/FeedPlugin.java,
+              **/plugin/feed/SyndEntryDocumentSource.java,
+              **/plugin/feed/SyndEntrySourceApi.java,
+              **/plugin/feed/SyndEntrySource.java,
+              **/plugin/feed/UpdateThread.java,
+              **/plugin/feed/XWikiFeedFetcher.java,
+              **/plugin/google/GooglePluginApi.java,
+              **/plugin/google/GooglePlugin.java,
+              **/plugin/graphviz/GraphVizMacro.java,
+              <!-- XWiki LDAP Utils has a fan out complexity of 21 that needs to be investigated and refactored. -->
+              **/plugin/ldap/XWikiLDAPUtils.java,
+              **/plugin/mail/MailPluginApi.java,
+              **/plugin/mail/MailPlugin.java,
+              **/plugin/packaging/DocumentFilter.java,
+              **/plugin/packaging/DocumentInfoAPI.java,
+              **/plugin/packaging/DocumentInfo.java,
+              **/plugin/packaging/ExcludeDocumentException.java,
+              **/plugin/packaging/PackageAPI.java,
+              **/plugin/packaging/PackageException.java,
+              **/plugin/packaging/Package.java,
+              **/plugin/packaging/PackagePlugin.java,
+              **/plugin/query/DefaultQuery.java,
+              **/plugin/query/HibernateQuery.java,
+              **/plugin/query/IQueryFactory.java,
+              **/plugin/query/IQuery.java,
+              **/plugin/query/OrderClause.java,
+              **/plugin/query/QueryPluginApi.java,
+              **/plugin/query/QueryPlugin.java,
+              **/plugin/query/SecHibernateQuery.java,
+              **/plugin/query/SepStringBuffer.java,
+              **/plugin/query/XWikiCriteria.java,
+              **/plugin/query/XWikiNamespaceResolver.java,
+              **/plugin/query/XWikiQueryConstants.java,
+              **/plugin/query/XWikiQuery.java,
+              **/plugin/svg/SVGMacro.java,
+              **/plugin/svg/SVGPluginApi.java,
+              **/plugin/svg/SVGPlugin.java,
+              **/plugin/userdirectory/Group.java,
+              **/plugin/userdirectory/UserDirectoryPluginAPI.java,
+              **/plugin/userdirectory/UserDirectoryPlugin.java,
+              **/plugin/usertools/XWikiUserManagementToolsAPI.java,
+              **/plugin/usertools/XWikiUserManagementToolsImpl.java,
+              **/plugin/usertools/XWikiUserManagementTools.java,
+              **/plugin/XWikiPluginManager.java,
+              **/pref/api/XWikiPrefService.java,
+              **/pref/impl/xwiki/XWikiPrefServiceImpl.java,
+              **/render/DefaultVelocityManager.java,
+              **/render/DefaultXWikiRenderingEngine.java,
+              **/render/filter/CodeFilter.java,
+              **/render/filter/CodeRemoveFilter.java,
+              **/render/filter/CodeRestoreFilter.java,
+              **/render/filter/EscapeFilter.java,
+              **/render/filter/MacroFilter.java,
+              **/render/filter/StrongFilter.java,
+              **/render/filter/StyleFilter.java,
+              **/render/filter/UnderlineFilter.java,
+              **/render/filter/UrlFilter.java,
+              **/render/filter/XWikiFilter.java,
+              **/render/filter/XWikiHeadingFilter.java,
+              **/render/filter/XWikiLinkFilter.java,
+              **/render/FormattingSubstitution.java,
+              **/render/groovy/XWikiGroovyRenderer.java,
+              **/render/groovy/XWikiPageClassLoader.java,
+              **/render/groovy/XWikiSimpleTemplateEngine.java,
+              **/render/HeadingSubstitution.java,
+              **/render/ListSubstitution.java,
+              **/render/macro/AttachMacro.java,
+              **/render/macro/DisplayMacro.java,
+              **/render/macro/FieldMacro.java,
+              **/render/macro/FormMacro.java,
+              **/render/macro/ImageMacro.java,
+              **/render/macro/LinkMacro.java,
+              **/render/macro/MacroLoader.java,
+              **/render/macro/MacroRepository.java,
+              **/render/macro/rss/RSSMacro.java,
+              **/render/macro/rss/RSSMacroParameters.java,
+              **/render/macro/StyleMacro.java,
+              **/render/macro/TableBuilder.java,
+              **/render/macro/TableMacro.java,
+              **/render/macro/UseMacro.java,
+              **/render/macro/WikiCodeFilter.java,
+              **/render/macro/XWikiCodeMacro.java,
+              **/render/macro/XWikiMacro.java,
+              **/render/PreTagSubstitution.java,
+              **/render/WikiNameSubstitution.java,
+              **/render/WikiSubstitution.java,
+              **/render/XWikiInterpreter.java,
+              **/render/XWikiJSPRenderer.java,
+              **/render/XWikiMacrosMappingRenderer.java,
+              **/render/XWikiPluginRenderer.java,
+              **/render/XWikiRadeoxRenderEngine.java,
+              **/render/XWikiRadeoxRenderer.java,
+              **/render/XWikiRenderer.java,
+              **/render/XWikiRenderingCache.java,
+              **/render/XWikiRenderingEngine.java,
+              **/render/XWikiScriptContextInitializer.java,
+              **/render/XWikiVelocityContextInitializer.java,
+              **/render/XWikiVelocityRenderer.java,
+              **/render/XWikiVirtualMacro.java,
+              **/render/XWikiWikiBaseRenderer.java,
+              **/security/XWikiSecurityManager.java,
+              **/store/DBCPConnectionProvider.java,
+              **/store/hibernate/DefaultHibernateSessionFactory.java,
+              **/store/hibernate/HibernateSessionFactory.java,
+              **/store/migration/AbstractXWikiMigrationManager.java,
+              **/store/migration/hibernate/AbstractXWikiHibernateMigrator.java,
+              **/store/migration/hibernate/R4340XWIKI883Migrator.java,
+              **/store/migration/hibernate/R4359XWIKI1459Migrator.java,
+              **/store/migration/hibernate/R6079XWIKI1878Migrator.java,
+              **/store/migration/hibernate/R7350XWIKI2079Migrator.java,
+              **/store/migration/hibernate/XWikiHibernateMigrationManager.java,
+              **/store/XWikiAttachmentStoreInterface.java,
+              **/store/XWikiBatcherFactory.java,
+              **/store/XWikiBatcher.java,
+              **/store/XWikiBatcherStats.java,
+              **/store/XWikiCacheStoreInterface.java,
+              **/store/XWikiCacheStore.java,
+              **/store/XWikiDefaultStore.java,
+              **/store/XWikiHibernateAttachmentStore.java,
+              **/store/XWikiHibernateBaseStore.java,
+              **/store/XWikiHibernateStore.java,
+              **/store/XWikiStoreInterface.java,
+              **/store/XWikiVersioningStoreInterface.java,
+              **/test/smtp/SimpleSmtpServer.java,
+              **/test/smtp/SmtpActionType.java,
+              **/test/smtp/SmtpMessage.java,
+              **/test/smtp/SmtpRequest.java,
+              **/test/smtp/SmtpResponse.java,
+              **/test/smtp/SmtpState.java,
+              **/user/api/XWikiAuthService.java,
+              **/user/api/XWikiGroupService.java,
+              **/user/api/XWikiRightNotFoundException.java,
+              **/user/api/XWikiRightService.java,
+              **/user/api/XWikiUser.java,
+              **/user/impl/LDAP/LDAPProfileXClass.java,
+              **/user/impl/LDAP/XWikiLDAPAuthServiceImpl.java,
+              **/user/impl/xwiki/AppServerTrustedAuthServiceImpl.java,
+              **/user/impl/xwiki/GroovyAuthServiceImpl.java,
+              **/user/impl/xwiki/MyBasicAuthenticator.java,
+              **/user/impl/xwiki/MyFilterConfig.java,
+              **/user/impl/xwiki/MyFormAuthenticator.java,
+              **/user/impl/xwiki/MyPersistentLoginManager.java,
+              **/user/impl/xwiki/XWikiAuthenticator.java,
+              **/user/impl/xwiki/XWikiAuthServiceImpl.java,
+              **/user/impl/xwiki/XWikiGroupServiceImpl.java,
+              **/user/impl/xwiki/XWikiRightServiceImpl.java,
+              **/util/AbstractXWikiRunnable.java,
+              **/util/MenuSubstitution.java,
+              **/util/Programming.java,
+              **/util/TidyMessageLogger.java,
+              **/util/TOCGenerator.java,
+              **/util/Util.java,
+              **/validation/XWikiDefaultValidation.java,
+              **/validation/XWikiValidationInterface.java,
+              **/validation/XWikiValidationStatus.java,
+              **/web/AdminAction.java,
+              **/web/AttachAction.java,
+              **/web/CancelAction.java,
+              **/web/DeleteAction.java,
+              **/web/DeleteAttachmentAction.java,
+              **/web/DotAction.java,
+              **/web/DownloadRevAction.java,
+              **/web/EditAction.java,
+              **/web/EditBean.java,
+              **/web/EditForm.java,
+              **/web/ExportAction.java,
+              **/web/ExportURLFactory.java,
+              **/web/HomePageRedirectServlet.java,
+              **/web/ImportAction.java,
+              **/web/includeservletasstring/BufferedResponse.java,
+              **/web/includeservletasstring/BufferOutputStream.java,
+              **/web/includeservletasstring/IncludeServletAsString.java,
+              **/web/InlineAction.java,
+              **/web/LifeBlogAction.java,
+              **/web/LockAction.java,
+              **/web/LoginAction.java,
+              **/web/LoginErrorAction.java,
+              **/web/LoginSubmitAction.java,
+              **/web/LogoutAction.java,
+              **/web/ObjectAddAction.java,
+              **/web/ObjectAddForm.java,
+              **/web/ObjectRemoveAction.java,
+              **/web/ObjectRemoveForm.java,
+              **/web/PrepareEditForm.java,
+              **/web/PreviewAction.java,
+              **/web/PreviewForm.java,
+              **/web/PropAddAction.java,
+              **/web/PropAddForm.java,
+              **/web/PropUpdateAction.java,
+              **/web/RedirectAction.java,
+              **/web/ResetVersionsAction.java,
+              **/web/RollbackAction.java,
+              **/web/RollbackForm.java,
+              **/web/SaveAction.java,
+              **/web/SkinAction.java,
+              **/web/StatusAction.java,
+              **/web/SVGAction.java,
+              **/web/TexAction.java,
+              **/web/UploadAction.java,
+              **/web/Utils.java,
+              **/web/ViewAttachRevAction.java,
+              **/web/ViewrevAction.java,
+              **/web/XWikiAction.java,
+              **/web/XWikiConfigurationService.java,
+              **/web/XWikiDebugGWTURLFactory.java,
+              **/web/XWikiDefaultURLFactory.java,
+              **/web/XWikiEngineContext.java,
+              **/web/XWikiForm.java,
+              **/web/XWikiPortletContext.java,
+              **/web/XWikiPortlet.java,
+              **/web/XWikiPortletRequest.java,
+              **/web/XWikiPortletResponse.java,
+              **/web/XWikiPortletURLFactory.java,
+              **/web/XWikiRequest.java,
+              **/web/XWikiRequestProcessor.java,
+              **/web/XWikiResourceManagerImpl.java,
+              **/web/XWikiResponse.java,
+              **/web/XWikiServletContext.java,
+              **/web/XWikiServletRequest.java,
+              **/web/XWikiServletRequestStub.java,
+              **/web/XWikiServletResponse.java,
+              **/web/XWikiServletResponseStub.java,
+              **/web/XWikiServletURLFactory.java,
+              **/web/XWikiURLFactory.java,
+              **/web/XWikiURLFactoryServiceImpl.java,
+              **/web/XWikiURLFactoryService.java,
+              **/xmlrpc/DomainObjectFactory.java,
+              **/xmlrpc/XWikiUtils.java,
+              **/xmlrpc/XWikiXmlRpcApiImpl.java,
+              **/xmlrpc/XWikiXmlRpcServlet.java,
+              **/xmlrpc/XWikiXmlRpcURLFactory.java,
+              **/xmlrpc/XWikiXmlRpcUser.java,
+              <!-- Small Fan-Out complexity issue but it would need a big refactor to be fixed. -->
+              **/stats/impl/xwiki/XWikiStatsReader.java
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <!-- See platform/core/pom.xml -->
+      <id>clirr</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>clirr-maven-plugin</artifactId>
+            <configuration>
+              <includes>
+                <include>**/api/**</include>
+              </includes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <!-- Use this profile to weave the Log Aspect to trace all method calls. This is useful for
+           debugging XWiki, especially in the case when you cannot debug the application (for
+           example when you cannot reproduce the problem on your machine you can send an
+           aspectified XWiki JAR and ask the user to run it and send you the logs). As this logs
+           everything you'll need to control what is logged by tuning the Log4J configuration file
+           to log only what you want. -->
+      <id>debug</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>aspectj-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>debug</id>
+                <goals>
+                  <goal>compile</goal>
+                </goals>
+                <configuration>
+                  <configuration>
+                    <aspectDirectory>src/main/aspect/debug</aspectDirectory>
+                  </configuration>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>clover</id>
+      <build>
+        <plugins>
+          <!-- We need to skip AspectJ execution when Clover is executed since AspectJ doesn't like
+               clovered code -->
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>aspectj-maven-plugin</artifactId>
+            <configuration>
+              <excludes>
+                <exclude>**/*.*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  <repositories>
+    <!-- Used to get Rome 1.0 which is not yet on the Central Maven repo. Remove this when it is -->
+    <repository>
+      <id>maven2-repository.dev.java.net.2</id>
+      <name>Java.net Repository for Maven</name>
+      <url>http://download.java.net/maven/2</url>
+    </repository>
+  </repositories>  
+</project>
