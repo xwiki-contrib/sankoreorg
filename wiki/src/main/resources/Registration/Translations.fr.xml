@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1305042164000</creationDate>
-<date>1305042164000</date>
-<contentUpdateDate>1305042164000</contentUpdateDate>
+<creationDate>1314889495000</creationDate>
+<date>1314889495000</date>
+<contentUpdateDate>1314889495000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -46,7 +46,7 @@ forgotPassword.email.invalid=Une adresse email valide est nécessaire.
 
 #Main.ForgotPasswordEmail
 
-forgotPasswordEmail.header=De\: {0}à\: {1}Sujet\: Votre mot de passe curriki.org
+forgotPasswordEmail.header=De\: {0}à\: {1}Sujet\: Votre mot de passe planete.sankore.org
 forgotPasswordEmail.part1=Cher(e) {0} {1},
 forgotPasswordEmail.part2=Vous avez oublié votre mot de passe ? Ça arrive aux meilleurs d''entre nous. Pour raison de sécurité, nous ne stockons qu''une version cryptée de votre mot de passe, et donc nous ne pouvons pas vous l''envoyer, mais vous pouvez obtenir un nouveau mot de passe en allant sur le lien {0}
 forgotPasswordEmail.part3=Votre mot de passe va être effacé et vous allez pouvoir vous connecter en utilisant le nouveau mot de passe.
@@ -67,31 +67,31 @@ forgotUsername.email.invalid=Une adresse email valide est nécessaire.
 
 #Main.ForgotUsernameEmail{0}
 
-forgotUsernameEmail.header=De\: {0}à\: {1}Subject\: Votre nom d''utilisateur curriki.org
+forgotUsernameEmail.header=De\: {0}à\: {1}Subject\: Votre nom d''utilisateur planete.sankore.org
 forgotUsernameEmail.part1=Cher(e) {0} {1},
-forgotUsernameEmail.part2=Vous avez oublié votre mot de passe? Ça arrive aux meilleurs d''entre nous. Vous avez sélectionné ''{0}'' quand vous vous êtes inscrit. Si vous avez oublié votre mot de passe, cliquez "Forgot Login" en haut de chaque page Curriki et nous vous enverrons un email avec votre mot de passe.
+forgotUsernameEmail.part2=Vous avez oublié votre mot de passe? Ça arrive aux meilleurs d''entre nous. Vous avez sélectionné ''{0}'' quand vous vous êtes inscrit. Si vous avez oublié votre mot de passe, cliquez "Forgot Login" en haut de chaque page Planète Sankoré et nous vous enverrons un email avec votre mot de passe.
 
 
 
 #Main.ForgotUsernamesEmail
 
-forgotUsernamesEmail.part1=Dear curriki.org user,
+forgotUsernamesEmail.part1=Dear planete.sankore.org user,
 forgotUsernamesEmail.part2=Vous avez oublié votre nom d'utilisateur? Ça arrive aux meilleurs d'entre nous. Vous avez en fait créé de multiples noms d'utilisateur '${names}'. Si vous avez oublié votre mot de passe, cliquez sur le lien "J'ai oublié mon mot de passe" sur la page de connexion, et nous vous enverrons un email avec votre mot de passe.
 
 
 
 #Main.JoinCurriki
 
-joincurriki.first_name.text=Choisissez un nom grâce auquel les membres de Curriki pourront vous reconnaître (e.g., Prénom, Titre, Surnom).
+joincurriki.first_name.text=Choisissez un nom grâce auquel les membres de Planète Sankoré pourront vous reconnaître (e.g., Prénom, Titre, Surnom).
 joincurriki.last_name.text=Choisissez un autre nom pour rendre votre nom unique (e.g., Nom de famille, Entreprise, Lieu).
 
 
 
-joincurriki.fileds.xwikiname=Nom d'Utilisateur
+joincurriki.fields.xwikiname=Nom d'Utilisateur
 joincurriki.xwikiname.badchars=Ce nom d'utilisateur est invalide. Choisissez un nom sans espaces ou caractères spéciaux, SVP.
 joincurriki.repeat=recommencer
-joincurriki.registerToJoinCurriki=Enregistrez-vous pour rejoindre Curriki
-joincurriki.infos=Thanks for becoming a part of the Curriki Online Community. Joining Curriki is your first step towards accessing and creating high quality teaching resources.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Please note:&lt;/strong&gt; As per Curriki's &lt;a href="javascript:void()" onclick="showpopup('/xwiki/bin/view/Main/TOS?xpage=popup'); return false;"&gt;Terms of Service&lt;/a&gt;, you must be at least 13 years of age to register. No persons under the age of 13 may register.
+joincurriki.registerToJoinCurriki=Enregistrez-vous pour rejoindre Planète Sankoré
+joincurriki.infos=Thanks for becoming a part of the Planète Sankoré Online Community. Joining Planète Sankoré is your first step towards accessing and creating high quality teaching resources.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Please note:&lt;/strong&gt; As per Planète Sankoré's &lt;a href="javascript:void()" onclick="showpopup('/xwiki/bin/view/Main/TOS?xpage=popup'); return false;"&gt;Terms of Service&lt;/a&gt;, you must be at least 13 years of age to register. No persons under the age of 13 may register.
 
 joincurriki.letsKnowWhoYouAre=Dites nous qui vous êtes
 joincurriki.enterRequestedInfo=Saisissez les informations demandées pour devenir un membre et créer un profil utilisateur. les champs signalés par un point d'exclamation(\!) sont obligatoires.
@@ -100,14 +100,14 @@ joincurriki.enterPassword=Entrez votre mot de passe.
 joincurriki.enterPasswordConfirm=Confirmez votre mot de passe.
 joincurriki.enterValidEmail=Entrez une adresse email valide, SVP. Les explications nécessaires pour compléter votre inscription seront envoyées à cette adresse.
 joincurriki.ifApplicable=(si applicable)
-joincurriki.showContact=Ceci permet à d'autres membres de Curriki de visualiser vos informations personnelles.
+joincurriki.showContact=Ceci permet à d'autres membres de Planète Sankoré de visualiser vos informations personnelles.
 joincurriki.fileds.age=Âge
 joincurriki.iAm13YearsOld=J'ai 13 ans minimum.
 joincurriki.privacyAndTOS=Confidentialité et termes d'utilisation
 joincurriki.privacyAndTOS.read.part1=J'ai lu, compris, et je suis d'accord avec les
 joincurriki.privacyAndTOS.read.part2=et le
 joincurriki.iAgree=Je suis d'accord
-joincurriki.emailWillBeSent=Une fois que vous aurez cliqué sur Sauvegarder et s'inscrire, Curriki vous enverra une confirmation à l'adresse email saisie ci-dessus.
+joincurriki.emailWillBeSent=Une fois que vous aurez cliqué sur Sauvegarder et s'inscrire, Planète Sankoré vous enverra une confirmation à l'adresse email saisie ci-dessus.
 
 joincurriki.password.noSpaces=Un mot de passe ne doit pas contenir d'espaces.
 joincurriki.password.tooShort=Mot de passe trop court.
@@ -118,7 +118,7 @@ joincurriki.email.alreadyUsed=Votre email a déjà été utilisé.
 joincurriki.login.alreadyUsed=Votre nom d'utilisateur a déjà été utilisé.
 joincurriki.saveMyInfoAndRegister=Sauvegarder les Informations et s'Inscrire
 joincurriki.accountCreated=Votre compte a été créé. Vous pouvez maintenant vous connecter.
-joincurriki.chooseOptOut=Je ne veux pas recevoir d'emails concernant ma participation à la communauté Curriki.
+joincurriki.chooseOptOut=Je ne veux pas recevoir d'emails concernant ma participation à la communauté Planète Sankoré.
 joincurriki.topics=
 
 joincurriki.fields.xwikiname=Nom d'utilisateur
@@ -141,7 +141,7 @@ joincurriki.fields.show_contact=Visualiser votre profil\:
 #XWiki.XWikiUserSheet
 
 profile.edit=Editer le profil
-profile.accessDenied=Vous devez être connecté en tant que membre Curriki pour visualiser les profils des autres membres.
+profile.accessDenied=Vous devez être connecté en tant que membre Planète Sankoré pour visualiser les profils des autres membres.
 profile.userNotVisible=Ce membre préfère ne pas montrer son profil.
 profile.removePhoto.confirmation=Voulez-vous vraiment effacer votre photo ?
 profile.removePhoto=Effacer Photo
@@ -158,7 +158,7 @@ profile.field.affiliation=Organisation\:
 profile.field.country=Pays\:
 profile.field.state=Etat/Province \:
 profile.field.city=Ville\:
-profile.field.showContact=Autoriser les membres de Curriki à voir mon profil\:
+profile.field.showContact=Autoriser les membres de Planète Sankoré à voir mon profil\:
 profile.field.email=Email\:
 profile.field.opt_out=Opt-out email (réception)\:
 profile.field.opt_out.checkbox_text=Je ne veux pas recevoir d'emails concernant ma participation à la communauté.
@@ -179,7 +179,7 @@ profile.field.email.mandatory=Le email est obligatoire.
 profile.field.email.invalid=Email invalide.
 
 # Registration pages information
-registration.email=webmaster@curriki.org
+registration.email=webmaster@planete.sankore.org
 registration.validate.validated=Inscription terminée\!&lt;br /&gt;
 registration.login_button=OK
 registration.validate.failed.bad_key_or_loginname=Désolé, le nom d'utilisateur ou la clé de validation étaient incorrects. Essayez une nouvelle fois, SVP.
@@ -199,7 +199,7 @@ email_not_received.error.need_login=Saisissez un nom d'utilisateur, SVP
 email_not_received.error.need_email=Saisissez une adresse email, SVP
 email_not_received.error.need_phone=Saisissez votre numéro de téléphone, SVP
 
-email_not_received.email_sent=Thank you for contacting Curriki. A representative will contact you shortly.&lt;br /&gt;&lt;br /&gt;&lt;a href="/xwiki/bin/view/Main/" class="button button-orange"&gt;OK&lt;/a&gt;
+email_not_received.email_sent=Thank you for contacting Planète Sankoré. A representative will contact you shortly.&lt;br /&gt;&lt;br /&gt;&lt;a href="/xwiki/bin/view/Main/" class="button button-orange"&gt;OK&lt;/a&gt;
 email_not_received_sent.title=Email Non Reçu Message Envoyé
 
 #Header
@@ -217,7 +217,7 @@ emailValidation.step1.errBadEmail=Saisissez une adresse email valide, SVP.
 emailValidation.step1.errDupEmail=Cette adresse email est déjà utilisée par un autre compte utilisateur.
 
 emailValidation.step1.title=Vérification Email - Étape 1 de 2
-emailValidation.step1.intro=La sécurité de nos membres est le premier souci de Curriki. Pour préserver la securité, Curriki requiert que toutes les adresses email soient vérifiées.
+emailValidation.step1.intro=La sécurité de nos membres est le premier souci de Planète Sankoré. Pour préserver la securité, Planète Sankoré requiert que toutes les adresses email soient vérifiées.
 emailValidation.step1.weHave=Pour {0} {1} nos fichiers montrent {2}.
 emailValidation.step1.pleaseSubmit=Cliquez le bouton Soumettre pour envoyer un email de vérification à cette adresse. Ou alors, mettez à jour l'adresse email avec une nouvelle adresse (votre profil sera automatiquement mis à jour), et ensuite cliquez Soumettre.
 emailValidation.step1.submit=Soumettre
@@ -225,8 +225,8 @@ emailValidation.step1.submit=Soumettre
 emailValidation.step1.goElsewhere=Tous les changements faits sur cette page vont être perdus. Choisissez OK pour vous déconnecter et revenir à la page d'accueil. Vous pouvez revenir à ce formulaire en vous connectant à nouveau. Choisissez Annuler pour revenir au formulaire et soumettre vos changements.
 
 emailValidation.sent.title=Email de Vérification Envoyé
-emailValidation.sent.text=&lt;p&gt;La première étape dans la verification de votre adresse email est terminée.&lt;/p&gt;&lt;p&gt;Pour entamer l'étape 2, regardez dans votre mailer s'il y a un message de webmaster@curriki.org&lt;/p&gt;&lt;p&gt;Si vous ne voyez pas le mail, ça pourrait être à cause d'un filtre antispam. Regardez dans votre dossier SPAM, et assurez-vous d'avoir ajouté curriki.org à votre liste de "safe senders" ou à votre carnet d'adresses.&lt;/p&gt;
-emailValidation.sent.notreceived=If you have not received an email within 10 minutes, please contact Curriki by using the &lt;a href="/xwiki/bin/view/Registration/EmailNotReceived"&gt;Email Not Received&lt;/a&gt; form.
+emailValidation.sent.text=&lt;p&gt;La première étape dans la verification de votre adresse email est terminée.&lt;/p&gt;&lt;p&gt;Pour entamer l'étape 2, regardez dans votre mailer s'il y a un message de webmaster@planete.sankore.org&lt;/p&gt;&lt;p&gt;Si vous ne voyez pas le mail, ça pourrait être à cause d'un filtre antispam. Regardez dans votre dossier SPAM, et assurez-vous d'avoir ajouté planete.sankore.org à votre liste de "safe senders" ou à votre carnet d'adresses.&lt;/p&gt;
+emailValidation.sent.notreceived=If you have not received an email within 10 minutes, please contact Planète Sankoré by using the &lt;a href="/xwiki/bin/view/Registration/EmailNotReceived"&gt;Email Not Received&lt;/a&gt; form.
 
 emailValidation.step2.title=Verification Email - 'Etape 2 de 2 Terminée
 emailValidation.step2.text=&lt;p&gt;Votre adresse mail a été confirmée.&lt;/p&gt;&lt;p&gt;Merci.&lt;/p&gt;
@@ -242,7 +242,7 @@ staf.dialog.title=Envoyer à un ami
 staf.dialog.recipients=Adress(es) email pour le(s) destinataire(s)\:
 staf.dialog.recipients.comments=Séparez de multiples adresses email avec des virgules.
 staf.dialog.customize=Personnaliser le message (optionnel)\:
-staf.dialog.customize.default=Voilà une ressource que j'ai trouvée sur Curriki (une communauté online d'éducation et d'apprentissage) et qui pourrait vous intéresser.
+staf.dialog.customize.default=Voilà une ressource que j'ai trouvée sur Planète Sankoré (une communauté online d'éducation et d'apprentissage) et qui pourrait vous intéresser.
 staf.dialog.yourname=Votre nom \:
 staf.dialog.ccme=Envoyez moi copie
 staf.dialog.youremail=Votre adresse email \:
@@ -251,12 +251,12 @@ staf.dialog.cancel=Annuler
 staf.dialog.send=Envoyer
 staf.dialog.shouldcancel=Les information saisies vont être perdues. Êtes vous sûr de vouloir fermer?
 
-staf.from=sendtoafriend@curriki.org
+staf.from=sendtoafriend@planete.sankore.org
 
 staf.sent.okaymsg=E-mail envoyé.
 staf.err.emptyto=Entrez une adresse email, SVP.
 staf.err.invalidemail=Entrez une adresse email valide, SVP.
-staf.err.isguest=Seuls les membres de Curriki peuvent envoyer des ressources à un ami. Connectez-vous ou inscrivez-vous, SVP.
+staf.err.isguest=Seuls les membres de Planète Sankoré peuvent envoyer des ressources à un ami. Connectez-vous ou inscrivez-vous, SVP.
 staf.sent.errored=Une erreur inconnue s'est produite.
 
 ##AFFILIATE REGISTRATION ERROR MESSAGES
