@@ -30,6 +30,48 @@
     <version>3.1</version>
   </parent>
   <artifactId>xwiki-platform-store-api</artifactId>
+  <version>3.1-6878</version>
   <name>XWiki Platform - Store - Api</name>
   <description>Generic interfaces relating to storage.</description>
+  <properties>
+    <!-- original version of this project, to replace all project.version in this pom with this one -->
+    <xwiki.originalVersion>3.1</xwiki.originalVersion>
+  </properties>
+  <!-- Overwrite these configs from commons pom because we need to replace project.version with the original version, otherwise it will be resolved to 3.1-6878 -->
+  <build>
+    <plugins>
+      <!-- We want to force packaging the license resources in the produced XWiki artifacts -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-remote-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>xwiki-license-resources</id>
+            <configuration>
+              <resourceBundles>
+                <resourceBundle>org.xwiki.commons:xwiki-commons-tool-license-resources:${xwiki.originalVersion}</resourceBundle>
+              </resourceBundles>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <!-- Apply checkstyle rules and fail the build in case of errors. The checkstyle config
+files are taken from the build-tools JAR module.-->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <dependencies>
+            <dependency>
+              <groupId>org.xwiki.commons</groupId>
+              <artifactId>xwiki-commons-tool-verification-resources</artifactId>
+              <version>${xwiki.originalVersion}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>

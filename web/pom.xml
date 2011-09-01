@@ -54,6 +54,22 @@
       <artifactId>xwiki-sankore-plugins-servlet</artifactId>
       <version>${pom.version}</version>
     </dependency>
+    <!-- Add deps to patched versions of xwiki-platform-oldcore and xwiki-platform-store-api and xwiki-platform-store-filesystem-attachments to be added in the jar to replace the 3.1 released ones -->
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-oldcore</artifactId>
+      <version>3.1-6878</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-store-api</artifactId>
+      <version>3.1-6878</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-store-filesystem-attachments</artifactId>
+      <version>3.1-6878</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -62,7 +78,8 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>2.0</version>
         <configuration>
-          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-servlet-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/xwiki-plugin-spacemanager-1.1.1.jar</dependentWarExcludes>
+          <!-- Exclude curriki plugins which will be replaced with plugins in this project, as well as xwiki old core and filesystem attachment jars, which will be replaced with patched versions -->
+          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-servlet-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/xwiki-platform-oldcore-3.1.jar,WEB-INF/lib/xwiki-platform-store-api-3.1.jar,WEB-INF/lib/xwiki-platform-store-filesystem-attachments-3.1.jar</dependentWarExcludes>
         </configuration>
       </plugin>
     </plugins>

@@ -32,6 +32,11 @@
   <artifactId>xwiki-platform-store-filesystem-attachments</artifactId>
   <name>XWiki Platform - Store - Filesystem - Attachments</name>
   <description>A means to store XWikiAttachments on the filesystem with versioning.</description>
+  <version>3.1-6878</version>
+  <properties>
+    <!-- original version of this project, to replace all project.version in this pom with this one -->
+    <xwiki.originalVersion>3.1</xwiki.originalVersion>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>org.xwiki.commons</groupId>
@@ -43,20 +48,21 @@
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-model</artifactId>
-      <version>${project.version}</version>
+      <version>${xwiki.originalVersion}</version>
     </dependency>
 
     <!-- Used to serialize the metadata for attachments -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-store-serialization</artifactId>
-      <version>${project.version}</version>
+      <version>${xwiki.originalVersion}</version>
     </dependency>
 
     <!-- StreamProvider -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-store-api</artifactId>
+      <!-- Depends on the patched version -->
       <version>${project.version}</version>
     </dependency>
 
@@ -64,14 +70,14 @@
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-store-transaction</artifactId>
-      <version>${project.version}</version>
+      <version>${xwiki.originalVersion}</version>
     </dependency>
 
     <!-- FileSaveTransactionRunnable, FileDeleteTransactionRunnable -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-store-filesystem</artifactId>
-      <version>${project.version}</version>
+      <version>${xwiki.originalVersion}</version>
     </dependency>
 
     <!--
@@ -83,14 +89,14 @@
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-oldcore</artifactId>
-      <version>${project.version}</version>
+      <version>${xwiki.originalVersion}</version>
     </dependency>
 
     <!-- LockProvider for locking attachments -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-store-locks</artifactId>
-      <version>${project.version}</version>
+      <version>${xwiki.originalVersion}</version>
     </dependency>
 
 
@@ -130,6 +136,40 @@
           </excludes>
         </configuration>
       </plugin>
+      <!-- Overwrite these configs from commons pom because we need to replace project.version with the original version, otherwise it will be resolved to 3.1-6878 -->      
+      <!-- We want to force packaging the license resources in the produced XWiki artifacts -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-remote-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>xwiki-license-resources</id>
+            <configuration>
+              <resourceBundles>
+                <resourceBundle>org.xwiki.commons:xwiki-commons-tool-license-resources:${xwiki.originalVersion}</resourceBundle>
+              </resourceBundles>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
+    <!-- Overwrite these configs from commons pom because we need to replace project.version with the original version, otherwise it will be resolved to 3.1-6878 -->    
+    <pluginManagement>
+      <plugins>
+        <!-- Apply checkstyle rules and fail the build in case of errors. The checkstyle config
+files are taken from the build-tools JAR module.-->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <dependencies>
+            <dependency>
+              <groupId>org.xwiki.commons</groupId>
+              <artifactId>xwiki-commons-tool-verification-resources</artifactId>
+              <version>${xwiki.originalVersion}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 </project>

@@ -48,6 +48,10 @@
   </scm>
   <modules>    
     <module>plugins</module>
+    <!-- build the patched versions of xwiki-platform-oldcore and xwiki-platform-store-api and xwiki-platform-store-filesystem-attachments -->
+    <module>xwiki-platform-oldcore</module>
+    <module>xwiki-platform-store-api</module>
+    <module>xwiki-platform-store-filesystem-attachments</module>
     <module>web</module>
     <module>wiki</module>
   </modules>

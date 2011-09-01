@@ -141,9 +141,7 @@ public class FilesystemAttachmentVersioningStore implements AttachmentVersioning
         for (XWikiAttachment attach : attachList) {
             final File contentFile = provider.getAttachmentVersionContentFile(attach.getVersion());
             attach.setAttachment_content(
-                new FilesystemAttachmentContent(contentFile,
-                                                attach,
-                                                this.fileTools.getLockForFile(contentFile)));
+                new FilesystemAttachmentContent(contentFile, attach));
             // Pass the document since it will be lost in the serialize/deserialize.
             attach.setDoc(attachment.getDoc());
         }
