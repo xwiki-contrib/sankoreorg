@@ -1445,6 +1445,7 @@ $asset.use($classname)
     $fieldcontent
   #else
     $asset.display($fieldname, "edit", true)
+    #template("textarea_wysiwyg.vm")
   #end
   </div>
 </li>
