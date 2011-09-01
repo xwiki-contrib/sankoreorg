@@ -722,9 +722,7 @@ $asset.use("CurrikiCode.AssetClass")
         <li id="info-edit-description" class="field-important input-textarea">
             <span><em>!</em><label for="edit-description">$msg.get("rve.information.description.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.description.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.description.edit_txt")</p>
-            $asset.display("description", "edit", true)
-            #wysiwyg_import(true)
-            #wysiwyg_editProperty($asset "CurrikiCode.AssetClass_0_description" true)
+            $asset.display("description", "edit", true)            
         </li>
         <li id="info-edit-subject" class="field-important input-tree">
             <span><em>!</em><label for="edit-subject">$msg.get("rve.information.subject.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.subject.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
@@ -778,6 +776,7 @@ $asset.use("CurrikiCode.AssetClass")
        #end
     </ul>
 </fieldset>
+#template("textarea_wysiwyg.vm")
 <fieldset class="buttons">
     <input type="button" value="$msg.get("rve.information.edit.cancel_button")" name="cancel" class="button button-cancel" onclick="clickAwayByPass=true; location='${cancelurl}'; return false;" />
     <input type="submit" value="$msg.get("rve.information.edit.save_button")" name="save" class="button button-confirm"/>
@@ -1428,30 +1427,26 @@ $response.sendRedirect($request.xredirect)
 #macro(asset_edit_field $asset $classname $fieldname $transname $fieldtype $fieldcontent $hidebydefault)
 $asset.use($classname)
 <li class="input-${fieldtype}">
-    <span>
-        #if($fieldtype=="text"||$fieldtype=="textarea")
-         #set($fieldValue = $asset.getValue($fieldname))
-         #if($fieldValue && $fieldValue!="")
-          #set($hidebydefault = false)
-         #end 
-        #end
-        #if($hidebydefault)
-        <input class="checkbox" type="checkbox" onclick="if (this.checked) {document.getElementById('${fieldname}').style.display='block'} else {document.getElementById('${fieldname}').style.display='none'}"/>
-        #else
-        <input class="checkbox" type="checkbox" checked disabled />        
-        #end
-        <label for="${fieldname}">$msg.get("rve.content.edit.${transname}.instruction_title")</label><img width="16" height="16" border="0" alt="" src="$xwiki.getSkinFile("images/px.gif")" class="tooltip" ext:qtip="$msg.get("rve.content.edit.${transname}.instruction_tooltip")"/></span>
-    <div  id="${fieldname}" #if($hidebydefault) style="display: none" #end >
-    #if($fieldcontent!="")
+  <span>
+  #if($fieldtype=="text"||$fieldtype=="textarea")
+    #set($fieldValue = $asset.getValue($fieldname))
+    #if($fieldValue && $fieldValue!="")
+      #set($hidebydefault = false)
+    #end 
+  #end
+  #if($hidebydefault)
+    <input class="checkbox" type="checkbox" onclick="if (this.checked) {document.getElementById('${fieldname}').style.display='block'} else {document.getElementById('${fieldname}').style.display='none'}"/>
+  #else
+    <input class="checkbox" type="checkbox" checked disabled />        
+  #end
+    <label for="${fieldname}">$msg.get("rve.content.edit.${transname}.instruction_title")</label><img width="16" height="16" border="0" alt="" src="$xwiki.getSkinFile("images/px.gif")" class="tooltip" ext:qtip="$msg.get("rve.content.edit.${transname}.instruction_tooltip")"/></span>
+    <div id="${fieldname}" #if($hidebydefault) style="display: none" #end >
+  #if($fieldcontent!="")
     $fieldcontent
-    #else
+  #else
     $asset.display($fieldname, "edit", true)
-    #if($fieldtype=="textarea")
-      #wysiwyg_import(true)
-      #wysiwyg_editProperty($asset "${classname}_0_${fieldname}" true)
-    #end
-    #end
-    </div>
+  #end
+  </div>
 </li>
 #end
 
