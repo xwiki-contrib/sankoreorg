@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>SankoreCode</web>
+<name>SankoreProfile</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1314972439000</creationDate>
+<date>1314972439000</date>
+<contentUpdateDate>1314972439000</contentUpdateDate>
+<version>1.1</version>
+<title>SankoreProfile</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>SankoreCode.SankoreProfile</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>44beb160-8dc6-4992-85a9-f6f0095e4b55</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code>.profile-info {
+  float: left;
+  margin-right: 20px;
+  width: 220px;
+  font-size:0.8em;
+}
+
+#avatar {
+  padding: 5px;
+  border:solid 1px #8DA7AC;background-color: #DEEAEF;
+}
+
+#avatar a {
+  float: left;
+  margin-right: 10px;
+  border: solid 1px #8DA7AC;
+}
+
+#xwikiuseravatar {
+  display: block;
+  border:solid 3px #FFFFFF;
+}
+
+#avatar p {
+  margin-top: 0;
+}
+
+.profile-links {
+  float:right; width:480px;font-size:0.8em;
+}
+
+.profile-links table th {
+  background-color:#DEEAEF;
+}
+
+.profile-links table th h2 {
+  color:#000;
+  border:none;
+  text-transform:uppercase;font-size:14px;font-weight:bold;margin-left:25px;margin-top:0.5em;margin-bottom:0.5em;
+}
+
+.profile-links table td.profile-link {
+  text-align:right;padding:15px 0;border-right:none;border-bottom:none;font-size:0.9em;font-weight:bold;
+}
+
+.profile-links table td.profile-splitter {
+  padding: 12px 5px;
+}
+
+.profile-links table td {
+  vertical-align: top;
+  padding:15px 0;
+}</code>
+</property>
+<property>
+<name>SankoreProfileSSX</name>
+</property>
+<property>
+<parse>0</parse>
+</property>
+<property>
+<use>onDemand</use>
+</property>
+</object>
+<content>$xwiki.ssx.use("SankoreCode.SankoreProfile", {'minify': false})
+&lt;div class="profile-info"&gt;
+  &lt;div id="avatar"&gt;
+  #set($avatarURL = '')
+  #if($userobj.getProperty("avatar") &amp;&amp; $userobj.getProperty("avatar").getValue() != '')
+    #foreach ($attach in $userdoc.attachmentList)
+      #if($attach.filename == $userobj.getProperty("avatar").getValue())
+        #set($avatarURL = "$userdoc.getAttachmentURL($attach.filename, 'download', 'width=120')")
+      #end
+    #end
+  #end
+  #if("$!avatarURL" == '')
+    #set($avatarURL = $xwiki.getDocument("XWiki.XWikiUserSheet").getAttachmentURL('noavatar.png', 'download', 'width=90'))
+  #end
+    &lt;span id="avatarUpload" class="hidden"&gt;$msg.get('platform.core.profile.changePhoto')&lt;/span&gt;
+    &lt;a href="$userdoc.getURL('edit', 'xpage=changemyavatar')"&gt;&lt;img class="photo" id="xwikiuseravatar" alt="$userdoc.display('first_name', 'view', $userobj)" src="$avatarURL"/&gt;&lt;/a&gt;
+    &lt;p&gt;&lt;strong&gt;$userdoc.display('first_name', 'view', $userobj)&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;$userdoc.display('last_name', 'view', $userobj)&lt;/strong&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;span&gt;$userdoc.display('city', 'view', $userobj)&lt;/span&gt; | &lt;span&gt;$userdoc.display('country', 'view', $userobj)&lt;/span&gt;&lt;/p&gt;
+    &lt;div class="clearfloats"&gt;&lt;/div&gt;
+    &lt;p&gt;&lt;strong&gt;Profession:&lt;/strong&gt; $userdoc.display('member_type', 'view', $userobj)&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Organisation:&lt;/strong&gt; $userdoc.display('affiliation', 'view', $userobj)&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;p&gt;&lt;strong&gt;Bio:&lt;/strong&gt; $!userdoc.display('bio', 'view', $userobj)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="profile-links"&gt;
+  &lt;table border="0"&gt;
+  &lt;tr&gt;
+    &lt;th colspan="3"&gt;&lt;h2&gt;Welcome to sankore.org, $userdoc.display('first_name', 'view', $userobj) $userdoc.display('last_name', 'view', $userobj) !&lt;/h2&gt;&lt;/td&gt;
+  &lt;/th&gt;
+  &lt;tr&gt;
+    #set($url = $xwiki.getURL("MyCurriki.EditProfile", "view", "user=${context.user}"))
+    &lt;td class="profile-link"&gt;&lt;a href="$url"&gt;$msg.get("sankore.profile.editprofile.title")&lt;/a&gt;&lt;/td&gt;&lt;td class="profile-splitter" valign="top"&gt;»&lt;/td&gt;&lt;td&gt;$msg.get("sankore.profile.editprofile.description")&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    #set($url = $xwiki.getURL("Search.WebHome", "view", "#o%3As%3Ds%253Agroup%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-group-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1"))
+    &lt;td class="profile-link"&gt;&lt;a href="$!url"&gt;$msg.get("sankore.profile.joingroup.title")&lt;/a&gt;&lt;/td&gt;&lt;td class="profile-splitter" valign="top"&gt;»&lt;/td&gt;&lt;td&gt;$msg.get("sankore.profile.joingroup.description")&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td class="profile-link"&gt;&lt;a href="#"&gt;$msg.get("sankore.profile.downloadplugin.title")&lt;/a&gt;&lt;/td&gt;&lt;td class="profile-splitter" valign="top"&gt;»&lt;/td&gt;&lt;td&gt;$msg.get("sankore.profile.downloadplugin.description")&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    #set($url = $xwiki.getURL("Invitation.WebHome", "view"))
+    &lt;td class="profile-link"&gt;&lt;a href="$url"&gt;$msg.get("sankore.profile.inviteuser.title")&lt;/a&gt;&lt;/td&gt;&lt;td class="profile-splitter" valign="top"&gt;»&lt;/td&gt;&lt;td&gt;$msg.get("sankore.profile.inviteuser.description")&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="clearfloats"&gt;&lt;/div&gt;</content></xwikidoc>
