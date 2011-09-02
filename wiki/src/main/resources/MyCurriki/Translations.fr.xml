@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314972003000</creationDate>
-<date>1314972003000</date>
-<contentUpdateDate>1314972003000</contentUpdateDate>
+<creationDate>1314984127000</creationDate>
+<date>1314984127000</date>
+<contentUpdateDate>1314984127000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -206,5 +206,6 @@ sankore.profile.downloadplugin.title=TELECHARGER LE PLUGIN SANKORE
 sankore.profile.downloadplugin.description=Proposez des ressources sur planete.sankore.org en parcourant le web. C'est simple comme un clic!
 sankore.profile.inviteuser.title=INVITEZ UN AMI OU COLLEGUE
 sankore.profile.inviteuser.description=Aidez la communaute Sankore a s'elargir!
+profile.welcome=Bienvenue sur planete.sankore.org, {0} !
 #{/pre}
 </content></xwikidoc>

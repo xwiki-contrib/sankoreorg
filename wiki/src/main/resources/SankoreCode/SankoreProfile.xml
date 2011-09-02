@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314972439000</creationDate>
-<date>1314972439000</date>
-<contentUpdateDate>1314972439000</contentUpdateDate>
+<creationDate>1314984069000</creationDate>
+<date>1314984069000</date>
+<contentUpdateDate>1314984069000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreProfile</title>
 <template></template>
@@ -194,7 +194,7 @@
 &lt;div class="profile-links"&gt;
   &lt;table border="0"&gt;
   &lt;tr&gt;
-    &lt;th colspan="3"&gt;&lt;h2&gt;Welcome to sankore.org, $userdoc.display('first_name', 'view', $userobj) $userdoc.display('last_name', 'view', $userobj) !&lt;/h2&gt;&lt;/td&gt;
+    &lt;th colspan="3"&gt;&lt;h2&gt;$msg.get('profile.welcome', ["$userdoc.display('first_name', 'view', $userobj) $userdoc.display('last_name', 'view', $userobj)"])&lt;/h2&gt;&lt;/td&gt;
   &lt;/th&gt;
   &lt;tr&gt;
     #set($url = $xwiki.getURL("MyCurriki.EditProfile", "view", "user=${context.user}"))
