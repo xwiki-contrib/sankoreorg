@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314622520000</creationDate>
-<date>1314622520000</date>
-<contentUpdateDate>1314622520000</contentUpdateDate>
+<creationDate>1314983416000</creationDate>
+<date>1314983416000</date>
+<contentUpdateDate>1314983416000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -1669,6 +1669,46 @@ mgIWgd8FzepinKGQ5tvOjUn7QZ9awjbW03yon9vbE92/vTmkxXXAUuDoML4Wnru5petlWjcmhJDm
 Kxq1iEHuG0NWtFn9HHPzsOif049PvoF8BHFvSPN3kjhqVqASLl6b3X/+CzAD+LT115Ru8v8DT9f8
 /Ii5FFsAAAAASUVORK5CYII=
 </content></attachment><attachment>
+<filename>footer-share.png</filename>
+<filesize>1971</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1314657593000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABUAAAB8CAMAAACxMgs2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAwBQTFRF0MzIycXBx8S+xsO+trKrr6ukrKehqKKb3dzX3NrV2tjT09DM
+y8jDw8C6sa2nl5CI4uHcp6Kblo+Hv7u1lY+H3NrXzcrEkIqBv7y2lpCI5ubhzszGu7expZ6XlI6G
+lY6GqqWep6KalI2F3t3YlI6FlpCHurawxMG7k4yE6+rnu7ewk42F7+/smJKKlY+GtbCpz8zGqaWd
+z8zH4+LdkoyDsaylm5WN4+LemJGJ2NbRvbmyoJqTo52V0tDLqaSdnZeP0M7JzsvFqKOcmZOLuLSu
+zcvFwr655uXho56XvLixxcG8p6Gavru1pJ6X1NLNkYqCkYuCl5GJzMnEq6af0tDKtbGq393Zraih
+pZ+YopyV4N/awLy3k42EoJqS3dzY2NbSoJuUmJKJ4N/b4eDb0c/LmpSLoZuT397Zwr+5qqSd5OPf
+5+bioZuU3drYzsvGkouDramimZKKoJuT3tzZ3NrWn5mS4uHd8/Px2dfSpaCZ5OPek4yDubavraii
+xcK91dPPvLiyvLmy29rVmpSNtLCq3dvYpqGapqGZtLCpuLSt3tzYt7OtrqminZiQvLiz29rWv7y1
+ubWvubSuop2Vm5SN3NvW1dPNnJaOzMrE5uXgnpiQysfC19XQpaCYycbBo56WvbmzpqCZkoqCsq6o
+kYuDsq6mo52W397an5mRsa2loZyUr6qjvrq0p6GZv7u0n5iRr6qin5qStbKrlpGJp6OalI+GurWv
+w7+66Ofk0M3Isq2nw7+5uravp6Ocu7iyxsO9koyEko2En5qR1NHNxMK709LMmJKLoJmSj4mAtbGr
+5OPg5uXikYmB19XRkYqB4+He29nW5eTgwb643dvW6unluLWuubWuo5yVmpOMramhurewmpWM1dLN
+5+fjtbCqwL223NvXnJaP5OTfxMC60M7K0c/KkYyDnpiRzcrFnpmRwLy2m5WO1tTQpKCY4uLd2tjU
+0s/L29nVq6agyMbAycbAz8vH397b2tnU0M7I19bQs66os6+ozMnFs66nrqqj1dTOS4DHVQAABElJ
+REFUeNpiELD1lUUDvrwMAtLyQmhAXotBwMBNRydcHQ4m6+i4yQDVmjrm+UZLQEG0tbSjKUitipKS
+iIQwFEhYy2moANUauYiK7kWIJoiKungCTVggJZWJEI2VkloANEFaw3+REpJo/hkNoKhRTm3BQyQT
+CmpzgCYYSGhqBiPZpqkpAXKZ4rY96xXgYIraNUWQy+Tl5SX54SBQRF4e6jInNTiwhroMq9+kY/I1
+5JFcprEoBuSycC+vSCSX1XmF43aZfcRCZyQT2iPsQSYISUpKIpkgKSTkCQl1NoRoESLU54fqQ0Go
+PSLUhSRhcSbJDwn1JFEU8ACIwxgEjKUwQBaDADZABVFlaTF0EKLMYGUijg5SrRgU5UTQgYoigyI/
+BhBSZBDEIiqIIno84gaSqIUuWLCUl6cdSdR506TrQPLzuzuzI5DU/rb9+stM8Lux+ym3Urio6mrL
+i2WM85IFBMqaWhC2aS+bI5B9F+TXqo98cFERlmnJkBCYesROEiYqpL12KkTUda4cXJRfZNZRsCAn
+q6Qk1AT7brVX8VEgwf9LJYVgtukKMnbNNAYK7ny7WU8SJiopF3B76YQJrMfOaYsg+U1SRPuZf4CJ
+kp4kWuhIqqqqSiLCzBAzJPkNGRzMMAS9HRjMc0XRQbH5UE47Cl4MoqITUdOO5Kfl7lkCAjJCKKJC
+J8NAjkIXdYkSsKzp9EYTbTQWkA7wV0I1V0RGQEBaWwg1pRaUawoISJWX16GIOkGDANW2ya4/BQQu
+i7maoojKi18FpqcT6LbJ3cJiG8QNcvzUEjXEFEVOOwhR5LRTAgzIpP6hkHbMnGZZYKYdp7DW+t3e
+aOWOZOX3LoHsK2+6n1sgi5qx3OeZppx9evtC5DJKRGOJyaG/O6PcLT2QREtb7My0ldgfK7sz5SBE
+7c4ntbq9VrJYN7XszxS4uaAEsiNdUMSfRSDZBS4aWHRTveJR/K7ArT+MD7PBbTsYYMJn6V4fKbI6
+XWCNBbzs6w2sDq7IutT78ovxixVQ0eleXfMk+YWj0oN1Vwo0zYWK+r6fab5M5N8b4xqRNmUBJ6io
+zRwBZWfJIiYBRpH5FQIdMNsEGw3l+Kd3uu7X28jkugFaykmqVGtLgvx9QFXPJEAblnaARRHI8UJC
+/KC6a7CUO6SIWmIkMzEDS4aQSIx0Fh7CYPshEi2ZtT2xZcj08VNA8a/Ct45MhkpnZj8PJEEPP5/A
+SgZBEd3QFLtCqFjh4pRQDT1g+ErK62YE2UEF7VIydEVEwOlBz4Yr3gksujh+ho0eNIaaG2YHHQaZ
+7fE0aEZDM0TUvs9oVaKPn4ekgt+9xGCjPnC8STLHpSnJ5/twT1ruoyGvlBY3EWhuD/NOGxVJSRHd
+DI5QXSFJVRWbuH09DEFxNjHAuJSUt9+SCGplqcawnw1isE1TUQUXqXoqIuAqR1WJzZZB+UIJWmSW
+9CszVGE2S9yrAAIMAIGYirEVSvo2AAAAAElFTkSuQmCC</content></attachment><attachment>
 <filename>menuhome.png</filename>
 <filesize>211</filesize>
 <author>XWiki.FlaviusOlaru</author>
@@ -2104,7 +2144,7 @@ TkSuQmCC</content></attachment>
 <disabled>0</disabled>
 <editor>---</editor>
 <name>login.vm</name>
-<number>18</number>
+<number>31</number>
 <picker>1</picker>
 <prettyName>login.vm</prettyName>
 <rows>15</rows>
@@ -2143,23 +2183,6 @@ TkSuQmCC</content></attachment>
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
 </logo>
-<menuedit.vm>
-<contenttype>FullyRenderedText</contenttype>
-<customDisplay></customDisplay>
-<disabled>0</disabled>
-<editor>---</editor>
-<name>menuedit.vm</name>
-<number>31</number>
-<picker>1</picker>
-<prettyName>menuedit.vm</prettyName>
-<rows>15</rows>
-<size>100</size>
-<tooltip></tooltip>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-</menuedit.vm>
 <menuview.vm>
 <contenttype>FullyRenderedText</contenttype>
 <customDisplay></customDisplay>
@@ -3185,10 +3208,10 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
     #template("advancedsearch.vm")
 &lt;div id="header-icons"&gt;
 &lt;ul&gt;
-  &lt;li class="logiciel"&gt;&lt;a href="#"&gt;Télécharger le logiciel &lt;strong&gt;Sankoré&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="logiciel"&gt;&lt;a href="http://open-sankore.org/fr/telechargement"&gt;Télécharger le logiciel &lt;strong&gt;Sankoré&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li class="plugin"&gt;&lt;a href="#"&gt;Télécharger le  &lt;strong&gt;plug-in&lt;/strong&gt;&lt;/a&gt;
 &lt;/li&gt;
-  &lt;li class="resources"&gt;&lt;a href="#"&gt;Evaluer les &lt;strong&gt;ressources&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li class="resources"&gt;&lt;a href="$xwiki.getURL('Search.WebHome')"&gt;Evaluer les &lt;strong&gt;ressources&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
   #end
@@ -3267,7 +3290,7 @@ Curriki.global.isAdmin = #if($hasGlobalAdmin)true#{else}false#{end};
 ##
 ## CSS files related to JS libraries.
 ##
-&lt;link href="$xwiki.getSkinFile("js/xwiki/suggest/ajaxSuggest.css", true)" rel="stylesheet" type="text/css" /&gt;
+&lt;link href="$xwiki.getSkinFile("uicomponents/suggest/suggest.css", true)" rel="stylesheet" type="text/css" /&gt;
 &lt;link href="$xwiki.getSkinFile("js/xwiki/lightbox/lightbox.css", true)" rel="stylesheet" type="text/css" /&gt;
 &lt;!--[if IE]&gt;
   &lt;link href="$xwiki.getSkinFile("js/xwiki/lightbox/lightboxIE.css", true)" rel="stylesheet" type="text/css" /&gt;
@@ -3286,7 +3309,29 @@ $xwiki.jsfx.use('uicomponents/widgets/confirmedAjaxRequest.js', true)
 $xwiki.jsfx.use('uicomponents/widgets/notification.js', true)
 $xwiki.ssfx.use('uicomponents/widgets/notification.css', true)
 $xwiki.jsfx.use('uicomponents/widgets/list/xlist.js')
-$xwiki.jsfx.use('js/xwiki/suggest/ajaxSuggest.js')
+$xwiki.jsfx.use('uicomponents/suggest/suggest.js')
+#if($xwiki.exists('XWiki.SearchSuggestConfig'))
+  ## Hook to request the search suggest script if search suggest configuration is present.
+  ## We can't just have it as a always-use SSX yet since we compute a hash to be sure to refresh
+  ## the file when the configuration changes.
+  ## Ideally, this code should be located in a interface extension, in the search application.
+  #set($searchSuggestConfigDocument = $xwiki.getDocument('XWiki.SearchSuggestConfig'))
+  #set($searchSuggestConfigObject = $searchSuggestConfigDocument.getObject('XWiki.SearchSuggestConfig'))
+  #if($searchSuggestConfigObject.getProperty('activated').value == 1)
+   #set($searchSuggestConfigHash = '')
+   #foreach($source in $searchSuggestConfigDocument.getObjects('XWiki.SearchSuggestSourceClass'))
+     #if($source.getProperty('activated').value == 1)
+       #set($sourceId = "${source.get('name')}:${source.get('url')}:${source.get('highlight')}:${source.get('icon')}}")
+       #set($searchSuggestConfigHash = "${searchSuggestConfigHash}|${sourceId}")
+     #end
+   #end
+   $xwiki.jsfx.use('uicomponents/search/searchSuggest.js', {
+    'forceSkinAction' : true,  
+    'h' : $searchSuggestConfigHash.hashCode()  
+   })
+   $xwiki.ssfx.use('uicomponents/search/searchSuggest.css', true)
+  #end
+#end
 &lt;script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/xwiki.js", true)"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
 // &lt;![CDATA[
@@ -3381,7 +3426,38 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 &lt;script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/compatibility.js", false)" defer="defer"&gt;&lt;/script&gt;</javascript.vm>
 </property>
 <property>
-<login.vm></login.vm>
+<login.vm>#if ($xcontext.user != 'XWiki.XWikiGuest')
+  #if ($request.xredirect)
+    $response.sendRedirect($request.xredirect)
+  #else
+    $response.sendRedirect($xwiki.getURL('Main.WebHome'))
+  #end
+#elseif($doc.fullName != 'XWiki.XWikiLogin')
+  #set($qs = "$!{request.queryString}")
+  #if(!$request.getParameter('xredirect'))
+    #set($qs = "xredirect=$escapetool.url($doc.getURL('view'))&amp;${qs}")
+  #end
+  $response.sendRedirect($xwiki.getURL('XWiki.XWikiLogin', 'login', $qs))
+#else
+###
+### Login page
+###
+###
+#template("startpage.vm")
+&lt;div class="main layoutsubsection"&gt;
+&lt;div id="mainContentArea"&gt;
+#template("logininline.vm")
+&lt;a id="signup" href="$xwiki.getURL('Main.JoinCurriki', 'view')"&gt;$msg.get('login.signup')&lt;/a&gt;
+&lt;/div&gt;## mainContentArea
+&lt;/div&gt;## main
+## Ensure that the username field of the login form has the focus to make it easy for users to log in quickly
+&lt;script type="text/javascript"&gt;
+//&lt;![CDATA[
+  document.forms.loginForm.j_username.focus();
+//]]&gt;
+&lt;/script&gt;
+#template("endpage.vm")
+#end</login.vm>
 </property>
 <property>
 <logininline.vm>&lt;div id="header-member"&gt;
@@ -3441,7 +3517,7 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
       &lt;input tabindex="3" type="checkbox" class="checkbox" name="j_rememberme" value="true"/&gt;&lt;br /&gt;
       &lt;a href="$xwiki.getURL("XWiki.ForgotUsernameOrPassword")" title=""&gt;$msg.get("header.login_forgot")&lt;/a&gt;
     &lt;/div&gt;
-    &lt;input id="signin" class="login-button" type="submit" id="loginbtn" value="Connexion" /&gt;
+    &lt;input id="signin" class="login-button" type="submit" id="loginbtn" value="$msg.get('login.signin')" /&gt;
     &lt;div class="clearfloats"&gt;&lt;/div&gt;
   &lt;/form&gt;
 #else
@@ -3465,9 +3541,6 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 #end
 &lt;/div&gt;
 </logininline.vm></property><property><logo>logoplanetesankore.png</logo>
-</property>
-<property>
-<menuedit.vm></menuedit.vm>
 </property>
 <property>
 <menuview.vm>#if($isInServletMode &amp;&amp; !$isGuest)## Visible only in a page
@@ -4132,7 +4205,7 @@ img.subcategory-document_ods, .filetype-ods a.icon-link {background-position: 0 
 img.subcategory-document_odp, .filetype-odp a.icon-link {background-position: 0 -3870px;}
 img.subcategory-document_odi, .filetype-odi a.icon-link {background-position: 0 -3780px;}
 img.subcategory-document_odg, .filetype-odg a.icon-link {background-position: 0 -3690px;}
-img.subcategory-document_odf, .filetype-odf a.icon-link {background-position: 0 -3600px;}
+img.subcategory-document_odf, .filetype-odf a.icon-link {background-position: 0 -3px;}
 img.subcategory-document_odc, .filetype-odc a.icon-link {background-position: 0 -3510px;}
 img.subcategory-document_odb, .filetype-odb a.icon-link {background-position: 0 -3420px;}
 img.subcategory-document_notebook, .filetype-notebook a.icon-link {background-position: 0 -3330px;}
@@ -4736,7 +4809,9 @@ ul.menu {
     width: 9px;
 }
 #navigation .content &gt; ul.menu &gt; li &gt; ul {
-    background: -moz-linear-gradient(center top , #FBFBFB, #D8D9DA) repeat scroll 0 0 transparent;
+  background: white;
+  background: -moz-linear-gradient(center top , #FBFBFB, #D8D9DA) repeat scroll 0 0 white;
+  background: -webkit-linear-gradient(center top , #FBFBFB, #D8D9DA) repeat scroll 0 0 white;
     border: 1px solid #C5C6C8;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -4868,7 +4943,7 @@ margin-top: -60px;
     margin-top: -35px;
     width: 86px;
 }
-#remember-forgot, #remember-forgot a {
+#remember-forgot a {
     color: #978E78;
     font-style: italic;
     text-decoration: underline;
@@ -5034,10 +5109,14 @@ margin-top: -60px;
   float:right;
 }
 
-#remember-forgot, #remember-forgot a {
-    color: #978E78;
+#remember-forgot {
+ color: #978E78;
     font-style: italic;
     margin-top: -10px;
+}
+
+#remember-forgot a {
+    
     text-decoration: underline;
 }
 
@@ -5177,6 +5256,47 @@ ul.inside {list-style-position:inside;}
 
 .profile-links td, .profile-links th, .profile-links tr {
   border:none !important;
+}
+
+.loginbody #signup {
+  background: none repeat scroll 0 0 #C92A1C;
+    border-bottom: 1px solid #681A14;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: auto;
+    padding: 5px 0;
+    text-align: center;
+  width:250px;
+}
+
+.loginbody #header-member {
+  width: 250px;
+  margin: auto;
+  font-size:12px;
+}
+
+.loginbody #mainContentArea {
+  padding: 2em;
+}
+
+.loginbody #signin {
+  background: none repeat scroll 0 0 #C92A1C;
+    border-color: #C92A1C #C92A1C #681A14;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    display: block;
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px 0 15px 0;
+    padding: 5px 0;
+    text-align: center;
+    width: 80px;
 }</sankore.css>
 </property>
 <property>
@@ -5236,8 +5356,8 @@ ul.inside {list-style-position:inside;}
 #end
 #template("htmlfooter.vm")
 
-</siteembed.vm></property><property><startpage.vm></startpage.vm></property><property><style.css>@import "microformats.css";
-@import "colibri.css";
+</siteembed.vm></property><property><startpage.vm></startpage.vm></property><property><style.css>@import "$xwiki.getSkinFile('css/microformats.css')";
+@import "$xwiki.getSkinFile('colibri.css', true)#if ("$!{request.colorTheme}" != '')?colorTheme=${request.colorTheme}#end";
 #template('colorThemeInit.vm')
 
 
@@ -5254,7 +5374,7 @@ body.main ul {
 .main table {margin:0 1px;}
 #xwikimaincontainerinner {
   background-color:$theme.pageContentBackgroundColor;
-  width:1140px;
+  width:1024px;
   margin:0 auto;
 }
 #headerglobal {
@@ -6619,6 +6739,7 @@ body {
     padding-top: 20px;
     width: 100%;
   text-transform: none;
+  margin-left: 0;
 }
 #footerglobal .region-footer {
     margin: auto;
@@ -6672,7 +6793,7 @@ body {
 }
 
 #block-menu-menu-social-links {
-    background: url("http://test.sankore.org/sites/all/themes/sankore/images/footer-share.png") no-repeat scroll 0 0 transparent;
+    background: url("/xwiki/bin/download/XWiki/Skin/footer-share.png") no-repeat scroll 0 0 transparent;
     float: right;
     width: 320px;
 }
