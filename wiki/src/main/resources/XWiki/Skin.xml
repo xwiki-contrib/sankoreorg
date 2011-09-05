@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314983416000</creationDate>
-<date>1314983416000</date>
-<contentUpdateDate>1314983416000</contentUpdateDate>
+<creationDate>1315212790000</creationDate>
+<date>1315212790000</date>
+<contentUpdateDate>1315212790000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -3509,6 +3509,11 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
   &lt;form action="$xwiki.getURL("XWiki.XWikiLogin", "loginsubmit", "$logredir")" method="post"&gt;
     &lt;input type="hidden" name="srid" value="$!request.srid" /&gt;
     &lt;input type="hidden" name="form_token" value="$!services.csrf.getToken()" /&gt;
+#set($message = $msg.get($xwiki.parseMessage()))
+#if($message)
+  &lt;!-- previous login errors --&gt;
+  #error($message)
+#end
     &lt;input class="input" id="j_loginname" tabindex="1" type="text" name="j_username" value="#if("$!request.j_username" != "")$request.j_username#else${msg.get("header.login_username")}#end" onfocus="clearLoginUsername(this);" onblur="if (this.value==''){this.value='$msg.get("header.login_username")';}" /&gt;
     &lt;input class="input password" id="j_loginpwd_placeholder" tabindex="2" type="text" value="$msg.get("header.login_password")" onfocus="showLoginPasswordInput.apply(this)"/&gt;
     &lt;input class="input password" id="j_loginpwd" tabindex="2" type="password" name="j_password" onfocus="this.select()" onblur="hideLoginPasswordInput.apply(this)" style="display:none;"/&gt;
@@ -5258,7 +5263,7 @@ ul.inside {list-style-position:inside;}
   border:none !important;
 }
 
-.loginbody #signup {
+.loginbody #signup, .loginsubmitbody #signup {
   background: none repeat scroll 0 0 #C92A1C;
     border-bottom: 1px solid #681A14;
     border-radius: 4px 4px 4px 4px;
@@ -5272,17 +5277,17 @@ ul.inside {list-style-position:inside;}
   width:250px;
 }
 
-.loginbody #header-member {
+.loginbody #header-member, .loginsubmitbody #header-member {
   width: 250px;
   margin: auto;
   font-size:12px;
 }
 
-.loginbody #mainContentArea {
+.loginbody #mainContentArea, .loginsubmitbody #mainContentArea {
   padding: 2em;
 }
 
-.loginbody #signin {
+.loginbody #signin, .loginsubmitbody #signin {
   background: none repeat scroll 0 0 #C92A1C;
     border-color: #C92A1C #C92A1C #681A14;
     border-radius: 4px 4px 4px 4px;
