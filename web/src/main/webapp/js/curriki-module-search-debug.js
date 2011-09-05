@@ -339,6 +339,19 @@ data.init = function(){
 		]);
 	});
 
+	// sort the list for the subject
+	f.data.subject.data.sort(function(a, b) { 
+		// if a or b are head, return as first
+		if(b[0] == "") return 1; 
+		if(a[0] == "") return -1;
+		// if a or b are uncategorized, return as last
+		if(b[0] == "UNCATEGORIZED") return -1; 
+		if(a[0] == "UNCATEGORIZED") return 1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1; 
+			else return 1;
+	});
+
 	f.data.subsubject =  {
 		mapping: Curriki.data.fw_item.fwMap
 		,data: [
@@ -359,7 +372,18 @@ data.init = function(){
 		});
 	});
 
-  f.data.level =  {
+	// sort the list for the subsubject
+	f.data.subsubject.data.sort(function(a, b) {
+		// b is the subject index, put first
+		if(b[0] == b[2]) return 1;
+		// a is the subject index, put first
+		if(a[0] == a[2]) return -1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1;
+			else return 1;
+	});
+
+	f.data.level =  {
 		mapping: Curriki.data.el.elMap['TREEROOTNODE']
 		,list: []
 		,data: [
@@ -391,7 +415,7 @@ data.init = function(){
 			,_('CurrikiCode.AssetClass_educational_level_'+parentItem.id+'.UNSPECIFIED')
 			,parentItem.id
 		]);
-    if(f.data.level2.mapping[parentItem.id]) {
+	if(f.data.level2.mapping[parentItem.id]) {
 		  f.data.level2.mapping[parentItem.id].each(function(el){
 			  f.data.level2.data.push([
 	  			el.id
@@ -399,7 +423,7 @@ data.init = function(){
 	  			,parentItem.id
 	  		]);
 	  	});
-    }
+	}
 	});
 
   f.data.ict =  {
@@ -421,6 +445,19 @@ data.init = function(){
 			value
 			,_('CurrikiCode.AssetClass_instructional_component_'+value)
 		]);
+	});
+
+	// sort the list for the instructional component
+	f.data.ict.data.sort(function(a, b) {
+		// if a or b are head, return as first
+		if(b[0] == "") return 1;
+		if(a[0] == "") return -1;
+		// if a or b are uncategorized, return as last
+		if(b[0] == "UNCATEGORIZED") return -1;
+		if(a[0] == "UNCATEGORIZED") return 1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1;
+			else return 1;
 	});
 
 	f.data.subict =  {
@@ -445,6 +482,17 @@ data.init = function(){
     }
 	});
 
+	// sort the list for the instructional component subtype
+	f.data.subict.data.sort(function(a, b) {
+		// b is the subject index, put first
+		if(b[0] == b[2]) return 1;
+		// a is the subject index, put first
+		if(a[0] == a[2]) return -1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1;
+			else return 1;
+	});
+
 	f.data.language =  {
 		list: Curriki.data.language.list
 		,data: [
@@ -456,6 +504,19 @@ data.init = function(){
 			value
 			,_('CurrikiCode.AssetClass_language_'+value)
 		]);
+	});
+
+	// sort the list for the language
+	f.data.language.data.sort(function(a, b) {
+		// if a or b are head, return as first
+		if(b[0] == "") return 1;
+		if(a[0] == "") return -1;
+		// if a or b are uncategorized, return as last
+		if(b[0] == "999") return -1;
+		if(a[0] == "999") return 1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1;
+			else return 1;
 	});
 
 	f.data.category =  {
@@ -477,6 +538,8 @@ data.init = function(){
 			]);
 		}
 	});
+
+	// category doesn't need to be sorted because it is sorted somewhere further
 
 	f.data.review = {
 		list: [
