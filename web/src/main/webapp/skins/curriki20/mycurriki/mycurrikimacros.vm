@@ -800,8 +800,8 @@ $!desc
 	#set($i = $context.user.indexOf(":")+1)
 	#set($attach = $userdoc.attachmentList.get(0))
 	#if ($context.user.substring($i) == $userdoc.fullName || $hasGlobalAdmin) ## {
-	  #set($deleteredir = $userdoc.getURL("view"))
-	  <a class="curriki-link" href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${deleteredir}")" onclick="return confirm('You need to remove your picture first. Do you want to do that ?');" >$msg.get("profile.modifyYourPhoto")</a>
+	  #set($deleteredir = $doc.getURL("view"))
+	  <a class="curriki-link" href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${deleteredir}")" onclick="return confirm('$msg.get("profile.modifyPhoto.confirmation")');" >$msg.get("profile.modifyYourPhoto")</a>
 	#end  ## } is same user
       #end  ## } is inline
    #end ##}
