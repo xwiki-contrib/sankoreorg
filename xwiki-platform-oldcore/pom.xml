@@ -1357,5 +1357,22 @@ files are taken from the build-tools JAR module.-->
       <name>Java.net Repository for Maven</name>
       <url>http://download.java.net/maven/2</url>
     </repository>
-  </repositories>  
+  </repositories>
+  <!-- Set distribution management to maven.xwikisas.com -->
+  <distributionManagement>
+    <site>
+      <id>maven.xwikisas.com</id>
+      <url>scp://maven.xwikisas.com/home/maven/public_html/site</url>
+    </site>
+    <repository>
+      <id>maven.xwikisas.com</id>
+      <name>XWiki SAS Maven2 Remote Repository for Releases</name>
+      <url>scp://maven.xwikisas.com/home/maven/public_html/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>maven.xwikisas.com</id>
+      <name>XWiki SASMaven2 Development Repository for Snapshots</name>
+      <url>scp://maven.xwikisas.com/home/maven/public_html/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 </project>
