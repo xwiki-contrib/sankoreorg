@@ -495,7 +495,7 @@ data.init = function(){
 
 	f.data.special = {
 		list: [
-			'contributions', 'collections', 'updated'
+			'contributions', 'collections', 'updated', 'sankore'
 		]
 		,data: [
 			['', _('search.resource.special.selector.UNSPECIFIED')]
