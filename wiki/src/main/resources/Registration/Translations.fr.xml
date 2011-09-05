@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314889495000</creationDate>
-<date>1314889495000</date>
-<contentUpdateDate>1314889495000</contentUpdateDate>
+<creationDate>1315218329000</creationDate>
+<date>1315218329000</date>
+<contentUpdateDate>1315218329000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -69,7 +69,7 @@ forgotUsername.email.invalid=Une adresse email valide est nécessaire.
 
 forgotUsernameEmail.header=De\: {0}à\: {1}Subject\: Votre nom d''utilisateur planete.sankore.org
 forgotUsernameEmail.part1=Cher(e) {0} {1},
-forgotUsernameEmail.part2=Vous avez oublié votre mot de passe? Ça arrive aux meilleurs d''entre nous. Vous avez sélectionné ''{0}'' quand vous vous êtes inscrit. Si vous avez oublié votre mot de passe, cliquez "Forgot Login" en haut de chaque page Planète Sankoré et nous vous enverrons un email avec votre mot de passe.
+forgotUsernameEmail.part2=Vous avez oublié votre mot de passe? Ça arrive aux meilleurs d''entre nous. Vous avez sélectionné ''{0}'' quand vous vous êtes inscrit. Si vous avez oublié votre mot de passe, cliquez "Login oublié?" en haut de chaque page Planète Sankoré et nous vous enverrons un email avec votre mot de passe.
 
 
 
@@ -87,11 +87,11 @@ joincurriki.last_name.text=Choisissez un autre nom pour rendre votre nom unique 
 
 
 
-joincurriki.fields.xwikiname=Nom d'Utilisateur
+joincurriki.fileds.xwikiname=Nom d'Utilisateur
 joincurriki.xwikiname.badchars=Ce nom d'utilisateur est invalide. Choisissez un nom sans espaces ou caractères spéciaux, SVP.
 joincurriki.repeat=recommencer
 joincurriki.registerToJoinCurriki=Enregistrez-vous pour rejoindre Planète Sankoré
-joincurriki.infos=Thanks for becoming a part of the Planète Sankoré Online Community. Joining Planète Sankoré is your first step towards accessing and creating high quality teaching resources.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Please note:&lt;/strong&gt; As per Planète Sankoré's &lt;a href="javascript:void()" onclick="showpopup('/xwiki/bin/view/Main/TOS?xpage=popup'); return false;"&gt;Terms of Service&lt;/a&gt;, you must be at least 13 years of age to register. No persons under the age of 13 may register.
+joincurriki.infos=Merci de vouloir rejoindre la communauté en ligne Planète Sankoré. Créer un compte sur Planète Sankoré est la première étape à suivre afin de pouvoir créer des ressources éducatives de qualité.&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;Veuillez noter :&lt;/strong&gt; De par les &lt;a href="javascript:void()" onclick="showpopup('/xwiki/bin/view/Main/TOS?xpage=popup'); return false;"&gt;termes de service&lt;/a&gt; de Planète Sankoré, vous devez avoir au moins 13 ans pour créer votre compte. Vous n'avez pas le droit de créer de compte si vous n'avez pas 13 ans.
 
 joincurriki.letsKnowWhoYouAre=Dites nous qui vous êtes
 joincurriki.enterRequestedInfo=Saisissez les informations demandées pour devenir un membre et créer un profil utilisateur. les champs signalés par un point d'exclamation(\!) sont obligatoires.
@@ -104,8 +104,10 @@ joincurriki.showContact=Ceci permet à d'autres membres de Planète Sankoré de 
 joincurriki.fileds.age=Âge
 joincurriki.iAm13YearsOld=J'ai 13 ans minimum.
 joincurriki.privacyAndTOS=Confidentialité et termes d'utilisation
-joincurriki.privacyAndTOS.read.part1=J'ai lu, compris, et je suis d'accord avec les
-joincurriki.privacyAndTOS.read.part2=et le
+joincurriki.privacyAndTOS.read.part1=J'ai lu, compris, et je suis d'accord avec la
+joincurriki.privacyAndTOS.read.privacypolicy=Politique de confidentialité
+joincurriki.privacyAndTOS.read.part2=et les
+joincurriki.privacyAndTOS.read.tos=Conditions générales d'utilisation
 joincurriki.iAgree=Je suis d'accord
 joincurriki.emailWillBeSent=Une fois que vous aurez cliqué sur Sauvegarder et s'inscrire, Planète Sankoré vous enverra une confirmation à l'adresse email saisie ci-dessus.
 
@@ -199,7 +201,7 @@ email_not_received.error.need_login=Saisissez un nom d'utilisateur, SVP
 email_not_received.error.need_email=Saisissez une adresse email, SVP
 email_not_received.error.need_phone=Saisissez votre numéro de téléphone, SVP
 
-email_not_received.email_sent=Thank you for contacting Planète Sankoré. A representative will contact you shortly.&lt;br /&gt;&lt;br /&gt;&lt;a href="/xwiki/bin/view/Main/" class="button button-orange"&gt;OK&lt;/a&gt;
+email_not_received.email_sent=Merci d'avoir contacté Planète Sankoré. Un de nos représentants vous contactera rapidement.&lt;br /&gt;&lt;br /&gt;&lt;a href="/xwiki/bin/view/Main/" class="button button-orange"&gt;OK&lt;/a&gt;
 email_not_received_sent.title=Email Non Reçu Message Envoyé
 
 #Header
@@ -226,7 +228,7 @@ emailValidation.step1.goElsewhere=Tous les changements faits sur cette page vont
 
 emailValidation.sent.title=Email de Vérification Envoyé
 emailValidation.sent.text=&lt;p&gt;La première étape dans la verification de votre adresse email est terminée.&lt;/p&gt;&lt;p&gt;Pour entamer l'étape 2, regardez dans votre mailer s'il y a un message de webmaster@planete.sankore.org&lt;/p&gt;&lt;p&gt;Si vous ne voyez pas le mail, ça pourrait être à cause d'un filtre antispam. Regardez dans votre dossier SPAM, et assurez-vous d'avoir ajouté planete.sankore.org à votre liste de "safe senders" ou à votre carnet d'adresses.&lt;/p&gt;
-emailValidation.sent.notreceived=If you have not received an email within 10 minutes, please contact Planète Sankoré by using the &lt;a href="/xwiki/bin/view/Registration/EmailNotReceived"&gt;Email Not Received&lt;/a&gt; form.
+emailValidation.sent.notreceived=Si vouz n'avez pas reçu de message électronique dans les 10 minutes, veuillez contacter Planète Sankoré en utilisant le &lt;a href="/xwiki/bin/view/Registration/EmailNotReceived"&gt;formulaire de notification de message non reçu.&lt;/a&gt;
 
 emailValidation.step2.title=Verification Email - 'Etape 2 de 2 Terminée
 emailValidation.step2.text=&lt;p&gt;Votre adresse mail a été confirmée.&lt;/p&gt;&lt;p&gt;Merci.&lt;/p&gt;
@@ -263,4 +265,10 @@ staf.sent.errored=Une erreur inconnue s'est produite.
 partnerrigestration.validkey.invalid=Nous sommes incapables de valider votre partner key. 
 
 partnerrigestration.parnter.notexist=Le partenaire n'existe pas dans notre base de données. Contactez le webmaster, SVP.
+
+
+login.signin=Connexion
+login.forgotusername=Nom d'utilisateur oublié?
+login.forgotpassword=Mot de passe oublié?
+login.signup=Créez-vous un compte
 </content></xwikidoc>
