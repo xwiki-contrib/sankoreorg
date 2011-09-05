@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>FileCheck</web>
+<name>Translations</name>
+<language>fr</language>
+<defaultLanguage>en</defaultLanguage>
+<translation>1</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1315245580000</creationDate>
+<date>1315245580000</date>
+<contentUpdateDate>1315245580000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>## XWiki Translation for language fr generated from http://www.l10n.xwiki.org
+CurrikiCode.AssetClass_fcstatus_0=Aucun
+CurrikiCode.AssetClass_fcstatus_1=OK
+CurrikiCode.AssetClass_fcstatus_2=Vérification spéciale requise
+CurrikiCode.AssetClass_fcstatus_3=Amélioration requise
+CurrikiCode.AssetClass_fcstatus_4=Supprimé de l'Accès Membre
+CurrikiCode.AssetClass_fcstatus_TBD=Inapproprié
+fc_action=Action
+fc_all=Tous
+fc_cancel=Annuler
+fc_charactersRemaining=Caractères restants
+fc_chooseaction=Sélectionner l'action appropriée pour la ressource\:
+fc_commentsSizeExceeded=Les commentaires ne peuvent excéder 400 caractères
+fc_confirmmessage1=Voulez-vous marquer cette ressource à OK?
+fc_confirmmessage2=Voulez-vous marquer cette ressource comme nécessitant une vérification spéciale par le personnel éditorial ou technique de Planète Sankoré?
+fc_confirmmessage3=Voulez-vous positionner les droits d'accès à cette ressource à privé et envoyer l'email de requête d'amélioration de la ressource au créateur de cette ressource?
+fc_confirmmessage4=Voulez-vous positionner cette ressource à "Supprimée de l'Accès Membre" et envoyer l'email de Ressource Supprimée au créateur de la ressource?
+fc_contributor=Contributeur
+fc_dateadded=Date de Création/d'Ajout dans Planète Sankoré
+fc_datechecked=Date de l'action de vérification de fichier 
+fc_daterange=Intervalle de Dates
+fc_document=Ressource Vérifiée
+fc_fchomepage=File d'attente de Vérification de Fichier 
+fc_filecheck=Vérification du Fichier
+fc_filecheckddone=Vérification du Fichier terminée
+fc_filechecknote=Fournissez toutes notes de vérification de fichier nécessaires pour cette ressource\:
+fc_files=Fichiers
+fc_filterby=Filtrer par
+fc_mailsentto=Mail envoyé à
+fc_next=Suivant
+fc_noactionchecked=Aucune action n'a été sélectionnée
+fc_noassetselected=Aucune ressource n'a été sélectionnée
+fc_nominate=Voulez-vous nominer cette ressource pour une réévaluation par le CRS?
+fc_notes=Notes du Vérificateur de Fichier
+fc_ok=Soumettre
+fc_onlywithfcstatus=Avec un statut
+fc_onlywithoutfcstatus=Sans statut
+fc_or=ou
+fc_previous=Précédent
+fc_queueFilterChooseFCStatus=Ressources seulement\:
+fc_queueFilterChooseSubjectArea=Choisir un sujet\:
+fc_queueTableColheaderIct=Type Instructionnel
+fc_queueTableICTMultiple=Multiple
+fc_resourcetitle=Titre de Ressource
+fc_returnto=Retourner à
+fc_seeCounts=Voir le Compte
+fc_select=Sélectionner
+fc_showresourcesfrom=Montrer les ressources créées et ajoutées au repository
+fc_status=Statut de la Vérification du Fichier
+fc_statusFilter_1=Avec statut "OK"
+fc_statusFilter_2=Avec statut "Vérification Spéciale"
+fc_statusFilter_3=Avec statut "Amélioration Requise"
+fc_statusFilter_4=Avec statut "Supprimé"
+fc_statusFilter_TBD=Avec statut "Inapproprié"
+fc_statusmessage1=Marquer cette ressource avec un statut de vérification de fichier à 'OK' pour cette date.
+fc_statusmessage2=Marquer cette ressource avec un statut de vérification de fichier à 'Vérification Spéciale Nécessaire'.
+fc_statusmessage3=Marquer cette ressource avec un statut de vérification de fichier à 'Amélioration Nécessaire' pour cette date.
+fc_statusmessage4=Marquer cette ressource avec un statut de vérification de fichier à 'Supprimé de l'Accès Membre'.
+fc_to=à
+fc_updatemessage1=Ressource marquée avec un statut de vérification de fichier à 'OK'.
+fc_updatemessage2=Ressource marquée avec un statut de vérification de fichier à 'Vérification Spéciale Nécessaire'.
+fc_updatemessage3=Ressource marquée avec un statut de vérification de fichier à 'Amélioration Nécessaire'.
+fc_updatemessage4=Contenu marqué avec un statut de vérification de fichier à 'Supprimé de l'Accès Membre'.
+fc_updatemessage_1=Ressource marquée avec un statut de vérification de fichier à 'OK'.
+fc_updatemessage_2=Ressource marquée avec vérification de fichier à 'Vérification Spéciale Nécessaire'.
+fc_updatemessage_3=Ressource marquée avec un statut de vérification de fichier à 'Amélioration Nécessaire'.
+fc_updatemessage_4=Contenu marqué avec un statut de vérification de fichier à 'Supprimé de l'Accès Membre'.
+fc_withAccessPrivilegesOf=Montrer les ressources avec les autorisations d'accès de\:
+fc_withAccessPrivilegesOf_All=Tous
+fc_withAccessPrivilegesOf_members=Protégé
+fc_withAccessPrivilegesOf_private=Privé
+fc_withAccessPrivilegesOf_protectedAndPublic=Protégé et Public
+fc_withAccessPrivilegesOf_public=Public
+flag.dialog.cancel.btt=Annuler
+flag.dialog.error.note_btt=OK
+flag.dialog.error.note_max=Votre note ne peut excéder 300 caractères.
+flag.dialog.error.note_min=Votre note doit au moins contenir 4 caractères.
+flag.dialog.error.note_req=Si vous avez votre raison de signaler cette ressource comme inappropriée, vous devez entrer une note.
+flag.dialog.error.reason_req=Vous devez choisir une raison depuis le menu afin de pouvoir signaler cette ressource comme inappropriée
+flag.dialog.guidingquestion1.txt=Que se passe-t-il quand vous signalez une ressource comme inappropriée?
+flag.dialog.guidingquestion2.txt=Pourquoi signalez-vous cette ressource comme inappropriée?
+flag.dialog.header=SIGNALER CETTE RESSOURCE
+flag.dialog.instruction1.txt=Vous soumettez immédiatement cette ressources à l'évaluation par Planète Sankoré.
+flag.dialog.instruction2.txt=Je signale cette ressource parce que
+flag.dialog.instruction3.txt=.
+flag.dialog.instruction4.txt=Entrez une note (au maximum 300 caractères) décrivant ce qui, selon vous, rend cette ressource inconvenante.
+flag.dialog.instruction5.txt=
+flag.dialog.reason.unselected=Choisissez une raison
+flag.dialog.reason.1=fait l'apologie de la haine
+flag.dialog.reason.1.filecheck=fait l'apologie de la haine\:
+flag.dialog.reason.2=à caractère pornographique
+flag.dialog.reason.2.filecheck=à caractère pornographique
+flag.dialog.reason.3=est vide
+flag.dialog.reason.3.filecheck=est vide\:
+flag.dialog.reason.4=est clairement de nature commerciale, sans intérêt éducatif
+flag.dialog.reason.4.filecheck=est clairement de nature commerciale, sans intérêt éducatif\:
+flag.dialog.reason.5=est cassé ou infecté par un virus
+flag.dialog.reason.5.filecheck=est cassé ou infecté par un virus\:
+flag.dialog.reason.6=est sujet à un copyright et donc non-libre
+flag.dialog.reason.6.filecheck=est sujet à un copyright et donc non-libre\:
+flag.dialog.reason.alt=est inconvenant pour une autre raison que je vais décrire ci-après
+flag.dialog.reason.alt.filecheck=est inconvenant pour une autre raison que je vais décrire ci-après\:
+flag.dialog.required.field.icon=\!
+flag.dialog.submit.btt=Soumettre
+flag.success.dialog.button=Fermer
+flag.success.dialog.heading=RESSOURCE SIGNALÉE
+flag.success.dialog.message=Ressource correctement signalée.
+</content></xwikidoc>
