@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315241255000</creationDate>
-<date>1315241255000</date>
-<contentUpdateDate>1315241255000</contentUpdateDate>
+<creationDate>1315252118000</creationDate>
+<date>1315252118000</date>
+<contentUpdateDate>1315252118000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -330,6 +330,21 @@ CurrikiCode.AssetClass_educational_level_AssetMetadata.18HigherEducationTechnolo
 CurrikiCode.AssetClass_educational_level_AssetMetadata.18HigherEducationPhD=doctorat
 CurrikiCode.AssetClass_educational_level_AssetMetadata.18SupplementaryEducation=Formation continue
 CurrikiCode.AssetClass_educational_level_AssetMetadata.SpecialEducation=Adaptation scolaire
+CurrikiCode.AssetClass_educational_level_AssetMetadata.0306.UNSPECIFIED=3-6: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.0311.UNSPECIFIED=3-11: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.0608.UNSPECIFIED=6-8: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.0811.UNSPECIFIED=8-11: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1112.UNSPECIFIED=11-12: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1115.UNSPECIFIED=11-15: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1214.UNSPECIFIED=12-14: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1415.UNSPECIFIED=14-15: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1516.UNSPECIFIED=15-16: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1518.UNSPECIFIED=15-18: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1617.UNSPECIFIED=16-17: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1718.UNSPECIFIED=17-18: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1118.UNSPECIFIED=11-18: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.18.UNSPECIFIED=18+: Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.SpecialEducation.UNSPECIFIED=Adaptation scolaire: Tous
 
 \\
 \\
@@ -1464,4 +1479,5 @@ preview.errorgettingpreview=Erreur lors de la prévisualisation
 \\
 
 ##Todd added the below strings. Currently the old ones are hard coded. Nov-5-2008 - I have no recollection added this. Todd
-UNSPECIFIED=  Tous</content></xwikidoc>
+UNSPECIFIED=  Tous
+</content></xwikidoc>
