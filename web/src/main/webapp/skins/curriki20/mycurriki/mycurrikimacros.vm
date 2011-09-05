@@ -793,7 +793,7 @@ $!desc
 	<img src="$userdoc.getAttachmentURL($attach.filename,"download")"  /></a>
 	#if ($context.action=="inline") ##{
 	  #set($deleteredir = $userdoc.getURL("inline"))
-	  <a class="curriki-link" href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${deleteredir}")" onclick="return confirm('$msg.get("profile.removePhoto.confirmation")');" title="$msg.get("profile.removeYourPhoto")">$msg.get("profile.removePhoto")</a>
+	  <a class="curriki-link" href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${deleteredir}")" onclick="return confirm(&quot;$msg.get("profile.removePhoto.confirmation")&quot;);" title="$msg.get("profile.removeYourPhoto")">$msg.get("profile.removePhoto")</a>
 	#end  ## } if inline
       #end  ## } foreach attach in list
       #if ($context.action!="inline") ##{
@@ -801,7 +801,7 @@ $!desc
 	#set($attach = $userdoc.attachmentList.get(0))
 	#if ($context.user.substring($i) == $userdoc.fullName || $hasGlobalAdmin) ## {
 	  #set($deleteredir = $doc.getURL("view"))
-	  <a class="curriki-link" href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${deleteredir}")" onclick="return confirm('$msg.get("profile.modifyPhoto.confirmation")');" >$msg.get("profile.modifyYourPhoto")</a>
+	  <a class="curriki-link" href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${deleteredir}")" onclick="return confirm(&quot;$msg.get("profile.modifyPhoto.confirmation")&quot;);" >$msg.get("profile.modifyYourPhoto")</a>
 	#end  ## } is same user
       #end  ## } is inline
    #end ##}
