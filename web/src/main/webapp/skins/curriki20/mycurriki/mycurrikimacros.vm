@@ -79,6 +79,12 @@ $text
   * @author dward@curriki.org
   *#
 #macro(mycurriki_pageheader $pageref $whofor) ## {
+## Bounce guest to login page if trying to view "own" profile
+#if(("$!request.user"=="") && ($context.user=="XWiki.XWikiGuest")) ##{
+	#set($logredir = $doc.getURL("view"))
+	#set($loginurl = $xwiki.getURL("XWiki.XWikiLogin", "login", "xredirect=$logredir"))
+	$response.sendRedirect($loginurl)
+#end ## }
 $xwiki.ssfx.use("curriki.css")
 $xwiki.ssfx.use("mycurriki.css")
 ## Determine whofor
