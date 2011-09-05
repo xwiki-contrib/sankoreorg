@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Search</web>
+<name>Tips</name>
+<language>fr</language>
+<defaultLanguage>en</defaultLanguage>
+<translation>1</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1315229516000</creationDate>
+<date>1315229516000</date>
+<contentUpdateDate>1315229516000</contentUpdateDate>
+<version>1.1</version>
+<title>Conseils de recherche</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>##$msg.get('search.text.entry.help.text')
+
+1.1 *Conseils de recherche*
+Pour de meilleurs résultats, essayez les techniques suivantes :
+
+* Pour rechercher une phrase exacte, utiliser des guillemets comme dans "Planète Sankoré"
+
+* Vous n'êtes pas certain du mot exact ? Utilisez un astérisque. Par exemple *\partage*\* retournera partage, partages, partager, etc.
+
+* Vous n'êtes pas sûr de l'orthographe exacte ? Utilisez un point d'interrogation pour remplacer une lettre. Par exemple *partage?* retournera partages, partager, partagea etc. Vous pouvez même utiliser de multiple points d'interrogation.
+
+* Pour exclure certains mots des résultats de recherche, utilisez le symbole "-". Par exemple, *"George Washington" -Carver* retirera tous les résultats contenant le mot "Carver".
+
+* Utiliser le mot "OR" pour élargir la recherche. Par exemple Planète OR Sankoré.
+
+* Utilisez des combinaisons des conseils ci-dessus.
+
+* Pour les ressources, les groupes et les membres, Planète.Sankoré offre une fonctionnalité de "Recherche Avancée".</content></xwikidoc>
