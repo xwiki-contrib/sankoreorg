@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1305041909000</creationDate>
-<date>1305041909000</date>
-<contentUpdateDate>1305041909000</contentUpdateDate>
+<creationDate>1314279453000</creationDate>
+<date>1314279453000</date>
+<contentUpdateDate>1314279453000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -30,8 +30,8 @@ datetime=Date/Heure
 action=Action
 
 ## FIELD LABELS 
-XWiki.SpaceClass_policy_open=Affiliation Libre - Toute personne peut rejoindre Curriki sans invitation
-XWiki.SpaceClass_policy_closed=Affiliation Privée - les membres de Curriki doivent avoir été invités et acceptés.
+XWiki.SpaceClass_policy_open=Affiliation Libre - Toute personne peut rejoindre Planète Sankoré sans invitation
+XWiki.SpaceClass_policy_closed=Affiliation Privée - les membres de Planète Sankoré doivent avoir été invités et acceptés.
 
 ## Language - XWiki.SpaceClass
 ## Moved to Global Class Translation XWiki/GlobalClassTranslations by Todd on Sept-16-2008
@@ -57,7 +57,7 @@ XWiki.CurrikiSpaceClass_accessprivileges_private=Privé\: Seuls les membres du g
 ## CREATE NEW GROUP
 groups_creategroup_pagename=Créer un nouveau groupe
 
-groups_creategroup_needaccount=You must be a Curriki member and be &lt;a href="{0}"&gt;logged in&lt;/a&gt; to create a group.
+groups_creategroup_needaccount=You must be a Planète Sankoré member and be &lt;a href="{0}"&gt;logged in&lt;/a&gt; to create a group.
 
 groups_creategroup_about_title=Au sujet de la Création des Groupes
 
@@ -67,19 +67,19 @@ groups_creategroup_namedescribe_title=Nommez et Décrivez votre Groupe
 
 groups_creategroup_namedescribe_groupname=Saisissez ici le nom de votre groupe (pas plus de 64 caractères)
 
-groups_creategroup_namedescribe_groupname_tooltip=Ce nom apparaît à beaucoup d'endroits dans votre espace de groupe et sur le site de Curriki; gardez à l'esprit que les contraintes en place mémoire rendent un nom de groupe court préférable.
+groups_creategroup_namedescribe_groupname_tooltip=Ce nom apparaît à beaucoup d'endroits dans votre espace de groupe et sur le site de Planète Sankoré; gardez à l'esprit que les contraintes en place mémoire rendent un nom de groupe court préférable.
 
-groups_creategroup_namedescribe_groupdescription=Saisissez une description de votre groupe (pas plus de 960 caractères). Cette description apparaît à plusieurs endroits dans Curriki, pour que vous puissiez souligner le focus du groupe, ses objectifs, ou projets ici.
+groups_creategroup_namedescribe_groupdescription=Saisissez une description de votre groupe (pas plus de 960 caractères). Cette description apparaît à plusieurs endroits dans Planète Sankoré, pour que vous puissiez souligner le focus du groupe, ses objectifs, ou projets ici.
 
-groups_creategroup_namedescribe_groupdescription_tooltip=Quand les gens naviguent ou trouvent des listes de groupes Curriki, ils voient d'abord l' "entête," de votre groupe, ce qui inclut cette description avec votre nom de groupe et une image du groupe.  (Vous ajouterez votre image à l'étape suivante.)
+groups_creategroup_namedescribe_groupdescription_tooltip=Quand les gens naviguent ou trouvent des listes de groupes Planète Sankoré, ils voient d'abord l' "entête," de votre groupe, ce qui inclut cette description avec votre nom de groupe et une image du groupe.  (Vous ajouterez votre image à l'étape suivante.)
 
 groups_creategroup_namedescribe_webaddress_instruction=Saisissez la première partie de l'adresse web de votre groupe dans l'espace ci-dessous.
 
 groups_creategroup_member_policy_title=Choisissez une Politique d'Affiliation
 
-groups_creategroup_member_policy_open=Libre - Toute personne peut rejoindre Curriki sans invitation
+groups_creategroup_member_policy_open=Libre - Toute personne peut rejoindre Planète Sankoré sans invitation
 
-groups_creategroup_member_policy_closed=Privée - les membres de Curriki doivent avoir été invités et doivent avoir accepté l'invitation
+groups_creategroup_member_policy_closed=Privée - les membres de Planète Sankoré doivent avoir été invités et doivent avoir accepté l'invitation
 
 groups_creategroup_select_subjectlevel_title=Choisissez un Sujet et un Niveau
 
@@ -96,7 +96,7 @@ groups_creategroup_select_language_infotxt=Ce choix de language par défaut s'ap
 
 groups_creategroup_select_license_title=Choisissez une Politique de Licence par Défaut
 
-groups_creategroup_select_license_infotxt=&lt;p&gt;Here you select a default license for your group's contributions into the Curriki repository. (Individual members will have the option to set alternative licenses at the time of creating or adding content, as required.)&lt;/p&gt;&lt;p&gt;The Curriki-compatible license displaying below was chosen to provide maximum flexibility to community members so they can use and modify your group's contributions for the purposes of their own curriculum development and instruction. The Curriki license is a widely used Creative Commons license Attribution &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;3.0&lt;/a&gt;. If you wish to assign another license, please select from the drop-down list below. To learn about all the Creative Commons licenses, please &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;click here&lt;/a&gt;.&lt;/p&gt;
+groups_creategroup_select_license_infotxt=&lt;p&gt;Here you select a default license for your group's contributions into the Planète Sankoré repository. (Individual members will have the option to set alternative licenses at the time of creating or adding content, as required.)&lt;/p&gt;&lt;p&gt;The Planète Sankoré-compatible license displaying below was chosen to provide maximum flexibility to community members so they can use and modify your group's contributions for the purposes of their own curriculum development and instruction. The Planète Sankoré license is a widely used Creative Commons license Attribution &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;3.0&lt;/a&gt;. If you wish to assign another license, please select from the drop-down list below. To learn about all the Creative Commons licenses, please &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;click here&lt;/a&gt;.&lt;/p&gt;
 
 ## Licenses - CurrikiSpaceClass
 ## Moved to Global Class Translation XWiki/GlobalClassTranslations by Todd on Aug-06-2008
@@ -108,7 +108,7 @@ groups_creategroup_select_access_title=Mettre en place les Privilèges d'Accès 
 
 groups_creategroup_select_access_infotxt=Vous choisissez ici le réglage par défaut qui détermine qui peut visualiser et/ou éditer les parcours de connaissances de votre groupe.
 
-groups_creategroup_select_access_open=Ouvert - N'importe qui peut visualiser le contenu de groupe; tous les membres de Curriki peuvent l'éditer.
+groups_creategroup_select_access_open=Ouvert - N'importe qui peut visualiser le contenu de groupe; tous les membres de Planète Sankoré peuvent l'éditer.
 
 groups_creategroup_select_access_protected=Protégé - Tout le monde peut visualiser le contenu du groupe; seuls les membres du groupe peuvent l'éditer.
 
@@ -116,7 +116,7 @@ groups_creategroup_select_access_private=Privé - Seuls les membres de groupe pe
 
 groups_creategroup_create_title=Completer la mise en place du Groupe
 
-groups_creategroup_create_infotxt=En cliquant sur "Créer un Groupe" ci-dessus, vous acceptez d'officier en tant que leader de groupe, ou de transmettre les droits et responsabilités afférents à un autre membre de votre groupe. En tant que leader de groupe, vous acceptez d'être le point de contact pour les questions ou problèmes en rapport avec le contenu et l'appartenance à ce groupe, et vous deviendrez automatiquement membre du Curriki Leaders Group. Après soumission de ce formulaire, vous devriez recevoir un email de Curriki pour vous féliciter de la création de ce groupe. Si vous ne recevez pas cet email, prenez contact avec Curriki pour assistance SVP.
+groups_creategroup_create_infotxt=En cliquant sur "Créer un Groupe" ci-dessus, vous acceptez d'officier en tant que leader de groupe, ou de transmettre les droits et responsabilités afférents à un autre membre de votre groupe. En tant que leader de groupe, vous acceptez d'être le point de contact pour les questions ou problèmes en rapport avec le contenu et l'appartenance à ce groupe, et vous deviendrez automatiquement membre du Planète Sankoré Leaders Group. Après soumission de ce formulaire, vous devriez recevoir un email de Planète Sankoré pour vous féliciter de la création de ce groupe. Si vous ne recevez pas cet email, prenez contact avec Planète Sankoré pour assistance SVP.
 
 groups_creategroup_create_btt=Créer un Groupe
 
@@ -139,7 +139,7 @@ groups_validation_url_invalid=Votre URL doit commencer par une lettre, et peut s
 groups_validation_education_required=Choisissez un niveau éducatif SVP. Ce champ est obligatoire.
 groups_validation_type_required=
 groups_validation_subject_required=Choisissez un sujet SVP. Ce champ est obligatoire.
-groups_validation_licence_required=Choisissez une licence par défaut pour les contributions de votre groupe à la base Curriki
+groups_validation_licence_required=Choisissez une licence par défaut pour les contributions de votre groupe à la base Planète Sankoré
 groups_validation_privacy_required=
 groups_validation_title-exists=Il y a déjà un groupe avec ce nom. Choisissez-en un autre SVP.
 
@@ -161,7 +161,7 @@ groups_welcomeblock_confirmcancel=Êtes-vous sûr que vous voulez annuler l'édi
 groups_welcomeblock_savedone=Votre section de bienvenue a été sauvegardée.
 
 ## GROUP HOME
-groups_home_tabname=Acuueil
+groups_home_tabname=Accueil
 
 ## GROUP HOME -- MASTHEAD
 groups_home_masthead_title=Titre du Groupe
@@ -170,13 +170,13 @@ groups_home_masthead_link=Éditer
 ## GROUP HOME -- EDIT MASTHEAD
 groups_home_editmasthead_title=Éditer la fiche de présentation du groupe
 groups_home_editmasthead_bc=Éditer la présentation du groupe
-groups_home_editmasthead_groupname_tooltip=Ce nom apparaît a beaucoup d'endroits à dans l'espace de votre groupe et sur le site Curriki; gardez à l'esprit que des contraintes de place mémoire rendent préférable le choix d'un nom de groupe court.
+groups_home_editmasthead_groupname_tooltip=Ce nom apparaît a beaucoup d'endroits à dans l'espace de votre groupe et sur le site. gardez à l'esprit que des contraintes de place mémoire rendent préférable le choix d'un nom de groupe court.
 
-groups_home_editmasthead_groupdescription_tooltip=Quand les gens consultent des listes de groupes Curriki, ils voient en premier la "fiche de présentation "  de votre groupe, qui inclut cette description accompagnée de votre nom de groupe et d'une image de groupe. (Vous ajouterez votre image à l'étape suivante.) 
+groups_home_editmasthead_groupdescription_tooltip=Quand les gens consultent des listes de groupes, ils voient en premier la "fiche de présentation "  de votre groupe, qui inclut cette description accompagnée de votre nom de groupe et d'une image de groupe. (Vous ajouterez votre image à l'étape suivante.) 
 
 groups_home_editmasthead_logo_infotxt_withoutlogo=La fiche de présentation de votre groupe utilise actuellement l'image située à gauche. Si vous souhaitez montrer une autre imagbe, cliquez sur "Parcourir" pour aller chercher la nouvelle image dans votre ordinateur. Une fois que vous avez trouvé l'image, cliquez sur "Mettre à jour" pour la faire apparaître dans la fiche de présentation de votre groupe. La meilleure taille pour cette image est 120x82 pixels.
 
-groups_home_editmasthead_logo_infotxt_withlogo=Your group masthead is currently using the image on the left. If you would like to show a different image, click "Browse" to find the new image on your computer. Once you locate the image, click "Submit Updates" to make it appear in your group masthead. The best size for this image is 120x82 pixels. If you want to return to using the default Curriki Group image, &lt;a href={0} onclick="return confirm(''Are you sure you want to remove the current image?'')"&gt;click here&lt;/a&gt; to remove the current image and the default Curriki Group image will appear.
+groups_home_editmasthead_logo_infotxt_withlogo=Your group masthead is currently using the image on the left. If you would like to show a different image, click "Browse" to find the new image on your computer. Once you locate the image, click "Submit Updates" to make it appear in your group masthead. The best size for this image is 120x82 pixels. If you want to return to using the default Planète Sankoré Group image, &lt;a href={0} onclick="return confirm(''Are you sure you want to remove the current image?'')"&gt;click here&lt;/a&gt; to remove the current image and the default Planète Sankoré Group image will appear.
 
 groups_home_editmasthead_logo_direction=Choisissez et Uploadez votre Image
 groups_home_editmasthead_logo_bro_btt=Parcourir
@@ -234,9 +234,9 @@ groups_home_editinformation_title=Éditer l'Information de Groupe
 groups_home_editinformation_bc=Éditer l'Information
 groups_home_editinformation_member_policy_title=Éditer la Politique d'Appartenance
 
-groups_home_editinformation_member_policy_open=Libre - Toute personne peut rejoindre Curriki sans invitation.
+groups_home_editinformation_member_policy_open=Libre - Toute personne peut rejoindre le site sans invitation.
 
-groups_home_editinformation_member_policy_closed=Privé - les membres de Curriki doivent avoir été invités et acceptés.
+groups_home_editinformation_member_policy_closed=Privé - les membres du site doivent avoir été invités et acceptés.
 
 groups_home_editinformation_subjectlevel_title=Éditer le Sujet et/ou le niveau éducatif
 
@@ -253,7 +253,7 @@ groups_home_editinformation_license_title=Éditer la Politique de Licence par D�
 groups_home_editinformation_access_title=Editer les Privilèges d'Accès par Défaut
 
 groups_home_editinformation_access_infotext=Ici vous pouvez modifier les réglages par défaut qui déterminent qui peut visualiser et/ou éditer les parcours de connaissances de votre groupe.
-groups_home_editinformation_access_open=Ouvert - N'importe qui peut visualiser le contenu du groupe; tous les membres de Curriki peuvent éditer.
+groups_home_editinformation_access_open=Ouvert - N'importe qui peut visualiser le contenu du groupe; tous les membres peuvent éditer.
 groups_home_editinformation_access_closed=Protégé - Tout le monde peut visualiser le contenu de groupe; seuls les membres du groupe peuvent éditer.
 groups_home_editinformation_access_private=Privé - Seuls les membres de groupe peuvent visualiser et éditer le contenu.
 groups_home_editinformation_webaddress_title=Éditer l'Adresse Web
@@ -426,7 +426,7 @@ groups_curriculum_collections_paging diff=Collections
 groups.curriculum.contributions.addButton=Ajouter une Ressource
 groups.curriculum.contributions.addButton_tooltip=Fournissez votre meilleure ressource d'apprentissage ou créez quelque chose de nouveau
 
-##To create macros that work in both Groups and My Curriki, the translations have to be identical. Thus the following link translations can be found in the My Curriki Translation file. Todd Jan-20-2009
+##To create macros that work in both Groups and My Planète Sankoré, the translations have to be identical. Thus the following link translations can be found in the My Planète Sankoré Translation file. Todd Jan-20-2009
 ##Add
 ##Copy
 ##Edit
@@ -535,7 +535,7 @@ groups_members_admin_current_membersettings_removeadmin_link=Supprimer le Statut
 groups_members_admin_current_membersettings_addadmin_confirm=Êtes-vous sûr de vouloir élever ce membre au statut de leader de groupe ?
 groups_members_admin_current_membersettings_addadmin_link=Assigner le Statut de Leader
 groups_members_admin_list_togglepending=En attente ({0})
-groups_members_admin_pending_infotxt=Les membres de Curriki suivants ont été invités à devenir membres ou ont demandé l'appartenance à votre groupe privé. Cliquez "Dénier" ou "Accepter" pour soumettre un statut de membre basé sur votre appréciation.
+groups_members_admin_pending_infotxt=Les membres suivants ont été invités à devenir membres ou ont demandé l'appartenance à votre groupe privé. Cliquez "Dénier" ou "Accepter" pour soumettre un statut de membre basé sur votre appréciation.
 groups_members_admin_pending_nomembershiprequests=Il n'y a actuellement pas de requêtes d'adhésion en attente.
 groups_members_admin_pending_invitedby=Invité par
 groups_members_admin_pending_requested=Appartenance demandée
@@ -595,7 +595,7 @@ groups_members_create_membersettings_email_tooltip=Sélectionner cette option si
 groups_members_create_membersettings_changenotice=Me notifier quand mes contributions ou mes messages sont modifiés.
 groups_members_cancel_btt=Annuler
 groups_members_request_sent=Votre demande d''adhésion pour {0} a été envoyée. Vous serez informé par email quand elle aura été traitée par le leader du groupe.
-groups_members_request_needaccount=Vous avez besoin d'un compte Curriki et devez être connecté pour demander l'adhésion à un groupe.
+groups_members_request_needaccount=Vous avez besoin d'un compte et devez être connecté pour demander l'adhésion à un groupe.
 ## INVITE NEW MEMBER
 groups_members_invite_title=Inviter un Nouveau Membre
 groups_members_invite_list_instruction=Pour inviter un nouveau membre à rejoindre {0}, entrez l''adresse email de la personne dans le champ ci-dessous. Pour envoyer votre invitation à de multiples personnes, listez les adresses ici, séparées par des virgules.
@@ -603,7 +603,7 @@ groups_members_invite_list_instruction=Pour inviter un nouveau membre à rejoind
 
 groups_members_invite_listfieldtxt=adresse email, nom de membre
 groups_members_invite_note_instruction=Vous pouvez mettre à jour le texte d'invitation ci-dessous si vous le désirez.
-groups_members_invite_note_instruction_tooltip=L'invitation sera dirigée vers toutes les adresses&lt;br /&gt; email listées, et l'émetteur sera webmaster@curriki.org.
+groups_members_invite_note_instruction_tooltip=L'invitation sera dirigée vers toutes les adresses&lt;br /&gt; email listées.
 groups_members_invite_invitefieldtxt=Je crois que {0} bénéficierait de votre adhésion. Faites-moi savoir si vous avez des questions SVP. Suivez les instructions ci-dessous pour rejoindre ce groupe maintenant. Merci\!
 groups_members_invite_btt=Inviter
 groups_members_cancel_btt=Annuler
@@ -612,7 +612,7 @@ groups_members_invite_inviteemissing=Insérez une adresse email pour cette invit
 groups_members_invite_emailinvalid=*{0}* n''est pas une adresse email valide.
 groups_members_invite_alreadyinvited=*{0}* a déjà été invité à rejoindre *{1}*.
 groups_members_invite_alreadymember=*{0}* est déjà membre de *{1}*.
-groups_members_invite_failed=L''invitation de &lt;strong&gt;{0}&lt;/strong&gt; a échoué. Vérifiez les adresses email de vos invités. Si vous continuez à avoir des difficultés, contactez groups@curriki.org SVP.
+groups_members_invite_failed=L''invitation de &lt;strong&gt;{0}&lt;/strong&gt; a échoué. Vérifiez les adresses email de vos invités. Si vous continuez à avoir des difficultés, contactez l'administrateur du site.
 groups_members_invite_report=*{0}* de *{1}* invitations envoyées.
 groups_members_invite_statuslink=Group leaders can view open invitation(s) on the [Members list&gt;Members?type=3].
 groups_members_invite_backlink=If you want to invite more people to the group, [click here&gt;InviteMembers] to return to the invitation form.
@@ -622,7 +622,7 @@ groups_members_accept_request_error=If you continue to encounter an error, pleas
 
 ## JOIN THIS GROUP
 groups_members_join_title=Rejoindre ce Groupe
-groups_members_join_infotxt=Pour devenir un membre de ce groupe, fournissez l'information biographique sur vous-même dans le champ ci-dessous, ajustez ensuite les paramètres d'appartenance au groupe d'après vos préférences. Finalement, cliquez sur "Rejoindre" pour confirmer votre nouvelle appartenance. Vous serez ajouté à la liste sur le Panneau des membres de ce groupe; aussi, ce groupe sera ajouté à Mes Groupes dans Mon Curriki.
+groups_members_join_infotxt=Pour devenir un membre de ce groupe, fournissez l'information biographique sur vous-même dans le champ ci-dessous, ajustez ensuite les paramètres d'appartenance au groupe d'après vos préférences. Finalement, cliquez sur "Rejoindre" pour confirmer votre nouvelle appartenance. Vous serez ajouté à la liste sur le Panneau des membres de ce groupe; aussi, ce groupe sera ajouté à Mes Groupes dans votre profil
 groups_members_join_bio_tooltip=Vous pouvez changer vos paramètres de membre d'un groupe à n'importe quel moment en allant voir dans le Panneau des membres de ce groupe et en cliquant sur "Editer les Paramètres" à côté de votre nom.
 groups_members_create_membersettings_email=Autoriser les membres du groupe à m'envoyer un email quand les messages sont créés.
 groups_members_create_membersettings_email_tooltip=Sélectionner cette option si vous voulez être notifié par email quand vous recevez des messages pour ce groupe.
@@ -632,11 +632,11 @@ groups_members_create_membersettings_changenotice=Me notifier quand mes contribu
 
 groups_members_join_btt=Rejoindre
 groups_members_cancel_btt=Annuler
-groups_members_join_needaccount=If you are not yet registered on Curriki, you will first need to &lt;a href="{0}"&gt;create an account&lt;/a&gt;.
+groups_members_join_needaccount=If you are not yet registered on Planète Sankoré, you will first need to &lt;a href="{0}"&gt;create an account&lt;/a&gt;.
 groups_members_join_alreadymember=Vous êtes déjà membre de ce groupe.
 groups_members_join_success=Congratulations! You have successfully joined this group. View your member listing in the [members list&gt;Members].
 groups_members_join_failure=Cette opération a échoué. Essayez encore SVP. Si vous continuez à avoir des problèmes, contactez groups@curriki.org SVP.
-groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans Curriki avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez groups@curriki.org SVP.
+groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans Planète Sankoré avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez groups@curriki.org SVP.
 
 
 ## old stuff
@@ -646,7 +646,7 @@ groups.invite.invite=Envoyer Invitation
 groups.invite.title=Inviter de Nouveaux Membres pour {0}
 groups.invite.message=Saisissez l''adresse email de la personne que vous voulez inviter à rejoindre *{0}*. (Pour inviter plus d''une personne, mettre une virgule entre chaque addresse email.)
 groups.invite.personalize=Personnalisez l'invitation SVP (optionnel)\:
-groups.invite.defaultmessage=Je voudrais vous inviter à rejoindre {0} sur Curriki.
+groups.invite.defaultmessage=Je voudrais vous inviter à rejoindre {0} Sankore
 groups.invite.openinvitation=Ceci est une invitation libre à une mailing list. (En cochant cette boîte, vous rendez possible à de multiples parties d'utiliser le lien d'acceptance fourni dans l'invitation emailée.)
 groups.invite.sending=Envoi de l''invitation à {0} en cours
 groups.invite.alreadyinvitedormember=*{0}* est déjà membre de *{1}* ou a une invitation en attente.
@@ -659,8 +659,8 @@ browseGroups.info=Cliquer un sujet pour voir la liste de tous les groupes dans c
 browse.subject.title.All_Groups=Tous les Groupes
 browseGroups.noGroups=Il n'y a pas de groupes pour ce sujet.
 browseGroups.groups=Groupes
-browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Be among the first to create and facilitate a group on Curriki!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Learn About Creating a Group&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Groups can:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborate on curriculum design and development&lt;/li&gt;&lt;li&gt;Share resources&lt;/li&gt;&lt;li&gt;Communicate with messaging&lt;/li&gt;&lt;li&gt;And more...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;What can YOU do with a Curriki Group?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
+browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Be among the first to create and facilitate a group on Planète Sankoré!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Learn About Creating a Group&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Groups can:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborate on curriculum design and development&lt;/li&gt;&lt;li&gt;Share resources&lt;/li&gt;&lt;li&gt;Communicate with messaging&lt;/li&gt;&lt;li&gt;And more...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;What can YOU do with a Planète Sankoré Group?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
 
 ## GROUPS DOCUMENTATION
 groups_documentation_tabname=Documentation
@@ -716,7 +716,7 @@ history.comment=Commentaire
 history.rollback=Revenir à cette version
 history.rollback.cancel=Annuler le retour à cette version
 history.rollback.confirm=Confirmer le retour à cette version
-history.rollback.exception=Exception while rollbacking Curriki Asset
+history.rollback.exception=Exception while rollbacking Planète Sankoré Asset
 history.rollback.confirm.message=Are you sure you want to rollback this asset to version {0}
 history.compare=Comparer les changements
 

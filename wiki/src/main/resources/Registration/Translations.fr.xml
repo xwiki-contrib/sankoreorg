@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315218329000</creationDate>
-<date>1315218329000</date>
-<contentUpdateDate>1315218329000</contentUpdateDate>
+<creationDate>1315235664000</creationDate>
+<date>1315235664000</date>
+<contentUpdateDate>1315235664000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -75,7 +75,7 @@ forgotUsernameEmail.part2=Vous avez oublié votre mot de passe? Ça arrive aux m
 
 #Main.ForgotUsernamesEmail
 
-forgotUsernamesEmail.part1=Dear planete.sankore.org user,
+forgotUsernamesEmail.part1=Cher utilisateur planete.sankore.org,
 forgotUsernamesEmail.part2=Vous avez oublié votre nom d'utilisateur? Ça arrive aux meilleurs d'entre nous. Vous avez en fait créé de multiples noms d'utilisateur '${names}'. Si vous avez oublié votre mot de passe, cliquez sur le lien "J'ai oublié mon mot de passe" sur la page de connexion, et nous vous enverrons un email avec votre mot de passe.
 
 
@@ -146,6 +146,7 @@ profile.edit=Editer le profil
 profile.accessDenied=Vous devez être connecté en tant que membre Planète Sankoré pour visualiser les profils des autres membres.
 profile.userNotVisible=Ce membre préfère ne pas montrer son profil.
 profile.removePhoto.confirmation=Voulez-vous vraiment effacer votre photo ?
+profile.modifyPhoto.confirmation=Vous devez d'abord supprimer votre photo. Souhaitez-vous vraiment faire cela ?
 profile.removePhoto=Effacer Photo
 profile.removeYourPhoto=Effacer votre Photo
 profile.modifyYourPhoto=Modifier votre Photo
