@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315232229000</creationDate>
-<date>1315232229000</date>
-<contentUpdateDate>1315232229000</contentUpdateDate>
+<creationDate>1315237699000</creationDate>
+<date>1315237699000</date>
+<contentUpdateDate>1315237699000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreProfile</title>
 <template></template>
@@ -183,10 +183,10 @@
     &lt;p&gt;&lt;strong&gt;$userdoc.display('last_name', 'view', $userobj)&lt;/strong&gt;&lt;/p&gt;
     &lt;p&gt;&lt;span&gt;$userdoc.display('city', 'view', $userobj)&lt;/span&gt; | &lt;span&gt;$userdoc.display('country', 'view', $userobj)&lt;/span&gt;&lt;/p&gt;
     &lt;div class="clearfloats"&gt;&lt;/div&gt;
-    &lt;p&gt;&lt;strong&gt;Profession:&lt;/strong&gt; $userdoc.display('member_type', 'view', $userobj)&lt;/p&gt;
-    &lt;p&gt;&lt;strong&gt;Organisation:&lt;/strong&gt; $userdoc.display('affiliation', 'view', $userobj)&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;$msg.get("profile.field.memberType")&lt;/strong&gt; $userdoc.display('member_type', 'view', $userobj)&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;$msg.get("profile.field.affiliation")&lt;/strong&gt; $userdoc.display('affiliation', 'view', $userobj)&lt;/p&gt;
   &lt;/div&gt;
-  &lt;p&gt;&lt;strong&gt;Bio:&lt;/strong&gt; $!userdoc.display('comment', 'view', $userobj)&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;$msg.get("profile.field.bio")&lt;/strong&gt; $!userdoc.display('comment', 'view', $userobj)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="profile-links"&gt;
   &lt;table border="0"&gt;
