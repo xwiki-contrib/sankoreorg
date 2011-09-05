@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Main</web>
+<name>SearchPanelTemplate</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1315227779000</creationDate>
+<date>1315227779000</date>
+<contentUpdateDate>1315227779000</contentUpdateDate>
+<version>1.1</version>
+<title>SearchPanelTemplate</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>(% id="rechercher" class="block block-block clearfix" %)
+(((
+[[image:Panels.SankoreSearchPanel@BGrechercher.png||width="81" class="block-icon"]]
+(% class="block-title" %)
+== The Sankoré search engine  ==
+(% class="block-contents-top" %)
+(((
+{{html}}
+#template("advancedsearch.vm")
+{{/html}}
+
+Sankore is an intelligent search engine to find, evaluate and share best teaching free digital resources (RNEL) Sankore in the database and more than 600 selected sites.
+)))
+(% class="block-contents-bottom" %)
+(((
+To share your digital resources and teaching through your favorite sites using Sankore plugin.
+[[Download the plugin Sankoré&gt;&gt;#||class="download-link"]]
+)))
+)))</content></xwikidoc>

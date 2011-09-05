@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314611379000</creationDate>
-<date>1314611379000</date>
-<contentUpdateDate>1314611379000</contentUpdateDate>
+<creationDate>1315227596000</creationDate>
+<date>1315227596000</date>
+<contentUpdateDate>1315227596000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -157,30 +157,7 @@ YII=
 <property>
 <content>{{velocity filter="none"}}
 #if($doc.fullName == "Main.WebHome")
-{{html clean="false" wiki="true"}}
-&lt;div id="rechercher" class="block block-block clearfix"&gt;
-  &lt;img width="81px" src="/xwiki/bin/download/Panels/SankoreSearchPanel/BGrechercher.png" typeof="foaf:Image" class="block-icon"&gt;
-  &lt;h2 class="block-title"&gt;Le moteur de recherche Sankoré&lt;/h2&gt;
-  &lt;div class="block-contents-top"&gt;    
-    &lt;form id="searchform" name="searchform" class="search-box" action="$xwiki.getURL("Search.WebHome")" onsubmit="document.location.href=document.searchform.action+'#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Aterms%25253Ds%2525253A'+escape(escape(escape(escape(($('curriki-searchbox').value!=='$defaultsearchtext')?$('curriki-searchbox').value:'')))); return false;"&gt;  
-    &lt;input type="hidden" class="hidden" name="area" value=""/&gt;
-    #set($brsqry = $request.brsqry)
-    #if(!$brsqry || $brsqry == "")
-      #set($brsqry = $defaultsearchtext)
-    #end
-    &lt;input type="text" id="curriki-searchbox" name="brsqry" class="input" value="$!brsqry" onfocus="if (this.value=='$defaultsearchtext') this.value=''; else this.select()" onblur="if (this.value=='') this.value='$defaultsearchtext'" size="25" /&gt;
-    &lt;input type="submit" class="form-submit" value=" " name="op" id="edit-submit"&gt;&lt;/button&gt;      
-  &lt;/form&gt;
-    &lt;p&gt;Pour rechercher des sites et des ressources numériques d'enseignement libres (RNEL)&lt;/p&gt;
-    &lt;p&gt;Par niveau scolaire et par discipline&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class="block-contents-bottom"&gt;
-    &lt;p&gt;Pour partager vos ressources numériques d'enseignement et vos sites favoris grâce
-au plugin Sankoré.&lt;/p&gt;
-    &lt;p&gt;&lt;a class="download-link" href="#"&gt;Télécharger le plugin Sankoré&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-{{/html}}
+{{include document="Main.SearchPanelTemplate" /}}
 #end
 {{/velocity}}</content>
 </property>
