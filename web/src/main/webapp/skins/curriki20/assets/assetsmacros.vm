@@ -289,10 +289,10 @@ Ext.select('div#asset-header h2 a').hover(function(){Ext.select('ul#asset-tabs l
       #asset_resourcefunctions($asset)
      #end
      #asset_icontitle($asset)
-     #asset_attribution($asset)
      #if($dmode!="edit")
       #asset_rating($asset)
      #end
+     #asset_attribution($asset)
      #if(!$isPrint)
       #asset_tabs($asset "view")
      #end
