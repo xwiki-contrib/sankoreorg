@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1309872633000</creationDate>
-<date>1309872633000</date>
-<contentUpdateDate>1309872633000</contentUpdateDate>
+<creationDate>1314275744000</creationDate>
+<date>1314275744000</date>
+<contentUpdateDate>1314275744000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -77,7 +77,7 @@
 
 
 ## FORM ACCESS WARNING
-createresources.needaccount=You must be a Curriki member and be &lt;a href="{0}"&gt;logged in&lt;/a&gt; to create a new resource.
+createresources.needaccount=You must be a Planète Sankoré member and be &lt;a href="{0}"&gt;logged in&lt;/a&gt; to create a new resource.
 
 
 
@@ -121,7 +121,7 @@ form.title.description.link1=Samples
 form.title.description.link1.url=/xwiki/bin/view/Coll_curriki/SampleWikiResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
 form.title.description.link3=Help
 form.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
-form.title.description.link2=Curriki Review System
+form.title.description.link2=Planète Sankoré Review System
 form.title.description.link2.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 form.title.description.link2.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
@@ -155,7 +155,7 @@ form.html.title.description.link1=Samples
 form.html.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/SampleHTMLResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
 form.html.title.description.link3=Help
 form.html.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheHTMLResourcefromScratchForm?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository;Coll_curriki.CreatingResourceswithFormsTemplates
-form.html.title.description.link2=Curriki Review System
+form.html.title.description.link2=Planète Sankoré Review System
 form.html.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 form.html.title.description.link2.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
@@ -184,14 +184,14 @@ form.html.scratch.step2.content.instruction=Enter content in the editing window 
 ## CSLP TITLE AREA
 
 lesson.plan.url=/xwiki/bin/view/CreateResources/CurrikiStandardLessonPlan
-lesson.plan.title=Create a Resource from a Template (Curriki Standard Lesson Plan)
+lesson.plan.title=Create a Resource from a Template (Planète Sankoré Standard Lesson Plan)
 lesson.plan.title.description=Learn more:
 
 lesson.plan.title.description.link1=Models
 lesson.plan.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/ModelLessonsfromCurrikisForm-BasedTemplate
 lesson.plan.title.description.link3=Help
 lesson.plan.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
-lesson.plan.title.description.link2=Curriki Review System
+lesson.plan.title.description.link2=Planète Sankoré Review System
 lesson.plan.title.description.link2.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 lesson.plan.title.description.link2.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
@@ -263,7 +263,7 @@ lesson.plan.standards.tooltip=What standards or expectations does the lesson add
 
 lesson.plan.required.attachments.title=Required Attachments:
 lesson.plan.required.attachments.instruction=Select and upload files from your computer. Attached files cannot exceed 20 MB in total. These will be offered as links in the published lesson plan.
-lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Curriki; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Curriki as standalone resources, so these contributions can be discovered and reused more easily.
+lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Planète Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Planète Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
 lesson.plan.attachments.title=Attached Files:
 lesson.plan.required.attachments.tooltip=Attach any files referenced in the lesson, such as a handout, rubric, worksheet, or quiz.
 lesson.plan.attachments.browse.button=Browse
@@ -271,8 +271,8 @@ lesson.plan.attachments.attach.button=Attach This File
 lesson.plan.attachments.delete=Remove
 lesson.plan.file.size.maximum=20000000
 lesson.plan.file.size.label=Total size of all attachments:
-lesson.plan.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Curriki contribution instead of attaching it to this resource.
-lesson.plan.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Curriki contribution instead of attaching it to this resource.
+lesson.plan.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Planète Sankoré contribution instead of attaching it to this resource.
+lesson.plan.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Planète Sankoré contribution instead of attaching it to this resource.
 lesson.plan.file.size.dialog.button=OK
 
 
@@ -394,7 +394,7 @@ nortel.lesson.plan.standards.tooltip=Indicate standards/frameworks the lesson ad
 nortel.lesson.plan.required.attachments.title=Required Attachments:
 nortel.lesson.plan.required.attachments.instruction=Select and upload files from your computer. Attached files cannot exceed 20 MB in total. These will be offered as links in the published lesson plan.
 nortel.lesson.plan.required.attachments.tooltip=Attach any files referenced in this lesson, such as a handout, rubric, worksheet, or quiz.
-nortel.lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Curriki; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Curriki as standalone resources, so these contributions can be discovered and reused more easily.
+nortel.lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Planète Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Planète Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
 nortel.lesson.plan.required.attachments.browse.button=Browse
 nortel.lesson.plan.required.attachments.attach.button=Attach This File
 nortel.lesson.plan.required.attachments.delete=Remove
@@ -521,7 +521,7 @@ ace.lesson.plan.procedures.addrow=Add a Row
 ace.lesson.plan.required.attachments.title=Required Attachments:
 ace.lesson.plan.required.attachments.instruction=Select and upload files from your computer. Attached files cannot exceed 20 MB in total. These will be offered as links in the published lesson plan.
 
-ace.lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Curriki; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Curriki as standalone resources, so these contributions can be discovered and reused more easily.
+ace.lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Planète Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Planète Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
 ace.lesson.plan.attachments.title=Attached Files:
 ace.lesson.plan.required.attachments.tooltip=Attach any files referenced in the lesson, such as a handout, rubric, worksheet, or quiz.
 ace.lesson.plan.attachments.browse.button=Browse
@@ -530,8 +530,8 @@ ace.lesson.plan.attachments.delete=Remove
 
 ace.lesson.plan.file.size.maximum=20000000
 ace.lesson.plan.file.size.label=Total size of all attachments:
-ace.lesson.plan.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Curriki contribution instead of attaching it to this resource.
-ace.lesson.plan.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Curriki contribution instead of attaching it to this resource.
+ace.lesson.plan.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Planète Sankoré contribution instead of attaching it to this resource.
+ace.lesson.plan.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Planète Sankoré contribution instead of attaching it to this resource.
 ace.lesson.plan.file.size.dialog.button=OK
 
 ## ACELP STEP 4
@@ -570,7 +570,7 @@ wq.title.description.link2=Help
 wq.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheWebquestForm
 wq.title.description.link3=WebQuest Background
 wq.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/WebQuestBackgroundInstructionalDesign
-wq.title.description.link4=Curriki Review System
+wq.title.description.link4=Planète Sankoré Review System
 wq.title.description.link4.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 wq.title.description.link4.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
@@ -647,7 +647,7 @@ wq.standards.tooltip=If you wish to attach a formatted document citing specific 
 wq.required.attachments.title=Required Attachments:
 wq.required.attachments.instruction=Select and upload files from your computer. Attached files cannot exceed 20 MB in total. These will be offered as links in the published lesson plan.
 
-wq.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Curriki; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Curriki as standalone resources, so these contributions can be discovered and reused more easily.
+wq.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Planète Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Planète Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
 wq.attachments.title=Attached Files:
 wq.required.attachments.tooltip=Attach any files referenced in the lesson, such as a handout, rubric, worksheet, or quiz.
 wq.attachments.browse.button=Browse
@@ -656,8 +656,8 @@ wq.attachments.delete=Remove
 
 wq.file.size.maximum=20000000
 wq.file.size.label=Total size of all attachments:
-wq.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Curriki contribution instead of attaching it to this resource.
-wq.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Curriki contribution instead of attaching it to this resource.
+wq.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Planète Sankoré contribution instead of attaching it to this resource.
+wq.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Planète Sankoré contribution instead of attaching it to this resource.
 ace.lesson.plan.file.size.dialog.button=OK
 
 
@@ -782,7 +782,7 @@ sri.instructional_component_tooltip=Type or format of content that best matches 
 sri.keywords_title=Key Words:
 sri.keywords_txt=
 sri.keywords_content=
-sri.keywords_tooltip=Words to help people find your resource when searching Curriki or the Internet
+sri.keywords_tooltip=Words to help people find your resource when searching Planète Sankoré or the Internet
 
 ## LANGUAGE
 sri.language_title=Language:
@@ -813,7 +813,7 @@ sri.rights_content=
 
 sri.license_type_title=License Deed:
 
-sri.license_type_txt=Please be sure you have read and understand the &lt;a href="/xwiki/bin/view/Main/TOS?xpage=popup" target="TOS"&gt;Terms of Use&lt;/a&gt; and that you have the rights to contribute this content.&lt;br /&gt;&lt;br /&gt;The Curriki-compatible license provides maximum flexibility to the community, so members can use and modify others&amp;#39; contributions.  The default Curriki license is a widely used Creative Commons license Attribution &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;.  If you wish to assign another license, please select from the drop-down list below.  To learn about all the Creative Commons licenses, please &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;click here&lt;/a&gt;.
+sri.license_type_txt=Please be sure you have read and understand the &lt;a href="/xwiki/bin/view/Main/TOS?xpage=popup" target="TOS"&gt;Terms of Use&lt;/a&gt; and that you have the rights to contribute this content.&lt;br /&gt;&lt;br /&gt;The Planète Sankoré-compatible license provides maximum flexibility to the community, so members can use and modify others&amp;#39; contributions.  The default Planète Sankoré license is a widely used Creative Commons license Attribution &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;.  If you wish to assign another license, please select from the drop-down list below.  To learn about all the Creative Commons licenses, please &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;click here&lt;/a&gt;.
 sri.license_type_heading=Set License Deed:
 
 sri.license_type_tooltip=License protecting this content
@@ -862,7 +862,7 @@ add.setrequiredinfo.part2.next.button=Next &gt;&gt;
 
 
 ##CONTRIBUTE MENU
-add.contributemenu.title_addto_site=Add to Curriki
+add.contributemenu.title_addto_site=Add to Planète Sankoré
 add.contributemenu.title_addto_composite=Add to Collection or Folder
 add.contributemenu.guidingquestion_addto_site=What would you like to add?
 
@@ -876,8 +876,8 @@ add.contributemenu.option.file_browse_button=Browse
 add.contributemenu.option.video_upload=A video I want to upload
 add.contributemenu.option.link=A link for a great web resource
 add.contributemenu.link.empty_msg=http://
-add.contributemenu.option.repository=A resource I can find by searching Curriki
-add.contributemenu.subtitle_make=Something I want to make on Curriki:
+add.contributemenu.option.repository=A resource I can find by searching Planète Sankoré
+add.contributemenu.subtitle_make=Something I want to make on Planète Sankoré:
 add.contributemenu.option.template=A resource I&amp;#39;ll create using a template
 add.contributemenu.option.scratch=A resource I&amp;#39;ll create from "scratch"
 add.contributemenu.option.video_capture=A video I&amp;#39;ll capture with my webcam
@@ -896,8 +896,8 @@ add.contributemenu.next.button=Next &gt;&gt;
 add.selecttemplate.title=Select a Template
 add.selecttemplate.guidingquestion=What kind of resource would you like to create?
 
-add.selecttemplate.list1.header=&lt;b&gt;Curriki Standard Lesson Plan&lt;/b&gt;
-add.selecttemplate.list1.description=This Curriki template offers the simplest lesson structure, with Learning Objectives and Procedures as the only required content.
+add.selecttemplate.list1.header=&lt;b&gt;Planète Sankoré Standard Lesson Plan&lt;/b&gt;
+add.selecttemplate.list1.description=This Planète Sankoré template offers the simplest lesson structure, with Learning Objectives and Procedures as the only required content.
 add.selecttemplate.list1.thumbnail=/xwiki/bin/download/CreateResources/TemplateThumbnails/CurrikiStandardLessonPlanThumb.png
 add.selecttemplate.list1.url=/xwiki/bin/view/CreateResources/CurrikiStandardLessonPlan
 
@@ -913,7 +913,7 @@ add.selecttemplate.list3.url=/xwiki/bin/view/CreateResources/ACELessonPlan
 
 
 add.selecttemplate.list4.header=&lt;b&gt;WebQuest&lt;/b&gt;
-add.selecttemplate.list4.description=This Curriki template offers the structure for creating a student-directed learning activity that requires students to engage with online resources; includes an evaluation rubric.
+add.selecttemplate.list4.description=This Planète Sankoré template offers the structure for creating a student-directed learning activity that requires students to engage with online resources; includes an evaluation rubric.
 add.selecttemplate.list4.thumbnail=/xwiki/bin/download/CreateResources/TemplateThumbnails/WebQuestThumb.png
 add.selecttemplate.list4.url=/xwiki/bin/view/CreateResources/WebQuest
 
