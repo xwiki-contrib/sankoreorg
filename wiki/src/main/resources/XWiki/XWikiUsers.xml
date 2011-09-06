@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>XWiki</web>
+<name>XWikiUsers</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>XWiki.XWikiClasses</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1315211328000</creationDate>
+<date>1315211328000</date>
+<contentUpdateDate>1315211328000</contentUpdateDate>
+<version>1.1</version>
+<title>XWiki User Class</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<class>
+<name>XWiki.XWikiUsers</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<accessibility>
+<customDisplay></customDisplay>
+<defaultValue></defaultValue>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>accessibility</name>
+<number>34</number>
+<prettyName>Enable extra accessibility features</prettyName>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</accessibility>
+<active>
+<customDisplay></customDisplay>
+<defaultValue></defaultValue>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>active</displayType>
+<name>active</name>
+<number>14</number>
+<prettyName>Active</prettyName>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</active>
+<address>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>Wysiwyg</editor>
+<name>address</name>
+<number>36</number>
+<picker>0</picker>
+<prettyName>Address</prettyName>
+<rows>3</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</address>
+<affiliation>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>affiliation</name>
+<number>9</number>
+<picker>0</picker>
+<prettyName>Organization Affiliation</prettyName>
+<size>30</size>
+<tooltip>Enter your organization Affiliation</tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</affiliation>
+<avatar>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>avatar</name>
+<number>25</number>
+<picker>0</picker>
+<prettyName>Avatar</prettyName>
+<size>30</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</avatar>
+<blog>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>blog</name>
+<number>17</number>
+<picker>0</picker>
+<prettyName>Blog</prettyName>
+<size>60</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</blog>
+<blogfeed>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>blogfeed</name>
+<number>18</number>
+<picker>0</picker>
+<prettyName>Blog Feed</prettyName>
+<size>60</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</blogfeed>
+<city>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>city</name>
+<number>27</number>
+<picker>0</picker>
+<prettyName>City</prettyName>
+<size>30</size>
+<tooltip>Enter your city of residence</tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</city>
+<comment>
+<contenttype>FullyRenderedText</contenttype>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>---</editor>
+<name>comment</name>
+<number>19</number>
+<picker>0</picker>
+<prettyName>Comment</prettyName>
+<rows>5</rows>
+<size>40</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</comment>
+<company>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>company</name>
+<number>26</number>
+<picker>0</picker>
+<prettyName>Company</prettyName>
+<size>30</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</company>
+<country>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>country</name>
+<number>7</number>
+<picker>1</picker>
+<prettyName>Country</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<tooltip>Enter your country of residence.</tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>---=---|AD|AE|AF|AL|AM|AO|AQ|AR|AT|AU|AZ|BA|BB|BD|BE|BF|BG|BH|BI|BJ|BM|BN|BO|BR|BS|BT|BW|BY|BZ|CA|CD|CF|CG|CH|CI|CL|CM|CN|CO|CR|CU|CV|CY|CZ|DE|DJ|DK|DO|DZ|EC|EE|EG|ES|ET|FI|FR|GA|GB|GE|GF|GH|GI|GL|GM|GN|GP|GQ|GR|GT|GW|GY|HK|HN|HR|HT|HU|ID|IE|IL|IN|IQ|IR|IS|IT|JM|JO|JP|KE|KG|KH|KM|KP|KR|KW|KZ|LA|LB|LI|LK|LR|LS|LT|LU|LV|MA|MC|MD|ME|MG|ML|MN|MO|MQ|MR|MT|MU|MV|MW|MX|MY|MZ|NA|NC|NE|NG|NI|NL|NO|NP|NZ|PA|PE|PF|PG|PH|PK|PL|PR|PS|PT|PY|RO|RS|RU|RW|SA|SB|SC|SD|SE|SG|SI|SK|SL|SM|SN|SO|SR|SV|SY|SZ|TD|TG|TH|TJ|TM|TN|TR|TT|TW|TZ|UA|UG|US|UY|UZ|VA|VE|VN|YE|ZA|ZM|ZW</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</country>
+<default_language>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>default_language</name>
+<number>15</number>
+<picker>1</picker>
+<prettyName>Default Language</prettyName>
+<size>30</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</default_language>
+<editor>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>editor</name>
+<number>22</number>
+<picker>1</picker>
+<prettyName>Default Editor</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>---|Text|Wysiwyg</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</editor>
+<email>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>email</name>
+<number>1</number>
+<picker>0</picker>
+<prettyName>e-Mail Address</prettyName>
+<size>30</size>
+<tooltip>Please enter your email address.</tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage>You have not entered a valid email address</validationMessage>
+<validationRegExp>/.+/</validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</email>
+<email_undeliverable>
+<customDisplay></customDisplay>
+<defaultValue>0</defaultValue>
+<disabled>0</disabled>
+<displayFormType>radio</displayFormType>
+<displayType></displayType>
+<name>email_undeliverable</name>
+<number>31</number>
+<prettyName>Email is Undeliverable</prettyName>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</email_undeliverable>
+<first_name>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>first_name</name>
+<number>3</number>
+<picker>0</picker>
+<prettyName>First Name</prettyName>
+<size>30</size>
+<tooltip>Please enter a display name.</tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage>The display name field cannot be empty</validationMessage>
+<validationRegExp>/.+/</validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</first_name>
+<i_agree>
+<cache>0</cache>
+<customDisplay>&lt;input type="checkbox" name="XWiki.XWikiUsers_0_i_agree" value="1" /&gt; I agree
+
+I have read, understand and agree to Curriki's Privacy Policy, the Educational Process Agreement and the License Explanation.
+</customDisplay><disabled>0</disabled>
+<displayType>checkbox</displayType>
+<multiSelect>0</multiSelect>
+<name>i_agree</name>
+<number>11</number>
+<picker>0</picker>
+<prettyName>I agree</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage>You need to agree to the privacy policy, the process agreement and the License explanation</validationMessage>
+<validationRegExp>/1/</validationRegExp>
+<values>1</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</i_agree>
+<imaccount>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>imaccount</name>
+<number>21</number>
+<picker>0</picker>
+<prettyName>imaccount</prettyName>
+<size>30</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</imaccount>
+<imtype>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>imtype</name>
+<number>20</number>
+<picker>1</picker>
+<prettyName>IM Type</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>---|AIM|Yahoo|Jabber|MSN|Skype|ICQ</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</imtype>
+<last_name>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>last_name</name>
+<number>5</number>
+<picker>0</picker>
+<prettyName>Last Name</prettyName>
+<size>30</size>
+<tooltip>Please enter a display name.</tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage>The display name field cannot be empty</validationMessage>
+<validationRegExp>/.+/</validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</last_name>
+<ldap_dn>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>ldap_dn</name>
+<number>33</number>
+<picker>0</picker>
+<prettyName>LDAP DN</prettyName>
+<size>80</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</ldap_dn>
+<member_type>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>member_type</name>
+<number>6</number>
+<picker>1</picker>
+<prettyName>Member Type</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<tooltip>Enter your member type.</tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>0=---|student|teacher|professional|parent</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</member_type>
+<notminor>
+<cache>0</cache>
+<customDisplay>&lt;input type="checkbox" name="XWiki.XWikiUsers_0_notminor" value="1" /&gt;
+</customDisplay><disabled>0</disabled>
+<displayType>checkbox</displayType>
+<multiSelect>0</multiSelect>
+<name>notminor</name>
+<number>12</number>
+<picker>0</picker>
+<prettyName>I am not a minor; I'm more than 18 years old</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage>You need to check the box "I'm not a minor"</validationMessage>
+<validationRegExp>/.+/</validationRegExp>
+<values>1</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</notminor>
+<opt_out>
+<customDisplay></customDisplay>
+<defaultValue>0</defaultValue>
+<disabled>0</disabled>
+<displayFormType>checkbox</displayFormType>
+<displayType></displayType>
+<name>opt_out</name>
+<number>30</number>
+<prettyName>Opt Out of Email</prettyName>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</opt_out>
+<pageWidth>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>pageWidth</name>
+<number>24</number>
+<picker>1</picker>
+<prettyName>Preferred page width</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>default|640|800|1024|1280|1600</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</pageWidth>
+<password>
+<algorithm></algorithm>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>password</name>
+<number>2</number>
+<picker>0</picker>
+<prettyName>Password</prettyName>
+<size>30</size>
+<storageType>Hash</storageType>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage>The password field must be at least 5 characters long and without space</validationMessage>
+<validationRegExp>/^[^\ ]{5,}$/</validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.PasswordClass</classType>
+</password>
+<phone>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>phone</name>
+<number>35</number>
+<picker>0</picker>
+<prettyName>Phone</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</phone>
+<show_contact>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>radio</displayType>
+<multiSelect>0</multiSelect>
+<name>show_contact</name>
+<number>10</number>
+<picker>0</picker>
+<prettyName>Show your contact information</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>1=Yes|0=No</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</show_contact>
+<skin>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>skin</name>
+<number>23</number>
+<picker>0</picker>
+<prettyName>skin</prettyName>
+<size>30</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</skin>
+<state>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>state</name>
+<number>8</number>
+<picker>0</picker>
+<prettyName>State/Province</prettyName>
+<size>30</size>
+<tooltip>Enter your state of residence</tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</state>
+<topics>
+<cache>0</cache>
+<classname></classname>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<idField></idField>
+<multiSelect>1</multiSelect>
+<name>topics</name>
+<number>29</number>
+<parentField></parentField>
+<picker>1</picker>
+<prettyName>Topics of Interest</prettyName>
+<relationalStorage>1</relationalStorage>
+<separator> </separator>
+<separators>|</separators>
+<size>10</size>
+<sort>none</sort>
+<sql>select doc.fullName, doc.title, doc.parent from XWikiDocument as doc, BaseObject as obj where doc.web='FW_masterFramework' and doc.fullName=obj.name and obj.className='XWiki.FrameworkItemClass' order by doc.title</sql>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<valueField></valueField>
+<classType>com.xpn.xwiki.objects.classes.DBTreeListClass</classType>
+</topics>
+<usertype>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>usertype</name>
+<number>28</number>
+<picker>1</picker>
+<prettyName>usertype</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<values>Simple|Advanced</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</usertype>
+<validkey>
+<algorithm></algorithm>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>validkey</name>
+<number>13</number>
+<picker>0</picker>
+<prettyName>Validation Key</prettyName>
+<size>10</size>
+<storageType>Clear</storageType>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.PasswordClass</classType>
+</validkey>
+<validredirect>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>validredirect</name>
+<number>32</number>
+<picker>0</picker>
+<prettyName>validredirect</prettyName>
+<size>30</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</validredirect>
+</class>
+<content>1 Users
+
+   * [RegisterNewUser]
+
+#if($xwiki.hasAdminRights())
+1 Current Users
+
+#set($list = $xwiki.searchDocuments(",BaseObject as obj where doc.fullName=obj.name and obj.className='XWiki.XWikiUsers'"))
+{table}
+Photo | First Name | Last Name | eMail | View Profile
+#foreach($user in $list)
+#set($userdoc = $xwiki.getDocument($user)) $userdoc.use("XWiki.XWikiUsers") #if($userdoc.attachmentList.size()&gt;0) #set($attach = $userdoc.attachmentList.get(0)) &lt;img src="$userdoc.getAttachmentURL($attach.filename,"download", "height=50")" height="50"/&gt; #end | $userdoc.first_name | $userdoc.last_name | #if($xwiki.hasAdminRights()) $userdoc.email #else not shown #end | [View Profile&gt;$userdoc.fullName]
+#end
+{table}
+
+1 Admin
+
+   * [XWikiUserTemplate]
+   * [XWikiUserSheet]
+#end</content></xwikidoc>
