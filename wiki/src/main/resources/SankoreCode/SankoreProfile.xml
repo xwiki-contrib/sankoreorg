@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315313325000</creationDate>
-<date>1315313325000</date>
-<contentUpdateDate>1315313325000</contentUpdateDate>
+<creationDate>1315316577000</creationDate>
+<date>1315316577000</date>
+<contentUpdateDate>1315316577000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreProfile</title>
 <template></template>
@@ -118,6 +118,7 @@
   float: left;
   margin-right: 10px;
   border: solid 1px #8DA7AC;
+  width: 120px;
 }
 
 #xwikiuseravatar {
@@ -183,7 +184,7 @@
     #end
   #end
   #if("$!avatarURL" == '')
-    #set($avatarURL = $xwiki.getDocument("XWiki.XWikiUserSheet").getAttachmentURL('noavatar.png', 'download', 'width=90'))
+    #set($avatarURL = $xwiki.getSkinFile('noavatar.png'))
   #end
     &lt;img class="photo" id="xwikiuseravatar" alt="$userdoc.display('first_name', 'view', $userobj)" src="$avatarURL"/&gt;
     &lt;p&gt;&lt;strong&gt;$userdoc.display('first_name', 'view', $userobj)&lt;/strong&gt;&lt;/p&gt;
