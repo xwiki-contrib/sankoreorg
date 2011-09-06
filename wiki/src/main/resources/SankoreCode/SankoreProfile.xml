@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315237699000</creationDate>
-<date>1315237699000</date>
-<contentUpdateDate>1315237699000</contentUpdateDate>
+<creationDate>1315313325000</creationDate>
+<date>1315313325000</date>
+<contentUpdateDate>1315313325000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreProfile</title>
 <template></template>
@@ -173,6 +173,13 @@
       #if($attach.filename == $userobj.getProperty("avatar").getValue())
         #set($avatarURL = "$userdoc.getAttachmentURL($attach.filename, 'download', 'width=120')")
       #end
+    #end
+  #end
+  ## try to get the first attachment
+  #if("$!avatarURL" == '')
+    #if($userdoc.getAttachmentList().size() &gt; 0)
+      #set($firstAttach = $userdoc.getAttachmentList().get(0))
+      #set($avatarURL = $userdoc.getAttachmentURL($firstAttach.filename, 'download', 'width=120'))
     #end
   #end
   #if("$!avatarURL" == '')
