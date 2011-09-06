@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1312281325000</creationDate>
-<date>1312281325000</date>
-<contentUpdateDate>1312281325000</contentUpdateDate>
+<creationDate>1315231865000</creationDate>
+<date>1315231865000</date>
+<contentUpdateDate>1315231865000</contentUpdateDate>
 <version>1.1</version>
-<title>Register to Join Curriki</title>
+<title>Register to Join planete.Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -630,6 +630,40 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
   &lt;/div&gt; ## register_field
 &lt;/div&gt; ## register_block
 #end ## macro formfield
+
+#macro(formfield_sortedlist $fieldname $text $mandatory)
+&lt;div class="register_block" id="register_block_$fieldname"&gt;
+  &lt;div class="register_title"&gt;
+  #if($mandatory == true)#asterix()#end $msg.get("joincurriki.fields.$fieldname")
+  &lt;/div&gt;
+  #if($text!="")
+  &lt;div class="register_help"&gt;$text&lt;/div&gt;
+  #end
+  &lt;div class="register_field"&gt;
+  #if($mandatory == true)
+  &lt;script type="text/javascript"&gt;
+  addMandatoryValueField("register_block_$fieldname", "XWiki.XWikiUsers_0_$fieldname");
+  &lt;/script&gt;
+  #end
+  &lt;select id="XWiki.XWikiUsers_0_$fieldname" size="1" name="XWiki.XWikiUsers_0_$fieldname"&gt;
+  #set($xwikiusers_xclass = $xwiki.getClass("XWiki.XWikiUsers"))
+  #set($field_xclass = $xwikiusers_xclass.get($fieldname))
+  #set($hashmap = $util.hashMap)
+  #set($keys = $field_xclass.listValues)
+  #set($values = $util.arrayList)
+  #foreach($key in $keys)
+    #set($value = $msg.get("XWiki.XWikiUsers_country_${key}"))
+    #set($discard = $values.add($value))
+    #set($discard = $hashmap.put($value, $key))
+  #end
+  #set($sorted = $sorttool.sort($values))
+  #foreach($value in $sorted)
+    &lt;option label="$value" value="$hashmap.get($value)"&gt;$value&lt;/option&gt;
+  #end
+  &lt;/select&gt;
+  &lt;/div&gt; ## register_field
+&lt;/div&gt; ## register_block
+#end
 ## End Macros
 ##
 ##
@@ -692,10 +726,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
           hasError = true;
           alert("$msg.get("joincurriki.password.noMatch")");
         }
-      }
-      if($('XWiki.XWikiUsers_0_affiliation').value == 'na' &amp;&amp; $('register')['XWiki.XWikiUsers_0_affiliationOther'].value == '') {
-        hasError = true;
-        alert("$msg.get("joincurriki.affiliation.noAffiliation")")
       }
   
       var emailStr = $('XWiki.XWikiUsers_0_email').value;
@@ -811,8 +841,8 @@ $msg.get("joincurriki.enterRequestedInfo")
   #formfield("topics" $msg.get("joincurriki.topics") false)
   #formfield("city" "" false)
   #formfield("state" "" false)
-  #formfield("country" "" false)
-  #formfield("affiliation" "" true)
+  #formfield_sortedlist("country" "" false)
+  #formfield("affiliation" "" false)
   #formfield("show_contact" $msg.get("joincurriki.showContact") true)
   &lt;input type="hidden" name="XWiki.XWikiUsers_0_validated" value="0" /&gt;
   &lt;div class="register_block" id="register_block_notminor"&gt;
@@ -823,19 +853,26 @@ $msg.get("joincurriki.enterRequestedInfo")
 
   #set($ppurl = $xwiki.getURL("Main.PrivacyPolicy"))
   #set($TOS = $xwiki.getURL("Main.TermsOfUse"))
+  ## FIXME: fix the actual terms of use and privacy and uncomment this when done. FTM these are commented because they link to bad things 
+  ## and a hidden field is added so that registration is successful
+  #*
   &lt;div class="register_block" id="register_block_i_agree"&gt;
     &lt;div class="register_title"&gt;
       #asterix() $msg.get("joincurriki.privacyAndTOS"):
     &lt;/div&gt;
     &lt;div class="register_help"&gt;
-      $msg.get("joincurriki.privacyAndTOS.read.part1") #showpopup($ppurl "Privacy Policy")
-      $msg.get("joincurriki.privacyAndTOS.read.part2") #showpopup($TOS "Terms of Use Agreement").
+      $msg.get("joincurriki.privacyAndTOS.read.part1") #showpopup($ppurl "$msg.get('joincurriki.privacyAndTOS.read.privacypolicy')")
+      $msg.get("joincurriki.privacyAndTOS.read.part2") #showpopup($TOS "$msg.get('joincurriki.privacyAndTOS.read.tos')").
     &lt;/div&gt;
     &lt;div class="register_field"&gt;
       &lt;input type="checkbox" name="XWiki.XWikiUsers_0_i_agree" id="XWiki.XWikiUsers_0_i_agree" value="1" /&gt; $msg.get("joincurriki.iAgree")
     &lt;/div&gt;
   &lt;/div&gt;
-
+  *#
+  &lt;div class="register_field"&gt;
+    &lt;input type="hidden" name="XWiki.XWikiUsers_0_i_agree" id="XWiki.XWikiUsers_0_i_agree" value="1" /&gt;
+  &lt;/div&gt;
+&lt;br /&gt;&lt;br /&gt;
   &lt;center&gt;
     &lt;div&gt;$msg.get("joincurriki.emailWillBeSent")&lt;/div&gt;
     &lt;div class="registration-button"&gt;
@@ -846,4 +883,5 @@ $msg.get("joincurriki.enterRequestedInfo")
 ## $xwiki.addTooltipJS()
 #else  ## Submission succeeded -- Go to email sent page
   $response.sendRedirect($xwiki.getURL('Registration.EmailSent'))
-#end</content></xwikidoc>
+#end
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;</content></xwikidoc>
