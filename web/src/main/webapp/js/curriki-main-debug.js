@@ -1678,6 +1678,8 @@ function initLoader() {
 Ext.ns('Curriki');
 Ext.ns('Curriki.module');
 
+/*
+ * Disable loading mask
 Ext.onReady(function(){
 	Curriki.loadingCount = 0;
 	Curriki.loadingMask = new Ext.LoadMask(Ext.getBody(), {msg:_('loading.loading_msg')});
@@ -1695,7 +1697,7 @@ console.log('requestexception', conn, response, options);
 		Curriki.hideLoading(true);
 	});
 });
-
+*/
 
 Curriki.id = function(prefix){
 	return Ext.id('', prefix+':');
