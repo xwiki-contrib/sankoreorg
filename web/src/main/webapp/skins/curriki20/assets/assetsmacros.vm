@@ -482,8 +482,8 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
     </p>
   #end
   #set($assetAttachmentURL = $asset.getAttachmentURL($attach))
-  <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${ubz}'); location = '${assetAttachmentURL}/${ubz}?force%2Ddownload=1'; return false;">Telecharger le fichier Sankore</button>
-  <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${pdf}'); location = '${assetAttachmentURL}/${pdf}?force%2Ddownload=1'; return false;">Telecharger le PDF du cours</button>
+  <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.ubz_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${ubz}'); location = '${assetAttachmentURL}/${ubz}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.ubz_download_button")</button>
+  <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.pdf_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${pdf}'); location = '${assetAttachmentURL}/${pdf}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.pdf_download_button")</button>
   </div>
   </div>
 #end
