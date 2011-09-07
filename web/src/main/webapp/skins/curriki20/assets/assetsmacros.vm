@@ -456,6 +456,39 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
 </div>
 #end
 
+#macro(sankore_attachments $asset)
+#if("$!asset.fileType" == "ubw")
+  #if($asset.attachmentList.size()>0)
+    #set($attach = $asset.attachmentList.get(0).filename)
+  #else
+    #set($attach = "")
+  #end
+  #set($filelist = $xwiki.curriki.getFileList($asset, $attach))
+  #set($ubz = "")
+  #set($pdf = "")
+  #foreach($file in $filelist)
+    #if($file.endsWith(".ubz"))
+      #set($ubz = $file)
+    #elseif($file.endsWith(".pdf"))
+      #set($pdf = $file)
+    #end
+  #end
+  <div id="sankore-download" class="asset-display-download">
+  <div class="asset-display-download-inner">
+  #set($msgtext = $msg.get("rve.content.view.download.instruction_title.multiple_files"))
+  #if($msgtext)
+    <p><strong>$msgtext</strong>
+    <img ext:qtip="$msg.get("rve.content.view.download.instruction_tooltip")" class="tooltip" src="$xwiki.getSkinFile("images/px.gif")" alt="" border="0" height="16" width="16">
+    </p>
+  #end
+  #set($assetAttachmentURL = $asset.getAttachmentURL($attach))
+  <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${ubz}'); location = '${assetAttachmentURL}/${ubz}?force%2Ddownload=1'; return false;">Telecharger le fichier Sankore</button>
+  <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${pdf}'); location = '${assetAttachmentURL}/${pdf}?force%2Ddownload=1'; return false;">Telecharger le PDF du cours</button>
+  </div>
+  </div>
+#end
+#end
+
 #macro(asset_attachment $asset $attachment)
 #set($assetAttachmentFilename = $asset.attachmentList.get(0).filename)
 #set($assetAttachmentURL = $asset.getAttachmentURL("$assetAttachmentFilename"))
