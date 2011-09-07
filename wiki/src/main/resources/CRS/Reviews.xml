@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315326443000</creationDate>
-<date>1315326443000</date>
-<contentUpdateDate>1315326443000</contentUpdateDate>
+<creationDate>1315415257000</creationDate>
+<date>1315415257000</date>
+<contentUpdateDate>1315415257000</contentUpdateDate>
 <version>1.1</version>
 <title>Reviews</title>
 <template></template>
@@ -130,8 +130,7 @@
 <users></users>
 </property>
 </object>
-<content>#if($xwiki.curriki.isMember("XWiki.ReviewerGroup") || $isAdmin)
-1 $msg.get("curriki.crs.reviews.reviewertools")
+<content>1 $msg.get("curriki.crs.reviews.reviewertools")
 
 &lt;form action=""&gt;
   $msg.get("curriki.crs.reviews.viewnominated"):
@@ -163,7 +162,4 @@ $msg.get("curriki.crs.reviews.assetname")  | $msg.get("curriki.crs.reviews.ict")
   #set($status = $asset.display("status"))
 {pre} &lt;a href="$asset.getURL()" target="_blank"&gt;$asset.displayTitle&lt;/a&gt; {/pre}  | {pre}&amp;nbsp; $ict  {/pre}  | {pre}&amp;nbsp; $edlevel  {/pre} | {pre}&amp;nbsp; $lastreview_date  {/pre} | {pre}&amp;nbsp; $status  {/pre} | {pre} &lt;span class="wikilink"&gt;&lt;a href="$asset.getURL()" target="_blank"&gt;$msg.get("curriki.crs.reviews.view")&lt;/a&gt;&lt;/span&gt; {/pre} [$msg.get("curriki.crs.reviews.review")&gt;Review?page=$assetdocname]
 #end
-{table}
-#else
-  #template("accessdenied.vm")
-#end</content></xwikidoc>
+{table}</content></xwikidoc>

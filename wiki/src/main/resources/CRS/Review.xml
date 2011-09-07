@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315320275000</creationDate>
-<date>1315320275000</date>
-<contentUpdateDate>1315320275000</contentUpdateDate>
+<creationDate>1315413976000</creationDate>
+<date>1315413976000</date>
+<contentUpdateDate>1315413976000</contentUpdateDate>
 <version>1.1</version>
 <title>Review Form</title>
 <template></template>
@@ -278,12 +278,12 @@ function initComponents() {
   document.getElementById('asterixReview').style.display='none';
 }
 &lt;/script&gt;
-  #if($isAdmin ||($xwiki.curriki.isMember("XWiki.EditorGroup"))|| ($xwiki.curriki.isMember("XWiki.ReviewerGroup")))
+  #if($hasAdmin ||($xwiki.curriki.isMember("XWiki.EditorGroup"))|| ($xwiki.curriki.isMember("XWiki.ReviewerGroup")))
     1.1 $msg.get("curriki.crs.review.managereviewstatus")
-    #if(($xwiki.curriki.isMember("XWiki.ReviewerGroup")) || $isAdmin)
+    #if(($xwiki.curriki.isMember("XWiki.ReviewerGroup")) || $hasAdmin)
       &lt;input type="checkbox" id="unnominate" onclick="clickCheckbox()"&gt;$msg.get("curriki.crs.review.unnominate")&lt;/input&gt;
     #end
-    #if(($xwiki.curriki.isMember("XWiki.EditorGroup")) || $isAdmin)
+    #if(($xwiki.curriki.isMember("XWiki.EditorGroup")) || $hasAdmin)
       &lt;/p&gt;
       &lt;input type="checkbox" id="partner" onclick="clickPartnerCheckbox()"&gt;$msg.get("curriki.crs.review.partner")&lt;/input&gt;
       &lt;/p&gt;
@@ -302,7 +302,7 @@ function initComponents() {
 &lt;/script&gt;
     #end
   #end
-  #if($xwiki.curriki.isMember("XWiki.ReviewerGroup") || $isAdmin)
+  #if($xwiki.curriki.isMember("XWiki.ReviewerGroup") || $hasAdmin)
     1.1 $msg.get("curriki.crs.review.reviewthisresource")
     *$msg.get("curriki.crs.review.nominatorsnotes")*:
     $nomcomment
