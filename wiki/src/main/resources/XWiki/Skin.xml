@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315328458000</creationDate>
-<date>1315328458000</date>
-<contentUpdateDate>1315328458000</contentUpdateDate>
+<creationDate>1315412754000</creationDate>
+<date>1315412754000</date>
+<contentUpdateDate>1315412754000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -3149,8 +3149,8 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 #end
   &lt;div id="sankore-toplinks"&gt;
     &lt;ul class="menu"&gt;
-      &lt;li class="first leaf"&gt;&lt;a title="" href="http://open-sankore.org"&gt;open-sankore.org&lt;/a&gt;&lt;/li&gt;
-      &lt;li class="last leaf"&gt;&lt;a title="" href="http://planete.sankore.org"&gt;planete.sankore.org&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="first leaf"&gt;&lt;a title="" href="http://sankore.org"&gt;sankore.org&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="last leaf"&gt;&lt;a title="" href="http://open-sankore.org"&gt;open-sankore.org&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
   &lt;/div&gt;
   &lt;div id="company"&gt;
@@ -5316,6 +5316,15 @@ ul.inside {list-style-position:inside;}
     padding: 5px 0;
     text-align: center;
     width: 80px;
+}
+
+#sankore-download button.button {
+  background: none repeat scroll 0 0 #585759;
+  border: 1px solid #444444;
+}
+
+#sankore-preview {
+  border-color: #444444;
 }</sankore.css>
 </property>
 <property>
@@ -5871,7 +5880,6 @@ img.rating-icon {
 	display:inline;
 	float:left;
 	margin:0 5px 0 0;
-	width:130px;
 }
 
 body.hideright #footerglobal { 
@@ -5945,7 +5953,7 @@ input[type="text"], input[type="password"] {
 }
 
 .rve-rating-wrapper {
-  width: 200px;
+  width: 500px;
 }
 
 #member-rating {
@@ -6167,6 +6175,7 @@ ul#asset-attribution {
 	float: right;
 	font-size: 11px;
 	margin-bottom: 10px;
+  margin-top:0;
 	padding: 0;
 }
 
@@ -6183,7 +6192,7 @@ ul#asset-attribution li#asset-avatar {
 
 #asset-rating {
 	float: left;
-	margin-bottom: 9px;
+	margin-bottom: 20px;
 }
 
 ul#asset-links {
