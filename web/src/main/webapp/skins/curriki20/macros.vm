@@ -862,7 +862,7 @@ $msg.get("panel.navigation.home")
 #if($bcDoc.fullName == "Groups.CreateNewGroup")
  ## special breadcrumb parent for groups creation page
  #set($usr = $context.user)
- $xwiki.getUserName($usr,true) &gt;
+ $xwiki.getUserName($usr,true) »
  #set($bcLocal = $bcCurrentDoc.fullName)
 #elseif($bcCurrentDoc.space.startsWith("Documentation_"))
  ## special breadcrumb parent for groups documentation space
@@ -874,18 +874,18 @@ $msg.get("panel.navigation.home")
     #end
   #end
   #if($!s=="") #else
-  		  <a href="$s.getHomeURL()">$s.getDisplayTitle()</a> &gt; ##groups name
+  		  <a href="$s.getHomeURL()">$s.getDisplayTitle()</a> » ##groups name
   		  #set($docPageName = $grName+".Documentation")
   		  #set($docPage = $xwiki.getDocument( $docPageName ) )
-  		  <a href="$docPage.getURL()">${docPage.displayTitle}</a> &gt; ##documentation page
+  		  <a href="$docPage.getURL()">${docPage.displayTitle}</a> » ##documentation page
   #end
   #set($bcLocal = $bcCurrentDoc.fullName)
 #elseif ($s && $s != "")
   ## special breadcrumb parent for groups space
-  <a href="$s.getHomeURL()">$s.getDisplayTitle()</a> &gt;
+  <a href="$s.getHomeURL()">$s.getDisplayTitle()</a> »
 
   #if($bcCurrentDoc.name == "Contributions" || $bcCurrentDoc.name == "ContributionsSearch")
-    <a href="${s.getHomeURL()}Curriculum">$msg.get("groups_curriculum_tabname")</a> &gt;
+    <a href="${s.getHomeURL()}Curriculum">$msg.get("groups_curriculum_tabname")</a> »
   #end
   #set($bcLocal = $bcCurrentDoc.fullName)
 #else 
@@ -926,7 +926,7 @@ $msg.get("panel.navigation.home")
   ## ignoring empty elements and the XWiki.XWikiUsers parent page
   #if($bcItem != "" && $bcItem != "XWiki.XWikiUsers" && $bcItem != "XWiki.XWikiGuest")
    #if(!$isFirst)
-    &gt;
+    »
    #end
    #set($isFirst = false)
    #curriki_breadcrumb_display($bcItem.replace('/', '.') $previousBc)
@@ -975,26 +975,26 @@ $msg.get("panel.navigation.home")
       #set($currikiTitle = $msg.groups_home_tabname)
       #if($request.action)
         #if($request.action=="editmasthead")
-          #set($currikiTitle = $currikiTitle + "</a> &gt; <a href='${bcDoc.getURL()}?action=editmasthead'>${msg.groups_home_editmasthead_bc}</a>")
+          #set($currikiTitle = $currikiTitle + "</a> » <a href='${bcDoc.getURL()}?action=editmasthead'>${msg.groups_home_editmasthead_bc}</a>")
             #end
         #if($request.action=="editinfo")
-          #set($currikiTitle = $currikiTitle + "</a> &gt; <a href='${bcDoc.getURL()}?action=editinformation'>${msg.groups_home_editinformation_bc}</a>")
+          #set($currikiTitle = $currikiTitle + "</a> » <a href='${bcDoc.getURL()}?action=editinformation'>${msg.groups_home_editinformation_bc}</a>")
         #end
       #end
     #end ##end home page
     #if($bcDoc.name=="Documentation") ##documentation page
           #if(	$request.action)
                 #if($request.action == "newdoc")
-                      #set($currikiTitle = $currikiTitle + "</a> &gt; <a href='${bcDoc.getURL()}?action=newdoc'>${msg.groups_documentation_create_wiki_page_title}</a>")
+                      #set($currikiTitle = $currikiTitle + "</a> » <a href='${bcDoc.getURL()}?action=newdoc'>${msg.groups_documentation_create_wiki_page_title}</a>")
                 #end
                 #if($request.action == "editdoc" && $request.method != "POST" )
-                      #set($currikiTitle = $currikiTitle + "</a> &gt; <a href='${bcDoc.getURL()}?action=newdoc'>${msg.groups_documentation_edit_wiki_title}</a>")
+                      #set($currikiTitle = $currikiTitle + "</a> » <a href='${bcDoc.getURL()}?action=newdoc'>${msg.groups_documentation_edit_wiki_title}</a>")
                 #end
                 #if($request.action == "history" && $request.method != "POST" )
-                      #set($currikiTitle = $currikiTitle + "</a> &gt; <a href='${bcDoc.getURL()}?action=newdoc'>${msg.groups_documentation_history_title}</a>")
+                      #set($currikiTitle = $currikiTitle + "</a> » <a href='${bcDoc.getURL()}?action=newdoc'>${msg.groups_documentation_history_title}</a>")
                 #end
                 #if($request.action == "compare")
-                      #set($currikiTitle = $currikiTitle + "</a> &gt; <a href='${bcDoc.getURL()}?action=newdoc'>${msg.groups_documentation_compare_title}</a>")
+                      #set($currikiTitle = $currikiTitle + "</a> » <a href='${bcDoc.getURL()}?action=newdoc'>${msg.groups_documentation_compare_title}</a>")
                 #end
           #end
     #end  ##end documentation page
@@ -1020,7 +1020,7 @@ $msg.get("panel.navigation.home")
      #end
    #end
 #if($more != "")
-    &gt; <a href="$more_href">$more</a>
+    » <a href="$more_href">$more</a>
    #end
 #end
 
@@ -1120,7 +1120,7 @@ $msg.get("panel.navigation.home")
  #foreach($bcItem in $bcLocal.split(";"))
   #if($bcItem != "" && $bcItem != "XWiki.XWikiUsers")
    #if(!$isFirst)
-    &gt;
+    »
    #end
    #set($isFirst = false)
    #set($bcDoc = $xwiki.getDocument($bcItem.replace('/', '.')))
