@@ -589,7 +589,26 @@ $!desc
      <td> *$msg.get("profile.field.country")* </td>
    </tr>
    <tr>
-     <td> $userdoc.display("country", "edit", $userobj)</td>
+     <td>
+       <select id="XWiki.XWikiUsers_0_country" size="1" name="XWiki.XWikiUsers_0_country">
+         #set($xwikiusers_xclass = $xwiki.getClass("XWiki.XWikiUsers"))
+         #set($field_xclass = $xwikiusers_xclass.get('country'))
+         #set($hashmap = $util.hashMap)
+         #set($keys = $field_xclass.listValues)
+         #set($values = $util.arrayList)
+         #foreach($key in $keys)
+           #set($value = $msg.get("XWiki.XWikiUsers_country_${key}"))
+           #set($discard = $values.add($value))
+           #set($discard = $hashmap.put($value, $key))
+         #end
+         #set($sorted = $sorttool.sort($values))
+         #set($currentCountry = $userobj.getProperty('country').value)
+         #foreach($value in $sorted)
+           #set($currentKey = $hashmap.get($value))
+           <option label="$value" value="$currentKey" #if($currentCountry == $currentKey) selected="selected" #end >$value</option>
+         #end
+       </select>
+     </td>
    </tr>
    <tr>
      <td> *$msg.get("profile.field.showContact")* $userdoc.display("show_contact", "edit", $userobj)</td>
