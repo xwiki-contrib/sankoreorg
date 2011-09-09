@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314968335000</creationDate>
-<date>1314968335000</date>
-<contentUpdateDate>1314968335000</contentUpdateDate>
+<creationDate>1315579975000</creationDate>
+<date>1315579975000</date>
+<contentUpdateDate>1315579975000</contentUpdateDate>
 <version>1.1</version>
 <title>Profile</title>
 <template></template>
@@ -22,44 +22,7 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
-<content>#**
-  * MyCurriki Profile Page
-  *
-  *#
-#macro(sankore_mycurriki_pageheader $pageref $whofor) ## {
-$xwiki.ssfx.use("curriki.css")
-$xwiki.ssfx.use("mycurriki.css")
-## Determine whofor
-#if("$!whofor" == "") ## {
-#if("$!request.user" != "") ## {
-#set($whofor = $request.user)
-#else ## } {
-#if($doc.web.startsWith("Blog_")) ## {
-#set($whofor = $doc.web.substring(5))
-#else ## } {
-#if("$!whofor" == "") ## {
-#set($whofor = $context.user)
-#end ## }
-#end ## }
-#end ## }
-#end ## }
-#if(!$whofor.startsWith("XWiki.")) ## {
-#set($whofor = "XWiki.$whofor")
-#end ## }
-## Now know whofor
-#set($userdoc = $xwiki.getDocument($whofor))
-#set($userobj = $userdoc.getObject("XWiki.XWikiUsers"))
-#set($g_userdoc = $userdoc)
-#set($g_userobj = $userobj)
-&lt;div id="mycurriki-$pageref" class="mycurriki mycurriki-$pageref"&gt;
-#includeInContext("SankoreCode.SankoreProfile")
-#mycurriki_tabs($pageref $whofor)
-&lt;div id="mycurriki-main" class="tab-container"&gt;
-&lt;div id="mycurriki-main-header"&gt;
-#end
-
-
-#sankore_mycurriki_pageheader("profile" "")
+<content>#mycurriki_pageheader("profile" "")
 #mycurriki_editprofilebutton($userdoc)
 #mycurriki_pagecontentheader("profile" "")
 #mycurriki_viewprofilebox($userdoc $userobj)

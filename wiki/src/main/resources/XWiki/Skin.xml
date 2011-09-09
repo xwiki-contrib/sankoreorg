@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315574358000</creationDate>
-<date>1315574358000</date>
-<contentUpdateDate>1315574358000</contentUpdateDate>
+<creationDate>1315579884000</creationDate>
+<date>1315579884000</date>
+<contentUpdateDate>1315579884000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -3797,14 +3797,14 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 <property>
 <mycurriki.css>#template('colorThemeInit.vm')
 #mycurriki-blog h2 {
-	color: #000;
-	font-size: 16px;
-	margin-top: 30px;	
+  color: #000;
+  font-size: 16px;
+  margin-top: 30px;
 }
 
 #mycurriki-blog h1 {
-	font-size: 16px;
-	margin-top: 25px;
+  font-size: 16px;
+  margin-top: 25px;
 }
 
 .mycurriki h2 {margin-bottom: 20px;}
@@ -3812,45 +3812,54 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 /** TABS **/
 
 .mycurriki .tab-container {
-	background-color: $theme.panelBackgroundColor;
-	border: 1px solid $theme.borderColor;
-	position:relative;
+  background-color: $theme.panelBackgroundColor;
+  border: 1px solid $theme.borderColor;
+  position: relative;
 }
-.mycurriki ul.tabs {height:auto;}
+.mycurriki ul.tabs {
+  height: auto;
+  clear: left;
+  padding-top: 10px;
+}
 .mycurriki ul.tabs a {border-color: $theme.borderColor;}
 
 .mycurriki ul.tabs li.current a {
-	background: $theme.panelBackgroundColor;
-        
-	border-color: $theme.borderColor;
+  background: $theme.panelBackgroundColor;
+  border-color: $theme.borderColor;
 }
 
-.mycurriki ul.tabs {clear: left; padding-top: 10px;}
-
 /* MY CURRIKI GROUPS ** BROWSE GROUPS */
-.mycurriki-groups .frame-inset-logo, .group-by-subject .frame-inset-logo { position: absolute; left: 10px; margin-top: 10px; height: 83px; overflow: hidden; width: 121px; }
-.mycurriki-groups .frame-inset-logo img, .group-by-subject .frame-inset-logo img {float: left;}
-
-.mycurriki-groups .frame-inset-description, .group-by-subject .frame-inset-description { 
-	height:auto !important;
-	height: 100px;
-	margin-left: 150px;
-	padding: 10px;
-	min-height: 100px;
+.mycurriki-groups .frame-inset-logo, .group-by-subject .frame-inset-logo {
+  position: absolute;
+  left: 10px;
+  margin-top: 10px;
+  height: 83px;
+  overflow: hidden;
+  width: 121px;
+}
+.mycurriki-groups .frame-inset-logo img, .group-by-subject .frame-inset-logo img {
+  float: left;
+}
+.mycurriki-groups .frame-inset-description, .group-by-subject .frame-inset-description {
+  height:auto !important;
+  height: 100px;
+  margin-left: 150px;
+  padding: 10px;
+  min-height: 100px;
 }
 .all-subjects  { text-align: center; }
 .all-subjects a { font-size: 15px; font-weight: bold; text-decoration: none; }
 .all-subjects a .subject-title-count { color: #FF4100; }
 .custom-subject-card { background-color: #E3E4F5; }
 .browse-groups-info { padding-top: 10px; }
-/* end of MYcurriki GROUPS + BROWSE GROUPS */
+/* end of MY CURRIKI GROUPS ** BROWSE GROUPS */
+
 .browse-all { float:left;margin-right:1em;margin-bottom:1em;}
 .browse-subject h1 {padding-bottom:0.2em;}
 .browse-subject h1 img { margin-right:0.5em;vertical-align:middle;}
 .browse-by {width:100%;margin-top:0 !important;}
 .browse-by td {vertical-align:top;border:solid 1px #0198AB !important;padding:0 !important;}
 .browse-by td.spacer {width:2%;border:none !important;}
-
 .browse-topics {}
 .browse-edlevels {}
 .browse-topics .caption-text {background-color:#0198AB;font-weight:700;font-size:1em;color:#fff;padding: 4px 6px;text-transform:uppercase;margin-bottom:0.5em;}
@@ -3874,8 +3883,8 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 #mycurriki-blog .edit-blog { width: auto; padding-right: 10px; }
 
 #mycurriki-blog .blog-comment {
-	padding: 10px 0;
-	margin: 10px 0;
+  padding: 10px 0;
+  margin: 10px 0;
 }
 
 #mycurriki-contributions-table .table-col-title { overflow: hidden; }
@@ -3892,7 +3901,6 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 #mycurriki-main-header {font-size:87.5%;}
 #mycurriki-main-header-subtitle { width: 75%; }
 
- 
 /* MY CURRIKI*/
 #mycurriki-main-content form table table td strong { display: block; padding-top: 5px; }
 #mycurriki-main-header .button-confirm {float:right;}
@@ -3901,54 +3909,84 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 #mycurriki-main-content .button-right { padding-right: 10px; }
 
 /** MY CURRIKI - PROFILE **/
-
 .edit-profile table table td { padding-bottom: 5px; }
-
 .edit-profile .userpic, form#inline .userpic {
-	width: 115px;
-	border: 1px solid #D2D2D2;
-	padding: 5px;
-	text-align: center;
+  width: 115px;
+  border: 1px solid #D2D2D2;
+  padding: 5px;
+  text-align: center;
 }
 .edit-profile .userpic img {
-	width: 88px;
-	align: center;
-	border: 0px;
+  width: 88px;
+  align: center;
+  border: 0px;
 }
-
 .edit-profile table table td {overflow: hidden;}
-
 .edit-profile input.button {
 -moz-border-radius-bottomleft:0;
 -moz-border-radius-bottomright:0;
 -moz-border-radius-topleft:0;
 -moz-border-radius-topright:0;
 }
+.profile-links {
+  font-size: 12px;
+}
+
+.profile-links table th {
+  background-color:#DEEAEF;
+}
+
+.profile-links table th h2 {
+  color:#000;
+  border:none;
+  text-transform:uppercase;font-size:14px;font-weight:bold;margin-left:25px;margin-top:0.5em;margin-bottom:0.5em;
+}
+
+.profile-links table td.profile-link {
+  text-align:right;padding:15px 0;border-right:none;border-bottom:none;font-size:0.9em;font-weight:bold;
+}
+
+.profile-links table td.profile-splitter {
+  padding: 12px 5px;
+}
+
+.profile-links table td {
+  vertical-align: top;
+  padding:15px 0;
+}
+
+.profile-links td, .profile-links th, .profile-links tr {
+  border:none !important;
+}
 
 /** TITLES **/
-
 #mycurriki-collections .frame-inset-title a, #mycurriki-collections .frame-inset-title a:hover,#groups-collections .frame-inset-title a, #groups-collections .frame-inset-title a:hover {color: #369;}
 #mycurriki-collections .frame-inset-ict img.ict-null,  td.table-col-ict img.ict-null {background: none !important;}
 
 /** MY COLLECTIONS LINK PIPES **/
-
 .mycurriki-collections a.button-link, #groups-collections a.button-link {border-left: 1px solid #7c7c7c;}
 .mycurriki-collections a.first-item, #groups-collections a.first-item {border: 0;}
 
 
 /** MY CURRIKI **/
-
 #mycurriki-main-header .button-right {
-	float:right;
-	padding: 0 0 10px 10px;
+  float:right;
+  padding: 0 0 10px 10px;
 }
 #mycurriki-main-header .profile-push {
-	font-weight:normal;
-	font-size:1.1em;
-	padding-bottom:10px 0;
-}
-
-</mycurriki.css></property><property><name></name></property><property><pagemenu.vm></pagemenu.vm></property><property><panels.css>#template('colorThemeInit.vm')
+  font-weight:normal;
+  font-size:1.1em;
+  padding-bottom:10px 0;
+}</mycurriki.css>
+</property>
+<property>
+<name></name>
+</property>
+<property>
+<pagemenu.vm></pagemenu.vm>
+</property>
+<property>
+<panels.css>#template('colorThemeInit.vm')
 /* Left panel menu */
 #panels {
   clear: left;
@@ -5271,15 +5309,10 @@ ul.inside {list-style-position:inside;}
   margin-bottom:10px;
 }
 
-
 #name-and-slogan #site-slogan {
     color: #C22D1C;
     font-size: 14px;
     font-weight: bold;
-}
-
-.profile-links td, .profile-links th, .profile-links tr {
-  border:none !important;
 }
 
 .loginbody #signup, .loginsubmitbody #signup {
