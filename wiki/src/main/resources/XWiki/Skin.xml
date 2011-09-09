@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315579884000</creationDate>
-<date>1315579884000</date>
-<contentUpdateDate>1315579884000</contentUpdateDate>
+<creationDate>1315582018000</creationDate>
+<date>1315582018000</date>
+<contentUpdateDate>1315582018000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -4166,10 +4166,7 @@ font-weight:bold;}
   margin-left:0;
 }
 
-#breadcrumb {
-  background:#fafafa;
-  padding-left:25px;
-}
+
 #header-member a:hover {
   text-decoration:none;
 }
@@ -5660,6 +5657,7 @@ a.button {
 #mainContentArea, #mainEditArea {
   padding:0;
   margin-left:20px;
+  border-top: 1px solid #C5C6C8;
 }
 
 #mainEditArea {
@@ -5696,13 +5694,6 @@ display:none;
 .main{
   padding:0;
 }
-
-#breadcrumb {
-  padding-top:0;
-  line-height:24px;
-  font-size: 90%;
-}
-
 
 /* Navigation */
 #navigation-inner .home a {
@@ -6873,6 +6864,18 @@ body {
 #block-menu-menu-footer-menu ul.menu li {
     display: inline;
     padding-right: 10px;
+}
+
+## BREADCRUMBS
+#breadcrumb, #breadcrumb a {
+  color: #777777;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 24px;
+}
+
+#breadcrumb {
+  padding-bottom: 0.5em;
 }</style.css>
 </property>
 <property>
