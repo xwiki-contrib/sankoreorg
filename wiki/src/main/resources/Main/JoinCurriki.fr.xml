@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315231821000</creationDate>
-<date>1315231821000</date>
-<contentUpdateDate>1315231821000</contentUpdateDate>
+<creationDate>1315833631000</creationDate>
+<date>1315833631000</date>
+<contentUpdateDate>1315833631000</contentUpdateDate>
 <version>1.1</version>
 <title>Enregistrez-vous pour rejoindre planete.Sankoré</title>
 <template></template>
@@ -80,6 +80,8 @@
   #set($hashmap = $util.hashMap)
   #set($keys = $field_xclass.listValues)
   #set($values = $util.arrayList)
+  #set($currentObj = $userdoc.getObject("XWiki.XWikiUsers"))
+  #set($existingValue = $currentObj.getProperty($fieldname).value)
   #foreach($key in $keys)
     #set($value = $msg.get("XWiki.XWikiUsers_country_${key}"))
     #set($discard = $values.add($value))
@@ -87,7 +89,8 @@
   #end
   #set($sorted = $sorttool.sort($values))
   #foreach($value in $sorted)
-    &lt;option label="$value" value="$hashmap.get($value)"&gt;$value&lt;/option&gt;
+    #set($key = "!$hashmap.get($value)")
+    &lt;option label="$value" value="$key" #if($key == "$!existingValue") selected="selected" #end &gt;$value&lt;/option&gt;
   #end
   &lt;/select&gt;
   &lt;/div&gt; ## register_field
@@ -314,6 +317,5 @@ $msg.get("joincurriki.enterRequestedInfo")
   $response.sendRedirect($xwiki.getURL('Registration.EmailSent'))
 #end
 &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
-
 
 </content></xwikidoc>

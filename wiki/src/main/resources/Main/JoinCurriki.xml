@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315231865000</creationDate>
-<date>1315231865000</date>
-<contentUpdateDate>1315231865000</contentUpdateDate>
+<creationDate>1315833653000</creationDate>
+<date>1315833653000</date>
+<contentUpdateDate>1315833653000</contentUpdateDate>
 <version>1.1</version>
 <title>Register to Join planete.Sankoré</title>
 <template></template>
@@ -651,6 +651,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
   #set($hashmap = $util.hashMap)
   #set($keys = $field_xclass.listValues)
   #set($values = $util.arrayList)
+  #set($currentObj = $userdoc.getObject("XWiki.XWikiUsers"))
+  #set($existingValue = $currentObj.getProperty($fieldname).value)
   #foreach($key in $keys)
     #set($value = $msg.get("XWiki.XWikiUsers_country_${key}"))
     #set($discard = $values.add($value))
@@ -658,7 +660,8 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
   #end
   #set($sorted = $sorttool.sort($values))
   #foreach($value in $sorted)
-    &lt;option label="$value" value="$hashmap.get($value)"&gt;$value&lt;/option&gt;
+    #set($key = "!$hashmap.get($value)")
+    &lt;option label="$value" value="$key" #if($key == "$!existingValue") selected="selected" #end &gt;$value&lt;/option&gt;
   #end
   &lt;/select&gt;
   &lt;/div&gt; ## register_field
@@ -884,4 +887,6 @@ $msg.get("joincurriki.enterRequestedInfo")
 #else  ## Submission succeeded -- Go to email sent page
   $response.sendRedirect($xwiki.getURL('Registration.EmailSent'))
 #end
-&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;</content></xwikidoc>
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+
+</content></xwikidoc>
