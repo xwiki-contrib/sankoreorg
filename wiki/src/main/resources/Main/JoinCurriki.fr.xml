@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315833631000</creationDate>
-<date>1315833631000</date>
-<contentUpdateDate>1315833631000</contentUpdateDate>
+<creationDate>1315833884000</creationDate>
+<date>1315833884000</date>
+<contentUpdateDate>1315833884000</contentUpdateDate>
 <version>1.1</version>
 <title>Enregistrez-vous pour rejoindre planete.Sankoré</title>
 <template></template>
@@ -61,6 +61,7 @@
 #end ## macro formfield
 
 #macro(formfield_sortedlist $fieldname $text $mandatory)
+{pre}
 &lt;div class="register_block" id="register_block_$fieldname"&gt;
   &lt;div class="register_title"&gt;
   #if($mandatory == true)#asterix()#end $msg.get("joincurriki.fields.$fieldname")
@@ -95,6 +96,7 @@
   &lt;/select&gt;
   &lt;/div&gt; ## register_field
 &lt;/div&gt; ## register_block
+{/pre}
 #end
 ## End Macros
 ##

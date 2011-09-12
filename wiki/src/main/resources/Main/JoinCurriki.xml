@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315833653000</creationDate>
-<date>1315833653000</date>
-<contentUpdateDate>1315833653000</contentUpdateDate>
+<creationDate>1315833829000</creationDate>
+<date>1315833829000</date>
+<contentUpdateDate>1315833829000</contentUpdateDate>
 <version>1.1</version>
 <title>Register to Join planete.Sankoré</title>
 <template></template>
@@ -632,6 +632,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
 #end ## macro formfield
 
 #macro(formfield_sortedlist $fieldname $text $mandatory)
+{pre}
 &lt;div class="register_block" id="register_block_$fieldname"&gt;
   &lt;div class="register_title"&gt;
   #if($mandatory == true)#asterix()#end $msg.get("joincurriki.fields.$fieldname")
@@ -666,6 +667,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
   &lt;/select&gt;
   &lt;/div&gt; ## register_field
 &lt;/div&gt; ## register_block
+{/pre}
 #end
 ## End Macros
 ##
