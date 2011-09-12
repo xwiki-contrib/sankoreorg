@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315582018000</creationDate>
-<date>1315582018000</date>
-<contentUpdateDate>1315582018000</contentUpdateDate>
+<creationDate>1315841554000</creationDate>
+<date>1315841554000</date>
+<contentUpdateDate>1315841554000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -1953,6 +1953,16 @@ TkSuQmCC</content></attachment>
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
 </baseskin>
+<bookmarklet.vm>
+<disabled>0</disabled>
+<name>bookmarklet.vm</name>
+<number>32</number>
+<prettyName>bookmarklet.vm</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</bookmarklet.vm>
 <comments.vm>
 <contenttype>FullyRenderedText</contenttype>
 <customDisplay></customDisplay>
@@ -2246,6 +2256,16 @@ TkSuQmCC</content></attachment>
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
 </pagemenu.vm>
+<panel.vm>
+<disabled>0</disabled>
+<name>panel.vm</name>
+<number>31</number>
+<prettyName>panel.vm</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</panel.vm>
 <panels.css>
 <customDisplay></customDisplay>
 <disabled>0</disabled>
@@ -2425,6 +2445,26 @@ TkSuQmCC</content></attachment>
 </property>
 <property>
 <baseskin>curriki20</baseskin>
+</property>
+<property>
+<bookmarklet.vm>#template("xwikivars.vm")
+#template("layoutvars.vm")
+#template("htmlheader.vm")
+&lt;style type="text/css"&gt;
+#body {
+ min-width: 0px;
+}
+&lt;/style&gt;
+$context.setLinksQueryString("xpage=bookmarklet")
+#if($context.action.startsWith("login"))
+#template("logininline.vm")
+#else
+#template("contentview.vm")
+#end
+$context.unsetLinksQueryString()
+&lt;div class="clearfloats"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</bookmarklet.vm>
 </property>
 <property>
 <comments.vm></comments.vm>
@@ -3039,7 +3079,7 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
     &lt;/form&gt;
   #end
 #template("footer.vm")
-  #template("htmlfooter.vm")
+#template("htmlfooter.vm")
 #end</edit.vm>
 </property>
 <property>
@@ -3207,16 +3247,11 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
     #template("advancedsearch.vm")
     &lt;/div&gt;
 &lt;div id="header-icons"&gt;
-&lt;ul&gt;
-  &lt;li class="logiciel"&gt;&lt;a href="http://open-sankore.org/fr/telechargement"&gt;Télécharger le logiciel &lt;strong&gt;Sankoré&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li class="plugin"&gt;&lt;a href="#"&gt;Télécharger le  &lt;strong&gt;plug-in&lt;/strong&gt;&lt;/a&gt;
-&lt;/li&gt;
-  &lt;li class="resources"&gt;&lt;a href="/xwiki/bin/view/Search/#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253Anotreviewed%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-resource-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1%255Egroup%253Do%25253Aa%25253Db%2525253A1"&gt;Evaluer les &lt;strong&gt;ressources&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+#displaypanel("Panels.SankoreTopLinks")
 &lt;/div&gt;
   #end
+#displaypanel("Panels.SankoreNavigationPanel")
   &lt;div class="clearfloats"&gt;&lt;/div&gt;
-  #displaypanel("Panels.SankoreNavigationPanel")
 &lt;/div&gt; ## headerglobal
 #end
 ### TODO: Format the header for pdf output</global.vm>
@@ -3243,8 +3278,13 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 &lt;/html&gt;
 #else ## Portlet Mode
 &lt;/div&gt;
-#end
-</htmlfooter.vm></property><property><htmlheader.vm></htmlheader.vm></property><property><javascript.vm>#**
+#end</htmlfooter.vm>
+</property>
+<property>
+<htmlheader.vm></htmlheader.vm>
+</property>
+<property>
+<javascript.vm>#**
   * Setup the external Javascript files loaded for the curriki pages
   * @author Curriki dev team
   *#
@@ -3485,11 +3525,6 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
   #elseif($logredir.contains("/login"))
     #set($logredir = "")
   #end
-  #if("$!logredir"!="")
-    #set($logredir = "xredirect=$logredir")
-  #elseif($request.srid)
-    #set($logredir = "srid=$request.srid")
-  #end
   &lt;script type="text/javascript"&gt;
   //&lt;![CDATA[
   // In IE we can't change the type of a password input (we can't toggle between text and password type) so we have to
@@ -3518,7 +3553,8 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
   }
   //]]&gt;
   &lt;/script&gt;
-  &lt;form action="$xwiki.getURL("XWiki.XWikiLogin", "loginsubmit", "$logredir")" method="post"&gt;
+  &lt;form action="$xwiki.getURL("XWiki.XWikiLogin", "loginsubmit", "")" method="post"&gt;
+    &lt;input type="hidden" name="xredirect" value="$!{escapetool.xml($logredir)}"/&gt;
     &lt;input type="hidden" name="srid" value="$!request.srid" /&gt;
     &lt;input type="hidden" name="form_token" value="$!services.csrf.getToken()" /&gt;
 #if($request.xredirect.indexOf() != -1 &amp;&amp; $context.action == "login")
@@ -3986,7 +4022,108 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 <pagemenu.vm></pagemenu.vm>
 </property>
 <property>
-<panels.css>#template('colorThemeInit.vm')
+<panel.vm>#template("xwikivars.vm")
+#template("layoutvars.vm")
+## -------------------------------------------------------------------------------------------------------------------
+## In non-Servlet mode (in Portlet mode for example) we don't display the &lt;HTML&gt;, &lt;HEAD&gt; and &lt;BODY&gt;
+## elements.
+## -------------------------------------------------------------------------------------------------------------------
+#if($isInServletMode)
+&lt;?xml version="1.0" encoding="$xwiki.encoding" ?&gt;
+## TODO this should be more specific
+#if("$!request.noDoctype" != "true")
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+#end
+&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="$xcontext.language" xml:lang="$xcontext.language"&gt;
+  &lt;head&gt;
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Ensure that the Content-Type meta directive is the first one in the header.
+    ## See http://www.w3.org/International/tutorials/tutorial-char-enc/
+    ## ---------------------------------------------------------------------------------------------------------------
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=$xwiki.encoding" /&gt;
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Compute the title.
+    ## ---------------------------------------------------------------------------------------------------------------
+    #if(!$title)
+      #set($title = $!xwiki.getSpacePreference('title'))
+      #if($title != '')
+        #set($title = "$escapetool.xml($xwiki.parseContent($title))")
+      #else
+        #set($title = "XWiki - $escapetool.xml($!doc.space) - $escapetool.xml($!tdoc.displayTitle)")
+      #end
+    #else
+      #set($title = $escapetool.xml($title))
+    #end
+    &lt;title&gt;$title&lt;/title&gt;
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Define the default scripting language that is used for intrinsic events (e.g. onmouseover attributes).
+    ## ---------------------------------------------------------------------------------------------------------------
+    &lt;meta http-equiv="Content-Script-Type" content="text/javascript" /&gt;
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Disable the toolbar that comes up when you mouse over an image in MSIE
+    ## TODO: Shouldn't this be moved to the Admin Presentation preferences instead (user-defined META), since
+    ## it's possible to imagine that the user might want it?  
+    ## ---------------------------------------------------------------------------------------------------------------
+    &lt;meta http-equiv="imagetoolbar" content="no"/&gt;
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Universal edit button. See http://universaleditbutton.org
+    ## ---------------------------------------------------------------------------------------------------------------
+    #if($xcontext.action=="view")
+      &lt;link rel="alternate" type="application/x-wiki" title="Edit" href="$doc.getURL("edit")" /&gt;
+    #end
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Make sure search engine spiders give the plain page instead of ?viewer=comments, ?viewer=code etc.
+    ## ---------------------------------------------------------------------------------------------------------------    
+    &lt;link rel="canonical" href="$doc.getURL('view')" /&gt;
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Store the space name, page name, wiki name, full document name (for convenience since it can be reconstructed
+    ## from the individual wiki/space/page names), and other metadata, so that it can be accessed from Javascript code.
+    ## For example, to pass it to the server side using an Ajax query.
+    ## Usage example: var name = $$("meta[name='page']")[0].content;
+    ## ---------------------------------------------------------------------------------------------------------------
+    &lt;meta name="document" content="$escapetool.xml($doc.fullName)"/&gt;
+    &lt;meta name="wiki" content="$escapetool.xml($doc.wiki)"/&gt;
+    &lt;meta name="space" content="$escapetool.xml($doc.space)"/&gt;
+    &lt;meta name="page" content="$escapetool.xml($doc.name)"/&gt;
+    &lt;meta name="version" content="$doc.version"/&gt;
+    &lt;meta name="restURL" content="${request.contextPath}/rest/wikis/${xcontext.database}/spaces/$escapetool.url(${doc.space})/pages/$escapetool.url(${doc.name})"/&gt;
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Localize GWT applications.
+    ## ---------------------------------------------------------------------------------------------------------------
+    &lt;meta name="gwt:property" content="locale=$!{xcontext.language}" /&gt;
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Add user-defined Meta directives
+    ## ---------------------------------------------------------------------------------------------------------------
+    $xwiki.parseContent($!xwiki.getSpacePreference("meta"))
+    ## ---------------------------------------------------------------------------------------------------------------
+    ## Hook for inserting Link extensions. This will be replaced with the pulled link references.
+    ## ---------------------------------------------------------------------------------------------------------------
+    &lt;!-- com.xpn.xwiki.plugin.skinx.LinkExtensionPlugin --&gt;
+    #template("stylesheets.vm")
+    #template("analytics.vm")
+    #template("javascript.vm")
+  &lt;/head&gt;
+  #set($bodyTagName = 'body')
+#else ## Portlet Mode
+  #template("stylesheets.vm")
+  #template("javascript.vm")
+  #set($bodyTagName = 'div')
+#end
+## TODO: fix this from css
+#set($bodyAction = $xcontext.action)
+#if($xcontext.action == "admin" || $xcontext.action == "import" || $xcontext.action == "export")
+  #set($bodyAction = "view")
+#end
+## These elements will be closed in the htmlfooter.vm file
+&lt;body id="body" style="min-width: 0px;"&gt;
+&lt;div style="width: 312px; left: 0px;"&gt;
+#displaypanel($doc.fullName)
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</panel.vm></property><property><panels.css>#template('colorThemeInit.vm')
 /* Left panel menu */
 #panels {
   clear: left;
@@ -4148,11 +4285,15 @@ font-weight:bold;}
 
 #rechercher .form-submit {
     background-color: transparent;
-    background-image: url(/xwiki/bin/download/Panels/SankoreSearchPanel/loupe.png);
+    background: url("/xwiki/bin/download/Panels/SankoreSearchPanel/loupe.png") no-repeat scroll 0 0 transparent;
     background-repeat: no-repeat;
     border: medium none;
     cursor: pointer;
+    display: block;
+    float: right;
     height: 34px;
+    margin-right: 10px;
+    margin-top: -31px;
     width: 34px;
 }</panels.css>
 </property>
@@ -4170,9 +4311,7 @@ font-weight:bold;}
 #header-member a:hover {
   text-decoration:none;
 }
-#menuview {
-  margin-bottom:17px;
-}
+
 ul.login-links a {
   box-shadow:1px 1px 0 rgba(0,0,0,0.5);
   background:$theme.panelCollapsedBackgroundColor;
@@ -4205,7 +4344,11 @@ ul.login-links a.administration-link,ul.login-links a.profile-link {
 }
 
 #curriki-searchbox{
-  border:none;
+    border: medium none;
+    display: block;
+    font-size: 13px;
+    padding: 5px;
+    width: 230px;
 }
 
 .welcome-section {
@@ -4955,10 +5098,6 @@ li a.active {
 
 ### SANKORE PANELS CSS
 
-#planete {
-margin-top: -60px;
-}
-
 #planete h2 {
     color: #C92A1C;
 }
@@ -5038,8 +5177,8 @@ margin-top: -60px;
 
 #rightPanels {
     float: right;
-    margin: 0 0 0 -280px;
-    width: 280px;
+    margin: 0 0 0 -312px;
+    width: 312px;
 }
 
 
@@ -5286,10 +5425,6 @@ ul.inside {list-style-position:inside;}
   padding: 10px 15px;
 }
 
-#curriki-searchbox {
-  border: solid 1px #B7BC7A;
-}
-
 #planete a {
   color: #C22D1C;
 }
@@ -5360,6 +5495,31 @@ ul.inside {list-style-position:inside;}
 
 #sankore-preview {
   border-color: #444444;
+}
+
+#rightPanels h3 {
+  color: #3D3D3F;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom:none;
+}
+
+#rightPanels p {
+  font-size:12px;
+  margin-bottom: 0.5em;
+}
+
+#rightPanels li {
+  font-size: 11px;
+}
+
+#rightPanels ul, #rightPanels ol {
+  margin: 0 1.5em 1.5em 0;
+  padding-left: 1.5em;
+  margin-bottom: 0;
 }</sankore.css>
 </property>
 <property>
@@ -5423,7 +5583,6 @@ ul.inside {list-style-position:inside;}
 @import "$xwiki.getSkinFile('colibri.css', true)#if ("$!{request.colorTheme}" != '')?colorTheme=${request.colorTheme}#end";
 #template('colorThemeInit.vm')
 
-
 ul {
   list-style:none;
 }
@@ -5437,12 +5596,10 @@ body.main ul {
 .main table {margin:0 1px;}
 #xwikimaincontainerinner {
   background-color:$theme.pageContentBackgroundColor;
-  width:1024px;
+  width:955px;
   margin:0 auto;
 }
 #headerglobal {
-  float:left;
-  height:170px;
   min-height:150px;
   margin-bottom:0.5em;
 }
@@ -5600,6 +5757,9 @@ ul.login-links a.button{
   height: 34px;
   width: 34px;
   cursor:pointer;
+  float:right;
+  margin-top:-31px;
+  margin-right:12px;
 }
 
 #header-search #searchbtn:hover{
@@ -5643,11 +5803,13 @@ a.button {
 }
 
 #mainmenu {
-  position: absolute;
+  min-width:955px;
 }
 
 #contentmenu {
   width: auto;
+  margin-top:-16px;
+  margin-bottom: 8px;
 }
 
 .alleditcontent {
@@ -5658,6 +5820,7 @@ a.button {
   padding:0;
   margin-left:20px;
   border-top: 1px solid #C5C6C8;
+  margin-top:-8px;
 }
 
 #mainEditArea {
@@ -5961,7 +6124,6 @@ body.hideright #footerglobal {
 }
 
 input[type="text"], input[type="password"] {
-  height:24px;
   color:$theme.textColor;
   padding-left:5px;
 }
@@ -6658,7 +6820,7 @@ li.input-select select {width: 40%;}
 }
 
 #body.hideleft #contentcolumn .main {
-    margin: 0 300px 0 0;
+    margin: 0 343px 0 0;
 }
 
 .block-icon {
@@ -6685,9 +6847,18 @@ body {
 
 #headerglobal #header-search {
   float: right;
-  margin-top:10px;
   padding:5px;
   background-color: #DAE39C;
+  width: 285px;
+  padding: 15px 10px 8px 17px;
+  background-color: #DAE39C;
+    border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+    border-style: solid;
+    border-width: 1px;
+border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-bottom: 10px;
+  border-top:none;
 }
 
 #headerglobal #header-icons {
@@ -6765,6 +6936,7 @@ body {
   border-bottom-right-radius: 5px;
   position: absolute;
   left: 50%;
+  margin-left:-100px;
 }
 
 #headerglobal #sankore-toplinks ul {
@@ -6876,6 +7048,11 @@ body {
 
 #breadcrumb {
   padding-bottom: 0.5em;
+}
+
+#navigation {
+  clear:left;
+  float:left;
 }</style.css>
 </property>
 <property>

@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314964701000</creationDate>
-<date>1314964701000</date>
-<contentUpdateDate>1314964701000</contentUpdateDate>
+<creationDate>1315823778000</creationDate>
+<date>1315823778000</date>
+<contentUpdateDate>1315823778000</contentUpdateDate>
 <version>1.1</version>
 <title>Home</title>
 <template></template>
@@ -7519,6 +7519,136 @@ RJBFJEnpJJN0yAUiSaSZQKUpQApShsAa1fJkZtbH42ve5vc+0mtg726V72rqrTSlNKU0pTSlNKU0
 pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSl
 NKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0
 pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlNKU0pTSlf//Z</content></attachment>
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>Main.WebHome</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>8b1bd418-b3b2-4076-86fa-18cced66d3ac</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code>#planete {
+  margin-top: -105px;
+}</code>
+</property>
+<property>
+<name></name>
+</property>
+<property>
+<parse>0</parse>
+</property>
+<property>
+<use>currentPage</use>
+</property>
+</object>
+<object>
+<name>Main.WebHome</name>
+<number>0</number>
+<className>XWiki.SubAssetClass</className>
+<guid>269b25df-5a84-48b3-a5fc-dc3c917cc6ca</guid>
+<property>
+<assetpage>Coll_LudovicDubost.uSTZlbkz1mHdkz8L</assetpage>
+</property>
+<property>
+<order>2</order>
+</property>
+</object>
+<object>
+<name>Main.WebHome</name>
+<number>1</number>
+<className>XWiki.SubAssetClass</className>
+<guid>996dcc5d-5207-4cc9-93ba-2c266c4ca15d</guid>
+<property>
+<assetpage>Coll_jeremi.JmPIG3SWP0Nqe1pR</assetpage>
+</property>
+<property>
+<order>1</order>
+</property>
+</object>
+<object>
+<name>Main.WebHome</name>
+<number>2</number>
+<className>XWiki.SubAssetClass</className>
+<guid>3819e6a9-7df2-4dfa-9289-cff215a1dae8</guid>
+<property>
+<assetpage>Tex.VjGOXnPCT6GvQ96a</assetpage>
+</property>
+<property>
+<order>0</order>
+</property>
+</object>
 <content>= FIND digital resources for teaching =
 
 {{html}}&lt;iframe src="http://sankore.org/?ajax=1&amp;coverflow=1" width="100%" height="340" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"&gt;
