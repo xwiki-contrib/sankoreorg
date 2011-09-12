@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315841554000</creationDate>
-<date>1315841554000</date>
-<contentUpdateDate>1315841554000</contentUpdateDate>
+<creationDate>1315844079000</creationDate>
+<date>1315844079000</date>
+<contentUpdateDate>1315844079000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -5520,6 +5520,45 @@ ul.inside {list-style-position:inside;}
   margin: 0 1.5em 1.5em 0;
   padding-left: 1.5em;
   margin-bottom: 0;
+}
+
+#actualites {
+  background: none repeat scroll 0 0 #EEEEEE;
+    border-bottom: 1px inset #D8D8D8;
+    border-radius: 6px 6px 6px 6px;
+    border-right: 1px inset #D8D8D8;
+  
+}
+
+#actualites .rssfeed {
+  background:none;
+  border:none;
+  padding: 10px 15px;
+  width:auto;
+}
+
+#actualites .rssitemtitle a {
+  color: #C22D1C;
+  font-weight:700;
+}
+
+#actualites .rsschanneltitle {
+  background:none;
+  font-size:20px;
+}
+
+#actualites .rsschanneltitle a {
+    color: #3D3D3F;
+}
+
+#actualites .more-link {
+  padding: 10px 15px;
+  text-align:right;
+}
+#actualites .more-link a {
+  font-size:12px;
+  color: #C22D1C;
+   text-decoration: underline;
 }</sankore.css>
 </property>
 <property>
