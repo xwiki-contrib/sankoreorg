@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316003947000</creationDate>
-<date>1316003947000</date>
-<contentUpdateDate>1316003947000</contentUpdateDate>
+<creationDate>1316021759000</creationDate>
+<date>1316021759000</date>
+<contentUpdateDate>1316021759000</contentUpdateDate>
 <version>1.1</version>
-<title>Register to Join planete.Sankoré</title>
+<title>$msg.get("joincurriki.registerToJoinCurriki")</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -661,7 +661,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
   #end
   #set($sorted = $sorttool.sort($values))
   #foreach($value in $sorted)
-    #set($key = "!$hashmap.get($value)")
+    #set($key = "$!hashmap.get($value)")
     &lt;option label="$value" value="$key" #if($key == "$!existingValue") selected="selected" #end &gt;$value&lt;/option&gt;
   #end
   &lt;/select&gt;
