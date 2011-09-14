@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315412324000</creationDate>
-<date>1315412324000</date>
-<contentUpdateDate>1315412324000</contentUpdateDate>
+<creationDate>1316013164000</creationDate>
+<date>1316013164000</date>
+<contentUpdateDate>1316013164000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -153,8 +153,8 @@ rve.content.view.link.instruction_title=Suivre ce lien externe :
 rve.content.view.link.instruction_tooltip=Ceci est une ressource externe qui vous conduira hors de Planète Sankoré. Utilisez le lien pour télécharger la ressource ou aller consulter le site externe directement
 rve.content.view.go_button=Aller
 
-rve.content.view.download.ubz_download_button=Télécharger le fichier Sankoré
-rve.content.view.download.pdf_download_button=Télécharger le PDF du cours
+rve.content.view.download.ubz_download_button=Au format Sankoré
+rve.content.view.download.pdf_download_button=Au format PDF
 
 ## CONTENT TAB EDIT FILE RESOURCES****************************************
 
