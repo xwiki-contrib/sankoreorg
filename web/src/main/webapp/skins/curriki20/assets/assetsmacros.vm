@@ -635,17 +635,17 @@ $asset.display('instructional_component', 'view')
             </h3>
             <div class="sub-asset-wrapper-inner">
                 <ul>
-                    <li id="info-basic-title">
+                    <li id="assetinfo-basic-title">
                         <strong>$msg.get("rve.information.title_title")</strong>
                         <p>$asset.getDisplayTitle()</p>
                     </li>
 
-                    <li id="info-basic-description">
+                    <li id="assetinfo-basic-description">
                         <strong>$msg.get("rve.information.description_title")</strong>
                         <p>$asset.display("description")</p>
                     </li>
 
-                    <li id="info-basic-subject-education">
+                    <li id="assetinfo-basic-subject-education">
                         <table>
                             <tr>
                                 <th>
@@ -671,11 +671,11 @@ $asset.display('instructional_component', 'view')
                             </tr>
                         </table>
                     </li>
-                    <li id="info-basic-tags"><strong>$msg.get("rve.information.keywords_title")</strong><span>$!asset.display("keywords")</span></li>
-                    <li id="info-basic-language"><strong>$msg.get("rve.information.language_title")</strong><span>$!asset.display("language")</span></li>
+                    <li id="assetinfo-basic-tags"><strong>$msg.get("rve.information.keywords_title")</strong><span>$!asset.display("keywords")</span></li>
+                    <li id="assetinfo-basic-language"><strong>$msg.get("rve.information.language_title")</strong><span>$!asset.display("language")</span></li>
                     #set($rights = $!asset.getValue("rights"))
                     #if($xwiki.getDocument("FileCheck.WebHome").hasAccessLevel("view") && "$!rights" != "private")
-                    <li id="info-basic-check"><strong>$msg.get("rve.information.bfcs_title")</strong>
+                    <li id="assetinfo-basic-check"><strong>$msg.get("rve.information.bfcs_title")</strong>
                         #set($fcstatus = $!asset.getValue("fcstatus"))
                         <span>#if("$fcstatus"!="0"&&"$fcstatus"!="") $!asset.display("fcstatus") #end #if("$fcstatus"!="1")<a href="$xwiki.getDocument("FileCheck.Check").getURL("view", "page=${asset.fullName}")">$msg.get("rve.information.bfcs_apply_link")</a></span>  #end
                     </li>
@@ -689,18 +689,18 @@ $asset.display('instructional_component', 'view')
             </h3>
             <div class="sub-asset-wrapper-inner">
                 <ul>
-                    <li id="info-rights-access">
+                    <li id="assetinfo-rights-access">
                         <strong>$msg.get("rve.information.accessprivileges_title")</strong><span>$!asset.display("rights")</span>
                     </li>
-                    <li id="info-rights-hidden">
+                    <li id="assetinfo-rights-hidden">
                         <strong>$msg.get("rve.information.hidefromsearch_title")</strong><span>#if($!asset.getValue("hidden_from_search")=="1")$msg.get("rve.information.hidefromsearch_yes")#else$msg.get("rve.information.hidefromsearch_no")
                         #end</span>
                     </li>
                     $asset.use("CurrikiCode.AssetLicenseClass")
-                    <li id="info-rights-holder">
+                    <li id="assetinfo-rights-holder">
                         <strong>$msg.get("rve.information.rightsholder_title")</strong><span>$!asset.display("rightsHolder")</span>
                     </li>
-                    <li id="info-rights-license">
+                    <li id="assetinfo-rights-license">
                         <strong>$msg.get("rve.information.licensedeed_title")</strong><span>$!asset.display("licenseType")</span>
                     </li>
                 </ul>
@@ -747,61 +747,61 @@ $asset.use("CurrikiCode.AssetClass")
 <fieldset>
     <ul>
         $asset.use("CurrikiCode.AssetClass")
-        <li id="info-edit-title" class="field-important input-text">
+        <li id="assetinfo-edit-title" class="field-important input-text">
             <span><em>!</em><label for="edit-title">$msg.get("rve.information.title.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.title.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.title.edit_txt")</p>
             <input id="edit-title" name="title" value="$xwiki.getFormEncoded($asset.getTitle())" type="text" maxlength="250">
         </li>
-        <li id="info-edit-description" class="field-important input-textarea">
+        <li id="assetinfo-edit-description" class="field-important input-textarea">
             <span><em>!</em><label for="edit-description">$msg.get("rve.information.description.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.description.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.description.edit_txt")</p>
             $asset.display("description", "edit", true)            
         </li>
-        <li id="info-edit-subject" class="field-important input-tree">
+        <li id="assetinfo-edit-subject" class="field-important input-tree">
             <span><em>!</em><label for="edit-subject">$msg.get("rve.information.subject.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.subject.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.subject.edit_txt")</p>
             $asset.display("fw_items", "edit", true)
         </li>
-        <li id="info-edit-education" class="field-important input-tree">
+        <li id="assetinfo-edit-education" class="field-important input-tree">
             <span><em>!</em><label for="edit-subject">$msg.get("rve.information.edlevel.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.edlevel.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.edlevel.edit_txt")</p>
             $asset.display("educational_level", "edit", true)
         </li>
-        <li id="info-edit-ict" class="field-important input-select">
+        <li id="assetinfo-edit-ict" class="field-important input-select">
             <span><em>!</em><label for="edit-ict">$msg.get("rve.information.ict.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.ict.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.ict.edit_txt")</p>
             $asset.display("instructional_component", "edit", true)
         </li>
 
-        <li id="info-edit-tags" class="input-text">
+        <li id="assetinfo-edit-tags" class="input-text">
             <span><label for="edit-tags">$msg.get("rve.information.keywords.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.keywords.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             $asset.display("keywords", "edit", true)
         </li>
 
-        <li id="info-edit-language" class="input-select">
+        <li id="assetinfo-edit-language" class="input-select">
             <span><label for="edit-language">$msg.get("rve.information.language.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.language.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             $asset.display("language", "edit", true)
         </li>
 
-        <li id="info-edit-hide" class="input-checkbox">
+        <li id="assetinfo-edit-hide" class="input-checkbox">
             <span><label for="edit-hide">$msg.get("rve.information.hidefromsearch.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.hidefromsearch.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.hidefromsearch.edit_txt")</p>
             $asset.display("hidden_from_search", "edit", true) $msg.get("rve.information.hidefromsearch.edit_instruction")
         </li>
         #if($isOriginalAuthorOrAdmin)
         $asset.use("CurrikiCode.AssetLicenseClass")
-        <li id="info-edit-rights" class="field-important input-text">
+        <li id="assetinfo-edit-rights" class="field-important input-text">
             <span><em>!</em><label for="edit-rights">$msg.get("rve.information.rightsholder.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.rightsholder.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             $asset.display("rightsHolder", "edit", true)
         </li>
         $asset.use("CurrikiCode.AssetClass")
-        <li id="info-edit-access" class="input-radio">
+        <li id="assetinfo-edit-access" class="input-radio">
             <span><label for="edit-access">$msg.get("rve.information.accessprivileges.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.accessprivileges.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.accessprivileges.edit_txt")</p>
             $asset.display("rights", "edit", true)
         </li>
         $asset.use("CurrikiCode.AssetLicenseClass")
-        <li id="info-edit-license" class="input-select">
+        <li id="assetinfo-edit-license" class="input-select">
             <span><label for="edit-license">$msg.get("rve.information.licensedeed.edit_title")</label><img class="tooltip" width="16" height="16" border="0" ext:qtip="$msg.get("rve.information.licensedeed.edit_tooltip")" src="$xwiki.getSkinFile("images/px.gif")" alt="" /></span>
             <p>$msg.get("rve.information.licensedeed.edit_txt")</p>
             $asset.display("licenseType", "edit", true)
