@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Registration</web>
+<name>MailTemplateVerificationEmail</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1316016403000</creationDate>
+<date>1316016403000</date>
+<contentUpdateDate>1316016403000</contentUpdateDate>
+<version>1.1</version>
+<title>Sankore Email Check -- Action Needed</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>{pre}
+Dear Sankore Member,
+
+Please click this link to complete step 2 of the email verification process. ${link} If the link does not open your browser, please cut and past the link into your browser. 
+
+If you received this email by mistake, please contact planete.Sankore at contact@sankore.org.
+ 
+
+Thank you.
+
+The planete.Sankore team
+planete.sankore.org
+{/pre}</content></xwikidoc>
