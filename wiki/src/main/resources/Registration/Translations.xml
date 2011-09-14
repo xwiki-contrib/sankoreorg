@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315242562000</creationDate>
-<date>1315242562000</date>
-<contentUpdateDate>1315242562000</contentUpdateDate>
+<creationDate>1316004043000</creationDate>
+<date>1316004043000</date>
+<contentUpdateDate>1316004043000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -38,6 +38,7 @@ forgotPassword.passwordsDoesNotMatch=The login name and password you entered do 
 forgotPassword.enterPassword=You can now enter a new password:
 forgotPassword.enterPassword.prompt=Please enter a new password:
 forgotPassword.enterPasswordConfirm.prompt=Please confirm the new password:
+
 forgotPassword.Go=Go &amp;#xBB;
 forgotPassword.email.mandatory=An email address is required.
 forgotPassword.email.invalid=A valid email address is required.
@@ -99,6 +100,7 @@ joincurriki.enterRequestedInfo=Enter the requested information to become a membe
 joincurriki.enterPassword=Enter your password.
 joincurriki.enterPasswordConfirm=Confirm your password.
 joincurriki.enterValidEmail=Please enter a valid email address. Directions on how to complete the registration process will be sent to this address.
+joincurriki.enterEmailConfirm=Confirm you email address.
 joincurriki.ifApplicable=(if applicable)
 joincurriki.showContact=This allows other Planète Sankoré members to view your personal information.
 joincurriki.fileds.age=Age
@@ -131,6 +133,7 @@ joincurriki.fields.last_name=Last Name:
 joincurriki.fields.password=Password:
 joincurriki.fields.password2=Password (repeat):
 joincurriki.fields.email=Email Address:
+joincurriki.fields.email2=Email Address (repeat):
 joincurriki.fields.opt_out=Email Opt-Out:
 joincurriki.fields.topics=Subjects of Interest:
 joincurriki.fields.member_type=Member Type:

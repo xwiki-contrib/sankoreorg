@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315242586000</creationDate>
-<date>1315242586000</date>
-<contentUpdateDate>1315242586000</contentUpdateDate>
+<creationDate>1316003979000</creationDate>
+<date>1316003979000</date>
+<contentUpdateDate>1316003979000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -99,6 +99,7 @@ joincurriki.enterRequestedInfo=Saisissez les informations demandées pour deveni
 joincurriki.enterPassword=Entrez votre mot de passe.
 joincurriki.enterPasswordConfirm=Confirmez votre mot de passe.
 joincurriki.enterValidEmail=Entrez une adresse email valide, SVP. Les explications nécessaires pour compléter votre inscription seront envoyées à cette adresse.
+joincurriki.enterEmailConfirm=Confirmez votre adresse email.
 joincurriki.ifApplicable=(si applicable)
 joincurriki.showContact=Ceci permet à d'autres membres de Planète Sankoré de visualiser vos informations personnelles.
 joincurriki.fileds.age=Âge
@@ -131,6 +132,7 @@ joincurriki.fields.last_name=Nom \:
 joincurriki.fields.password=Mot de passe\:
 joincurriki.fields.password2=Mot de passe (répéter)\:
 joincurriki.fields.email=Adresse email\:
+joincurriki.fields.email2=Adresse email (répéter)\:
 joincurriki.fields.opt_out=Email Opt-Out\:
 joincurriki.fields.topics=Centres d'intérêts\:
 joincurriki.fields.member_type=Catégorie de membre\:
