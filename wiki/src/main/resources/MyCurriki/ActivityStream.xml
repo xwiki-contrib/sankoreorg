@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1313053349000</creationDate>
-<date>1313053349000</date>
-<contentUpdateDate>1313053349000</contentUpdateDate>
+<creationDate>1316081915000</creationDate>
+<date>1316081915000</date>
+<contentUpdateDate>1316081915000</contentUpdateDate>
 <version>1.1</version>
 <title>ActivityStream</title>
 <template></template>
@@ -23,5 +23,5 @@
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
 <content>{{velocity}}
-{{activity authors="$context.user" /}}
+{{activity authors="$userdoc.fullName" /}}
 {{/velocity}}</content></xwikidoc>
