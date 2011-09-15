@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315416705000</creationDate>
-<date>1315416705000</date>
-<contentUpdateDate>1315416705000</contentUpdateDate>
+<creationDate>1316097720000</creationDate>
+<date>1316097720000</date>
+<contentUpdateDate>1316097720000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -358,6 +358,7 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.MotionPictureConfer
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.MotionPictureTutorial=Tutorial
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.FreeSoftware.UNSPECIFIED=Free software: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete.UNSPECIFIED=Course complete: Any
+CurrikiCode.AssetClass_instructional_component_multiple=Multiple
 
 ## ACCESS RIGHTS
 CurrikiCode.AssetClass_rights_public=Public: Available to anyone and any member can edit.
@@ -577,6 +578,7 @@ XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.18HigherEducationTechnol
 XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.18HigherEducationPhD=PhD
 XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.18SupplementaryEducation=Supplementary Education
 XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.SpecialEducation=Special Education
+XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.UNSPECIFIED=Educational Level:Any
 
 
 ## LANGUAGE
@@ -865,6 +867,9 @@ XWiki.XWikiUsers_country_ZA=South Africa
 XWiki.XWikiUsers_country_ZM=Zambia
 XWiki.XWikiUsers_country_ZW=Zimbabwe
 
+## Display profile to other users
+XWiki.XWikiUsers_show_contact_0=No
+XWiki.XWikiUsers_show_contact_1=Yes
 
 
 ## TOPICS
