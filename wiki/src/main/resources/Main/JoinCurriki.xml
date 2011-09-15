@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316021759000</creationDate>
-<date>1316021759000</date>
-<contentUpdateDate>1316021759000</contentUpdateDate>
+<creationDate>1316093310000</creationDate>
+<date>1316093310000</date>
+<contentUpdateDate>1316093310000</contentUpdateDate>
 <version>1.1</version>
-<title>$msg.get("joincurriki.registerToJoinCurriki")</title>
+<title>$msg.get("joincurriki.title")</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -25,8 +25,8 @@
 <filename>Register draft v4.doc</filename>
 <filesize>32256</filesize>
 <author>XWiki.ABader</author>
-<date>1203116898000</date>
-<version>1.6</version>
+<date>1316091862000</date>
+<version>1.7</version>
 <comment></comment><content>0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAOgAAAAAAAAAA
 EAAAPAAAAAEAAAD+////AAAAADkAAAD/////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////
@@ -593,6 +593,112 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></attachment>
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>Main.JoinCurriki</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>dff5d944-dfe2-462c-af98-7c06f5654903</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code>.register_title {
+  font-weight: bold;
+}
+
+.register_help {
+  font-size: 11px;
+  margin: 0 0 0.5em;
+}
+
+.register_block {
+  margin-bottom: 7px;
+  padding: 5px;
+}
+
+.registration-button {
+  text-align: center;
+}
+</code></property><property><name>JoinCurrikiSSX</name>
+</property>
+<property>
+<parse>0</parse>
+</property>
+<property>
+<use>currentPage</use>
+</property>
+</object>
 <content>#**
    * Join Curriki Page
    * @programming
@@ -800,11 +906,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
       $('register').submit();
     }
   &lt;/script&gt;
-  &lt;style type="text/css"&gt;
-    .highlight {
-      border: 2px solid #FF0000;
-    }
-  &lt;/style&gt;
   {/pre}
 1 $msg.get("joincurriki.registerToJoinCurriki")
 
@@ -844,19 +945,14 @@ $msg.get("joincurriki.enterRequestedInfo")
   #formfield("email" $msg.get("joincurriki.enterValidEmail") true)
   #formfield("email2" $msg.get("joincurriki.enterEmailConfirm") true)
   #formfield("opt_out" $msg.get("joincurriki.chooseOptOut") false)
-  #formfield("topics" $msg.get("joincurriki.topics") false)
   #formfield("city" "" false)
   #formfield("state" "" false)
   #formfield_sortedlist("country" "" false)
+  #formfield("topics" $msg.get("joincurriki.topics") false)
   #formfield("affiliation" "" false)
   #formfield("show_contact" $msg.get("joincurriki.showContact") true)
   &lt;input type="hidden" name="XWiki.XWikiUsers_0_validated" value="0" /&gt;
-  &lt;div class="register_block" id="register_block_notminor"&gt;
-    &lt;div class="register_field"&gt;
-      &lt;input type="hidden" name="XWiki.XWikiUsers_0_notminor" id="XWiki.XWikiUsers_0_notminor" value="1" /&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
+  &lt;input type="hidden" name="XWiki.XWikiUsers_0_notminor" id="XWiki.XWikiUsers_0_notminor" value="1" /&gt;
   #set($ppurl = $xwiki.getURL("Main.PrivacyPolicy"))
   #set($TOS = $xwiki.getURL("Main.TermsOfUse"))
   ## FIXME: fix the actual terms of use and privacy and uncomment this when done. FTM these are commented because they link to bad things 
@@ -875,21 +971,13 @@ $msg.get("joincurriki.enterRequestedInfo")
     &lt;/div&gt;
   &lt;/div&gt;
   *#
-  &lt;div class="register_field"&gt;
-    &lt;input type="hidden" name="XWiki.XWikiUsers_0_i_agree" id="XWiki.XWikiUsers_0_i_agree" value="1" /&gt;
+  &lt;input type="hidden" name="XWiki.XWikiUsers_0_i_agree" id="XWiki.XWikiUsers_0_i_agree" value="1" /&gt;
+  &lt;p&gt;$msg.get("joincurriki.emailWillBeSent")&lt;/p&gt;
+  &lt;div class="registration-button"&gt;
+    #button($msg.get("joincurriki.saveMyInfoAndRegister") "red" "submit" "" "")
   &lt;/div&gt;
-&lt;br /&gt;&lt;br /&gt;
-  &lt;center&gt;
-    &lt;div&gt;$msg.get("joincurriki.emailWillBeSent")&lt;/div&gt;
-    &lt;div class="registration-button"&gt;
-      #button($msg.get("joincurriki.saveMyInfoAndRegister") "red" "submit" "" "")
-    &lt;/div&gt;
-  &lt;/center&gt;
 &lt;/form&gt;
 ## $xwiki.addTooltipJS()
 #else  ## Submission succeeded -- Go to email sent page
   $response.sendRedirect($xwiki.getURL('Registration.EmailSent'))
-#end
-&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
-
-</content></xwikidoc>
+#end</content></xwikidoc>
