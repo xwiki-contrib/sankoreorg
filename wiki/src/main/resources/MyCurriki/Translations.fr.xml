@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314984127000</creationDate>
-<date>1314984127000</date>
-<contentUpdateDate>1314984127000</contentUpdateDate>
+<creationDate>1316092315000</creationDate>
+<date>1316092315000</date>
+<contentUpdateDate>1316092315000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -36,7 +36,7 @@ mycurriki.tab.collections.label=Collections
 mycurriki.tab.collections.subtitle=Vous trouverez toutes les collections dans la liste ci-dessous : 
 mycurriki.tab.contributions.label=Contributions
 
-mycurriki.tab.contributions.subtitle=Vous trouverez toutes vos contributions dans la liste ci-dessous. Vous pouvez filtrer les colonnes Titre, Dernière modification, et Accès. (You will only see Access for your own contributions.)
+mycurriki.tab.contributions.subtitle=Vous trouverez toutes vos contributions dans la liste ci-dessous. Vous pouvez filtrer les colonnes Titre, Date de modification, et Accès.
 mycurriki.tab.favorites.label=Favoris
 
 mycurriki.tab.favorites.subtitle=Vous trouverez tous vos favoris dans cette liste :
@@ -69,7 +69,7 @@ mycurriki.link.editcontent=Editer
 mycurriki.link.editcontent.tooltip=Editer le contenu ou l'affichage de cette ressource
 
 mycurriki.link.editinfo=Editer les Infos
-mycurriki.link.editinfo.tooltip=Edit les informations concernant cette ressource
+mycurriki.link.editinfo.tooltip=Editer les informations concernant cette ressource
 
 mycurriki.link.buildup=Contribuer
 mycurriki.link.buildup.tooltip=Ajouter une ressource à ce dossier ou cette collection
@@ -199,13 +199,13 @@ mycurriki.macro.paginate.next=Suivant
 
 
 sankore.profile.editprofile.title=METTRE A JOUR VOTRE PROFIL
-sankore.profile.editprofile.description=Aiderz nos membres a mieux vous connaitre. Ajouter votre photo et quelques informations a votre sujet.
+sankore.profile.editprofile.description=Aidez nos membres à mieux vous connaitre. Ajoutez votre photo et quelques informations à votre sujet.
 sankore.profile.joingroup.title=REJOIGNEZ UN GROUPE THEMATIQUE
-sankore.profile.joingroup.description=Discutez et partagez vos idees avec d'autres professionnels de l'education.
-sankore.profile.downloadplugin.title=TELECHARGER LE PLUGIN SANKORE
+sankore.profile.joingroup.description=Discutez et partagez vos idées avec d'autres professionnels de l'éducation.
+sankore.profile.downloadplugin.title=TELECHARGEZ LE PLUGIN SANKORE
 sankore.profile.downloadplugin.description=Proposez des ressources sur planete.sankore.org en parcourant le web. C'est simple comme un clic!
 sankore.profile.inviteuser.title=INVITEZ UN AMI OU COLLEGUE
-sankore.profile.inviteuser.description=Aidez la communaute Sankore a s'elargir!
+sankore.profile.inviteuser.description=Aidez la communaute Sankore à s'élargir!
 profile.welcome=Bienvenue sur planete.sankore.org, {0} !
 #{/pre}
 </content></xwikidoc>
