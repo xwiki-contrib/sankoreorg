@@ -6,13 +6,13 @@
 <defaultLanguage>en</defaultLanguage>
 <translation>0</translation>
 <parent>CurrikiCode.WebHome</parent>
-<creator>XWiki.sorzu</creator>
-<author>XWiki.sorzu</author>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
 <customClass></customClass>
-<contentAuthor>XWiki.sorzu</contentAuthor>
-<creationDate>1314456161000</creationDate>
-<date>1314456161000</date>
-<contentUpdateDate>1314456161000</contentUpdateDate>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1316080378000</creationDate>
+<date>1316080378000</date>
+<contentUpdateDate>1316080378000</contentUpdateDate>
 <version>1.1</version>
 <title>SearchCriteria</title>
 <template></template>
@@ -271,6 +271,7 @@ table#search-criteria {
 table#search-criteria th, table#search-criteria td {
   border:0;
   background:none;
+  vertical-align:top;
 }
 
 table#search-criteria th {
@@ -291,6 +292,10 @@ table#search-criteria th {
 
 table#search-criteria ul {
   margin-left:0;
+}
+
+table#search-criteria ul li {
+  list-style-position: outside;
 }
 
 .criterion-title {
