@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315224406000</creationDate>
-<date>1315224406000</date>
-<contentUpdateDate>1315224406000</contentUpdateDate>
+<creationDate>1316102692000</creationDate>
+<date>1316102692000</date>
+<contentUpdateDate>1316102692000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -990,7 +990,7 @@ add.finalmessage.text_addto_success=Vous avez ajouté &lt;strong&gt;{0}&lt;/stro
 
 add.finalmessage.text_addto_folder_success=Vous avez ajouté &lt;strong&gt;{0}&lt;/strong&gt; dans &lt;strong&gt;{1}&lt;/strong&gt; avec succès. Maintenant, vous pouvez ajouter et classer les ressources de ce dossier.
 
-add.finalmessage.text_favorites_success=Vous avez ajouté ceci à My Favorites.
+add.finalmessage.text_favorites_success=Vous avez ajouté ceci à vos Favoris.
 
 ## ADD COLLECTIONS
 
@@ -1012,9 +1012,9 @@ add.finalmessage.text_groupcollection_tip2=
 ##FINAL MESSAGE NAVIGATION OPTIONS
 
 add.finalmessage.add.link=Ajouter
-add.finalmessage.favorites.link=Aller à My Favorites
-add.finalmessage.contributions.link=Aller à My Contributions
-add.finalmessage.collections.link=Aller à My Collections
+add.finalmessage.favorites.link=Consulter vos Favoris
+add.finalmessage.contributions.link=Consulter vos Contributions
+add.finalmessage.collections.link=Consulter vos Collections
 
 add.finalmessage.view.link=Visualiser
 
