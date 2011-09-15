@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316087478000</creationDate>
-<date>1316087478000</date>
-<contentUpdateDate>1316087478000</contentUpdateDate>
+<creationDate>1316090794000</creationDate>
+<date>1316090794000</date>
+<contentUpdateDate>1316090794000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -58,7 +58,7 @@ rve.title.rating.crs.info.url=http://www.curriki.org/xwiki/bin/view/Main/AboutCu
 curriki.crs.rating=A propos des revues Planète Sankoré
 curriki.crs.rating.unrated=A propos des revues Planète Sankoré
 
-rve.title.member.rating.function.add_rating=A propos de l'évaluation par les membres
+rve.title.member.rating.function.add_rating=Evaluer cette ressource en tant que membre
 rve.title.member.rating.info=A propos de l'évaluation par les membres
 rve.title.member.rating.info.url=http://www.curriki.org/xwiki/bin/view/Main/AboutMemberRating
 
@@ -393,7 +393,7 @@ rve.comments.comment.addcomment_rollover=Livrer vos impressions pour cette resso
 
 ##PLEASE NOTE: This tab uses -- for any CRS values displayed within the interface -- the trans at /xwiki/bin/view/CRS/Translations
 
-rve.comments.review.header=PLANETE SANKORE REVIEW
+rve.comments.review.header=EVALUATION PAR L'EQUIPE PLANETE.SANKORE
 
 rve.comments.review.reviewed.default_text=This resource was reviewed using the rubric for {0} and received an overall &lt;a href="http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem"&gt;Planète Sankoré Review System&lt;/a&gt; rating of &lt;strong&gt;{1}, as of {2}.&lt;/strong&gt;
 rve.comments.review.reviewed.component_title=Component Ratings:
@@ -404,7 +404,7 @@ rve.comments.review.reviewed.reviewtext_title=Commentaires :
 
 rve.comments.review.update_link=Mettre à jour cette révision
 
-rve.comments.review.empty.loggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été évaluée par le comité d'évaluation Sankoré.&lt;/strong&gt; &lt;br&gt;&lt;br&gt;Expert reviewers apply CRS criteria to help you find high quality resources. &lt;br&gt;&lt;br&gt;Cliquez sur Soumettre à évaluation ci-dessus pour soumettre cette ressource à évaluation par l'équipe Sankoré
+rve.comments.review.empty.loggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été évaluée par l'équipe planete.Sankoré.&lt;/strong&gt;. Cliquez sur "Soumettre cette ressource à évaluation" ci-dessus pour soumettre cette ressource à évaluation par l'équipe planete.Sankoré
 
 rve.comments.review.empty.notloggedin_message=&lt;strong&gt;This resource has not yet been reviewed by the &lt;a href="http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem"&gt;Planète Sankoré Review System&lt;/a&gt; (CRS).&lt;/strong&gt; &lt;br&gt;&lt;br&gt;Expert reviewers apply CRS criteria to help users find high quality resources.&lt;br&gt;&lt;br&gt;&lt;a href="http://www.curriki.org/xwiki/bin/view/Main/JoinCurriki"&gt;Join Planète Sankoré&lt;/a&gt; or &lt;a href="http://www.curriki.org/xwiki/bin/login/XWiki/XWikiLogin"&gt;log in&lt;/a&gt; so you can nominate a resource for Planète Sankoré Review.
 
