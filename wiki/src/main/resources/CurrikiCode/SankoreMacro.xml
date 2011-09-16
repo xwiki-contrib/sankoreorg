@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315398012000</creationDate>
-<date>1315398012000</date>
-<contentUpdateDate>1315398012000</contentUpdateDate>
+<creationDate>1316193282000</creationDate>
+<date>1316193282000</date>
+<contentUpdateDate>1316193282000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -2607,18 +2607,13 @@ function launchPlayer(file, nbpages) {
 #end
 #end
 &lt;div id="sankore-preview"&gt;
-&lt;a href="javascript:void(0)" onclick="launchPlayer('${url}', ${nbpages}); return false;"&gt;
+&lt;a href="javascript:void(0)" onclick="launchPlayer('${url}', ${nbpages}); return false;" title="$escapetool.xml($msg.get('rve.content.view.preview.previewubwattachment.tooltip'))"&gt;
 &lt;img src="${url}/page001$!{suffix}.jpg" #if($width &amp;&amp; $width!="") width="$width" #end #if($height &amp;&amp; $height!="") height="$height" #end /&gt;
 &lt;/a&gt;
 &lt;/div&gt;
 {{/html}}
-{{/velocity}}</code>
-</property>
-<property>
-<contentDescription></contentDescription>
-</property>
-<property>
-<contentType>No content</contentType>
+{{/velocity}}
+</code></property><property><contentDescription></contentDescription></property><property><contentType>No content</contentType>
 </property>
 <property>
 <defaultCategory>content</defaultCategory>

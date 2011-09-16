@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316106709000</creationDate>
-<date>1316106709000</date>
-<contentUpdateDate>1316106709000</contentUpdateDate>
+<creationDate>1316192528000</creationDate>
+<date>1316192528000</date>
+<contentUpdateDate>1316192528000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -4632,10 +4632,6 @@ display:none;
   font-size:11px;
   padding:0;
 }
-
-#editPanels, #leftPanels, #rightPanels {  
-
-}
   
 /* JIRA  1212 */
 #leftPanels .curriki-donate { padding: 0; }
@@ -4732,13 +4728,308 @@ font-weight:bold;}
   margin-right: 10px;
   margin-top: -31px;
   width: 34px;
-}</panels.css>
-</property>
-<property>
-<rightpanels.vm></rightpanels.vm>
-</property>
-<property>
-<sankore.css>#template('colorThemeInit.vm')
+}
+
+### SANKORE PANELS CSS
+
+#rightPanels {
+  float: right;
+  margin: 0 0 0 -312px;
+  width: 312px;
+}
+#rightPanels .block {
+    position: relative;
+}
+
+.planete h2 {
+  color: #C92A1C;
+}
+#planete h3 {
+  margin-top: 10px;
+}
+#planete .voirPlus {
+  color: #C22D1C;
+}
+#planete p, #rechercher p, #logiciel p {
+  margin-bottom: 0;
+}
+#*
+#planete form .input {
+  border: 1px solid #E4E4E4;
+  float: left;
+  height: 18px;
+  margin-right: 4px;
+  width: 86px;
+}
+#planete form #j_loginpwd {
+  margin-top: -18px;
+}
+#planete form #loginbtn {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 #868789;
+  border-color: -moz-use-text-color -moz-use-text-color #636363;
+  border-radius: 4px 4px 4px 4px;
+  border-style: none none solid;
+  border-width: medium medium 1px;
+  color: #FFFFFF;
+  cursor: pointer;
+  float: left;
+  font-weight: bold;
+  height: 20px;
+  margin-left: 190px;
+  margin-top: -35px;
+  width: 86px;
+}
+#remember-forgot a {
+  color: #978E78;
+  font-style: italic;
+  text-decoration: underline;
+}
+#remember-forgot label {
+  cursor: pointer;
+  display: inline;
+}
+#remember-forgot input {
+  margin-left: 8px;
+}
+#remember-forgot a {
+  display: block;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+*#
+#planete #signup {
+  background: none repeat scroll 0 0 #C92A1C;
+  border-bottom: 1px solid #681A14;
+  border-radius: 4px 4px 4px 4px;
+  color: #FFFFFF;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: auto;
+  padding: 5px 0;
+  text-align: center;
+}
+#planete #signup:hover {
+  text-decoration: none;
+}
+#rechercher .download-link {
+  background-color: #739D35;
+  border-bottom: 2px solid #3F5620;
+}
+#planete .download-link {
+  background-color: #C92A1C;
+  border-bottom: 2px solid #3F5620;
+  padding-top: 14px;
+  height: 29px;
+  width: 130px;
+  background-position: 160px 11px;
+}
+
+#logiciel .download-link {
+  background-color: #24769D;
+  border-bottom: 2px solid #195175;
+}
+#logiciel h2, #logiciel h3, #logiciel .voirPlus {
+  color: #195175;
+}
+.xwikipanelcontents {
+  background: transparent;
+}
+#planete #signin {
+  background: none repeat scroll 0 0 #C92A1C;
+  border-bottom: 1px solid #681A14;
+  border-right: 1px solid #C92A1C;
+  border-top: 1px solid #C92A1C;
+  border-left: 1px solid #C92A1C;
+  border-radius: 4px 4px 4px 4px;
+  color: #FFFFFF;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 0 15px 0px;
+  padding: 5px 0;
+  text-align: center;
+  width: 80px;
+  float:right;
+}
+.block-block {
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  padding: 0;
+  margin-top:15px;
+}
+
+#rechercher a {
+  color: #3F5620;
+  font-size: inherit;
+}
+
+#rechercher h3 {
+  margin:0;
+}
+
+#rechercher .block-title {
+  background-color: #DAE39C;
+  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+}
+#logiciel .block-title {
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+#planete .block-title {
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+.block-title {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom: none;
+  margin: 0;
+  padding: 10px 10px 10px 60px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.BrowseBySubject .block-title {
+  border-radius: 0;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+
+#rechercher .block-contents-top {
+  background-color: #DAE39C;
+  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+}
+#logiciel .block-contents-top {
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+#planete .block-contents-top {
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+.block-contents-top {
+  border-style: solid;
+  border-width: 1px;
+  border-top: none;
+  margin-bottom: 2px;
+  padding: 10px 15px;
+}
+
+#rechercher .block-contents-inner {
+  background-color: #DAE39C;
+  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+}
+#logiciel .block-contents-inner {
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+#planete .block-contents-inner {
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+.block-contents-inner {
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 2px;
+  padding: 10px 15px;
+}
+
+#rechercher .block-contents-bottom {
+  background-color: #DAE39C;
+  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
+}
+#logiciel .block-contents-bottom {
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+.BrowseBySubject {
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+.BrowseBySubject .xwikipanelcontents {
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+.block-contents-bottom {
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  padding: 10px 15px;
+}
+
+#planete a {
+  color: #C22D1C;
+}
+#rightPanels h3 {
+  color: #3D3D3F;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom:none;
+}
+
+#rightPanels p {
+  font-size:12px;
+  margin-bottom: 0.5em;
+}
+
+#rightPanels li {
+  font-size: 11px;
+}
+
+#rightPanels ul, #rightPanels ol {
+  margin: 0 1.5em 1.5em 0;
+  padding-left: 1.5em;
+  margin-bottom: 0;
+}
+#actualites {
+  background: none repeat scroll 0 0 #EEEEEE;
+  border-bottom: 1px inset #D8D8D8;
+  border-radius: 6px 6px 6px 6px;
+  border-right: 1px inset #D8D8D8;
+}
+
+#actualites .rssfeed {
+  background:none;
+  border:none;
+  padding: 10px 15px;
+  width:auto;
+}
+
+#actualites .rssitemtitle a {
+  color: #C22D1C;
+  font-weight:700;
+}
+
+#actualites .rsschanneltitle {
+  background:none;
+  font-size:20px;
+}
+
+#actualites .rsschanneltitle a {
+  color: #3D3D3F;
+}
+
+#actualites .more-link {
+  padding: 10px 15px;
+  text-align:right;
+}
+#actualites .more-link a {
+  font-size:12px;
+  color: #C22D1C;
+  text-decoration: underline;
+}
+</panels.css></property><property><rightpanels.vm></rightpanels.vm></property><property><sankore.css>#template('colorThemeInit.vm')
 
 #body {
   font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
@@ -5537,92 +5828,6 @@ li a.active {
   color: #000000;
 }
 
-### SANKORE PANELS CSS
-
-#planete h2 {
-  color: #C92A1C;
-}
-#planete h3 {
-  margin-top: 10px;
-}
-#planete .voirPlus {
-  color: #C22D1C;
-}
-#planete p, #rechercher p, #logiciel p {
-  margin-bottom: 0;
-}
-#*
-#planete form .input {
-  border: 1px solid #E4E4E4;
-  float: left;
-  height: 18px;
-  margin-right: 4px;
-  width: 86px;
-}
-#planete form #j_loginpwd {
-  margin-top: -18px;
-}
-#planete form #loginbtn {
-  -moz-border-bottom-colors: none;
-  -moz-border-image: none;
-  -moz-border-left-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-top-colors: none;
-  background: none repeat scroll 0 0 #868789;
-  border-color: -moz-use-text-color -moz-use-text-color #636363;
-  border-radius: 4px 4px 4px 4px;
-  border-style: none none solid;
-  border-width: medium medium 1px;
-  color: #FFFFFF;
-  cursor: pointer;
-  float: left;
-  font-weight: bold;
-  height: 20px;
-  margin-left: 190px;
-  margin-top: -35px;
-  width: 86px;
-}
-#remember-forgot a {
-  color: #978E78;
-  font-style: italic;
-  text-decoration: underline;
-}
-#remember-forgot label {
-  cursor: pointer;
-  display: inline;
-}
-#remember-forgot input {
-  margin-left: 8px;
-}
-#remember-forgot a {
-  display: block;
-  margin-bottom: 20px;
-  margin-top: 0;
-}
-*#
-#planete #signup {
-  background: none repeat scroll 0 0 #C92A1C;
-  border-bottom: 1px solid #681A14;
-  border-radius: 4px 4px 4px 4px;
-  color: #FFFFFF;
-  display: block;
-  font-size: 12px;
-  font-weight: bold;
-  margin: auto;
-  padding: 5px 0;
-  text-align: center;
-}
-#planete #signup:hover {
-  text-decoration: none;
-}
-
-#rightPanels {
-  float: right;
-  margin: 0 0 0 -312px;
-  width: 312px;
-}
-
-
 #block-search-form {
   margin-bottom: 2px;
   padding: 10px 0;
@@ -5682,26 +5887,7 @@ li a.active {
   color: #FFFFFF;
   text-decoration: none;
 }
-#rechercher .download-link {
-  background-color: #739D35;
-  border-bottom: 2px solid #3F5620;
-}
-#planete .download-link {
-  background-color: #C92A1C;
-  border-bottom: 2px solid #3F5620;
-  padding-top: 14px;
-  height: 29px;
-  width: 130px;
-  background-position: 160px 11px;
-}
 
-#logiciel .download-link {
-  background-color: #24769D;
-  border-bottom: 2px solid #195175;
-}
-#logiciel h2, #logiciel h3, #logiciel .voirPlus {
-  color: #195175;
-}
 #edit-search-block-form--4 {
   border: medium none;
   font-size: 13px;
@@ -5727,27 +5913,6 @@ li a.active {
   border-bottom: none;
 }
 
-#planete .xwikipanelcontents {
-  background: transparent;
-}
-#planete #signin {
-  background: none repeat scroll 0 0 #C92A1C;
-  border-bottom: 1px solid #681A14;
-  border-right: 1px solid #C92A1C;
-  border-top: 1px solid #C92A1C;
-  border-left: 1px solid #C92A1C;
-  border-radius: 4px 4px 4px 4px;
-  color: #FFFFFF;
-  display: block;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 0 15px 0px;
-  padding: 5px 0;
-  text-align: center;
-  width: 80px;
-  float:right;
-}
-
 #remember-forgot {
   color: #978E78;
   font-style: italic;
@@ -5765,113 +5930,6 @@ li a.active {
 ul.circle {list-style-type:circle}
 ul.disc {list-style-type:disc}
 ul.inside {list-style-position:inside;}
-
-.block-block {
-  font-family: Arial,sans-serif;
-  font-size: 12px;
-  padding: 0;
-  margin-top:15px;
-}
-
-#rechercher a {
-  color: #3F5620;
-  font-size: inherit;
-}
-
-#rechercher h3 {
-  margin:0;
-}
-
-#rechercher .block-title {
-  background-color: #DAE39C;
-  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
-}
-#logiciel .block-title {
-  background-color: #CCE0E8;
-  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
-}
-#planete .block-title {
-  background-color: #FFEECE;
-  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
-}
-.block-title {
-  border-style: solid;
-  border-width: 1px;
-  border-bottom: none;
-  margin: 0;
-  padding: 10px 10px 10px 60px;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-#rechercher .block-contents-top {
-  background-color: #DAE39C;
-  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
-}
-#logiciel .block-contents-top {
-  background-color: #CCE0E8;
-  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
-}
-#planete .block-contents-top {
-  background-color: #FFEECE;
-  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
-}
-.block-contents-top {
-  border-style: solid;
-  border-width: 1px;
-  border-top: none;
-  margin-bottom: 2px;
-  padding: 10px 15px;
-}
-
-#rechercher .block-contents-inner {
-  background-color: #DAE39C;
-  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
-}
-#logiciel .block-contents-inner {
-  background-color: #CCE0E8;
-  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
-}
-#planete .block-contents-inner {
-  background-color: #FFEECE;
-  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
-}
-.block-contents-inner {
-  border-style: solid;
-  border-width: 1px;
-  margin-bottom: 2px;
-  padding: 10px 15px;
-}
-
-#rechercher .block-contents-bottom {
-  background-color: #DAE39C;
-  border-color: #FFF4E1 #B7BC7A #B7BC7A #FFF4E1;
-}
-#logiciel .block-contents-bottom {
-  background-color: #CCE0E8;
-  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
-}
-.BrowseBySubject {
-  background-color: #FFEECE;
-  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
-}
-.BrowseBySubject .xwikipanelcontents {
-  background-color: #FFEECE;
-  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
-}
-.block-contents-bottom {
-  border-style: solid;
-  border-width: 1px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  padding: 10px 15px;
-}
-
-#planete a {
-  color: #C22D1C;
-}
 
 .subject-link {
   padding:0;
@@ -5941,72 +5999,19 @@ ul.inside {list-style-position:inside;}
   border-color: #444444;
 }
 
-#rightPanels h3 {
-  color: #3D3D3F;
-  font-size: 12px;
-  line-height: 15px;
-  margin-bottom: 8px;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-bottom:none;
-}
-
-#rightPanels p {
-  font-size:12px;
-  margin-bottom: 0.5em;
-}
-
-#rightPanels li {
-  font-size: 11px;
-}
-
-#rightPanels ul, #rightPanels ol {
-  margin: 0 1.5em 1.5em 0;
-  padding-left: 1.5em;
-  margin-bottom: 0;
-}
-
-#actualites {
-  background: none repeat scroll 0 0 #EEEEEE;
-  border-bottom: 1px inset #D8D8D8;
-  border-radius: 6px 6px 6px 6px;
-  border-right: 1px inset #D8D8D8;
-}
-
-#actualites .rssfeed {
-  background:none;
-  border:none;
-  padding: 10px 15px;
-  width:auto;
-}
-
-#actualites .rssitemtitle a {
-  color: #C22D1C;
-  font-weight:700;
-}
-
-#actualites .rsschanneltitle {
-  background:none;
-  font-size:20px;
-}
-
-#actualites .rsschanneltitle a {
-  color: #3D3D3F;
-}
-
-#actualites .more-link {
-  padding: 10px 15px;
-  text-align:right;
-}
-#actualites .more-link a {
-  font-size:12px;
-  color: #C22D1C;
-  text-decoration: underline;
-}
-
 ## Sankore menus
 ul.menu li {
   display: inline;
+}
+
+/* UBW preview styling */
+
+#asset-wrapper-inner .filetype-ubw .asset-ubw-clickhint {
+  color: #aaa;
+}
+
+#asset-wrapper-inner .filetype-ubw #sankore-preview {
+  margin-top: 5px;
 }
 </sankore.css></property><property><siteembed.vm>#**
   * Embed entry point. It is called from view.vm
@@ -6435,9 +6440,7 @@ table#search-termPanel-button-resource button, table#search-termPanel-button-gro
   position: absolute;
   top: -20px;
 }
-#rightPanels .block {
-    position: relative;
-}
+
 #contentmenu, #contentmenu.submenu, #contenteditmenu, #contenteditmenu.submenu {
   z-index: 99;
 }
