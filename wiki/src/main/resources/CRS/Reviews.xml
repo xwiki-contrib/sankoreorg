@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315415257000</creationDate>
-<date>1315415257000</date>
-<contentUpdateDate>1315415257000</contentUpdateDate>
+<creationDate>1316454112000</creationDate>
+<date>1316454112000</date>
+<contentUpdateDate>1316454112000</contentUpdateDate>
 <version>1.1</version>
-<title>Reviews</title>
+<title>$msg.get('curriki.crs.reviews')</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
