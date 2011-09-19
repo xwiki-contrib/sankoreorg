@@ -15,7 +15,7 @@
   $!caption <span class="asset-ubw-clickhint">($msg.get('rve.content.view.preview.previewubwattachment'))</span>
   #if("$!asset.fileType" == "ubw" || "$!asset.fileType" == "ubz")
     #foreach($attachment in $asset.getAttachmentList())
-      $asset.getRenderedContent("{{sankore file=${escapetool.q}$!{attachment.filename}${escapetool.q} width='600' /}}", "xwiki/2.0")
+      $asset.getRenderedContent("{{sankore file=${escapetool.q}$!{attachment.filename}${escapetool.q} width='562' /}}", "xwiki/2.0")
     #end
   #end  
   </div>
