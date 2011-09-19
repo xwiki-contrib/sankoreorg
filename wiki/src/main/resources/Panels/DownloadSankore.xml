@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xwikidoc>
 <web>Panels</web>
-<name>SankoreRssFeed</name>
+<name>DownloadSankore</name>
 <language></language>
 <defaultLanguage>en</defaultLanguage>
 <translation>0</translation>
@@ -10,17 +10,17 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316446212000</creationDate>
-<date>1316446212000</date>
-<contentUpdateDate>1316446212000</contentUpdateDate>
+<creationDate>1316438167000</creationDate>
+<date>1316438167000</date>
+<contentUpdateDate>1316438167000</contentUpdateDate>
 <version>1.1</version>
-<title>Sankore Rss Feed</title>
+<title></title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/2.0</syntaxId>
+<syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
 <object>
 <class>
@@ -96,39 +96,34 @@
 <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
 </type>
 </class>
-<name>Panels.SankoreRssFeed</name>
+<name>Panels.DownloadSankore</name>
 <number>0</number>
 <className>Panels.PanelClass</className>
-<guid>cbcbff7f-f572-4aba-bd78-264c292e875d</guid>
+<guid>c1ab40ef-007d-4600-9457-bb59a8cf12c7</guid>
 <property>
 <category>Information</category>
 </property>
 <property>
-<content>{{velocity}}
-#if(!$isGuest &amp;&amp; "$!xwiki.curiki.fetchAssetOrNull($doc.fullName)" == "")
-{{html clean="false"}}
-&lt;div id="actualites" class="panel SankoreRssFeed actualites"&gt;
-{{/html}}
-
-{{rss feed="http://sankore.org/article/last/feed" /}}
-
-{{html clean="false"}}
-&lt;div class="more-link"&gt;
-  &lt;a href="http://sankore.org/article/all"&gt;more&lt;/a&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-{{/html}}
-#end
-{{/velocity}}</content>
+<content>#includeMacros("SankoreCode.PanelsMacros")
+#sankore_panelheader($msg.get("panel.logicielsankore.title") "" "logiciel imgpanel" "/xwiki/bin/download/Panels/SankoreDownloadPanel/BGlogiciel.png")
+$msg.get("panel.logicielsankore.description")
+#sankore_panelfooter()
+#sankore_panelheader("" "" "logiciel" "")
+&lt;p&gt;&lt;a class="download-link" href="#"&gt;Télécharger l'application Sankoré&lt;/a&gt;&lt;/p&gt;
+#sankore_panelfooter()
+#sankore_panelheader("" "" "logiciel" "")
+&lt;h3&gt;$msg.get("panel.labsankore.title")&lt;/h3&gt;
+$msg.get("panel.labsankore.description")
+#sankore_panelfooter()</content>
 </property>
 <property>
 <description>Panel Description</description>
 </property>
 <property>
-<name>SankoreRssFeed</name>
+<name>DownloadSankore</name>
 </property>
 <property>
 <type>view</type>
 </property>
 </object>
-<content>{{include document="Panels.PanelSheet" /}}</content></xwikidoc>
+<content>#includeForm("Panels.PanelSheet")</content></xwikidoc>

@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316192528000</creationDate>
-<date>1316192528000</date>
-<contentUpdateDate>1316192528000</contentUpdateDate>
+<creationDate>1316446631000</creationDate>
+<date>1316446631000</date>
+<contentUpdateDate>1316446631000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -4611,15 +4611,6 @@ display:none;
 .panel a {color:#1963AA;}
 .panel a:hover {color:#FF4100;}
 
-.xwikipaneltitle{
-  font-family: Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 12px;
-  text-transform: uppercase;
-  padding-left:10px;
-  line-height: 25px;
-}
-
 .expanded .xwikipaneltitle {
   color:$theme.panelHeaderTextColor;
   border-bottom:none;
@@ -4648,12 +4639,9 @@ display:none;
   float: none;
   height: auto;
   overflow: hidden;
-  padding:5px;
-  background-color: #CCE0E8;
-  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
-  border-bottom: 1px inset #D8D8D8;
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
   border-radius: 6px 6px 6px 6px;
-  border-right: 1px inset #D8D8D8;
 }
 
 #resource-toc ul {
@@ -4670,14 +4658,15 @@ display:none;
 /* Modified for INPS */
 #resource-toc .x-panel-header {
   background: transparent;
-  color:#195175;
-  font-size: 20px;
+  color:#3D3D3F;
+  font-size: 12px;
   border:none;
-  text-align:center;
+  margin: 0 0 8px;
+  text-transform: uppercase;
 }
 
 .x-tree-icon, .x-tree-ec-icon, .x-tree-elbow-line, .x-tree-elbow, .x-tree-elbow-end, .x-tree-elbow-plus, .x-tree-elbow-minus, .x-tree-elbow-end-plus, .x-tree-elbow-end-minus {height: 23px;}
-#resource-toc ul.x-tree-node-ct, #resource-toc li.x-tree-node {clear: left; list-style:none;}
+#resource-toc ul.x-tree-node-ct, #resource-toc li.x-tree-node {clear: left; list-style:none;margin-left:0;}
 #resource-toc li.x-tree-node {float: left; width: 100%; min-width: 100%;}
 
 #resource-toc div.toc-selected {
@@ -4972,6 +4961,7 @@ font-weight:bold;}
   color: #3D3D3F;
   font-size: 12px;
   line-height: 15px;
+  margin: 0;
   margin-bottom: 8px;
   font-weight: bold;
   text-transform: uppercase;
@@ -4987,22 +4977,21 @@ font-weight:bold;}
   font-size: 11px;
 }
 
-#rightPanels ul, #rightPanels ol {
-  margin: 0 1.5em 1.5em 0;
-  padding-left: 1.5em;
-  margin-bottom: 0;
-}
+
 #actualites {
   background: none repeat scroll 0 0 #EEEEEE;
   border-bottom: 1px inset #D8D8D8;
   border-radius: 6px 6px 6px 6px;
   border-right: 1px inset #D8D8D8;
+  border-top: 1px inset #EEEEEE;
+  border-left: 1px inset #EEEEEE;
 }
 
 #actualites .rssfeed {
   background:none;
   border:none;
-  padding: 10px 15px;
+  padding: 0;
+  margin:0;
   width:auto;
 }
 
@@ -5014,6 +5003,7 @@ font-weight:bold;}
 #actualites .rsschanneltitle {
   background:none;
   font-size:20px;
+  text-align: left;
 }
 
 #actualites .rsschanneltitle a {
@@ -5029,7 +5019,207 @@ font-weight:bold;}
   color: #C22D1C;
   text-decoration: underline;
 }
-</panels.css></property><property><rightpanels.vm></rightpanels.vm></property><property><sankore.css>#template('colorThemeInit.vm')
+
+## SANKORE PANEL CSS
+
+.planete #signin {
+  background: none repeat scroll 0 0 #C92A1C;
+  border-bottom: 1px solid #681A14;
+  border-right: 1px solid #C92A1C;
+  border-top: 1px solid #C92A1C;
+  border-left: 1px solid #C92A1C;
+  border-radius: 4px 4px 4px 4px;
+  color: #FFFFFF;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 0 15px 0px;
+  padding: 5px 0;
+  text-align: center;
+  width: 80px;
+  float:right;
+}
+
+#rightPanels .panel {
+  border-radius: 6px 6px 6px 6px;
+  padding: 10px 10px 10px 17px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.xwikipaneltitle {
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  margin-left: 40px;
+  margin-bottom: 8px;
+  margin-top: 0;
+  border-bottom: none;
+}
+
+.planete {
+  position: relative;
+  background-color: #FFEECE;
+  border-color: #FFF4E1 #D0B59E #D0B59E #FFF4E1;
+}
+
+.planete .action-link {
+  background-color: #C92A1C;
+  border-bottom: 2px solid #681A14;
+}
+
+.planete .action-link:hover {
+  color: #FFFFFF;
+}
+
+.planete .action-link {
+  display: block;
+  background: none repeat scroll 0 0 #C92A1C;
+  border-bottom: 1px solid #681A14;
+  border-radius: 4px 4px 4px 4px;
+  color: #FFFFFF;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px auto 15px auto;
+  padding: 5px 0;
+  text-align: center;
+  width: 160px;
+}
+
+.planete a {
+  color: #C22D1C;
+}
+
+.panel form .input {
+  font-size: 13px;
+  border: 1px solid #E4E4E4;
+}
+
+#header-member {
+  margin-top: 5px;
+}
+
+#rightPanels .panel {
+  margin-bottom: 2px;
+}
+
+#rightPanels .imgpanel {
+  margin-top: 20px;
+}
+
+.xwikipanelcontents * {
+    line-height: 1.5;
+}
+
+.planete #signin {
+  background: none repeat scroll 0 0 #C92A1C;
+  border-bottom: 1px solid #681A14;
+  border-right: 1px solid #C92A1C;
+  border-top: 1px solid #C92A1C;
+  border-left: 1px solid #C92A1C;
+  border-radius: 4px 4px 4px 4px;
+  color: #FFFFFF;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 0 15px 0px;
+  padding: 5px 0;
+  text-align: center;
+  width: 80px;
+  float:right;
+  cursor: pointer;
+}
+
+.space-Main #rightPanels {
+  margin-top: -120px;
+}
+
+.planete #signup {
+  display: block;
+  background: none repeat scroll 0 0 #C92A1C;
+  border-bottom: 1px solid #681A14;
+  border-radius: 4px 4px 4px 4px;
+  color: #FFFFFF;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px auto 15px auto;
+  padding: 5px 0;
+  text-align: center;
+  width: 160px;
+}
+.planete #signup:hover {
+  text-decoration: none;
+}
+
+ul.login-links {
+  width: auto;
+}
+
+#rightPanels .login-links li {
+  font-size: 12px;
+}
+
+.subject-card, .subject-card * {
+  line-height: 1;
+}
+
+.rechercher {
+  position: relative;
+}
+
+.rechercher .form-submit {
+  background-color: transparent;
+  background: url("/xwiki/bin/download/Panels/SankoreSearchPanel/loupe.png") no-repeat scroll 0 0 transparent;
+  background-repeat: no-repeat;
+  border: medium none;
+  cursor: pointer;
+  display: block;
+  float: right;
+  height: 34px;
+  margin-right: 10px;
+  margin-top: -31px;
+  width: 34px;
+}
+
+.logiciel .download-link {
+  background-color: #24769D;
+  border-bottom: 2px solid #195175;
+}
+.logiciel .download-link:hover {
+  text-decoration: none;
+}
+
+.logiciel .xwikipaneltitle {
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+
+.logiciel {
+  position: relative;
+  background-color: #CCE0E8;
+  border-color: #DEEAEF #8DA7AC #8DA7AC #DEEAEF;
+}
+
+.logiciel h2, .logiciel .voirPlus {
+  color: #195175;
+}
+
+#rightPanels .voirPlus {
+  font-weight: bold;
+}
+
+.logiciel li {
+  margin-bottom: 10px;
+}</panels.css>
+</property>
+<property>
+<rightpanels.vm></rightpanels.vm>
+</property>
+<property>
+<sankore.css>#template('colorThemeInit.vm')
 
 #body {
   font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
@@ -5935,8 +6125,9 @@ ul.inside {list-style-position:inside;}
   padding:0;
 }
 .subject-card {
-  margin: 5px;
+  margin: 0;
   padding:0;
+  font-size: 12px;
 }
 
 #company {
@@ -6517,12 +6708,14 @@ body {
   margin-bottom:1em;
   margin-top:0.5em;
   float: left;
+  font-size: 12px;
 }
 #remember-forgot a{
   margin-left:2em;
 }
 #remember-forgot .checkbox {
   margin-right:0.4em;
+  width: auto;
 }
 #header-member .register {
   font-size:1.1em;
@@ -6540,7 +6733,7 @@ body {
 }
 #header-member .input{
   margin-bottom:0.3em;
-  width:99%;
+  width:95%;
 }
 .welcome-message {
     display: block;

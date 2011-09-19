@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>SankoreCode</web>
+<name>PanelsMacros</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1316421697000</creationDate>
+<date>1316421697000</date>
+<contentUpdateDate>1316421697000</contentUpdateDate>
+<version>1.1</version>
+<title>PanelsMacros</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#macro(sankore_panelheader $title $id $css $imgsrc)
+#set($specialClassAttribute = "")
+#if($paneldoc &amp;&amp; $paneldoc != "")
+  #set($specialClassAttribute = $util.convertToAlphaNumeric($paneldoc.name))
+#end
+&lt;div #if("$!id" != "")id="$id"#end class="panel $specialClassAttribute $!css"&gt;
+#if("$!imgsrc" != "")
+&lt;img width="81px" src="$imgsrc" typeof="foaf:Image" class="block-icon"&gt;
+#end
+#if("$!title" != "")
+&lt;h2 class="xwikipaneltitle"&gt;$title&lt;/h2&gt;
+#end
+&lt;div class="xwikipanelcontents"&gt;
+#end
+#macro(sankore_panelfooter)
+&lt;div class="clearfloats"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+#end</content></xwikidoc>
