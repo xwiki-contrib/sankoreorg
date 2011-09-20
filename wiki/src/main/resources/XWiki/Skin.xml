@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316523409000</creationDate>
-<date>1316523409000</date>
-<contentUpdateDate>1316523409000</contentUpdateDate>
+<creationDate>1316531435000</creationDate>
+<date>1316531435000</date>
+<contentUpdateDate>1316531435000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -3676,13 +3676,17 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 font-size: 13px; font-weight:bold;}
 
 .main .groups-curriculum #groupsearch #curriki-search-field-container #searchbtn {
-    height: auto;
+    height: 24px;
     padding: 3px;
     width: auto;
 }
 .main .groups-curriculum #groupsearch #curriki-search-field-container #curriki-searchbox {
     height: 2em;
     width: 250px;
+}
+
+.image-left {
+  float: left;
 }
 .main .groups-curriculum #groupsearch #curriki-search-field {
     float: left;
