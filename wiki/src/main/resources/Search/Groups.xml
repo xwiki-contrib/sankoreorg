@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1312472448000</creationDate>
-<date>1312472448000</date>
-<contentUpdateDate>1312472448000</contentUpdateDate>
+<creationDate>1316612298000</creationDate>
+<date>1316612298000</date>
+<contentUpdateDate>1316612298000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -189,7 +189,7 @@
     ,'url':'${url}'
     ,'policy':'${policy}'
     ,'description':'${desc}'
-    ,'updated':'${d.date}'
+    ,'updated':'${datetool.format($d.date)}'
     }
   #end
 ]
