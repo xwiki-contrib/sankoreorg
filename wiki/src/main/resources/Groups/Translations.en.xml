@@ -2,19 +2,19 @@
 <xwikidoc>
 <web>Groups</web>
 <name>Translations</name>
-<language></language>
-<defaultLanguage></defaultLanguage>
-<translation>0</translation>
+<language>en</language>
+<defaultLanguage>en</defaultLanguage>
+<translation>1</translation>
 <parent></parent>
 <creator>XWiki.Admin</creator>
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316003112000</creationDate>
-<date>1316003112000</date>
-<contentUpdateDate>1316003112000</contentUpdateDate>
+<creationDate>1316611201000</creationDate>
+<date>1316611201000</date>
+<contentUpdateDate>1316611201000</contentUpdateDate>
 <version>1.1</version>
-<title>Translations</title>
+<title></title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -56,72 +56,36 @@ XWiki.CurrikiSpaceClass_accessprivileges_private=Private - Only group members ca
 
 ## CREATE NEW GROUP
 groups_creategroup_pagename=Create a New Group
-
 groups_creategroup_needaccount=You must be a Planète Sankoré member and be &lt;a href="{0}"&gt;logged in&lt;/a&gt; to create a group.
-
 groups_creategroup_about_title=About Creating a Group
-
 groups_creategroup_about_infotxt=By creating a new group, you become the "group leader" and have special rights to edit areas of your group space, accept or deny membership requests, delete or edit other member’s messages where necessary, and more. You will be able to share these administrative privileges with other group leaders, if you like.
-
 groups_creategroup_namedescribe_title=Name and Describe Your Group
-
 groups_creategroup_namedescribe_groupname=Enter your group’s name here (64 character limit)
-
 groups_creategroup_namedescribe_groupname_tooltip=This name appears in many places throughout your group space and the Planète Sankoré site; keep in mind that varying space constraints make it preferable to select a short group name.
-
 groups_creategroup_namedescribe_groupdescription=Enter a description of your group here (up to 960 characters). This description appears in several locations in Planète Sankoré, so you might highlight the group’s focus, goals, or projects here.
-
 groups_creategroup_namedescribe_groupdescription_tooltip=When people browse or find listings of Planète Sankoré groups, they first see your group &amp;quot;masthead,&amp;quot; which includes this description along with your group name and a group image.  (You add your image in the next step.)
-
 groups_creategroup_namedescribe_webaddress_instruction=Enter the first part of your group&amp;rsquo;s web address in the space below.
-
 groups_creategroup_member_policy_title=Select a Membership Policy
-
 groups_creategroup_member_policy_open=Open - Any Planète Sankoré member can join without approval or invitation.
-
 groups_creategroup_member_policy_closed=Closed - Planète Sankoré members must be invited and accepted to join.
-
 groups_creategroup_select_subjectlevel_title=Select a Subject and Level
-
 groups_creategroup_select_subjectlevel_subject_title=&lt;strong&gt;Subject(s):&lt;/strong&gt;
-
 groups_creategroup_select_subjectlevel_subject_tooltip=Select the primary subject area for your group; if your group is interdisciplinary, check multiple subjects.
-
 groups_creategroup_select_subjectlevel_level_title=&lt;strong&gt;Educational Level(s):&lt;/strong&gt;
-
 groups_creategroup_select_subjectlevel_level_tooltip=Select the educational level for your group; if your group is for multiple levels, check all that apply.
-
 groups_creategroup_select_language_title=Select a Language
 groups_creategroup_select_language_infotxt=This default language setting will be applied for any curriculum resources or collections created or added by your group. It will also enable people who seek a group that is communicating and working in your language to find your group.
-
 groups_creategroup_select_license_title=Select a Default License Policy
-
 groups_creategroup_select_license_infotxt=&lt;p&gt;Here you select a default license for your group's contributions into the Planète Sankoré repository. (Individual members will have the option to set alternative licenses at the time of creating or adding content, as required.)&lt;/p&gt;&lt;p&gt;The Planète Sankoré-compatible license displaying below was chosen to provide maximum flexibility to community members so they can use and modify your group's contributions for the purposes of their own curriculum development and instruction. The Planète Sankoré license is a widely used Creative Commons license Attribution &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;3.0&lt;/a&gt;. If you wish to assign another license, please select from the drop-down list below. To learn about all the Creative Commons licenses, please &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;click here&lt;/a&gt;.&lt;/p&gt;
-
-## Licenses - CurrikiSpaceClass
-## Moved to Global Class Translation XWiki/GlobalClassTranslations by Todd on Aug-06-2008
-
-
-
-
 groups_creategroup_select_access_title=Set Default Access Privileges
-
 groups_creategroup_select_access_infotxt=Here you choose the default setting that determines who can view and/or edit your group curricula. 
-
 groups_creategroup_select_access_open=Public - Anyone can view group content; any Planète Sankoré member can edit it.
-
 groups_creategroup_select_access_protected=Protected - Anyone can view group content; only group members can edit it.
-
 groups_creategroup_select_access_private=Private - Only group members can view and edit content.
-
 groups_creategroup_create_title=Complete Group Set-Up
-
 groups_creategroup_create_infotxt=By clicking "Create Group" below, you agree to serve as the group leader, or to assign these rights and responsibilities to another member of your group. As group leader, you agree to be the point of contact for inquiries or issues related to this group’s content and membership, and you will automatically become a member of the Planète Sankoré Leaders Group. Upon submission of this form, you should receive an email from Planète Sankoré congratulating you on the creation of this group. If you do not receive this email, please contact Planète Sankoré for assistance.
-
 groups_creategroup_create_btt=Create Group
-
 groups_creategroup_cancel_btt=Cancel
-
 groups_creategroup_cancel_confirm=Are you sure you want to cancel group creation?
 
 ## GROUP VALIDATION
@@ -143,18 +107,12 @@ groups_validation_licence_required=Please choose a default license for your grou
 groups_validation_privacy_required=
 groups_validation_title-exists=There is already a group with that name. Please choose another.
 
-
-####################
-
 ##GROUP PAGE LINKS - DO NOT TRANSLATE THESE
 groups_home_page=WebHome
 groups_messages_page=Messages
 groups_curriculum_page=Curriculum
 groups_members_page=Members
 groups_documentation_page=Documentation
-##
-
-
 
 ## GROUP WELCOME BLOCK
 groups_welcomeblock_confirmcancel=Are you sure you want to cancel editing of the welcome section? 
@@ -171,13 +129,9 @@ groups_home_masthead_link=Edit
 groups_home_editmasthead_title=Edit Group Masthead
 groups_home_editmasthead_bc=Edit Masthead
 groups_home_editmasthead_groupname_tooltip=This name appears in many places throughout your group space and the Planète Sankoré site; keep in mind that varying space constraints make it preferable to select a short group name.
-
 groups_home_editmasthead_groupdescription_tooltip=When people browse or find listings of Planète Sankoré groups, they first see your group &amp;quot;masthead,&amp;quot; which includes this description along with your group name and a group image. (You add your image in the next step.)
-
 groups_home_editmasthead_logo_infotxt_withoutlogo=Your group masthead is currently using the Planète Sankoré placeholder image. If you would like to show a different image, click "Browse" to find the new image on your computer. Once you locate the image, click "Submit Updates" to make it appear in your group masthead. The best size for this image is 120x82 pixels.
-
 groups_home_editmasthead_logo_infotxt_withlogo=Your group masthead is currently using the image on the left. If you would like to show a different image, click "Browse" to find the new image on your computer. Once you locate the image, click "Submit Updates" to make it appear in your group masthead. The best size for this image is 120x82 pixels. If you want to return to using the default Planète Sankoré Group image, &lt;a href={0} onclick="return confirm(''Are you sure you want to remove the current image?'')"&gt;click here&lt;/a&gt; to remove the current image and the default Planète Sankoré Group image will appear.
-
 groups_home_editmasthead_logo_direction=Select and Upload Your Image
 groups_home_editmasthead_logo_bro_btt=Browse
 groups_home_editmasthead_logo_upl_btt=Upload
@@ -187,7 +141,6 @@ groups_home_editmasthead_cancel_confirm=Are you sure you want to discard the cha
 
 ## GROUP HOME -- WELCOME
 groups_home_welcome=Welcome
-
 groups_home_welcome_link=Edit
 groups_home_editwelcome_title=Edit Group Welcome
 groups_home_editwelcome_direction=Enter Welcome Content:
@@ -202,9 +155,7 @@ groups_home_activity_mem_upd=Member profile updated – {0}
 groups_home_activity_res_add=Curriculum resource added – "{0}" by {1}
 groups_home_activity_res_edit=Curriculum resource edited – "{0}" by {1}
 groups_home_activity_res_del=Curriculum resource deleted – "{0}" by {1}
-
 groups_home_activity_res_rdr=Curriculum collections reordered – by {1}
-
 groups_home_activity_mes_add=Message added – "{0}" from {1}
 groups_home_activity_mes_edit=Message edited – "{0}" from {1}
 groups_home_activity_mes_del=Message deleted – "{0}" from {1}
@@ -233,32 +184,22 @@ groups_home_information_webaddress=Web Address:
 groups_home_editinformation_title=Edit Group Information
 groups_home_editinformation_bc=Edit Information
 groups_home_editinformation_member_policy_title=Edit Membership Policy
-
 groups_home_editinformation_member_policy_open=Open - Any Planète Sankoré member can join without approval or invitation.
-
 groups_home_editinformation_member_policy_closed=Closed - Planète Sankoré members must be invited and accepted to join.
-
 groups_home_editinformation_subjectlevel_title=Edit Subject and/or Educational Level
-
 groups_home_editinformation_subject_title=&lt;strong&gt;Subject(s):&lt;/strong&gt;
 groups_home_editinformation_subject_tooltip=Select the primary subject area for your group; if your group is interdisciplinary, check multiple subjects.
-
 groups_home_editinformation_level_title=&lt;strong&gt;Educational Level(s):&lt;/strong&gt;
 groups_home_editinformation_level_tooltip=Select the educational level for your group; if your group is for multiple levels, check all that apply.
-
 groups_home_editinformation_language_title=Edit Language
-
 groups_home_editinformation_license_title=Edit Default License Policy
-
 groups_home_editinformation_access_title=Edit Default Access Privileges
-
 groups_home_editinformation_access_infotext=Here you can update the default setting that determines who can view and/or edit your group curricula. 
 groups_home_editinformation_access_open=Public - Anyone can view group content; any Planète Sankoré member can edit it.
 groups_home_editinformation_access_closed=Protected - Anyone can view group content; only group members can edit it.
 groups_home_editinformation_access_private=Private - Only group members can view and edit content.
 groups_home_editinformation_webaddress_title=Edit Web Address
 groups_home_editinformation_webaddress_instruction=Update the first part of your group’s web address in the space below.
-
 groups_home_editinformation_submit_btt=Submit Updates
 groups_home_editinformation_cancel_btt=Cancel
 groups_home_editinformation_cancel_confirm=Are you sure you want to cancel?
@@ -266,7 +207,6 @@ groups_home_editinformation_cancel_confirm=Are you sure you want to cancel?
 
 ## GROUP HOME -- CONTRIBUTIONS
 groups_home_contributions_title=Group Contributions
-
 groups_home_contributions_infotxt=Here you can find any contributions from the group.
 groups_home_contributions_view_btt=View All
 groups_home_contributions_or=OR
@@ -276,53 +216,33 @@ groups_home_contributions_find_btt=Search
 ## GROUP HOME -- MEMBERSHIP
 groups_home_membership_title=Membership Information
 groups_home_membership_open_visitor_infotxt=If you would like to become a member of this group, click &amp;quot;Join This Group&amp;quot; below to submit your information.
-
 groups_home_membership_open_visitor_btt=Join This Group
-
 groups_home_membership_closed_visitor_infotxt=Because this is a closed group, potential members must submit a membership request. If you are interested in joining this group, click "Request Membership" below.
-
 groups_home_membership_closed_visitor_btt= Request Membership
-
 groups_home_membership_group_infotxt=If you know a great potential member for this group, click &amp;quot;Invite New Member&amp;quot; below to send an invitation.
-
 groups_home_membership_group_btt=Invite New Member
-
 groups_home_membership_invite=Invite Members
 
 
 ## MESSAGES TAB
 groups_messages_tabname=Messages
 groups_messages_about_title=About Messages
-
 groups_messages_about_link_show=Show
-
 groups_messages_about_link_hide=Hide
-
 groups_messages_about_link_edit=Edit
-
 groups_messages_createmessage_title=Create a New Message
-
 groups_messages_createmessage_infotxt=Click the button at left to create a new message to the whole group, individual group members, and/or members by role. Keep in mind that group members can set individual preferences for receiving message notifications by email. 
-
 groups_messages_createmessage_btt=Create
-
 groups_messages_create_mandatory=Please enter a subject or title for your message.
 groups_messages_allmessages_title={0} Messages
-
 groups_messages_createdby=by
 groups_messages_message_linkshow=Show
-
 groups_messages_message_linkhide=Hide
-
 groups_messages_message_optionsview_link=View
-
 groups_messages_message_optionsedit_link=Edit
-
 groups_messages_message_attachments={0} Attachment(s)
 groups_messages_message_comments={0} Comment(s)
-
 groups_messages_filter_title=Filter to show messages sent to:
-
 groups_messages_filter_toentiregroup=Group
 groups_messages_filter_tome=Me
 groups_messages_filter_tomyrole=My Role(s)
@@ -333,23 +253,15 @@ groups_messages_create_about_title=About Creating Messages
 groups_messages_create_about_edit_link=Edit
 groups_messages_create_about_infotxt=
 groups_messages_create_title=Create/Edit Message
-
 groups_messages_savedone=The message has been saved.
-
 groups_messages_create_messagetitle_instruction=Enter message subject or title:
-
 groups_messages_create_messagecontent_instruction=Enter message content:
-
 groups_messages_create_messagecontent_instruction_tooltip=Use the editing toolbar to format and style your text content, insert attachments or images, and create tables or lists.
 groups_messages_create_selectnotification_title=Notification:
-
 groups_messages_create_selectnotification_tooltip=Note that some members may have opted out of email notifications for this group.
-
 groups_messages_create_selectnotification=Send email notification to the group.
-
 groups_messages_create_cancel_btt=Cancel
 groups_messages_create_submit_btt=Send Message
-
 groups_messages_create_to_mandatory=Please select recipient(s).
 groups_messages_create_to_delete_tooltip=Remove this recipient or role.
 groups_messages_create_to_delete_role_tooltip=Remove this role.
@@ -364,10 +276,8 @@ groups_messages_create_to_member_label=Individual Group Members
 groups_messages_create_to_member_default=Select from Members List
 groups_messages_create_to_member_add_tooltip=Click to send the message to this member.
 groups_messages_create_to_member_add_label=Add
-
 groups_messages_create_notify_label=Notifications:
 groups_messages_create_notify_mail_label=Send email notification of this message to the "To" list.
-
 groups_messages_edit_cancel_btt=Cancel
 groups_messages_edit_submit_btt=Save
 groups_messages_edit_submitsend_btt=Save Changes
@@ -393,7 +303,6 @@ addattachment=Add an Attachment
 groups_messages_view_attachments_instruction=Choose a file to upload.
 groups_messages_view_attachments_browse_btt=Browse
 groups_messages_view_attachments_upload_btt=Upload
-
 groups_messages_view_message_delete_confirm=Are you sure you want to delete this message?
 groups_messages_view_message_delete_done=This message has been deleted.
 
@@ -403,26 +312,17 @@ groups_curriculum_about_title=About Curriculum
 groups.curriculum.collections.addButton=Add a Group Collection
 groups.curriculum.collections.addButton_tooltip=Add a new collection for organizing and presenting group resources
 groups_curriculum_about_linkedit=Edit
-
-
 groups_curriculum_contributions_title=Contributions from {0}
-
 groups_home_contributions_view_btt=View All
-
 groups_home_contributions_view_or=OR
 groups_home_contributions_searchfieldtxt=enter search terms
 groups_home_contributions_find_btt=Search
-
 groups_curriculum_collections_title=Curriculum Collections from {0}
-
 groups_curriculum_collections_show_link=Show Descriptions
 groups_curriculum_collections_hide_link=Hide Descriptions
-
 groups_curriculum_collections_infotxt=This section displays a listing of any collections created by {0}. Links available to the right of each collection depend on your rights for this group.
-
 groups_curriculum_collections_btt=Add a Group Collection
 groups_curriculum_collections_paging diff=Collections
-
 groups.curriculum.contributions.addButton=Add a Resource
 groups.curriculum.contributions.addButton_tooltip=Provide your best learning resource or create something new
 
@@ -449,26 +349,20 @@ groups.curriculum.contributions.addButton_tooltip=Provide your best learning res
 
 
 ##CURRICULUM -- REORDER COLLECTIONS
-
 groups_curriculum_collections_reorder.link=Reorder
-
 groups_curriculum_collections_reorder.checkfirst.dialog=By default, your group’s collections are displayed here with the most recently updated at the top. Do you want to change this to a specific order? Click OK to continue.
 groups_curriculum_collections_reorder.checkfirst.cancel.btt=OK
 groups_curriculum_collections_reorder.checkfirst.next.btt=Cancel
-
 groups_curriculum_collections_reorder.dialog_title=Reorder Group Collections
 groups_curriculum_collections_reorder.guidingquestion=In what order would you like to present your group's curriculum collections?
 groups_curriculum_collections_reorder.instruction=Drag and drop your group’s collections into the preferred order, then click Next.
 groups_curriculum_collections_reorder.listheader=Group Collections
 groups_curriculum_collections_reorder.cancel.btt=Cancel
 groups_curriculum_collections_reorder.next.btt=Next
-
 groups_curriculum_collections_reorder.error=While you were reordering your group's collections, another member added a new group collection or reordered your group collections. Because this action occurred while you were working and before you submitted your preferred order, it must take precedence; the reordering you submitted will not be applied. (You can always click the Reorder link to start again.)
 groups_curriculum_collections_reorder.error.ok.btt=OK
-
 groups_curriculum_collections_reorder.set.confirm=The new order has been saved.
 groups_curriculum_collections_reorder.set.confirm.btt=OK
-
 groups_curriculum_collections_reorder.checkafter.dialog=Your group already set a special order for your group collections. Do you want to change this order? Click OK to continue.
 groups_curriculum_collections_reorder.checkafter.cancel.btt=OK
 groups_curriculum_collections_reorder.checkafter.next.btt=Cancel
@@ -476,54 +370,34 @@ groups_curriculum_collections_reorder.checkafter.next.btt=Cancel
 
 ## CURRICULUM -- VIEW ALL CONTRIBUTIONS
 groups_curriculum_contributions_infotxt=Here you can find a listing of every contribution from [GroupName], including collections and resources of all sizes. You can sort the columns headed Title, Last Updated, and Access. Links available under the &amp;quot;Action&amp;quot; heading depend on your editing/deleting rights for a resource. 
-
 groups.curriculum.contributions.AddButton=Add a Resource
 groups.curriculum.contributions.AddButton_tooltip=Provide your best learning resource or create something new
-
 groups_curriculum_contributions_table_title=Title
-
 groups_curriculum_contributions_table_ict=ICT
-
 groups_curriculum_contributions_table_lastupdated=Last Updated
-
 groups_curriculum_contributions_table_access=Access
-
 groups_curriculum_contributions_table_filetype=File Type
-
 groups_curriculum_contributions_table_action=Action
-
-
 groups_curriculum_contributions_viewall_paging_diff=Contributions
+
 
 ## MEMBERS TAB
 groups_members_tabname=Members
 groups_members_about_title= About Membership
-
-
 groups_members_admin_about_edit_link=Edit
-
 groups_members_membership_title=Membership Information
-
 groups_members_membership_open_visitor_infotxt=If you would like to become a member, click "Join This Group" below to submit your information.
-
 groups_members_membership_open_visitor_btt=Join This Group
-
 groups_members_membership_group_infotxt=Do you have a friend or colleague who would make a great contributor/participant in this group’s activities? If you know a potential member, click "Invite New Member" below to send an invitation.
-
 groups_members_membership_group_btt=Invite Member
-
 groups_members_list_title= Members
 groups_members_manage_roles=Manage Roles
 groups_members_admin_list_instruction=Filter to show only:
 groups_members_admin_list_togglecurrent=Current Members
 groups_members_admin_current_members_infotxt=Members in this group are listed below, 10 per page.
-
 groups_members_admin_current_members_editsettings_link=Edit Settings
-
 groups_members_admin_current_membersettings_email=Allow group members to email me when messages are created.
-
 groups_members_admin_current_membersettings_changenotice=Notify me when my curriculum contributions, messages, or wiki documents are changed.
-
 groups_members_editsettings_loadinginprogress=Loading...
 groups_members_membersettings_savedone=
 groups_members_admin_current_membersettings_save_link=Save
@@ -542,26 +416,20 @@ groups_members_admin_pending_requested=Requested Membership
 groups_members_admin_pending_reasons=Reason:
 groups_members_admin_pending_bio=Bio/Background:
 groups_members_admin_pending_deny_link=Deny
-
 groups_members_admin_pending_accept_link=Accept
-
 groups_members_admin_list_toggledenied=Denied
 groups_members_admin_denied_infotxt=The members shown in this listing have already been denied membership to this group. Click &amp;quot;Accept&amp;quot; to re-activate the membership request.
 groups_members_admin_denied_nodeniedmembershiprequests=There are currently no denied membership requests for this group.
 groups_members_admin_denied_invite_link=Invite
 groups_members_admin_list_btt=Submit
 groups_members_list_paging_diff=Members
-
 groups_members_admin_list_toggleinvitations=Invitations
-
 groups_members_admin_invitations_infotxt=Here you can view all pending invitations for this group.
 groups_members_admin_invitations_infotxt_noinvitations=There are currently no invitations pending for this group.
 groups_members_admin_invitations_cancel_link=Cancel Invitation
 groups_members_admin_invitations_cancel_confirm=Are you sure you want to cancel this invitation?
-
 groups.members.invitedby=Invited by
 groups.members.on=on
-
 groups_members_admin_pending_status=Status
 groups_members_request_status_0=None
 groups_members_request_status_1=Created
@@ -578,7 +446,6 @@ groups_members_request_reasons_instruction=Describe your reasons for wanting to 
 groups_members_request_reasons_tooltip=These reasons can help a group leader understand what you can bring to the group, and why you are interested in becoming involved.
 groups_members_request_alreadymember=You are already a member of this group.
 groups_members_request_request_btt=Request Membership
-
 groups_members_reject_confirm=Please describe any reason(s) for denying this membership request.
 groups_members_reject_confirm_btt=Deny
 groups_members_reject_done=You have successfully denied membership for this request.
@@ -589,18 +456,16 @@ groups_members_accept_failed=This operation failed. Please try again.
 groups_members_reject_failed=This operation failed. Please try again.
 groups_members_accept_inprogress=Loading, please wait...
 groups_members_reject_inprogress=Loading, please wait...
-
 groups_members_create_membersettings_email=Allow group members to email me when messages are created.
 groups_members_create_membersettings_email_tooltip=If you want to be notified by email when you receive messages for this group, click to select this option.
 groups_members_create_membersettings_changenotice=Notify me when my contributions or messages are changed.
 groups_members_cancel_btt=Cancel
 groups_members_request_sent=Your membership request for {0} has been sent. You will be informed by email when it is processed by the group leader.
 groups_members_request_needaccount=You need to have a Planète Sankoré account and be logged-in to request membership for a group.
+
 ## INVITE NEW MEMBER
 groups_members_invite_title=Invite a New Member
 groups_members_invite_list_instruction=To invite a new member to join {0}, please enter the email address of the person in the field below. To send your invitation to multiple people, list each address here, separated by a comma.
-
-
 groups_members_invite_listfieldtxt=email address, member name
 groups_members_invite_note_instruction=You can update the invitation text below, if you like.
 groups_members_invite_note_instruction_tooltip=The invitation will be directed to any email &lt;br /&gt; address(es) listed, and the sender will be webmaster@curriki.org.
@@ -617,7 +482,6 @@ groups_members_invite_report=*{0}* of *{1}* invitations sent.
 groups_members_invite_statuslink=Group leaders can view open invitation(s) on the [Members list&gt;Members?type=3].
 groups_members_invite_backlink=If you want to invite more people to the group, [click here&gt;InviteMembers] to return to the invitation form.
 groups_members_invite_openinvitation=This is an open invitation to a mailing list. (By checking this box, you make it possible for multiple parties to use the acceptance link provided within the emailed invitation.)
-
 groups_members_accept_request_error=If you continue to encounter an error, please &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/HowtoReportaProblem?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.GettingStarted"&gt;report the problem&lt;/a&gt;.
 
 ## JOIN THIS GROUP
@@ -626,10 +490,7 @@ groups_members_join_infotxt=In order to become a member of this group, please pr
 groups_members_join_bio_tooltip=You can change your member settings for a group at any time by visiting the Members tab for that group and clicking &amp;quot;Edit Settings&amp;quot; next to your name.
 groups_members_create_membersettings_email=Allow group members to email me when messages are created.
 groups_members_create_membersettings_email_tooltip=If you want to be notified by email when you receive messages for this group, click to select this option.
-
 groups_members_create_membersettings_changenotice=Notify me when my curriculum contributions, messages, or wiki documents are changed.
-
-
 groups_members_join_btt=Join
 groups_members_cancel_btt=Cancel
 groups_members_join_needaccount=If you are not yet registered on Planète Sankoré, you will first need to &lt;a href="{0}"&gt;create an account&lt;/a&gt;.
@@ -664,20 +525,15 @@ browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&l
 
 ## GROUPS DOCUMENTATION
 groups_documentation_tabname=Documentation
-
-
 groups_documentation_about_title=About Documentation
 groups_documentation_create_wiki_page_title=Create a New Page
 groups_documentation_wiki_page_save_confirm=
 groups_documentation_new_wiki_title=Enter Page Title
 groups_documentation_new_wiki_submit=Start
-
 group_documentation_empty_title=You must enter a title for the document
-
 groups_documentation_add_document_title=Add a File
 groups_documentation_add_document_choose=Choose a file to upload:
 groups_documentation_add_document_upload=Upload
-
 groups_documentation_documents_title=Group Documents
 groups_documentation_documents_del_wiki_confirm=Are you sure you want to delete this page?
 groups_documentation_documents_del_doc_confirm=Are you sure you want to delete this file?
@@ -690,16 +546,12 @@ groups_documentation_history_title=Wiki Page History
 groups_documentation_compare_title=Compare Wiki Pages
 groups_documentation_documents_modified=Added or modified by
 groups_documentation_documents_on=on
-
 groups_documentation_documents_nopage=There is no matching page.
-
 groups_documentation_update_title=Title:
 groups_documentation_enter_content=Content:
-
 groups_documentation_new_wiki_cancel=Cancel
 groups_documentation_new_wiki_save=Save
 groups_documentation_new_wiki_cancel_confirm=Are you sure you want to cancel?
-
 groups_documentation_edit_wiki_title=Edit Wiki Page
 groups_documentation_edit_wiki_cancel=Cancel
 groups_documentation_edit_wiki_save=Save
@@ -726,34 +578,27 @@ history.compare=Compare Changes
 ## Curriculum page
 groups.curriculum.about.title=About Group Curriculum
 groups.curriculum.about.edit=Edit
-
 groups.curriculum.contributions.title=Group Contributions
 groups.curriculum.contributions.about=Here you can find any contributions from the group.
-
 groups.curriculum.contributions.viewAll=View All
 groups.curriculum.contributions.viewORsearch=OR
 groups.curriculum.contributions.go=Search &amp;#xBB;
 groups.curriculum.search.default=enter search terms
 groups.contributions.mouseover.contributed=&lt;strong&gt;Contributed / Provided By:&lt;/strong&gt;
-
 groups.curriculum.collections.titlebar=Group Collections
 groups.curriculum.collections.titlebarbutton=Hide Descriptions
 groups.curriculum.collections.titlebarbuttonalt=Show Descriptions
 groups.curriculum.collections.about=Here you can find any collections from the group.
 groups.curriculum.collections.addButton=Add a Group Collection
 groups.curriculum.collections.addButton_tooltip=Add a new group collection for organizing and presenting resources
-
 groups.curriculum.collections.actions.delete.confirm=This cannot be undone. Are you sure you want to delete?
 groups.curriculum.collections.view=View
 groups.curriculum.collections.edit=Edit
 groups.curriculum.collections.add=Add
 groups.curriculum.collections.delete=Delete
 groups.curriculum.collections.noresults=
-
 groups.curriculum.tab.collections.label=Collections
-
 groups.contributions.actions.delete.confirm=This cannot be undone. Are you sure you want to delete?
-
 groups_needsadminrights=This action requires group leader status.
 groups_adminremoved=This member is no longer a group leader.
 groups_cannotremovelastadmin=Every group must have one leader; it is not possible to remove the last group leader.
@@ -762,7 +607,6 @@ groups_memberremoved=This member has been removed from the group.
 groups_cannotremovemember=This operation failed. Please try again.
 groups_invitationcancelled=This invitation has been cancelled.
 groups_cannotcancelinvitation=This operation failed. Please try again.
-
 groups_loadinginprogress=Loading, please wait...
 groups_onlyaccessibletomembers=This area is only available to group members.
 groups_messages_onlyaccessibletomembers=Messages are only available to group members.
@@ -791,12 +635,12 @@ groups.roles.rename.notunique=Each role name must be unique.
 groups.roles.rename.invalidsize=Role names must be less than 32 characters.
 groups.roles.rename.renamed=Role {0} has been renamed to {1}.
 groups.roles.delete.deleted=Role {0} has been deleted.
+
 groups.members.selectroles=Select Role(s):
 groups.members.selectroles.info=You can pick multiple roles by hitting the Ctrl (PC) or Apple (Mac) key as you click to select.
 groups.members.selectroles.tooltip=PLACEHOLDER
 
 groups.members.invite.selectroles.info=You can pick multiple roles by hitting the Ctrl (PC) or Apple (Mac) key as you click to select.
-
 groups.members.join.selectroles.info=You can pick multiple roles by hitting the Ctrl (PC) or Apple (Mac) key as you click to select.
 
 groups.search.top_title=FIND RESOURCES FROM THIS GROUP IN THE REPOSITORY
