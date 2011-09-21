@@ -54,6 +54,12 @@
       <artifactId>xwiki-sankore-plugins-servlet</artifactId>
       <version>${pom.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-analyzers</artifactId>
+      <!-- This version needs to stay in sync with the lucene version dep from the curriki lucene plugin-->
+      <version>2.9.1</version>
+    </dependency>
     <!-- Add deps to patched versions of xwiki-platform-oldcore and xwiki-platform-store-api and xwiki-platform-store-filesystem-attachments to be added in the jar to replace the 3.1 released ones -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
@@ -73,13 +79,133 @@
   </dependencies>
   <build>
     <plugins>
+      <!-- Inject XWiki's configuration (only xwiki.cfg, not hibernate.cfg.xml) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-remote-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>xwiki-platform-tool-configuration-resources</id>
+            <!-- The remote resources plugin adds its output directory as a resource directory
+                 so that the Maven resources plugin copies these resources to target/classes.
+                 However copying them to target/classes will make them appear in WEB-INF/classes
+                 in the generated WAR since the WAR plugin copies resources in target/classes in
+                 WEB-INF/classes. Thus to prevent this we're binding this execution to a phase
+                 that comes after the execution of the resources plugin (which executes in the
+                 process-resources phase). Thus this remote resources plugin will execute just
+                 after the resources plugin and the resources won't be copied, which is why we're
+                 adding a webResource configuration element below in the WAR plugin's
+                 configuration. -->
+            <phase>process-resources</phase>
+            <goals>
+              <goal>process</goal>
+            </goals>
+            <configuration>
+              <resourceBundles>
+                <resourceBundle>org.xwiki.platform:xwiki-platform-tool-configuration-resources:${platform.version}</resourceBundle>
+              </resourceBundles>
+              <properties>
+                <xwikiDbHbmCommonExtraMappings>activitystream.hbm.xml</xwikiDbHbmCommonExtraMappings>
+                <xwikiCfgPlugins>\
+                    com.xpn.xwiki.monitor.api.MonitorPlugin,\
+                    com.xpn.xwiki.plugin.skinx.JsSkinExtensionPlugin,\
+                    com.xpn.xwiki.plugin.skinx.JsSkinFileExtensionPlugin,\
+                    com.xpn.xwiki.plugin.skinx.CssSkinExtensionPlugin,\
+                    com.xpn.xwiki.plugin.skinx.CssSkinFileExtensionPlugin,\
+                    com.xpn.xwiki.plugin.skinx.LinkExtensionPlugin,\
+                    com.xpn.xwiki.plugin.feed.FeedPlugin,\
+                    com.xpn.xwiki.plugin.ldap.LDAPPlugin,\
+                    com.xpn.xwiki.plugin.google.GooglePlugin,\
+                    com.xpn.xwiki.plugin.mail.MailPlugin,\
+                    com.xpn.xwiki.plugin.packaging.PackagePlugin,\
+                    com.xpn.xwiki.plugin.query.QueryPlugin,\
+                    com.xpn.xwiki.plugin.svg.SVGPlugin,\
+                    com.xpn.xwiki.plugin.charts.ChartingPlugin,\
+                    com.xpn.xwiki.plugin.fileupload.FileUploadPlugin,\
+                    com.xpn.xwiki.plugin.image.ImagePlugin,\
+                    com.xpn.xwiki.plugin.userdirectory.UserDirectoryPlugin,\
+                    com.xpn.xwiki.plugin.usertools.XWikiUserManagementToolsImpl,\
+                    com.xpn.xwiki.plugin.zipexplorer.ZipExplorerPlugin,\
+                    com.xpn.xwiki.plugin.autotag.AutoTagPlugin,\
+                    com.xpn.xwiki.plugin.lucene.LucenePlugin,\
+                    com.xpn.xwiki.plugin.diff.DiffPlugin,\
+                    com.xpn.xwiki.plugin.rightsmanager.RightsManagerPlugin,\
+                    com.xpn.xwiki.plugin.jodatime.JodaTimePlugin,\
+                    com.xpn.xwiki.plugin.scheduler.SchedulerPlugin,\
+                    com.xpn.xwiki.plugin.mailsender.MailSenderPlugin,\
+                    com.xpn.xwiki.plugin.activitystream.plugin.ActivityStreamPlugin, \
+                    com.xpn.xwiki.plugin.watchlist.WatchListPlugin, \
+                    com.xpn.xwiki.plugin.tag.TagPlugin, \
+                    org.curriki.xwiki.plugin.framework.FrameworkManagerPlugin,\
+                    org.curriki.xwiki.plugin.licence.LicenceManagerPlugin,\
+                    org.curriki.xwiki.plugin.mimetype.MimeTypePlugin,\
+                    org.curriki.xwiki.plugin.curriki.CurrikiPlugin,\
+                    org.curriki.plugin.spacemanager.impl.CurrikiSpaceManager,\
+                    org.curriki.plugin.activitystream.plugin.CurrikiActivityStreamPlugin
+                </xwikiCfgPlugins>
+                <xwikiCfgDefaultSkin>curriki20</xwikiCfgDefaultSkin>
+                <xwikiCfgDefaultBaseSkin>colibri</xwikiCfgDefaultBaseSkin>
+                <xwikiCfgAdditionalProperties>
+xwiki.work.dir=work
+
+## Spacemanager settings
+# Configure the spacemanager extension
+xwiki.spacemanager.extension=org.xwiki.plugin.spacemanager.impl.CurrikiSpaceManagerExtension
+
+# Set the groupname prefix
+xwiki.spacemanager.prefix=Group_
+
+# override the macro list
+xwiki.render.velocity.macrolist=/templates/macros.vm,/skins/albatross/macros.vm,\
+                /skins/curriki20/macros.vm,/skins/curriki20/blog/blogmacros.vm,\
+                /skins/curriki20/assets/assetsmacros.vm,/skins/curriki20/pages/pagesmacros.vm,\
+                /skins/curriki20/mycurriki/mycurrikimacros.vm,\
+                /skins/curriki20/groups/groupsmacros.vm,\
+                /skins/curriki20/groups/groupscontributions.vm,\
+                /skins/curriki20/groups/groupsdocs.vm,\
+                /skins/curriki20/groups/groupsmembers.vm,\
+                /skins/curriki20/groups/groupsmessages.vm,\
+                /skins/curriki20/groups/groupsroles.vm,\
+                /skins/curriki20/groups/groupsmycurriki.vm,\
+                /skins/curriki20/crs/crsmacros.vm,\
+                /skins/curriki20/bfcs/bfcsmacros.vm
+
+xwiki.invitationmanager.resourcespace=Groups
+
+# enable attachment filesystem storage
+xwiki.store.attachment.hint=file
+xwiki.store.attachment.versioning.hint=file
+xwiki.store.attachment.recyclebin.hint=file
+
+# configure lucene French stemmer
+xwiki.plugins.lucene.analyzer=org.apache.lucene.analysis.fr.FrenchAnalyzer
+                </xwikiCfgAdditionalProperties>
+                <xwikiCfgVirtual>0</xwikiCfgVirtual>
+                <xwikiCfgExo>0</xwikiCfgExo>
+                <xwikiCfgEncoding>UTF-8</xwikiCfgEncoding>
+              </properties>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
-        <version>2.0</version>
         <configuration>
-          <!-- Exclude curriki plugins which will be replaced with plugins in this project, as well as xwiki old core and filesystem attachment jars, which will be replaced with patched versions -->
-          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-servlet-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/xwiki-platform-oldcore-3.1.jar,WEB-INF/lib/xwiki-platform-store-api-3.1.jar,WEB-INF/lib/xwiki-platform-store-filesystem-attachments-3.1.jar</dependentWarExcludes>
+          <!-- Exclude curriki plugins which will be replaced with plugins in this project, as well as xwiki old core and filesystem attachment jars, which will be replaced with patched versions. 
+               Also exclude the xwiki.cfg, we just generated a new, better one above -->
+          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-servlet-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/xwiki-platform-oldcore-3.1.jar,WEB-INF/lib/xwiki-platform-store-api-3.1.jar,WEB-INF/lib/xwiki-platform-store-filesystem-attachments-3.1.jar,WEB-INF/xwiki.cfg</dependentWarExcludes>
+          <!-- Add the xwiki.cfg that we generated earlier (and excluded from the dependent war) to the war  -->
+          <webResources>
+            <resource>
+              <directory>${project.build.directory}/maven-shared-archive-resources</directory>
+              <targetPath>WEB-INF</targetPath>
+              <includes>
+                <include>xwiki.cfg</include>
+              </includes>
+            </resource>
+          </webResources>
         </configuration>
       </plugin>
     </plugins>
