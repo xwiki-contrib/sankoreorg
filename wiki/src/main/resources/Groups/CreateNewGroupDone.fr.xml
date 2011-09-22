@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Groups</web>
+<name>CreateNewGroupDone</name>
+<language>fr</language>
+<defaultLanguage></defaultLanguage>
+<translation>1</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1316684891000</creationDate>
+<date>1316684891000</date>
+<contentUpdateDate>1316684891000</contentUpdateDate>
+<version>1.1</version>
+<title>Vous avez créé un groupe sur planete.Sankoré</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#**
+ * BE CAREFUL, THIS PAGE HAS AN ENGLISH TRANSLATION
+ * Confirmation Content Page after creating a group
+ * @translate This page requires full translation
+ * @type content 
+ * @refactored ludovic
+ *#
+&lt;div class="create-done-page"&gt;
+
+&lt;h1&gt;Félicitations, vous avez créé un groupe sur planete.Sankoré !&lt;/h1&gt;
+
+En tant qu'administrateur du groupe, il vous reste encore quelques étapes à compléter.
+
+Consultez attentivement la liste ci-dessous et cliquez sur "continuer" lorsque vous avez terminé.
+
+#titlebar("Etapes obligatoires" "" "" "blue")
+
+*Inviter des membres*
+
+Votre groupe est prêt à accueillir des membres de planete.Sankoré. &lt;br /&gt;
+Une fois sur la page d'accueil de votre groupe, depuis l'onglet "Membres", cliquez sur le bouton "Inviter un nouveau Membre".&lt;br /&gt;&lt;br /&gt;Vous pouvez également informer des personnes qui ne sont pas membres de planete.Sankoré au sujet de l'existence de votre groupe. Dès qu'ils seront devenus membres planete.Sankoré, ils pourront devenir membres de votre groupe.&lt;br /&gt;&lt;br /&gt;
+
+#titlebar("Etapes optionnelles" "" "" "blue")
+
+*Téléverser un logo personnalisé*
+
+Le logo de votre groupe apparaît à de nombreux endroits. Pour l'instant, votre groupe a le logo par défaut planete.Sankoré. Cliquez sur éditer dans la première section de l'onglet "Accueil" de votre Groupe pour téléverser votre propre logo.
+
+*Ajouter un message d'accueil*
+
+Rédiger un message d'accueil pour les membres de votre groupe ou pour les visiteurs en cliquant sur "éditer" dans la deuxième section de l'onglet "Accueil" de votre groupe. Cette zone vous permet d'expliquer le projet ou les objectifs de votre groupe ou de mettre en avant l'actualité du groupe. 
+
+*Ajouter des explications à propos de chaque onglet*
+
+Les différents onglets de votre page de groupe (Messages, Parcours de Connaissances, Membres et Documentation) contiennent une section "A propos" vous permettant d'ajouter de l'information. Si vous n'éditez pas ces sections "A propos", les informations par défaut de planete.Sankoré seront affichées.
+
+*Créer une collection de Groupe*
+
+Est-ce que votre groupe partagera ou créera des parcours de connaissances ? Cliquez sur "Ajouter une collection de Groupe" dans l'onglet "Parcours de connaissances" pour commencer à développer et organiser les ressources de votre groupe.
+
+#if($doc.name=="CreateNewGroup")
+&lt;form action="$newspace.getHomeURL()" method="get"&gt;
+#else
+&lt;form action="" method="get" onsubmit="$('groups_firsttimewelcome').style.display='none'; return false;"&gt;
+#end
+&lt;p&gt;
+&lt;input type="submit" value="Continuer" /&gt;
+&lt;/p&gt;
+&lt;/form&gt;
+
+&lt;/div&gt;</content></xwikidoc>
