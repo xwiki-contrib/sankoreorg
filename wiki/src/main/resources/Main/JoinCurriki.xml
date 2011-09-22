@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316104024000</creationDate>
-<date>1316104024000</date>
-<contentUpdateDate>1316104024000</contentUpdateDate>
+<creationDate>1316692757000</creationDate>
+<date>1316692757000</date>
+<contentUpdateDate>1316692757000</contentUpdateDate>
 <version>1.1</version>
 <title>$msg.get("joincurriki.registerToJoinCurriki")</title>
 <template></template>
@@ -25,7 +25,7 @@
 <filename>Register draft v4.doc</filename>
 <filesize>32256</filesize>
 <author>XWiki.ABader</author>
-<date>1316091862000</date>
+<date>1316084662000</date>
 <version>1.7</version>
 <comment></comment><content>0M8R4KGxGuEAAAAAAAAAAAAAAAAAAAAAPgADAP7/CQAGAAAAAAAAAAAAAAABAAAAOgAAAAAAAAAA
 EAAAPAAAAAEAAAD+////AAAAADkAAAD/////////////////////////////////////////////
@@ -689,12 +689,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
 
 .registration-button {
   text-align: center;
-}
-
-.xwiki-form-listclass input {
-  margin-right: 3px;
-}
-</code></property><property><name>JoinCurrikiSSX</name>
+}</code>
+</property>
+<property>
+<name>JoinCurrikiSSX</name>
 </property>
 <property>
 <parse>0</parse>
