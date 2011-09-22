@@ -136,6 +136,7 @@
                     com.xpn.xwiki.plugin.activitystream.plugin.ActivityStreamPlugin, \
                     com.xpn.xwiki.plugin.watchlist.WatchListPlugin, \
                     com.xpn.xwiki.plugin.tag.TagPlugin, \
+                    com.xpn.xwiki.plugin.invitationmanager.plugin.InvitationManagerPlugin, \
                     org.curriki.xwiki.plugin.framework.FrameworkManagerPlugin,\
                     org.curriki.xwiki.plugin.licence.LicenceManagerPlugin,\
                     org.curriki.xwiki.plugin.mimetype.MimeTypePlugin,\
