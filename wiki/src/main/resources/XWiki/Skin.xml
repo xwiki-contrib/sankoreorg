@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316692764000</creationDate>
-<date>1316692764000</date>
-<contentUpdateDate>1316692764000</contentUpdateDate>
+<creationDate>1316784093000</creationDate>
+<date>1316784093000</date>
+<contentUpdateDate>1316784093000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -3517,19 +3517,13 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 
 /* CURRICULUM */
 .groups-curriculum #groupsearch { padding: 10px 0 5px; position: relative; }
-.groups-curriculum #groupsearch .groupcontribution-leftbutton { position: absolute; top: 9px; padding: 8px 0 8px; }
 .groups-curriculum #groupsearch .groupcontribution-leftbutton a.button { display: inline; }
-.groups-curriculum #groupsearch #curriki-search-field-container { float: none; margin: 2px 0 0 90px; width: 83%; }
-.groups-curriculum #curriki-searchbox{ width:175px; font-size:10px; color: #666; font-size: 12px; border: none; padding: 0px 3px; background: #fff url(black-textareabgw.png) top left no-repeat; }
-.groups-curriculum #groupsearch #curriki-search-field { 
-  height:19px;
-  padding:3px 0 0 5px;
-}
+.groups-curriculum #groupsearch #curriki-search-field-container { float: none; display: inline;}
+.groups-curriculum #curriki-searchbox{ color: #666; padding: 0px 3px; }
 
 * html .groups-curriculum #curriki-searchbox{ width: 180px; }
-.groups-curriculum #groupsearch #curriki-search-field-container #curriki-searchbox { width: 85%; margin: 0; float: left;  }
-.groups-curriculum #groupsearch #curriki-search-field { height: 19px; padding: 3px 0 0 5px; }
-.groups-curriculum #groupsearch #curriki-search-field-container #searchbtn { color: #FFD; text-align: center; background-color: #A73906;border: none; font-size: 12px !important; padding: 0px 4px; width: 50px; line-height: 12px; height: 14px; float: left; }
+.groups-curriculum #groupsearch #curriki-search-field-container #curriki-searchbox { margin: 0;}
+.groups-curriculum #groupsearch #curriki-search-field-container #searchbtn { color: #FFD; text-align: center; background-color: #A73906;border: none; padding: 0px 4px; }
 .groups-curriculum .frame-inset { margin:10px 0 0; }
 #groups-members-welcomeblock .button { display: inline; }
 .groups-curriculum #groups-collections-instructional { position: relative; padding-bottom: 15px; zoom: 1; }
@@ -3677,28 +3671,29 @@ font-size: 13px; font-weight:bold;}
 
 .main .groups-curriculum #groupsearch #curriki-search-field-container #searchbtn {
     height: 24px;
-    padding: 3px;
     width: auto;
 }
 .main .groups-curriculum #groupsearch #curriki-search-field-container #curriki-searchbox {
-    height: 2em;
+    /* IE7 and 8 don't like the way I put the size of this input if I put it with height: 24px so I use padding to obtain the appropriate distance. Pretty ugly but hey, what's nice in this CSS? */
+    padding-top: 4px;
+    padding-bottom: 4px;
     width: 250px;
+    display: inline;
+    border: 1px solid #ccc;
+    font-size: inherit;
 }
 
 .image-left {
   float: left;
 }
 .main .groups-curriculum #groupsearch #curriki-search-field {
-    float: left;
+    display: inline;
+    border: none;
+    background: none repeat scroll 0 0 transparent;
     height: auto;
     padding: 0;
-}</groups.css>
-</property>
-<property>
-<header.vm></header.vm>
-</property>
-<property>
-<htmlfooter.vm>#if($isInServletMode)
+}
+</groups.css></property><property><header.vm></header.vm></property><property><htmlfooter.vm>#if($isInServletMode)
 &lt;script src="//asset0.zendesk.com/external/zenbox/v2.1/zenbox.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   if (typeof(Zenbox) !== "undefined") {
