@@ -221,7 +221,7 @@ Curriki.userinfo = {
 	isAdmin: #if($hasGlobalAdmin)true#{else}false#end
 };
 </script>
-<script type="text/javascript" src="/xwiki/js/curriki-module-search.js"></script>
+<script type="text/javascript" src="/xwiki/js/curriki-module-search$!{debugging}.js"></script>
 <script type="text/javascript">
 Curriki.module.search.tabList = ['resource'];
 Curriki.module.search.restrictions = 'web:Coll_${spaceName}';
