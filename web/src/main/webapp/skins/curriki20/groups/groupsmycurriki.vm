@@ -155,11 +155,11 @@ $s.getDescription()
 <div class="frame-inset-titlebar">
 #if($displayType == "edit")
   #set($editmastheadurl = $s.getHomeURL()+"?action=editmasthead")
-  #curriki_titlebar("{pre}$xwiki.escapeText($s.getDisplayTitle()){/pre}" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
+  #curriki_titlebar("$xwiki.escapeText($s.getDisplayTitle())" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
 #elseif($displayType == "view")
-  #curriki_titlebar("{pre}$xwiki.escapeText($s.getDisplayTitle()){/pre}" "" "" "blue")
+  #curriki_titlebar("$xwiki.escapeText($s.getDisplayTitle())" "" "" "blue")
 #else
-  #curriki_titlebar("{pre}$xwiki.escapeText($s.getDisplayTitle()){/pre}" $msg.get('mycurriki.groups.visit') $s.getHomeURL() "blue")
+  #curriki_titlebar("$xwiki.escapeText($s.getDisplayTitle())" $msg.get('mycurriki.groups.visit') $s.getHomeURL() "blue")
 #end
 </div>
 #groups_grouplogo( $s )

@@ -103,7 +103,6 @@ $xwiki.ssfx.use("groups.css")
 #if($wdoc.syntaxId == "xwiki/1.0")
 <script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/tiny_mce/tiny_mce.js")"></script>
 <script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/wiki_editor/wiki_editor.js")"></script>
-{pre}
 <script type="text/javascript">
  wikiEditor.init({
 		elements : "",
@@ -119,14 +118,13 @@ $xwiki.ssfx.use("groups.css")
         wiki_attach_path : '/xwiki/bin/view/${spaceName}/${pageName}'
         });
 </script>
-{/pre}
 #elseif($services.wysiwyg.isSyntaxSupported($wdoc.syntax.toIdString()))
 ## Import the JavaScript files required by the WYSIWYG editor (lazy=false).
 #wysiwyg_import(false)
 ## Store the WYSIWYG editor configuration in a JavaScript variable which will be used later to create the editor.
 ##wysiwyg_storeConfig("welcomeWysiwygConfig" $wdoc "XWiki.CurrikiWelcomeBlockClass_0_content" false)
 #end
-#begingroupsection($title,"$msg.groups_home_welcome_link","javascript:editWelcomeBlock('$spaceName','WebHome','groups-members-welcomeblock')", $colour, true)
+#begingroupsection($title,"$msg.groups_home_welcome_link","javascript:editWelcomeBlock('$spaceName','$pageName','groups-members-welcomeblock')", $colour, true)
 <div id="groups-members-welcomeblock">
 #groupsdisplaywelcomeblock($doc)
 </div>
@@ -181,9 +179,9 @@ $msg.get("groups_home_editwelcome_direction")
 $wdoc.display("content", "edit")
 <br />
 #if($services.wysiwyg.isSyntaxSupported($wdoc.syntax.toIdString()))
-{pre}
+#verbatim_start
 #wysiwyg_editProperty($wdoc, "XWiki.CurrikiWelcomeBlockClass_0_content", false)
-{/pre}
+#verbatim_end
 #end
 <div class="right mgn-vrt-15">
 <input type="button" class="button button-cancel mgn-rt" value="$msg.get("groups_home_editwelcome_cancel_btt")" onclick="cancelEditWelcomeBlock('${spaceName}','${pageName}','${divid}');" />
@@ -805,7 +803,6 @@ $msg.get("groups_home_firsttimewelcome_title")
         <input id="xwikiuploadname" type="hidden" name="filename" value="" />
         <div><input id="xwikiuploadfile" type="file" name="filepath" value="" size="40"/></div>
       </div> ## end section
-{pre}
 <script type="text/javascript">
 function checkFileExtension() {
   var isValid = true;
@@ -834,7 +831,6 @@ function getFileExtension() {
   return "ok";
 }
 </script>
-{/pre}
     </div> ## frame-content
     <div class="center mgn-vrt-15"><input class="button button-confirm mgn-rt" type="submit" value="$msg.groups_home_editmasthead_submit_btt" />#button(  "$msg.groups_home_editinformation_cancel_btt"  "cancel"  "reset"  ""  "if(confirm('$msg.groups_home_editmasthead_cancel_confirm')) window.location='$s.getHomeURL()';" )</div>    
   </form>
@@ -1095,7 +1091,7 @@ $msg.get('groups.curriculum.contributions.viewORsearch')
 #else
 #set($type = "atom_0.3")
 #end
-{pre}$as.getFeedOutput($list, "Curriki", "Curriki Group Feed", "Curriki Group Feed", "Copyright", $xwiki.encoding, "http://www.curriki.org/", $type){/pre}
+$as.getFeedOutput($list, "Curriki", "Curriki Group Feed", "Curriki Group Feed", "Copyright", $xwiki.encoding, "http://www.curriki.org/", $type)
 #end
 
 #**

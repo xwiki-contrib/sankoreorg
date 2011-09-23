@@ -311,7 +311,6 @@ $msgdoc.use("XWiki.ArticleClass")
 ## Macro to include the JavaScript code needed for message creation
 ##
 #macro(messageIncludeCreateJs)
-{pre}
 <script type="text/javascript">
 function checkForm(formName) {
    var isValid = true;
@@ -355,7 +354,6 @@ tr.appendChild(td1);
 moveChildNodes(menu[0], td1);
 tr.appendChild(td2);
 tr.appendChild(td3);
-
 var deleteLink = document.createElement('a');
 deleteLink.appendChild(document.createTextNode('Delete'));
 deleteLink.href = 'javascript:void()';
@@ -466,7 +464,6 @@ function inArray(item, items){
   return false;
 }
 </script>
-{/pre}
 #end
 ##
 ## PAGE: Groups.CreateMessageSheet
@@ -526,7 +523,6 @@ function inArray(item, items){
 </div>
 </div>
 #if($selectedRoles.size()>0 || $selectedMembers.size()>0)
-{pre}
 <script type="text/javascript">
 #if($selectedRoles.size()>0)
 enableSelect(document.getElementById('toRole'), 'rolesList');
@@ -539,7 +535,6 @@ var selectedMembers = [#foreach($member in $selectedMembers)'${member}',#end];
 preFillList('addMemberLink', 'membersList','selectedMembers', selectedMembers);
 #end
 </script>
-{/pre}
 #end
 #end
 ##
@@ -571,10 +566,10 @@ preFillList('addMemberLink', 'membersList','selectedMembers', selectedMembers);
    <div class="titleheader titleheader-blue"><h3 class="titleheader-left">$msgtitle</h3>
     <div class="titleheader-right">
      <span id="editLinkContainer" style="padding:0px;">
-      {pre}<a href="javascript:editMessage('$doc.space','$doc.name','$divid')" title="$editText">$editText</a>{/pre}
+      <a href="javascript:editMessage('$doc.space','$doc.name','$divid')" title="$editText">$editText</a>
       #sep()
      </span>
-     {pre}<a href="javascript:deleteMessage('$doc.space','$doc.name')" title="$deleteText">$deleteText</a>{/pre}
+     <a href="javascript:deleteMessage('$doc.space','$doc.name')" title="$deleteText">$deleteText</a>
     </div>
   </div>
   <div class="frame-content" id="section${counter}content">
@@ -583,7 +578,6 @@ preFillList('addMemberLink', 'membersList','selectedMembers', selectedMembers);
 #end
 #if($doc.hasAccessLevel("edit"))
 #groupsajaxjs()
-{pre}
 <script src="$xwiki.getSkinFile("Pork.Iframe.js")" type="text/javascript"></script>
 #if($doc.syntaxId == "xwiki/1.0")
 <script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/tiny_mce/tiny_mce.js")"></script>
@@ -736,7 +730,6 @@ function releaseWysiwygEditor(name) {
  }
 }
 </script>
-{/pre}
 #end
 <div id="$divid">
 #groupsdisplayarticleblock($doc)
@@ -776,7 +769,7 @@ $xwiki.getUserName($comment.author) | <span class="blog-comment-date">$commentDa
 #end ## }
 </span></p>
 </div>
-{pre}$doc.getValue("comment", $comment).replaceAll("\n","<br />"){/pre}
+$doc.getValue("comment", $comment).replaceAll("\n","<br />")
 </div>
 #set($count = 1 - $count) 
 #set($isFirst = false)
@@ -823,13 +816,13 @@ document.getElementById("commentform").className = "collapsed";
 	 <div class="attachments_icon">
 	 #mimeicon($attach.filename)
 	 </div>
-	 <p><span class="date">{pre}<a href="$doc.getAttachmentURL("${attach.filename}", "download")" title="$msg.get("downloadthisattachment")">#packName($attach.filename)</a></span> $attach.version
+	 <p><span class="date"><a href="$doc.getAttachmentURL("${attach.filename}", "download")" title="$msg.get("downloadthisattachment")">#packName($attach.filename)</a></span> $attach.version
 <span class="right">
   <a href="$doc.getAttachmentURL("${attach.filename}", "download")?force-download=1" title="$msg.get("downloadthisattachment")">$msg.get("download")</a>
 #if($hasedit || $hasadmin)
    | <a href="$doc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${redirect}")" onclick="return confirm('$msg.get("confirmdelattachment")');" title="$msg.get("deletethisattachment")">$msg.get("delete")</a>
 #end
-</span>{/pre}
+</span>
 	 <!-- Paragraph containing the post text -->
 	 <p><span class="date">$msg.groups_messages_view_attachments_providedby $xwiki.getLocalUserName($attach.author) $msg.groups_messages_view_attachments_on $xwiki.formatDate($doc.creationDate,$msg.get("mycurriki.datetimeFormat"))</span></p>
 	</div>
@@ -860,8 +853,7 @@ document.getElementById("attachform").className = "collapsed";
       </script>
 #end
 #endgroupsection()
- <!-- End of ATTACHMENTS FRAME -->
-{pre}
+<!-- End of ATTACHMENTS FRAME -->
 <script type="text/javascript">
 function isEditMode(){
 var child = document.getElementById('${divid}').firstChild;
@@ -890,7 +882,6 @@ anchor.href += '&confirm=1';
 return returnValue;
 }
 </script>
-{/pre}
 #groupsfooter()
 #end
 
@@ -954,7 +945,6 @@ $bentrydoc.display("content", "edit", $bentryobj)
 </div>
 #set($editors = $context.getEditorWysiwyg())
 #if($editors)
-{pre}
 #if($bentrydoc.syntaxId == "xwiki/1.0")
 <script language="javascript" type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/tiny_mce/tiny_mce.js")"></script>
 <script language="javascript" type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/wiki_editor/wiki_editor.js")"></script>
@@ -976,15 +966,12 @@ $bentrydoc.display("content", "edit", $bentryobj)
 #elseif($xwiki.wysiwyg.isSyntaxSupported($bentrydoc.syntaxId))
 #wysiwyg_editProperties($bentrydoc $editors false)
 #end
-{/pre}
 #end
 #messageIncludeCreateJs()
 #messageAddSendToFormFields($spaceName, true, [], [])
 <div class="righttext">
-{pre}
 <input class="button button-confirm floatright" type="submit" name="formactionsave" value="$msg.get("groups_messages_create_submit_btt")" onclick="document.forms.inline.action='$saveAction'; if(checkForm('inline') == false) return false; document.forms.inline.submit(); return false;"/>
 <input class="button button-cancel floatright" type="submit" name="formactioncancel" value="$msg.get("groups_messages_create_cancel_btt")" onclick="history.go(-1); return false;"/>
-{/pre}
 </div>
 </form>
 </div>
@@ -1011,11 +998,11 @@ $bentrydoc.display("content", "edit", $bentryobj)
 #set($divid = $request.divid)
 #set($adoc = $xwiki.getDocument("${spaceName}.${pageName}"))
 #set($ok = $adoc.use("XWiki.ArticleClass"))
-<form id="editform" action="$xwiki.getURL("Groups.SaveMessageService")" method="post" onsubmit="new iframe(this,{onComplete:function(t){afterSubmitEditMessage(t,'{pre}${divid}{/pre}')}}); return false;">
+<form id="editform" action="$xwiki.getURL("Groups.SaveMessageService")" method="post" onsubmit="new iframe(this,{onComplete:function(t){afterSubmitEditMessage(t,'${divid}')}}); return false;">
 <p>
 <input type="hidden" name="xpage" value="plain" />
-<input type="hidden" name="space" value="{pre}$spaceName{/pre}" />
-<input type="hidden" name="page" value="{pre}$pageName{/pre}" />
+<input type="hidden" name="space" value="$spaceName" />
+<input type="hidden" name="page" value="$pageName" />
 <br />
 *$msg.get("groups_messages_create_messagetitle_instruction")*
 $adoc.display("title", "edit")
@@ -1025,10 +1012,10 @@ $adoc.display("title", "edit")
 #if($xwiki.wysiwyg.isSyntaxSupported($adoc.syntaxId))
 #wysiwyg_inputProperty($adoc "XWiki.ArticleClass_0_content")
 #wysiwyg_displayConversionError("XWiki.ArticleClass_0_content")
-<input type="hidden" id="messageInputURL" value="{pre}${adoc.getExternalURL("view", $wysiwyg_inputURLQueryString)}{/pre}" disabled="disabled" />
+<input type="hidden" id="messageInputURL" value="${adoc.getExternalURL("view", $wysiwyg_inputURLQueryString)}" disabled="disabled" />
 ## In case of a conversion exception the conversion filter sould redirect us back to the edit form (by default it redirects
 ## to the referer, which in our case is the page where the edit form is included).
-<input type="hidden" name="xerror" value="{pre}$!{request.requestURL}?$!{request.queryString}{/pre}" />
+<input type="hidden" name="xerror" value="$!{request.requestURL}?$!{request.queryString}" />
 #end
 $adoc.display("content", "edit")
 <br />
@@ -1054,12 +1041,10 @@ $adoc.use($viewRightObj)
 #end
 #end
 #messageAddSendToFormFields($groupName, $toGroup, $selectedRoles, $selectedMembers)
-{pre}
 <div class="right mgn-vrt">
 <input type="button" class="button button-cancel mgn-rt" value="$msg.get("groups_messages_edit_cancel_btt")" onclick="cancelEditMessage('${spaceName}','${pageName}','${divid}');" />
 <input type="submit" class="button button-confirm" value="$msg.get("groups_messages_edit_submitsend_btt")" onclick="return beforeSubmitEditMessage();" />
 </div>
-{/pre}
 </p>
 </form>
 #end

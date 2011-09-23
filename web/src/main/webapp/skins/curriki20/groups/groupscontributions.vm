@@ -15,9 +15,7 @@
 #groupsheader("curriculum")
 <div id="groups-main-header">
 #if($context.action == "view" && ($isGroupMember || $hasGlobalAdmin))##{
-{pre}
 <a class="button button-confirm" onclick="Curriki.module.addpath.startPath('O', {publishSpace:'Coll_${doc.space}'});" title="$msg.get('groups.curriculum.contributions.addButton_tooltip')">$msg.get('groups.curriculum.contributions.addButton')</a>
-{/pre}
 #end ##}
 <div id="groups-main-header-title" class="main-title">
 $s.getDisplayTitle() $msg.get("groups.curriculum.contributions.title")<br />
@@ -217,27 +215,18 @@ $msg.get("groups.curriculum.contributions.about")
 #macro(groups_contributions_search)
 #groupsinit()
 #groupsheader("curriculum")
-{pre}
 <script type="text/javascript">
-/* <![CDATA[ */
 Ext.ns('Curriki.userinfo');
 Curriki.userinfo = {
 	isAdmin: #if($hasGlobalAdmin)true#{else}false#end
 };
-/* ]]> */
 </script>
-<!--
-<script type="text/javascript" src="/xwiki/bin/view/Search/SearchJS?xpage=plain"></script>
--->
 <script type="text/javascript" src="/xwiki/js/curriki-module-search.js"></script>
 <script type="text/javascript">
-/* <![CDATA[ */
 Curriki.module.search.tabList = ['resource'];
 Curriki.module.search.restrictions = 'web:Coll_${spaceName}';
 Curriki.module.search.start();
-/* ]]> */
 </script>
-{/pre}
 <div id="search-div"></div>
 <form id="history-form" class="x-hidden">
     <input type="hidden" id="x-history-field" />

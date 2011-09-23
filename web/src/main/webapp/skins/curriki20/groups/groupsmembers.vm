@@ -492,14 +492,12 @@ $xwiki.getLocalUserName($memberName)
 <div id="${divid}" class="groups-members-request-info">
 <div class="groups-members-request-links">
 ## if group admin
-{pre}
 #set($memberDisplayName = $xwiki.getLocalUserName($memberName, false))
 <a href="javascript:void()" onclick="acceptRequest('$divid', '$memberName', '$xwiki.curriki.escapeForJS($memberDisplayName)'); return false;">$msg.get("groups_members_admin_pending_accept_link")</a>
 #if($msreq.status!=4)
 |
 <a href="javascript:void()" onclick="rejectRequest('$divid', '$memberName', '$xwiki.curriki.escapeForJS($memberDisplayName)'); return false;">$msg.get("groups_members_admin_pending_deny_link")</a>
 #end
-{/pre}
 ## end
 </div>
 <div class="groups-members-request-date">
@@ -514,9 +512,7 @@ $msg.get("groups_members_admin_pending_requested") $requestDate ## $msg.get("gro
 $msg.get("groups_members_admin_pending_reasons")
 </div>
 <div class="groups-members-request-message-content">
-{pre}
 $msreq.text
-{/pre}
 </div>
 </div>
 </div>
@@ -529,9 +525,7 @@ $msreq.text
 ##
 #macro(groupsmembershiprequestsjs)
 #groupsajaxjs()
-{pre}
 <script type="text/javascript">
-
 function acceptRequest(divid, memberName, displayName) {
       $(divid).oldInnerHTML = $(divid).innerHTML;
       $(divid).innerHTML = "<div class=\"groups-members-request-confirm-box \"><form><p>${msg.groups_members_accept_confirm}</p><br />"
@@ -596,7 +590,6 @@ function rejectRequestCallback(ajaxreq) {
     $(divid).parentNode.className = "groups-members-request";
 }
 </script>
-{/pre}
 #end
 
 
@@ -676,20 +669,14 @@ $msg.get("groups_members_invite_backlink")
 #begingroupsection($msg.get("groups_members_invite_title"),"","","blue",false)
 <form action="" method="post">
 $msg.get("groups_members_invite_list_instruction",[$spaceTitle])
-
 <input type="text" name="invitees" value="" />
-
 $msg.get("groups_members_invite_note_instruction")
 #tooltip("invite_note_instruction",$msg.get("groups_members_invite_note_instruction_tooltip"))
-{pre}
 <textarea name="text" rows="7">
 $msg.get("groups_members_invite_invitefieldtxt", [$spaceTitle, $spaceURL, $xwiki.getUserName($context.user, false)])
 </textarea>
-{/pre}
-
 <input id="openInvitationCheckbox" type="checkbox" name="open" value="open" />
 <label for="openInvitationCheckbox">$msg.get("groups_members_invite_openinvitation")</label>
-
 <p class="paragraph button-right"><input type="submit" class="button button-confirm" value="$msg.get("groups_members_invite_btt")" /></p>
 </form>
 #endgroupsection()
@@ -736,9 +723,9 @@ $userprofile.display("allowNotifications","edit") $msg.get("groups_members_creat
 <br />
 $userprofile.display("allowNotificationsFromSelf","edit") $msg.get("groups_members_create_membersettings_changenotice")
 <br />
-##{pre}
+##
 ##<textarea name="profile" cols="80" rows="7"></textarea>
-##{/pre}
+##
 ##<br />
 ##<input type="checkbox" name="allowNotifications" value="1" checked /> $msg.get("groups_members_create_membersettings_email") <br />
 ##<input type="checkbox" name="allowNotificationsFromSelf" value="1" checked /> $msg.get("groups_members_create_membersettings_changenotice")
@@ -762,12 +749,10 @@ $userprofile.display("allowNotificationsFromSelf","edit") $msg.get("groups_membe
 #begingroupsection($msg.get("groups_members_join_title",[$spaceTitle]),"", "","blue",false)
 #if($context.user=="XWiki.XWikiGuest")
 ## begin user is guest we need to ask him to login or create an account
-{pre}
 #set($redirurl= $logredir.replaceAll("&#38;", "-"))
 #set($regurl = $xwiki.getURL("Main.JoinCurriki", "view", "xredirect=${redirurl}"))
 $msg.get("groups_members_join_needaccount",[$regurl])
 #loginbox($logredir)
-{pre}
 ## end user is guest
 ## if user is already a member there is no need to join
 #elseif($sm.isMember($spaceName,$context.user))
@@ -845,7 +830,6 @@ $xwiki.addTooltipJS()
   *  Cancel invitation
   *#
 #macro(groups_members_service)
-{pre}
 #set($sm=$xwiki.csm)
 #set($spaceName=$request.space)
 #set($memberName=$request.user)
@@ -886,7 +870,6 @@ $msg.groups_cannotcancelinvitation
 #end
 #end
 #end
-{/pre}
 #end
 
 #**
@@ -894,7 +877,6 @@ $msg.groups_cannotcancelinvitation
   * This handles the call to accept a membership request
   *#
 #macro(groups_acceptmembership_service)
-{pre}
 #set($sm = $xwiki.csm)
 ##Loading invitation manager
 #set($im = $xwiki.invitationmanager)
@@ -919,7 +901,6 @@ SUCCESS
 $msg.groups_members_accept_request_error
 #end
 #end
-{/pre}
 #end
 
 #**
@@ -927,7 +908,6 @@ $msg.groups_members_accept_request_error
   * This handles the call to reject a membership request
   *#
 #macro(groups_rejectmembership_service)
-{pre}
 #set($sm = $xwiki.csm)
 ##Loading invitation manager
 #set($im = $xwiki.invitationmanager)
@@ -950,7 +930,6 @@ SUCCESS
 $msg.groups_members_reject_request_error
 #end
 #end
-{/pre}
 #end
 
 
@@ -995,16 +974,11 @@ $msg.get("groups_members_request_infotxt",[$spaceTitle])
 <br /><br />
 $msg.get("groups_members_request_reasons_instruction")
 #tooltip("reasons-tooltip",$msg.get("groups_members_request_reasons_tooltip"))
-{pre}
 <textarea name="text" cols="80" rows="7"></textarea>
-{/pre}
 <br /><br />
 $msg.get("groups_members_request_bio_instruction")
 #tooltip("bio-tooltip",$msg.get("groups_members_request_bio_tooltip"))
-{pre}
 <textarea name="profile" cols="80" rows="7"></textarea>
-{/pre}
-
 #if($sm.getRoles($spaceName).size() > 0) ## {
 <div class="select-roles">
 $msg.get("groups.members.selectroles")
