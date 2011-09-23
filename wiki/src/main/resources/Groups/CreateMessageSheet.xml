@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Groups</web>
+<name>CreateMessageSheet</name>
+<language></language>
+<defaultLanguage></defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1316699805000</creationDate>
+<date>1316699805000</date>
+<contentUpdateDate>1316699805000</contentUpdateDate>
+<version>1.1</version>
+<title>CreateMessageSheet</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>{{velocity}}{{html clean="false" wiki="true"}}
+##
+## Displays the create message form
+##
+## @type sheet
+## @refactored ludovic
+##
+#groups_message_create()
+{{/html}}{{/velocity}}</content></xwikidoc>
