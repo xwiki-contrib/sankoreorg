@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316619141000</creationDate>
-<date>1316619141000</date>
-<contentUpdateDate>1316619141000</contentUpdateDate>
+<creationDate>1316785482000</creationDate>
+<date>1316785482000</date>
+<contentUpdateDate>1316785482000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -580,7 +580,7 @@ groups.curriculum.about.edit=Éditer
 groups.curriculum.contributions.title=Contributions de Groupe
 groups.curriculum.contributions.about=Ici vous pouvez trouver les contributions du groupe.
 groups.curriculum.contributions.viewAll=Tout visualiser
-groups.curriculum.contributions.viewORsearch=OR
+groups.curriculum.contributions.viewORsearch=ou
 groups.curriculum.contributions.go=Rechercher &amp;\#xBB;
 groups.curriculum.search.default=saisissez les termes de recherche
 groups.contributions.mouseover.contributed=&lt;strong&gt;Contribué / Fourni par\:&lt;/strong&gt;
@@ -646,4 +646,5 @@ groups.search.top_title=CHERCHER DES RESSOURCES DE CE GROUPE DANS LE REPOSITORY
 
 groups_admins_onlyaccessibletoadmins=Cette page est seulement disponible pour les group admins.
 
-## &lt;/pre&gt;</content></xwikidoc>
+## &lt;/pre&gt;
+</content></xwikidoc>
