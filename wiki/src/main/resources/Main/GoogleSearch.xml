@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Main</web>
+<name>GoogleSearch</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1317061094000</creationDate>
+<date>1317061094000</date>
+<contentUpdateDate>1317061094000</contentUpdateDate>
+<version>1.1</version>
+<title>GoogleSearch</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>Main.GoogleSearch</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>f43d7fae-a1e0-46bb-84f2-e06fd32834be</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code>/**
+ * Minimalist theme
+ *
+ */
+/* Slight reset to make the preview have ample padding. */
+.cse .gsc-control-cse,
+.gsc-control-cse {
+  padding: 1em;
+  width: auto;
+}
+.cse .gsc-branding,
+.gsc-branding {
+  display: none;
+}
+.cse.gsc-control-cse div,
+.gsc-control-cse div {
+  position: normal;
+}
+/* Selector for entire element. */
+.cse .gsc-control-cse,
+.gsc-control-cse {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #ffffff;
+}
+.gsc-control-cse .gsc-table-result {
+  font-family: Arial, sans-serif;
+}
+.cse .gsc-control-cse:after,
+.gsc-control-cse:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+/* Search form */
+.cse form.gsc-search-box,
+form.gsc-search-box {
+  padding: 8px 4px 2px 6px;
+  margin-bottom: 6px;
+}
+.cse .gsc-branding-text,
+.gsc-branding-text {
+  color: #000000;
+}
+.cse td.gsc-input,
+td.gsc-input {
+  padding-right: 0;
+}
+.cse .gsc-search-box,
+.gsc-search-box {
+  border-collapse: collapse;
+}
+/* Search input */
+.cse input.gsc-input,
+input.gsc-input {
+  font-family: inherit;
+  border: 1px solid;
+  border-color: #777777;
+  padding: 3px;
+  width: 99%;
+  font-size: 13px;
+}
+/* Search button */
+.cse input.gsc-search-button,
+input.gsc-search-button {
+  font-family: inherit;
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 0 1px 2px #000000;
+  padding: 3px 8px 4px 8px;
+  background-color: #333333;
+  border: 1px solid;
+  border-color: #333333;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+/* Base tab selector styles */
+.cse .gsc-tabHeader,
+.gsc-tabHeader {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px #000000;
+  padding: 2px 8px 0 8px;
+}
+/* Inactive tab */
+.cse .gsc-tabHeader.gsc-tabhInactive,
+.gsc-tabHeader.gsc-tabhInactive {
+  background-color: #777777;
+  border: 1px solid;
+  border-color: #777777;
+  border-bottom: none;
+  color: #ffffff;
+}
+/* Active tab */
+.cse .gsc-tabHeader.gsc-tabhActive,
+.gsc-tabHeader.gsc-tabhActive {
+  background-color: #333333;
+  border: 1px solid;
+  border-color: #333333;
+  border-bottom: none;
+  color: #ffffff;
+}
+/* This is the tab bar bottom border. */
+.cse .gsc-tabsArea,
+.gsc-tabsArea {
+  margin-top: 1em;
+  border-bottom: 1px solid #333333;
+  padding: 0;
+}
+/* Inactive refinement */
+.cse .gsc-refinementHeader.gsc-refinementhInactive,
+.gsc-refinementHeader.gsc-refinementhInactive {
+  color: #444444;
+}
+.gsc-resultsHeader {
+  display: none;
+}
+.cse .gsc-resultsHeader,
+.gsc-resultsHeader {
+  margin: 0;
+  border: block;
+}
+/* Wrapper for all results */
+.cse .gsc-results,
+.gsc-results {
+  width: 100%;
+  margin-top: 1em;
+}
+/* Uber-wrapper for a result. Add padding to elements within a result block */
+.cse .gs-result div.gs-title,
+div.gs-title,
+.cse .gs-result .gs-snippet,
+.gs-result .gs-snippet,
+.cse .gs-result .gs-visibleUrl,
+.gs-result .gs-visibleUrl,
+.cse .gs-spelling,
+.gs-spelling {
+  padding: 0;
+}
+/* Font size */
+.cse .gs-result .gs-snippet,
+.gs-result .gs-snippet,
+.cse .gs-spelling,
+.gs-spelling {
+  font-size: 12px;
+  line-height: 18px;
+}
+/* Inner wrapper for a result */
+.cse .gsc-webResult.gsc-result,
+.gsc-webResult.gsc-result,
+.gsc-imageResult-classic,
+.gsc-imageResult-column {
+  padding: 0 !important;
+  border-left: 1px solid;
+  border-color: #ffffff;
+  border-bottom: 0px solid;
+  margin-bottom: 0 !important;
+}
+.cse .gsc-webResult.gsc-result {
+  border-top: solid 1px #EDEDED !important;
+}
+/* Result hover event styling */
+.cse .gsc-webResult.gsc-result:hover,
+.gsc-webResult.gsc-result:hover,
+.gsc-results .gsc-imageResult-classic:hover,
+.gsc-results .gsc-imageResult-column:hover {
+  border-left: none !important;
+  border-color: #000000;
+  border-bottom: inherit !important;
+}
+.gsc-table-result td {
+   -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #FFFFFF #EDEDED #EDEDED;
+    border-right: 1px solid #EDEDED;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+  padding: 10px;
+}
+/* Set link colors. */
+.cse .gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link,
+.cse .gs-webResult.gs-result a.gs-title:link b,
+.gs-webResult.gs-result a.gs-title:link b,
+.cse .gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited,
+.cse .gs-webResult.gs-result a.gs-title:visited b,
+.gs-webResult.gs-result a.gs-title:visited b,
+.cse .gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover,
+.cse .gs-webResult.gs-result a.gs-title:hover b,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b,
+.cse .gsc-cursor-page,
+.gsc-cursor-page,
+.cse .gsc-trailing-more-results:link,
+.gsc-trailing-more-results:link,
+.cse .gs-spelling a,
+.gs-spelling a {
+  color: #444444;
+}
+.cse .gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active,
+.cse .gs-webResult.gs-result a.gs-title:active b,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+  color: #777777;
+}
+/* Snippet text color */
+.cse .gs-webResult .gs-snippet,
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet {
+  color: #333333;
+}
+
+/* Size text color */
+.gs-imageResult .gs-size,
+.gs-imageResult .gs-size {
+  color: #333333;
+}
+
+/* URL text color */
+.cse .gs-webResult .gs-visibleUrl,
+.gs-webResult .gs-visibleUrl,
+.cse .gs-webResult .gs-visibleUrl-short,
+.gs-webResult .gs-visibleUrl-short,
+.gs-imageResult .gs-visibleUrl,
+.gs-imageResult .gs-visibleUrl-short {
+  color: #000000;
+  font-weight: bold;
+}
+/* Pagination container centered */
+.cse .gsc-cursor-box,
+.gsc-cursor-box {
+  border-top: none !important;
+  border-color: #333333;
+  padding: .5em 0 0 .5em;
+  text-align: left;
+}
+/* Selected pagination */
+.cse .gsc-results .gsc-cursor-page.gsc-cursor-current-page,
+.gsc-results .gsc-cursor-page.gsc-cursor-current-page {
+  color: #fff;
+  background-color: #333333;
+  text-shadow: 0 1px 1px #000;
+  padding: 0 5px;
+}
+/*Promotion Settings*/
+/* The entire promo */
+.cse .gs-promotion,
+.gs-promotion {
+  background-color: #E6E6E6;
+  border: 1px solid;
+  border-color: #CCCCCC;
+}
+/* Promotion image */
+.cse .gs-promotion .gs-promotion-image,
+.gs-promotion .gs-promotion-image {}
+/* Promotion links */
+.cse .gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link,
+.cse .gs-promotion a.gs-title:link *,
+.gs-promotion a.gs-title:link *,
+.cse .gs-promotion .gs-snippet a:link,
+.gs-promotion .gs-snippet a:link {
+  color: #0000CC;
+}
+.cse .gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited,
+.cse .gs-promotion a.gs-title:visited *,
+.gs-promotion a.gs-title:visited *,
+.cse .gs-promotion .gs-snippet a:visited,
+.gs-promotion .gs-snippet a:visited {
+  color: #0000CC;
+}
+.cse .gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover,
+.cse .gs-promotion a.gs-title:hover *,
+.gs-promotion a.gs-title:hover *,
+.cse .gs-promotion .gs-snippet a:hover,
+.gs-promotion .gs-snippet a:hover {
+  color: #444444;
+}
+.cse .gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active,
+.cse .gs-promotion a.gs-title:active *,
+.gs-promotion a.gs-title:active *,
+.cse .gs-promotion .gs-snippet a:active,
+.gs-promotion .gs-snippet a:active {
+  color: #00CC00;
+}
+/* Promotion snippet */
+.cse .gs-promotion .gs-snippet,
+.gs-promotion .gs-snippet,
+.cse .gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.cse .gs-promotion .gs-title .gs-promotion-title-right *,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+  color: #333333;
+}
+/* Promotion url */
+.cse .gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl {
+  color: #00CC00;
+}
+/* Style for auto-completion table
+ * .gsc-completion-selected : styling for a suggested query which the user has moused-over
+ * .gsc-completion-container : styling for the table which contains the completions
+ */
+.gsc-completion-selected {
+  background: #CCCCCC;
+}
+.gsc-completion-container {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  position: absolute;
+  background: white;
+  border: 1px solid #777777;
+  padding: 3px;
+  margin-left: 0;
+  margin-right: 0;
+  /* The top, left, and width are set in JavaScript. */
+}
+
+/* Full URL */
+.gs-webResult div.gs-visibleUrl-short {
+  display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+  display: block;
+}
+
+.gsc-rating-bar {
+  display: inline-block;
+  width: 54px;
+  height: 10px;
+  background: transparent url(/cse/images/cse_snippets_stars.png) -52px -52px no-repeat;
+  margin: 3px 0 0 0;
+}
+
+.gsc-rating-bar span {
+  display: inline-block;
+  height: 10px;
+  background: transparent url(/cse/images/cse_snippets_stars.png) 0 -52px no-repeat;
+  padding: 4px 0 0 0;
+}
+
+.gsc-reviewer {
+  color: #222;
+}
+
+.gsc-author {
+  color: #222;
+}
+
+.gsc-table-cell-thumbnail {
+  padding: 0 0 0 6px;
+}
+
+.gsc-control-cse .gs-result .gs-title, .gsc-control-cse .gs-result .gs-title * {
+    font-size: 13px !important;
+}
+
+.cse .gs-result .gs-snippet, .gs-result .gs-snippet, .cse .gs-spelling, .gs-spelling {
+  font-size: 12px !important;
+}</code>
+</property>
+<property>
+<name>GoogleSankoreSSX</name>
+</property>
+<property>
+<parse>0</parse>
+</property>
+<property>
+<use>onDemand</use>
+</property>
+</object>
+<content>{{velocity}}
+{{html}}
+&lt;div id="cse" style="width: 100%;"&gt;Loading&lt;/div&gt;
+&lt;script src="http://www.google.com/jsapi" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt; 
+  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl('012940815912449519308:-jyetlpxnyi');
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.draw('cse');
+  }, true);
+&lt;/script&gt;
+#set($discard = $xwiki.ssx.use("Main.GoogleSearch", {'minify': false}))
+{{/html}}
+{{/velocity}}</content></xwikidoc>
