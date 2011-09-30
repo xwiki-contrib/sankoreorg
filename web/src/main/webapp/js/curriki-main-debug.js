@@ -2014,35 +2014,15 @@ Curriki.DataObservable = function() {
 Ext.extend(Curriki.DataObservable, Ext.util.Observable);
 Curriki.data.EventManager = new Curriki.DataObservable();
 
-/*
-Ext.util.Observable.capture(Curriki.data.EventManager, function(event){
-  if(event == 'Curriki.data.ict:ready') {
-    Curriki.data.ict.initialized = true;
-  } else if (event == 'Curriki.data.fw_item:ready') {
-    Curriki.data.fw_item.initialized = true;
-  } else if (event == 'Curriki.data.el:ready') {
-    Curriki.data.el.initialized = true;
-  } else if (event == 'Curriki.data.rights:ready') {
-    Curriki.data.rights.initialized = true;
-  } else if (event == 'Curriki.data.language:ready') {
-    Curriki.data.language.initialized = true;
-  } else if (event == 'Curriki.data.category:ready') {
-    Curriki.data.category.initialized = true;
-  } else if (event == 'Curriki.data.license:ready') {
-    Curriki.data.license.initialized = true;
-  } 
-  if (Curriki.data.ict.initialized && 
-      Curriki.data.fw_item.initialized &&
-      Curriki.data.el.initialized &&
-      Curriki.data.rights.initialized &&
-      Curriki.data.language.initialized &&
-      Curriki.data.category.initialized &&
-      Curriki.data.license.initialized) {
-    Ext.util.Observable.releaseCapture(Curriki.data.EventManager);
-    Curriki.data.EventManager.fireEvent('Curriki.data:ready');    
-  }
-});
-*/
+Curriki.ModuleObservable = function() {
+  this.addEvents({'Curriki.module.search:ready': true,
+                  'Curriki.module.search:doSearch': true,
+                  'Curriki.module.search:tabchange': true,                  
+                  });
+}
+Ext.extend(Curriki.ModuleObservable, Ext.util.Observable);
+Curriki.module.EventManager = new Curriki.ModuleObservable();
+
 Curriki.data.EventManager.addListener('Curriki.data.fw_item:ready', function() {
   Curriki.data.EventManager.fireEvent('Curriki.data:ready');
 });

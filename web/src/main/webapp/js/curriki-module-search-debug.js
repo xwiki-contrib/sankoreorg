@@ -160,6 +160,7 @@ module.init = function(){
 			pager.doLoad(Ext.num(start, 0)); // Reset to first page if the tab is shown
 		}
 		console.log('Done util.doSearch', filters);
+		Curriki.module.EventManager.fireEvent('Curriki.module.search:doSearch', modName);
 	};
 
 	// General term panel (terms and search button)
@@ -2978,7 +2979,8 @@ console.log('now util.doSearch', tab, pagerValues);
 					token['t'] = tabPanel.getActiveTab().id;
 					console.log('Saving History', {values: token});
 					Ext.History.add(provider.encodeValue(token));
-*/
+*/        
+          Curriki.module.EventManager.fireEvent('Curriki.module.search:tabchange', tabId); 
 				}
 			}
 			,items:[] // Filled in based on tabs available
