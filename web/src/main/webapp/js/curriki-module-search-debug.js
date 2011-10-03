@@ -1399,7 +1399,7 @@ data.init = function(){
 		mapping: Curriki.data.el.elMap['TREEROOTNODE']
 		,list: []
 		,data: [
-			['', _('XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.UNSPECIFIED')]
+			['', _('XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED')]
 		]
 	};
 	f.data.level.mapping.each(function(value){
@@ -1412,7 +1412,7 @@ data.init = function(){
 	f.data.level.list.each(function(value){
 		f.data.level.data.push([
 			value
-			,_('XWiki.CurrikiSpaceClass_educational_level_'+value)
+			,_('XWiki.CurrikiSpaceClass_educationLevel_'+value)
 		]);
 	});
 
@@ -1424,14 +1424,14 @@ data.init = function(){
 	f.data.level.mapping.each(function(parentItem){
 		f.data.level2.data.push([
 			parentItem.id
-			,_('XWiki.CurrikiSpaceClass_educational_level_'+parentItem.id+'.UNSPECIFIED')
+			,_('XWiki.CurrikiSpaceClass_educationLevel_'+parentItem.id+'.UNSPECIFIED')
 			,parentItem.id
 		]);
     if(f.data.level2.mapping[parentItem.id]) {
 		  f.data.level2.mapping[parentItem.id].each(function(el){
 			  f.data.level2.data.push([
 	  			el.id
-		  		,_('XWiki.CurrikiSpaceClass_educational_level_'+el.id)
+		  		,_('XWiki.CurrikiSpaceClass_educationLevel_'+el.id)
 	  			,parentItem.id
 	  		]);
 	  	});
@@ -1730,7 +1730,7 @@ form.init = function(){
 							,valueField:'id'
 							,typeAhead:true
 							,triggerAction:'all'
-							,emptyText:_('XWiki.CurrikiSpaceClass_educational_level_TREEROOTNODE.UNSPECIFIED')
+							,emptyText:_('XWiki.CurrikiSpaceClass_educationLevel_TREEROOTNODE.UNSPECIFIED')
 							,selectOnFocus:true
 							,forceSelection:true
 							,listeners:{
