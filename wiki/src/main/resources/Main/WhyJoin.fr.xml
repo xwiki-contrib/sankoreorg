@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Main</web>
+<name>WhyJoin</name>
+<language>fr</language>
+<defaultLanguage>en</defaultLanguage>
+<translation>1</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1317651518000</creationDate>
+<date>1317651518000</date>
+<contentUpdateDate>1317651518000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#titlebar("Pourquoi s'inscrire?" "" "" "blue")
+
+Vous inscrire sur planete.Sankoré vous permettra de :
+
+* Ajouter des ressources à vos Favoris
+* Commenter et évaluer les ressources
+* Créer une collection pour mettre en avant et partager vos ressources
+* Créer et organiser des parcours de connaissances
+* Editer les ressources existantes ou en créer de nouvelles
+* Rejoindre ou créer des groupes et travailler avec d'autres enseignants
+* Publier vos bonnes pratiques auprès d'un public large
+
+#titlebar("S'INSCRIRE" "" "" "blue")
+
+C'est gratuit et l'inscription est facile. Rejoignez la communauté planete.Sankoré aujourd'hui !&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;center&gt;
+&lt;a href="$xwiki.getURL("Main.JoinCurriki")" class="button button-orange"&gt;INSCRIVEZ-VOUS&lt;/a&gt;
+&lt;/center&gt;
+&lt;br&gt;
+
+</content></xwikidoc>
