@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Groups</web>
+<name>MailTemplateCreateMessage</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1316003112000</creationDate>
+<date>1316003112000</date>
+<contentUpdateDate>1316003112000</contentUpdateDate>
+<version>1.1</version>
+<title>Message Notification for $s.displayTitle -- $msgdoc.get('title')</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#**
+  * Message notification mail template on create message
+  *
+  * @type mailtemplate
+  * @translate this page requires full translation
+  * @refactored ludovic   
+  *#
+{pre}
+Dear member of $s.displayTitle,
+
+You have received a message from $xwiki.getUserName($context.user, "$first_name $last_name", false) in $s.displayTitle.
+
+The title of this message is "$msgdoc.get('title')".
+
+To view the message, click the URL below or paste it into your browser. (Remember, you must be logged in to Curriki to see this message.) 
+
+$msgdoc.getExternalURL("view")
+
+To change your email notification settings for $s.displayTitle, visit your group member profile on your group's Members tab at: 
+
+$xwiki.getDocument("${spaceName}.Members").getExternalURL("view")
+
+Sincerely,
+
+Curriki, for $s.displayTitle
+{/pre}</content></xwikidoc>

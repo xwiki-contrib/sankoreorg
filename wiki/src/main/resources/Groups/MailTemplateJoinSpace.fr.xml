@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Groups</web>
+<name>MailTemplateJoinSpace</name>
+<language>fr</language>
+<defaultLanguage>en</defaultLanguage>
+<translation>1</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1317729357000</creationDate>
+<date>1317729357000</date>
+<contentUpdateDate>1317729357000</contentUpdateDate>
+<version>1.1</version>
+<title>Bienvenue dans le groupe $space.displayTitle sur planete.Sankoré</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#**
+  * Members Join space mail template
+  *
+  * @type mailtemplate
+  * @translate this page requires full translation
+  * @refactored ludovic 
+  *#
+#if($space)
+#set($groupName=$space.displayTitle)
+#set($serverURL=$xwiki.getXWiki().Param('curriki.system.hostname', 'curriki.org'))
+#set($serverURL=$serverURL.replaceAll("www.", ""))
+#set($groupURL="http://"+$space.homeShortcutURL+".groups."+$serverURL)
+
+#set($groupLongURL=$xwiki.getDocument("${space.spaceName}.WebHome").getExternalURL("view"))
+#end
+#set($memberName=$xwiki.getUserName($context.user,false))
+
+Cher $memberName,
+
+Félicitations, votre demande d'adhésion au groupe $groupName a été acceptée!
+
+Quand vous serez identifié, vous pourrez accéder au groupe à l'adresse suivante:
+
+$groupURL
+
+Vous pouvez aussi accéder à ce groupe à partir de votre profil dans l'onglet "Mes groupes".
+
+Si vous désirez modifier vos préférences (comme les alertes email), ou si vous désirez quitter le groupe, consultez l'onglet "Membres" du groupe $groupName. Sur cet onglet, trouvez votre nom dans la liste de membres et cliquez sur "Éditer les préférences" à droite de votre nom.
+
+Cordialement,
+
+L'équipe planete.Sankoré
+</content></xwikidoc>
