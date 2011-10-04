@@ -1118,6 +1118,7 @@ Curriki.module.addpath.init = function(){
 					 id:'MetadataDialogueWindow'
 					,title:_('add.setrequiredinfo.part2.title')
 					,cls:'addpath addpath-metadata resource resource-add'
+          ,width:800
 					,items:[{
 						 xtype:'panel'
 						,cls:'guidingquestion-container'
