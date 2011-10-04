@@ -1108,7 +1108,7 @@ $as.getFeedOutput($list, "Curriki", "Curriki Group Feed", "Curriki Group Feed", 
 #if($spaces&&($spaces.size()>0))
 #set($space = $spaces.get(0))
 #if($space)
-$response.sendRedirect("http://$xwiki.getXWiki().Param('curriki.system.hostname', 'www.curriki.org')/${space.homeURL}")
+$response.sendRedirect("http://$xwiki.getXWiki().Param('curriki.system.hostname', 'planete.sankore.org')${space.homeURL}")
 #end
 #end
 #if(!$space)
