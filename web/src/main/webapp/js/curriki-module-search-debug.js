@@ -330,9 +330,6 @@ data.init = function(){
 		f.data.subject.list.push(value.id);
 	});
 
-	// CURRIKI-2872
-	f.data.subject.list.push('UNCATEGORIZED');
-
 	f.data.subject.list.each(function(value){
 		f.data.subject.data.push([
 			value
@@ -395,9 +392,6 @@ data.init = function(){
 		f.data.level.list.push(value.id);
 	});
 
-	// CURRIKI-2872
-	f.data.level.list.push('UNCATEGORIZED');
-
 	f.data.level.list.each(function(value){
 		f.data.level.data.push([
 			value
@@ -437,9 +431,6 @@ data.init = function(){
 	f.data.ict.mapping.each(function(value){
 		f.data.ict.list.push(value.id);
 	});
-
-	// CURRIKI-2872
-	f.data.ict.list.push('UNCATEGORIZED');
 
 	f.data.ict.list.each(function(value){
 		f.data.ict.data.push([
@@ -905,13 +896,6 @@ form.init = function(){
 										if (combo.getValue() === '') {
 											subSubject.clearValue();
 											subSubject.hide();
-										// Special case - UNCATEGORIZED does not show sub-items
-										} else if (combo.getValue() === 'UNCATEGORIZED') {
-											subSubject.show();
-											subSubject.clearValue();
-											subSubject.store.filter('parentItem', combo.getValue());
-											subSubject.setValue(combo.getValue());
-											subSubject.hide();
 										} else {
 											subSubject.show();
 											subSubject.clearValue();
@@ -1083,13 +1067,6 @@ form.init = function(){
 										var subict = Ext.getCmp('combo-subict-'+modName);
 										if (combo.getValue() === '') {
 											subict.clearValue();
-											subict.hide();
-										// Special case - UNCATEGORIZED does not show sub-items
-										} else if (combo.getValue() === 'UNCATEGORIZED') {
-											subict.show();
-											subict.clearValue();
-											subict.store.filter('parentItem', combo.getValue());
-											subict.setValue(combo.getValue());
 											subict.hide();
 										} else {
 											subict.show();
@@ -1362,7 +1339,7 @@ data.init = function(){
 		mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
 		,list: []
 		,data: [
-			['', _('XWiki.CurrikiSpaceClass_topic_TREEROOTNODE.UNSPECIFIED')]
+			['', _('XWiki.CurrikiSpaceClass_topic_FW_masterFramework.UNSPECIFIED')]
 		]
 	};
 	f.data.subject.mapping.each(function(value){
@@ -1373,6 +1350,19 @@ data.init = function(){
 			value
 			,_('XWiki.CurrikiSpaceClass_topic_'+value)
 		]);
+	});
+	
+	// sort the list for the subject
+	f.data.subject.data.sort(function(a, b) { 
+		// if a or b are head, return as first
+		if(b[0] == "") return 1; 
+		if(a[0] == "") return -1;
+		// if a or b are uncategorized, return as last
+		if(b[0] == "UNCATEGORIZED") return -1; 
+		if(a[0] == "UNCATEGORIZED") return 1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1; 
+			else return 1;
 	});
 
 	f.data.subsubject =  {
@@ -1394,6 +1384,17 @@ data.init = function(){
 			]);
 		});
 	});
+	
+	// sort the list for the subsubject
+	f.data.subsubject.data.sort(function(a, b) {
+		// b is the subject index, put first
+		if(b[0] == b[2]) return 1;
+		// a is the subject index, put first
+		if(a[0] == a[2]) return -1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1;
+			else return 1;
+	});
 
 	f.data.level =  {
 		mapping: Curriki.data.el.elMap['TREEROOTNODE']
@@ -1405,9 +1406,6 @@ data.init = function(){
 	f.data.level.mapping.each(function(value){
 		f.data.level.list.push(value.id);
 	});
-
-	// CURRIKI-2872
-	f.data.level.list.push('UNCATEGORIZED');
 
 	f.data.level.list.each(function(value){
 		f.data.level.data.push([
@@ -1462,6 +1460,19 @@ data.init = function(){
 			value
 			,_('XWiki.CurrikiSpaceClass_language_'+value)
 		]);
+	});
+	
+	// sort the list for the language
+	f.data.language.data.sort(function(a, b) {
+		// if a or b are head, return as first
+		if(b[0] == "") return 1;
+		if(a[0] == "") return -1;
+		// if a or b are uncategorized, return as last
+		if(b[0] == "999") return -1;
+		if(a[0] == "999") return 1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1;
+			else return 1;
 	});
 
 	f.store = {
@@ -1719,8 +1730,8 @@ form.init = function(){
 						}
 						,items:[{
 							xtype:'combo'
-							,fieldLabel:'Level'
 							,id:'combo-level-'+modName
+							,fieldLabel:'Level'							
 							,hiddenName:'levelparent'
 							,width:comboWidth
 							,listWidth:comboListWidth
@@ -1730,7 +1741,7 @@ form.init = function(){
 							,valueField:'id'
 							,typeAhead:true
 							,triggerAction:'all'
-							,emptyText:_('XWiki.CurrikiSpaceClass_educationLevel_TREEROOTNODE.UNSPECIFIED')
+							,emptyText:_('XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED')
 							,selectOnFocus:true
 							,forceSelection:true
 							,listeners:{
@@ -1952,7 +1963,7 @@ data.init = function(){
 		mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
 		,list: []
 		,data: [
-			['', _('XWiki.XWikiUsers_topics_TREEROOTNODE.UNSPECIFIED')]
+			['', _('XWiki.XWikiUsers_topics_FW_masterFramework.UNSPECIFIED')]
 		]
 	};
 	f.data.subject.mapping.each(function(value){
@@ -1963,6 +1974,19 @@ data.init = function(){
 			value
 			,_('XWiki.XWikiUsers_topics_'+value)
 		]);
+	});
+
+  // sort the list for the subject
+	f.data.subject.data.sort(function(a, b) { 
+		// if a or b are head, return as first
+		if(b[0] == "") return 1; 
+		if(a[0] == "") return -1;
+		// if a or b are uncategorized, return as last
+		if(b[0] == "UNCATEGORIZED") return -1; 
+		if(a[0] == "UNCATEGORIZED") return 1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1; 
+			else return 1;
 	});
 
 	f.data.subsubject =  {
@@ -1985,8 +2009,19 @@ data.init = function(){
 		});
 	});
 
+  // sort the list for the subsubject
+	f.data.subsubject.data.sort(function(a, b) {
+		// b is the subject index, put first
+		if(b[0] == b[2]) return 1;
+		// a is the subject index, put first
+		if(a[0] == a[2]) return -1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1;
+			else return 1;
+	});
+
 	f.data.country =  {
-		list: 'AD|AE|AF|AG|AI|AL|AM|AN|AO|AQ|AR|AS|AT|AU|AW|AX|AZ|BA|BB|BD|BE|BF|BG|BH|BI|BJ|BM|BN|BO|BR|BS|BT|BV|BW|BY|BZ|CA|CC|CD|CF|CG|CH|CI|CK|CL|CM|CN|CO|CR|CU|CV|CX|CY|CZ|DE|DJ|DK|DM|DO|DZ|EC|EE|EG|EH|ER|ES|ET|FI|FJ|FK|FM|FO|FR|GA|GB|GD|GE|GF|GG|GH|GI|GL|GM|GN|GP|GQ|GR|GS|GT|GU|GW|GY|HK|HM|HN|HR|HT|HU|ID|IE|IL|IM|IN|IO|IQ|IR|IS|IT|JE|JM|JO|JP|KE|KG|KH|KI|KM|KN|KP|KR|KW|KY|KZ|LA|LB|LC|LI|LK|LR|LS|LT|LU|LV|LY|MA|MC|MD|ME|MG|MH|MK|ML|MM|MN|MO|MP|MQ|MR|MS|MT|MU|MV|MW|MX|MY|MZ|NA|NC|NE|NF|NG|NI|NL|NO|NP|NR|NU|NZ|OM|PA|PE|PF|PG|PH|PK|PL|PM|PN|PR|PS|PT|PW|PY|QA|RE|RO|RS|RU|RW|SA|SB|SC|SD|SE|SG|SH|SI|SJ|SK|SL|SM|SN|SO|SR|ST|SV|SY|SZ|TC|TD|TF|TG|TH|TJ|TK|TL|TM|TN|TO|TR|TT|TV|TW|TZ|UA|UG|UM|US|UY|UZ|VA|VC|VE|VG|VI|VN|VU|WF|WS|YE|YT|ZA|ZM|ZW'.split('|')
+		list: 'AD|AE|AF|AL|AM|AO|AQ|AR|AT|AU|AZ|BA|BB|BD|BE|BF|BG|BH|BI|BJ|BM|BN|BO|BR|BS|BT|BW|BY|BZ|CA|CD|CF|CG|CH|CI|CL|CM|CN|CO|CR|CU|CV|CY|CZ|DE|DJ|DK|DO|DZ|EC|EE|EG|ES|ET|FI|FR|GA|GB|GE|GF|GH|GI|GL|GM|GN|GP|GQ|GR|GT|GW|GY|HK|HN|HR|HT|HU|ID|IE|IL|IN|IQ|IR|IS|IT|JM|JO|JP|KE|KG|KH|KM|KP|KR|KW|KZ|LA|LB|LI|LK|LR|LS|LT|LU|LV|MA|MC|MD|ME|MG|ML|MN|MO|MQ|MR|MT|MU|MV|MW|MX|MY|MZ|NA|NC|NE|NG|NI|NL|NO|NP|NZ|PA|PE|PF|PG|PH|PK|PL|PR|PS|PT|PY|RO|RS|RU|RW|SA|SB|SC|SD|SE|SG|SI|SK|SL|SM|SN|SO|SR|SV|SY|SZ|TD|TG|TH|TJ|TM|TN|TR|TT|TW|TZ|UA|UG|US|UY|UZ|VA|VE|VN|YE|ZA|ZM|ZW'.split('|')
 		,data: [
 			['', _('XWiki.XWikiUsers_country_UNSPECIFIED')]
 		]
@@ -1996,6 +2031,19 @@ data.init = function(){
 			value
 			,_('XWiki.XWikiUsers_country_'+value)
 		]);
+	});
+
+  // sort the list for the language
+	f.data.country.data.sort(function(a, b) {
+		// if a or b are head, return as first
+		if(b[0] == "") return 1;
+		if(a[0] == "") return -1;
+		// if a or b are uncategorized, return as last
+		if(b[0] == "999") return -1;
+		if(a[0] == "999") return 1;
+		// compare alphabetically
+		if (a[1] <= b[1]) return -1;
+			else return 1;
 	});
 
 	f.data.member_type =  {
