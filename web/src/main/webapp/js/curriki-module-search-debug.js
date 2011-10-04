@@ -1844,7 +1844,7 @@ form.init = function(){
 //			,tooltip:_('search.group.column.header.name')
 		},{
 			id: 'description'
-			,width: 225
+			,width: 217
 			,header: _('search.group.column.header.description')
 			,dataIndex:'description'
 			,sortable:false
