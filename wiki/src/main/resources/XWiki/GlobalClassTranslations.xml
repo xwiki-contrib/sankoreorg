@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316097720000</creationDate>
-<date>1316097720000</date>
-<contentUpdateDate>1316097720000</contentUpdateDate>
+<creationDate>1317724279000</creationDate>
+<date>1317724279000</date>
+<contentUpdateDate>1317724279000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -514,9 +514,11 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Language_Proficiency.UNSPECIFIE
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Media_Education.UNSPECIFIED=Media Education: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sciences.UNSPECIFIED=Sciences: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Technology_Education.UNSPECIFIED=Technology Education: Any
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.UNSPECIFIED=Subject: Any
 
 
 ## EDUCATION LEVEL
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED=Education: All
 XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.WebHome=Index
 XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.0306=3-6
 XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.0306Primary=Primary
@@ -579,6 +581,7 @@ XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.18HigherEducationPhD=PhD
 XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.18SupplementaryEducation=Supplementary Education
 XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.SpecialEducation=Special Education
 XWiki.CurrikiSpaceClass_educational_level_AssetMetadata.UNSPECIFIED=Educational Level:Any
+XWiki.CurrikiSpaceClass_educationLevel_TREEROOTNODE.UNSPECIFIED=Educational Level:Any
 
 
 ## LANGUAGE
