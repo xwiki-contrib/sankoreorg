@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317809994000</creationDate>
-<date>1317809994000</date>
-<contentUpdateDate>1317809994000</contentUpdateDate>
+<creationDate>1317815065000</creationDate>
+<date>1317815065000</date>
+<contentUpdateDate>1317815065000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -4042,11 +4042,11 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
   #if($request.xredirect)
     #set($logredir = $request.xredirect)
   #elseif($doc.space == "Registration")
-    #set($logredir = $xwiki.getURL("MyCurriki.Profile"))
+    #set($logredir = $xwiki.getURL("MySankore.Profile"))
   #elseif($doc.fullName == "Main.WebHome")
-    #set($logredir = $xwiki.getURL("MyCurriki.Profile"))
+    #set($logredir = $xwiki.getURL("MySankore.Profile"))
   #elseif($doc.fullName == "Main.JoinSankore")
-    #set($logredir = $xwiki.getURL("MyCurriki.Profile"))
+    #set($logredir = $xwiki.getURL("MySankore.Profile"))
   #elseif($logredir.contains("/login"))
     #set($logredir = "")
   #end
@@ -4077,7 +4077,7 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
     &lt;input type="hidden" name="srid" value="$!request.srid" /&gt;
     &lt;input type="hidden" name="form_token" value="$!services.csrf.getToken()" /&gt;
 #if($request.xredirect.indexOf() != -1 &amp;&amp; $context.action == "login")
-  #set($messageTemplate = $xwiki.getDocument("MyCurriki.LoginMessageTemplate"))
+  #set($messageTemplate = $xwiki.getDocument("MySankore.LoginMessageTemplate"))
   #if($messageTemplate)
     $!messageTemplate.getRenderedContent()
   #end
@@ -4109,7 +4109,7 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
   #if($hasGlobalAdmin)
     &lt;li&gt;&lt;a class="administration-link" href="$xwiki.getURL('XWiki.XWikiPreferences', 'admin')"&gt;$msg.get("core.menu.admin")&lt;/a&gt;&lt;/li&gt;
   #end
-    &lt;li&gt;&lt;a class="profile-link" href="$xwiki.getURL('MyCurriki.Profile', 'view')"&gt;$msg.get("core.menu.profile")&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="profile-link" href="$xwiki.getURL('MySankore.Profile', 'view')"&gt;$msg.get("core.menu.profile")&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;
       #set($logredir = $xwiki.getURL("Main.WebHome"))
       #set($logoutUrl = $xwiki.getURL("XWiki.XWikiLogout","logout", "xredirect=$logredir"))

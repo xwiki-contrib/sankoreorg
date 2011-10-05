@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>MySankore</web>
+<name>EditProfile</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>MyCurriki.Profile</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1317814489000</creationDate>
+<date>1317814489000</date>
+<contentUpdateDate>1317814489000</contentUpdateDate>
+<version>1.1</version>
+<title>Edit Profile</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#**
+  * Edit Profile Page
+  *
+  *#
+#mycurriki_pageheader("profile" "")
+#mycurriki_pagecontentheader("profile" "")
+#mycurriki_editprofilebox($userdoc $userobj)
+#mycurriki_pagefooter("")
+</content></xwikidoc>

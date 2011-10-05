@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>MySankore</web>
+<name>RemoveFavorite</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>MyCurriki.Favorites</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1317813276000</creationDate>
+<date>1317813276000</date>
+<contentUpdateDate>1317813276000</contentUpdateDate>
+<version>1.1</version>
+<title>Remove Favorite</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#mycurriki_removefavorite() </content></xwikidoc>

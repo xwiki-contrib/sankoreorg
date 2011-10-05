@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>MySankore</web>
+<name>Profile</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>MyCurriki.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1317814229000</creationDate>
+<date>1317814229000</date>
+<contentUpdateDate>1317814229000</contentUpdateDate>
+<version>1.1</version>
+<title>Profile</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#mycurriki_pageheader("profile" "")
+#mycurriki_editprofilebutton($userdoc)
+#mycurriki_pagecontentheader("profile" "")
+#mycurriki_viewprofilebox($userdoc $userobj)
+#mycurriki_pagefooter("")
+
+#includeInContext("MySankore.ActivityStream")</content></xwikidoc>

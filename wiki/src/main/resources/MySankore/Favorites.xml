@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>MySankore</web>
+<name>Favorites</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>MyCurriki.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1317814352000</creationDate>
+<date>1317814352000</date>
+<contentUpdateDate>1317814352000</contentUpdateDate>
+<version>1.1</version>
+<title>Favorites</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>#**
+  * MySankore Favorites Profile Page
+  *
+  *#
+#mycurriki_pageheader("favorites" "")
+##mycurriki_favoritesbutton($userobj)
+#mycurriki_pagecontentheader("favorites" "")
+#mycurriki_favoritesbox($userdoc $userobj)
+#mycurriki_pagefooter("")</content></xwikidoc>

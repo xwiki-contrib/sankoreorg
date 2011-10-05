@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Admin</web>
+<name>GiveProgRights</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1317816404000</creationDate>
+<date>1317816404000</date>
+<contentUpdateDate>1317816404000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>1 Give prog rights
+
+#if(!$xwiki.hasAdminRights())
+You are running this script as a non admin. It will have no effect. Login as admin.
+#else
+This script automatically set the owner of the pages in Groups, MySankore spaces and a list of specific pages as well as all pages containing the tag "@programming" to an admin. This will allow the priviledged scripts included in them to work.
+#end
+
+[Confirm&gt;$doc.fullName?confirm=1]
+
+#foreach($item in $xwiki.searchDocuments("where doc.web='Groups'"))
+* $item #if($request.confirm=="1") $xwiki.getDocument($item).save() #end
+
+#end
+##
+#foreach($item in $xwiki.searchDocuments("where doc.web='MySankore'"))
+* $item #if($request.confirm=="1") $xwiki.getDocument($item).save() #end
+
+#end
+##
+#foreach($item in $xwiki.searchDocuments("where doc.web='CurrikiCode'"))
+* $item #if($request.confirm=="1") $xwiki.getDocument($item).save() #end
+
+#end
+##
+#foreach($item in $xwiki.searchDocuments("where (doc.fullName in ('Members.MyBlog', 'XWiki.MyBlogGroovy', 
+ 'CreateResources.AssetDone', 'CreateResources.StyledMacros','Affiliate.RegistrationTemplate','Affiliate.AffiliateManagement','Affiliate.PartnerEncryptGroovy',
+'AdWordsJump.LandingPageLogWriter','AdWordsJump.LandingPageLog',
+'AdWordsJump.LandingPageLogExport',
+'AdWordsJump.LandingPageLogTemplate',
+'AdWordsJump.AdWordsJumpPageTemplate',
+'FileCheck.WebHome',
+'FileCheck.Check',
+'FileCheck.SeeCounts',
+'CRS.Reviews',
+'CRS.Review') or doc.content like '%@programming%') and doc.web not in ('Groups','MySankore','CurrikiCode')"))
+* $item #if($request.confirm=="1") $xwiki.getDocument($item).save() #end
+
+#end
+##</content></xwikidoc>
