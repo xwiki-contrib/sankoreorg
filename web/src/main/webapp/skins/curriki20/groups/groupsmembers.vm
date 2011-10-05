@@ -749,7 +749,7 @@ $userprofile.display("allowNotificationsFromSelf","edit") $msg.get("groups_membe
 #if($context.user=="XWiki.XWikiGuest")
 ## begin user is guest we need to ask him to login or create an account
 #set($redirurl= $logredir.replaceAll("&#38;", "-"))
-#set($regurl = $xwiki.getURL("Main.JoinCurriki", "view", "xredirect=${redirurl}"))
+#set($regurl = $xwiki.getURL("Main.JoinSankore", "view", "xredirect=${redirurl}"))
 #verbatim($msg.get("groups_members_join_needaccount",[$regurl]))
 #loginbox($logredir)
 ## end user is guest
