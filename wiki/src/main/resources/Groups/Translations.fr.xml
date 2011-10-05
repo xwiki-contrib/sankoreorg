@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317649566000</creationDate>
-<date>1317649566000</date>
-<contentUpdateDate>1317649566000</contentUpdateDate>
+<creationDate>1317742168000</creationDate>
+<date>1317742168000</date>
+<contentUpdateDate>1317742168000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -56,9 +56,9 @@ XWiki.CurrikiSpaceClass_accessprivileges_private=Privé\: Seuls les membres du g
 
 ## CREATE NEW GROUP
 groups_creategroup_pagename=Créer un nouveau groupe
-groups_creategroup_needaccount=You must be a Planète Sankoré member and be &lt;a href="{0}"&gt;logged in&lt;/a&gt; to create a group.
+groups_creategroup_needaccount=Vous devez être un membre de planete.Sankoré et être &lt;a href="{0}"&gt;authentifié&lt;/a&gt; pour créer un groupe.
 groups_creategroup_about_title=Au sujet de la Création des Groupes
-groups_creategroup_about_infotxt=En créant un nouveau groupe, vous devenez le "group leader" et vous avez des droits spéciaux pour éditer des parties de votre espace de groupe, accepter ou refuser les demandes d'affiliation, détruire ou éditer les messages des autres membres quand c'est nécessaire, et plus encore. Vous serez à même de partager ces privilèges administratifs avec d'autres group leaders, si vous le souhaitez.
+groups_creategroup_about_infotxt=En créant un nouveau groupe, vous devenez l'"administrateur de groupe" et vous avez des droits spéciaux pour éditer des parties de votre espace de groupe, accepter ou refuser les demandes d'affiliation, détruire ou éditer les messages des autres membres quand c'est nécessaire, et plus encore. Vous serez à même de partager ces privilèges administratifs avec d'autres administrateurs de groupe, si vous le souhaitez.
 groups_creategroup_namedescribe_title=Nommez et Décrivez votre Groupe
 groups_creategroup_namedescribe_groupname=Saisissez ici le nom de votre groupe (pas plus de 64 caractères)
 groups_creategroup_namedescribe_groupname_tooltip=Ce nom apparaît à beaucoup d'endroits dans votre espace de groupe et sur le site de Planète Sankoré; gardez à l'esprit que les contraintes en place mémoire rendent un nom de groupe court préférable.
@@ -76,14 +76,14 @@ groups_creategroup_select_subjectlevel_level_tooltip=Choisissez le niveau éduca
 groups_creategroup_select_language_title=Choisissez une langue
 groups_creategroup_select_language_infotxt=Ce choix de language par défaut s'appliquera à toutes les ressources ou collections créées ou ajoutées par votre groupe. Il permettra aussi aux gens qui cherchent un groupe qui communique et qui travaille dans votre langage de trouver votre groupe.
 groups_creategroup_select_license_title=Choisissez une Politique de Licence par Défaut
-groups_creategroup_select_license_infotxt=&lt;p&gt;Here you select a default license for your group's contributions into the Planète Sankoré repository. (Individual members will have the option to set alternative licenses at the time of creating or adding content, as required.)&lt;/p&gt;&lt;p&gt;The Planète Sankoré-compatible license displaying below was chosen to provide maximum flexibility to community members so they can use and modify your group's contributions for the purposes of their own curriculum development and instruction. The Planète Sankoré license is a widely used Creative Commons license Attribution &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;3.0&lt;/a&gt;. If you wish to assign another license, please select from the drop-down list below. To learn about all the Creative Commons licenses, please &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;click here&lt;/a&gt;.&lt;/p&gt;
+groups_creategroup_select_license_infotxt=&lt;p&gt;Ici vous pouvez choisir une licence par défaut pour les contributions aux différents groupes par les membres dans le référentiel Planète Sankoré. (Si ils le souhaitent, les membres auront la possibilité de choisir une autre licence lorsqu'ils ajouteront du contenus.)&lt;/p&gt;&lt;p&gt;Les licences compatibles avec planete.Sankoré affichées ci-dessous ont été choisies pour donner le maximum de flexibilité aux membres de la communauté. Ainsi, ils pourront adapter vos informations pour leurs propre cours. Les licences planete.Sankoré sont principalement tirées des licences Creative Commons 3.0 qui sont très largement utilisées. Si vous désirez choisir une autre licence, merci d'utiliser la liste déroulante ci-dessous. Pour avoir plus d'information à propos des licences Creative Commons, &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;c'est ici&lt;/a&gt;.&lt;/p&gt;
 groups_creategroup_select_access_title=Mettre en place les Privilèges d'Accès par Défault 
 groups_creategroup_select_access_infotxt=Vous choisissez ici le réglage par défaut qui détermine qui peut visualiser et/ou éditer les parcours de connaissances de votre groupe.
 groups_creategroup_select_access_open=Ouvert - N'importe qui peut visualiser le contenu de groupe; tous les membres de Planète Sankoré peuvent l'éditer.
 groups_creategroup_select_access_protected=Protégé - Tout le monde peut visualiser le contenu du groupe; seuls les membres du groupe peuvent l'éditer.
 groups_creategroup_select_access_private=Privé - Seuls les membres de groupe peuvent visualiser et éditer le contenu.
 groups_creategroup_create_title=Completer la mise en place du Groupe
-groups_creategroup_create_infotxt=En cliquant sur "Créer un Groupe" ci-dessus, vous acceptez d'officier en tant que leader de groupe, ou de transmettre les droits et responsabilités afférents à un autre membre de votre groupe. En tant que leader de groupe, vous acceptez d'être le point de contact pour les questions ou problèmes en rapport avec le contenu et l'appartenance à ce groupe, et vous deviendrez automatiquement membre du Planète Sankoré Leaders Group. Après soumission de ce formulaire, vous devriez recevoir un email de Planète Sankoré pour vous féliciter de la création de ce groupe. Si vous ne recevez pas cet email, prenez contact avec Planète Sankoré pour assistance SVP.
+groups_creategroup_create_infotxt=En cliquant sur "Créer un Groupe" ci-dessus, vous acceptez d'officier en tant que leader de groupe, ou de transmettre les droits et responsabilités afférents à un autre membre de votre groupe. En tant que leader de groupe, vous acceptez d'être le point de contact pour les questions ou problèmes en rapport avec le contenu et l'appartenance à ce groupe, et vous deviendrez automatiquement membre du groupe administrateur de Planète Sankorép. Après soumission de ce formulaire, vous devriez recevoir un email de Planète Sankoré pour vous féliciter de la création de ce groupe. Si vous ne recevez pas cet email, prenez contact avec Planète Sankoré pour assistance SVP.
 groups_creategroup_create_btt=Créer un Groupe
 groups_creategroup_cancel_btt=Annuler
 groups_creategroup_cancel_confirm=Êtes-vous sûr de vouloir annuler la création du groupe?
@@ -131,7 +131,7 @@ groups_home_editmasthead_bc=Éditer la présentation du groupe
 groups_home_editmasthead_groupname_tooltip=Ce nom apparaît a beaucoup d'endroits à dans l'espace de votre groupe et sur le site. gardez à l'esprit que des contraintes de place mémoire rendent préférable le choix d'un nom de groupe court.
 groups_home_editmasthead_groupdescription_tooltip=Quand les gens consultent des listes de groupes, ils voient en premier la "fiche de présentation "  de votre groupe, qui inclut cette description accompagnée de votre nom de groupe et d'une image de groupe. (Vous ajouterez votre image à l'étape suivante.) 
 groups_home_editmasthead_logo_infotxt_withoutlogo=La fiche de présentation de votre groupe utilise actuellement l'image située à gauche. Si vous souhaitez montrer une autre imagbe, cliquez sur "Parcourir" pour aller chercher la nouvelle image dans votre ordinateur. Une fois que vous avez trouvé l'image, cliquez sur "Mettre à jour" pour la faire apparaître dans la fiche de présentation de votre groupe. La meilleure taille pour cette image est 120x82 pixels.
-groups_home_editmasthead_logo_infotxt_withlogo=Your group masthead is currently using the image on the left. If you would like to show a different image, click "Browse" to find the new image on your computer. Once you locate the image, click "Submit Updates" to make it appear in your group masthead. The best size for this image is 120x82 pixels. If you want to return to using the default Planète Sankoré Group image, &lt;a href={0} onclick="return confirm(''Are you sure you want to remove the current image?'')"&gt;click here&lt;/a&gt; to remove the current image and the default Planète Sankoré Group image will appear.
+groups_home_editmasthead_logo_infotxt_withlogo=Votre groupe est actuellement représenté par l'image sur la gauche. Si vous voulez la changer, cliquez sur "Parcourir" afin de sélèctionner une image sur votre ordinateur. Une fois la bonne image choisie, cliquez sur "Uploader" pour la faire apparaitre. La taille recommandée est de 120x82 pixels. Si vous voulez revenir à l'image de groupe par défaut de planete.Sankoré, &lt;a href={0} onclick="return confirm(''Êtes-vous sûre?'')"&gt;cliquez ici&lt;/a&gt;.
 groups_home_editmasthead_logo_direction=Choisissez et Uploadez votre Image
 groups_home_editmasthead_logo_bro_btt=Parcourir
 groups_home_editmasthead_logo_upl_btt=Uploader
@@ -267,7 +267,7 @@ groups_messages_create_to_delete_tooltip=Enlever ce destinataire ou rôle.
 groups_messages_create_to_delete_role_tooltip=Enlever ce rôle.
 groups_messages_create_to_delete_member_tooltip=Enlever ce membre.
 groups_messages_create_to_label=Envoyer à\:
-groups_messages_create_to_group_label=Group entier
+groups_messages_create_to_group_label=Groupe entier
 groups_messages_create_to_role_label=Rôle(s) Specifique(s)
 groups_messages_create_to_role_default=Choisir Rôle(s)
 groups_messages_create_to_role_add_tooltip=Cliquer pour envoyer le message à ce rôle.
@@ -369,12 +369,12 @@ groups_curriculum_collections_reorder.checkafter.next.btt=Annuler
 
 
 ## CURRICULUM -- VIEW ALL CONTRIBUTIONS
-groups_curriculum_contributions_infotxt=Here you can find a listing of every contribution from [GroupName], including collections and resources of all sizes. You can sort the columns headed Title, Last Updated, and Access. Links available under the "Action" heading depend on your editing/deleting rights for a resource. 
+groups_curriculum_contributions_infotxt=Ici vous pouvez voir une liste de toutes les contributions du groupe [GroupName]. Vous pouvez classer les colonnes Titre, Derniere modification et Accès. Les liens "Action" disponibles dépendent de vos accès à chaque resource. 
 groups.curriculum.contributions.AddButton=Ajouter une Ressource
 groups.curriculum.contributions.AddButton_tooltip=Fournissez votre meilleure ressource d'apprentissage ou créez quelque chose de nouveau
 groups_curriculum_contributions_table_title=Titre
 groups_curriculum_contributions_table_ict=ICT
-groups_curriculum_contributions_table_lastupdated=Dernier Modifié
+groups_curriculum_contributions_table_lastupdated=Derniere modification
 groups_curriculum_contributions_table_access=Accès
 groups_curriculum_contributions_table_filetype=Type de Fichier
 groups_curriculum_contributions_table_action=Action
@@ -402,7 +402,7 @@ groups_members_membersettings_savedone=
 groups_members_admin_current_membersettings_save_link=Sauvegarde
 groups_members_admin_current_membersettings_cancel_link=Effacer
 groups_members_admin_current_membersettings_remove_link=Supprimer d'un Groupe
-groups_members_admin_current_membersettings_remove_confirm=Êtes-vous sûr que vous voulez supprimer ce membre du groupe? (Si vous êtes le seul group leader, vous ne pouvez pas vous supprimer vous-même).
+groups_members_admin_current_membersettings_remove_confirm=Êtes-vous sûr que vous voulez supprimer ce membre du groupe? (Si vous êtes le seul administrateur de groupe, vous ne pouvez pas vous supprimer vous-même).
 groups_members_admin_current_membersettings_removeadmin_confirm=Êtes-vous sûr que vous voulez supprimer le statut de leader de groupe à ce membre?
 groups_members_admin_current_membersettings_removeadmin_link=Supprimer le Statut de Leader
 groups_members_admin_current_membersettings_addadmin_confirm=Êtes-vous sûr de vouloir élever ce membre au statut de leader de groupe ?
@@ -494,7 +494,7 @@ groups_members_join_btt=Rejoindre
 groups_members_cancel_btt=Annuler
 groups_members_join_needaccount=Si vous n'êtes pas encore inscrit sur planete.Sankoré, veuillez  &lt;a href="{0}"&gt;créer un compte&lt;/a&gt;.
 groups_members_join_alreadymember=Vous êtes déjà membre de ce groupe.
-groups_members_join_success=Congratulations! You have successfully joined this group. View your member listing in the [members list&gt;Members].
+groups_members_join_success=Félicitation! Vous avez rejoint ce groupe. La liste de membre est disponible sur [members list&gt;Members].
 groups_members_join_failure=Cette opération a échoué. Essayez encore SVP. Si vous continuez à avoir des problèmes, contactez groups@curriki.org SVP.
 groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans Planète Sankoré avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez groups@curriki.org SVP.
 
@@ -510,7 +510,7 @@ groups.invite.defaultmessage=Je voudrais vous inviter à rejoindre {0} Sankore
 groups.invite.openinvitation=Ceci est une invitation libre à une mailing list. (En cochant cette boîte, vous rendez possible à de multiples parties d'utiliser le lien d'acceptance fourni dans l'invitation emailée.)
 groups.invite.sending=Envoi de l''invitation à {0} en cours
 groups.invite.alreadyinvitedormember=*{0}* est déjà membre de *{1}* ou a une invitation en attente.
-groups.invite.success=All invitations have been sent. Group leaders can view the status of invitations on the [Members list&gt;Members?type=3].
+groups.invite.success=Toutes les invitations ont été envoyées. Les administrateurs de groupe peuvent voir l'état des invitations sur la page [Members list&gt;Members?type=3].
 ## How to create page
 ## Browse page
 browseGroups.pageTitle=Naviguer dans les Groupes par Sujet
@@ -557,7 +557,7 @@ groups_documentation_edit_wiki_save=Sauvergarder
 groups_documentation_edit_wiki_cancel_confirm=Êtes-vous sûr que vous voulez annuler?
 
 ## History - Added from CB Translation by Todd 2/27/09
-history.errorgettinghistory=Erreur pendant la récupration de l'historique depuis le serveur
+history.errorgettinghistory=Erreur pendant la récupération de l'historique depuis le serveur
 history.to=To
 history.from=De
 history.version=Version
@@ -599,9 +599,9 @@ groups.curriculum.collections.noresults=
 groups.curriculum.tab.collections.label=Collections
 groups.contributions.actions.delete.confirm=Cette action est irréversible. Êtes-vous sûr que vous voulez supprimer?
 groups_needsadminrights=Cette action requiert le statut de leader de groupe.
-groups_adminremoved=Ce membre n'est plus group leader.
+groups_adminremoved=Ce membre n'est plus administrateur de groupe.
 groups_cannotremovelastadmin=Chaque groupe doit avoir un leader; il n'est pas possible d'enlever le dernier leader du groupe.
-groups_adminadded=Ce membre est maintenant group leader.
+groups_adminadded=Ce membre est maintenant administrateur de groupe.
 groups_memberremoved=Ce membre a été enlevé par le groupe.
 groups_cannotremovemember=Cette opération a échoué. Essayez encore SVP.
 groups_invitationcancelled=Cette invitation a été annulée.
@@ -612,13 +612,13 @@ groups_messages_onlyaccessibletomembers=Les messages sont seulement accessibles 
 groups_members_onlyaccessibletomembers=Les listes de membres sont seulement accessibles aux membres du groupe.
 groups_documentation_onlyaccessibletomembers=La documentation est seulement accessible aux membres du groupe.
 
-groups.roles.admin.title=Group Leader
+groups.roles.admin.title=Administrateur de groupe
 groups.roles.comment.created=Rôle {0} créé
 groups.roles.comment.renamed=Rôle {0} renommé en {1}
 groups.roles.comment.addedUser=Ajouté {0}
 groups.roles.comment.removedUser=Supprimé {0}
 groups.roles.manage.titlebar=Manager les Rôles
-groups.roles.manage.intro=&lt;p&gt;En tant que group leader, vous pouvez créer et manager une liste de rôles pour les membres de votre groupe, dans laquelle ils peuvent choisir, soit quand ils rejoignent le groupe, ou plus tard quand ils éditent leurs paramètres de membre pour ce groupe.&lt;/p&gt;&lt;br&gt;&lt;p&gt;Au moyen de cette fonctionnalité, votre groupe peut envoyer des messages efficacement aux membres qui jouent un rôle spécifique dans le fonctionnement du groupe. Par exemple, si c'est un projet de développement de curriculum, vous pouvez avoir un rôle "Expert du Domaine" auquel les membres peuvent s'adresser pour des questions difficiles. Notez les options de filtrage en rapport sur le Panneau des messages.&lt;/p&gt;
+groups.roles.manage.intro=&lt;p&gt;En tant que Administrateur de groupe, vous pouvez créer et manager une liste de rôles pour les membres de votre groupe, dans laquelle ils peuvent choisir, soit quand ils rejoignent le groupe, ou plus tard quand ils éditent leurs paramètres de membre pour ce groupe.&lt;/p&gt;&lt;br&gt;&lt;p&gt;Au moyen de cette fonctionnalité, votre groupe peut envoyer des messages efficacement aux membres qui jouent un rôle spécifique dans le fonctionnement du groupe. Par exemple, si c'est un projet de développement de curriculum, vous pouvez avoir un rôle "Expert du Domaine" auquel les membres peuvent s'adresser pour des questions difficiles. Notez les options de filtrage en rapport sur le Panneau des messages.&lt;/p&gt;
 groups.roles.manage.returnlink=Retourner à la Liste des Membres
 groups.roles.manage.edit=Éditer
 groups.roles.manage.save=Sauvegarder
@@ -644,7 +644,6 @@ groups.members.join.selectroles.info=Vous pouvez choisir de multiples roles en m
 
 groups.search.top_title=CHERCHER DES RESSOURCES DE CE GROUPE DANS LE REPOSITORY
 
-groups_admins_onlyaccessibletoadmins=Cette page est seulement disponible pour les group admins.
+groups_admins_onlyaccessibletoadmins=Cette page est seulement disponible pour les administrateurs.
 
-## &lt;/pre&gt;
-</content></xwikidoc>
+## &lt;/pre&gt;</content></xwikidoc>
