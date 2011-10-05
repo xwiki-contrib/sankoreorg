@@ -5,7 +5,7 @@
   *
   * The my curriki module is the personal pages of each user
   *
-  * The following sections are available in MyCurriki:
+  * The following sections are available in MySankore:
   *
   * - Profile
   * - Favorites
@@ -13,7 +13,7 @@
   * - Groups
   * - Blog (see blog/blogmacros.vm)
   *
-  * These macros are used in the pages of the Wiki MyCurriki space
+  * These macros are used in the pages of the Wiki MySankore space
   *
   *#
 
@@ -60,7 +60,7 @@ $text
 #end ## macro ## }
 
 #**
-  * Display the MyCurriki header
+  * Display the MySankore header
   *
   * @param $userobj User object to display the form for
   * @author dward@curriki.org
@@ -133,7 +133,7 @@ $xwiki.ssfx.use("mycurriki.css")
   <th colspan="6"><h2>$msg.get('profile.welcome', ["$userdoc.display('first_name', 'view', $userobj) $userdoc.display('last_name', 'view', $userobj)"])</h2></td>
 </th>
 <tr>
-  #set($url = $xwiki.getURL("MyCurriki.EditProfile", "view", "user=${context.user}"))
+  #set($url = $xwiki.getURL("MySankore.EditProfile", "view", "user=${context.user}"))
   <td class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a></td><td class="profile-splitter" valign="top">»</td><td>$msg.get("sankore.profile.editprofile.description")</td>
   <td class="profile-link"><a href="#">$msg.get("sankore.profile.downloadplugin.title")</a></td><td class="profile-splitter" valign="top">»</td><td>$msg.get("sankore.profile.downloadplugin.description")</td>
 </tr>
@@ -684,12 +684,12 @@ $!desc
   #else ## user == owner
     #set($userarg = "user=${userdoc.fullName}")
     #if(!$xwiki.hasAdminRights())
-      $response.sendRedirect($xwiki.getURL('MyCurriki.Profile', "$userarg"))
+      $response.sendRedirect($xwiki.getURL('MySankore.Profile', "$userarg"))
     #end ## not admin
   #end ## user == owner
-  #set($xredirect = $xwiki.getURL("MyCurriki.Profile", "view", "$userarg"))
-  #set($xeditredirect = $xwiki.getURL("MyCurriki.Profile", "edit", "$userarg"))
-  #set($xredirectemail = $xwiki.getURL("MyCurriki.EditProfileEmail", "view", "$userarg"))
+  #set($xredirect = $xwiki.getURL("MySankore.Profile", "view", "$userarg"))
+  #set($xeditredirect = $xwiki.getURL("MySankore.Profile", "edit", "$userarg"))
+  #set($xredirectemail = $xwiki.getURL("MySankore.EditProfileEmail", "view", "$userarg"))
   #set($xredirectemail2 = $xwiki.getURL("Registration.EmailVerification", "view", "username=${userdoc.name}"))
 
   #curriki_titlebar($msg.get("mycurriki.editprofile.titlebar") "" "" "blue")
@@ -818,7 +818,7 @@ $!desc
 #macro(mycurriki_editprofilebutton $userdoc) ##{
   <!-- My Curriki edit profile button -->
   #if($context.action == "view" && ($context.user==$userdoc.fullName || $xwiki.hasAdminRights())) ##{
-    <a class="button button-confirm" href="$xwiki.getURL("MyCurriki.EditProfile", "view", "user=${userdoc.fullName}")" title="$msg.get("mycurriki.profile.editButton")">$msg.get("mycurriki.profile.editButton")</a></span>
+    <a class="button button-confirm" href="$xwiki.getURL("MySankore.EditProfile", "view", "user=${userdoc.fullName}")" title="$msg.get("mycurriki.profile.editButton")">$msg.get("mycurriki.profile.editButton")</a></span>
   #end ##}
   <!-- End My Curriki edit profile button -->
 #end ## } end macro
@@ -879,7 +879,7 @@ $response.sendRedirect($xwiki.getURL("Main.WebHome"))
 #else ## }{
 #set($userarg = "")
 #end ## }
-$response.sendRedirect($xwiki.getURL("MyCurriki.Profile", "view", "$userarg"))
+$response.sendRedirect($xwiki.getURL("MySankore.Profile", "view", "$userarg"))
 #else ## } {
 ##
 ## Logout the user and redirect to Email Verification page
@@ -1115,7 +1115,7 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
   * @param $allcols True if we show the action column of the favorites
   *#
 #macro(mycurriki_favoritesheader $allcols)
-<!-- MyCurriki Favorites Header -->
+<!-- MySankore Favorites Header -->
 <tr>
   <th class="table-header table-col-title">$msg.get('mycurriki.favorites.table.title')</th>
   <th class="table-header table-col-contributor">$msg.get('mycurriki.favorites.table.contributor')</th>
@@ -1125,7 +1125,7 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
     <th class="table-header table-header-fixed table-col-action">$msg.get('mycurriki.favorites.table.action')</th>
   #end ## if allcols ## }
 </tr>
-<!-- End MyCurriki Favorites Header -->
+<!-- End MySankore Favorites Header -->
 #end ##} end macro mycurrikifavoritesheader
 
 
@@ -1136,7 +1136,7 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
   * @param $allcols True if we show the action column of the favorites
   *#
 #macro(mycurriki_favoritesasset $asset $allcols)
-  <!-- MyCurriki Favorites Asset -->
+  <!-- MySankore Favorites Asset -->
   #if(!$g_rowCount) ## {
     #set($g_rowCount = 0)
   #end ## }
@@ -1156,7 +1156,7 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
       </td>
     #end ## if allcols ## }
   </tr>
-  <!-- End MyCurriki Favorites Asset -->
+  <!-- End MySankore Favorites Asset -->
 #end ##end macro mycurriki_favoritesasset
 
 #**
@@ -1167,9 +1167,9 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
   * @param $assetList asset list that is displayed
   *#
 #macro(mycurriki_favoritespagination $startIndex $nbToDisplay $assetList) ##{
-  <!-- MyCurriki Favorites Pagination -->
+  <!-- MySankore Favorites Pagination -->
   #curriki_paginator($msg.get("mycurriki.tab.favorites.label") $startIndex $nbToDisplay $assetList.size())
-  <!-- End MyCurriki Favorites Pagination -->
+  <!-- End MySankore Favorites Pagination -->
 #end ## } end macro mycurriki_favoritespagination
 
 
@@ -1179,10 +1179,10 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_favoritesbutton $userobj)
-  <!-- MyCurriki Favorites Button -->
+  <!-- MySankore Favorites Button -->
   #if($context.user==$userdoc.fullName) ## {
     #set($shortname = $userdoc.fullName)
-    #set($breadcrumb="MyCurriki.WebHome")
+    #set($breadcrumb="MySankore.WebHome")
     #if($shortname.startsWith("XWiki.")) ## {
       #set($shortname = $shortname.substring(6))
     #end ## }
@@ -1198,7 +1198,7 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
       #end ## }
     #end ## }
   #end ## }
-  <!-- End MyCurriki Favorites Button -->
+  <!-- End MySankore Favorites Button -->
 #end
 
 #**
@@ -1208,7 +1208,7 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_favoritesbox $userdoc $userobj) ##{
-  <!-- MyCurriki Favorites Box -->
+  <!-- MySankore Favorites Box -->
   #set($allcols = false)
   #if($context.user=="XWiki.XWikiGuest") ## {
     ## Settings for guests here
@@ -1266,12 +1266,12 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
   </table>
   ## Pagination here
   #mycurriki_favoritespagination( $startIndex $nbToDisplay $assetList )
-  <!-- End MyCurriki Favorites Box -->
+  <!-- End MySankore Favorites Box -->
 #end ##} end macro mycurrikifavoritesbox
 
 
 #**
-  * MyCurriki Favorites
+  * MySankore Favorites
   * Remove a favorite
   * @param $requestdocName Doc name to remove from favorite
   *#
@@ -1316,7 +1316,7 @@ $msg.get("deleted")
  #if ($request.sourceDoc) ## {
  $response.sendRedirect($request.sourceDoc)
  #else ## } {
- $response.sendRedirect($xwiki.getURL("MyCurriki.Favorites"))
+ $response.sendRedirect($xwiki.getURL("MySankore.Favorites"))
  #end ## }
 #end ## }
 #end ## }
@@ -1336,7 +1336,7 @@ $msg.get("deleted")
   * @param $allcols true if the actions columns are added
   *#
 #macro(mycurriki_contributionsheader $sortBy $sortDir $headerArgs $allcols) ##{
-  <!-- MyCurriki Contributions Header -->
+  <!-- MySankore Contributions Header -->
   <tr>
       #if($sortBy=="title" && $sortDir == "asc") ## {
         #set($url = $xwiki.getURL($doc.fullName, "view", "${headerArgs}sortBy=title&sortDir=desc"))
@@ -1364,7 +1364,7 @@ $msg.get("deleted")
         <th class="table-header table-header-fixed table-col-action">$msg.get('mycurriki.contributions.table.action')</th>
       #end ## if allcols
     </tr>
-    <!-- End MyCurriki Contributions Header -->
+    <!-- End MySankore Contributions Header -->
 #end ##} end macro mycurrikicontributionsheader
 
 
@@ -1429,7 +1429,7 @@ $msg.get("deleted")
 	## ONLY for owner + admin
 	#if($doc.name == 'Favorites' && ($g_userdoc.fullName == $context.user || $hasGlobalAdmin)) ##{
 		#set($removeMsg = $msg.get('mycurriki.favorites.table.action.remove.confirm'))
-		#set($deleteUrl = $xwiki.getURL("MyCurriki.RemoveFavorite", "view", "confirm=1&docName=${asset.fullName}&sourceDoc=$doc.getURL('view')"))
+		#set($deleteUrl = $xwiki.getURL("MySankore.RemoveFavorite", "view", "confirm=1&docName=${asset.fullName}&sourceDoc=$doc.getURL('view')"))
 		<a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" onclick="return confirm('$removeMsg')" href="$deleteUrl" ext:qtip="$msg.get('mycurriki.favorites.table.action.remove_tooltip')">$msg.get("mycurriki.favorites.table.action.remove")</a>
 	#end ##}
 #end ##}
@@ -1556,7 +1556,7 @@ $msg.get("deleted")
   * @param $allcols true if the actions columns are added
   *#
 #macro(mycurriki_contributionsasset $asset $allcols)
-  <!-- MyCurriki Contributions Asset -->
+  <!-- MySankore Contributions Asset -->
   #if(!$g_rowCount) ## {
     #set($g_rowCount = 0)
   #end ## }
@@ -1584,7 +1584,7 @@ $msg.get("deleted")
       </td>
     #end ## if allcols
   </tr>
-  <!-- End MyCurriki Contributions Asset -->
+  <!-- End MySankore Contributions Asset -->
 #end
 
 
@@ -1597,9 +1597,9 @@ $msg.get("deleted")
   * @param $sortArgs The sort arguments for the url
   *#
 #macro(mycurriki_contributionspagination $startIndex $nbToDisplay $showcount $sortArgs) ##{
-  <!-- MyCurriki Contributions Pagination -->
+  <!-- MySankore Contributions Pagination -->
   #curriki_paginatorargs($msg.get("mycurriki.tab.contributions.label") $startIndex $nbToDisplay $showcount $sortArgs)
-  <!-- End MyCurriki Contributions Pagination -->
+  <!-- End MySankore Contributions Pagination -->
 #end ##} end macro
 
 
@@ -1609,13 +1609,13 @@ $msg.get("deleted")
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_contributionsbutton $userdoc $userobj )
-  <!-- MyCurriki Contributions Buttons -->
+  <!-- MySankore Contributions Buttons -->
   #if($context.action == "view" && ($context.user==$userdoc.fullName || $hasGlobalAdmin))##{
     {pre}
     <a class="button button-confirm" onclick="Curriki.module.addpath.startPath('I', {});" title="$msg.get('mycurriki.contributions.addButton_tooltip')">$msg.get('mycurriki.contributions.addButton')</a>
     {/pre}
   #end ##}
-  <!-- End MyCurriki Contributions Buttons -->
+  <!-- End MySankore Contributions Buttons -->
 #end ##} end macro
 
 
@@ -1626,7 +1626,7 @@ $msg.get("deleted")
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_contributionsbox $userdoc $userobj) ##{
-  <!-- MyCurriki Contributions Box -->
+  <!-- MySankore Contributions Box -->
   #set($headerArgs="user=${userdoc.fullName}&")
   #set($allcols = false)
   #if($context.user=="XWiki.XWikiGuest")
@@ -1742,7 +1742,7 @@ $msg.get("deleted")
   </table>
   ## Pagination here
   #mycurriki_contributionspagination( $startIndex $nbToDisplay $showcount $sortArgs )
-  <!-- End MyCurriki Contributions Box -->
+  <!-- End MySankore Contributions Box -->
 #end ##} end macro
 
 
@@ -1796,7 +1796,7 @@ $msg.get("deleted")
 #end
 
 #**
-  * MyCurriki Collections Page Content Call Back function
+  * MySankore Collections Page Content Call Back function
   * @param $userdoc Document of the user
   * @param $userobj Object of the user
   *#
@@ -1888,7 +1888,7 @@ function toggle_desc(){
 #end ## content macro
 
 #**
-  * MyCurriki Collections Page Button Call Back function
+  * MySankore Collections Page Button Call Back function
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_collectionbutton $userobj)
@@ -1899,4 +1899,4 @@ function toggle_desc(){
 #end
 #end ## buttonmacro
 
-## End of MyCurriki Macros 
+## End of MySankore Macros 

@@ -695,7 +695,7 @@ $msg.get("panel.navigation.home")
   *#
 #macro(checkActive $docname $result) ##{
   #if($doc.fullName == $docname) ##{
-    #if($doc.space == "MyCurriki" && "$!request.user" != "") ##{
+    #if($doc.space == "MySankore" && "$!request.user" != "") ##{
       #set($result = false)
     #else ##}{
       #set($result = true)
@@ -949,7 +949,7 @@ $msg.get("panel.navigation.home")
    #curriki_breadcrumb_groups_fixtitle()
    ## custom arguments for My Curriki
    #set($userArg = "")
-   #if($bcDoc.space=="MyCurriki" && "$!request.user" != "")
+   #if($bcDoc.space=="MySankore" && "$!request.user" != "")
     #set($userArg="&user=$request.user")
    #end
    #if(($currikiTitle.length()>125) && ($bcDoc.name!="Documentation") && ($bcDoc.name!=$msg.groups_home_page))
@@ -1133,7 +1133,7 @@ $msg.get("panel.navigation.home")
     #set($currikiTitle = "${currikiTitle}...")
    #end
    #set($userArg = "")
-   #if($bcDoc.space=="MyCurriki" && "$!request.user" != "")
+   #if($bcDoc.space=="MySankore" && "$!request.user" != "")
     #set($userArg="&user=$request.user")
    #end
    <a href="$bcDoc.getURL("view", "bc=${previousBc}${userArg}")">$currikiTitle</a>

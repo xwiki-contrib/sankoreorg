@@ -1554,7 +1554,7 @@ $asset.use($classname)
   #elseif($currikiDoc.getObject("XWiki.ArticleClass"))
    #set($currikiTitle = $!currikiDoc.display("title", "view", $currikiDoc.getObject("XWiki.ArticleClass")))
   #end
- #elseif($currikiDoc.fullName == "MyCurriki.WebHome" && "$!request.user" != "")
+ #elseif($currikiDoc.fullName == "MySankore.WebHome" && "$!request.user" != "")
   #set($whofor = $request.user)
   #if(!$whofor.startsWith("XWiki.")) ## {
    #set($whofor = "XWiki.$whofor")
@@ -1690,10 +1690,10 @@ $response.sendRedirect($xwiki.getURL("${group}.Curriculum"))
 #set($shortname = $user)
 #end ## }
 #if($user == $shortname) ## {
-$response.sendRedirect($xwiki.getURL('MyCurriki.Collections'))
+$response.sendRedirect($xwiki.getURL('MySankore.Collections'))
 #else ## } {
 #set($userarg = "user=${shortname}")
-$response.sendRedirect($xwiki.getURL('MyCurriki.Collections', 'view', "$userarg"))
+$response.sendRedirect($xwiki.getURL('MySankore.Collections', 'view', "$userarg"))
 #end ## }
 #else ## } {
 #if($doc.space.startsWith("Coll_") && $doc.name == "WebHome")
