@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317640135000</creationDate>
-<date>1317640135000</date>
-<contentUpdateDate>1317640135000</contentUpdateDate>
+<creationDate>1317809994000</creationDate>
+<date>1317809994000</date>
+<contentUpdateDate>1317809994000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -25,7 +25,7 @@
 <filename>logo.png</filename>
 <filesize>8741</filesize>
 <author>XWiki.CiprianAmaritei</author>
-<date>1304519024000</date>
+<date>1304511824000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAARoAAABMCAYAAACyE3jkAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAIcdJREFUeNrsXQl4G8XZXlm2ZNmOY5kcBBMOhQTCz1XspCRQnAYZCg+t
@@ -185,7 +185,7 @@ P0qCnbkIFnhKJEnr25pockaIlOkkJLrmcqc4M10DGk00OXNEbPaTZtEpXRuomU6aaKJJ3OX/BRgA
 <filename>header-bg.jpg</filename>
 <filesize>10950</filesize>
 <author>XWiki.CiprianAmaritei</author>
-<date>1304520786000</date>
+<date>1304513586000</date>
 <version>1.1</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABQAAD/4QNtaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
@@ -383,7 +383,7 @@ IFfxN//Z</content></attachment><attachment>
 <filename>photoslogan.jpg</filename>
 <filesize>52354</filesize>
 <author>XWiki.CiprianAmaritei</author>
-<date>1304604666000</date>
+<date>1304597466000</date>
 <version>1.2</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABQAAD/4QMpaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
@@ -1308,7 +1308,7 @@ lcFJjKYSgL5mmQ+I7at4NY0b8RUlMZijKlRJXDFyax4fpBA+g/aCHBvjSbeg1xNeoZvNZpyQ9LpN
 <filename>spritemediatypeblue.gif</filename>
 <filesize>11419</filesize>
 <author>XWiki.CiprianAmaritei</author>
-<date>1305041533000</date>
+<date>1305034333000</date>
 <version>1.1</version>
 <comment></comment><content>R0lGODlhIAA6FuZiAExMTHh4eKioqIKCgrOzs1BQUP///8PDw7Gxsc3NzWVlZVNTU9/f31lZWUpK
 Snl5eVpaWtXV1W9vb5WVlZ2dnaOjo4CAgJeXl5SUlLq6ulxcXFZWVoyMjHV1dc7Ozr29vY6OjklJ
@@ -1515,7 +1515,7 @@ ygAB6izPyXAE0EzAk2wWgQAAOw==
 <filename>bg-logiciel.png</filename>
 <filesize>676</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1314372791000</date>
+<date>1314365591000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAEQAAAAqCAYAAAAK7f2YAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAAkZJREFUeNrsmkFygjAUhsVxX25QjoAnKPYEeoOy7E423dZtu1E37bJ4
@@ -1533,7 +1533,7 @@ OR7ca2HIhEik2Vnk3/7TnV3tWiAWiAXSnP0KMADD98KypN9T+QAAAABJRU5ErkJggg==
 <filename>bg-planete.png</filename>
 <filesize>1003</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1314372856000</date>
+<date>1314365656000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAEUAAAAqCAYAAADlL5amAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAA41JREFUeNrsms2x2jAQx00mBfhdczINJFBBSAUPKgAOyRVcAY8KgGsu
@@ -1557,7 +1557,7 @@ Uw2lhlJDqaG8cvkrwAAkC5XdK8i+ogAAAABJRU5ErkJggg==
 <filename>bg-plugin.png</filename>
 <filesize>565</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1314372886000</date>
+<date>1314365686000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAEUAAAAqCAYAAADlL5amAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAAddJREFUeNrsmu1twjAQhnHF/4YN2gnIBg0jZALCABQ6AWWCfg0AGzSd
@@ -1573,7 +1573,7 @@ xgWU59BSF+naq1ccAMHmGVXonmJqm8hFQPYJCr4efTTG3kcONqcoQemyDDbq9Yeeugc3alWy/OOE
 <filename>resources.png</filename>
 <filesize>3589</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1314375449000</date>
+<date>1314368249000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAJAAAACVCAYAAAC3i3MLAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAA+VpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
@@ -1642,7 +1642,7 @@ pJ3pYaQlPCsfihRqXRiZuAQpy0tbR1y6zzTVX9tq+/8FGACZ2Ih8B6WTJQAAAABJRU5ErkJggg==
 <filename>resources2.png</filename>
 <filesize>1328</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1314375756000</date>
+<date>1314368556000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAACkAAAAqCAYAAAAu9HJYAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
 /wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sIGhAoGgfgTtYAAASwSURBVFjD
@@ -1672,7 +1672,7 @@ Kxq1iEHuG0NWtFn9HHPzsOif049PvoF8BHFvSPN3kjhqVqASLl6b3X/+CzAD+LT115Ru8v8DT9f8
 <filename>footer-share.png</filename>
 <filesize>1971</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1314657593000</date>
+<date>1314650393000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABUAAAB8CAMAAACxMgs2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAAwBQTFRF0MzIycXBx8S+xsO+trKrr6ukrKehqKKb3dzX3NrV2tjT09DM
@@ -1712,7 +1712,7 @@ DI5QXSFJVRWbuH09DEFxNjHAuJSUt9+SCGplqcawnw1isE1TUQUXqXoqIuAqR1WJzZZB+UIJWmSW
 <filename>menuhome.png</filename>
 <filesize>211</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1313484838000</date>
+<date>1313477638000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAAkAAAALCAMAAACah1cpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAAC1QTFRFr6un////19XT8O/utLCt+vr5vru49fT0w8C90tDO5uXjubay
@@ -1722,7 +1722,7 @@ dYnXiIvsprGyMv+m0pdyvz4BBgAtTgCmg6YzqgAAAABJRU5ErkJggg==
 <filename>arrowdown.png</filename>
 <filesize>180</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1313484960000</date>
+<date>1313477760000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAAgAAAAGCAYAAAD+Bd/7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAAFZJREFUeNpiDA+POs/AwGDAgB1cYAISjkD8AYskSMyREcQCmgIy4Tya
@@ -1731,7 +1731,7 @@ AElFTkSuQmCC</content></attachment><attachment>
 <filename>arrowDownload.png</filename>
 <filesize>401</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1313485422000</date>
+<date>1313478222000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAB0AAAAaCAYAAABLlle3AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAATNJREFUeNpiZCAA2qet1AZS/AzEgY+VWeFX8Sn4//8/AyMhU758/T4P
@@ -1745,7 +1745,7 @@ YII=
 <filename>logoplanetesankore.png</filename>
 <filesize>9354</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1314091369000</date>
+<date>1314084169000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAa8AAAA6CAYAAAAHt9ZFAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
@@ -3828,7 +3828,7 @@ document.write(unescape("%3Cscript src='" + ejLoc + "adapter/ext/ext-base.js' ty
 document.write(unescape("%3Cscript src='" + ejLoc + "ext-all${debugging}.js' type='text/javascript'%3E%3C/script%3E"));
 //]]&gt;
 &lt;/script&gt;
-#if($doc.fullName != "Main.JoinCurriki" || $context.user != "XWiki.XWikiGuest")
+#if($doc.fullName != "Main.JoinSankore" || $context.user != "XWiki.XWikiGuest")
   #if("$!request.lang" != "")
     #set($lang = $request.lang)
   #else
@@ -4024,7 +4024,7 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 &lt;div class="main layoutsubsection"&gt;
 &lt;div id="mainContentArea"&gt;
 #template("logininline.vm")
-&lt;a id="signup" href="$xwiki.getURL('Main.JoinCurriki', 'view')"&gt;$msg.get('login.signup')&lt;/a&gt;
+&lt;a id="signup" href="$xwiki.getURL('Main.JoinSankore', 'view')"&gt;$msg.get('login.signup')&lt;/a&gt;
 &lt;/div&gt;## mainContentArea
 &lt;/div&gt;## main
 ## Ensure that the username field of the login form has the focus to make it easy for users to log in quickly
@@ -4045,7 +4045,7 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
     #set($logredir = $xwiki.getURL("MyCurriki.Profile"))
   #elseif($doc.fullName == "Main.WebHome")
     #set($logredir = $xwiki.getURL("MyCurriki.Profile"))
-  #elseif($doc.fullName == "Main.JoinCurriki")
+  #elseif($doc.fullName == "Main.JoinSankore")
     #set($logredir = $xwiki.getURL("MyCurriki.Profile"))
   #elseif($logredir.contains("/login"))
     #set($logredir = "")

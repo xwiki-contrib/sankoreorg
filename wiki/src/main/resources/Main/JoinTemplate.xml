@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315213826000</creationDate>
-<date>1315213826000</date>
-<contentUpdateDate>1315213826000</contentUpdateDate>
+<creationDate>1317811159000</creationDate>
+<date>1317811159000</date>
+<contentUpdateDate>1317811159000</contentUpdateDate>
 <version>1.1</version>
 <title>JoinTemplate</title>
 <template></template>
@@ -22,17 +22,17 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>=== Rejoindre Planète Sankoré ===
-[[Créer un compte&gt;&gt;Main.JoinCurriki||id = "signup"]]
-(% class = "disc inside"%)
-* Pour créer des ressources pédagogiques libres
-* Pour les partager sous creative commons
-* Pour créer des groupes thématiques
-* Pour participer à des communautés d'intérêt
-(% class = "disc inside"%)
-** par pays
-** par discipline
-** par niveaux scolaire
-* Pour évaluer les ressources libres publiées
-* Pour rédiger votre blog et le diffuser
-* Pour participer aux palmes du numérique</content></xwikidoc>
+<content>=== Join Planète Sankoré ===
+[[Create an account&gt;&gt;JoinSankore||id="signup"]]
+(% class="disc inside" %)
+* To create open educational resources
+* To share under creative commons
+* To create thematic groups
+* To participate in communities of interest
+(% class="disc inside" %)
+** by country
+** by discipline
+** by education level
+* To evaluate the free resources published
+* To write your blog and spread
+* To participate in the palms of the digital</content></xwikidoc>
