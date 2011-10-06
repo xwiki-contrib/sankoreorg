@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317886809000</creationDate>
-<date>1317886809000</date>
-<contentUpdateDate>1317886809000</contentUpdateDate>
+<creationDate>1317917245000</creationDate>
+<date>1317917245000</date>
+<contentUpdateDate>1317917245000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -30,8 +30,8 @@ datetime=Date/Heure
 action=Action
 
 ## FIELD LABELS 
-XWiki.SpaceClass_policy_open=Affiliation Libre - Toute personne peut rejoindre Planète Sankoré sans invitation
-XWiki.SpaceClass_policy_closed=Affiliation Privée - les membres de Planète Sankoré doivent avoir été invités et acceptés.
+XWiki.SpaceClass_policy_open=Inscription Libre - Tout membre de Planète Sankoré peut rejoindre le groupe sans invitation.
+XWiki.SpaceClass_policy_closed=Inscription Privée - Seuls les membres de Planète Sankoré qui ont été spécifiquement invités et acceptés peuvent rejoindre le groupe
 
 ## Language - XWiki.SpaceClass
 ## Moved to Global Class Translation XWiki/GlobalClassTranslations by Todd on Sept-16-2008
@@ -57,33 +57,33 @@ XWiki.CurrikiSpaceClass_accessprivileges_private=Privé \: Seuls les membres du 
 ## CREATE NEW GROUP
 groups_creategroup_pagename=Créer un nouveau groupe
 groups_creategroup_needaccount=Vous devez être un membre de planete.Sankoré et être &lt;a href="{0}"&gt;authentifié&lt;/a&gt; pour créer un groupe.
-groups_creategroup_about_title=Au sujet de la Création des Groupes
-groups_creategroup_about_infotxt=En créant un nouveau groupe, vous devenez l'"administrateur de groupe" et vous avez des droits spéciaux pour éditer des parties de votre espace de groupe, accepter ou refuser les demandes d'affiliation, détruire ou éditer les messages des autres membres quand c'est nécessaire, et plus encore. Vous serez à même de partager ces privilèges administratifs avec d'autres administrateurs de groupe, si vous le souhaitez.
-groups_creategroup_namedescribe_title=Nommez et Décrivez votre Groupe
-groups_creategroup_namedescribe_groupname=Saisissez ici le nom de votre groupe (pas plus de 64 caractères)
-groups_creategroup_namedescribe_groupname_tooltip=Ce nom apparaît à beaucoup d'endroits dans votre espace de groupe et sur le site de Planète Sankoré; gardez à l'esprit que les contraintes en place mémoire rendent un nom de groupe court préférable.
-groups_creategroup_namedescribe_groupdescription=Saisissez une description de votre groupe (pas plus de 960 caractères). Cette description apparaît à plusieurs endroits dans Planète Sankoré, pour que vous puissiez souligner le focus du groupe, ses objectifs, ou projets ici.
-groups_creategroup_namedescribe_groupdescription_tooltip=Quand les gens naviguent ou trouvent des listes de groupes Planète Sankoré, ils voient d'abord l' "entête," de votre groupe, ce qui inclut cette description avec votre nom de groupe et une image du groupe.  (Vous ajouterez votre image à l'étape suivante.)
-groups_creategroup_namedescribe_webaddress_instruction=Saisissez la première partie de l'adresse web de votre groupe dans l'espace ci-dessous.
-groups_creategroup_member_policy_title=Choisissez une Politique d'Affiliation
-groups_creategroup_member_policy_open=Libre - Toute personne peut rejoindre Planète Sankoré sans invitation
-groups_creategroup_member_policy_closed=Privée - les membres de Planète Sankoré doivent avoir été invités et doivent avoir accepté l'invitation
+groups_creategroup_about_title=À propos de la création des groupes
+groups_creategroup_about_infotxt=La création d'un nouveau groupe en fait de vous son administrateur, et vous accorde des droits spéciaux qui vous permettent de gérer votre espace de groupe, d'accepter ou de refuser les demandes d'inscription au groupe, d'effacer ou modifier les messages des autres membres si nécessaire, et plus encore. Vous pourrez également partager ces privilèges administratifs avec d'autres membres du groupe le cas échéant.
+groups_creategroup_namedescribe_title=Nom et description de votre groupe
+groups_creategroup_namedescribe_groupname=Indiquez ci-dessous le nom de votre groupe (pas plus de 64 caractères)
+groups_creategroup_namedescribe_groupname_tooltip=Ce nom apparaît à beaucoup d'endroits dans votre espace de groupe et sur le site de planete.Sankoré; gardez à l'esprit que les contraintes en place mémoire rendent un nom de groupe court préférable.
+groups_creategroup_namedescribe_groupdescription=Indiquez une description de votre groupe (pas plus de 960 caractères). Cette description apparaitra à plusieurs endroits sur Planète Sankoré, elle permet d'indiquer les centres d'intérêt du groupe, ses objectifs ou ses projets.
+groups_creategroup_namedescribe_groupdescription_tooltip=Quand les gens naviguent ou trouvent des listes de groupes planete.Sankoré, ils voient d'abord l' "entête," de votre groupe, ce qui inclut cette description avec votre nom de groupe et une image du groupe.  (Vous ajouterez votre image à l'étape suivante.)
+groups_creategroup_namedescribe_webaddress_instruction=Indiquez la première partie de l'adresse web de votre groupe dans l'espace ci-dessous.
+groups_creategroup_member_policy_title=Mode d'inscription
+groups_creategroup_member_policy_open=Libre - Toute personne peut rejoindre planete.Sankoré sans invitation
+groups_creategroup_member_policy_closed=Privée - les membres de planete.Sankoré doivent avoir été invités et doivent avoir accepté l'invitation
 groups_creategroup_select_subjectlevel_title=Choisissez un Sujet et un Niveau
 groups_creategroup_select_subjectlevel_subject_title=Sujet \:
 groups_creategroup_select_subjectlevel_subject_tooltip=Choisissez le domaine principal pour les sujets de votre groupe; si votre groupe est interdisciplinaire, vous pouvez choisir plusieurs sujets.
-groups_creategroup_select_subjectlevel_level_title=Niveau éducatif \:
-groups_creategroup_select_subjectlevel_level_tooltip=Choisissez le niveau éducatif pour votre groupe; si votre groupe est multi-niveaux, choisissez ceux qui s'appliquent.
+groups_creategroup_select_subjectlevel_level_title=Niveau scolaire \:
+groups_creategroup_select_subjectlevel_level_tooltip=Choisissez le niveau scolaire pour votre groupe; si votre groupe est multi-niveaux, choisissez ceux qui s'appliquent.
 groups_creategroup_select_language_title=Choisissez une langue
 groups_creategroup_select_language_infotxt=Ce choix de language par défaut s'appliquera à toutes les ressources ou collections créées ou ajoutées par votre groupe. Il permettra aussi aux gens qui cherchent un groupe qui communique et qui travaille dans votre langage de trouver votre groupe.
-groups_creategroup_select_license_title=Choisissez une Politique de Licence par Défaut
-groups_creategroup_select_license_infotxt=&lt;p&gt;Ici vous pouvez choisir une licence par défaut pour les contributions aux différents groupes par les membres dans le référentiel Planète Sankoré. (Si ils le souhaitent, les membres auront la possibilité de choisir une autre licence lorsqu'ils ajouteront du contenus.)&lt;/p&gt;&lt;p&gt;Les licences compatibles avec planete.Sankoré affichées ci-dessous ont été choisies pour donner le maximum de flexibilité aux membres de la communauté. Ainsi, ils pourront adapter vos informations pour leurs propre cours. Les licences planete.Sankoré sont principalement tirées des licences Creative Commons 3.0 qui sont très largement utilisées. Si vous désirez choisir une autre licence, merci d'utiliser la liste déroulante ci-dessous. Pour avoir plus d'information à propos des licences Creative Commons, &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;c'est ici&lt;/a&gt;.&lt;/p&gt;
-groups_creategroup_select_access_title=Mettre en place les Privilèges d'Accès par Défault 
-groups_creategroup_select_access_infotxt=Vous choisissez ici le réglage par défaut qui détermine qui peut visualiser et/ou éditer les parcours de connaissances de votre groupe.
-groups_creategroup_select_access_open=Ouvert - N'importe qui peut visualiser le contenu de groupe; tous les membres de Planète Sankoré peuvent l'éditer.
-groups_creategroup_select_access_protected=Protégé - Tout le monde peut visualiser le contenu du groupe; seuls les membres du groupe peuvent l'éditer.
-groups_creategroup_select_access_private=Privé - Seuls les membres de groupe peuvent visualiser et éditer le contenu.
-groups_creategroup_create_title=Completer la mise en place du Groupe
-groups_creategroup_create_infotxt=En cliquant sur "Créer un Groupe" ci-dessus, vous acceptez d'officier en tant que leader de groupe, ou de transmettre les droits et responsabilités afférents à un autre membre de votre groupe. En tant que leader de groupe, vous acceptez d'être le point de contact pour les questions ou problèmes en rapport avec le contenu et l'appartenance à ce groupe, et vous deviendrez automatiquement membre du groupe administrateur de Planète Sankorép. Après soumission de ce formulaire, vous devriez recevoir un email de Planète Sankoré pour vous féliciter de la création de ce groupe. Si vous ne recevez pas cet email, prenez contact avec Planète Sankoré pour assistance SVP.
+groups_creategroup_select_license_title=Licence par défaut
+groups_creategroup_select_license_infotxt=&lt;p&gt;Vous pouvez déterminer sous quel modèle les contributions à votre groupe seront distribuées par défaut au sein de Planète Sankoré (les membres qui le souhaitent pourront choisir une licence différente pour leurs propres contributions).&lt;/p&gt;&lt;p&gt;Les différentes licences ci-dessous ont été choisies pour leur compatibilité avec le modèle de Planète Sankoré et pour offrir le maximum de flexibilité aux membres de la communauté, de telle sorte qu'il pourront adapter vos contenus dans leurs propres cours. Les licences utilisées sur Planète Sankoré viennent pour l'essentiel des licences Creative Commons 3.0, qui sont très largement utilisées. Si vous souhaitez utiliser une autre licence, veuillez la sélectionner dans le menu ci-dessous. Vous pourrez trouver plus d'informations sur les licences Creative Commons sur &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;cette page&lt;/a&gt;.&lt;/p&gt;
+groups_creategroup_select_access_title=Privilèges d'accès par défaut
+groups_creategroup_select_access_infotxt=Sélectionnez l'accès en lecture et/ou en modification par défaut des contenus de votre groupe :
+groups_creategroup_select_access_open=Public : Tout le monde peut voir et modifier les contenus du groupe.
+groups_creategroup_select_access_protected=Protégé : Tout le monde peut voir les contenus du groupe, mais seuls les membres du groupe peuvent les modifier.
+groups_creategroup_select_access_private=Privé : Seuls les membres du groupe peuvent voir et modifier les contenus du groupe.
+groups_creategroup_create_title=Mise en place du Groupe
+groups_creategroup_create_infotxt=En cliquant sur le bouton "Créer le groupe" ci-dessous, vous acceptez de tenir le rôle de dirigeant de ce groupe, ou de transmettre les droits et responsabilités afférents à un autre membre de ce groupe. En tant que dirigeant du groupe, vous acceptez d'être le référent pour les questions ou problèmes concernant ses contenus et l'inscription à ce groupe, et vous deviendrez automatiquement membre du groupe des administrateurs de Planète Sankoré. Après l'envoi de ce formulaire, vous devriez recevoir un courrier électronique de Planète Sankoré pour vous féliciter de la création de ce groupe. Si vous ne recevez pas ce courrier électronique dans les minutes qui viennent, veuillez contacter Planète Sankoré après vous être assuré qu'il n'a pas été filtré dans le courrier indésirable.
 groups_creategroup_create_btt=Créer un Groupe
 groups_creategroup_cancel_btt=Annuler
 groups_creategroup_cancel_confirm=Êtes-vous sûr de vouloir annuler la création du groupe?
@@ -100,10 +100,10 @@ groups_validation_url_short=Saisissez la première partie de l'URL de votre grou
 groups_validation_url_long=Votre URL dépasse 32 caractères. Raccourcissez-la SVP.
 groups_validation_url_exists=Cette URL a déjà été utilisée. Saisissez quelque chose de différent SVP.
 groups_validation_url_invalid=Votre URL doit commencer par une lettre, et peut seulement contenir des lettres, des nombres, et des tirets.
-groups_validation_education_required=Choisissez un niveau éducatif SVP. Ce champ est obligatoire.
+groups_validation_education_required=Choisissez un niveau scolaire SVP. Ce champ est obligatoire.
 groups_validation_type_required=
 groups_validation_subject_required=Choisissez un sujet SVP. Ce champ est obligatoire.
-groups_validation_licence_required=Choisissez une licence par défaut pour les contributions de votre groupe à la base Planète Sankoré
+groups_validation_licence_required=Choisissez une licence par défaut pour les contributions de votre groupe à la base planete.Sankoré
 groups_validation_privacy_required=
 groups_validation_title-exists=Il y a déjà un groupe avec ce nom. Choisissez-en un autre SVP.
 
@@ -175,7 +175,7 @@ groups_home_information_license=Politique de Licence par Défaut \:
 groups_home_information_language=Langage \:
 groups_home_information_access=Privilèges d'Accès par Défaut \:
 groups_home_information_subject=Sujet \:
-groups_home_information_level=Niveau éducatif
+groups_home_information_level=Niveau scolaire
 groups_home_information_creationdate=Date de Création \:
 groups_home_information_subject_index=Index des Sujets
 groups_home_information_webaddress=Adresse Web
@@ -186,11 +186,11 @@ groups_home_editinformation_bc=Éditer l'Information
 groups_home_editinformation_member_policy_title=Éditer la Politique d'Appartenance
 groups_home_editinformation_member_policy_open=Libre - Toute personne peut rejoindre le site sans invitation.
 groups_home_editinformation_member_policy_closed=Privé - les membres du site doivent avoir été invités et acceptés.
-groups_home_editinformation_subjectlevel_title=Éditer le Sujet et/ou le niveau éducatif
+groups_home_editinformation_subjectlevel_title=Éditer le Sujet et/ou le niveau scolaire
 groups_home_editinformation_subject_title=Sujet \:
 groups_home_editinformation_subject_tooltip=Choisissez la discipline principale de votre groupe; si votre groupe est interdisciplinaire, vous pouvez choisir plusieurs disciplines.
 groups_home_editinformation_level_title=Niveau Educatif
-groups_home_editinformation_level_tooltip=Choisissez le niveau éducatif pour votre groupe; si votre groupe est multi-niveaux, choisissez tous ceux qui s'appliquent.
+groups_home_editinformation_level_tooltip=Choisissez le niveau scolaire pour votre groupe; si votre groupe est multi-niveaux, choisissez tous ceux qui s'appliquent.
 groups_home_editinformation_language_title=Langage d'édition. 
 groups_home_editinformation_license_title=Éditer la Politique de Licence par Défaut
 groups_home_editinformation_access_title=Editer les Privilèges d'Accès par Défaut
@@ -326,7 +326,7 @@ groups_curriculum_collections_paging diff=Collections
 groups.curriculum.contributions.addButton=Ajouter une Ressource
 groups.curriculum.contributions.addButton_tooltip=Fournissez votre meilleure ressource d'apprentissage ou créez quelque chose de nouveau
 
-##To create macros that work in both Groups and My Planète Sankoré, the translations have to be identical. Thus the following link translations can be found in the My Planète Sankoré Translation file. Todd Jan-20-2009
+##To create macros that work in both Groups and My planete.Sankoré, the translations have to be identical. Thus the following link translations can be found in the My planete.Sankoré Translation file. Todd Jan-20-2009
 ##Add
 ##Copy
 ##Edit
@@ -496,7 +496,7 @@ groups_members_join_needaccount=Si vous n'êtes pas encore inscrit sur planete.S
 groups_members_join_alreadymember=Vous êtes déjà membre de ce groupe.
 groups_members_join_success=Félicitation! Vous avez rejoint ce groupe. La liste de membre est disponible sur [members list&gt;Members].
 groups_members_join_failure=Cette opération a échoué. Essayez encore SVP. Si vous continuez à avoir des problèmes, contactez groups@curriki.org SVP.
-groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans Planète Sankoré avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez groups@curriki.org SVP.
+groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans planete.Sankoré avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez groups@curriki.org SVP.
 
 
 ## old stuff
@@ -519,8 +519,8 @@ browseGroups.info=Cliquer un sujet pour voir la liste de tous les groupes dans c
 browse.subject.title.All_Groups=Tous les Groupes
 browseGroups.noGroups=Il n'y a pas de groupes pour ce sujet.
 browseGroups.groups=Groupes
-browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Be among the first to create and facilitate a group on Planète Sankoré!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Learn About Creating a Group&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Groups can:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborate on curriculum design and development&lt;/li&gt;&lt;li&gt;Share resources&lt;/li&gt;&lt;li&gt;Communicate with messaging&lt;/li&gt;&lt;li&gt;And more...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;What can YOU do with a Planète Sankoré Group?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
+browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Be among the first to create and facilitate a group on planete.Sankoré!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Learn About Creating a Group&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Groups can:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborate on curriculum design and development&lt;/li&gt;&lt;li&gt;Share resources&lt;/li&gt;&lt;li&gt;Communicate with messaging&lt;/li&gt;&lt;li&gt;And more...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;What can YOU do with a planete.Sankoré Group?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
 
 ## GROUPS DOCUMENTATION
 groups_documentation_tabname=Documentation
@@ -567,7 +567,7 @@ history.comment=Commentaire
 history.rollback=Revenir à cette version
 history.rollback.cancel=Annuler le retour à cette version
 history.rollback.confirm=Confirmer le retour à cette version
-history.rollback.exception=Exception while rollbacking Planète Sankoré Asset
+history.rollback.exception=Exception while rollbacking planete.Sankoré Asset
 history.rollback.confirm.message=Are you sure you want to rollback this asset to version {0}
 history.compare=Comparer les changements
 
