@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316071727000</creationDate>
-<date>1316071727000</date>
-<contentUpdateDate>1316071727000</contentUpdateDate>
+<creationDate>1317887492000</creationDate>
+<date>1317887492000</date>
+<contentUpdateDate>1317887492000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -27,7 +27,7 @@
 forgotPassword.title=Mot de passe oublié
 forgotPassword.forgotUnameLink=Vous avez oublié votre nom d'utilisateur?
 forgotPassword.infos=Vous avez oublié votre mot de passe? Ça arrive aux meilleurs d'entre nous. Saisissez l'adresse email avec laquelle vous vous êtes enregistré, et nous vous enverrons un email pour que vous puissiez vous connecter.
-forgotPassword.enterEmail=Entrez votre email SVP\:
+forgotPassword.enterEmail=Entrez votre email SVP \:
 forgotPassword.noUser=Désolé, il n''y a pas d''utilisateur pour l''adresse email {0}
 forgotPassword.multipleUsers=Il semble y avoir plusieurs noms d'utilisateur pour cette adresse email.
 forgotPassword.emailSent=Le mot de passe pour {0} a été envoyé.
@@ -35,9 +35,9 @@ forgotPassword.invalidLink=Désolé, le lien où vous êtes allé n'est pas vali
 forgotPassword.passwordChanged=Le mot de passe pour {0} a été changé.
 forgotPassword.youCanLogIn=You can now &lt;a href="{0}"&gt;log in&lt;/a&gt;.
 forgotPassword.passwordsDoesNotMatch=Le nom d'utilisateur et le mot de passe que vous avez saisis ne se correspondent pas. Essayez une nouvelle fois.
-forgotPassword.enterPassword=Vous pouvez maintenant saisir un nouveau mot de passe\:
-forgotPassword.enterPassword.prompt=Entrez un nouveau mot de passe SVP\:
-forgotPassword.enterPasswordConfirm.prompt=Confirmez le nouveau mot de passe SVP\:
+forgotPassword.enterPassword=Vous pouvez maintenant saisir un nouveau mot de passe \:
+forgotPassword.enterPassword.prompt=Entrez un nouveau mot de passe SVP \:
+forgotPassword.enterPasswordConfirm.prompt=Confirmez le nouveau mot de passe SVP \:
 forgotPassword.Go=Go &amp;\#xBB;
 forgotPassword.email.mandatory=Une adresse email est requise.
 forgotPassword.email.invalid=Une adresse email valide est nécessaire.
@@ -46,7 +46,7 @@ forgotPassword.email.invalid=Une adresse email valide est nécessaire.
 
 #Main.ForgotPasswordEmail
 
-forgotPasswordEmail.header=De\: {0}à\: {1}Sujet\: Votre mot de passe planete.sankore.org
+forgotPasswordEmail.header=De \: {0}à \: {1}Sujet \: Votre mot de passe planete.sankore.org
 forgotPasswordEmail.part1=Cher(e) {0} {1},
 forgotPasswordEmail.part2=Vous avez oublié votre mot de passe ? Ça arrive aux meilleurs d''entre nous. Pour raison de sécurité, nous ne stockons qu''une version cryptée de votre mot de passe, et donc nous ne pouvons pas vous l''envoyer, mais vous pouvez obtenir un nouveau mot de passe en allant sur le lien {0}
 forgotPasswordEmail.part3=Votre mot de passe va être effacé et vous allez pouvoir vous connecter en utilisant le nouveau mot de passe.
@@ -57,7 +57,7 @@ forgotPasswordEmail.part3=Votre mot de passe va être effacé et vous allez pouv
 forgotUsername.title=Nom d'utilisateur oublié
 forgotUsername.forgotPwdLink=Vous avez oublié votre mot de passe?
 forgotUsername.infos=Vous avez oublié votre nom d'utilisateur? Ça arrive aux meilleurs d'entre nous. Saisissez l'adresse email avec laquelle vous vous êtes enregistré, et nous vous enverrons un email pour que vous puissiez vous connecter.
-forgotUsername.enterEmail=Entrez votre email SVP\:
+forgotUsername.enterEmail=Entrez votre email SVP \:
 forgotUsername.noUser=Désolé, il n''y a pas d''utilisateur pour l''adresse email {0}
 forgotUsername.emailSent=Le nom d''utilisateur pour {0} a été envoyé.
 forgotUsername.email.mandatory=Une adresse email est requise.
@@ -67,7 +67,7 @@ forgotUsername.email.invalid=Une adresse email valide est nécessaire.
 
 #Main.ForgotUsernameEmail{0}
 
-forgotUsernameEmail.header=De\: {0}à\: {1}Subject\: Votre nom d''utilisateur planete.sankore.org
+forgotUsernameEmail.header=De \: {0}à \: {1}Subject \: Votre nom d''utilisateur planete.sankore.org
 forgotUsernameEmail.part1=Cher(e) {0} {1},
 forgotUsernameEmail.part2=Vous avez oublié votre mot de passe? Ça arrive aux meilleurs d''entre nous. Vous avez sélectionné ''{0}'' quand vous vous êtes inscrit. Si vous avez oublié votre mot de passe, cliquez "Login oublié?" en haut de chaque page Planète Sankoré et nous vous enverrons un email avec votre mot de passe.
 
@@ -82,16 +82,15 @@ forgotUsernamesEmail.part2=Vous avez oublié votre nom d'utilisateur? Ça arrive
 
 #Main.JoinCurriki
 
-joincurriki.first_name.text=Choisissez un nom grâce auquel les membres de Planète Sankoré pourront vous reconnaître (e.g., Prénom, Titre, Surnom).
-joincurriki.last_name.text=Choisissez un autre nom pour rendre votre nom unique (e.g., Nom de famille, Entreprise, Lieu).
-
+joincurriki.first_name.text=Indiquez un identifiant qui vous permettra d'être reconnu par les autres membres de Planète Sankoré (par exemple : prénom, titre, surnom).
+joincurriki.last_name.text=Indiquez un nom supplémentaire pour rendre votre nom unique (par exemple : nom de famille, entreprise, lieu).
 
 
 joincurriki.fileds.xwikiname=Nom d'Utilisateur
 joincurriki.xwikiname.badchars=Ce nom d'utilisateur est invalide. Choisissez un nom sans espaces ou caractères spéciaux, SVP.
 joincurriki.repeat=recommencer
 joincurriki.registerToJoinCurriki=Enregistrez-vous pour rejoindre Planète Sankoré
-joincurriki.infos=Merci de vouloir rejoindre la communauté en ligne Planète Sankoré. Créer un compte sur Planète Sankoré est la première étape à suivre afin de pouvoir créer des ressources éducatives de qualité.
+joincurriki.infos=Nous vous remercions de rejoindre la communauté en ligne Planète Sankoré. Pour créer des ressources éducatives de qualité, la première étape à suivre est de créer un compte sur Planète Sankoré.
 
 joincurriki.letsKnowWhoYouAre=Dites nous qui vous êtes
 joincurriki.enterRequestedInfo=Saisissez les informations demandées pour devenir un membre et créer un profil utilisateur. les champs signalés par un point d'exclamation(\!) sont obligatoires.
@@ -110,7 +109,7 @@ joincurriki.privacyAndTOS.read.privacypolicy=Politique de confidentialité
 joincurriki.privacyAndTOS.read.part2=et les
 joincurriki.privacyAndTOS.read.tos=Conditions générales d'utilisation
 joincurriki.iAgree=Je suis d'accord
-joincurriki.emailWillBeSent=Une fois que vous aurez cliqué sur Sauvegarder et s'inscrire, Planète Sankoré vous enverra une confirmation à l'adresse email saisie ci-dessus.
+joincurriki.emailWillBeSent=Une fois que vous aurez cliqué sur le bouton "Enregistrer et m'inscrire", Planète Sankoré vous enverra une confirmation à l'adresse de courrier électronique saisie ci-dessus.
 
 joincurriki.password.noSpaces=Un mot de passe ne doit pas contenir d'espaces.
 joincurriki.password.tooShort=Mot de passe trop court.
@@ -120,7 +119,7 @@ joincurriki.someDataMissing=Certains champs ne sont pas renseignés; regardez le
 joincurriki.email.noMatch=Les adresses email ne correspondent pas.
 joincurriki.email.alreadyUsed=Votre email a déjà été utilisé.
 joincurriki.login.alreadyUsed=Votre nom d'utilisateur a déjà été utilisé.
-joincurriki.saveMyInfoAndRegister=Sauvegarder les Informations et s'Inscrire
+joincurriki.saveMyInfoAndRegister=Enregistrer et m'inscrire
 joincurriki.accountCreated=Votre compte a été créé. Vous pouvez maintenant vous connecter.
 joincurriki.chooseOptOut=Je ne veux pas recevoir d'emails concernant ma participation à la communauté Planète Sankoré.
 joincurriki.topics=
@@ -130,18 +129,18 @@ joincurriki.chooseYourCommunityName=Vous utiliserez ce nom pour vous connecter �
 joincurriki.fields.age=Age
 joincurriki.fields.first_name=Prénom \:
 joincurriki.fields.last_name=Nom \:
-joincurriki.fields.password=Mot de passe\:
-joincurriki.fields.password2=Mot de passe (répéter)\:
-joincurriki.fields.email=Adresse email\:
-joincurriki.fields.email2=Adresse email (répéter)\:
-joincurriki.fields.opt_out=Email Opt-Out\:
-joincurriki.fields.topics=Centres d'intérêts\:
-joincurriki.fields.member_type=Catégorie de membre\:
-joincurriki.fields.country=Pays\:
-joincurriki.fields.state=Etat/Province\:
-joincurriki.fields.city=Ville\:
-joincurriki.fields.affiliation=Organisation\:
-joincurriki.fields.show_contact=Visualiser votre profil\:
+joincurriki.fields.password=Mot de passe \:
+joincurriki.fields.password2=Mot de passe (confirmation) \:
+joincurriki.fields.email=Adresse de courrier électronique \:
+joincurriki.fields.email2=Adresse de courrier électronique (confirmation) \:
+joincurriki.fields.opt_out=Désinscription des courriers électroniques \:
+joincurriki.fields.topics=Centres d'intérêts \:
+joincurriki.fields.member_type=Catégorie de membre \:
+joincurriki.fields.country=Pays \:
+joincurriki.fields.state=Etat/Province \:
+joincurriki.fields.city=Ville \:
+joincurriki.fields.affiliation=Organisation \:
+joincurriki.fields.show_contact=Afficher votre profil \:
 
 #XWiki.XWikiUserSheet
 
@@ -159,22 +158,22 @@ profile.field.firstName=Prénom \:
 profile.field.lastName=Nom \:
 profile.field.display.firstName=Prénom \:
 profile.field.display.lastName=Nom \:
-profile.field.memberType=Catégorie de membre\:
-profile.field.affiliation=Organisation\:
-profile.field.country=Pays\:
+profile.field.memberType=Catégorie de membre \:
+profile.field.affiliation=Organisation \:
+profile.field.country=Pays \:
 profile.field.state=Etat/Province \:
-profile.field.city=Ville\:
-profile.field.showContact=Autoriser les membres de Planète Sankoré à voir mon profil\:
-profile.field.email=Email\:
-profile.field.opt_out=Opt-out email (réception)\:
+profile.field.city=Ville \:
+profile.field.showContact=Autoriser les membres de Planète Sankoré à voir mon profil \:
+profile.field.email=Email \:
+profile.field.opt_out=Opt-out email (réception) \:
 profile.field.opt_out.checkbox_text=Je ne veux pas recevoir d'emails concernant ma participation à la communauté.
-profile.field.password=Mot de passe\:
-profile.field.passwordConfirm=Confirmer mot de passe\:
+profile.field.password=Mot de passe \:
+profile.field.passwordConfirm=Confirmer mot de passe \:
 profile.field.topics=Centres d'intérêt \:
-profile.field.bio=Bio\:
+profile.field.bio=Bio \:
 profile.emptyField=&amp;ndash;
 
-profile.chooseAPhoto=Choisir une Photo\:
+profile.chooseAPhoto=Choisir une Photo \:
 
 profile.field.password.nospaces=Un mot de passe ne doit pas contenir d'espaces.
 profile.field.password.tooShort=Mot de passe trop court.
@@ -195,9 +194,9 @@ registration.validate.failed.no_info=L'information requise n'a pas été transmi
 email_not_received.title=Email non reçu
 email_not_received.info=Complétez les informations ci-dessous, SVP. Quand vous avez terminé, cliquez ENVOYER.
 email_not_received.required=Les champs signalés par un point d'exclamation(\!) sont obligatoires.
-email_not_received.login=Nom d'utilisateur\:
-email_not_received.email=Adresse email\:
-email_not_received.phone=Numéro de téléphone\:
+email_not_received.login=Nom d'utilisateur \:
+email_not_received.email=Adresse email \:
+email_not_received.phone=Numéro de téléphone \:
 email_not_received.client=Email Client (e.g., Outlook)
 email_not_received.button=ENVOYER
 email_not_received.missing=Fournissez toute l'information requise, SVP.
@@ -245,9 +244,9 @@ emailValidation.step2.errNotFound=Utilisateur non trouvé.
 emailValidation.step2.errNotBounced=Email sans réponse.
 
 staf.dialog.title=Envoyer à un ami
-staf.dialog.recipients=Adress(es) email pour le(s) destinataire(s)\:
+staf.dialog.recipients=Adress(es) email pour le(s) destinataire(s) \:
 staf.dialog.recipients.comments=Séparez de multiples adresses email avec des virgules.
-staf.dialog.customize=Personnaliser le message (optionnel)\:
+staf.dialog.customize=Personnaliser le message (optionnel) \:
 staf.dialog.customize.default=Voilà une ressource que j'ai trouvée sur Planète Sankoré (une communauté online d'éducation et d'apprentissage) et qui pourrait vous intéresser.
 staf.dialog.yourname=Votre nom \:
 staf.dialog.ccme=Envoyez moi copie
@@ -261,7 +260,7 @@ staf.from=sendtoafriend@planete.sankore.org
 
 staf.sent.okaymsg=E-mail envoyé.
 staf.err.emptyto=Entrez une adresse email, SVP.
-staf.err.invalidemail=Entrez une adresse email valide, SVP.
+staf.err.invalidemail=Veuillez indiquer une adresse de courrier électronique valide.
 staf.err.isguest=Seuls les membres de Planète Sankoré peuvent envoyer des ressources à un ami. Connectez-vous ou inscrivez-vous, SVP.
 staf.sent.errored=Une erreur inconnue s'est produite.
 
