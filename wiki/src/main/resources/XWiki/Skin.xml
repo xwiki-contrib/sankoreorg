@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317831155000</creationDate>
-<date>1317831155000</date>
-<contentUpdateDate>1317831155000</contentUpdateDate>
+<creationDate>1317910141000</creationDate>
+<date>1317910141000</date>
+<contentUpdateDate>1317910141000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -3109,37 +3109,37 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
     &lt;div class="block-inner"&gt;
       &lt;div class="content"&gt;
         &lt;ul class="menu"&gt;
-          &lt;li class="first leaf"&gt;&lt;a class="active" href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
-          &lt;li class="expanded"&gt;&lt;a title="" href="/article/all"&gt;Actualités&lt;/a&gt;
+          &lt;li class="first leaf"&gt;&lt;a class="active" href="$msg.get('footer.home.link')"&gt;$msg.get('footer.home')&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="expanded"&gt;&lt;a title="" href="$msg.get('footer.news.link')"&gt;$msg.get('footer.news')&lt;/a&gt;
             &lt;ul class="menu"&gt;
-              &lt;li class="first leaf"&gt;&lt;a title="" href="/article/les-evenements-sankore"&gt;Les événements Sankoré&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="leaf"&gt;&lt;a title="" href="/article/ils-parlent-de-sankore"&gt;Ils parlent de Sankoré&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="leaf"&gt;&lt;a title="" href="/article/actus-du-libre"&gt;Actus du libre&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="leaf"&gt;&lt;a title="" href="/article/actus-pays"&gt;Actus pays&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="leaf"&gt;&lt;a title="" href="/article/actus-pedagogiques"&gt;Actus pédagogiques&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="last leaf"&gt;&lt;a href="/node/2070"&gt;Actus en vidéos&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="first leaf"&gt;&lt;a title="" href="$msg.get('footer.news.events.link')"&gt;$msg.get('footer.news.events')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a title="" href="$msg.get('footer.news.talks.link')"&gt;$msg.get('footer.news.talks')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a title="" href="$msg.get('footer.news.freesoftware.link')"&gt;$msg.get('footer.news.freesoftware')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a title="" href="$msg.get('footer.news.country.link')"&gt;$msg.get('footer.news.country')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a title="" href="$msg.get('footer.news.education.link')"&gt;$msg.get('footer.news.education')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="last leaf"&gt;&lt;a href="$msg.get('footer.news.video.link')"&gt;$msg.get('footer.news.video')&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
           &lt;/li&gt;
-          &lt;li class="expanded"&gt;&lt;a title="" href="/node/2127"&gt;Le programme&lt;/a&gt;
+          &lt;li class="expanded"&gt;&lt;a title="" href="$msg.get('footer.program.link')"&gt;$msg.get('footer.program')&lt;/a&gt;
             &lt;ul class="menu"&gt;
-              &lt;li class="first leaf"&gt;&lt;a href="/node/2127"&gt;La charte Sankoré&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="leaf"&gt;&lt;a href="/node/2053"&gt;Comment est né le programme Sankoré?&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="collapsed"&gt;&lt;a href="/node/2047"&gt;Ce qu’est le programme Sankoré&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="last leaf"&gt;&lt;a title="" href="/node/2064"&gt;Les palmes du numérique&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="first leaf"&gt;&lt;a href="$msg.get('footer.program.charter.link')"&gt;$msg.get('footer.program.charter')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="$msg.get('footer.program.comments.link')"&gt;$msg.get('footer.program.comments')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="collapsed"&gt;&lt;a href="$msg.get('footer.program.help.link')"&gt;$msg.get('footer.program.help')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="last leaf"&gt;&lt;a title="" href="$msg.get('footer.program.digital.link')"&gt;$msg.get('footer.program.digital')&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
           &lt;/li&gt;
-          &lt;li class="expanded"&gt;&lt;a title="" href="/logiciel/all"&gt;Les ressources&lt;/a&gt;
+          &lt;li class="expanded"&gt;&lt;a title="" href="$msg.get('footer.resources.link')"&gt;$msg.get('footer.resources')&lt;/a&gt;
             &lt;ul class="menu"&gt;
-              &lt;li class="first leaf"&gt;&lt;a title="" href="/logiciel/all"&gt;La logithèque&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="leaf"&gt;&lt;a title="" href="/ressource/all"&gt;Les ressources et les sites libres&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="last leaf"&gt;&lt;a href="/node/2069"&gt;Les tutoriels&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="first leaf"&gt;&lt;a title="" href="$msg.get('footer.resources.repository.link')"&gt;$msg.get('footer.resources.repository')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a title="" href="$msg.get('footer.resources.freesites.link')"&gt;$msg.get('footer.resources.freesites')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="last leaf"&gt;&lt;a href="$msg.get('footer.resources.tutorials.link')"&gt;$msg.get('footer.resources.tutorials')&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
           &lt;/li&gt;
-          &lt;li class="last expanded"&gt;&lt;a title="" href="/node/2133"&gt;Enseigner avec le numérique&lt;/a&gt;
+          &lt;li class="last expanded"&gt;&lt;a title="" href="$msg.get('footer.teaching.link')"&gt;$msg.get('footer.teaching')&lt;/a&gt;
             &lt;ul class="menu"&gt;
-              &lt;li class="first leaf"&gt;&lt;a href="/node/2133"&gt;La classe numérique&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="leaf"&gt;&lt;a href="/node/2134"&gt;Les avantages du numérique&lt;/a&gt;&lt;/li&gt;
-              &lt;li class="last leaf"&gt;&lt;a title="" href="/node/2051"&gt;Le labo de recherche&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="first leaf"&gt;&lt;a href="$msg.get('footer.teaching.digitalclass.link')"&gt;$msg.get('footer.teaching.digitalclass')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="leaf"&gt;&lt;a href="$msg.get('footer.teaching.digitaladvantages.link')"&gt;$msg.get('footer.teaching.digitaladvantages')&lt;/a&gt;&lt;/li&gt;
+              &lt;li class="last leaf"&gt;&lt;a title="" href="$msg.get('footer.teaching.research.link')"&gt;$msg.get('footer.teaching.research')&lt;/a&gt;&lt;/li&gt;
             &lt;/ul&gt;
           &lt;/li&gt;
         &lt;/ul&gt;
@@ -3150,11 +3150,11 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
     &lt;div class="block-inner"&gt;
       &lt;div class="content"&gt;
         &lt;ul class="menu"&gt;
-          &lt;li class="first leaf"&gt;&lt;a title="" href="http://www.youtube.com/user/getuniboard"&gt;La chaîne Youtube&lt;/a&gt;&lt;/li&gt;
-          &lt;li class="leaf"&gt;&lt;a title="" href="https://twitter.com/#!/sankore2015"&gt;Suivez-nous sur twitter&lt;/a&gt;&lt;/li&gt;
-          &lt;li class="leaf"&gt;&lt;a title="" href="https://www.facebook.com/profile.php?id=100001366923928"&gt;Devenez fan sur facebook&lt;/a&gt;&lt;/li&gt;
-          &lt;li class="leaf"&gt;&lt;a title="" href="/article/all/feed"&gt;Abonnez-vous aux news&lt;/a&gt;&lt;/li&gt;
-          &lt;li class="last leaf"&gt;&lt;a title="" href="/contact"&gt;Contactez-nous&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="first leaf"&gt;&lt;a title="" href="$msg.get('footer.youtube.link')"&gt;$msg.get('footer.youtube')&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="leaf"&gt;&lt;a title="" href="$msg.get('footer.twitter.link')"&gt;$msg.get('footer.twitter')&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="leaf"&gt;&lt;a title="" href="$msg.get('footer.facebook.link')"&gt;$msg.get('footer.facebook')&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="leaf"&gt;&lt;a title="" href="$msg.get('footer.feed.link')"&gt;$msg.get('footer.feed')&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="last leaf"&gt;&lt;a title="" href="$msg.get('footer.contact.link')"&gt;$msg.get('footer.contact')&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -3163,9 +3163,9 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
     &lt;div class="block-inner"&gt;
       &lt;div class="content"&gt;
         &lt;ul class="menu"&gt;
-          &lt;li class="first leaf"&gt;&lt;a title="" href="/node/2127"&gt;Charte Sankoré&lt;/a&gt;&lt;/li&gt;
-          &lt;li class="leaf"&gt;&lt;a class="active" title="" href="/"&gt;Politique de confidentialité&lt;/a&gt;&lt;/li&gt;
-          &lt;li class="last leaf"&gt;&lt;a title="" href="http://creativecommons.org/licenses/by-sa/3.0/"&gt;Contenu du site sous licence Creative Commons (CC BY-SA 3.0) &lt;/a&gt;&lt;/li&gt;
+          &lt;li class="first leaf"&gt;&lt;a title="" href="$msg.get('footer.sitemap.link')"&gt;$msg.get('footer.sitemap')&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="leaf"&gt;&lt;a class="active" title="" href="$msg.get('footer.privacy.link')"&gt;$msg.get('footer.privacy')&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="last leaf"&gt;&lt;a title="" href="$msg.get('footer.license.link')"&gt;$msg.get('footer.license')&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/div&gt;
     &lt;/div&gt;
