@@ -1,0 +1,40 @@
+diff --git "a/C:\\Users\\Flaviusx\\AppData\\Local\\Temp\\Rss84A1.tmp\\RssMacro-HEAD-left.java" "b/C:\\XWiki\\github\\xwiki-platform\\xwiki-platform-core\\xwiki-platform-rendering\\xwiki-platform-rendering-macros\\xwiki-platform-rendering-macro-rss\\src\\main\\java\\org\\xwiki\\rendering\\internal\\macro\\rss\\RssMacro.java"
+index 4d155af..fb852d2 100644
+--- "a/C:\\Users\\Flaviusx\\AppData\\Local\\Temp\\Rss84A1.tmp\\RssMacro-HEAD-left.java"
++++ "b/C:\\XWiki\\github\\xwiki-platform\\xwiki-platform-core\\xwiki-platform-rendering\\xwiki-platform-rendering-macros\\xwiki-platform-rendering-macro-rss\\src\\main\\java\\org\\xwiki\\rendering\\internal\\macro\\rss\\RssMacro.java"
+@@ -141,7 +141,7 @@ public boolean supportsInlineMode()
+             boxParameters.setWidth(parameters.getWidth());
+         }
+ 
+-        boxParameters.setBlockTitle(generateBoxTitle("rsschanneltitle", feed));
++        boxParameters.setBlockTitle(generateBoxTitle("rsschanneltitle", feed, parameters.getFeed()));
+ 
+         if (hasImage) {
+             boxParameters.setImage(new ResourceReference(feed.getImage().getUrl(), ResourceType.URL));
+@@ -161,7 +161,7 @@ public boolean supportsInlineMode()
+      * @param feed the RSS feed data
+      * @return the list of blocks making the RSS Box title
+      */
+-    private List< ? extends Block> generateBoxTitle(String cssClass, SyndFeed feed)
++    private List< ? extends Block> generateBoxTitle(String cssClass, SyndFeed feed, String feedUrl)
+     {
+         List<Block> titleBlocks;
+ 
+@@ -171,6 +171,8 @@ public boolean supportsInlineMode()
+             // Title link.
+             ResourceReference titleResourceReference = new ResourceReference(feed.getLink(), ResourceType.URL);
+ 
++            ResourceReference iconResourceReference = new ResourceReference(feedUrl, ResourceType.URL);
++
+             // Title text link.
+             Block titleTextLinkBlock = new LinkBlock(parsePlainText(feed.getTitle()), titleResourceReference, true);
+ 
+@@ -179,7 +181,7 @@ public boolean supportsInlineMode()
+             ImageBlock imageBlock = new ImageBlock(new ResourceReference(imagePath, ResourceType.URL), false);
+ 
+             // Title rss icon link.
+-            Block titleImageLinkBlock = new LinkBlock(Arrays.<Block> asList(imageBlock), titleResourceReference, true);
++            Block titleImageLinkBlock = new LinkBlock(Arrays.<Block> asList(imageBlock), iconResourceReference, true);
+ 
+             titleBlocks = Arrays.<Block> asList(titleTextLinkBlock, titleImageLinkBlock);
+         }
