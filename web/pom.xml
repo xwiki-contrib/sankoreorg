@@ -55,6 +55,11 @@
       <version>${pom.version}</version>
     </dependency>
     <dependency>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-sankore-plugins-lucene</artifactId>
+      <version>${pom.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.lucene</groupId>
       <artifactId>lucene-analyzers</artifactId>
       <!-- This version needs to stay in sync with the lucene version dep from the curriki lucene plugin-->
@@ -196,7 +201,7 @@ xwiki.plugins.lucene.analyzer=org.apache.lucene.analysis.fr.FrenchAnalyzer
         <configuration>
           <!-- Exclude curriki plugins which will be replaced with plugins in this project, as well as xwiki old core and filesystem attachment jars, which will be replaced with patched versions. 
                Also exclude the xwiki.cfg, we just generated a new, better one above -->
-          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-servlet-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/xwiki-platform-oldcore-3.1.jar,WEB-INF/lib/xwiki-platform-store-api-3.1.jar,WEB-INF/lib/xwiki-platform-store-filesystem-attachments-3.1.jar,WEB-INF/xwiki.cfg,WEB-INF/lib/xwiki-platform-rendering-macro-rss-3.1.jar</dependentWarExcludes>
+          <dependentWarExcludes>WEB-INF/lib/curriki-plugin-asset-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-lucene-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-curriki-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/curriki-plugin-servlet-2.1-NEXT-SNAPSHOT.jar,WEB-INF/lib/xwiki-platform-oldcore-3.1.jar,WEB-INF/lib/xwiki-platform-store-api-3.1.jar,WEB-INF/lib/xwiki-platform-store-filesystem-attachments-3.1.jar,WEB-INF/xwiki.cfg,WEB-INF/lib/xwiki-platform-rendering-macro-rss-3.1.jar</dependentWarExcludes>
           <!-- Add the xwiki.cfg that we generated earlier (and excluded from the dependent war) to the war  -->
           <webResources>
             <resource>

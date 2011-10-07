@@ -53,6 +53,7 @@
     <module>asset</module>
     <module>curriki</module>
     <module>servlet</module>
+    <module>lucene</module>
   </modules>
 
   <!-- deploy plugin needs special configuration to deploy with scp since maven 3 -->
