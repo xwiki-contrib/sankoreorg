@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317917245000</creationDate>
-<date>1317917245000</date>
-<contentUpdateDate>1317917245000</contentUpdateDate>
+<creationDate>1317999552000</creationDate>
+<date>1317999552000</date>
+<contentUpdateDate>1317999552000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -406,7 +406,7 @@ groups_members_admin_current_membersettings_remove_confirm=Êtes-vous sûr que v
 groups_members_admin_current_membersettings_removeadmin_confirm=Êtes-vous sûr que vous voulez supprimer le statut de leader de groupe à ce membre?
 groups_members_admin_current_membersettings_removeadmin_link=Supprimer le Statut de Leader
 groups_members_admin_current_membersettings_addadmin_confirm=Êtes-vous sûr de vouloir élever ce membre au statut de leader de groupe ?
-groups_members_admin_current_membersettings_addadmin_link=Assigner le Statut de Leader
+groups_members_admin_current_membersettings_addadmin_link=Assigner le Statut d'administrateur de groupe
 groups_members_admin_list_togglepending=En attente ({0})
 groups_members_admin_pending_infotxt=Les membres suivants ont été invités à devenir membres ou ont demandé l'appartenance à votre groupe privé. Cliquez "Dénier" ou "Accepter" pour soumettre un statut de membre basé sur votre appréciation.
 groups_members_admin_pending_nomembershiprequests=Il n'y a actuellement pas de requêtes d'adhésion en attente.
@@ -442,7 +442,7 @@ groups_members_request_infotxt=Pour demander l''adhésion à {0}, complétez ce 
 groups_members_request_bio_instruction=Fournissez des informations sur vous-même, telles que votre bio ou votre background \:
 groups_members_request_bio_tooltip=Vous pourrez éditer cette description de vous-même en tant que membre de groupe après avoir été accepté dans ce groupe.
 groups_members_request_reasons_instruction=Pour quelles raisons voulez-vous rejoindre ce groupe ?
-groups_members_request_reasons_tooltip=Ces raisons peuvent aider le leader du groupe à comprendre pourquoi vous souhaitez contribuer à ce groupe.
+groups_members_request_reasons_tooltip=Ces raisons peuvent aider l'administrateur du groupe à comprendre pourquoi vous souhaitez contribuer à ce groupe.
 groups_members_request_alreadymember=Vous êtes déjà membre de ce groupe.
 groups_members_request_request_btt=Requête d'Adhésion
 groups_members_reject_confirm=Donnez les raison(s) qui vous poussent à  refuser cette requête d'appartenance SVP.
@@ -481,7 +481,7 @@ groups_members_invite_report=*{0}* de *{1}* invitations envoyées.
 groups_members_invite_statuslink=Les administrateurs d'un groupe peuvent voir la liste des invitations en cours en cliquant ici : [Liste des membres&gt;Members?type=3].
 groups_members_invite_backlink=Si vous voulez inviter plus de personnes dans ce groupe,  [cliquez ici&gt;InviteMembers] pour retourner au formulaire d'invitation
 groups_members_invite_openinvitation=Ceci est une invitation ouverte à une mailing list. (En vérifiant cette boîte, vous rendez possible à de multiples parties d'utiliser le lien d'acceptation fourni dans l'invitation envoyée par email).
-groups_members_accept_request_error=If you continue to encounter an error, please &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/HowtoReportaProblem?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.GettingStarted"&gt;report the problem&lt;/a&gt;.
+groups_members_accept_request_error=Si vous continuez à rencontrer des erreurs, merci de &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/HowtoReportaProblem?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.GettingStarted"&gt;nous prévenir de votre problème&lt;/a&gt;.
 
 ## JOIN THIS GROUP
 groups_members_join_title=Rejoindre ce Groupe
@@ -519,8 +519,8 @@ browseGroups.info=Cliquer un sujet pour voir la liste de tous les groupes dans c
 browse.subject.title.All_Groups=Tous les Groupes
 browseGroups.noGroups=Il n'y a pas de groupes pour ce sujet.
 browseGroups.groups=Groupes
-browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Be among the first to create and facilitate a group on planete.Sankoré!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Learn About Creating a Group&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Groups can:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborate on curriculum design and development&lt;/li&gt;&lt;li&gt;Share resources&lt;/li&gt;&lt;li&gt;Communicate with messaging&lt;/li&gt;&lt;li&gt;And more...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;What can YOU do with a planete.Sankoré Group?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
+browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Soyez le premier à créer un groupe sur planete.Sankoré!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;En savoir plus sur la création de groupe&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Les Groupes peuvent:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborer sur l'élaboration de parcours de connaissances&lt;/li&gt;&lt;li&gt;Partager des ressources&lt;/li&gt;&lt;li&gt;Communiquer avec un systeme de messagerie&lt;/li&gt;&lt;li&gt;Et plus encore...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Que pouvez-VOUS faire avec les groupes de planete.Sankoré?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
 
 ## GROUPS DOCUMENTATION
 groups_documentation_tabname=Documentation
