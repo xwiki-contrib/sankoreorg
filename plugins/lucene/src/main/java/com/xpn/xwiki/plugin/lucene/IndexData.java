@@ -134,9 +134,13 @@ public abstract class IndexData
                 Field.Store.YES,
                 Field.Index.TOKENIZED));
             luceneDoc.add(new Field(IndexFields.DOCUMENT_TITLE + IndexFields.UNTOKENIZED,
-                Util.noaccents(documentTitle.toUpperCase()),
+                documentTitle.toUpperCase(),
                 Field.Store.NO,
                 Field.Index.UN_TOKENIZED));
+            luceneDoc.add(new Field(IndexFields.DOCUMENT_TITLE,
+                Util.noaccents(documentTitle.toLowerCase()),
+                Field.Store.NO,
+                Field.Index.TOKENIZED));
         }
         luceneDoc.add(new Field(IndexFields.DOCUMENT_NAME,
             documentName,
@@ -156,9 +160,13 @@ public abstract class IndexData
                 Field.Store.YES,
                 Field.Index.TOKENIZED));
             luceneDoc.add(new Field(IndexFields.DOCUMENT_AUTHOR + IndexFields.UNTOKENIZED,
-                Util.noaccents(author.toUpperCase()),
+                author.toUpperCase(),
                 Field.Store.NO,
                 Field.Index.UN_TOKENIZED));
+            luceneDoc.add(new Field(IndexFields.DOCUMENT_AUTHOR,
+                Util.noaccents(author.toLowerCase()),
+                Field.Store.NO,
+                Field.Index.TOKENIZED));
         }
         if (creator != null) {
             luceneDoc.add(new Field(IndexFields.DOCUMENT_CREATOR,
@@ -166,9 +174,13 @@ public abstract class IndexData
                 Field.Store.YES,
                 Field.Index.TOKENIZED));
             luceneDoc.add(new Field(IndexFields.DOCUMENT_CREATOR + IndexFields.UNTOKENIZED,
-                Util.noaccents(creator.toUpperCase()),
+                creator.toUpperCase(),
                 Field.Store.NO,
                 Field.Index.UN_TOKENIZED));
+            luceneDoc.add(new Field(IndexFields.DOCUMENT_CREATOR,
+                Util.noaccents(creator.toLowerCase()),
+                Field.Store.NO,
+                Field.Index.TOKENIZED));
         }
 
         // UnStored fields: tokenized and indexed, but no reconstruction of
@@ -180,10 +192,10 @@ public abstract class IndexData
                     ft,
                     Field.Store.NO,
                     Field.Index.TOKENIZED));
-                luceneDoc.add(new Field(IndexFields.FULLTEXT + IndexFields.UNTOKENIZED,
-                    Util.noaccents(ft.toUpperCase()),
+                luceneDoc.add(new Field(IndexFields.FULLTEXT,
+                    Util.noaccents(ft.toLowerCase()),
                     Field.Store.NO,
-                    Field.Index.UN_TOKENIZED));
+                    Field.Index.TOKENIZED));
             }
         } catch (Exception e) {
             LOG.error("error extracting fulltext for document " + this, e);

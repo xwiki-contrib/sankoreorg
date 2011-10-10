@@ -172,7 +172,8 @@ public class ObjectData extends IndexData
             final String ft = getContentAsText(baseObject, propertyName, context);
             if (ft != null) {
                 luceneDoc.add(new Field(fieldFullName, ft, Field.Store.YES, Field.Index.TOKENIZED));
-                luceneDoc.add(new Field(fieldFullName + IndexFields.UNTOKENIZED, Util.noaccents(ft.toUpperCase()), Field.Store.NO, Field.Index.UN_TOKENIZED));
+                luceneDoc.add(new Field(fieldFullName + IndexFields.UNTOKENIZED, ft.toUpperCase(), Field.Store.NO, Field.Index.UN_TOKENIZED));
+                luceneDoc.add(new Field(fieldFullName, Util.noaccents(ft.toLowerCase()), Field.Store.NO, Field.Index.TOKENIZED));
             }
         }
     }
@@ -196,16 +197,19 @@ public class ObjectData extends IndexData
                 // we index the value
                 fieldName = fieldFullName + ".value";
                 luceneDoc.add(new Field(fieldName, item.getValue(), Field.Store.YES, Field.Index.TOKENIZED));
-                luceneDoc.add(new Field(fieldName + IndexFields.UNTOKENIZED, Util.noaccents(item.getValue().toUpperCase()), Field.Store.NO, Field.Index.UN_TOKENIZED));
+                luceneDoc.add(new Field(fieldName + IndexFields.UNTOKENIZED, item.getValue().toUpperCase(), Field.Store.NO, Field.Index.UN_TOKENIZED));
+                luceneDoc.add(new Field(fieldName, Util.noaccents(item.getValue().toLowerCase()), Field.Store.NO, Field.Index.TOKENIZED));
                 if (!item.getId().equals(item.getValue())) {
                     luceneDoc.add(new Field(fieldFullName, item.getValue(), Field.Store.YES, Field.Index.TOKENIZED));
-                    luceneDoc.add(new Field(fieldFullName + IndexFields.UNTOKENIZED, Util.noaccents(item.getValue().toUpperCase()), Field.Store.NO, Field.Index.UN_TOKENIZED));
+                    luceneDoc.add(new Field(fieldFullName + IndexFields.UNTOKENIZED, item.getValue().toUpperCase(), Field.Store.NO, Field.Index.UN_TOKENIZED));
+                    luceneDoc.add(new Field(fieldFullName, Util.noaccents(item.getValue().toLowerCase()), Field.Store.NO, Field.Index.TOKENIZED));
                 }
             }
 
             // we index both if value is not equal to the id(key)
             luceneDoc.add(new Field(fieldFullName, value, Field.Store.YES, Field.Index.TOKENIZED));
-            luceneDoc.add(new Field(fieldFullName + IndexFields.UNTOKENIZED, Util.noaccents(value.toUpperCase()), Field.Store.NO, Field.Index.UN_TOKENIZED));
+            luceneDoc.add(new Field(fieldFullName + IndexFields.UNTOKENIZED, value.toUpperCase(), Field.Store.NO, Field.Index.UN_TOKENIZED));
+            luceneDoc.add(new Field(fieldFullName, Util.noaccents(value.toLowerCase()), Field.Store.NO, Field.Index.TOKENIZED));
         }
     }
 
