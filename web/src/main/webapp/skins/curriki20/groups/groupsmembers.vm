@@ -148,24 +148,24 @@ $msg.get("groups_members_admin_list_toggleinvitations")</span>
 #if($memberIsAdmin)
 #if($adminCount>1)
 <div class="groups-members-addadmin">
-<a href="javascript:void()" onclick="if (window.confirm('$msg.get("groups_members_admin_current_membersettings_removeadmin_confirm")')) {removeAdmin('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_removeadmin_link")</a>
+<a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_removeadmin_confirm'])) {removeAdmin('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_removeadmin_link")</a>
 </div>
 #end
 #else
 <div class="groups-members-addadmin">
-<a href="javascript:void()" onclick="if (window.confirm('$msg.get("groups_members_admin_current_membersettings_addadmin_confirm")')) {addAdmin('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_addadmin_link")</a>
+<a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_addadmin_confirm'])) {addAdmin('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_addadmin_link")</a>
 </div>
 #end
 #if((!$memberIsAdmin) || ($memberIsAdmin &&  $adminCount>1))
 <div class="groups-members-remove">
-<a href="javascript:void()" onclick="if (window.confirm('$msg.get("groups_members_admin_current_membersettings_remove_confirm")')) {removeMember('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_remove_link")</a>
+<a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_remove_confirm'])) {removeMember('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_remove_link")</a>
 </div>
 #end
 #else
 #if((!$memberIsAdmin) || ($memberIsAdmin &&  $adminCount>1))
 #if($memberName==$context.user)
 <div class="groups-members-remove">
-<a href="javascript:void()" onclick="if (window.confirm('$msg.get("groups_members_admin_current_membersettings_remove_confirm")')) {removeMember('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_remove_link")</a>
+<a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_remove_confirm'])) {removeMember('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_remove_link")</a>
 </div>
 #end
 #end
@@ -207,24 +207,24 @@ $profile
 #if($memberIsAdmin)
 #if($adminCount>1)
 <div class="groups-members-addadmin">
-<a href="javascript:void()" onclick="if (window.confirm('$msg.get("groups_members_admin_current_membersettings_removeadmin_confirm")')) {removeAdmin('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_removeadmin_link")</a>
+<a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_removeadmin_confirm'])) {removeAdmin('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_removeadmin_link")</a>
 </div>
 #end
 #else
 <div class="groups-members-addadmin">
-<a href="javascript:void()" onclick="if (window.confirm('$msg.get("groups_members_admin_current_membersettings_addadmin_confirm")')) {addAdmin('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_addadmin_link")</a>
+<a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_addadmin_confirm'])) {addAdmin('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_addadmin_link")</a>
 </div>
 #end
 #if((!$memberIsAdmin) || ($memberIsAdmin &&  $adminCount>1))
 <div class="groups-members-remove">
-<a href="javascript:void()" onclick="if (window.confirm('$msg.get("groups_members_admin_current_membersettings_remove_confirm")')) {removeMember('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_remove_link")</a>
+<a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_remove_confirm'])) {removeMember('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_remove_link")</a>
 </div>
 #end
 #else
 #if((!$memberIsAdmin) || ($memberIsAdmin &&  $adminCount>1))
 #if($memberName==$context.user)
 <div class="groups-members-remove">
-<a href="javascript:void()" onclick="if (window.confirm('$msg.get("groups_members_admin_current_membersettings_remove_confirm")')) {removeMember('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_remove_link")</a>
+<a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_remove_confirm'])) {removeMember('$memberName','$spaceName');};return false;">$msg.get("groups_members_admin_current_membersettings_remove_link")</a>
 </div>
 #end
 #end
@@ -345,17 +345,6 @@ $msg.get("groups.members.invitedby") $xwiki.getLocalUserName($invitation.inviter
 ##$msg.get("groups.members.invitestatus") $msg.get("groups.members.invitestatus.${invitation.status}")
 ##</div>
 <div>
-<script type="text/javascript">
-function cancelInvitation(invitee, spaceName){
-	if (!window.confirm('$msg.get("groups_members_admin_invitations_cancel_confirm")')){
-		return;
-	}
-	var pars = "user=" + invitee + "&space=" + spaceName  + "&code=4&xpage=plain";
-  // call url to cancel invitation
-  var myAjax = new Ajax.XWikiRequest( "Groups", "MembersService", {method: 'get', parameters: pars, onComplete: refreshPage});
-  return false;
-}
-</script>
 <a href="javascript:void()" onclick="cancelInvitation('$invitation.invitee', '$invitation.space'); return false;">$msg.get("groups_members_admin_invitations_cancel_link")</a>
 </div>
 </div>
@@ -493,11 +482,11 @@ $xwiki.getLocalUserName($memberName)
 <div class="groups-members-request-links">
 ## if group admin
 #set($memberDisplayName = $xwiki.getLocalUserName($memberName, false))
-<a href="javascript:void()" onclick="acceptRequest('$divid', '$memberName', '$xwiki.curriki.escapeForJS($memberDisplayName)'); return false;">$msg.get("groups_members_admin_pending_accept_link")</a>
+<a href="javascript:void()" onclick="acceptRequest('$divid', '$spaceName', '$memberName', '$xwiki.curriki.escapeForJS($memberDisplayName)'); return false;">$msg.get("groups_members_admin_pending_accept_link")</a>
 #if($msreq.status!=4)
-<a href="javascript:void()" onclick="rejectRequest('$divid', '$memberName', '$xwiki.curriki.escapeForJS($memberDisplayName)'); return false;">$msg.get("groups_members_admin_pending_deny_link")</a>
+<a href="javascript:void()" onclick="rejectRequest('$divid', '$spaceName', '$memberName', '$xwiki.curriki.escapeForJS($memberDisplayName)'); return false;">$msg.get("groups_members_admin_pending_deny_link")</a>
 #end
-## end
+##end
 </div>
 <div class="groups-members-request-date">
 #set($requestDate = $xwiki.formatDate($msreq.requestDate,$msg.get("mycurriki.datetimeFormat")))
@@ -524,74 +513,7 @@ $msreq.text
 ##
 #macro(groupsmembershiprequestsjs)
 #groupsajaxjs()
-<script type="text/javascript">
-function acceptRequest(divid, memberName, displayName) {
-      $(divid).oldInnerHTML = $(divid).innerHTML;
-      $(divid).innerHTML = "<div class=\"groups-members-request-confirm-box \"><form><p>${msg.groups_members_accept_confirm}</p><br />"
-                                                 + "<div class=\"button-right\"><input type=\"button\" class=\"button button-cancel\" value=\"${msg.groups_members_cancel_btt}\""
-                                                 + " onclick=\"acceptRequestCancel('" + divid + "','" + memberName + "');\" />"
-                                                + "<input type=\"button\" class=\"button button-confirm\" value=\"${msg.groups_members_accept_confirm_btt}\""
-                                                + " onclick=\"acceptRequestConfirm('" + divid + "','" + memberName + "');\" /></div>"
-                                                + "</form></div>";
-      $(divid).parentNode.className = "groups-members-request group-members-request-confirm";
-}
-function acceptRequestCancel(divid, memberName) {
-      $(divid).innerHTML = $(divid).oldInnerHTML;
-      $(divid).parentNode.className = "groups-members-request";
-}
-function acceptRequestConfirm(divid, memberName) {
-      var pars = "user=" + memberName + "&space=${spaceName}&xpage=plain";
-      $(divid).innerHTML = "<p>${msg.groups_members_accept_inprogress}</p>";
-      // call url to accept the request.. check the return is "SUCCESS" other wise show output
-      var myAjax = new Ajax.XWikiRequest( "Groups", "AcceptMembershipRequestService", {method: 'get', parameters: pars, onComplete: acceptRequestCallback, divid: divid });
-}
-function acceptRequestCallback(ajaxreq) {
-    // hide div to show success full acceptance for user
-    var result = ajaxreq.transport.responseText;
-    // alert(result);
-    var divid = ajaxreq.options.divid;
-    if (result.strip()=="SUCCESS")
-     $(divid).innerHTML = "<p>${msg.groups_members_accept_done}</p>";
-    else
-     $(divid).innerHTML = "<p>${msg.groups_members_accept_failed}</p>" + "<p>" + result + "</p>";
-     $(divid).parentNode.className = "groups-members-request";
-}
-function rejectRequest(divid, memberName) {
-      $(divid).oldInnerHTML = $(divid).innerHTML;
-      $(divid).innerHTML = "<div class=\"groups-members-request-confirm-box\"><form><p>${msg.groups_members_reject_confirm}</p><textarea id=\"" + divid + "-reason\" cols=\"60\" rows=\"7\"></textarea><br />"
-                                                + "<div class=\"button-right\"><input type=\"button\" class=\"button button-cancel\" value=\"${msg.groups_members_cancel_btt}\""
-                                                + " onclick=\"rejectRequestCancel('" + divid + "','" + memberName + "');\" />"
-                                                + "<input type=\"button\" class=\"button button-confirm\" value=\"${msg.groups_members_reject_confirm_btt}\""
-                                                + " onclick=\"rejectRequestConfirm('" + divid + "','" + memberName + "');\" /></div>"
-                                                + "</form></div>";
-      $(divid).parentNode.className = "groups-members-request group-members-request-confirm";
-}
-function rejectRequestCancel(divid, memberName, displayName) {
-      $(divid).innerHTML = $(divid).oldInnerHTML;
-      $(divid).parentNode.className = "groups-members-request";
-}
-function rejectRequestConfirm(divid, memberName) {
-      var reason = encodeURIComponent($(divid+"-reason").value);
-      var pars = "user=" + memberName + "&reason=" + reason + "&space=${spaceName}&xpage=plain";
-      $(divid).innerHTML = "<p>${msg.groups_members_reject_inprogress}</p>";
-      // call url to accept the request.. check the return is "SUCCESS" other wise show output
-      var myAjax = new Ajax.XWikiRequest( "Groups", "RejectMembershipRequestService", {method: 'get', parameters: pars, onComplete: rejectRequestCallback, divid: divid});
-}
-function rejectRequestCallback(ajaxreq) {
-    // hide div to show success full acceptance for user
-    var result = ajaxreq.transport.responseText;
-    // alert(result);
-    var divid = ajaxreq.options.divid;
-    if (result.strip()=="SUCCESS")
-     $(divid).innerHTML = "<p>${msg.groups_members_reject_done}</p>";
-    else
-     $(divid).innerHTML = "<p>${msg.groups_members_reject_failed}</p>" + "<p>" + result + "</p>";
-    $(divid).parentNode.className = "groups-members-request";
-}
-</script>
 #end
-
-
 
 #**
  * Service for showing the edit member info form

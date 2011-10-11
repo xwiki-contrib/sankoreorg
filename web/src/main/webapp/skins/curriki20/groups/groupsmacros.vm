@@ -803,34 +803,6 @@ $msg.get("groups_home_firsttimewelcome_title")
         <input id="xwikiuploadname" type="hidden" name="filename" value="" />
         <div><input id="xwikiuploadfile" type="file" name="filepath" value="" size="40"/></div>
       </div> ## end section
-<script type="text/javascript">
-function checkFileExtension() {
-  var isValid = true;
-  var ext = getFileExtension();
-  if (ext) {
-    if (ext != "ok" && ext != "ai" && ext != "gif" && ext != "jpg" && ext != "tif" && ext != "bmp" && ext != "jpe" && ext != "psd" && ext != "png") {
-      isValid = false;
-    }
-  } else {
-    isValid = false;
-  }
-  if (!isValid) {
-    alert("$msg.get("mycurriki.profile.needPicture")");
-  }
-  return isValid;
-}
-function getFileExtension() {
-  var fileName = document.getElementById("xwikiuploadfile").value;
-  if (fileName.length){
-   fileName = fileName.toLowerCase();
-   var pos = fileName.lastIndexOf(".");
-   if (pos > 0){
-     return fileName.substring(pos + 1);
-   }
-  }
-  return "ok";
-}
-</script>
     </div> ## frame-content
     <div class="center mgn-vrt-15"><input class="button button-confirm mgn-rt" type="submit" value="$msg.groups_home_editmasthead_submit_btt" />#button(  "$msg.groups_home_editinformation_cancel_btt"  "cancel"  "reset"  ""  "if(confirm('$msg.groups_home_editmasthead_cancel_confirm')) window.location='$s.getHomeURL()';" )</div>    
   </form>

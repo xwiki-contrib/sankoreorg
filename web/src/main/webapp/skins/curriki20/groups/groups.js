@@ -51,7 +51,7 @@ function editWelcomeBlockCallback(ajaxreq) {
   //new WysiwygEditor({hookId:'XWiki.CurrikiWelcomeBlockClass_0_content'});
 }
 function cancelEditWelcomeBlock(spaceName,pageName,divid) {
- if (confirm("$msg.groups_welcomeblock_confirmcancel")) {
+ if (confirm(i18nDict['groups_welcomeblock_confirmcancel'])) {
    if(Prototype.Browser.IE) {
     history.go(0); 
    } else {
@@ -60,7 +60,7 @@ function cancelEditWelcomeBlock(spaceName,pageName,divid) {
     // timeout shouldn't be necessary and will be removed in the future.
     setTimeout(function() {
      var pars = "space=" + spaceName + "&page=" + pageName + "&divid=" + divid + "&xpage=plain";
-     $(divid).innerHTML = "<p>${msg.groups_loadinginprogress}</p>";
+     $(divid).innerHTML = "<p>"+i18nDict['groups_loadinginprogress']+"</p>";
      // call url to get the edit html to edit the profile
      var myAjax = new Ajax.XWikiRequest( "Groups", "ViewWelcomeBlockService", {method: 'get', parameters: pars, onComplete: cancelEditWelcomeBlockCallback, divid: divid });
     }, 10);
@@ -117,7 +117,7 @@ function checkFileExtension() {
     isValid = false;
   }
   if (!isValid) {
-    alert("$msg.get('mycurriki.profile.needPicture')");
+    alert(i18nDict['mycurriki.profile.needPicture']);
   }
   return isValid;
 }
@@ -143,9 +143,9 @@ function editGroupInfoCallback(ajaxreq) {
  $(divid).innerHTML = ajaxreq.transport.responseText;
 }
 function cancelEditGroupInfo(spaceName,divid) {
-  if (confirm("$msg.groups_welcomeblock_confirmcancel")) {
+  if (confirm(i18nDict['groups_welcomeblock_confirmcancel']) {
    var pars = "space=" + spaceName + "&divid=" + divid + "&xpage=plain";
-   $(divid).innerHTML = "<p>${msg.groups_loadinginprogress}</p>";
+   $(divid).innerHTML = "<p>"+i18nDict['groups_loadinginprogress']+"</p>";
    // call url to get the edit html to edit the profile
    var myAjax = new Ajax.XWikiRequest( "Groups", "ViewGroupInfoService", {method: 'get', parameters: pars, onComplete: cancelEditGroupInfoCallback, divid: divid });
   }
@@ -156,7 +156,7 @@ function cancelEditGroupInfoCallback(ajaxreq) {
 }
 function editProfile(memberName,spaceName,divid) {
   var pars = "user=" + memberName + "&space=" + spaceName + "&divid=" + divid + "&xpage=plain";
-  $(divid).innerHTML = "<p>${msg.groups_members_editsettings_loadinginprogress}</p>";
+  $(divid).innerHTML = "<p>"+i18nDict['msg.groups_members_editsettings_loadinginprogress']+"</p>";
   // call url to get the edit html to edit the profile
   var myAjax = new Ajax.XWikiRequest( "Groups", "EditSpaceUserProfileService", {method: 'get', parameters: pars, onComplete: editProfileCallback, divid: divid });
   return false;
@@ -168,7 +168,7 @@ function editProfileCallback(ajaxreq) {
 }
 function cancelEditProfile(memberName,spaceName,divid) {
   var pars = "user=" + memberName + "&space=" + spaceName + "&divid=" + divid + "&xpage=plain";
-  $(divid).innerHTML = "<p>${msg.groups_members_editsettings_loadinginprogress}</p>";
+  $(divid).innerHTML = "<p>"+i18nDict['msg.groups_members_editsettings_loadinginprogress']+"</p>";
   // call url to get the edit html to edit the profile
   var myAjax = new Ajax.XWikiRequest( "Groups", "ViewSpaceUserProfileService", {method: 'get', parameters: pars, onComplete: cancelEditProfileCallback, divid: divid });
   return false;
@@ -199,4 +199,105 @@ function removeMember(memberName,spaceName) {
   // call url to remove admin
   var myAjax = new Ajax.XWikiRequest( "Groups", "MembersService", {method: 'get', parameters: pars, onComplete: refreshPage});
   return false;
+}
+// Groups membership request JS
+function acceptRequest(divid, spaceName, memberName, displayName) {
+      $(divid).oldInnerHTML = $(divid).innerHTML;
+      $(divid).innerHTML = "<div class=\"groups-members-request-confirm-box \"><form><p>${msg.groups_members_accept_confirm}</p><br />"
+                                                 + "<div class=\"button-right\"><input type=\"button\" class=\"button button-cancel\" value=\"${msg.groups_members_cancel_btt}\""
+                                                 + " onclick=\"acceptRequestCancel('" + divid + "','" + spaceName + "','" + memberName + "');\" />"
+                                                + "<input type=\"button\" class=\"button button-confirm\" value=\"${msg.groups_members_accept_confirm_btt}\""
+                                                + " onclick=\"acceptRequestConfirm('" + divid + "','" + spaceName + "','" + memberName + "');\" /></div>"
+                                                + "</form></div>";
+      $(divid).parentNode.className = "groups-members-request group-members-request-confirm";
+}
+function acceptRequestCancel(divid, spaceName, memberName) {
+      $(divid).innerHTML = $(divid).oldInnerHTML;
+      $(divid).parentNode.className = "groups-members-request";
+}
+function acceptRequestConfirm(divid, spaceName, memberName) {
+      var pars = "user=" + memberName + "&space=" + spaceName + "&xpage=plain";
+      $(divid).innerHTML = "<p>${msg.groups_members_accept_inprogress}</p>";
+      // call url to accept the request.. check the return is "SUCCESS" other wise show output
+      var myAjax = new Ajax.XWikiRequest( "Groups", "AcceptMembershipRequestService", {method: 'get', parameters: pars, onComplete: acceptRequestCallback, divid: divid });
+}
+function acceptRequestCallback(ajaxreq) {
+    // hide div to show success full acceptance for user
+    var result = ajaxreq.transport.responseText;
+    // alert(result);
+    var divid = ajaxreq.options.divid;
+    if (result.strip()=="SUCCESS")
+     $(divid).innerHTML = "<p>${msg.groups_members_accept_done}</p>";
+    else
+     $(divid).innerHTML = "<p>${msg.groups_members_accept_failed}</p>" + "<p>" + result + "</p>";
+     $(divid).parentNode.className = "groups-members-request";
+}
+function rejectRequest(divid, spaceName, memberName) {
+      $(divid).oldInnerHTML = $(divid).innerHTML;
+      $(divid).innerHTML = "<div class=\"groups-members-request-confirm-box\"><form><p>${msg.groups_members_reject_confirm}</p><textarea id=\"" + divid + "-reason\" cols=\"60\" rows=\"7\"></textarea><br />"
+                                                + "<div class=\"button-right\"><input type=\"button\" class=\"button button-cancel\" value=\"${msg.groups_members_cancel_btt}\""
+                                                + " onclick=\"rejectRequestCancel('" + divid + "','" + spaceName + "','"  + memberName + "');\" />"
+                                                + "<input type=\"button\" class=\"button button-confirm\" value=\"${msg.groups_members_reject_confirm_btt}\""
+                                                + " onclick=\"rejectRequestConfirm('" + divid + "','" + spaceName + "','" + memberName + "');\" /></div>"
+                                                + "</form></div>";
+      $(divid).parentNode.className = "groups-members-request group-members-request-confirm";
+}
+function rejectRequestCancel(divid, spaceName, memberName, displayName) {
+      $(divid).innerHTML = $(divid).oldInnerHTML;
+      $(divid).parentNode.className = "groups-members-request";
+}
+function rejectRequestConfirm(divid, spaceName, memberName) {
+      var reason = encodeURIComponent($(divid+"-reason").value);
+      var pars = "user=" + memberName + "&reason=" + reason + "&space=" + spaceName + "&xpage=plain";
+      $(divid).innerHTML = "<p>${msg.groups_members_reject_inprogress}</p>";
+      // call url to accept the request.. check the return is "SUCCESS" other wise show output
+      var myAjax = new Ajax.XWikiRequest( "Groups", "RejectMembershipRequestService", {method: 'get', parameters: pars, onComplete: rejectRequestCallback, divid: divid});
+}
+function rejectRequestCallback(ajaxreq) {
+    // hide div to show success full acceptance for user
+    var result = ajaxreq.transport.responseText;
+    // alert(result);
+    var divid = ajaxreq.options.divid;
+    if (result.strip()=="SUCCESS")
+     $(divid).innerHTML = "<p>${msg.groups_members_reject_done}</p>";
+    else
+     $(divid).innerHTML = "<p>${msg.groups_members_reject_failed}</p>" + "<p>" + result + "</p>";
+    $(divid).parentNode.className = "groups-members-request";
+}
+// Groups invitations
+function cancelInvitation(invitee, spaceName){
+	if (!window.confirm(i18nDict['groups_members_admin_invitations_cancel_confirm'])){
+		return;
+	}
+	var pars = "user=" + invitee + "&space=" + spaceName  + "&code=4&xpage=plain";
+  // call url to cancel invitation
+  var myAjax = new Ajax.XWikiRequest( "Groups", "MembersService", {method: 'get', parameters: pars, onComplete: refreshPage});
+  return false;
+}
+// Groups macros
+function checkFileExtension() {
+  var isValid = true;
+  var ext = getFileExtension();
+  if (ext) {
+    if (ext != "ok" && ext != "ai" && ext != "gif" && ext != "jpg" && ext != "tif" && ext != "bmp" && ext != "jpe" && ext != "psd" && ext != "png") {
+      isValid = false;
+    }
+  } else {
+    isValid = false;
+  }
+  if (!isValid) {
+    alert(i18nDict['mycurriki.profile.needPicture']);
+  }
+  return isValid;
+}
+function getFileExtension() {
+  var fileName = document.getElementById("xwikiuploadfile").value;
+  if (fileName.length){
+   fileName = fileName.toLowerCase();
+   var pos = fileName.lastIndexOf(".");
+   if (pos > 0){
+     return fileName.substring(pos + 1);
+   }
+  }
+  return "ok";
 }
