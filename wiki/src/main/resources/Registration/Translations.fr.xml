@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317887492000</creationDate>
-<date>1317887492000</date>
-<contentUpdateDate>1317887492000</contentUpdateDate>
+<creationDate>1318333353000</creationDate>
+<date>1318333353000</date>
+<contentUpdateDate>1318333353000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -67,7 +67,7 @@ forgotUsername.email.invalid=Une adresse email valide est nécessaire.
 
 #Main.ForgotUsernameEmail{0}
 
-forgotUsernameEmail.header=De \: {0}à \: {1}Subject \: Votre nom d''utilisateur planete.sankore.org
+forgotUsernameEmail.header=De \: {0} à \: {1} Subject \: Votre nom d''utilisateur planete.sankore.org
 forgotUsernameEmail.part1=Cher(e) {0} {1},
 forgotUsernameEmail.part2=Vous avez oublié votre mot de passe? Ça arrive aux meilleurs d''entre nous. Vous avez sélectionné ''{0}'' quand vous vous êtes inscrit. Si vous avez oublié votre mot de passe, cliquez "Login oublié?" en haut de chaque page Planète Sankoré et nous vous enverrons un email avec votre mot de passe.
 
@@ -75,22 +75,22 @@ forgotUsernameEmail.part2=Vous avez oublié votre mot de passe? Ça arrive aux m
 
 #Main.ForgotUsernamesEmail
 
-forgotUsernamesEmail.part1=Cher utilisateur planete.sankore.org,
+forgotUsernamesEmail.part1=Cher utilisateur de planete.sankore.org,
 forgotUsernamesEmail.part2=Vous avez oublié votre nom d'utilisateur? Ça arrive aux meilleurs d'entre nous. Vous avez en fait créé de multiples noms d'utilisateur '${names}'. Si vous avez oublié votre mot de passe, cliquez sur le lien "J'ai oublié mon mot de passe" sur la page de connexion, et nous vous enverrons un email avec votre mot de passe.
 
 
 
 #Main.JoinCurriki
 
-joincurriki.first_name.text=Indiquez un identifiant qui vous permettra d'être reconnu par les autres membres de Planète Sankoré (par exemple : prénom, titre, surnom).
+joincurriki.first_name.text=Indiquez un identifiant qui vous permettra d'être reconnu par les autres membres de planete.Sankoré (par exemple : prénom, titre, surnom).
 joincurriki.last_name.text=Indiquez un nom supplémentaire pour rendre votre nom unique (par exemple : nom de famille, entreprise, lieu).
 
 
 joincurriki.fileds.xwikiname=Nom d'Utilisateur
 joincurriki.xwikiname.badchars=Ce nom d'utilisateur est invalide. Choisissez un nom sans espaces ou caractères spéciaux, SVP.
-joincurriki.repeat=recommencer
-joincurriki.registerToJoinCurriki=Enregistrez-vous pour rejoindre Planète Sankoré
-joincurriki.infos=Nous vous remercions de rejoindre la communauté en ligne Planète Sankoré. Pour créer des ressources éducatives de qualité, la première étape à suivre est de créer un compte sur Planète Sankoré.
+joincurriki.repeat=Veuillez recommencer
+joincurriki.registerToJoinCurriki=Enregistrez-vous pour rejoindre planete.Sankoré
+joincurriki.infos=Nous vous remercions de rejoindre la communauté en ligne planete.Sankoré. Pour créer des ressources éducatives de qualité, la première étape à suivre est de créer un compte sur planete.Sankoré.
 
 joincurriki.letsKnowWhoYouAre=Dites nous qui vous êtes
 joincurriki.enterRequestedInfo=Saisissez les informations demandées pour devenir un membre et créer un profil utilisateur. les champs signalés par un point d'exclamation(\!) sont obligatoires.
@@ -109,7 +109,7 @@ joincurriki.privacyAndTOS.read.privacypolicy=Politique de confidentialité
 joincurriki.privacyAndTOS.read.part2=et les
 joincurriki.privacyAndTOS.read.tos=Conditions générales d'utilisation
 joincurriki.iAgree=Je suis d'accord
-joincurriki.emailWillBeSent=Une fois que vous aurez cliqué sur le bouton "Enregistrer et m'inscrire", Planète Sankoré vous enverra une confirmation à l'adresse de courrier électronique saisie ci-dessus.
+joincurriki.emailWillBeSent=Une fois que vous aurez cliqué sur le bouton "Enregistrer et m'inscrire", planete.Sankoré vous enverra une confirmation à l'adresse de courrier électronique saisie ci-dessus.
 
 joincurriki.password.noSpaces=Un mot de passe ne doit pas contenir d'espaces.
 joincurriki.password.tooShort=Mot de passe trop court.
@@ -121,7 +121,7 @@ joincurriki.email.alreadyUsed=Votre email a déjà été utilisé.
 joincurriki.login.alreadyUsed=Votre nom d'utilisateur a déjà été utilisé.
 joincurriki.saveMyInfoAndRegister=Enregistrer et m'inscrire
 joincurriki.accountCreated=Votre compte a été créé. Vous pouvez maintenant vous connecter.
-joincurriki.chooseOptOut=Je ne veux pas recevoir d'emails concernant ma participation à la communauté Planète Sankoré.
+joincurriki.chooseOptOut=Je ne veux pas recevoir d'emails concernant ma participation à la communauté planete.Sankoré.
 joincurriki.topics=
 
 joincurriki.fields.xwikiname=Nom d'utilisateur
@@ -153,7 +153,7 @@ profile.removePhoto=Effacer Photo
 profile.removeYourPhoto=Effacer votre Photo
 profile.modifyYourPhoto=Modifier votre Photo
 profile.changeMyPhoto=Changer ma Photo
-profile.changeMyPhoto.needToRemove=Vous devez effacer votre photo d'abord. Voulez-vous faire ça?
+profile.changeMyPhoto.needToRemove=Vous devez d'abord effacer votre photo. Voulez-vous faire ça?
 profile.field.firstName=Prénom \:
 profile.field.lastName=Nom \:
 profile.field.display.firstName=Prénom \:
@@ -168,9 +168,9 @@ profile.field.email=Email \:
 profile.field.opt_out=Opt-out email (réception) \:
 profile.field.opt_out.checkbox_text=Je ne veux pas recevoir d'emails concernant ma participation à la communauté.
 profile.field.password=Mot de passe \:
-profile.field.passwordConfirm=Confirmer mot de passe \:
+profile.field.passwordConfirm=Confirmer le mot de passe \:
 profile.field.topics=Centres d'intérêt \:
-profile.field.bio=Bio \:
+profile.field.bio=Biographie \:
 profile.emptyField=&amp;ndash;
 
 profile.chooseAPhoto=Choisir une Photo \:
@@ -180,14 +180,14 @@ profile.field.password.tooShort=Mot de passe trop court.
 profile.field.password.mustMatch=Le mot de passe ne correspond pas.
 profile.field.firstName.mandatory=Le prénom est obligatoire.
 profile.field.lastName.mandatory=Le nom est obligatoire.
-profile.field.email.mandatory=Le email est obligatoire.
+profile.field.email.mandatory=L'email est obligatoire.
 profile.field.email.invalid=Email invalide.
 
 # Registration pages information
 registration.email=webmaster@planete.sankore.org
 registration.validate.validated=Inscription terminée\!&lt;br /&gt;
 registration.login_button=OK
-registration.validate.failed.bad_key_or_loginname=Désolé, le nom d'utilisateur ou la clé de validation étaient incorrects. Essayez une nouvelle fois, SVP.
+registration.validate.failed.bad_key_or_loginname=Désolé, le nom d'utilisateur ou la clé de validation est incorrect. Essayez une nouvelle fois, SVP.
 registration.validate.failed.no_info=L'information requise n'a pas été transmise.
 
 # Registration.EmailNotReceived
@@ -251,7 +251,7 @@ staf.dialog.customize.default=Voilà une ressource que j'ai trouvée sur Planèt
 staf.dialog.yourname=Votre nom \:
 staf.dialog.ccme=Envoyez moi copie
 staf.dialog.youremail=Votre adresse email \:
-staf.dialog.privacy=Your email address is used to tell your friends who sent them this link. Email addresses for friends are only used to transmit this email. We do not store or use the email addresses entered or the data transmitted for any purpose. Please see the &lt;a href="/xwiki/bin/view/Main/PrivacyPolicy"&gt;Privacy Policy&lt;/a&gt; for more information.
+staf.dialog.privacy=Votre adresse email est utilisée pour prévenir vos contacts sur qui leur envoie un message. L'adresse sera uniquement utilisé pour cela. Nous ne gardons aucune adresse ou donnée utilisateur. N'hésitez pas à lire notre &lt;a href="/xwiki/bin/view/Main/Politique+de+confidentialite"&gt;politique de confidentialité&lt;/a&gt; pour plus d'information.
 staf.dialog.cancel=Annuler
 staf.dialog.send=Envoyer
 staf.dialog.shouldcancel=Les information saisies vont être perdues. Êtes vous sûr de vouloir fermer?
@@ -265,7 +265,7 @@ staf.err.isguest=Seuls les membres de Planète Sankoré peuvent envoyer des ress
 staf.sent.errored=Une erreur inconnue s'est produite.
 
 ##AFFILIATE REGISTRATION ERROR MESSAGES
-partnerrigestration.validkey.invalid=Nous sommes incapables de valider votre partner key. 
+partnerrigestration.validkey.invalid=Nous sommes incapables de valider votre clé partenaire. 
 
 partnerrigestration.parnter.notexist=Le partenaire n'existe pas dans notre base de données. Contactez le webmaster, SVP.
 
