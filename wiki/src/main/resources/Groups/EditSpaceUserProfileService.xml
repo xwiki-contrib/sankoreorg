@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Groups</web>
+<name>EditSpaceUserProfileService</name>
+<language></language>
+<defaultLanguage></defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1318344524000</creationDate>
+<date>1318344524000</date>
+<contentUpdateDate>1318344524000</contentUpdateDate>
+<version>1.1</version>
+<title>EditSpaceUserProfileService</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>{{velocity}}{{html clean="false" wiki="true"}}
+#**
+ * Service for showing the edit member info form
+ * @param request.space Space to accept the user in
+ * @param request.user User to edit
+ * @param request.divid DIV name to pass through
+ * @type ajaxservice
+ * @refactored ludovic
+ *#
+#groups_editmemberinfoform()
+{{/html}}{{/velocity}}
+</content></xwikidoc>
