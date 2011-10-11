@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317910141000</creationDate>
-<date>1317910141000</date>
-<contentUpdateDate>1317910141000</contentUpdateDate>
+<creationDate>1318265395000</creationDate>
+<date>1318265395000</date>
+<contentUpdateDate>1318265395000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -4017,6 +4017,10 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
   #end
   $response.sendRedirect($xwiki.getURL('XWiki.XWikiLogin', 'login', $qs))
 #else
+#if($request.xredirect.contains("xpage=panel"))
+  #set($message = $xwiki.parseMessage())
+  $response.sendRedirect("${request.xredirect}&amp;message=$!{message}")
+#else
 ###
 ### Login page
 ###
@@ -4034,6 +4038,7 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 //]]&gt;
 &lt;/script&gt;
 #template("endpage.vm")
+#end
 #end</login.vm>
 </property>
 <property>
@@ -4047,8 +4052,11 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
     #set($logredir = $xwiki.getURL("MySankore.Profile"))
   #elseif($doc.fullName == "Main.JoinSankore")
     #set($logredir = $xwiki.getURL("MySankore.Profile"))
-  #elseif($logredir.contains("/login"))
+  #elseif($logredir.contains("/login") || $request.xpage == "panel")
     #set($logredir = "")
+  #end
+  #if($request.xpage == "panel")
+    #set($logredir = $xwiki.getURL($doc.fullName, "view", "xpage=panel"))
   #end
   &lt;script type="text/javascript"&gt; 
   function showLoginPasswordInput() {
@@ -4083,6 +4091,9 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
   #end
 #end
 #set($message = $msg.get($xwiki.parseMessage()))
+#if("$!message" == "")
+  #set($message = $msg.get($request.message))
+#end
 #if($message)
   &lt;!-- previous login errors --&gt;
   #error($message)
@@ -4093,8 +4104,8 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
     &lt;div id="remember-forgot"&gt;
       &lt;label for="j_rememberme"&gt;$msg.get("header.login_rememberme")&lt;/label&gt;
       &lt;input tabindex="3" type="checkbox" class="checkbox" name="j_rememberme" value="true"/&gt;&lt;br /&gt;
-      &lt;a href="$xwiki.getURL("XWiki.ForgotUsername")" title=""&gt;$msg.get('login.forgotusername')&lt;/a&gt;&lt;br /&gt;
-      &lt;a href="$xwiki.getURL("XWiki.ResetPassword")" title=""&gt;$msg.get('login.forgotpassword')&lt;/a&gt;
+      &lt;a href="$xwiki.getURL("XWiki.ForgotUsername")" title="" target="_top"&gt;$msg.get('login.forgotusername')&lt;/a&gt;&lt;br /&gt;
+      &lt;a href="$xwiki.getURL("XWiki.ResetPassword")" title="" target="_top"&gt;$msg.get('login.forgotpassword')&lt;/a&gt;
     &lt;/div&gt;
     &lt;input id="signin" class="login-button" type="submit" id="loginbtn" value="$msg.get('login.signin')" /&gt;
     &lt;div class="clearfloats"&gt;&lt;/div&gt;
@@ -4107,11 +4118,10 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
   &lt;span class="welcome-message"&gt;$msg.get("welcome") &lt;strong&gt;$fname $lname&lt;/strong&gt;&lt;/span&gt;
   &lt;ul class="login-links"&gt;
   #if($hasGlobalAdmin)
-    &lt;li&gt;&lt;a class="administration-link" href="$xwiki.getURL('XWiki.XWikiPreferences', 'admin')"&gt;$msg.get("core.menu.admin")&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="administration-link" href="$xwiki.getURL('XWiki.XWikiPreferences', 'admin')" target="_top"&gt;$msg.get("core.menu.admin")&lt;/a&gt;&lt;/li&gt;
   #end
-    &lt;li&gt;&lt;a class="profile-link" href="$xwiki.getURL('MySankore.Profile', 'view')"&gt;$msg.get("core.menu.profile")&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="profile-link" href="$xwiki.getURL('MySankore.Profile', 'view')" target="_top"&gt;$msg.get("core.menu.profile")&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;
-      #set($logredir = $xwiki.getURL("Main.WebHome"))
       #set($logoutUrl = $xwiki.getURL("XWiki.XWikiLogout","logout", "xredirect=$logredir"))
       &lt;a class="button button-confirm" href="$logoutUrl" class="logout"&gt;$msg.get("logout")&lt;/a&gt;
     &lt;/li&gt; 
@@ -4808,7 +4818,7 @@ font-weight:bold;}
 
 #rightPanels {
   float: right;
-  margin: 0 0 0 -312px;
+  margin: 20px 0 0 -312px;
   width: 312px;
 }
 #rightPanels .block {
@@ -5042,7 +5052,7 @@ font-weight:bold;}
 #planete a {
   color: #C22D1C;
 }
-#rightPanels h3 {
+.panel h3 {
   color: #3D3D3F;
   font-size: 12px;
   line-height: 15px;
@@ -5053,12 +5063,12 @@ font-weight:bold;}
   border-bottom:none;
 }
 
-#rightPanels p {
+.panel p {
   font-size:12px;
   margin-bottom: 0.5em;
 }
 
-#rightPanels li {
+.panel li {
   font-size: 11px;
 }
 
@@ -5126,8 +5136,11 @@ font-weight:bold;}
 }
 
 #rightPanels .panel {
-  border-radius: 6px 6px 6px 6px;
   padding: 10px 10px 10px 17px;
+}
+
+#rightPanels .panel {
+  border-radius: 6px 6px 6px 6px;  
   border-style: solid;
   border-width: 1px;
 }
@@ -5186,11 +5199,11 @@ font-weight:bold;}
   margin-top: 5px;
 }
 
-#rightPanels .panel {
+.panel {
   margin-bottom: 2px;
 }
 
-#rightPanels .imgpanel {
+.imgpanel {
   margin-top: 20px;
 }
 
@@ -5218,7 +5231,7 @@ font-weight:bold;}
 }
 
 .space-Main.page-WebHome #rightPanels {
-  margin-top: -120px;
+  margin-top: -100px;
 }
 
 .planete #signup {
@@ -5243,7 +5256,7 @@ ul.login-links {
   width: auto;
 }
 
-#rightPanels .login-links li {
+.login-links li {
   font-size: 12px;
 }
 
@@ -5292,7 +5305,7 @@ ul.login-links {
   color: #195175;
 }
 
-#rightPanels .voirPlus {
+.voirPlus {
   font-weight: bold;
 }
 
