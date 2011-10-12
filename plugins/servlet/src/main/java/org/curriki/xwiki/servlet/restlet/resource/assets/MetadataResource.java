@@ -92,7 +92,6 @@ public class MetadataResource extends BaseResource {
         } else {
             fw_items = new ArrayList();
         }
-        fw_items.add(Constants.ASSET_CLASS_FRAMEWORK_ITEMS_DEFAULT);
         assetObj.set(Constants.ASSET_CLASS_FRAMEWORK_ITEMS,  fw_items);
         // educational_level (array)
         List educational_level;
@@ -101,7 +100,6 @@ public class MetadataResource extends BaseResource {
         } else {
             educational_level = new ArrayList();
         }
-        educational_level.add(Constants.ASSET_CLASS_EDUCATIONAL_LEVEL_DEFAULT);
         assetObj.set(Constants.ASSET_CLASS_EDUCATIONAL_LEVEL,  educational_level);
         // instructional_component (array)
         List instructional_component;
@@ -110,7 +108,6 @@ public class MetadataResource extends BaseResource {
         } else {
             instructional_component = new ArrayList();
         }
-        instructional_component.add(Constants.ASSET_CLASS_INSTRUCTIONAL_COMPONENT_DEFAULT);
         assetObj.set(Constants.ASSET_CLASS_INSTRUCTIONAL_COMPONENT,  instructional_component);
 
         // SRI2
