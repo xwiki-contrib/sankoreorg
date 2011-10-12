@@ -143,7 +143,7 @@ function editGroupInfoCallback(ajaxreq) {
  $(divid).innerHTML = ajaxreq.transport.responseText;
 }
 function cancelEditGroupInfo(spaceName,divid) {
-  if (confirm(i18nDict['groups_welcomeblock_confirmcancel']) {
+  if (confirm(i18nDict['groups_welcomeblock_confirmcancel'])) {
    var pars = "space=" + spaceName + "&divid=" + divid + "&xpage=plain";
    $(divid).innerHTML = "<p>"+i18nDict['groups_loadinginprogress']+"</p>";
    // call url to get the edit html to edit the profile
