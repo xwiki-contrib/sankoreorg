@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317999552000</creationDate>
-<date>1317999552000</date>
-<contentUpdateDate>1317999552000</contentUpdateDate>
+<creationDate>1318418829000</creationDate>
+<date>1318418829000</date>
+<contentUpdateDate>1318418829000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -494,7 +494,7 @@ groups_members_join_btt=Rejoindre
 groups_members_cancel_btt=Annuler
 groups_members_join_needaccount=Si vous n'êtes pas encore inscrit sur planete.Sankoré, veuillez  &lt;a href="{0}"&gt;créer un compte&lt;/a&gt;.
 groups_members_join_alreadymember=Vous êtes déjà membre de ce groupe.
-groups_members_join_success=Félicitation! Vous avez rejoint ce groupe. La liste de membre est disponible sur [members list&gt;Members].
+groups_members_join_success=Félicitation! Vous avez rejoint ce groupe. La liste de membre est disponible sur [[members list&gt;&gt;Members]].
 groups_members_join_failure=Cette opération a échoué. Essayez encore SVP. Si vous continuez à avoir des problèmes, contactez groups@curriki.org SVP.
 groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans planete.Sankoré avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez groups@curriki.org SVP.
 
