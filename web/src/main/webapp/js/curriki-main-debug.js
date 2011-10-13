@@ -2083,6 +2083,11 @@ Curriki.data.ict.ictAddNode = function(ictMap, nodeName){
 	};
 	if ("undefined" !== typeof ictMap[nodeName]){
 		var children = [];
+    ictMap[nodeName].sort(function(a,b) {
+      if(_('CurrikiCode.AssetClass_instructional_component_'+a.id) < _('CurrikiCode.AssetClass_instructional_component_'+b.id)) return -1;
+      if(_('CurrikiCode.AssetClass_instructional_component_'+a.id) > _('CurrikiCode.AssetClass_instructional_component_'+b.id)) return 1;
+      return 0;
+    });
 		ictMap[nodeName].each(function(childNode){
 			children.push(Curriki.data.ict.ictAddNode(ictMap, childNode.id));
 		});
@@ -2479,6 +2484,11 @@ Curriki.data.fw_item.fwAddNode = function(fwMap, nodeName){
 	};
 	if ("undefined" !== typeof fwMap[nodeName]){
 		var children = [];
+    fwMap[nodeName].sort(function(a,b) {
+      if(_('CurrikiCode.AssetClass_fw_items_'+a.id) < _('CurrikiCode.AssetClass_fw_items_'+b.id)) return -1;
+      if(_('CurrikiCode.AssetClass_fw_items_'+a.id) > _('CurrikiCode.AssetClass_fw_items_'+b.id)) return 1;
+      return 0;
+    });
 		fwMap[nodeName].each(function(childNode){
 			children.push(Curriki.data.fw_item.fwAddNode(fwMap, childNode.id));
 		});
