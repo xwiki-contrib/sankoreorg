@@ -71,8 +71,10 @@
 		tree${tviewid} = new YAHOO.widget.TreeView("treeview${tviewid}");
 	    var tree = tree${tviewid};
         var nodes = nodes${tviewid};
-        #set($sortedtreelist = $sorttool.sort($treelist, ["parent", "value"]))
-        #foreach($item in $sortedtreelist)
+        #if($sort == "value")
+          #set($treelist = $sorttool.sort($treelist, ["parent", "value"]))
+        #end
+        #foreach($item in $treelist)
         #set($checked = $selectlist.contains($item.getId()))
         #if ($item.value.length() > 80)
          #set($title_item = $item.value.substring(0, 80))

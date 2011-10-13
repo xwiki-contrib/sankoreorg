@@ -306,6 +306,7 @@ public class DBTreeListClass extends DBListClass
         vcontext.put("treelist", getTreeList(treemap, map, context));
         vcontext.put("treemap", treemap);
         vcontext.put("mode", mode);
+        vcontext.put("sort", getSort());
         return context.getWiki().parseTemplate("treeview.vm", context);
     }
 
