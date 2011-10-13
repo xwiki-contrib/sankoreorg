@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CurrikiCode</web>
+<name>BrowseMacros</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>CurrikiCode.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1318511249000</creationDate>
+<date>1318511249000</date>
+<contentUpdateDate>1318511249000</contentUpdateDate>
+<version>1.1</version>
+<title>BrowseMacros</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>{{velocity output="false"}}
+#set($subjects = $xwiki.searchDocuments(", BaseObject AS obj WHERE doc.space='FW_masterFramework' AND doc.parent='' AND doc.fullName=obj.name AND obj.className='XWiki.FrameworkItemClass' ORDER BY doc.title"))
+##
+##
+#set($discard = $xwiki.ssx.use("${doc.space}.${doc.name}"))
+#set($lucene = $xwiki.getPlugin("lucene"))
+#if(!$lucene)
+  #error("Error loading Lucene search")
+#end
+##
+## start lucene rebuild if requested
+#set($doRebuild = $request.getParameter("rebuild"))
+#if($doRebuild=="yes")
+  #set($documentCount = $lucene.rebuildIndex($xwiki,$context))
+  #if($documentCount&gt;=0)
+    $msg.get("browseSearch.rebuilding", [$documentCount])
+  #end
+#end
+## end lucene rebuild
+##
+##
+## Get search and area from request
+#set($squery = $!request.brsqry)
+#set($sarea = $!request.area)
+##
+#set($inarea = $!request.area)
+#if ($inarea &amp;&amp; $inarea != "")
+  #set($inarea = $xwiki.getDocument($inarea).title)
+  #set($inarea = ": $inarea")
+#end
+##
+##
+## Set up a few things for the page and searching
+#set($thispage = $xwiki.getURL($doc.fullName))
+#set($searchpage = $xwiki.getURL("Search.WebHome"))
+##
+#set($wikinames = "xwiki")
+#set($defaultLanguage = $xwiki.getPreference("default_language", "en"))
+#set($languages = $xwiki.getXWikiPreference("languages", "$defaultLanguage"))
+#set($languages = "default, $languages")
+#set($itemsPerPage = "20")  ## NOTE: This must be hardcoded below for pagecount
+#set($firstIndex = $request.getParameter("firstIndex"))
+#if(!$firstIndex)
+  #set($firstIndex = "1")
+#end
+#set($firstIndex = ($xwiki.parseInt($firstIndex)))
+#set($uncat = $msg.get("Uncategorized"))
+#set($uncatqry = "")
+#set($nonasset = "Curriki Site Pages")
+#set($members = "Curriki Members")
+#set($allres = "All_Resources")
+##
+##
+##
+## Start of macros
+#macro(dosearch $sq $subjectPBV)
+  #set($sa = "${subjectPBV}")
+  #set($sitewebs = "(web:(Main OR Blog OR News OR Members OR Board OR Advisory OR Honorary OR Demo OR FeaturedContent))")
+  ##
+  #set($search = "")
+  ##
+  #if(!$sa || $sa == "" || $sa == $allres)
+    #set($sa = "(CurrikiCode.AssetClass.fw_items:FW_masterFramework.WebHome)")
+  #end
+  #if($sa == $nonasset)
+    #set($sa = "$sitewebs")
+  #end
+  #if($sa == $uncat)
+    #set($sa = "CurrikiCode.AssetClass.fw_items:FW_masterFramework.WebHome")
+    #set($uncatqry = "")
+    #set($ucqry = "where doc.web='FW_masterFramework' and doc.parent='FW_masterFramework.WebHome' order by doc.title")
+    #set($topics = $xwiki.searchDocuments($ucqry))
+    #foreach($topic in $topics)##{
+      #set($uncatqry = "${uncatqry} -CurrikiCode.AssetClass.fw_items:${topic}")
+    #end
+    #set($sa = "$sa $uncatqry")
+  #end
+  #if($sa == $members)
+    #set($sa = "(XWiki.XWikiUsers.active:1)")
+  #end
+  #if($sa == "ALL")
+    #set($sa = "")
+  #end
+  #if($sa.startsWith("FW_masterFramework"))
+    #set($sa = "CurrikiCode.AssetClass.fw_items:$sa")
+  #end
+  #if($sq)
+    #set($search = $sq)
+  #end
+  #if($search &amp;&amp; $search != "")
+    #set($search = "($search) AND ")
+  #end
+  #set($search = "$search $sa")
+  #if($request.debug)
+    Searching: $search
+  #end
+  #set($luceneQuery = "$search AND NOT name:WebHome AND NOT name:WebPreferences AND NOT name:MyCollections AND NOT name:SpaceIndex AND NOT web:AssetTemp AND NOT CurrikiCode.AssetClass.hidden_from_search:1")
+  #if ($!request.getParameter("debug"))
+    Query: $luceneQuery
+  #end    
+  #set($searchresults = $lucene.getSearchResults($luceneQuery, $languages))
+#end
+## end macro dosearch
+##
+#macro(subjectlinkurl $subject $specificArg)
+  #if($subject &amp;&amp; $subject != "" &amp;&amp; $specificArg == "")
+    #set($subjectArg = $subject)
+    #if($subject == $uncat)
+      #set($subjectArg = 'UNCATEGORIZED')
+    #end
+${searchpage}#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A${subjectArg}%25255Esubject%25253Ds%2525253A${subjectArg}%25255Ereview%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Especial%25253Ds%2525253A%25255Eictprfx%25253Ds%2525253A%25255Eict%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-resource-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1
+  #else
+    #if($specificArg != "")
+      ${searchpage}#${specificArg}
+    #end
+  #end
+#end
+## end macro subjectlinkurl
+##
+##
+##
+#macro(subjectlink $subject $specificQuery $specificArg)
+&lt;div class="subject-link"&gt;
+  &lt;a href="#subjectlinkurl($subject $specificArg)" target="_top"&gt;
+    &lt;span class="subject-title"&gt;
+    ##if($specificQuery == "" &amp;&amp; $subject != $uncat &amp;&amp; $subject != $nonasset &amp;&amp; $subject != $members &amp;&amp; $subject != $allres)
+    ##  ${msg.get($xwiki.getDocument($subject).getTranslatedDocument().getDisplayTitle())}
+    ##  #set($uncatqry = "$uncatqry -$xwiki.getDocument($subject).fullName")
+    ##else
+      $msg.get("browse.subject.title.$subject")
+    ##end
+    #if($subject == $uncat)
+      #set($uncatqry = "CurrikiCode.AssetClass.fw_items:(FW_masterFramework.WebHome $uncatqry)")
+    #end
+    #if($subject != $members &amp;&amp; $subject != $nonasset)
+      #if($specificQuery != "")
+        #dosearch($specificQuery "")
+      #else
+        #dosearch($squery $subject)
+      #end
+      &lt;/span&gt;
+      &lt;span class="subject-title-count"&gt;($searchresults.totalHitcount)&lt;/span&gt;
+    #end
+    &lt;/a&gt;
+  &lt;/div&gt;
+#end
+## end macro subjectlink
+#macro(subjectcard $subject $specificQuery $specificArg $imgUrl $text)
+  #set( $subjdoc = $xwiki.getDocument($subject) )
+  #set($promo = "")
+  #if($specifc != "")
+    #set($promo = "subject-card-promo")
+  #end
+  &lt;div class="subject-card $promo"&gt;
+  #subjectlink($subject $specificQuery $specificArg)
+  #if($imgUrl != "-")
+    &lt;div class="subject-image"&gt;
+      &lt;a href="#subjectlinkurl($subject $specificArg)" target="_top"&gt;
+    #if($specificQuery == "" &amp;&amp; $subject != $uncat &amp;&amp; $subject != $nonasset &amp;&amp; $subject != $members &amp;&amp; $subject != $allres)
+      #set($altText=${msg.get($subjdoc.getTranslatedDocument().getDisplayTitle())})
+    #else
+      #set($altText=$msg.get("browse.subject.title.$subject"))
+    #end
+    #if($imgUrl == "")
+      #if($subjdoc.getAttachmentList().contains('icon.png'))
+      &lt;img src="${subjdoc.getAttachmentURL('icon.png')}" alt="${altText}" title="${altText}" /&gt;
+      #end
+    #else
+      &lt;img src="$imgUrl" alt="${altText}" title="${altText}" /&gt;
+    #end
+    &lt;/a&gt;
+  &lt;/div&gt;
+  #end
+  &lt;div class="subject-desc"&gt;
+  #set ( $subjdesc = $subjdoc.getContent() )
+  #if($text == "")
+    #if(${subjdesc} != "-")
+      ${subjdesc}
+    #end
+  #else
+    #if($text != "-")
+      $text
+    #end
+  #end
+  &lt;/div&gt;
+  &lt;/div&gt;
+#end
+## end macro subjectcard
+##
+##
+##
+#macro(transsubjectcard $translationKey $specificQuery $specificArg)
+  #subjectcard($translationKey $specificQuery $specificArg "" "")
+#end
+## end macro transsubjectcard
+##
+##
+##
+#macro(simplesubjectcard $subject)
+  #subjectcard($subject "" "" "" "")
+#end
+## end macro simplesubjectcard
+##
+## end macros
+{{/velocity}}</content></xwikidoc>
