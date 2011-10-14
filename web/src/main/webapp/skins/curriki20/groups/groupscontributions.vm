@@ -185,7 +185,7 @@ $msg.get("groups.curriculum.contributions.about")
 #set($g_rowCount = $g_rowCount + 1)
 <tr class="table-row#if(($g_rowCount % 2) == 0) table-odds#end">
 <td class="table-col-title">#groups_contributions_assettitlewithmodesc($asset)</td>
-<td class="table-col-ict">#mycurriki_ict($asset)</td>
+<td class="table-col-ict">#mycurriki_ict($asset false)</td>
 <td class="table-col-updated">#mycurriki_lastupdate($asset)</td>
 #if($allcols)
 <td class="table-col-access">#mycurriki_access($asset)</td>

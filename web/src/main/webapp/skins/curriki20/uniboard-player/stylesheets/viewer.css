@@ -1,0 +1,26 @@
+
+rect.over{
+  fill:none;
+  stroke:red;
+  stroke-width:3;
+}
+
+rect.out{
+  fill:none;
+}
+
+image.app{
+  cursor:pointer;
+}
+
+foreignObject.app{
+  display:none;
+}
+
+rect.body{
+  fill:#efefef;
+}
+
+rect.ghost{
+  fill:none;
+}
