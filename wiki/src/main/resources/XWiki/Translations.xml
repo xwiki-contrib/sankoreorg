@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317910313000</creationDate>
-<date>1317910313000</date>
-<contentUpdateDate>1317910313000</contentUpdateDate>
+<creationDate>1318588711000</creationDate>
+<date>1318588711000</date>
+<contentUpdateDate>1318588711000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -34,7 +34,7 @@ mode.print.header_subtitle=Sankore platform
 panel.navigation.home=HOME
 panel.navigation.home.rollover=planete.Sankoré - The Global Education &amp; Learning Community
 
-panel.navigation.find=FIND
+panel.navigation.find=Find
 panel.navigation.find.rollover=Collect lesson plans and curricula
 panel.navigation.find.about=About Finding &amp; Collecting
 panel.navigation.browse_by_subject=Browse Resources by Subject
@@ -59,7 +59,7 @@ panel.navigation.featured_assets.rollover=Query display validated Sankoré
 panel.navigation.free_software=Free software
 panel.navigation.sfree_software.rollover=Query display free software
 
-panel.navigation.ressources=Ressources
+panel.navigation.ressources=Resources
 
 panel.navigation.network=Network
 panel.navigation.createnewgroup=Create new group
@@ -148,61 +148,63 @@ panel.featuredmembers.title=Featured Member
 
 footer.home=Home
 footer.home.link=/
-footer.news=Actualités
+footer.news=News
 footer.news.link=http://sankore.org/article/all
-footer.news.events=Les événements Sankoré
+footer.news.events=Sankoré events
 footer.news.events.link=http://sankore.org/article/les-evenements-sankore
-footer.news.talks=Ils parlent de Sankoré
+footer.news.talks=They speak of Sankoré
 footer.news.talks.link=http://sankore.org/article/ils-parlent-de-sankore
-footer.news.freesoftware=Actus du libre
+footer.news.freesoftware=News of free software
 footer.news.freesoftware.link=http://sankore.org/article/actus-du-libre
-footer.news.country=Actus pays
+footer.news.country=National news
 footer.news.country.link=http://sankore.org/article/actus-pays
-footer.news.education=Actus pédagogiques
+footer.news.education=News in education
 footer.news.education.link=http://sankore.org/article/actus-pedagogiques
-footer.news.video=Actus en vidéos
+footer.news.video=Video news
 footer.news.video.link=http://sankore.org/node/2070
-footer.program=Le programme
+footer.program=The program
 footer.program.link=http://sankore.org/node/2127
-footer.program.charter=La charte Sankoré
+footer.program.charter=The charter of Sankoré
 footer.program.charter.link=http://sankore.org/node/2127
-footer.program.comments=Comment est né le programme Sankoré?
+footer.program.comments=Comments about Sankoré?
 footer.program.comments.link=http://sankore.org/node/2053
-footer.program.help=Ce qu’est le programme Sankoré
+footer.program.help=What is Sankoré?
 footer.program.help.link=http://sankore.org/node/2047
-footer.program.digital=Les palmes du numérique
+footer.program.digital=Digital awards
 footer.program.digital.link=http://sankore.org/node/2064
-footer.resources=Les ressources
+footer.resources=Resources
 footer.resources.link=http://sankore.org/logiciel/all
-footer.resources.repository=La logithèque
+footer.resources.repository=Repository
 footer.resources.repository.link=http://sankore.org/logiciel/all
-footer.resources.freesites=Les ressources et les sites libres
+footer.resources.freesites=Resources and public sites
 footer.resources.freesites.link=http://sankore.org/ressource/all
-footer.resources.tutorials=Les tutoriels
+footer.resources.tutorials=Tutorials
 footer.resources.tutorials.link=http://sankore.org/node/2069
-footer.teaching=Enseigner avec le numérique
+footer.teaching=Digital education
 footer.teaching.link=http://sankore.org/node/2133
-footer.teaching.digitalclass=La classe numérique
+footer.teaching.digitalclass=Digital classroom
 footer.teaching.digitalclass.link=http://sankore.org/node/2133
-footer.teaching.digitaladvantages=Les avantages du numérique
+footer.teaching.digitaladvantages=Advantages of digital education
 footer.teaching.digitaladvantages.link=http://sankore.org/node/2134
-footer.teaching.research=Le labo de recherche
+footer.teaching.research=The research lab
 footer.teaching.research.link=http://sankore.org/node/2051
-footer.youtube=La chaîne Youtube
+footer.youtube=Youtube channel
 footer.youtube.link=http://www.youtube.com/user/getuniboard
-footer.twitter=Suivez-nous sur twitter
+footer.twitter=Follow us on twitter
 footer.twitter.link=https://twitter.com/#!/sankore2015
-footer.facebook=Devenez fan sur facebook
+footer.facebook=Become a fan on facebook
 footer.facebook.link=https://www.facebook.com/profile.php?id=100001366923928
-footer.feed=Abonnez-vous aux news
+footer.feed=Subscribe to news
 footer.feed.link=https://www.facebook.com/profile.php?id=100001366923928
-footer.contact=Contactez-nous
+footer.contact=Contact us
 footer.contact.link=http://sankore.org/contact
-footer.sitemap=Charte Sankoré
+footer.sitemap=Sankoré sitemap
 footer.sitemap.link=http://sankore.org/node/2127
-footer.privacy=Politique de confidentialité
-footer.privacy.link=/
-footer.license=Contenu du site sous licence Creative Commons (CC BY-SA 3.0) 
+footer.legal=Legal Notice
+footer.legal.link=/xwiki/bin/view/Main/Conditions+generales+d+utilisation
+footer.privacy=Privacy policy
+footer.privacy.link=/xwiki/bin/view/Main/Politique+de+confidentialite
+footer.license=Site content licensed under Creative Commons
 footer.license.link=http://creativecommons.org/licenses/by-sa/3.0/
 
 footer.link.creativecommons=All content licensed &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/RightsHolderLicensing"&gt;Creative Commons&lt;/a&gt;
