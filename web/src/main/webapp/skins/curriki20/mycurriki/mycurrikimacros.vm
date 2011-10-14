@@ -46,7 +46,7 @@ $text
   * @author dward@curriki.org
   *#
 #macro(mycurriki_tabs $curtab $whofor) ## {
-  #set($tabs = ["profile","favorites","contributions","collections","blog","groups"])
+  #set($tabs = ["profile","favorites","contributions","collections"])
   <ul id="mycurriki-tabs" class="tabs">
   #foreach($tab in $tabs) ## {
     #if("$!whofor" == "" || $whofor == $context.user) ## {
@@ -1144,7 +1144,7 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
   <tr class="table-row#if(($g_rowCount % 2) == 0) table-odds#end">
     <td class="table-col-title">#mycurriki_assettitlewithmodesc($asset)</td>
     <td class="table-col-contributor">#mycurriki_contributor($asset)</td>
-    <td class="table-col-ict">#mycurriki_ict($asset)</td>
+    <td class="table-col-ict">#mycurriki_ict($asset false)</td>
     <td class="table-col-filetype">#mycurriki_filetype($asset)</td>
     #if($allcols) ## {
       <td class="table-col-action">
