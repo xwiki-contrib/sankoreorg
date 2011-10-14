@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1318509618000</creationDate>
-<date>1318509618000</date>
-<contentUpdateDate>1318509618000</contentUpdateDate>
+<creationDate>1318610858000</creationDate>
+<date>1318610858000</date>
+<contentUpdateDate>1318610858000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -121,13 +121,16 @@
   &lt;div class="browse-page"&gt;
   &lt;h3&gt;$msg.get("browse.title")&lt;/h3&gt;
   &lt;p class="browse-text"&gt;$msg.get("browse.info")&lt;/p&gt;
+  #set($keysMap = $util.hashMap)
   #set($valuesMap = $util.hashMap)
   #foreach($key in $subjects)
-    #set($discard = $valuesMap.put($msg.get("CurrikiCode.AssetClass_fw_items_${key}"), $key))
+    #set($value = $msg.get("CurrikiCode.AssetClass_fw_items_${key}"))
+    #set($discard = $keysMap.put($key, $value))
+    #set($discard = $valuesMap.put($value, $key))
   #end
-  #set($sortedsubjects = $sorttool.sort($valuesMap))
+  #set($sortedsubjects = $sorttool.sort($keysMap))
   #foreach($subject in $sortedsubjects)
-    #simplesubjectcard($subject)
+    #simplesubjectcard($valuesMap.get($subject))
   #end
   &lt;/div&gt;
 #sankore_panelfooter()
