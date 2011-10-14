@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316694000000</creationDate>
-<date>1316694000000</date>
-<contentUpdateDate>1316694000000</contentUpdateDate>
+<creationDate>1318594369000</creationDate>
+<date>1318594369000</date>
+<contentUpdateDate>1318594369000</contentUpdateDate>
 <version>1.1</version>
 <title>SearchCriteria</title>
 <template></template>
@@ -327,65 +327,94 @@ table#search-criteria ul li {
       &lt;td&gt;
         &lt;span class="criterion-title"&gt;$msg.get('SearchCriteria.grade_range_age_range'):&lt;/span&gt;
         #set($query = ", BaseObject obj where obj.name=doc.fullName and doc.space='AssetMetadata' and doc.parent='' and obj.className='CurrikiCode.EducationalLevelClass' order by doc.fullName")
-        #set($crits = $xwiki.searchDocuments($query))
-        &lt;ul&gt;
-          &lt;li&gt;&lt;input type="radio" name="criteria_grade_age_range" value="" checked="checked"/&gt;
-           $msg.get('UNSPECIFIED')&lt;/li&gt;
-           #foreach($crit in $crits)
-          &lt;li&gt;
-            #set($critVal = $msg.get("CurrikiCode.AssetClass_educational_level_${crit}"))
-            &lt;input type="radio" name="criteria_grade_age_range" value="$crit"/&gt;
-            $critVal
+        #set($keys = $xwiki.searchDocuments($query))
+        #set($keysMap = $util.hashMap)
+        #set($valuesMap = $util.hashMap)
+        #foreach($key in $keys)
+          #set($value = $msg.get("CurrikiCode.AssetClass_educational_level_${key}"))
+          #set($discard = $valuesMap.put($value, $key))
+          #set($discard = $keysMap.put($key, $value))
+        #end
+        #set($keys = $sorttool.sort($valuesMap))
+        &lt;ul
+           #foreach($key in $keys)
+          &lt;li&gt;            
+            &lt;input type="radio" name="criteria_grade_age_range" value="$key"/&gt;
+            $keysMap.get($key)
           &lt;/li&gt;
           #end
+          &lt;li&gt;&lt;input type="radio" name="criteria_grade_age_range" value="" checked="checked"/&gt;
+           $msg.get('UNSPECIFIED')&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/td&gt;
       &lt;td&gt;
         &lt;span class="criterion-title"&gt;$msg.get('SearchCriteria.subject'):&lt;/span&gt;
         #set($query = ", BaseObject obj where obj.name=doc.fullName and doc.space='FW_masterFramework' and doc.parent='' and obj.className='XWiki.FrameworkItemClass' order by doc.fullName")
-        #set($crits = $xwiki.searchDocuments($query))
-        &lt;ul&gt;
-          &lt;li&gt;&lt;input type="radio" name="criteria_subject" value="" checked="checked"/&gt;
-          $msg.get('UNSPECIFIED')&lt;/li&gt;
-          #foreach($crit in $crits)
+        #set($keys = $xwiki.searchDocuments($query))
+        #set($keysMap = $util.hashMap)
+        #set($valuesMap = $util.hashMap)
+        #foreach($key in $keys)
+          #set($value = $msg.get("CurrikiCode.AssetClass_fw_items_${key}"))
+          #set($discard = $valuesMap.put($value, $key))
+          #set($discard = $keysMap.put($key, $value))
+        #end
+        #set($keys = $sorttool.sort($valuesMap))
+        &lt;ul&gt;          
+          #foreach($key in $keys)
           &lt;li&gt;
-            #set($critVal = $msg.get("CurrikiCode.AssetClass_fw_items_${crit}"))
-            &lt;input type="radio" name="criteria_subject" value="$crit"/&gt;
-            $critVal
+            &lt;input type="radio" name="criteria_subject" value="$key"/&gt;
+            $keysMap.get($key)
           &lt;/li&gt;
           #end
+          &lt;li&gt;&lt;input type="radio" name="criteria_subject" value="" checked="checked"/&gt;
+          $msg.get('UNSPECIFIED')&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/td&gt;
       &lt;td&gt;&lt;/td&gt;
       &lt;td&gt;
         &lt;span class="criterion-title"&gt;$msg.get('SearchCriteria.type_of_resource'):&lt;/span&gt;
         #set($assetClass = $xwiki.getClass('CurrikiCode.AssetClass'))
-        #set($categPropVals = $assetClass.get('category').getListValues())
-        &lt;ul&gt;
-          &lt;li&gt;&lt;input type="radio" name="criteria_resource_type" value="" checked="checked"/&gt;
-          $msg.get('UNSPECIFIED')&lt;/li&gt;
-          #foreach($cpv in $categPropVals)
+        #set($keys = $assetClass.get('category').getListValues())
+        #set($keysMap = $util.hashMap)
+        #set($valuesMap = $util.hashMap)
+        #foreach($key in $keys)
+          #set($value = $msg.get("CurrikiCode.AssetClass_category_${key}"))
+          #set($discard = $valuesMap.put($value, $key))
+          #set($discard = $keysMap.put($key, $value))
+        #end
+        #set($keys = $sorttool.sort($valuesMap))
+        &lt;ul&gt;          
+          #foreach($key in $keys)
           &lt;li&gt;
-            &lt;input type="radio" name="criteria_resource_type" value="$cpv"/&gt;
-            $msg.get("CurrikiCode.AssetClass_category_$cpv")
+            &lt;input type="radio" name="criteria_subject" value="$key"/&gt;
+            $keysMap.get($key)
           &lt;/li&gt;
           #end
+          &lt;li&gt;&lt;input type="radio" name="criteria_resource_type" value="" checked="checked"/&gt;
+          $msg.get('UNSPECIFIED')&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/td&gt;
       &lt;td&gt;
         &lt;span class="criterion-title"&gt;$msg.get('SearchCriteria.type_of_usage'):&lt;/span&gt;
         #set($query = ", BaseObject obj where obj.name=doc.fullName and doc.space='AssetMetadata' and doc.parent='' and obj.className='CurrikiCode.InstructionalComponentClass' order by doc.fullName")
-        #set($crits = $xwiki.searchDocuments($query))
-        &lt;ul&gt;
-          &lt;li&gt;&lt;input type="radio" name="criteria_usage_type" value="" checked="checked"/&gt;
-          $msg.get('UNSPECIFIED')&lt;/li&gt;
-          #foreach($crit in $crits)
+        #set($keys = $xwiki.searchDocuments($query))
+        #set($keysMap = $util.hashMap)
+        #set($valuesMap = $util.hashMap)
+        #foreach($key in $keys)
+          #set($value = $msg.get("CurrikiCode.AssetClass_instructional_component_${key}"))
+          #set($discard = $valuesMap.put($value, $key))
+          #set($discard = $keysMap.put($key, $value))
+        #end
+        #set($keys = $sorttool.sort($valuesMap))
+        &lt;ul&gt;          
+          #foreach($key in $keys)
           &lt;li&gt;
-            #set($critVal = $msg.get("CurrikiCode.AssetClass_instructional_component_${crit}"))
-            &lt;input type="radio" name="criteria_usage_type" value="$crit"/&gt;
-            $critVal
+            &lt;input type="radio" name="criteria_subject" value="$key"/&gt;
+            $keysMap.get($key)
           &lt;/li&gt;
           #end
+          &lt;li&gt;&lt;input type="radio" name="criteria_usage_type" value="" checked="checked"/&gt;
+          $msg.get('UNSPECIFIED')&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
