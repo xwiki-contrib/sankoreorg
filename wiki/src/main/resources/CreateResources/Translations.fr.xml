@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316102692000</creationDate>
-<date>1316102692000</date>
-<contentUpdateDate>1316102692000</contentUpdateDate>
+<creationDate>1318500631000</creationDate>
+<date>1318500631000</date>
+<contentUpdateDate>1318500631000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -77,22 +77,19 @@
 
 
 ## FORM ACCESS WARNING
-createresources.needaccount=You must be a Planète Sankoré member and be &lt;a href="{0}"&gt;logged in&lt;/a&gt; to create a new resource.
-
-
-
+createresources.needaccount=Vous devez être membre de planete.Sankoré et être &lt;a href="{0}"&gt;indentifié&lt;/a&gt; pour créer une nouvelle ressource.
 ## GLOBAL ELEMENTS USED IN MORE THAN ONE FORM
 
 ## STEP 3 (used in most forms)
 form.scratch.step3.header=Étape 3. Confirmer les Droits &amp; l'Accès à l'Information
-form.scratch.step3.instruction=À qui appartient ce contenu, qui doit pouvoir le lire ou le modifier, et comment peut-il être utilisé par d'autres utilisateurs?
+form.scratch.step3.instruction=À qui appartient ce contenu, qui doit pouvoir le lire ou le modifier et comment peut-il être utilisé par d'autres utilisateurs?
 
 ## STEP 4 (used in SWR, SHR, CSLP, and NLLP forms; partial use in ACELP)
 form.scratch.step4.header=Étape 4. Revoir &amp; Soumettre
-form.scratch.step4.instruction=Relisez vos entrées une dernière fois avant de cliquer Submit. &lt;br /&gt; &lt;br /&gt;Si votre contenu n'est &lt;i&gt;pas prêt&lt;/i&gt; pour pouvoir être vu ou consulté par d'autres, n'oubliez pas de mettre les Privilèges d'Accès ci-dessus à "Privé".
+form.scratch.step4.instruction=Relisez vos entrées une dernière fois avant de cliquer sur le bouton "soumettre". &lt;br /&gt; &lt;br /&gt;Si votre contenu n'est &lt;i&gt;pas totalement prêt&lt;/i&gt; pour être diffusé, n'oubliez pas de mettre les Privilèges d'accès ci-dessus à "Privé".
 
-form.scratch.submit.button=Submit
-form.scratch.cancel.button=Cancel
+form.scratch.submit.button=Soumettre
+form.scratch.cancel.button=Annuler
 
 ## GENERIC REQUIRED FIELDS WARNING USED IN SRI DIALOGS AND FORMS
 form.required.fields.instruction=Les champs avec &lt;em class="required-indicator"&gt;!&lt;/em&gt; sont nécessaires.
@@ -102,7 +99,7 @@ form.required.fields.indicator=!
 ## LEAVING FORM DIALOG
 form.leaving.dialog=Si vous quittez cette page, vous perdrez votre travail.
 form.leaving.dialog.ok.button=OK
-form.leaving.dialog.cancel.button=Cancel
+form.leaving.dialog.cancel.button=Annuler
 
 ## DONE CREATING A RESOURCE FORM 
 form.done.url=/xwiki/bin/view/CreateResources/AssetDone
@@ -117,16 +114,16 @@ form.done.wysiwyg.error.wikitext=1 Error: SLP Wysiwyg Badness!
 form.scratch.url=/xwiki/bin/view/CreateResources/SimpleWikiResource
 form.scratch.title=Créer une Ressource depuis "Zéro" (Simple Document Wiki)
 form.scratch.title.description=Pas sûr de ce que c'est ou de ce que ça pourrait être ? En savoir plus:
-form.title.description.link1=Échantillons
+form.title.description.link1=Examples
 form.title.description.link1.url=/xwiki/bin/view/Coll_curriki/SampleWikiResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
 form.title.description.link3=Aide
 form.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
-form.title.description.link2=Système de Revue Planète Sankoré
+form.title.description.link2=Système de Revue planete.Sankoré
 form.title.description.link2.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 form.title.description.link2.thumbnail=/xwiki/skins/curriki8/icons/CRS.png
 
 ## SWR STEP 1
-form.scratch.step1.header=Étape 1. Saisir les Informations de Base
+form.scratch.step1.header=Étape 1. Saisir les informations de base
 form.scratch.step1.instruction=Quels détails décriraient et présenteraient le mieux cette ressource dans les résultats d'une recherche &lt;br&gt;et dans d'autres listings?
 
 form.scratch.title_title=Titre:
@@ -135,13 +132,13 @@ form.scratch.title_tooltip=Le titre de la ressource apparaît dans les résultat
 
 form.scratch.description_title=Description:
 form.scratch.description_txt=Saisissez une description détaillée du contenu et/ou de la raison d'être de cette ressource. 
-form.scratch.description_tooltip=Si cette resource fait partie d'un contexte éducatif plus large, vous pourriez souhaiter decrire cette relation.
+form.scratch.description_tooltip=Si cette ressource fait partie d'un contexte éducatif plus large, vous pourriez souhaiter décrire cette relation.
 
 ##SWR STEP 2
 form.scratch.step2.header=Étape 2. Saisir &amp; Mettre en page le Contenu
 form.scratch.step2.instruction=Quel contenu devrait apparaître dans votre ressource?
 form.scratch.step2.content.title=Contenu:
-form.scratch.step2.content.instruction=Enter content in the editing window below. Format and develop your material with the buttons on the &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;editing toolbar&lt;/a&gt;.
+form.scratch.step2.content.instruction=Entrez le contenu dans la fenêtre d'édition ci-dessous. Formatez et développez votre contenu en utilisant &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;la barre d'outils&lt;/a&gt;.
 
 ############################
 ## SIMPLE HTML RESOURCE (SHR) FORM
@@ -149,33 +146,32 @@ form.scratch.step2.content.instruction=Enter content in the editing window below
 ## SHR FORM TITLE AREA
 
 form.html.scratch.url=/xwiki/bin/view/CreateResources/SimpleHTMLResource
-form.html.scratch.title=Créer une Ressource sans modèle (document simple en HTML)
-form.html.scratch.title.description=Not sure what this is or can be? Learn more:
+form.html.scratch.title=Créer une ressource sans modèle (document simple en HTML)
+form.html.scratch.title.description=Pas sûr de ce que c'est ou de ce que ça pourrait être ? En savoir plus:
 form.html.title.description.link1=Exemples
 form.html.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/SampleHTMLResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
-form.html.title.description.link3=Help
+form.html.title.description.link3=Aide
 form.html.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheHTMLResourcefromScratchForm?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository;Coll_curriki.CreatingResourceswithFormsTemplates
-form.html.title.description.link2=Planète Sankoré Review System
+form.html.title.description.link2=Système de revue planete.Sankoré
 form.html.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 form.html.title.description.link2.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
 ## SHR STEP 1
-form.html.scratch.step1.header=Step 1. Enter Basic Information
-form.html.scratch.step1.instruction=What details will best describe and present this resource in search results &lt;br&gt;and other listings?
+form.html.scratch.step1.header=Étape 1. Saisir les informations de base
+form.html.scratch.step1.instruction=Quels détails décriraient et présenteraient le mieux cette ressource dans les résultats d'une recherche &lt;br&gt;et dans d'autres listings?
+form.html.scratch.title_title=Titre:
+form.html.scratch.title_txt=Saisissez un titre pour votre ressource n'ayant pas une taille supérieure a 250 caractères (espaces inclus).
+form.html.scratch.title_tooltip=Le titre de la ressource apparaît dans les résultats de recherche et autres listings, et il aide les autres utilisateurs à identifier son utilité ou ses applications.
 
-form.html.scratch.title_title=Title:
-form.html.scratch.title_txt=Enter a title of no more than 250 characters (including spaces) for your resource.
-form.html.scratch.title_tooltip=This title will be displayed in listings (such as search results) and should help you and others quickly identify this resource.
-
-form.html.scratch.description_title=Description :
-form.html.scratch.description_txt=Enter a detailed description of the content and/or purpose of this resource. 
-form.html.scratch.description_tooltip=This description appears when people find your resource in listings. If this resource is part of a larger instructional context, you may wish to describe this relationship.
+form.html.scratch.description_title=Description:
+form.html.scratch.description_txt=Saisissez une description détaillée du contenu et/ou de la raison d'être de cette ressource. 
+form.html.scratch.description_tooltip=Si cette ressource fait partie d'un contexte éducatif plus large, vous pourriez souhaiter décrire cette relation.
 
 ## SHR STEP 2
-form.html.scratch.step2.header=Step 2. Enter &amp; Format Content
-form.html.scratch.step2.instruction=What content should appear in your resource?
-form.html.scratch.step2.content.title=Contenu :
-form.html.scratch.step2.content.instruction=Enter content in the editing window below.
+form.html.scratch.step2.header=Étape 2. Saisir &amp; Mettre en page le contenu
+form.html.scratch.step2.instruction=Quel contenu devrait apparaître dans votre ressource?
+form.html.scratch.step2.content.title=Contenu:
+form.html.scratch.step2.content.instruction=Entrez le contenu dans la fenêtre d'édition ci-dessous à l'aide de la barre d'outils.
 
 
 
@@ -184,19 +180,19 @@ form.html.scratch.step2.content.instruction=Enter content in the editing window 
 ## CSLP TITLE AREA
 
 lesson.plan.url=/xwiki/bin/view/CreateResources/CurrikiStandardLessonPlan
-lesson.plan.title=Créer une Ressource d'après un Template (Plan de Leçon Planète Sankoré Standard)
+lesson.plan.title=Créer une Ressource d'après un Template (Plan de Leçon planete.Sankoré Standard)
 lesson.plan.title.description=En apprendre plus:
 
-lesson.plan.title.description.link1=Modèles
+lesson.plan.title.description.link1=Examples
 lesson.plan.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/ModelLessonsfromCurrikisForm-BasedTemplate
 lesson.plan.title.description.link3=Aide
 lesson.plan.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
-lesson.plan.title.description.link2=Système de Revue Planète Sankoré
+lesson.plan.title.description.link2=Système de revue planete.Sankoré
 lesson.plan.title.description.link2.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 lesson.plan.title.description.link2.thumbnail=/xwiki/skins/curriki8/icons/CRS.png
 
 ## CSLP STEP 1
-lesson.plan.step1.header=Étape 1. Saisissez l'Information de Base 
+lesson.plan.step1.header=Étape 1. Saisissez l'information de base 
 lesson.plan.step1.instruction=Comment décririez et catégoriseriez-vous cette ressource pour vous-même &lt;br&gt;et pour d'autres éducateurs?
 
 lesson.plan.title_title=Titre:
@@ -209,7 +205,7 @@ lesson.plan.description_txt=Décrivez les concepts et aptitudes d'ensemble abord
 lesson.plan.description_tooltip=Si cette leçon fait partie d'un context instructionnel plus large, vous pourriez désirer décrire cette relation.
 
 ##CSLP STEP 2
-lesson.plan.step2.header=Étape 2. Saisie &amp; Mise en page du Contenu de la Leçon
+lesson.plan.step2.header=Étape 2. Saisie &amp; Mise en page du contenu de la leçon
 lesson.plan.step2.instruction=Qu'est-ce qu'un autre éducateur aurait besoin de connaître pour mettre cette leçon en pratique &lt;br&gt;avec succès?
 
 lesson.plan.introduction.title=Introduction:
@@ -226,8 +222,8 @@ lesson.plan.group.size.content4=Partenaires
 lesson.plan.group.size.content5=Apprenant indépendants
 lesson.plan.group.size.tooltip=Quelle est la composition idéale d'étudiants pour cette leçon?
 
-lesson.plan.learning.objectives.title=Objectifs d'Apprentissage:
-lesson.plan.learning.objectives.instruction=Enter the lesson&amp;#39;s learning objectives in the editing window below. Format and develop your material with the buttons on the &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;editing toolbar&lt;/a&gt;.
+lesson.plan.learning.objectives.title=Objectifs d'apprentissage:
+lesson.plan.learning.objectives.instruction=Entrez l'objectif d'apprentissage dans la fenêtre d'édition ci-dessous. Formatez et développez votre contenu en utilisant &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;la barre d'outils&lt;/a&gt;.
 lesson.plan.learning.objectives.content=
 lesson.plan.learning.objectives.tooltip=Qu'est-ce que les étudiants devraient savoir et être capables de faire après avoir complété cette leçon?
 
@@ -242,7 +238,7 @@ lesson.plan.materials.content=
 lesson.plan.materials.tooltip=Quelles fournitures, livres, équipement spécial, logiciel, ou autre matériel sont nécessaires pour cette leçon?
 
 lesson.plan.procedures.title=Procédures:
-lesson.plan.procedures.instruction=Enter the lesson procedures in the editing window below. Format your material or attach files using the &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;editing toolbar&lt;/a&gt;.
+lesson.plan.procedures.instruction=Entrez la procédure à suivre dans la fenêtre d'édition ci-dessous. Formatez et développez votre contenu en utilisant &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;la barre d'outils&lt;/a&gt;.
 lesson.plan.procedures.content=
 lesson.plan.procedures.tooltip=Quelles instructions pouvez-vous fournir pour assurer que vous et d'autres mènerez à bien les instructions prévues avec succès pendant cette leçon?
 
@@ -252,7 +248,7 @@ lesson.plan.assessment.content=
 lesson.plan.assessment.tooltip=Comment pouvez-vous évaluer les nouvelles connaissances et aptitudes des étudiants?
 
 lesson.plan.answer.key.title=Réponse clé ou Rubrique:
-lesson.plan.answer.key.instruction=List answers in the space below, or develop a rubric by creating a table with the &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;editing toolbar&lt;/a&gt;.
+lesson.plan.answer.key.instruction=Listez les réponses dans l'espace ci-dessous ou développez une rubrique en utilisant &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;la barre d'outils&lt;/a&gt;.
 lesson.plan.answer.key.content=
 lesson.plan.answer.key.tooltip=Quels critères peut-on utiliser pour clarifier ce qu'on attend des étudiants ou quantifier l'évaluation?
 
@@ -262,20 +258,20 @@ lesson.plan.standards.content=
 lesson.plan.standards.tooltip=Quels standards ou attentes aborde la leçon, et dans quel cadre? 
 
 lesson.plan.required.attachments.title=Attachements Obligatoires:
-lesson.plan.required.attachments.instruction=Selectionnez et uploadez les fichiers depuis votre ordinatuer. Les fichiers attachés ne peuvent pas faire plus de 20 MB au total. Ils seront accessibles par des liens dans le plan de leçon tel que publié.
-lesson.plan.required.attachments.file.attached=Les fichiers que vous attachez à cette ressource n'apparaissent pas comme des contributions indépendantes sur Planète Sankoré; ils sont uniquement présentés comme des hyperliens dans cette ressource, et ils sont couverts par la licence de cette ressource.&lt;br /&gt;&lt;br /&gt;Après avoir soumis ce formulaire, considérez l'idée d'ajouter des matériels programmatiques supplémentaires à Planète Sankoré en tant que ressources indépendantes, de manière à ce que ces contributions puissent être découvertes et réutilisées plus facilement.
+lesson.plan.required.attachments.instruction=Selectionnez et uploadez les fichiers depuis votre ordinateur. Les fichiers attachés ne peuvent pas faire plus de 20 MO au total. Ils seront accessibles par des liens dans le plan de leçon tel que publié.
+lesson.plan.required.attachments.file.attached=Les fichiers que vous attachez à cette ressource n'apparaissent pas comme des contributions indépendantes sur planete.Sankoré; ils sont uniquement présentés comme des hyperliens dans cette ressource, et ils sont couverts par la licence de cette ressource.&lt;br /&gt;&lt;br /&gt;Après avoir soumis ce formulaire, considérez l'idée d'ajouter des matériels programmatiques supplémentaires à planete.Sankoré en tant que ressources indépendantes, de manière à ce que ces contributions puissent être découvertes et réutilisées plus facilement.
 lesson.plan.attachments.title=Fichiers Attachés:
 lesson.plan.required.attachments.tooltip=Attacher des fichiers référencés dans la leçon, tels que polycops, rubriques, papiers, ou QCM.
-lesson.plan.attachments.browse.button=Browser
-lesson.plan.attachments.attach.button=Attacher Ce Fichier
-lesson.plan.attachments.delete=Remove
+lesson.plan.attachments.browse.button=Sélectionner
+lesson.plan.attachments.attach.button=Attacher ce fichier
+lesson.plan.attachments.delete=Effacer
 lesson.plan.file.size.maximum=20000000
-lesson.plan.file.size.label=Taille Totale de tous les attachements:
-lesson.plan.file.size.oversize=Les Attachements à cette ressource ne peuvent pas excéder 20 MB au total. Pour sauvegarder cette ressource, vous devez utiliser le lien "remove" dans les "Attachements Obligatoires" pour réduire la taille totale des attachements. Uploadez des fichiers additionnels en tant que ressource indépendante plutôt que de les attacher à cette ressource.
-lesson.plan.file.size.dialog=Les Attachements à cette ressource ne peuvent pas excéder 20 MB au total. Voud désirez peut-être uploader ce fichier en tant que contribution Planète Sankoré indépendante, au lieu de l'attacher à cette ressource.
+lesson.plan.file.size.label=Taille totale de toutes les pièces jointes:
+lesson.plan.file.size.oversize=Les pièces jointes de cette ressource ne peuvent pas excéder 20 MO au total. Pour sauvegarder cette ressource, vous devez utiliser le lien "Effacer" sur des "fichiers joints obligatoires" pour réduire la taille totale des pièces jointes. Uploadez des fichiers additionnels en tant que ressource indépendante plutôt que de les attacher à cette ressource.
+lesson.plan.file.size.dialog=Les pièces jointes à cette ressource ne peuvent pas excéder 20 MO au total. Voud désirez peut-être uploader ce fichier en tant que contribution planete.Sankoré indépendante, au lieu de l'attacher à cette ressource.
 lesson.plan.file.size.dialog.button=OK
 
-
+##HERE I AM ABOUT TRADUCTION (JEAN)
 ##NORTEL LEARNIT (NLLP) LESSON PLAN FORM
 
 ##NLLP TITLE AREA
@@ -298,12 +294,12 @@ nortel.form.title.description.link4.url=http://www.curriki.org/xwiki/bin/view/Co
 ##NLLP STEP 1
 nortel.lesson.plan.title_title=Titre:
 nortel.lesson.plan.title_txt=Entrez un titre pour votre ressource. Ne pas utiliser plus de 250 caractères (espaces compris).
-nortel.lesson.plan.title_tooltip=Ce titre sera affiché dans les listes (comme les résultats de recherche) et devrait vous aider à identifier rapidement et d'autres ressources. S'il vous plaît respecter un espacement approprié, la capitalisation, et la ponctuation pour assurer un affichage correct record pour les utilisateurs.
+nortel.lesson.plan.title_tooltip=Ce titre sera affiché dans les listes (comme les résultats de recherche) et devrait vous aider à identifier rapidement et d'autres ressources. S'il vous plaît, respectez un espacement approprié, la capitalisation, et la ponctuation pour assurer un affichage correct pour les utilisateurs.
 
 nortel.lesson.plan.description_title=Description:
 nortel.lesson.plan.description_txt=Fournir une description de haut niveau de l'objet de cette leçon, les concepts et les compétences dont il traite, et / ou des activités d'apprentissage de la leçon, les méthodes et procédures.
 
-nortel.lesson.plan.description_tooltip=Cette description apparaît quand les gens rouler sur le titre de la ressource. Il est également consultable texte qui peut aider les utilisateurs à le localiser. Si cette leçon fait partie d'un contexte plus large d'enseignement, vous pouvez décrire la relation (s).
+nortel.lesson.plan.description_tooltip=Cette description apparaît quand les gens survol le titre de la ressource. Elle est également consultable pour aider les utilisateurs à mieux comprendre cette ressource. Si cette leçon fait partie d'un contexte plus large d'enseignement, vous pouvez décrire cette relation(s).
 
 ##NLLP STEP 2
 
@@ -340,37 +336,37 @@ nortel.lesson.plan.materials.instruction=
 nortel.lesson.plan.materials.content=
 nortel.lesson.plan.materials.tooltip=Entrez les fournitures, documents, matériels, logiciels, livres, des ressources, la connectivité nécessaire.
 
-nortel.lesson.plan.project.title=Project:
+nortel.lesson.plan.project.title=Projet:
 nortel.lesson.plan.project.instruction=
 nortel.lesson.plan.project.content=
-nortel.lesson.plan.project.tooltip=Describe student project(s) in some detail, including how they will pursue and present information.
+nortel.lesson.plan.project.tooltip=Décrivez le projet d'un étudiant en détaillant comment il va présenter les informations durant sa présentation.
 
 nortel.lesson.plan.timemanagement.title=Conseils de gestion du temps:
 nortel.lesson.plan.timemanagement.instruction=
 nortel.lesson.plan.timemanagement.content=
-nortel.lesson.plan.timemanagement.tooltip=Fournir des conseils sur la façon de rythme de la leçon.
+nortel.lesson.plan.timemanagement.tooltip=Fournir des conseils sur la façon de rythmer la leçon.
 
-nortel.lesson.plan.assess.title=Évaluation:
+nortel.lesson.plan.assess.title=Évaluation :
 nortel.lesson.plan.assess.instruction=
 nortel.lesson.plan.assess.content=
-nortel.lesson.plan.assess.tooltip=Indiquez brièvement les techniques d'évaluation en cours pour la compréhension des élèves clés. Note: Évaluer l'utilisation de la rubrique détaillée(s).
+nortel.lesson.plan.assess.tooltip=Indiquez brièvement les techniques d'évaluation de cours pour la aider à la compréhension des élèves clés. 
 
-nortel.lesson.plan.engage.title=Engagez:
-nortel.lesson.plan.engage.instruction=Entrez votre matériel et le format en utilisant la barre d'outils WYSIWYG. Obtenir de &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/NortelLearniTUsingtheWhatYouSeeIsWhatYouGetWYSIWYGEditingToolbar?bc=;Coll_NortelLearniT.NortelLearniT6ESForm" target="_blank"&gt;l'aide la barre d'outils&lt;/a&gt;. Voir une vidéo sur &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/21eTeacherIntroductionEngage" target="_blank"&gt;Engagez&lt;/a&gt;. 
+nortel.lesson.plan.engage.title=Impliquer :
+nortel.lesson.plan.engage.instruction=Entrez votre matériel et le format en utilisant la barre d'outils WYSIWYG. Obtenir de &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/NortelLearniTUsingtheWhatYouSeeIsWhatYouGetWYSIWYGEditingToolbar?bc=;Coll_NortelLearniT.NortelLearniT6ESForm" target="_blank"&gt;l'aide pour la barre d'outils&lt;/a&gt;. Voir une vidéo sur &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/21eTeacherIntroductionEngage" target="_blank"&gt;Impliquer&lt;/a&gt;. 
 nortel.lesson.plan.engage.content=
-nortel.lesson.plan.engage.tooltip=Indiquez les activités spécifiques à capter l'intérêt des élèves et j'encourage questions conduisant à l'exploration sujet.
+nortel.lesson.plan.engage.tooltip=Indiquez les activités spécifiques pour capter l'attention des élèves et encourager la participation.
 
-nortel.lesson.plan.explore.title=Explorez:
-nortel.lesson.plan.explore.instruction=Entrez votre matériel et le format en utilisant la barre d'outils WYSIWYG. Obtenir de &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/NortelLearniTUsingtheWhatYouSeeIsWhatYouGetWYSIWYGEditingToolbar?bc=;Coll_NortelLearniT.NortelLearniT6ESForm" target="_blank"&gt;l'aide la barre d'outils&lt;/a&gt;. Voir une vidéo sur &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/21eTeacherExplore" target="_blank"&gt;Explorez&lt;/a&gt;. 
+nortel.lesson.plan.explore.title=Explorez :
+nortel.lesson.plan.explore.instruction=Entrez votre matériel nécessaire en utilisant la barre d'outils WYSIWYG. Obtenir de &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/NortelLearniTUsingtheWhatYouSeeIsWhatYouGetWYSIWYGEditingToolbar?bc=;Coll_NortelLearniT.NortelLearniT6ESForm" target="_blank"&gt;l'aide la barre d'outils&lt;/a&gt;. Voir une vidéo sur &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/21eTeacherExplore" target="_blank"&gt;Explorez&lt;/a&gt;. 
 nortel.lesson.plan.explore.content=
 nortel.lesson.plan.explore.tooltip=Indiquez les activités et services connexes pour les étudiants à effectuer / recours pour enquêter sur le sujet.
 
-nortel.lesson.plan.explain.title=Expliquez:
+nortel.lesson.plan.explain.title=Expliquez :
 nortel.lesson.plan.explain.instruction=Entrez votre matériel et le format en utilisant la barre d'outils WYSIWYG. Obtenir de &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/NortelLearniTUsingtheWhatYouSeeIsWhatYouGetWYSIWYGEditingToolbar?bc=;Coll_NortelLearniT.NortelLearniT6ESForm" target="_blank"&gt;l'aide la barre d'outils&lt;/a&gt;. Voir une vidéo sur &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/21eTeacherExplain" target="_blank"&gt;Expliquer&lt;/a&gt;. 
 nortel.lesson.plan.explain.content=
-nortel.lesson.plan.explain.tooltip=Indiquer les présentations ou les sorties et les formats les élèves réaliser et d'utiliser pour démontrer de nouvelles connaissances, la compréhension, les capacités.
+nortel.lesson.plan.explain.tooltip= Indiquer les présentations ou les sorties et les formats les élèves réaliser et d'utiliser pour démontrer de nouvelles connaissances, la compréhension, les capacités.
 
-nortel.lesson.plan.elaborate.title=Elaborer:
+nortel.lesson.plan.elaborate.title=Elaborez :
 nortel.lesson.plan.elaborate.instruction=Entrez votre matériel et le format en utilisant la barre d'outils WYSIWYG. Obtenir de &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/NortelLearniTUsingtheWhatYouSeeIsWhatYouGetWYSIWYGEditingToolbar?bc=;Coll_NortelLearniT.NortelLearniT6ESForm" target="_blank"&gt;l'aide la barre d'outils&lt;/a&gt;. Voir une vidéo sur &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/21eTeacherElaborate" target="_blank"&gt;Élaborée&lt;/a&gt;. 
 nortel.lesson.plan.elaborate.content=
 nortel.lesson.plan.elaborate.tooltip=Fournir des instructions sur le projet spécifique de l'étudiant crée de l'activité plan de leçon.
@@ -393,7 +389,7 @@ nortel.lesson.plan.standards.tooltip=Indiquer les normes / cadres les adresses l
 nortel.lesson.plan.required.attachments.title=Pièces requises:
 nortel.lesson.plan.required.attachments.instruction=Sélectionner et télécharger des fichiers depuis votre ordinateur. Les fichiers attachés ne peut pas dépasser 20 Mo au total. Ils seront proposés sous forme de liens dans le plan de leçon publié.
 nortel.lesson.plan.required.attachments.tooltip=Joindre tous les fichiers référencés dans cette leçon, comme une aumône, rubrique, feuille de calcul, ou un quiz.
-nortel.lesson.plan.required.attachments.file.attached=Fichiers que vous joignez à cette ressource n'apparaissent pas comme des contributions indépendantes sur Planète Sankoré, ils ne sont présentés que sous forme d'hyperliens dans cette ressource, et ils sont couverts par la licence pour cette ressource &lt;br /&gt; &lt;br /&gt; Après avoir soumis ce formulaire. s'il vous plaît envisager d'ajouter le matériel scolaire pour que les ressources Planète Sankoré autonome, de sorte que ces contributions peuvent être découverts et réutilisés plus facilement.
+nortel.lesson.plan.required.attachments.file.attached=Fichiers que vous joignez à cette ressource n'apparaissent pas comme des contributions indépendantes sur planete.Sankoré, ils ne sont présentés que sous forme d'hyperliens dans cette ressource, et ils sont couverts par la licence pour cette ressource &lt;br /&gt; &lt;br /&gt; Après avoir soumis ce formulaire. s'il vous plaît envisager d'ajouter le matériel scolaire pour que les ressources planete.Sankoré autonome, de sorte que ces contributions peuvent être découverts et réutilisés plus facilement.
 nortel.lesson.plan.required.attachments.browse.button=Parcourir
 nortel.lesson.plan.required.attachments.attach.button=Joignez ce fichier
 nortel.lesson.plan.required.attachments.delete=Supprimer
@@ -520,7 +516,7 @@ ace.lesson.plan.procedures.addrow=Add a Row
 ace.lesson.plan.required.attachments.title=Required Attachments:
 ace.lesson.plan.required.attachments.instruction=Select and upload files from your computer. Attached files cannot exceed 20 MB in total. These will be offered as links in the published lesson plan.
 
-ace.lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Planète Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Planète Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
+ace.lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on planete.Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to planete.Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
 ace.lesson.plan.attachments.title=Fichiés attachés :
 ace.lesson.plan.required.attachments.tooltip=Attach any files referenced in the lesson, such as a handout, rubric, worksheet, or quiz.
 ace.lesson.plan.attachments.browse.button=Parcourir
@@ -529,8 +525,8 @@ ace.lesson.plan.attachments.delete=Supprimer
 
 ace.lesson.plan.file.size.maximum=20000000
 ace.lesson.plan.file.size.label=Total size of all attachments:
-ace.lesson.plan.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Planète Sankoré contribution instead of attaching it to this resource.
-ace.lesson.plan.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Planète Sankoré contribution instead of attaching it to this resource.
+ace.lesson.plan.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone planete.Sankoré contribution instead of attaching it to this resource.
+ace.lesson.plan.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone planete.Sankoré contribution instead of attaching it to this resource.
 ace.lesson.plan.file.size.dialog.button=OK
 
 ## ACELP STEP 4
@@ -569,7 +565,7 @@ wq.title.description.link2=Help
 wq.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheWebquestForm
 wq.title.description.link3=WebQuest Background
 wq.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/WebQuestBackgroundInstructionalDesign
-wq.title.description.link4=Planète Sankoré Review System
+wq.title.description.link4=planete.Sankoré Review System
 wq.title.description.link4.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 wq.title.description.link4.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
@@ -646,7 +642,7 @@ wq.standards.tooltip=If you wish to attach a formatted document citing specific 
 wq.required.attachments.title=Required Attachments:
 wq.required.attachments.instruction=Select and upload files from your computer. Attached files cannot exceed 20 MB in total. These will be offered as links in the published lesson plan.
 
-wq.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Planète Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Planète Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
+wq.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on planete.Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to planete.Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
 wq.attachments.title=Attached Files:
 wq.required.attachments.tooltip=Attach any files referenced in the lesson, such as a handout, rubric, worksheet, or quiz.
 wq.attachments.browse.button=Browse
@@ -655,8 +651,8 @@ wq.attachments.delete=Remove
 
 wq.file.size.maximum=20000000
 wq.file.size.label=Total size of all attachments:
-wq.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Planète Sankoré contribution instead of attaching it to this resource.
-wq.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Planète Sankoré contribution instead of attaching it to this resource.
+wq.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone planete.Sankoré contribution instead of attaching it to this resource.
+wq.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone planete.Sankoré contribution instead of attaching it to this resource.
 ace.lesson.plan.file.size.dialog.button=OK
 
 
@@ -790,13 +786,13 @@ sri.instructional_component2_tooltip=Type ou format de contenu qui correspond le
 sri.keywords_title=Mots Clé:
 sri.keywords_txt=
 sri.keywords_content=
-sri.keywords_tooltip=Mots pour aider les gens à trouver votre ressource lorsqu'ils cherchent dans Planète Sankoré ou dans l'Internet
+sri.keywords_tooltip=Mots pour aider les gens à trouver votre ressource lorsqu'ils cherchent dans planete.Sankoré ou dans l'Internet
 
 ## LANGUAGE
-sri.language_title=Language:
+sri.language_title=Langue:
 sri.language_txt=
 sri.language_content=
-sri.language_tooltip=Le langage de cette ressource
+sri.language_tooltip=La langue de cette ressource
 ##Language choices are located below.
 
 ## HIDE FROM SEARCH
@@ -812,17 +808,17 @@ sri.right_holder_content=
 sri.right_holder_tooltip=Noms des personnes propriétaires du Copyright pour cette ressource
 
 ## ACCESS PRIVELEGES
-sri.rights_title=Privilèges d'Accès:
+sri.rights_title=Privilèges d'accès:
 sri.rights_txt=Choisissez &lt;strong&gt;Privé&lt;/strong&gt; pour conserver votre matériel dans l'état "draft" jusqu'au moment où il sera prêt à être publié&lt;br /&gt;dans le repository pour un usage général.
 sri.rights_tooltip=Ce paramètre détermine qui a les droits pour visualiser ou pour éditer les ressources.
 sri.rights_content=
 
 ## LICENSE DEED
 
-sri.license_type_title=Charte de Licence:
+sri.license_type_title=Chartes de licence:
 
-sri.license_type_txt=Please be sure you have read and understand the &lt;a href="/xwiki/bin/view/Main/TOS?xpage=popup" target="TOS"&gt;Terms of Use&lt;/a&gt; and that you have the rights to contribute this content.&lt;br /&gt;&lt;br /&gt;The Planète Sankoré-compatible license provides maximum flexibility to the community, so members can use and modify others&amp;#39; contributions.  The default Planète Sankoré license is a widely used Creative Commons license Attribution &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;.  If you wish to assign another license, please select from the drop-down list below.  To learn about all the Creative Commons licenses, please &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;click here&lt;/a&gt;.
-sri.license_type_heading=Ensemble de Chartes de Licence:
+sri.license_type_txt=Êtes-vous sûr d'avoir lu et compris les &lt;a href="/xwiki/bin/view/Main/TOS?xpage=popup" target="TOS"&gt;conditions générales d'utilisation&lt;/a&gt; et que vous avez le droit de partager le contenu que vous vous appretez à soumettre.&lt;br /&gt;&lt;br /&gt;La licence planete.Sankoré-compatible vous offre un maximum de flexibilité envers la communauté, les membres pourront exploiter vos ressources.  Cette licence "planete.Sankoré" reprend majoritairement la licence "Creative Commons" &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;. Si vous voulez utiliser une autre licence, veuillez la choisir dans la liste déroulante suivante. Pour plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;C'est ici&lt;/a&gt;.
+sri.license_type_heading=Ensemble de chartes de licence:
 
 sri.license_type_tooltip=Licence qui protège ce contenu
 
@@ -854,7 +850,7 @@ sri.license_type_content=
 ## ADD PATH SELECTION DIALOGS
 
 ##Set Required Information, Part 1
-add.setrequiredinfo.part1.title=Mise en place de l'Information Requise, Partie 1
+add.setrequiredinfo.part1.title=Mise en place de l'information requise, Partie 1
 add.setrequiredinfo.part1.guidingquestion=Quels détails décriront cette ressource le mieux dans les résultats de recherche et autres listings?
 sri.description.empty_msg=
 sri.keywords.empty_msg=
@@ -863,15 +859,15 @@ add.setrequiredinfo.part1.next.button=Suivant &gt;&gt;
 
 
 ##Set Required Information, Part 2
-add.setrequiredinfo.part2.title=Mise en place de l'Information Requise, Partie 2
+add.setrequiredinfo.part2.title=Mise en place de l'information requise, Partie 2
 add.setrequiredinfo.part2.guidingquestion=Relisez et mettez à jour les six champs ci-dessous selon les besoins.
 add.setrequiredinfo.part2.cancel.button=Annuler
 add.setrequiredinfo.part2.next.button=Suivant &gt;&gt;
 
 
 ##CONTRIBUTE MENU
-add.contributemenu.title_addto_site=Ajouter à Planète Sankoré
-add.contributemenu.title_addto_composite=Ajouter à la Collection ou au Dossier
+add.contributemenu.title_addto_site=Ajouter à planete.Sankoré
+add.contributemenu.title_addto_composite=Ajouter à la collection ou au dossier
 add.contributemenu.guidingquestion_addto_site=Que voulez-vous ajouter?
 
 ##Note the dynamic portion of the guiding question below where {0} is the title of the folder or collection to which the member is adding the resource:
@@ -884,8 +880,8 @@ add.contributemenu.option.file_browse_button=Browser
 add.contributemenu.option.video_upload=Une video que je veux uploader
 add.contributemenu.option.link=Un lien pour une excellente ressource web
 add.contributemenu.link.empty_msg=http://
-add.contributemenu.option.repository=Une ressource que je peux trouver en cherchant dans Planète Sankoré
-add.contributemenu.subtitle_make=Quelque chose que je veux faire dans Planète Sankoré :
+add.contributemenu.option.repository=Une ressource que je peux trouver en cherchant dans planete.Sankoré
+add.contributemenu.subtitle_make=Quelque chose que je veux faire dans planete.Sankoré :
 add.contributemenu.option.template=Un plan de leçon que je vais créer au moyen d'un template
 add.contributemenu.option.scratch=Une ressource que je vais créer depuis "zero"
 add.contributemenu.option.video_capture=Une video que je vais capturer avec ma webcam
@@ -901,11 +897,11 @@ add.contributemenu.next.button=Suivant &gt;&gt;
 
 ## SELECT A TEMPLATE DIALOG
 
-add.selecttemplate.title=Choisissez un Template
+add.selecttemplate.title=Choisissez un template
 add.selecttemplate.guidingquestion=Quel genre de plan de leçon voulez-vous créer?
 
-add.selecttemplate.list1.header=&lt;b&gt;Plan de Leçon Standard Planète Sankoré&lt;/&gt;
-add.selecttemplate.list1.description=Le template Planète Sankoré standard offre la structure de leçon la plus simple, avec des Objectifs d'Apprentissage et des Procédures pour seul contenu obligatoire.
+add.selecttemplate.list1.header=&lt;b&gt;Plan de leçon standard planete.Sankoré&lt;/&gt;
+add.selecttemplate.list1.description=Le template planete.Sankoré standard offre la structure de leçon la plus simple, avec des objectifs d'apprentissage et des procédures pour seul contenu obligatoire.
 add.selecttemplate.list1.thumbnail=/xwiki/bin/download/CreateResources/TemplateThumbnails/CurrikiStandardLessonPlanThumb.png
 add.selecttemplate.list1.url=/xwiki/bin/view/CreateResources/CurrikiStandardLessonPlan
 
@@ -921,7 +917,7 @@ add.selecttemplate.list3.url=/xwiki/bin/view/CreateResources/ACELessonPlan
 
 
 add.selecttemplate.list4.header=&lt;b&gt;WebQuest&lt;/b&gt;
-add.selecttemplate.list4.description=This Planète Sankoré template offers the structure for creating a student-directed learning activity that requires students to engage with online resources; includes an evaluation rubric.
+add.selecttemplate.list4.description=This planete.Sankoré template offers the structure for creating a student-directed learning activity that requires students to engage with online resources; includes an evaluation rubric.
 add.selecttemplate.list4.thumbnail=/xwiki/bin/download/CreateResources/TemplateThumbnails/WebQuestThumb.png
 add.selecttemplate.list4.url=/xwiki/bin/view/CreateResources/WebQuest
 
@@ -964,19 +960,19 @@ add.chooselocation.next.button=Next &gt;&gt;
 
 ##DIALOG TITLES
 
-add.finalmessage.title_successful=Ajouté avec Succès
-add.finalmessage.title_resource=Ressource Ajoutée
-add.finalmessage.title_folder=Dossier Ajouté
-add.finalmessage.title_collection=Collection Ajoutée
+add.finalmessage.title_successful=Ajouté avec succès
+add.finalmessage.title_resource=Ressource ajoutée
+add.finalmessage.title_folder=Dossier ajouté
+add.finalmessage.title_collection=Collection ajoutée
 add.finalmessage.title_copied=Ressource copiée
 
 ##OPERATION SUCCESSFUL MESSAGES
 
-add.finalmessage.text_resource_success=Vous avez contribué une ressource avec succès. Cette ressource se trouve maintenant dans My Contributions.
+add.finalmessage.text_resource_success=Vous avez ajouté une ressource avec succès. Cette ressource se trouve maintenant dans 'Mes contributions'.
 
-add.finalmessage.text_resource_simple_success=Vous avez contribué une ressource avec succès.
+add.finalmessage.text_resource_simple_success=Vous avez ajouté une ressource avec succès.
 
-add.finalmessage.text_collection_success=Vous avez contribué une nouvelle collection avec succès.
+add.finalmessage.text_collection_success=Vous avez ajouté une nouvelle collection avec succès.
 
 ##Note the dynamic content in the link below where {0} is the file resource from which the copy was made and {1} is the new file resource:
 
@@ -990,13 +986,13 @@ add.finalmessage.text_addto_success=Vous avez ajouté &lt;strong&gt;{0}&lt;/stro
 
 add.finalmessage.text_addto_folder_success=Vous avez ajouté &lt;strong&gt;{0}&lt;/strong&gt; dans &lt;strong&gt;{1}&lt;/strong&gt; avec succès. Maintenant, vous pouvez ajouter et classer les ressources de ce dossier.
 
-add.finalmessage.text_favorites_success=Vous avez ajouté ceci à vos Favoris.
+add.finalmessage.text_favorites_success=Vous avez ajouté ceci à vos favoris.
 
 ## ADD COLLECTIONS
 
 add.finalmessage.text_collection_success=Vous avez contribué une nouvelle collection avec succès.
 
-add.finalmessage.text_collection_tip1=Cliquez "Build Up" sur le listing de My Collections pour ajouter des ressources à la collection.
+add.finalmessage.text_collection_tip1=Cliquez "Build Up" sur le listing de "Mes Collections" pour ajouter des ressources à la collection.
 
 add.finalmessage.text_collection_tip2=
 
@@ -1012,9 +1008,9 @@ add.finalmessage.text_groupcollection_tip2=
 ##FINAL MESSAGE NAVIGATION OPTIONS
 
 add.finalmessage.add.link=Ajouter
-add.finalmessage.favorites.link=Consulter vos Favoris
-add.finalmessage.contributions.link=Consulter vos Contributions
-add.finalmessage.collections.link=Consulter vos Collections
+add.finalmessage.favorites.link=Consulter vos favoris
+add.finalmessage.contributions.link=Consulter vos contributions
+add.finalmessage.collections.link=Consulter vos collections
 
 add.finalmessage.view.link=Visualiser
 
@@ -1022,7 +1018,7 @@ add.finalmessage.view.link=Visualiser
 
 
 add.finalmessage.viewtarget.link=Visualiser {0}
-add.finalmessage.continue.link=Continue &gt;&gt;
+add.finalmessage.continue.link=Suivant &gt;&gt;
 add.finalmessage.openbuilder.link=
 add.finalmessage.close.button=Fermer
 
