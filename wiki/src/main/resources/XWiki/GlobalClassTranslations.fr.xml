@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1318591438000</creationDate>
-<date>1318591438000</date>
-<contentUpdateDate>1318591438000</contentUpdateDate>
+<creationDate>1318855453000</creationDate>
+<date>1318855453000</date>
+<contentUpdateDate>1318855453000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -42,6 +42,8 @@ CurrikiCode.AssetClass_category_unknown=Autres
 CurrikiCode.AssetClass_category_text=Text
 CurrikiCode.AssetClass_category_video=Vidéo
 CurrikiCode.AssetClass_category_collection=Collection
+CurrikiCode.AssetClass_category_UNSPECIFIED=Type de média: Tous
+
 collection.collection=Collection
 collection.folder=Dossier
 
@@ -227,6 +229,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Psychology=Psychologie
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Educational_Sciences=Sciences de l'éducation
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sociology=Sociologie
 CurrikiCode.AssetClass_fw_items_FW_masterFramework._Other=Autres thèmes
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.UNSPECIFIED=Sujet: Tous
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Arts_and_Culture.UNSPECIFIED=Arts et Cultures: Tous
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Digital_Education.UNSPECIFIED=Education numérique (TUIC): Tous
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Foreign_Languages.UNSPECIFIED=Langues du monde (étrangères): Tous
@@ -347,6 +350,7 @@ CurrikiCode.AssetClass_rights_private=Privé: seul les membres de votre groupe e
 
 
 ## LANGUAGE
+CurrikiCode.AssetClass_language_UNSPECIFIED=Langue: Tous
 CurrikiCode.AssetClass_language_en=Anglais
 CurrikiCode.AssetClass_language_fr=Français
 
