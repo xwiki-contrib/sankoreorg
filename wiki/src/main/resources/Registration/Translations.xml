@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316073263000</creationDate>
-<date>1316073263000</date>
-<contentUpdateDate>1316073263000</contentUpdateDate>
+<creationDate>1318854819000</creationDate>
+<date>1318854819000</date>
+<contentUpdateDate>1318854819000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -103,9 +103,9 @@ joincurriki.enterValidEmail=Please enter a valid email address. Directions on ho
 joincurriki.enterEmailConfirm=Confirm you email address.
 joincurriki.ifApplicable=(if applicable)
 joincurriki.showContact=This allows other Planète Sankoré members to view your personal information.
-joincurriki.fileds.age=Age
+joincurriki.fields.age=Age
 joincurriki.iAm13YearsOld=I am at least 13 years old.
-joincurriki.privacyAndTOS=Privacy and Terms of Use Policies
+joincurriki.fields.i_agree=Privacy and Terms of Use Policies
 joincurriki.privacyAndTOS.read.part1=I have read, understand, and agree to Planète Sankoré's
 joincurriki.privacyAndTOS.read.privacypolicy=Privacy Policy
 joincurriki.privacyAndTOS.read.part2=and the
@@ -280,5 +280,4 @@ partnerrigestration.parnter.notexist=The Affiliate Partner does not exist in our
 login.signin=Login
 login.forgotusername=Forgot username?
 login.forgotpassword=Forgot password?
-login.signup=Create a new account
-</content></xwikidoc>
+login.signup=Create a new account</content></xwikidoc>
