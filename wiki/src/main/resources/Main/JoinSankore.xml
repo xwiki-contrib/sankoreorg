@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1318854835000</creationDate>
-<date>1318854835000</date>
-<contentUpdateDate>1318854835000</contentUpdateDate>
+<creationDate>1318943851000</creationDate>
+<date>1318943851000</date>
+<contentUpdateDate>1318943851000</contentUpdateDate>
 <version>1.1</version>
 <title>$msg.get("joincurriki.registerToJoinCurriki")</title>
 <template></template>
@@ -733,10 +733,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</content></
   #elseif($fieldname == "email2") 
     &lt;input id="XWiki.XWikiUsers_0_email2" type="text" name="XWiki.XWikiUsers_0_email2" size="30" /&gt;
   #elseif($fieldname == "i_agree")
-    &lt;input type="checkbox" name="XWiki.XWikiUsers_0_i_agree" id="XWiki.XWikiUsers_0_i_agree" /&gt; $msg.get("joincurriki.privacyAndTOS.read.part1") #showpopup($ppurl "$msg.get('joincurriki.privacyAndTOS.read.privacypolicy')")
+    $userdoc.display($fieldname, "edit") $msg.get("joincurriki.privacyAndTOS.read.part1") #showpopup($ppurl "$msg.get('joincurriki.privacyAndTOS.read.privacypolicy')")
       $msg.get("joincurriki.privacyAndTOS.read.part2") #showpopup($TOS "$msg.get('joincurriki.privacyAndTOS.read.tos')").
+    &lt;input type="hidden" name="XWiki.XWikiUsers__0_i_agree" value="0" /&gt;
   #elseif($fieldname == "opt_out")
-    &lt;input type="checkbox" name="XWiki.XWikiUsers_0_opt_out" id="XWiki.XWikiUsers_0_opt_out" /&gt; $msg.get("joincurriki.chooseOptOut")
+    $userdoc.display($fieldname, "edit") $msg.get("joincurriki.chooseOptOut")
   #else
     $userdoc.display($fieldname, "edit") ## $userdoc.displayTooltip($fieldname)
   #end ## if is xwikiname else
@@ -943,7 +944,6 @@ $msg.get("joincurriki.enterRequestedInfo")
 
 &lt;form id="register" name="register" action="" method="post"  onsubmit="return validateRegisterForm();"&gt;
   &lt;input type="hidden" name="xredirect" value="$xwiki.getFormEncoded($!request.xredirect)" /&gt;
-
   #formfield("xwikiname" $msg.get("joincurriki.chooseYourCommunityName") true)
   #formfield("first_name" $msg.get("joincurriki.first_name.text") true)
   #formfield("last_name" $msg.get("joincurriki.last_name.text") true)

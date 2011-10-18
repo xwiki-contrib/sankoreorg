@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315211328000</creationDate>
-<date>1315211328000</date>
-<contentUpdateDate>1315211328000</contentUpdateDate>
+<creationDate>1318944333000</creationDate>
+<date>1318944333000</date>
+<contentUpdateDate>1318944333000</contentUpdateDate>
 <version>1.1</version>
 <title>XWiki User Class</title>
 <template></template>
@@ -190,7 +190,7 @@
 <separator> </separator>
 <separators> ,|</separators>
 <size>1</size>
-<sort>none</sort>
+<sort>id</sort>
 <tooltip>Enter your country of residence.</tooltip>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
@@ -278,28 +278,18 @@
 <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
 </first_name>
 <i_agree>
-<cache>0</cache>
-<customDisplay>&lt;input type="checkbox" name="XWiki.XWikiUsers_0_i_agree" value="1" /&gt; I agree
-
-I have read, understand and agree to Curriki's Privacy Policy, the Educational Process Agreement and the License Explanation.
-</customDisplay><disabled>0</disabled>
-<displayType>checkbox</displayType>
-<multiSelect>0</multiSelect>
+<customDisplay></customDisplay>
+<defaultValue>0</defaultValue>
+<disabled>0</disabled>
+<displayFormType>checkbox</displayFormType>
+<displayType></displayType>
 <name>i_agree</name>
-<number>11</number>
-<picker>0</picker>
-<prettyName>I agree</prettyName>
-<relationalStorage>0</relationalStorage>
-<separator> </separator>
-<separators> ,|</separators>
-<size>1</size>
-<sort>none</sort>
-<tooltip></tooltip>
+<number>34</number>
+<prettyName>i_agree</prettyName>
 <unmodifiable>0</unmodifiable>
-<validationMessage>You need to agree to the privacy policy, the process agreement and the License explanation</validationMessage>
-<validationRegExp>/1/</validationRegExp>
-<values>1</values>
-<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
 </i_agree>
 <imaccount>
 <customDisplay></customDisplay>
@@ -541,7 +531,7 @@ I have read, understand and agree to Curriki's Privacy Policy, the Educational P
 <separator> </separator>
 <separators>|</separators>
 <size>10</size>
-<sort>none</sort>
+<sort>value</sort>
 <sql>select doc.fullName, doc.title, doc.parent from XWikiDocument as doc, BaseObject as obj where doc.web='FW_masterFramework' and doc.fullName=obj.name and obj.className='XWiki.FrameworkItemClass' order by doc.title</sql>
 <tooltip></tooltip>
 <unmodifiable>0</unmodifiable>
