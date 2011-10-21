@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1318855453000</creationDate>
-<date>1318855453000</date>
-<contentUpdateDate>1318855453000</contentUpdateDate>
+<creationDate>1319187188000</creationDate>
+<date>1319187188000</date>
+<contentUpdateDate>1319187188000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -37,7 +37,7 @@ CurrikiCode.AssetClass_category_archive=Archive
 CurrikiCode.AssetClass_category_audio=Audio
 CurrikiCode.AssetClass_category_image=Image
 CurrikiCode.AssetClass_category_interactive=Interactif
-CurrikiCode.AssetClass_category_external=Lien vers une page Web
+CurrikiCode.AssetClass_category_external=Lien Web
 CurrikiCode.AssetClass_category_unknown=Autres
 CurrikiCode.AssetClass_category_text=Text
 CurrikiCode.AssetClass_category_video=Vidéo
@@ -148,10 +148,10 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Media_Education=Education aux
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Media_Ethics=Ethique des médias
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Source_Assessment=Evaluation des sources
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Research_Methods_and_Documentation=Méthodes de recherche / documentation
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Digital_Education=Education numérique (TUIC)
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Digital_Education=Education numérique
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Security=Sécurité
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Preparation=Préparation B2I
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Technology_Education=Enseignement technologique
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Technology_Education=Education technologique
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Agriculture_and_Aquaculture=Agriculture pêche aquaculture
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Automatism=Automatisme
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Buildings_and_Public_Works=Batiments et travaux publics
@@ -166,7 +166,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Industrial_Science_and_Techno
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Human_Services=Services à la personne
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Materials_Technology=Technologie
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Tourism_Hotellerie_and_Restaurants=Tourisme Hotellerie Restauration
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Language_Proficiency=Langage / Maîtrise de la langue
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Language_Proficiency=Maîtrise de la langue
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Literacy=Alphabétisation
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Comprehension=Compréhension écrite
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Grammar=Grammaire
@@ -177,7 +177,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Expression=Production
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Oral_Expression=Production orale
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Research=Recherche
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Vocabulary=Vocabulaire
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Foreign_Languages=Langues du monde (étrangères)
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Foreign_Languages=Langues du monde
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Comprehension_Foreign=Compréhension écrite
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Oral_Comprehension_Foreign=Compréhension orale
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Ancient_Languages=Langues anciennes
@@ -338,7 +338,7 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.Lesson=Scénario p�
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Lesson.UNSPECIFIED=Scénario pédagogique: Non spécifié
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Quizz=Questionnaire
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Quizz.UNSPECIFIED=Questionnaire: Non spécifié
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Software=Logiciel et logiciels libres
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Software=Logiciels libres
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Software.UNSPECIFIED=Logiciel et logiciels libres: Non spécifié
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete.UNSPECIFIED=Cours complet: Non spécifié
 
