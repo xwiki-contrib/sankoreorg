@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319187188000</creationDate>
-<date>1319187188000</date>
-<contentUpdateDate>1319187188000</contentUpdateDate>
+<creationDate>1319204022000</creationDate>
+<date>1319204022000</date>
+<contentUpdateDate>1319204022000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -301,6 +301,7 @@ CurrikiCode.AssetClass_educational_level_AssetMetadata.SpecialEducation.UNSPECIF
 
 ## ICT
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED=Type de ressource: tous
+CurrikiCode.AssetClass_instructional_component_multiple=*TO FIX* Multi-sujet *TO FIX*
 CurrikiCode.AssetClass_instructional_component_UNCATEGORIZED=Autres
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.WebHome=Index
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Collection=Collection
@@ -345,8 +346,8 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete.UNSP
 
 ## ACCESS RIGHTS
 CurrikiCode.AssetClass_rights_public=Public: visible et éditable par tous.
-CurrikiCode.AssetClass_rights_members=Protégé : visible par tous, mais seul les membres de votre groupe et vous-même pouvez éditer.
-CurrikiCode.AssetClass_rights_private=Privé: seul les membres de votre groupe et vous-même pouvez éditer.
+CurrikiCode.AssetClass_rights_members=Protégé : visible par tous et éditable par les membres du groupe et vous-même.
+CurrikiCode.AssetClass_rights_private=Privé: non-visible, éditable par les membres du groupe et vous-même.
 
 
 ## LANGUAGE
