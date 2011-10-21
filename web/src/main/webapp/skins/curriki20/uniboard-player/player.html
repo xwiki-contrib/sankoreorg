@@ -1,0 +1,117 @@
+<div id="head-embed">
+ <div id="head-embed-box-left"><a href="" target="_blank">
+   <img src="../uniboard-player/images/logo-uniboard-small.png"></a>
+ </div>
+   <div id="head">
+        <div id="document-links">
+            <ul class="menu-list">
+                <li id="head-list-close"><a id="quitFullscreen" href="javascript:void(0)">Exit full-screen view</a></li>
+                <li id="head-list-back"><a id="backToPlanetSankore" href="javascript:void(0)" onclick="UbPlayer.closePlayer(); return false;">Close</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="sankorebody">
+        <div id="description">
+            <div id="description-text"></div>
+        </div><!--description-->
+        <div id="boards">
+            <div class="board" id="board-current">
+                <div class='page' id='current-page'>
+                    <img id="page-img" src='./ubw/page001.thumbnail.jpg' />
+                    <div id="app-border" style="position:absolute;width:100%;height:100%;display:none;top:0">
+                        <!--<div id="app-border-top">
+                            <div class="corner" style="background:url(../uniboard-player/images/top-corner-left.png)"></div>
+                            <div class="middle top"></div>
+                            <div class="corner right" style="background:url(../uniboard-player/images/top-corner-right.png)"></div>
+                        </div>-->
+                        <div id="app-border-middle">
+                            <!--<div class="middle-left"></div>-->
+                            <img style="opacity:0;position:absolute;left:50%;margin-left:-10px; top:-18px;" src="../uniboard-player/images/app-view-start.png">
+                            <!--<div class="middle-right"></div>-->
+                        </div>
+                        <!--<div id="app-border-bottom">
+                            <div class="corner" style="background:url(../uniboard-player/images/bottom-corner-left.png)"></div>
+                            <div class="middle bottom"></div>
+                            <div class="corner right" style="background:url(../uniboard-player/images/bottom-corner-right.png)"></div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div><!--boards-->
+        <div class="board-button-unit" id="board-button-previous"></div>
+        <div class="board-button-unit" id="board-button-next"></div>
+        <div id="index"></div>
+   </div>
+ <div id="foot">
+        <div style="position:relative; height:100%">
+            <div id="thumbnails">
+                <div id="thumbnails-slider-handler"></div>
+                <div id="thumbnails-slider"><div class="thumbnails-slider-page"></div></div>
+                <div style="width:40px; height:80px; position:absolute; top:45px; left:0px;
+                color:red; font-size:10px; line-height:80px; text-decoration:underline;
+                letter-spacing:normal" id="thumbnail-previous" class="disabled"></div>
+                <div id="thumbnails-canvas">
+                    <div class="thumbnail"><img class="thumb-img" src="" alt="thumbnail" height="100%" width="auto"/></div>
+                </div>
+                <div style="width:40px; height:80px; position:absolute; top:45px; left:100%;
+                margin-left:-41px; color:red; font-size:10px; line-height:80px;
+                text-decoration:underline; letter-spacing:normal" id="thumbnail-next"></div>
+            </div><!--thumbnails-->
+            <div id="menu-bottom" class="menu bottom">
+                <div class="menu-box-left menu-box">
+                    <div id="menu-export-dropdown" class="dropdown">
+                        <ul>
+                            <li id="menu-export-hasPdf"><a href="#">.Pdf</a></li>
+                            <li id="menu-export-hasUbz"><a href="#">.Ubz</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-button" id="menu-button-export"
+                        title="Export this document asa~@|" alt="Export button">
+                        <div id="menu-button-export-right"></div>
+                        <div id="menu-button-export-center">Export asa~@|</div>
+                        <div id="menu-button-export-left"></div>
+                    </div>
+                    <div class="menu-button" id="menu-button-showthumbnails"
+                        title="Show the thumbnails" alt="Show thumbnails button"></div>
+                    <div class="menu-button" id="menu-button-showdetails"
+                        title="Show the details" alt="Show details button"></div>
+                    <div class="menu-button" id="menu-button-full"
+                        title="Switch to full mode" alt="Full mode button"></div>
+                    <div style="display:none; float:right; height:31px; margin-left:10px;
+                    line-height:42px"><input id="menubottom-input" type="text"></div>
+                </div>
+
+                <div class="menu-box-center menu-box">
+                    <div class="menu-button" id="menu-button-previous" title="Previous page"
+                        alt="Previous page button"></div>
+                    <div class="menu-button" id="menu-button-index" title="Show the index"
+                        alt="Show index button"></div>
+                    <div class="menu-button" id="menu-button-next" title="Next page"
+                        alt="Next page button"></div>
+                </div>
+    </div><!--menu-bottom-->
+        </div>
+    </div><!--foot-->
+    <!-- App Viewer -->
+    <div id="app-viewer-background"></div>
+    <div id="app-viewer">
+        <div id="app-viewer-c"><!-- table -->
+            <div id="app-viewer-appcanvas"><!-- table-cell -->
+                <div id="app-viewer-appborder">
+                    <iframe id="app-viewer-app" src=""></iframe>
+                    <div id="app-viewer-menu">
+                        <div id="app-viewer-button-close-canvas">
+                            <div id="app-viewer-button-close"></div>
+                        </div>
+                        <a href="#">close</a>
+                    </div>
+                </div><!-- vertical and horizontal centered iframe -->
+            </div>
+        </div>
+    </div>
+    <div id="alert" style="display:none">
+        <div id="alert-background" style="filter:alpha(opacity=0);"></div>
+        <div id="alert-box"></div>
+    </div>
+ </div>
+</div>

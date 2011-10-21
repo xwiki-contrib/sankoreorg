@@ -1,4 +1,3 @@
-
 UbPlayer.Player = function(args) {
   var that = this;
   
@@ -262,7 +261,7 @@ UbPlayer.Player = function(args) {
   // Load the images
   for(var i=1; i<=this.documentData.numberOfPages; i++){
     this.pagesImg[i] = new Image();
-    this.pagesImg[i].src = this.documentData.pagesBaseUrl + "/page" + this.formatPageNumber(i) + ".jpg";
+    this.pagesImg[i].src = this.documentData.pagesBaseUrl + "/page" + this.formatPageNumber(i) + ".thumbnail.jpg";
   }
 };
 
@@ -537,7 +536,7 @@ UbPlayer.Player.prototype.formatDate = function(date){
 UbPlayer.Player.prototype.openPage = function(pageNumber){
   var that = this;
   var formattedPageNumber = this.formatPageNumber(pageNumber);
-  var fileName = this.documentData.pagesBaseUrl + "/page" + formattedPageNumber + ".jpg";
+  var fileName = this.documentData.pagesBaseUrl + "/page" + formattedPageNumber + ".thumbnail.jpg";
   var jsonName = this.documentData.pagesBaseUrl.replace("assets.getuniboard.com", "web.getuniboard.com/assets-proxy") + 
                     "/page" + formattedPageNumber + ".json";
                         

@@ -1,6 +1,5 @@
 
-html{ height:100%; width:100% }
-body{ height:100%; width:100%; overflow:hidden; display:table; font-family:helvetica, arial, sans-serif; background-color:rgb(232, 233, 235) }
+#sankore{ height:100%; width:100%; overflow:hidden; display:table; font-family:helvetica, arial, sans-serif; background-color:rgb(232, 233, 235) }
 
 a{ color:red }
 span{ font-weight:normal }
@@ -11,10 +10,10 @@ label{ display:block; margin-top:15px; }
   display:block;
   position:absolute;
   top:0;
-  padding-top:12px;
   width:100%;
   z-index:1;
   margin:auto;
+  background-color: #FFFFFF;
 }
 
 #head-embed{
@@ -84,7 +83,6 @@ label{ display:block; margin-top:15px; }
 
 #menu-export-hasUbz.disabled{ background-image:url(../images/menu-export-ubz.disabled.png) }
 #menu-export-hasPdf.disabled{ background-image:url(../images/menu-export-pdf.disabled.png) }
-
 
 .dropdown ul{
   line-height:20px;
@@ -164,18 +162,6 @@ label{ display:block; margin-top:15px; }
   margin-right:5px;
   vertical-align:bottom;
   margin-bottom:2px;
-}
-
-#body{
-  display:table-cell;
-  overflow:hidden;
-  vertical-align:middle;
-  text-align:center;
-  z-index:0;
-  padding-top:40px;
-  padding-bottom:110px;
-  height:100%;
-  width:100%;
 }
 
 #app-viewer-background{
@@ -310,7 +296,18 @@ label{ display:block; margin-top:15px; }
   display:inline-block;
 }
 
-#index{ position:relative; width:100%; height:auto; overflow:auto; text-align:center; vertical-align:middle; display:none; margin:auto }
+#index{ 
+  position:relative; 
+  width:100%; 
+  height:auto; 
+  overflow:auto; 
+  text-align:center; 
+  vertical-align:middle; 
+  display:none; 
+  margin:auto;
+  margin-top: 50px;
+}
+
 #description{ 
   position:relative;
   display:none;
@@ -387,9 +384,9 @@ label{ display:block; margin-top:15px; }
 
 #foot{
   display:block;
+  position: relative;
   vertical-align:middle;
   letter-spacing:-4px;
-  position:absolute;
   margin-top:-96px;
   left:0px;
   top:100%;
@@ -426,3 +423,29 @@ label{ display:block; margin-top:15px; }
 .middle{height:7px;margin-left:7px;margin-right:7px}
 .corner{position:absolute;width:7px;height:7px}
 .corner.right{top:0px;left:100%;margin-left:-7px}
+
+#sankorebody{
+  display: block;
+  overflow:hidden;
+  vertical-align:middle;
+  text-align:center;
+  z-index:0;
+  height:100%;
+  width:100%;
+}
+
+#sankore {
+  position: absolute; 
+  bottom: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%;
+  margin: 0; 
+  z-index: 10000; 
+  background-color: #fff;
+}
+
+#head-list-back { 
+  background:url(../images/head-button-close.png") no-repeat 0px 0px; 
+}
+
