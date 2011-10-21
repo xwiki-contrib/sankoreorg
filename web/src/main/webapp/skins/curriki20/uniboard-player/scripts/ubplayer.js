@@ -26,7 +26,7 @@ UbPlayer.init = function(playerprefix) {
 			}
 		}
 	});
-   
+  
         // load the player html
         var url = UbPlayer.playerprefix + 'player.html';
         var req = jQuery.get(url , function(data) {
@@ -55,7 +55,7 @@ UbPlayer.launchPlayer = function(file, nbpages) {
         console.log("Player opening");    
 
         // setting full screen
-        this.makeFullScreen(jQuery("sankore"));
+        UbPlayer.makeFullScreen(jQuery("#sankore"));
 
         jQuery("#sankore").css({ "display" : "block"});
 
@@ -130,7 +130,8 @@ UbPlayer.launchPlayer = function(file, nbpages) {
                 var ratioWh = myUbPlayer.currentPage.ratio;
                 console.log("Player image ratio: " + ratioWh);    
 
-                var paddingTop = jQuery("#head").height();
+
+	        var paddingTop = jQuery("#head").height();
                 var paddingBottom = jQuery("#foot").height();
 
                 console.log("Player paddingTop: " + paddingTop);    
@@ -222,8 +223,12 @@ UbPlayer.makeFullScreen = function(targetElement) {
   // moving sankore element to top level
   var parent = targetElement.parent();
   if (parent != document.body) {
-     jQuery('body').insertAfter(targetElement);
+     jQuery('body').append(targetElement);
   } 
+  // force the sankore and sankorebody sizes
+  var wheight = jQuery(window).height();
+  jQuery("#sankore").height(wheight);
+  jQuery("#sankorebody").height(wheight);
 
   // jQuery("#xwikimaincontainer").css({ "display" : "none"});
 }

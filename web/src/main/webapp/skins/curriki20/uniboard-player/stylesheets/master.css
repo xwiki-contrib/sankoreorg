@@ -109,6 +109,8 @@ label{ display:block; margin-top:15px; }
   text-indent:24px;
   line-height:18px;
   font-size:12px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .menu-list li{

@@ -98,8 +98,8 @@ UbPlayer.Player = function(args) {
       function(){ jQuery("#menu-export-dropdown").show() },
       function(){ jQuery("#menu-export-dropdown").hide() })
     .hover(
-      function(){ jQuery("#menu-button-export-left").css("background", "url(/uniboard-player/images/menu-button-export-left-over.png)") },
-      function(){ jQuery("#menu-button-export-left").css("background", "url(/uniboard-player/images/menu-button-export-left.png)") });
+      function(){ jQuery("#menu-button-export-left").css("background", "url(../images/menu-button-export-left-over.png)") },
+      function(){ jQuery("#menu-button-export-left").css("background", "url(../images/menu-button-export-left.png)") });
   jQuery("#menu-list-share")
     .toggle(
       function(){ jQuery("#menu-share-dropdown").show() },
@@ -569,9 +569,10 @@ UbPlayer.Player.prototype.openPage = function(pageNumber){
         var app = {};
         
         that.currentPage.ratio = scene.width / scene.height;
-        
+       
         for(var i in data.widgets){
           widget = data.widgets[i];
+          if (widget.startFile) {
           app = {
             src:widget.startFile.indexOf("http://") === -1 ? that.documentData.pagesBaseUrl
                 + "/" + widget.src + "/" + widget.startFile : widget.startFile,
@@ -601,7 +602,7 @@ UbPlayer.Player.prototype.openPage = function(pageNumber){
               function(){
                 jQuery(this)
                   .css({
-                    backgroundImage:"url(/uniboard-player/images/app-img-bck.png)",
+                    backgroundImage:"url(../images/app-img-bck.png)",
                   })
                 jQuery("#app-border")
                   .appendTo(jQuery(this))
@@ -625,7 +626,7 @@ UbPlayer.Player.prototype.openPage = function(pageNumber){
             
           var showAppImg = jQuery("<img/>");
           showAppImg
-            .attr("src", "/uniboard-player/images/app-view-start.png")
+            .attr("src", "../images/app-view-start.png")
             .css({
               opacity:0,
               position:"absolute",
@@ -643,7 +644,8 @@ UbPlayer.Player.prototype.openPage = function(pageNumber){
                 }
               }(showAppImg)
               ,(parseInt(i)+1)*500
-            );          
+            ); 
+           }         
         }
       }
   });
