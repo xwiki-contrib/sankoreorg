@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319201854000</creationDate>
-<date>1319201854000</date>
-<contentUpdateDate>1319201854000</contentUpdateDate>
+<creationDate>1319472150000</creationDate>
+<date>1319472150000</date>
+<contentUpdateDate>1319472150000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -42,14 +42,14 @@ panel.navigation.advanced_search=Recherche avancée
 panel.navigation.featured_resources=Ressources présentes
 panel.navigation.reviewed_resources=Ressources evaluées
 
-panel.navigation.sankore_assets=Ressources produites par le logiciel Sankoré
+panel.navigation.sankore_assets=Ressources produites avec le logiciel Sankoré
 panel.navigation.sankore_assets.rollover=Requête affichage docs .ubz
 panel.navigation.complete_courses=Cours complets
 panel.navigation.complete_courses.rollover=Requête affichage cours complet
 panel.navigation.featured_assets=Ressources recommandées par la communauté Sankoré
 panel.navigation.featured_assets.rollover=Requête affichage validées par Sankoré
-panel.navigation.free_software=Logicels libres
-panel.navigation.free_software.rollover=Requête affichage logiciels libres
+panel.navigation.free_software=Logiciel libre
+panel.navigation.free_software.rollover=Requête affichage logiciel libre
 
 panel.navigation.ressources=Les ressources
 
@@ -97,9 +97,9 @@ panel.navigation.sponsors=Sponsors
 panel.navigation.featured_partners=Partenaires disponibles
 panel.navigation.partner_content=Ressources partenaires
 
-panel.navigation.help=Espace communautaires
+panel.navigation.help=Espaces communautaires
 panel.navigation.help.pedago=Espace pédagogique
-panel.navigation.help.techno=Espace techno
+panel.navigation.help.techno=Espace technologique
 panel.navigation.help.rollover=Affiche l'aide planete.Sankoré
 panel.navigation.help_collection=Collection d'aide
 panel.navigation.tutorials=Tutoriaux
@@ -717,10 +717,10 @@ browse.title=Naviguer par sujets
 
 SearchCriteria.teacher_resources_by_grade_subject=Ressources par niveau + sujet
 SearchCriteria.teacher_resources_by_type=Ressources par type
-SearchCriteria.grade_range_age_range=Tranches d'âge 
-SearchCriteria.subject=Sujets 
-SearchCriteria.type_of_resource=Types de ressources 
-SearchCriteria.type_of_usage=Types d'usage 
+SearchCriteria.grade_range_age_range=Tranche d'âge 
+SearchCriteria.subject=Sujet 
+SearchCriteria.type_of_resource=Type de ressource 
+SearchCriteria.type_of_usage=Type d'usage 
 SearchCriteria.findbutton=Trouver
 
 #
