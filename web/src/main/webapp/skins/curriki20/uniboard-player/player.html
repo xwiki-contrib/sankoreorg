@@ -1,12 +1,33 @@
+<html>
+<head>
+<!-- jQuery -->
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/jquery-ui-1.8rc3.custom.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.easing.1.3.js"></script>
+<!-- SwipeListener for iPad/iPhone -->
+<script type="text/javascript" src="scripts/swipeListener.js"></script>
+<!-- Uniboard-player -->
+<script type="text/javascript" src="scripts/ubplayer.js"></script>
+<script type="text/javascript" src="scripts/ubplayer.player.js"></script>
+<script type="text/javascript" src="scripts/ubplayer.viewer.js"></script>
+<script type="text/javascript">
+if (typeof console == "undefined") {
+    this.console = {log: function() {}};
+}
+UbPlayer.init('./');
+jQuery(document).ready(function() {
+   var i = location.hash.indexOf(",");
+   if (i!=-1)
+     UbPlayer.launchPlayer(location.hash.substring(i + 1), location.hash.substring(1, i));
+   });
+</script>
+<link href="stylesheets/master.css" type="text/css" rel="stylesheet" type="text/css" />
+<body id="body">
 <div id="head-embed">
- <div id="head-embed-box-left"><a href="" target="_blank">
-   <img src="../uniboard-player/images/logo-uniboard-small.png"></a>
- </div>
-   <div id="head">
+    <div id="head">
         <div id="document-links">
             <ul class="menu-list">
                 <li id="head-list-close"><a id="quitFullscreen" href="javascript:void(0)">Exit full-screen view</a></li>
-                <li id="head-list-back"><a id="backToPlanetSankore" href="javascript:void(0)" onclick="UbPlayer.closePlayer(); return false;">Close</a></li>
             </ul>
         </div>
     </div>
@@ -17,22 +38,22 @@
         <div id="boards">
             <div class="board" id="board-current">
                 <div class='page' id='current-page'>
-                    <img id="page-img" src='./ubw/page001.thumbnail.jpg' />
+                    <img id="page-img" src='images/logo-uniboard.png' />
                     <div id="app-border" style="position:absolute;width:100%;height:100%;display:none;top:0">
                         <!--<div id="app-border-top">
-                            <div class="corner" style="background:url(../uniboard-player/images/top-corner-left.png)"></div>
+                            <div class="corner" style="background:url(images/top-corner-left.png)"></div>
                             <div class="middle top"></div>
-                            <div class="corner right" style="background:url(../uniboard-player/images/top-corner-right.png)"></div>
+                            <div class="corner right" style="background:url(images/top-corner-right.png)"></div>
                         </div>-->
                         <div id="app-border-middle">
                             <!--<div class="middle-left"></div>-->
-                            <img style="opacity:0;position:absolute;left:50%;margin-left:-10px; top:-18px;" src="../uniboard-player/images/app-view-start.png">
+                            <img style="opacity:0;position:absolute;left:50%;margin-left:-10px; top:-18px;" src="images/app-view-start.png">
                             <!--<div class="middle-right"></div>-->
                         </div>
                         <!--<div id="app-border-bottom">
-                            <div class="corner" style="background:url(../uniboard-player/images/bottom-corner-left.png)"></div>
+                            <div class="corner" style="background:url(images/bottom-corner-left.png)"></div>
                             <div class="middle bottom"></div>
-                            <div class="corner right" style="background:url(../uniboard-player/images/bottom-corner-right.png)"></div>
+                            <div class="corner right" style="background:url(bottom-corner-right.png)"></div>
                         </div>-->
                     </div>
                 </div>
@@ -115,3 +136,5 @@
     </div>
  </div>
 </div>
+</body>
+</html>

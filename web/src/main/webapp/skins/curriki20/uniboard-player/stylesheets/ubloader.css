@@ -1,0 +1,36 @@
+
+#sankoreplayer {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background-color: #fff;
+}
+
+#sankoreplayer-menulist {
+  text-align:right;
+  text-indent:24px;
+  line-height:18px;
+  font-size:12px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+#sankoreplayer-menulist li {
+  display:inline-block;
+  margin-left:10px;
+  margin-right:10px;
+  background:url(../images/head-button-close.png) no-repeat 0px 0px; 
+}
+
+#sankoreplayer-menulist a:link, 
+#sankoreplayer-menulist a:active, 
+#sankoreplayer-menulist a:visited {
+    text-decoration: none;
+    color: red;
+}
