@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319462538000</creationDate>
-<date>1319462538000</date>
-<contentUpdateDate>1319462538000</contentUpdateDate>
+<creationDate>1319617509000</creationDate>
+<date>1319617509000</date>
+<contentUpdateDate>1319617509000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -406,7 +406,7 @@ rve.comments.review.reviewed.reviewtext_title=Commentaires :
 
 rve.comments.review.update_link=Mettre à jour cette révision
 
-rve.comments.review.empty.loggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été évaluée par l'équipe planete.Sankoré.&lt;/strong&gt;. Cliquez sur "Soumettre cette ressource à évaluation" ci-dessus pour soumettre cette ressource à évaluation par l'équipe planete.Sankoré
+rve.comments.review.empty.loggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été évaluée par l'équipe Planète Sankoré.&lt;/strong&gt;. Cliquez sur "Soumettre cette ressource à évaluation" ci-dessus pour soumettre cette ressource à évaluation par l'équipe Planète Sankoré
 
 rve.comments.review.empty.notloggedin_message=&lt;strong&gt;This resource has not yet been reviewed by the &lt;a href="http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem"&gt;Planète Sankoré Review System&lt;/a&gt; (CRS).&lt;/strong&gt; &lt;br&gt;&lt;br&gt;Expert reviewers apply CRS criteria to help users find high quality resources.&lt;br&gt;&lt;br&gt;&lt;a href="http://www.curriki.org/xwiki/bin/view/Main/JoinSankore"&gt;Join Planète Sankoré&lt;/a&gt; or &lt;a href="http://www.curriki.org/xwiki/bin/login/XWiki/XWikiLogin"&gt;log in&lt;/a&gt; so you can nominate a resource for Planète Sankoré Review.
 

@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317728835000</creationDate>
-<date>1317728835000</date>
-<contentUpdateDate>1317728835000</contentUpdateDate>
+<creationDate>1319617875000</creationDate>
+<date>1319617875000</date>
+<contentUpdateDate>1319617875000</contentUpdateDate>
 <version>1.1</version>
-<title>Demande  d'adhésion au groupe $space.displayTitle sur planete.Sankoré</title>
+<title>Demande  d'adhésion au groupe $space.displayTitle sur Planète Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -33,7 +33,7 @@
 
 Cher administrateur du groupe $groupName,
 
-Vous avez reçu une demande d'adhésion à votre groupe $groupName sur planete.Sankoré. Votre groupe étant une communauté fermée, vous devez répondre en acceptant ou refusant chaque demande d'adhésion au groupe.
+Vous avez reçu une demande d'adhésion à votre groupe $groupName sur Planète Sankoré. Votre groupe étant une communauté fermée, vous devez répondre en acceptant ou refusant chaque demande d'adhésion au groupe.
 
 Merci de consulter l'onglet 'Membres' sur votre page de groupe afin de classer les demandes pour ne voir que les demandes en attentes. De cette page vous pourrez rapidement choisir d'accepter ou de refuser chacune des demandes.
 
@@ -43,5 +43,5 @@ $membersTabURL
 
 Cordialement,
 
-L'équipe de planete.Sankoré
+L'équipe de Planète Sankoré
 </content></xwikidoc>

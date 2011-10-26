@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317719209000</creationDate>
-<date>1317719209000</date>
-<contentUpdateDate>1317719209000</contentUpdateDate>
+<creationDate>1319618353000</creationDate>
+<date>1319618353000</date>
+<contentUpdateDate>1319618353000</contentUpdateDate>
 <version>1.1</version>
-<title>Confirmation de demande d'inscription à $space.displayTitle sur planete.Sankoré</title>
+<title>Confirmation de demande d'inscription à $space.displayTitle sur Planète Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -40,5 +40,4 @@ Cher(e) $memberName,
 Votre demande d'inscription au groupe $groupName a bien été prise en compte. L'administrateur du groupe $groupName va évaluer votre demande.
 Vous serez notifié dès que celle-ci aura été acceptée ou refusée.
 
-l'équipe planete.Sankoré
-</content></xwikidoc>
+l'équipe Planète Sankoré</content></xwikidoc>

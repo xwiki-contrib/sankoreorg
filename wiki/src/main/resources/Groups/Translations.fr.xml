@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1318418829000</creationDate>
-<date>1318418829000</date>
-<contentUpdateDate>1318418829000</contentUpdateDate>
+<creationDate>1319617712000</creationDate>
+<date>1319617712000</date>
+<contentUpdateDate>1319617712000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -56,18 +56,18 @@ XWiki.CurrikiSpaceClass_accessprivileges_private=Privé \: Seuls les membres du 
 
 ## CREATE NEW GROUP
 groups_creategroup_pagename=Créer un nouveau groupe
-groups_creategroup_needaccount=Vous devez être un membre de planete.Sankoré et être &lt;a href="{0}"&gt;authentifié&lt;/a&gt; pour créer un groupe.
+groups_creategroup_needaccount=Vous devez être un membre de Planète Sankoré et être &lt;a href="{0}"&gt;authentifié&lt;/a&gt; pour créer un groupe.
 groups_creategroup_about_title=À propos de la création des groupes
 groups_creategroup_about_infotxt=La création d'un nouveau groupe en fait de vous son administrateur, et vous accorde des droits spéciaux qui vous permettent de gérer votre espace de groupe, d'accepter ou de refuser les demandes d'inscription au groupe, d'effacer ou modifier les messages des autres membres si nécessaire, et plus encore. Vous pourrez également partager ces privilèges administratifs avec d'autres membres du groupe le cas échéant.
 groups_creategroup_namedescribe_title=Nom et description de votre groupe
 groups_creategroup_namedescribe_groupname=Indiquez ci-dessous le nom de votre groupe (pas plus de 64 caractères)
-groups_creategroup_namedescribe_groupname_tooltip=Ce nom apparaît à beaucoup d'endroits dans votre espace de groupe et sur le site de planete.Sankoré; gardez à l'esprit que les contraintes en place mémoire rendent un nom de groupe court préférable.
+groups_creategroup_namedescribe_groupname_tooltip=Ce nom apparaît à beaucoup d'endroits dans votre espace de groupe et sur le site de Planète Sankoré; gardez à l'esprit que les contraintes en place mémoire rendent un nom de groupe court préférable.
 groups_creategroup_namedescribe_groupdescription=Indiquez une description de votre groupe (pas plus de 960 caractères). Cette description apparaitra à plusieurs endroits sur Planète Sankoré, elle permet d'indiquer les centres d'intérêt du groupe, ses objectifs ou ses projets.
-groups_creategroup_namedescribe_groupdescription_tooltip=Quand les gens naviguent ou trouvent des listes de groupes planete.Sankoré, ils voient d'abord l' "entête," de votre groupe, ce qui inclut cette description avec votre nom de groupe et une image du groupe.  (Vous ajouterez votre image à l'étape suivante.)
+groups_creategroup_namedescribe_groupdescription_tooltip=Quand les gens naviguent ou trouvent des listes de groupes Planète Sankoré, ils voient d'abord l' "entête," de votre groupe, ce qui inclut cette description avec votre nom de groupe et une image du groupe.  (Vous ajouterez votre image à l'étape suivante.)
 groups_creategroup_namedescribe_webaddress_instruction=Indiquez la première partie de l'adresse web de votre groupe dans l'espace ci-dessous.
 groups_creategroup_member_policy_title=Mode d'inscription
-groups_creategroup_member_policy_open=Libre - Toute personne peut rejoindre planete.Sankoré sans invitation
-groups_creategroup_member_policy_closed=Privée - les membres de planete.Sankoré doivent avoir été invités et doivent avoir accepté l'invitation
+groups_creategroup_member_policy_open=Libre - Toute personne peut rejoindre Planète Sankoré sans invitation
+groups_creategroup_member_policy_closed=Privée - les membres de Planète Sankoré doivent avoir été invités et doivent avoir accepté l'invitation
 groups_creategroup_select_subjectlevel_title=Choisissez un Sujet et un Niveau
 groups_creategroup_select_subjectlevel_subject_title=Sujet \:
 groups_creategroup_select_subjectlevel_subject_tooltip=Choisissez le domaine principal pour les sujets de votre groupe; si votre groupe est interdisciplinaire, vous pouvez choisir plusieurs sujets.
@@ -103,7 +103,7 @@ groups_validation_url_invalid=Votre URL doit commencer par une lettre, et peut s
 groups_validation_education_required=Choisissez un niveau scolaire SVP. Ce champ est obligatoire.
 groups_validation_type_required=
 groups_validation_subject_required=Choisissez un sujet SVP. Ce champ est obligatoire.
-groups_validation_licence_required=Choisissez une licence par défaut pour les contributions de votre groupe à la base planete.Sankoré
+groups_validation_licence_required=Choisissez une licence par défaut pour les contributions de votre groupe à la base Planète Sankoré
 groups_validation_privacy_required=
 groups_validation_title-exists=Il y a déjà un groupe avec ce nom. Choisissez-en un autre SVP.
 
@@ -131,7 +131,7 @@ groups_home_editmasthead_bc=Éditer la présentation du groupe
 groups_home_editmasthead_groupname_tooltip=Ce nom apparaît a beaucoup d'endroits à dans l'espace de votre groupe et sur le site. gardez à l'esprit que des contraintes de place mémoire rendent préférable le choix d'un nom de groupe court.
 groups_home_editmasthead_groupdescription_tooltip=Quand les gens consultent des listes de groupes, ils voient en premier la "fiche de présentation "  de votre groupe, qui inclut cette description accompagnée de votre nom de groupe et d'une image de groupe. (Vous ajouterez votre image à l'étape suivante.) 
 groups_home_editmasthead_logo_infotxt_withoutlogo=La fiche de présentation de votre groupe utilise actuellement l'image située à gauche. Si vous souhaitez montrer une autre imagbe, cliquez sur "Parcourir" pour aller chercher la nouvelle image dans votre ordinateur. Une fois que vous avez trouvé l'image, cliquez sur "Mettre à jour" pour la faire apparaître dans la fiche de présentation de votre groupe. La meilleure taille pour cette image est 120x82 pixels.
-groups_home_editmasthead_logo_infotxt_withlogo=Votre groupe est actuellement représenté par l'image sur la gauche. Si vous voulez la changer, cliquez sur "Parcourir" afin de sélèctionner une image sur votre ordinateur. Une fois la bonne image choisie, cliquez sur "Uploader" pour la faire apparaitre. La taille recommandée est de 120x82 pixels. Si vous voulez revenir à l'image de groupe par défaut de planete.Sankoré, &lt;a href={0} onclick="return confirm(''Êtes-vous sûre?'')"&gt;cliquez ici&lt;/a&gt;.
+groups_home_editmasthead_logo_infotxt_withlogo=Votre groupe est actuellement représenté par l'image sur la gauche. Si vous voulez la changer, cliquez sur "Parcourir" afin de sélèctionner une image sur votre ordinateur. Une fois la bonne image choisie, cliquez sur "Uploader" pour la faire apparaitre. La taille recommandée est de 120x82 pixels. Si vous voulez revenir à l'image de groupe par défaut de Planète Sankoré, &lt;a href={0} onclick="return confirm(''Êtes-vous sûre?'')"&gt;cliquez ici&lt;/a&gt;.
 groups_home_editmasthead_logo_direction=Choisissez et Uploadez votre Image
 groups_home_editmasthead_logo_bro_btt=Parcourir
 groups_home_editmasthead_logo_upl_btt=Uploader
@@ -326,7 +326,7 @@ groups_curriculum_collections_paging diff=Collections
 groups.curriculum.contributions.addButton=Ajouter une Ressource
 groups.curriculum.contributions.addButton_tooltip=Fournissez votre meilleure ressource d'apprentissage ou créez quelque chose de nouveau
 
-##To create macros that work in both Groups and My planete.Sankoré, the translations have to be identical. Thus the following link translations can be found in the My planete.Sankoré Translation file. Todd Jan-20-2009
+##To create macros that work in both Groups and My Planète Sankoré, the translations have to be identical. Thus the following link translations can be found in the My Planète Sankoré Translation file. Todd Jan-20-2009
 ##Add
 ##Copy
 ##Edit
@@ -492,11 +492,11 @@ groups_members_create_membersettings_email_tooltip=Sélectionner cette option si
 groups_members_create_membersettings_changenotice=Me notifier quand mes contributions ou mes messages sont modifiés.
 groups_members_join_btt=Rejoindre
 groups_members_cancel_btt=Annuler
-groups_members_join_needaccount=Si vous n'êtes pas encore inscrit sur planete.Sankoré, veuillez  &lt;a href="{0}"&gt;créer un compte&lt;/a&gt;.
+groups_members_join_needaccount=Si vous n'êtes pas encore inscrit sur Planète Sankoré, veuillez  &lt;a href="{0}"&gt;créer un compte&lt;/a&gt;.
 groups_members_join_alreadymember=Vous êtes déjà membre de ce groupe.
 groups_members_join_success=Félicitation! Vous avez rejoint ce groupe. La liste de membre est disponible sur [[members list&gt;&gt;Members]].
 groups_members_join_failure=Cette opération a échoué. Essayez encore SVP. Si vous continuez à avoir des problèmes, contactez groups@curriki.org SVP.
-groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans planete.Sankoré avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez groups@curriki.org SVP.
+groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans Planète Sankoré avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez groups@curriki.org SVP.
 
 
 ## old stuff
@@ -519,8 +519,8 @@ browseGroups.info=Cliquer un sujet pour voir la liste de tous les groupes dans c
 browse.subject.title.All_Groups=Tous les Groupes
 browseGroups.noGroups=Il n'y a pas de groupes pour ce sujet.
 browseGroups.groups=Groupes
-browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Soyez le premier à créer un groupe sur planete.Sankoré!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;En savoir plus sur la création de groupe&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Les Groupes peuvent:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborer sur l'élaboration de parcours de connaissances&lt;/li&gt;&lt;li&gt;Partager des ressources&lt;/li&gt;&lt;li&gt;Communiquer avec un systeme de messagerie&lt;/li&gt;&lt;li&gt;Et plus encore...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Que pouvez-VOUS faire avec les groupes de planete.Sankoré?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
+browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Soyez le premier à créer un groupe sur Planète Sankoré!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;En savoir plus sur la création de groupe&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Les Groupes peuvent:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborer sur l'élaboration de parcours de connaissances&lt;/li&gt;&lt;li&gt;Partager des ressources&lt;/li&gt;&lt;li&gt;Communiquer avec un systeme de messagerie&lt;/li&gt;&lt;li&gt;Et plus encore...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Que pouvez-VOUS faire avec les groupes de Planète Sankoré?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
 
 ## GROUPS DOCUMENTATION
 groups_documentation_tabname=Documentation
@@ -567,7 +567,7 @@ history.comment=Commentaire
 history.rollback=Revenir à cette version
 history.rollback.cancel=Annuler le retour à cette version
 history.rollback.confirm=Confirmer le retour à cette version
-history.rollback.exception=Exception while rollbacking planete.Sankoré Asset
+history.rollback.exception=Exception while rollbacking Planète Sankoré Asset
 history.rollback.confirm.message=Are you sure you want to rollback this asset to version {0}
 history.compare=Comparer les changements
 

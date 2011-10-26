@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317729428000</creationDate>
-<date>1317729428000</date>
-<contentUpdateDate>1317729428000</contentUpdateDate>
+<creationDate>1319618295000</creationDate>
+<date>1319618295000</date>
+<contentUpdateDate>1319618295000</contentUpdateDate>
 <version>1.1</version>
-<title>Félicitations, vous avez créé un groupe dans planete.Sankoré</title>
+<title>Félicitations, vous avez créé un groupe dans Planète Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -35,7 +35,7 @@
 #set($groupURL="http://"+$space.homeShortcutURL+".groups."+$serverURL)
 Cher(e) $memberName, 
 
-Félicitations, vous avez créé le groupe $!groupTitle, un nouveau groupe dans la communauté planete.Sankoré. Vous pouvez accéder à votre groupe à l'adresse suivante : $!groupURL. Vous devrez être connecté à planete.Sankoré pour accéder à l'interface d'administration de votre groupe.
+Félicitations, vous avez créé le groupe $!groupTitle, un nouveau groupe dans la communauté Planète Sankoré. Vous pouvez accéder à votre groupe à l'adresse suivante : $!groupURL. Vous devrez être connecté à Planète Sankoré pour accéder à l'interface d'administration de votre groupe.
 
 En tant qu'administrateur de groupe, vous pouvez :
 
@@ -47,4 +47,4 @@ Si vous avez besoin d'aide pour administrer votre groupe, envoyer un email à gr
 
 Cordialement,
 
-L'équipe planete.Sankoré</content></xwikidoc>
+L'équipe Planète Sankoré</content></xwikidoc>

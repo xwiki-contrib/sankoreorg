@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317729357000</creationDate>
-<date>1317729357000</date>
-<contentUpdateDate>1317729357000</contentUpdateDate>
+<creationDate>1319618063000</creationDate>
+<date>1319618063000</date>
+<contentUpdateDate>1319618063000</contentUpdateDate>
 <version>1.1</version>
-<title>Bienvenue dans le groupe $space.displayTitle sur planete.Sankoré</title>
+<title>Bienvenue dans le groupe $space.displayTitle sur Planète Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -53,5 +53,5 @@ Si vous désirez modifier vos préférences (comme les alertes email), ou si vou
 
 Cordialement,
 
-L'équipe planete.Sankoré
+L'équipe Planète Sankoré
 </content></xwikidoc>

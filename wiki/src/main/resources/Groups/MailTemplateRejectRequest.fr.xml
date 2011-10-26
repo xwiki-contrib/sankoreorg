@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317729204000</creationDate>
-<date>1317729204000</date>
-<contentUpdateDate>1317729204000</contentUpdateDate>
+<creationDate>1319618012000</creationDate>
+<date>1319618012000</date>
+<contentUpdateDate>1319618012000</contentUpdateDate>
 <version>1.1</version>
-<title>Réponse à une demande d'adhésion au groupe $space.displayTitle sur planete.Sankoré</title>
+<title>Réponse à une demande d'adhésion au groupe $space.displayTitle sur Planète Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -38,7 +38,7 @@
 
 Cher(e) $memberName,
 
-Merci de l’intérêt que vous portez au groupe $groupName sur planete.Sankoré.
+Merci de l’intérêt que vous portez au groupe $groupName sur Planète Sankoré.
 
 Malheureusement, votre demande d'adhésion a été refusée.
 
@@ -46,4 +46,4 @@ $!reason
 
 Cordialement,
 
-L'équipe planete.Sankoré</content></xwikidoc>
+L'équipe Planète Sankoré</content></xwikidoc>

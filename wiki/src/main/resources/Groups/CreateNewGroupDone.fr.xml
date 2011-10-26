@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1318337748000</creationDate>
-<date>1318337748000</date>
-<contentUpdateDate>1318337748000</contentUpdateDate>
+<creationDate>1319618613000</creationDate>
+<date>1319618613000</date>
+<contentUpdateDate>1319618613000</contentUpdateDate>
 <version>1.1</version>
-<title>Vous avez créé un groupe sur planete.Sankoré</title>
+<title>Vous avez créé un groupe sur Planète Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -31,7 +31,7 @@
  *#
 &lt;div class="create-done-page"&gt;
 
-&lt;h1&gt;Félicitations, vous avez créé un groupe sur planete.Sankoré !&lt;/h1&gt;
+&lt;h1&gt;Félicitations, vous avez créé un groupe sur Planète Sankoré !&lt;/h1&gt;
 
 En tant qu'administrateur du groupe, il vous reste encore quelques étapes à compléter.
 
@@ -41,14 +41,14 @@ Consultez attentivement la liste ci-dessous et cliquez sur "continuer" lorsque v
 
 *Inviter des membres*
 
-Votre groupe est prêt à accueillir des membres de planete.Sankoré. &lt;br /&gt;
-Une fois sur la page d'accueil de votre groupe, depuis l'onglet "Membres", cliquez sur le bouton "Inviter un nouveau Membre".&lt;br /&gt;&lt;br /&gt;Vous pouvez également informer des personnes qui ne sont pas membres de planete.Sankoré au sujet de l'existence de votre groupe. Dès qu'ils seront devenus membres planete.Sankoré, ils pourront devenir membres de votre groupe.&lt;br /&gt;&lt;br /&gt;
+Votre groupe est prêt à accueillir des membres de Planète Sankoré. &lt;br /&gt;
+Une fois sur la page d'accueil de votre groupe, depuis l'onglet "Membres", cliquez sur le bouton "Inviter un nouveau Membre".&lt;br /&gt;&lt;br /&gt;Vous pouvez également informer des personnes qui ne sont pas membres de Planète Sankoré au sujet de l'existence de votre groupe. Dès qu'ils seront devenus membres Planète Sankoré, ils pourront devenir membres de votre groupe.&lt;br /&gt;&lt;br /&gt;
 
 #titlebar("Etapes optionnelles" "" "" "blue")
 
 *Télécharger un logo personnalisé*
 
-Le logo de votre groupe apparaît à de nombreux endroits. Pour l'instant, votre groupe a le logo par défaut planete.Sankoré. Cliquez sur éditer dans la première section de l'onglet "Accueil" de votre Groupe pour télécharger votre propre logo.
+Le logo de votre groupe apparaît à de nombreux endroits. Pour l'instant, votre groupe a le logo par défaut Planète Sankoré. Cliquez sur éditer dans la première section de l'onglet "Accueil" de votre Groupe pour télécharger votre propre logo.
 
 *Ajouter un message d'accueil*
 
@@ -56,7 +56,7 @@ Rédiger un message d'accueil pour les membres de votre groupe ou pour les visit
 
 *Ajouter des explications à propos de chaque onglet*
 
-Les différents onglets de votre page de groupe (Messages, Parcours de Connaissances, Membres et Documentation) contiennent une section "A propos" vous permettant d'ajouter de l'information. Si vous n'éditez pas ces sections "A propos", les informations par défaut de planete.Sankoré seront affichées.
+Les différents onglets de votre page de groupe (Messages, Parcours de Connaissances, Membres et Documentation) contiennent une section "A propos" vous permettant d'ajouter de l'information. Si vous n'éditez pas ces sections "A propos", les informations par défaut de Planète Sankoré seront affichées.
 
 *Créer une collection de Groupe*
 

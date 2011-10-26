@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319466898000</creationDate>
-<date>1319466898000</date>
-<contentUpdateDate>1319466898000</contentUpdateDate>
+<creationDate>1319618870000</creationDate>
+<date>1319618870000</date>
+<contentUpdateDate>1319618870000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -77,7 +77,7 @@
 
 
 ## FORM ACCESS WARNING
-createresources.needaccount=Vous devez être membre de planete.Sankoré et être &lt;a href="{0}"&gt;indentifié&lt;/a&gt; pour créer une nouvelle ressource.
+createresources.needaccount=Vous devez être membre de Planète Sankoré et être &lt;a href="{0}"&gt;indentifié&lt;/a&gt; pour créer une nouvelle ressource.
 ## GLOBAL ELEMENTS USED IN MORE THAN ONE FORM
 
 ## STEP 3 (used in most forms)
@@ -118,7 +118,7 @@ form.title.description.link1=Examples
 form.title.description.link1.url=/xwiki/bin/view/Coll_curriki/SampleWikiResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
 form.title.description.link3=Aide
 form.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
-form.title.description.link2=Système de Revue planete.Sankoré
+form.title.description.link2=Système de Revue Planète Sankoré
 form.title.description.link2.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 form.title.description.link2.thumbnail=/xwiki/skins/curriki8/icons/CRS.png
 
@@ -152,7 +152,7 @@ form.html.title.description.link1=Exemples
 form.html.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/SampleHTMLResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
 form.html.title.description.link3=Aide
 form.html.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheHTMLResourcefromScratchForm?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository;Coll_curriki.CreatingResourceswithFormsTemplates
-form.html.title.description.link2=Système de revue planete.Sankoré
+form.html.title.description.link2=Système de revue Planète Sankoré
 form.html.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 form.html.title.description.link2.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
@@ -180,14 +180,14 @@ form.html.scratch.step2.content.instruction=Entrez le contenu dans la fenêtre d
 ## CSLP TITLE AREA
 
 lesson.plan.url=/xwiki/bin/view/CreateResources/CurrikiStandardLessonPlan
-lesson.plan.title=Créer une Ressource d'après un Template (Plan de Leçon planete.Sankoré Standard)
+lesson.plan.title=Créer une Ressource d'après un Template (Plan de Leçon Planète Sankoré Standard)
 lesson.plan.title.description=En apprendre plus:
 
 lesson.plan.title.description.link1=Examples
 lesson.plan.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/ModelLessonsfromCurrikisForm-BasedTemplate
 lesson.plan.title.description.link3=Aide
 lesson.plan.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
-lesson.plan.title.description.link2=Système de revue planete.Sankoré
+lesson.plan.title.description.link2=Système de revue Planète Sankoré
 lesson.plan.title.description.link2.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 lesson.plan.title.description.link2.thumbnail=/xwiki/skins/curriki8/icons/CRS.png
 
@@ -259,7 +259,7 @@ lesson.plan.standards.tooltip=Quels standards ou attentes aborde la leçon, et d
 
 lesson.plan.required.attachments.title=Attachements Obligatoires:
 lesson.plan.required.attachments.instruction=Selectionnez et uploadez les fichiers depuis votre ordinateur. Les fichiers attachés ne peuvent pas faire plus de 20 MO au total. Ils seront accessibles par des liens dans le plan de leçon tel que publié.
-lesson.plan.required.attachments.file.attached=Les fichiers que vous attachez à cette ressource n'apparaissent pas comme des contributions indépendantes sur planete.Sankoré; ils sont uniquement présentés comme des hyperliens dans cette ressource, et ils sont couverts par la licence de cette ressource.&lt;br /&gt;&lt;br /&gt;Après avoir soumis ce formulaire, considérez l'idée d'ajouter des matériels programmatiques supplémentaires à planete.Sankoré en tant que ressources indépendantes, de manière à ce que ces contributions puissent être découvertes et réutilisées plus facilement.
+lesson.plan.required.attachments.file.attached=Les fichiers que vous attachez à cette ressource n'apparaissent pas comme des contributions indépendantes sur Planète Sankoré; ils sont uniquement présentés comme des hyperliens dans cette ressource, et ils sont couverts par la licence de cette ressource.&lt;br /&gt;&lt;br /&gt;Après avoir soumis ce formulaire, considérez l'idée d'ajouter des matériels programmatiques supplémentaires à Planète Sankoré en tant que ressources indépendantes, de manière à ce que ces contributions puissent être découvertes et réutilisées plus facilement.
 lesson.plan.attachments.title=Fichiers Attachés:
 lesson.plan.required.attachments.tooltip=Attacher des fichiers référencés dans la leçon, tels que polycops, rubriques, papiers, ou QCM.
 lesson.plan.attachments.browse.button=Sélectionner
@@ -268,7 +268,7 @@ lesson.plan.attachments.delete=Effacer
 lesson.plan.file.size.maximum=20000000
 lesson.plan.file.size.label=Taille totale de toutes les pièces jointes:
 lesson.plan.file.size.oversize=Les pièces jointes de cette ressource ne peuvent pas excéder 20 MO au total. Pour sauvegarder cette ressource, vous devez utiliser le lien "Effacer" sur des "fichiers joints obligatoires" pour réduire la taille totale des pièces jointes. Uploadez des fichiers additionnels en tant que ressource indépendante plutôt que de les attacher à cette ressource.
-lesson.plan.file.size.dialog=Les pièces jointes à cette ressource ne peuvent pas excéder 20 MO au total. Voud désirez peut-être uploader ce fichier en tant que contribution planete.Sankoré indépendante, au lieu de l'attacher à cette ressource.
+lesson.plan.file.size.dialog=Les pièces jointes à cette ressource ne peuvent pas excéder 20 MO au total. Voud désirez peut-être uploader ce fichier en tant que contribution Planète Sankoré indépendante, au lieu de l'attacher à cette ressource.
 lesson.plan.file.size.dialog.button=OK
 
 ##HERE I AM ABOUT TRADUCTION (JEAN)
@@ -389,7 +389,7 @@ nortel.lesson.plan.standards.tooltip=Indiquer les normes / cadres les adresses l
 nortel.lesson.plan.required.attachments.title=Pièces requises:
 nortel.lesson.plan.required.attachments.instruction=Sélectionner et télécharger des fichiers depuis votre ordinateur. Les fichiers attachés ne peut pas dépasser 20 Mo au total. Ils seront proposés sous forme de liens dans le plan de leçon publié.
 nortel.lesson.plan.required.attachments.tooltip=Joindre tous les fichiers référencés dans cette leçon, comme une aumône, rubrique, feuille de calcul, ou un quiz.
-nortel.lesson.plan.required.attachments.file.attached=Fichiers que vous joignez à cette ressource n'apparaissent pas comme des contributions indépendantes sur planete.Sankoré, ils ne sont présentés que sous forme d'hyperliens dans cette ressource, et ils sont couverts par la licence pour cette ressource &lt;br /&gt; &lt;br /&gt; Après avoir soumis ce formulaire. s'il vous plaît envisager d'ajouter le matériel scolaire pour que les ressources planete.Sankoré autonome, de sorte que ces contributions peuvent être découverts et réutilisés plus facilement.
+nortel.lesson.plan.required.attachments.file.attached=Fichiers que vous joignez à cette ressource n'apparaissent pas comme des contributions indépendantes sur Planète Sankoré, ils ne sont présentés que sous forme d'hyperliens dans cette ressource, et ils sont couverts par la licence pour cette ressource &lt;br /&gt; &lt;br /&gt; Après avoir soumis ce formulaire. s'il vous plaît envisager d'ajouter le matériel scolaire pour que les ressources Planète Sankoré autonome, de sorte que ces contributions peuvent être découverts et réutilisés plus facilement.
 nortel.lesson.plan.required.attachments.browse.button=Parcourir
 nortel.lesson.plan.required.attachments.attach.button=Joignez ce fichier
 nortel.lesson.plan.required.attachments.delete=Supprimer
@@ -516,7 +516,7 @@ ace.lesson.plan.procedures.addrow=Add a Row
 ace.lesson.plan.required.attachments.title=Required Attachments:
 ace.lesson.plan.required.attachments.instruction=Select and upload files from your computer. Attached files cannot exceed 20 MB in total. These will be offered as links in the published lesson plan.
 
-ace.lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on planete.Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to planete.Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
+ace.lesson.plan.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Planète Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Planète Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
 ace.lesson.plan.attachments.title=Fichiés attachés :
 ace.lesson.plan.required.attachments.tooltip=Attach any files referenced in the lesson, such as a handout, rubric, worksheet, or quiz.
 ace.lesson.plan.attachments.browse.button=Parcourir
@@ -525,8 +525,8 @@ ace.lesson.plan.attachments.delete=Supprimer
 
 ace.lesson.plan.file.size.maximum=20000000
 ace.lesson.plan.file.size.label=Total size of all attachments:
-ace.lesson.plan.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone planete.Sankoré contribution instead of attaching it to this resource.
-ace.lesson.plan.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone planete.Sankoré contribution instead of attaching it to this resource.
+ace.lesson.plan.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Planète Sankoré contribution instead of attaching it to this resource.
+ace.lesson.plan.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Planète Sankoré contribution instead of attaching it to this resource.
 ace.lesson.plan.file.size.dialog.button=OK
 
 ## ACELP STEP 4
@@ -562,7 +562,7 @@ wq.title.description.link2=Help
 wq.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheWebquestForm
 wq.title.description.link3=WebQuest Background
 wq.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/WebQuestBackgroundInstructionalDesign
-wq.title.description.link4=planete.Sankoré Review System
+wq.title.description.link4=Planète Sankoré Review System
 wq.title.description.link4.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
 wq.title.description.link4.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
@@ -639,7 +639,7 @@ wq.standards.tooltip=If you wish to attach a formatted document citing specific 
 wq.required.attachments.title=Required Attachments:
 wq.required.attachments.instruction=Select and upload files from your computer. Attached files cannot exceed 20 MB in total. These will be offered as links in the published lesson plan.
 
-wq.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on planete.Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to planete.Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
+wq.required.attachments.file.attached=Files that you attach to this resource do not appear as independent contributions on Planète Sankoré; they are presented only as hyperlinks within this resource, and they are covered by the license for this resource.&lt;br /&gt;&lt;br /&gt;After submitting this form, please consider adding curricular materials to Planète Sankoré as standalone resources, so these contributions can be discovered and reused more easily.
 wq.attachments.title=Attached Files:
 wq.required.attachments.tooltip=Attach any files referenced in the lesson, such as a handout, rubric, worksheet, or quiz.
 wq.attachments.browse.button=Browse
@@ -648,8 +648,8 @@ wq.attachments.delete=Remove
 
 wq.file.size.maximum=20000000
 wq.file.size.label=Total size of all attachments:
-wq.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone planete.Sankoré contribution instead of attaching it to this resource.
-wq.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone planete.Sankoré contribution instead of attaching it to this resource.
+wq.file.size.oversize=Attachments to this resource cannot exceed 20 MB in total. To save this resource, you must use "remove" link in "Required Attachments" to reduce total size of attachments. Please upload any additional files as standalone Planète Sankoré contribution instead of attaching it to this resource.
+wq.file.size.dialog=Attachments to this resource cannot exceed 20 MB in total. You may want to upload this file as a standalone Planète Sankoré contribution instead of attaching it to this resource.
 ace.lesson.plan.file.size.dialog.button=OK
 
 
@@ -783,7 +783,7 @@ sri.instructional_component2_tooltip=Type ou format de contenu qui correspond le
 sri.keywords_title=Mots Clé:
 sri.keywords_txt=
 sri.keywords_content=
-sri.keywords_tooltip=Mots pour aider les gens à trouver votre ressource lorsqu'ils cherchent dans planete.Sankoré ou dans l'Internet
+sri.keywords_tooltip=Mots pour aider les gens à trouver votre ressource lorsqu'ils cherchent dans Planète Sankoré ou dans l'Internet
 
 ## LANGUAGE
 sri.language_title=Langue:
@@ -814,7 +814,7 @@ sri.rights_content=
 
 sri.license_type_title=Chartes de licence:
 
-sri.license_type_txt=Êtes-vous sûr d'avoir lu et compris les &lt;a href="/xwiki/bin/view/Main/Conditions+generales+d+utilisation?xpage=popup" target="TOS"&gt;conditions générales d'utilisation&lt;/a&gt; et que vous avez le droit de partager le contenu que vous vous appretez à soumettre.&lt;br /&gt;&lt;br /&gt;La licence planete.Sankoré-compatible vous offre un maximum de flexibilité envers la communauté, les membres pourront exploiter vos ressources.  Cette licence "planete.Sankoré" reprend majoritairement la licence "Creative Commons" &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;. Si vous voulez utiliser une autre licence, veuillez la choisir dans la liste déroulante suivante. Pour plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;C'est ici&lt;/a&gt;.
+sri.license_type_txt=Êtes-vous sûr d'avoir lu et compris les &lt;a href="/xwiki/bin/view/Main/Conditions+generales+d+utilisation?xpage=popup" target="TOS"&gt;conditions générales d'utilisation&lt;/a&gt; et que vous avez le droit de partager le contenu que vous vous appretez à soumettre.&lt;br /&gt;&lt;br /&gt;La licence Planète Sankoré-compatible vous offre un maximum de flexibilité envers la communauté, les membres pourront exploiter vos ressources.  Cette licence "Planète Sankoré" reprend majoritairement la licence "Creative Commons" &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;. Si vous voulez utiliser une autre licence, veuillez la choisir dans la liste déroulante suivante. Pour plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;C'est ici&lt;/a&gt;.
 sri.license_type_heading=Ensemble de chartes de licence:
 
 sri.license_type_tooltip=Licence qui protège ce contenu
@@ -863,7 +863,7 @@ add.setrequiredinfo.part2.next.button=Suivant &gt;&gt;
 
 
 ##CONTRIBUTE MENU
-add.contributemenu.title_addto_site=Ajouter à planete.Sankoré
+add.contributemenu.title_addto_site=Ajouter à Planète Sankoré
 add.contributemenu.title_addto_composite=Ajouter à la collection ou au dossier
 add.contributemenu.guidingquestion_addto_site=Que voulez-vous ajouter?
 
@@ -877,8 +877,8 @@ add.contributemenu.option.file_browse_button=Browser
 add.contributemenu.option.video_upload=Une video que je veux uploader
 add.contributemenu.option.link=Un lien pour une excellente ressource web
 add.contributemenu.link.empty_msg=http://
-add.contributemenu.option.repository=Une ressource que je peux trouver en cherchant dans planete.Sankoré
-add.contributemenu.subtitle_make=Quelque chose que je veux faire dans planete.Sankoré :
+add.contributemenu.option.repository=Une ressource que je peux trouver en cherchant dans Planète Sankoré
+add.contributemenu.subtitle_make=Quelque chose que je veux faire dans Planète Sankoré :
 add.contributemenu.option.template=Un plan de leçon que je vais créer au moyen d'un template
 add.contributemenu.option.scratch=Une ressource que je vais créer depuis "zero"
 add.contributemenu.option.video_capture=Une video que je vais capturer avec ma webcam
@@ -897,8 +897,8 @@ add.contributemenu.next.button=Suivant &gt;&gt;
 add.selecttemplate.title=Choisissez un template
 add.selecttemplate.guidingquestion=Quel genre de plan de leçon voulez-vous créer?
 
-add.selecttemplate.list1.header=&lt;b&gt;Plan de leçon standard planete.Sankoré&lt;/b&gt;
-add.selecttemplate.list1.description=Le template planete.Sankoré standard offre la structure de leçon la plus simple, avec des objectifs d'apprentissage et des procédures pour seul contenu obligatoire.
+add.selecttemplate.list1.header=&lt;b&gt;Plan de leçon standard Planète Sankoré&lt;/b&gt;
+add.selecttemplate.list1.description=Le template Planète Sankoré standard offre la structure de leçon la plus simple, avec des objectifs d'apprentissage et des procédures pour seul contenu obligatoire.
 add.selecttemplate.list1.thumbnail=/xwiki/bin/download/CreateResources/TemplateThumbnails/CurrikiStandardLessonPlanThumb.png
 add.selecttemplate.list1.url=/xwiki/bin/view/CreateResources/CurrikiStandardLessonPlan
 
@@ -914,7 +914,7 @@ add.selecttemplate.list3.url=/xwiki/bin/view/CreateResources/ACELessonPlan
 
 
 add.selecttemplate.list4.header=&lt;b&gt;WebQuest&lt;/b&gt;
-add.selecttemplate.list4.description=This planete.Sankoré template offers the structure for creating a student-directed learning activity that requires students to engage with online resources; includes an evaluation rubric.
+add.selecttemplate.list4.description=This Planète Sankoré template offers the structure for creating a student-directed learning activity that requires students to engage with online resources; includes an evaluation rubric.
 add.selecttemplate.list4.thumbnail=/xwiki/bin/download/CreateResources/TemplateThumbnails/WebQuestThumb.png
 add.selecttemplate.list4.url=/xwiki/bin/view/CreateResources/WebQuest
 

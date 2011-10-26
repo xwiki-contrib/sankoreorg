@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317728762000</creationDate>
-<date>1317728762000</date>
-<contentUpdateDate>1317728762000</contentUpdateDate>
+<creationDate>1319617820000</creationDate>
+<date>1319617820000</date>
+<contentUpdateDate>1319617820000</contentUpdateDate>
 <version>1.1</version>
-<title>Mise à jour du document $space.displayTitle -- $udoc.displayTitle sur planete.Sankoré</title>
+<title>Mise à jour du document $space.displayTitle -- $udoc.displayTitle sur Planète Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -35,7 +35,7 @@ Le document suivant a été mis à jour dans $space.displayTitle:
 
 $udoc.displayTitle
 
-Pour voir les changements, cliquez sur l'adresse ci-dessous ou collez-la dans la barre d'adresses de votre navigateur. (Rappelez-vous, vous devez être identifié sur planete.Sankoré pour voir cette page.) 
+Pour voir les changements, cliquez sur l'adresse ci-dessous ou collez-la dans la barre d'adresses de votre navigateur. (Rappelez-vous, vous devez être identifié sur Planète Sankoré pour voir cette page.) 
 
 $udoc.getExternalURL()
 
@@ -45,5 +45,5 @@ $xwiki.getDocument("${space.spaceName}.Members").getExternalURL()
 
 Cordialement,
 
-L'équipe planete.Sankoré
+L'équipe Planète Sankoré
 </content></xwikidoc>

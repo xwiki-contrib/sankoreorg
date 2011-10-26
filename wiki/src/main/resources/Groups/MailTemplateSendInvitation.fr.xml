@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317729145000</creationDate>
-<date>1317729145000</date>
-<contentUpdateDate>1317729145000</contentUpdateDate>
+<creationDate>1319617943000</creationDate>
+<date>1319617943000</date>
+<contentUpdateDate>1319617943000</contentUpdateDate>
 <version>1.1</version>
-<title>Invitation à rejoindre le groupe $space.displayTitle sur planete.Sankoré</title>
+<title>Invitation à rejoindre le groupe $space.displayTitle sur Planète Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -48,7 +48,7 @@
 #set($qs = "code=${code}&amp;user=${user}")
 #set($acceptLink=$xwiki.getDocument("${spaceName}.JoinGroup").getExternalURL("view",$qs))
 
-$inviter vous invite à rejoindre le groupe $groupName sur planete.Sankoré. 
+$inviter vous invite à rejoindre le groupe $groupName sur Planète Sankoré. 
 
 Voici une description du groupe : 
 
@@ -62,7 +62,7 @@ $inviter vous a envoyé le message d'invitation suivant:
 
 $!personalizedMessage
 
-Vous devez être membre de planete.Sankoré et être connecté au site afin de rejoindre $groupName. 
+Vous devez être membre de Planète Sankoré et être connecté au site afin de rejoindre $groupName. 
 
 Pour accepter cette invitation, cliquez sur le lien suivant :
 
@@ -70,4 +70,4 @@ $acceptLink
 
 Cordialement,
 
-L'équipe planete.Sankoré</content></xwikidoc>
+L'équipe Planète Sankoré</content></xwikidoc>
