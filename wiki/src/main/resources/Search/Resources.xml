@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317921597000</creationDate>
-<date>1317921597000</date>
-<contentUpdateDate>1317921597000</contentUpdateDate>
+<creationDate>1320250145000</creationDate>
+<date>1320250145000</date>
+<contentUpdateDate>1320250145000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -22,7 +22,195 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
-<content>## vim: ts=4:sw=4
+<content>#if($request.xpage != "plain")
+
+#set($subjects = $xwiki.searchDocuments(", BaseObject AS obj WHERE doc.fullName=obj.name AND obj.className='XWiki.FrameworkItemClass' AND doc.parent=''"))
+#set($levels = $xwiki.searchDocuments(", BaseObject AS obj WHERE doc.fullName=obj.name AND obj.className='CurrikiCode.EducationalLevelClass' AND doc.parent=''"))
+#set($icts = $xwiki.searchDocuments(", BaseObject AS obj WHERE doc.fullName=obj.name AND obj.className='CurrikiCode.InstructionalComponentClass' AND doc.parent=''"))
+
+URL = /xwiki/bin/view/Search/Resources?xpage=plain&amp;
+
+1 *REQUEST PARAMS:*
+
+*start:* // index of the first returned result
+
+*limit:* // number of results returned
+
+*sor:* // sort column
+
+*dir:* // direction of sort
+
+*terms:* // search terms
+
+*language:* // en || fr
+
+*subject:*
+
+{pre}
+[
+#foreach($subject in $subjects)
+#if($velocityCount &gt; 1),#end $subject 
+#end
+]
+{/pre}
+
+*subsubject:*
+
+{
+
+#foreach($subject in $subjects)
+$subject:
+
+{pre}
+[
+#foreach($subsubject in $xwiki.searchDocuments(", BaseObject AS obj WHERE doc.fullName = obj.name AND obj.className='XWiki.FrameworkItemClass' AND doc.parent='$subject'"))
+#if($velocityCount &gt; 1),#end $subsubject
+#end
+]
+{/pre}
+
+#end
+
+}
+
+*level:*
+
+{pre}
+[
+#foreach($level in $levels)
+#if($velocityCount &gt; 1),#end $level
+#end
+]
+{/pre}
+
+*sublevel:*
+
+{
+
+#foreach($level in $levels)
+$level:
+
+{pre}
+[
+#foreach($sublevel in $xwiki.searchDocuments(", BaseObject AS obj WHERE doc.fullName = obj.name AND obj.className='CurrikiCode.EducationalLevelClass' AND doc.parent='$level'"))
+#if($velocityCount &gt; 1),#end $sublevel
+#end
+]
+{/pre}
+
+#end
+
+}
+
+*ict:*
+
+{pre}
+[
+#foreach($ict in $icts)
+#if($velocityCount &gt; 1),#end $ict
+#end
+]
+{/pre}
+
+*subict*
+
+{
+
+#foreach($ict in $icts)
+$ict:
+
+{pre}
+[
+#foreach($subict in $xwiki.searchDocuments(", BaseObject AS obj WHERE doc.fullName = obj.name AND obj.className='CurrikiCode.InstructionalComponentClass' AND doc.parent='$ict'"))
+#if($velocityCount &gt; 1),#end $subict
+#end
+]
+{/pre}
+
+#end
+
+}
+
+*special:*
+
+{pre}
+[ &lt;br/&gt;
+ "contributions" // only current user contributions &lt;br/&gt;
+,"collections"   // only current user collections &lt;br/&gt;
+,"sankore"       // only sankore resources, ubw and ubz files &lt;br/&gt;
+,"reviewed"      // only resources reviewed by admins &lt;br/&gt;
+,"notreviewed"   // only resources not reviewed by current user &lt;br/&gt;
+]
+{/pre}
+
+
+*review:*
+
+{pre}
+[ &lt;br/&gt;
+"highest_rated" // highest rated by admins &lt;br/&gt;
+,"members.highest_rated" // highest rated by members &lt;br/&gt;
+]
+{/pre}
+
+1 RESPONSE FORMAT
+
+*Content-Type:* text/html;charset=UTF-8
+
+1 JSON
+
+{pre}
+{&lt;br/&gt;
+'rows':[&lt;br/&gt;
+{ 'page':'resource id' &lt;br/&gt;
+  ,'title':'resource  title' &lt;br/&gt;
+  ,'assetType':'resource type' one of [Archive|Attachment|Audio|Document|Image|Interactive] &lt;br/&gt;
+  ,'category':'resource category' // one of [text|image|audio|video|interactive|archive|document|external|collection|unknown] &lt;br/&gt;
+  ,'subcategory':'file type/extension in case of attachment resources or "collection" for category of "collection"' &lt;br/&gt;
+  ,'ict':[] &lt;br/&gt;
+  ,'contributor':'contributor id' &lt;br/&gt;
+  ,'contributorName':'contributor fullname' &lt;br/&gt;
+  ,'review':'review note' &lt;br/&gt;
+  ,'rating':'member rating 1-5' &lt;br/&gt;
+  ,'ratingCount':'number of member ratings' &lt;br/&gt;
+  ,'description':'description' &lt;br/&gt;
+  ,'subjects':[] &lt;br/&gt;
+  ,'levels': [] &lt;br/&gt;
+  ,'parents':[ &lt;br/&gt;
+{ &lt;br/&gt;
+'page':'parent resource id' &lt;br/&gt;
+,'title':'parent resource title' &lt;br/&gt;
+,'assetType':'parent resource type' one of [CollectionComposite] &lt;br/&gt;
+,'category':'parent resource category' one of [collection] &lt;br/&gt;
+,'subcategory':'' one of [collection] &lt;br/&gt;
+,'ict':[] &lt;br/&gt;
+,'contributor':'parent resource contributor id' &lt;br/&gt;
+,'contributorName':'parent resource contributor fullname' &lt;br/&gt;
+,'review':'parent resource review' &lt;br/&gt;
+,'rating':'member rating 1-5' &lt;br/&gt;
+,'ratingCount':'number of member ratings' &lt;br/&gt;
+,'description':'parent resource description' &lt;br/&gt;
+,'subjects':[] &lt;br/&gt;
+,'levels':[] &lt;br/&gt;
+,'updated':'updated date' &lt;br/&gt;
+,'creation':'creation date' &lt;br/&gt;
+,'author':'right holder id' &lt;br/&gt;
+,'authorName': 'rights holder fullname' &lt;br/&gt;
+} &lt;br/&gt;
+  ] &lt;br/&gt;
+  ,'updated':'updated date' &lt;br/&gt;
+  ,'creation':'creation date' &lt;br/&gt;
+  ,'author':'right holder id' &lt;br/&gt;
+  ,'authorName': 'rights holder fullname' &lt;br/&gt;
+  } &lt;br/&gt;
+] &lt;br/&gt;
+,'resultCount':'number of returned results' &lt;br/&gt;
+,'totalResults':'number of total results' &lt;br/&gt;
+} &lt;br/&gt;
+{/pre}
+
+#end
+## vim: ts=4:sw=4
 {pre}
 ## start=0&amp;limit=25&amp;sort=title&amp;dir=ASC
 ## terms=&amp;subject=&amp;filetype=&amp;level=&amp;language=&amp;ict=&amp;special=
@@ -173,8 +361,24 @@
         #if($xwiki.hasAccessLevel("view", $parentPage))
           #set($parentAsset = $xwiki.getDocument($parentPage))
           #searchResourceInfo($parentAsset false)
-#set($date = $datetool.format($parentAsset.date))
-          #set($pJSON = "{ 'page':'${parentAsset.fullName}' ,'title':'${ret_title}' ,'assetType':'${ret_assetType}' ,'category':'${ret_category}' ,'subcategory':'${ret_subcategory}' ,'ict':${ret_ict} ,'contributor':'${parentAsset.creator}' ,'contributorName':'${ret_cname}' ,'review':'$!{ret_review}' ,'description':'${ret_desc}' ,'fwItems':${ret_FW} ,'levels':${ret_lvl} ,'updated':'${date}' }")
+          #set($date = $datetool.format($parentAsset.date))
+          #set($pJSON = "{ 'page':'${parentAsset.fullName}' 
+          ,'title':'${ret_title}' 
+          ,'assetType':'${ret_assetType}' 
+          ,'category':'${ret_category}' 
+          ,'subcategory':'${ret_subcategory}' 
+          ,'ict':${ret_ict} 
+          ,'contributor':'${parentAsset.creator}' 
+          ,'contributorName':'${ret_cname}' 
+          ,'review':'$!{ret_review}' 
+          ,'description':'${ret_desc}' 
+          ,'subjects':${ret_FW} 
+          ,'levels':${ret_lvl} 
+          ,'updated':'${date}'
+          ,'creation':'${parentAsset.creationDate}'
+          ,'author':'${ret_rightsHolder}'
+          ,'authorName': '${ret_rightsHolderName}' 
+          }")
           #if($isFirstParent)
             #set($isFirstParent = false)
           #else
@@ -229,7 +433,7 @@
     ,'rating':'$!{ret_rating}'
     ,'ratingCount':'$!{ret_ratingCount}'
     ,'description':'${ret_desc}' 
-    ,'fwItems':${ret_FW} 
+    ,'subjects':${ret_FW} 
     ,'levels':${ret_lvl} 
     ,'parents':${ret_parents} 
     ,'updated':'${date}' 
@@ -431,7 +635,7 @@
   #set($wikinames = "xwiki")
   #set($languages = "default,en,fr")
   #set($include = "CurrikiCode.AssetClass.hidden_from_search:0 ")
-  #set($exclude = "AND NOT CurrikiCode.TextAssetClass.syntax:cboe AND NOT web:AssetTemp AND NOT web:Coll_Templates AND NOT name:WebHome AND NOT name:WebPreferences AND NOT name:MyCollections AND NOT name:SpaceIndex")
+  #set($exclude = "AND NOT CurrikiCode.TextAssetClass.syntax:cboe AND NOT web:AssetTemp AND NOT web:Coll_Templates AND NOT name:WebHome AND NOT name:WebPreferences AND NOT name:MyCollections AND NOT name:SpaceIndex AND NOT CurrikiCode.AssetClass.category:external")
   #if("$!conditions" != "")
     #set($include = "$!include AND ")
   #end
@@ -456,6 +660,7 @@
   #if("$!resultCount" == "")
     #set($resultCount = 0)
   #end
+#if($request.xpage == "plain")
 {
 'rows':[
   #set($first = true)
@@ -477,5 +682,6 @@ $ret_info
 ,'resultCount':'${modifiedCount}'
 ,'totalResults':'${resultCount}'
 }
+#end
 #end
 {/pre}</content></xwikidoc>
