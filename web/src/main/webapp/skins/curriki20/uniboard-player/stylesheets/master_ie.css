@@ -1,2 +1,36 @@
+.thumbnail {
+  display: inline;
+}
+#thumbnails .thumbnail .thumb-img {display: block;}
+.thumbnail.index {
+  display: inline;
+}
+  
+#thumbnails {
+  height: 48px;
+}
 
-#boards {  margin-top: 20px; }
+#menu-bottom {
+  height: 48px;
+}
+
+#thumbnails-slider {
+  height: 32px;
+}
+
+
+.thumbnails-slider-page {
+  height: 28px;
+}
+
+#thumbnails-slider .current {
+  height: 29px;
+}
+
+#thumbnails-canvas {
+  padding-top: 5px;
+}
+
+#description {
+  width: 440px;
+}

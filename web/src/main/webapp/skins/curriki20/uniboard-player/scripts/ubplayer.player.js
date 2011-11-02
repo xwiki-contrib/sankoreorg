@@ -1,12 +1,6 @@
 UbPlayer.Player = function(args) {
   var that = this;
   
-  this.thumbsBar = { 
-    state:"min", 
-    fullHeightVal:100, 
-    minHeightVal:0, 
-    sliding:false
-  };
   this.viewer = new UbPlayer.Viewer();
   this.currentPage = { number:1, ratio:1.6 };
   this.state = "full";
@@ -16,80 +10,367 @@ UbPlayer.Player = function(args) {
   this.sliderTimer = null;
   this.documentData = args.documentData;
   this.pagesImg = args.pagesImg;
+  this.pagesJson = [];
+  
+  // Load the images
+  for(var i=1; i<=this.documentData.numberOfPages; i++){
+    this.pagesImg[i] = new Image();
+    this.pagesImg[i].src = this.documentData.pagesBaseUrl + "/page" + this.formatPageNumber(i) + ".thumbnail.jpg";
+    this.pagesJson[i] = this.documentData.pagesBaseUrl + "/page" + this.formatPageNumber(i) + ".json";
+  }
+  
   this.thumbnails = {
+    state: "normal", 
+    height:0,
+    fullHeight:100, 
+    sliding:false,
     thumbsToHide:[],
     firstVisibleThumb:null,
+    init: function() {
+      var thumbnails = this;
+      this.addThumbnails();
+      jQuery("#menu-button-showthumbnails").unbind("click").bind("click", function(){
+        thumbnails.toggle()
+      });
+      this.update();
+    },
+    addThumbnails: function() {
+      var newThumbnail = null;      
+      for(var i=1; i<=that.documentData.numberOfPages; i++){
+        newThumbnail = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").clone();        
+        newThumbnail
+          .find("img")
+          .attr("src", that.pagesImg[i].src)
+          .attr("title", "page " + (i));
+        jQuery("#thumbnails>#thumbnails-canvas>div:last-child").after(newThumbnail);
+        newThumbnail
+          .hover(
+            function(){ jQuery(this).addClass("selected") },
+            function(){ jQuery(this).removeClass("selected") })
+          .click(function(){            
+            that.goToPage(jQuery(this).index() + 1);          
+          }); 
+      }
+      jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").remove();
+      this.firstVisibleThumb = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first");
+    },
+    toggle: function() {
+      if (this.state === "normal")
+        this.switchToFullMode();
+      else
+        this.switchToNormalMode();
+    },
+    switchToFullMode: function() {
+      if(this.state === "normal") {
+        this.state = "full";           
+        this.animate(this.fullHeight, "easeOutBack");
+        this.update();    
+      }
+    },
+    switchToNormalMode: function() {
+      if(this.state === "full") {
+        this.state = "normal";
+        this.animate(this.height, "easeInQuint");     
+      }
+    },
+    animate: function(height, easing) {
+      jQuery("#thumbnails").animate(
+        {height:50 + height},
+        400,
+        easing,
+        function() { 
+          jQuery(window).resize();
+        }
+      );
+      jQuery("#foot").animate(
+        {height:96 + height, marginTop:-height},
+        400,
+        easing,
+        function() {
+          jQuery(window).resize();
+        }
+      );
+    },
     next:function(){
-      var yToCheck = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").position().top;
-      jQuery("#thumbnails>#thumbnails-canvas>.thumbnail").each(function(){
+      var visibleThumbs = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:visible");
+      var yToCheck = jQuery(visibleThumbs[0]).position().top;
+      var lToCheck = yToCheck;
+      visibleThumbs.each(function(){
         if(jQuery(this).position().top === yToCheck){
-          if(jQuery(this).index() === that.documentData.numberOfPages-1){
-            jQuery("#thumbnail-next").addClass("disabled");
-            that.thumbnails.thumbsToHide = [];
-            return false;
-          }
-          jQuery("#thumbnail-previous").removeClass("disabled");
           that.thumbnails.thumbsToHide.push(jQuery(this));
         }else{
-          that.thumbnails.firstVisibleThumb = jQuery(this);
+          return false;
+        }
+      });      
+      for(var i=0; i<that.thumbnails.thumbsToHide.length; i++){
+        that.thumbnails.thumbsToHide[i].hide();
+      }
+      var lToCheck = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:last").position().top;
+      if (yToCheck === lToCheck) {
+        jQuery("#thumbnail-next").addClass('disabled').unbind("click");
+      } else {
+        jQuery("#thumbnail-next").removeClass('disabled').unbind("click").bind("click", function(){that.thumbnails.next();});
+      }
+      jQuery("#thumbnail-previous").removeClass('disabled').unbind("click").bind("click", function(){that.thumbnails.previous();});
+      that.thumbnails.thumbsToHide = [];
+    },
+    previous:function(){
+      var hiddenThumbs = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:hidden");
+      var firstVisibleThumb = jQuery(jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:visible")[0]);
+      var yToCheck = firstVisibleThumb.position().top;
+      jQuery(hiddenThumbs.get().reverse()).each(function(){
+        jQuery(this).show();
+        if (yToCheck < firstVisibleThumb.position().top) {
           return false;
         }
       });
+      if (jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:hidden").length > 0) {
+        jQuery("#thumbnail-previous").removeClass('disabled').unbind("click").bind("click", function(){that.thumbnails.previous();});
+      } else {
+        jQuery("#thumbnail-previous").addClass('disabled').unbind("click");
+      }
+      jQuery("#thumbnail-next").removeClass('disabled').unbind("click").bind("click", function(){that.thumbnails.next();});
+    },
+    update: function() {
+      // reset hidden, show all thumbnails
+      jQuery("#thumbnails>#thumbnails-canvas>.thumbnail").show();
+      jQuery("#thumbnails>#thumbnails-canvas>.thumbnail.current").removeClass("current");
+      var visibleThumbs = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail");
+      var currentThumb = jQuery(visibleThumbs[that.currentPage.number-1]).addClass("current");
+      var yToCheck = currentThumb.position().top;
+      var lToCheck = jQuery(visibleThumbs[visibleThumbs.length-1]).position().top;
+      visibleThumbs.each(function(){
+        if (jQuery(this).position().top < yToCheck) {
+          that.thumbnails.thumbsToHide.push(jQuery(this));
+        } else {
+          return false;
+        }
+      });
+      if (yToCheck === lToCheck) {
+        jQuery("#thumbnail-next").addClass('disabled').unbind("click");
+      } else {
+        jQuery("#thumbnail-next").removeClass('disabled').unbind("click").bind("click", function(){that.thumbnails.next();});
+      }
+      if (that.thumbnails.thumbsToHide.length > 0) {
+        jQuery("#thumbnail-previous").removeClass('disabled').unbind("click").bind("click", function(){that.thumbnails.previous();});
+      } else {
+        jQuery("#thumbnail-previous").addClass('disabled').unbind("click");
+      }
       for(var i=0; i<that.thumbnails.thumbsToHide.length; i++){
         that.thumbnails.thumbsToHide[i].hide();
       }
       that.thumbnails.thumbsToHide = [];
-    },
-    previous:function(){
-      var thumbIndex = 0;
-      var currentThumb = null;
-      jQuery("#thumbnails>#thumbnails-canvas>.thumbnail").each(function(){
-        thumbIndex++;
-        currentThumb = jQuery(jQuery("#thumbnails>#thumbnails-canvas>.thumbnail")[that.thumbnails.firstVisibleThumb.index()-thumbIndex]);
-        if(currentThumb.length > 0){
-          jQuery("#thumbnail-next").removeClass("disabled");
-          currentThumb.show();
-          if(that.thumbnails.firstVisibleThumb.position().top !== currentThumb.position().top) {
-            that.thumbnails.firstVisibleThumb = currentThumb;
-            return false;
-          }
-        }else{
-          jQuery("#thumbnail-previous").addClass("disabled");
-          return false;
-        }
-      });
     }
   }
+  this.thumbnails.init();
   
-  // Events binding  
-  jQuery("#menu-button-previous").click(function(){ that.goToPage("PREVIOUS") });
-  jQuery("#menu-button-index").toggle(function(){ that.showIndex() }, function(){ that.hideIndex() });
-  jQuery("#menu-button-next").click(function(){ that.goToPage("NEXT") });
-  jQuery("#board-button-previous").click(function(){ that.goToPage("PREVIOUS") });
-  jQuery("#board-button-next").click(function(){ that.goToPage("NEXT") });
-  jQuery("#menu-button-index-embed").toggle(function(){ that.showIndex() }, function(){ that.hideIndex() });
-
-  jQuery("#current-page")
-    .bind("mouseleave", this.boardButtonOutHandler);
-  jQuery("#boards")
-    .bind("mouseenter", this.boardButtonOutHandler);
-
-  jQuery("#thumbnail-next").click(function(){that.thumbnails.next()});
-  jQuery("#thumbnail-previous").click(function(){that.thumbnails.previous()});
+  this.indexThumbnails = {
+    visible: false,
+    thumbsPerRow: Math.round(Math.sqrt(that.documentData.numberOfPages)),
+    init: function() {
+      this.addIndexThumbnails();
+      this.enable();
+    },
+    addIndexThumbnails: function() {
+      var newThumbnail = null;      
+      for(var i=1; i<=that.documentData.numberOfPages; i++){
+        newThumbnail = jQuery("#index>.thumbnail:first").clone();        
+        newThumbnail
+          .find("img")
+          .attr("src", that.pagesImg[i].src)
+          .attr("title", "page " + (i));          
+        jQuery("#index>:last-child").after(newThumbnail);
+        newThumbnail
+          .hover(
+            function(){ jQuery(this).addClass("selected") },
+            function(){ jQuery(this).removeClass("selected") })
+          .click(function(){
+            that.indexThumbnails.hide();
+            that.goToPage(jQuery(this).index() - Math.floor((jQuery(this).index()+1)/(that.indexThumbnails.thumbsPerRow+1)) + 1);          
+          });     
+        if (i === that.currentPage.number){ newThumbnail.addClass("current") }
+        if ((i)%this.thumbsPerRow === 0) jQuery("#index").append("<br/>");        
+      }
+      jQuery("#index>.thumbnail:first").remove();                
+    },
+    show: function() {
+      if (!this.visible) {
+        that.fullscreen.disable();
+        that.description.disable();
+        jQuery("#boards").animate({marginTop: "-100%"}, 
+          function(){
+            jQuery(this).hide();
+            jQuery("#index").show();
+          });
+        jQuery("#index").height(jQuery("#sankorebody").height());
+        this.visible = true;
+     }
+    },
+    hide: function() {
+      if (this.visible) {
+        that.fullscreen.enable();
+        that.description.enable();
+        jQuery("#index").hide();
+        jQuery("#boards")
+          .show()
+          .animate({marginTop: "0px"});
+        this.visible = false;
+      }
+    },
+    toggle: function() {
+      if (this.visible)
+        this.hide();
+      else 
+        this.show();
+    },
+    update: function() {
+      jQuery("#index").height(jQuery("#sankorebody").height());
+      jQuery("#index>div").removeClass("current");
+      jQuery(jQuery("#index>div")[that.currentPage.number-1]).addClass("current");
+    },
+    enable: function() {
+      var indexThumbnails = this;
+      jQuery("#menu-button-index").removeClass("disabled").unbind("click").bind("click", function(){
+        indexThumbnails.toggle();
+      });
+    },
+    disable: function() {
+      jQuery("#menu-button-index").addClass("disabled").unbind("click");      
+    }
+  }
+  this.indexThumbnails.init();
+  
+  this.description = {
+    visible: false,
+    init: function() {
+      this.enable();        
+    },
+    show: function() {
+      if (!this.visible) {
+        jQuery("#boards").animate({
+          marginTop: "-100%"
+        }, function(){
+          jQuery(this).hide();
+          jQuery("#description").show();
+          //jQuery("#head-list-share").css("display", "none");
+          //jQuery("#head-list-closeDescription").css("display", "inline-block");
+        });
+        that.fullscreen.disable();        
+        that.indexThumbnails.hide();
+        that.indexThumbnails.disable();
+        that.navigation.disable();
+        this.visible = true;
+      }
+    },
+    hide: function() {
+      if (this.visible) {
+        jQuery("#description").animate({
+          marginTop: "100%"
+        }, function(){
+          jQuery(this).hide().css({
+            marginTop: "30px"
+          });
+          jQuery("#boards").show().animate({
+            marginTop: "0px"
+          });
+          //jQuery("#head-list-share").css("display", "inline-block");
+          jQuery("#head-list-closeDescription").css("display", "none");
+          jQuery(window).resize();          
+        });
+        that.fullscreen.enable();
+        that.indexThumbnails.enable();
+        that.navigation.enable();
+        this.visible = false;
+      }
+    },
+    toggle: function() {
+      if (this.visible)
+        this.hide();
+      else
+        this.show();
+    },
+    enable: function() {
+      var description = this;
+      jQuery("#menu-button-showdetails").removeClass("disabled").unbind("click").bind("click", function(){description.toggle()});
+    },
+    disable: function() {
+      jQuery("#menu-button-showdetails").addClass("disabled").unbind("click");      
+    }
+  }
+  this.description.init();
+  
+  this.navigation = {
+    init: function() {
+      this.update();
+    },
+    enable: function() {
+      this.update();
+    },
+    disable: function() {
+      jQuery("#menu-button-previous, #board-button-previous").addClass('disabled').unbind("click");
+      jQuery("#menu-button-next, #board-button-next").addClass('disabled').unbind("click");
+    },
+    update: function() {
+      if (that.currentPage.number > 1) {
+        jQuery("#menu-button-previous, #board-button-previous").removeClass('disabled').unbind("click").one("click", function(){
+          that.goToPreviousPage();
+        });
+      } else {
+        jQuery("#menu-button-previous, #board-button-previous").addClass('disabled').unbind("click");
+      }
+      if (that.currentPage.number < that.documentData.numberOfPages) {
+        jQuery("#menu-button-next, #board-button-next").removeClass('disabled').unbind("click").one("click", function(){
+          that.goToNextPage();
+        });
+      } else {
+        jQuery("#menu-button-next, #board-button-next").addClass('disabled').unbind("click");
+      }
+    }
+  }
+  this.navigation.init();  
+    
+  this.slider = {
+    init: function() {
+      // Constructs the slider
+      var sliderPage = jQuery("#thumbnails-slider>div:first").clone();
+      var sliderPageWidth = (100/that.documentData.numberOfPages) + "%";
+      jQuery("#thumbnails-slider>div:first").remove();
+      for(var i=1; i<=that.documentData.numberOfPages; i++){
+        var newSliderPage = sliderPage.clone();
+        newSliderPage.css({ width:sliderPageWidth })
+          .attr("title", "page " + i)
+          .click(function(){
+            that.goToPage(jQuery(this).index()+1);
+          });
+        if (i===that.documentData.numberOfPages) newSliderPage.addClass("last");
+          jQuery("#thumbnails-slider").append(newSliderPage);
+      }
+    },
+    update: function() {
+      jQuery("#thumbnails-slider>div").removeClass("current");
+      jQuery(jQuery("#thumbnails-slider>div")[that.currentPage.number-1]).addClass("current");
+    }
+  }
+  this.slider.init();  
+  
+  this.fullscreen = {
+    enable: function() {
+      jQuery("#menu-button-full").removeClass("disabled").unbind("click").click(function(){
+        that.switchToFullMode();
+      });      
+    },
+    disable: function() {
+      jQuery("#menu-button-full").addClass("disabled").unbind("click");
+    }
+  }
+  this.fullscreen.enable();
   
   //jQuery("#menu-share-email").click(function(){that.showSharing()});
-  jQuery("#menubottom-input").change(function(){ that.goToPage(jQuery("#menubottom-input").val()) });
-  jQuery("#menu-button-showdetails")
-    .toggle(
-      function(){ that.showDescription() },
-      function(){ that.hideDescription() });
+  
   jQuery("#shareDoc")
    .toggle(
       function(){ jQuery("#menu-share-dropdown").show() },
       function(){ jQuery("#menu-share-dropdown").hide() });
-  jQuery("#quitFullscreen")
-    .click(
-      function(){ that.switchToNormalMode() });
   jQuery("#quitDescription")
     .click(
       function(){ jQuery("#menu-button-showdetails").click() });
@@ -103,106 +384,9 @@ UbPlayer.Player = function(args) {
   jQuery("#menu-list-share")
     .toggle(
       function(){ jQuery("#menu-share-dropdown").show() },
-      function(){ jQuery("#menu-share-dropdown").hide() });
-  jQuery("#menu-button-full").click(function(){ 
-    that.switchToFullMode();
-  });
-  jQuery("#menu-button-showthumbnails").click(function(){
-    var newFootHeight = 0;
-    var easing = "";
-        
-    if(that.thumbsBar.state === "min"){
-      newFootHeight = that.thumbsBar.fullHeightVal;
-      that.thumbsBar.state = "full";
-      easing = "easeOutBack";
-    } else {
-      newFootHeight = that.thumbsBar.minHeightVal;
-      that.thumbsBar.state = "min";
-      easing = "easeInQuint";
-    }
+      function(){ jQuery("#menu-share-dropdown").hide() });  
   
-    if(that.thumbsBar.state === "full"){
-      jQuery("#body").css({paddingBottom:110 + newFootHeight });
-      jQuery(window).resize();
-    }
-    jQuery("#thumbnails").animate(
-      {height:32 + newFootHeight},
-      400,
-      easing,
-      function(){ 
-        jQuery("#body").css({paddingBottom:110 + newFootHeight });
-        jQuery(window).resize();
-      }
-    );
-    jQuery("#foot").animate(
-      {height:96 + newFootHeight, marginTop:-96 -newFootHeight},
-      400,
-      easing
-    );
-  });
-
-  // Constructs the slider
-  var sliderPage = jQuery("#thumbnails-slider>div:first").clone();
-  var sliderPageWidth = (100/this.documentData.numberOfPages) + "%";
-  jQuery("#thumbnails-slider>div:first").remove();
-  for(var i=1; i<=this.documentData.numberOfPages; i++){
-    var newSliderPage = sliderPage.clone();
-    newSliderPage
-      .css({ width:sliderPageWidth })
-      .attr("title", "page " + i)
-      .click(function(){
-        that.goToPage(jQuery(this).index()+1);
-      });
-    if(i===this.documentData.numberOfPages) newSliderPage.addClass("last");
-    jQuery("#thumbnails-slider").append(newSliderPage);
-  }
-
-  // Slider handlera
-/*
-  jQuery("#thumbnails-slider>div:first").append(jQuery("#thumbnails-slider-handler"));
-  jQuery("#thumbnails-slider-handler").draggable({
-    axis: 'x',
-    containment:[ jQuery("#thumbnails-slider>div:first-child").offset().left, 0, 
-                  jQuery("#thumbnails-slider>div:first-child").offset().left + jQuery("#thumbnails-slider>div:first-child").width()*this.documentData.numberOfPages-20, 0  ],
-    start:function(e){
-      jQuery(this).css({left:"0"});
-      jQuery(this).parent("div").css({zIndex:1});
-      that.sliderListener(that.currentPage.number);
-      that.thumbsBar.sliding = true;
-    },
-    stop:function(e){
-      jQuery(this).css({left:"0"});
-      clearTimeout(that.sliderTimer);
-      jQuery(this).appendTo(jQuery("#thumbnails-slider>div")[that.currentPage.number-1]);
-      that.thumbsBar.sliding = false;
-    } 
-  });
-  */
-
-  // Add the thumbnails
-  var newThumbnail = null;
-  var formattedThumbNumber = null;
-  for(var i=0; i<this.documentData.numberOfPages; i++){
-    newThumbnail = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").clone();
-    formattedThumbNumber = this.formatPageNumber(i+1);
-    newThumbnail
-      .find("img").attr("src", this.documentData.pagesBaseUrl + "/page" + formattedThumbNumber + ".thumbnail.jpg")
-      .attr("title", "page " + (i+1));
-    jQuery("#thumbnails>#thumbnails-canvas>div:last-child").after(newThumbnail); 
-  }
-  jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").remove();
-
-  jQuery(".thumbnail")
-    .hover(
-      function(){ jQuery(this).addClass("selected") },
-      function(){ jQuery(this).removeClass("selected") })
-    .click(function(){
-      that.goToPage(jQuery(this).index()+1);
-      if(jQuery("#description").css("display") != "none"){
-        jQuery("#menu-button-showdetails").click();
-        jQuery(window).resize();
-      }
-    });
+  
 
   if(!this.documentData.hasPdf){ 
     jQuery("#menu-export-hasPdf>a").addClass("disabled");
@@ -258,68 +442,61 @@ UbPlayer.Player = function(args) {
                                       "<br/><br/>" + this.documentData.description);
   jQuery("#menubottom-input").after("/" + this.documentData.numberOfPages);
   
-  this.openPage(1);
-  // Load the images
-  for(var i=1; i<=this.documentData.numberOfPages; i++){
-    this.pagesImg[i] = new Image();
-    this.pagesImg[i].src = this.documentData.pagesBaseUrl + "/page" + this.formatPageNumber(i) + ".thumbnail.jpg";
-  }
+  // disable selection and dragging, has undesired efects on swipe gesture and other functionalities
+  jQuery("div").live('selectstart dragstart', function(evt){ evt.preventDefault(); return false; });
+  jQuery("img").live('selectstart dragstart', function(evt){ evt.preventDefault(); return false; });
+  
+  jQuery("#page-img").bind("swipeone", function(event, obj){
+    obj.originalEvent.preventDefault();
+    console.log("JGESTURES: swipeone");
+    if (obj.direction.lastX == 1)
+      that.goToPreviousPage()
+    else
+      that.goToNextPage();
+  });
+
+  this.openPage(1);  
 };
 
-UbPlayer.Player.prototype.sliderListener = function(currentPageNmbr){
-  var that = this;
-  var slider = jQuery("#thumbnails-slider-handler");
-  var unitWidth = slider.parent("div").width();
-  var sliderIndex = 1 + Math.floor((slider.position().left + ((currentPageNmbr-1) * unitWidth)) / unitWidth);	      
-  if(sliderIndex !== this.currentPage.number) this.goToPage(sliderIndex);
-  this.sliderTimer = setTimeout(function(){that.sliderListener(currentPageNmbr)}, 10);
+UbPlayer.Player.prototype.goToNextPage = function() {
+  this.goToPage("NEXT");
 }
 
-UbPlayer.Player.prototype.boardButtonOutHandler = function(event){
-  if( event.pageY >= jQuery("#boards").position().top && 
-      event.pageY <= (jQuery("#boards").position().top + jQuery("#boards").height()) ){
-    if(event.pageX >= (jQuery("#current-page").position().left + jQuery("#current-page").width())){
-      jQuery("#board-button-next").stop().animate({opacity:1}, 200);
-    }else if(event.pageX < jQuery("#current-page").position().left){
-      jQuery("#board-button-previous").stop().animate({opacity:1}, 200);
-    }
-  }
+UbPlayer.Player.prototype.goToPreviousPage = function() {
+  this.goToPage("PREVIOUS");
 }
 
 UbPlayer.Player.prototype.goToPage = function(pageNumber){
   var checkPoint = { finish:"%", start:"%" };
   var that = this;
   
-  if(pageNumber === "NEXT"){
+  if (pageNumber === "NEXT" && this.currentPage.number < this.documentData.numberOfPages) {
     this.currentPage.number++;
     checkPoint = { finish:"-200%", start:"100%" };
-  }else if(pageNumber === "PREVIOUS"){
+  } else if(pageNumber === "PREVIOUS" && this.currentPage.number > 1) {
     this.currentPage.number--;
     checkPoint = { finish:"100%", start:"-200%" };
-  }else{
-    if(pageNumber > this.currentPage.number){
+  } else if (typeof pageNumber == "number") {
+    if (pageNumber > this.currentPage.number && pageNumber <= this.documentData.numberOfPages) {
+      this.currentPage.number = pageNumber;
       checkPoint = { finish:"-200%", start:"100%" };
-    }else if(pageNumber < this.currentPage.number){
+    } else if (pageNumber < this.currentPage.number && pageNumber >= 1) {
+      this.currentPage.number = pageNumber;
       checkPoint = { finish:"100%", start:"-200%" };
-    }else{
+    } else {
       return 0;
     }
-    this.currentPage.number = pageNumber;
   }
-
-  if(this.currentPage.number < 1){
-    this.currentPage.number = 1;
-  }else if(this.currentPage.number > this.documentData.numberOfPages){
-    this.currentPage.number = this.documentData.numberOfPages;
-  }
-	
-	jQuery("#current-page")
-	  .unbind("mouseenter")
-	  .unbind("mouseleave");
-	  
-	this.viewer.hide();
-	
-	if(!jQuery.browser.safari){ // JS animation if not safari
+  
+  jQuery("#current-page")
+    .unbind("mouseenter")
+    .unbind("mouseleave");
+  
+  this.openPage(this.currentPage.number);
+    
+  this.viewer.hide();
+  /*
+  if(!jQuery.browser.safari){ // JS animation if not safari
     jQuery("#boards").stop().animate(
       {marginLeft:checkPoint.finish},
       300,
@@ -365,6 +542,7 @@ UbPlayer.Player.prototype.goToPage = function(pageNumber){
     boardsAnimStop();
     boardsAnimEnd();
   }
+  */
 }
 
 UbPlayer.Player.prototype.adaptPage = function(){
@@ -373,24 +551,25 @@ UbPlayer.Player.prototype.adaptPage = function(){
 }
 
 UbPlayer.Player.prototype.switchToFullMode = function(){
-  jQuery(".board-button-unit").css("display", "block");
+  var that = this;  
+  jQuery(".board-button-unit").show();
+  jQuery("#head").show();
   jQuery("#foot").hide();
-  jQuery("#head-list-share").css("display", "none");
-  jQuery("#head-list-close").css("display", "inline-block");
+  that.indexThumbnails.hide();
+  jQuery("#quitFullscreen").unbind("click").one("click", function(){
+    that.switchToNormalMode();
+  });  
   jQuery(window).resize();
   this.mode = "full";
 }
 
 UbPlayer.Player.prototype.switchToNormalMode = function(){
-  jQuery(".board-button-unit").css("display", "none");
+  jQuery(".board-button-unit").hide();
+  jQuery("#head").hide();
   jQuery("#foot").show();
-  jQuery("#head-list-share").css("display", "inline-block");
-  jQuery("#head-list-close").css("display", "none");
-  if(this.thumbsBar.state === "full"){
-    jQuery("#body").css({paddingBottom:110+this.thumbsBar.fullHeightVal});
-  }else{
-    jQuery("#body").css({paddingBottom:110});
-  }
+  jQuery("#quitFullscreen").unbind("click").one("click", function(){
+    that.switchToFullMode();
+  });
   jQuery(window).resize();
   this.mode = "normal";
 }
@@ -404,118 +583,6 @@ UbPlayer.Player.prototype.showSharing = function(){
 
 UbPlayer.Player.prototype.hideSharing = function(){
 
-}
-
-UbPlayer.Player.prototype.showDescription = function(){
-  jQuery("#boards").animate({marginTop:"-100%"}, function(){
-    jQuery(this).hide();
-    jQuery("#description").show();
-    jQuery("#head-list-share").css("display", "none");
-    jQuery("#head-list-closeDescription").css("display", "inline-block");
-  });
-  
-  jQuery("#menu-button-full")
-    .addClass("disabled")
-    .unbind("click");
-  jQuery("#menu-button-previous")
-    .addClass("disabled")
-    .unbind("click");
-  jQuery("#menu-button-next")
-    .addClass("disabled")
-    .unbind("click");
-  jQuery("#menu-button-index")
-    .addClass("disabled")
-    .unbind("toggle")
-    .unbind("click");
-}
-
-UbPlayer.Player.prototype.hideDescription = function(){
-  var that = this;
-  
-  jQuery("#description").animate({marginTop:"100%"}, function(){
-    jQuery(this)
-      .hide()
-      .css({marginTop:0});
-    jQuery("#boards")
-      .show()
-      .animate({marginTop:"0px"});
-    jQuery("#head-list-share").css("display", "inline-block");
-    jQuery("#head-list-closeDescription").css("display", "none");
-    jQuery(window).resize();
-    jQuery(window).resize();
-  });
-  
-  jQuery("#menu-button-full")
-    .removeClass("disabled")
-    .bind("click", function(){that.switchToFullMode()});
-  jQuery("#menu-button-previous")
-    .removeClass("disabled")
-    .bind("click", function(){that.goToPage("PREVIOUS")});
-  jQuery("#menu-button-next")
-    .removeClass("disabled")
-    .bind("click", function(){that.goToPage("NEXT")});
-  jQuery("#menu-button-index")
-    .removeClass("disabled")
-    .toggle(function(){ that.showIndex() }, function(){ that.hideIndex() });
-}
-
-UbPlayer.Player.prototype.showIndex = function(){
-  var that = this;
-  var thumbsPerRow = Math.round(Math.sqrt(this.documentData.numberOfPages));
-
-  jQuery("#menu-button-previous")
-    .addClass("disabled")
-    .unbind("click");
-  jQuery("#menu-button-next")
-    .addClass("disabled")
-    .unbind("click");
-
-  jQuery("#boards").animate({marginTop:"-100%"}, function(){
-    jQuery(this).hide();
-    jQuery("#index")
-      .show()
-      .empty();
-    that.drawIndexThumbnails(thumbsPerRow);
-  });
-}
-
-UbPlayer.Player.prototype.hideIndex = function(){
-  var that = this;
-  
-  jQuery("#menu-button-previous")
-    .removeClass("disabled")
-    .bind("click", function(){that.goToPage("PREVIOUS")});
-  jQuery("#menu-button-next")
-    .removeClass("disabled")
-    .bind("click", function(){that.goToPage("NEXT")});
-    
-  jQuery("#index").hide();
-  jQuery("#boards")
-    .show()
-    .animate({marginTop:"0px"});
-}
-
-UbPlayer.Player.prototype.drawIndexThumbnails = function(thumbsPerRow){
-  var that = this;
-  var newIndex = jQuery("#index>div").length + 1;
-  var newIndexThumbnailNumber = this.formatPageNumber(newIndex);
-  var newIndexThumbnail = jQuery("<div class='thumbnail index'><img class='thumb-img' src='" + this.documentData.pagesBaseUrl + "/page" + 
-                          newIndexThumbnailNumber + 
-                          ".thumbnail.jpg' width='auto' height='100%'/></div>");
-  newIndexThumbnail
-    .hover(
-      function(){ if(newIndex !== that.currentPage.number) jQuery(this).addClass("selected") },
-      function(){ jQuery(this).removeClass("selected") })
-    .click(function(){
-      that.goToPage(newIndex);
-      jQuery("#menu-button-index").click();
-      jQuery(window).resize();
-    });
-    
-  jQuery("#index").append(newIndexThumbnail);
-  if(newIndex === this.currentPage.number){ newIndexThumbnail.addClass("current") }
-  if((newIndex)%thumbsPerRow === 0)jQuery("#index").append("<br/>");
-  if(jQuery("#index>div").length < this.documentData.numberOfPages) setTimeout(function(){that.drawIndexThumbnails(thumbsPerRow)}, 100);
 }
 
 UbPlayer.Player.prototype.formatPageNumber = function(pageNumber){
@@ -534,27 +601,26 @@ UbPlayer.Player.prototype.formatDate = function(date){
 
 UbPlayer.Player.prototype.openPage = function(pageNumber){
   var that = this;
-  var formattedPageNumber = this.formatPageNumber(pageNumber);
-  var fileName = this.documentData.pagesBaseUrl + "/page" + formattedPageNumber + ".thumbnail.jpg";
-  var jsonName = this.documentData.pagesBaseUrl + "/page" + formattedPageNumber + ".json";
+  //var formattedPageNumber = this.formatPageNumber(pageNumber);
+  //var jsonName = this.documentData.pagesBaseUrl + "/page" + formattedPageNumber + ".json";
                        
   this.currentPage.number = pageNumber;
 
-  jQuery(".appImg").remove();
-  jQuery("#menubottom-input").val(pageNumber);
-  jQuery("#thumbnails-slider>div").removeClass("current");
-  jQuery(jQuery("#thumbnails-slider>div")[pageNumber-1]).addClass("current");
-  //jQuery("#thumbnails-canvas>div").removeClass("current");
-  //jQuery(jQuery("#thumbnails-canvas>div")[pageNumber-1]).addClass("current");
+  //jQuery(".appImg").remove();
+  //jQuery("#menubottom-input").val(pageNumber);
+    
+  that.slider.update();
+  that.thumbnails.update();
+  that.indexThumbnails.update();
   
-  jQuery("#current-page>img").attr("src", fileName);
+  jQuery("#current-page>img").attr("src", that.pagesImg[pageNumber].src);
   
   // Slider handler
-  if(!this.thumbsBar.sliding)
+  if(!this.thumbnails.sliding)
     jQuery("#thumbnails-slider-handler")
       .appendTo(jQuery("#thumbnails-slider>div")[pageNumber-1])
       .html(pageNumber);
-    
+  /*  
   jQuery.getJSON(jsonName, function(data) {
       if(data){
         var scene = {
@@ -640,29 +706,10 @@ UbPlayer.Player.prototype.openPage = function(pageNumber){
             );          
         }
       }
-  });
+  });*/
   
   jQuery(window).resize();
 
-  // Disable previous button if the current page is 1
-  if(pageNumber === 1){
-    jQuery("#menu-button-previous").unbind("click");
-    jQuery("#board-button-previous").unbind("click");
-  }else{ // Enable previous button if it has no click event
-    if(jQuery("#menu-button-previous").data("events") === null){
-      jQuery("#menu-button-previous").bind("click", function(){that.goToPage("PREVIOUS")});
-      jQuery("#board-button-previous").bind("click", function(){that.goToPage("PREVIOUS")});
-    }
-  }
-  
-  // Disable next button if the current page is the last page
-  if(pageNumber === this.documentData.numberOfPages){
-    jQuery("#menu-button-next").unbind("click");
-    jQuery("#board-button-next").unbind("click");
-  }else{ // Enable previous button if it hasn't any click event
-    if(jQuery("#menu-button-next").data("events") === null){
-      jQuery("#menu-button-next").bind("click", function(){that.goToPage("NEXT")});
-      jQuery("#board-button-next").bind("click", function(){that.goToPage("NEXT")});
-    }
-  }
+  that.navigation.update();
+  that.thumbnails.update();
 }

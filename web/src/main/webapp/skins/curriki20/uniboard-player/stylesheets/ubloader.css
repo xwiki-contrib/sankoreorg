@@ -1,6 +1,7 @@
 
 #sankoreplayer {
-  position: absolute;
+  display: none;
+  position: fixed;
   bottom: 0;
   top: 0;
   left: 0;
@@ -11,26 +12,44 @@
   z-index: 10000;
   background-color: #fff;
 }
+#sankoreplayer iframe {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#sankoreplayer-header {
+  position: fixed;
+  padding: 3px 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+}
 
 #sankoreplayer-menulist {
+  display: block;
   text-align:right;
   text-indent:24px;
   line-height:18px;
   font-size:12px;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  width:100%;
+  overflow:hidden;
+  margin: 0;
+  padding:0;
 }
 
 #sankoreplayer-menulist li {
-  display:inline-block;
+  display:block; 
+  float: right; 
+}
+
+#sankoreplayer-menulist a {
+  display: block; 
   margin-left:10px;
   margin-right:10px;
   background:url(../images/head-button-close.png) no-repeat 0px 0px; 
-}
-
-#sankoreplayer-menulist a:link, 
-#sankoreplayer-menulist a:active, 
-#sankoreplayer-menulist a:visited {
-    text-decoration: none;
-    color: red;
+  line-height:18px;    
+  text-decoration: none;
+  color: red;
 }
