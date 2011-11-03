@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319617712000</creationDate>
-<date>1319617712000</date>
-<contentUpdateDate>1319617712000</contentUpdateDate>
+<creationDate>1320337637000</creationDate>
+<date>1320337637000</date>
+<contentUpdateDate>1320337637000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -646,4 +646,27 @@ groups.search.top_title=CHERCHER DES RESSOURCES DE CE GROUPE DANS LE REPOSITORY
 
 groups_admins_onlyaccessibletoadmins=Cette page est seulement disponible pour les administrateurs.
 
+##DisclaimerCreateGroup
+groups.disclaimer.create.group.first.title=PAR LA CREATION D'UN NOUVEAU GROUPE
+groups.disclaimer.create.group.first.row=Vous créez un espace pour les travail d'un groupe de projets, y comprises les pages suivantes, qui sont organisées pour votre groupe par des onglets :
+groups.disclaimer.create.group.first.list.first.row=* Accueil
+groups.disclaimer.create.group.first.list.second.row=* Messages
+groups.disclaimer.create.group.first.list.third.row=* Parcours de connaissance
+groups.disclaimer.create.group.first.list.fourth.row=* Membres
+groups.disclaimer.create.group.first.list.fifth.row=* Documentation
+groups.disclaimer.create.group.second.row=Vous prenez en charge le rôle de dirigeant du groupe, ce qui veut dire que vous pouvez :
+groups.disclaimer.create.group.second.list.first.row=* modifier les informations du groupe,
+groups.disclaimer.create.group.second.list.second.row=* accepter des nouveaux membres dans votre groupe,
+groups.disclaimer.create.group.second.list.third.row=* contrôler des sections particulières de contenus qui s'affichent sur les pages de votre groupe,
+groups.disclaimer.create.group.second.list.fourth.row=* contribuer à définir et à documenter les bonnes pratiques pour le groupe,
+groups.disclaimer.create.group.second.list.fifth.row=* participer au groupe des administrateurs de Planète Sankoré.
+groups.disclaimer.create.group.third.row=Votre espace de groupe bénéficie de sa propre adresse web pour en faciliter l'accès et le partage
+groups.disclaimer.create.group.second.title=POUR COMMENCER
+groups.disclaimer.create.group.fourth.row=Pour de plus amples informations sur la création des groupes sur Planète Sankoré, visitez la section des groupes sur la bibliothèque d'assistance de Planète Sankoré.
+groups.disclaimer.create.group.fifth.row=Si vous souhaitez créer un groupe sur Planète Sankoré, il est important de :
+groups.disclaimer.create.group.third.list.first.row=* savoir que les groupes Planète Sankoré peuvent être présentés et mis en lien à partir de divers endroits du site, tels que la page d'accueil ou la page "trouver des groupes",
+groups.disclaimer.create.group.third.list.second.row=* vous engager en qualité de dirigeant du groupe,
+groups.disclaimer.create.group.third.list.third.row=* faire de votre groupe une zone active et utile pour ses membres et pour la communauté Planète Sankoré,
+groups.disclaimer.create.group.third.list.fourth.row=* vous tenir prêt à consacrer environ deux heures par mois à la maintenance de votre espace de groupe et à y contribuer de manière active.
+groups.disclaimer.create.group.button=Suivant
 ## &lt;/pre&gt;</content></xwikidoc>
