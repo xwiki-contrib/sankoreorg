@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319618870000</creationDate>
-<date>1319618870000</date>
-<contentUpdateDate>1319618870000</contentUpdateDate>
+<creationDate>1320413339000</creationDate>
+<date>1320413339000</date>
+<contentUpdateDate>1320413339000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -113,7 +113,7 @@ form.done.wysiwyg.error.wikitext=1 Error: SLP Wysiwyg Badness!
 ## SWR TITLE AREA
 form.scratch.url=/xwiki/bin/view/CreateResources/SimpleWikiResource
 form.scratch.title=Créer une Ressource depuis "Zéro" (Simple Document Wiki)
-form.scratch.title.description=Pas sûr de ce que c'est ou de ce que ça pourrait être ? En savoir plus:
+form.scratch.title.description=Pas sûr de ce que c'est ou de ce que ça pourrait être?&lt;br/&gt;En savoir plus:
 form.title.description.link1=Examples
 form.title.description.link1.url=/xwiki/bin/view/Coll_curriki/SampleWikiResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
 form.title.description.link3=Aide
@@ -147,7 +147,7 @@ form.scratch.step2.content.instruction=Entrez le contenu dans la fenêtre d'édi
 
 form.html.scratch.url=/xwiki/bin/view/CreateResources/SimpleHTMLResource
 form.html.scratch.title=Créer une ressource sans modèle (document simple en HTML)
-form.html.scratch.title.description=Pas sûr de ce que c'est ou de ce que ça pourrait être ? En savoir plus:
+form.html.scratch.title.description=Pas sûr de ce que c'est ou de ce que ça pourrait être?&lt;br/&gt;En savoir plus:
 form.html.title.description.link1=Exemples
 form.html.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/SampleHTMLResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
 form.html.title.description.link3=Aide
@@ -814,7 +814,7 @@ sri.rights_content=
 
 sri.license_type_title=Chartes de licence:
 
-sri.license_type_txt=Êtes-vous sûr d'avoir lu et compris les &lt;a href="/xwiki/bin/view/Main/Conditions+generales+d+utilisation?xpage=popup" target="TOS"&gt;conditions générales d'utilisation&lt;/a&gt; et que vous avez le droit de partager le contenu que vous vous appretez à soumettre.&lt;br /&gt;&lt;br /&gt;La licence Planète Sankoré-compatible vous offre un maximum de flexibilité envers la communauté, les membres pourront exploiter vos ressources.  Cette licence "Planète Sankoré" reprend majoritairement la licence "Creative Commons" &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;. Si vous voulez utiliser une autre licence, veuillez la choisir dans la liste déroulante suivante. Pour plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;C'est ici&lt;/a&gt;.
+sri.license_type_txt=Êtes-vous sûr d'avoir lu et compris les &lt;a href="/xwiki/bin/view/Main/Conditions+generales+d+utilisation?xpage=popup" target="TOS"&gt;conditions générales d'utilisation&lt;/a&gt; et que vous avez le droit de partager le contenu que vous vous appretez à soumettre.&lt;br /&gt;&lt;br /&gt;La licence Planète Sankoré-compatible vous offre un maximum de flexibilité envers la communauté, les membres pourront exploiter vos ressources.  Cette licence "Planète Sankoré" reprend majoritairement la licence "Creative Commons" &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;. Si vous voulez utiliser une autre licence, veuillez la choisir dans la liste déroulante suivante. Pour plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;&lt;strong&gt;C'est ici&lt;/strong&gt;&lt;/a&gt;.
 sri.license_type_heading=Ensemble de chartes de licence:
 
 sri.license_type_tooltip=Licence qui protège ce contenu
