@@ -3,16 +3,16 @@
 <web>CreateResources</web>
 <name>SimpleHTMLResource</name>
 <language></language>
-<defaultLanguage>en</defaultLanguage>
+<defaultLanguage>fr</defaultLanguage>
 <translation>0</translation>
 <parent></parent>
 <creator>XWiki.Admin</creator>
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319031521000</creationDate>
-<date>1319031521000</date>
-<contentUpdateDate>1319031521000</contentUpdateDate>
+<creationDate>1320413051000</creationDate>
+<date>1320413051000</date>
+<contentUpdateDate>1320413051000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -239,8 +239,9 @@ function onCancelSimpleResourceForm(cancel_url) {
 ##
 #if($context.user=="XWiki.XWikiGuest")
   #set($loginredir = $xwiki.getRequestURL())
-  #set($url = $xwiki.getURL("XWiki.XWikiLogin","login","xredirect=$loginredir"))
+  #set( $url = $xwiki.getURL("XWiki.XWikiLogin","login","xredirect=$escapetool.url($loginredir)") )
   $msg.get("createresources.needaccount", [$url])
+
 #else
   ##
   ## ----- OK, WE HAVE AUTHORITY SETUP THE FORM POST/GET ETC  -----
