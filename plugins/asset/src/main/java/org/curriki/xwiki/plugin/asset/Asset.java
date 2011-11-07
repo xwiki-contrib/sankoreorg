@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.util.*;
 
+import org.apache.bcel.classfile.Constant;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -1125,6 +1126,41 @@ public class Asset extends CurrikiDocument {
         return comments;
     }
 
+    public Long getRating() {
+        use(Constants.ASSET_CLASS);
+        return (Long)getValue(Constants.ASSET_CLASS_RATING);
+    }
+
+    public Integer addComment(String comment, long rating) throws XWikiException {
+        int nb = newComment(comment, rating);
+        saveWithProgrammingRights("added a new comment");
+        return nb;
+    }
+
+    public Integer newComment(String comment, long rating) throws XWikiException {
+        BaseObject newCommentObj = getDoc().newObject(Constants.COMMENTS_CLASS, context);
+        newCommentObj.setStringValue(Constants.COMMENTS_CLASS_AUTHOR, context.getUser());
+        newCommentObj.setLargeStringValue(Constants.COMMENTS_CLASS_COMMENT, comment);
+        newCommentObj.setDateValue(Constants.COMMENTS_CLASS_DATE, new Date());
+        newCommentObj.setLongValue(Constants.COMMENTS_CLASS_RATING, rating);
+        if (rating > 0) {
+            // update asset rating
+            BaseObject assetObj = getDoc().getObject(Constants.ASSET_CLASS);
+            long rating_sum = assetObj.getLongValue(Constants.ASSET_CLASS_RATING_SUM);
+            long rating_count = assetObj.getLongValue(Constants.ASSET_CLASS_RATING_COUNT);
+            rating_sum += rating;
+            rating_count++;
+            long asset_rating = (rating_sum / rating_count) + (rating_sum % rating_count) * 2 / rating_count;
+            assetObj.setLongValue(Constants.ASSET_CLASS_RATING_SUM, rating_sum);
+            assetObj.setLongValue(Constants.ASSET_CLASS_RATING_COUNT, rating_count);
+            assetObj.setLongValue(Constants.ASSET_CLASS_RATING, asset_rating);
+        }
+        return newCommentObj.getNumber();
+    }
+
+    public Object getComment(int nb) {
+       return getObject(Constants.COMMENTS_CLASS, nb);
+    }
 
     public boolean canBeNominatedOrReviewed(){
     	use(Constants.ASSET_CLASS);
@@ -1203,28 +1239,58 @@ public class Asset extends CurrikiDocument {
 
     /**
      * Nominate a resource for review
-     * @param comments
+     * @param comment
      * @return
      * @throws XWikiException
      */
-    public Asset nominate(String comments) throws XWikiException {
+    public Asset nominate(String comment) throws XWikiException {
         XWikiDocument assetDoc = getDoc();
         BaseObject obj = assetDoc.getObject(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS);
 
-        String suser =  context.getUser();
+        String user =  context.getUser();
         if (obj==null) {
             obj = assetDoc.newObject(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS, context);
-            obj.setIntValue("number",0);
         }
-        obj.setStringValue("nomination_user", suser);
-        obj.setDateValue("nomination_date", new Date());
-        obj.setLargeStringValue("nomination_comment", comments);
+        obj.setStringValue(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_NOMINATION_USER, user);
+        obj.setDateValue(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_NOMINATION_DATE, new Date());
+        obj.setLargeStringValue(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_NOMINATION_COMMENT, comment);
 
-        obj.setIntValue("reviewpending", 1);
+        obj.setIntValue(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_REVIEW_PENDING, 1);
 
         saveWithProgrammingRights("save CRS nomination");
 
     	return this;
+    }
+
+    /**
+     * Auto nominate a resource for review when rating > 3
+     * @return
+     * @throws XWikiException
+     */
+    public Asset autoNominate() throws XWikiException {
+        LOG.debug(getFullName() + "autoNominate");
+        XWikiDocument assetDoc = getDoc();
+        BaseObject assetObj = assetDoc.getObject(Constants.ASSET_CLASS);
+        long rating = assetObj.getLongValue(Constants.ASSET_CLASS_RATING);
+        // compute autonominate
+        if (rating > 3) {
+            LOG.debug(getFullName() + "autoNominate, rating > 3");
+            String rights = assetObj.getStringValue(Constants.ASSET_CLASS_RIGHT);
+            BaseObject reviewObj = assetDoc.getObject(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS);
+            String status = "";
+            int reviewpending = 0;
+            if (reviewObj != null) {
+                status = reviewObj.getStringValue(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_STATUS);
+                reviewpending = reviewObj.getIntValue(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_REVIEW_PENDING, 0);
+            }
+            if (reviewpending == 0 && !StringUtils.equals(rights, Constants.ASSET_CLASS_RIGHT_PRIVATE) &&
+                    (StringUtils.equals(status, Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_STATUS_NOT_RATED)
+                    || StringUtils.isEmpty(status))) {
+                nominate(context.getMessageTool().get("curriki.crs.nominate.automatic_due_to_rating.note"));
+            }
+        }
+
+        return this;
     }
 
 

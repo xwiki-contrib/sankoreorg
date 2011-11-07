@@ -64,7 +64,6 @@ public class MetadataResource extends BaseResource {
             throw error(Status.CLIENT_ERROR_NOT_FOUND, e.getMessage());
         }
 
-        // SRI1
         // title
         if (json.has("title")) {
             asset.setTitle(json.getString("title"));
@@ -93,6 +92,7 @@ public class MetadataResource extends BaseResource {
             fw_items = new ArrayList();
         }
         assetObj.set(Constants.ASSET_CLASS_FRAMEWORK_ITEMS,  fw_items);
+
         // educational_level (array)
         List educational_level;
         if (json.has("educational_level")) {
@@ -101,6 +101,7 @@ public class MetadataResource extends BaseResource {
             educational_level = new ArrayList();
         }
         assetObj.set(Constants.ASSET_CLASS_EDUCATIONAL_LEVEL,  educational_level);
+
         // instructional_component (array)
         List instructional_component;
         if (json.has("instructional_component")) {
@@ -110,20 +111,31 @@ public class MetadataResource extends BaseResource {
         }
         assetObj.set(Constants.ASSET_CLASS_INSTRUCTIONAL_COMPONENT,  instructional_component);
 
-        // SRI2
         // keywords
         if (json.has("keywords")) {
             assetObj.set(Constants.ASSET_CLASS_KEYWORDS,  json.getString("keywords"));
         }
+
         // language
         if (json.has("language")) {
             assetObj.set(Constants.ASSET_CLASS_LANGUAGE,  json.getString("language"));
         }
+
         // hidden_from_search ("on")
         if (json.has("hidden_from_search")) {
             assetObj.set(Constants.ASSET_CLASS_HIDDEN_FROM_SEARCH, json.getString("hidden_from_search").equals("on")?1:0);
         } else {
             assetObj.set(Constants.ASSET_CLASS_HIDDEN_FROM_SEARCH, 0);
+        }
+
+        // rating
+        if (json.has("rating")) {
+            long rating = json.getLong("rating");
+            try {
+                asset.newComment("", rating);
+            } catch (XWikiException e) {
+                throw error(Status.SERVER_ERROR_INTERNAL, e.getMessage());
+            }
         }
 
         // license_deed
@@ -153,6 +165,12 @@ public class MetadataResource extends BaseResource {
             throw error(Status.CLIENT_ERROR_BAD_REQUEST, e.getMessage());
         }
 
+        try {
+            asset.autoNominate();
+        } catch (XWikiException e) {
+            throw error(Status.CLIENT_ERROR_BAD_REQUEST, e.getMessage());
+        }
+
         List<Property> metadata;
         try {
             metadata = plugin.fetchAssetMetadata(assetName);
@@ -167,6 +185,7 @@ public class MetadataResource extends BaseResource {
                 out.put(prop.getName(), prop.getValue());
             }
         }
+        out.put("rating", asset.getValue("rating"));
 
         getResponse().setEntity(formatJSON(out, getPreferredVariant()));
     }

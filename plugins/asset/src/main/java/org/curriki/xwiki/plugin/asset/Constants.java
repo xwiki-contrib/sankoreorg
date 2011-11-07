@@ -72,6 +72,9 @@ public interface Constants {
     String ASSET_CLASS_LANGUAGE = "language";
     String ASSET_CLASS_LANGUAGE_VALUES = "eng=English|ind=Bahasa Indonesia|zho=Chinese|nld=Dutch|fra=French|deu=German|hin=Hindi|ita=Italian|jpn=Japanese|kor=Korean|nep=Nepali|por=Portuguese|rus=Russian|sin=Sinhalese|spa=Spanish|tam=Tamil|---=Other";
     String ASSET_CLASS_HIDDEN_FROM_SEARCH = "hidden_from_search";
+    String ASSET_CLASS_RATING = "rating";
+    String ASSET_CLASS_RATING_COUNT = "rating_count";
+    String ASSET_CLASS_RATING_SUM = "rating_sum";
 
     String ASSET_CATEGORY_UNKNOWN = "unknown";
     String ASSET_CATEGORY_ATTACHMENT = "attachment";
@@ -239,13 +242,26 @@ public interface Constants {
      * CRS
      */
     String ASSET_CURRIKI_REVIEW_CLASS = "CRS.CurrikiReviewClass";
-    String ASSET_CURRIKI_REVIEW_CLASS_STATUS = "status";
-    String ASSET_CURRIKI_REVIEW_CLASS_STATUS_PARTNER="200";
     
     String ASSET_CURRIKI_REVIEW_STATUS_CLASS="CRS.CurrikiReviewStatusClass";
     String ASSET_CURRIKI_REVIEW_STATUS_CLASS_STATUS = "status";
+    String ASSET_CURRIKI_REVIEW_STATUS_CLASS_NOMINATION_USER = "nomination_user";
+    String ASSET_CURRIKI_REVIEW_STATUS_CLASS_NOMINATION_COMMENT = "nomination_comment";
+    String ASSET_CURRIKI_REVIEW_STATUS_CLASS_NOMINATION_DATE = "nomination_date";
+    String ASSET_CURRIKI_REVIEW_STATUS_CLASS_REVIEW_PENDING = "reviewpending";
+    String ASSET_CURRIKI_REVIEW_STATUS_CLASS_STATUS_NOT_RATED = "100";
     String ASSET_CURRIKI_REVIEW_STATUS_CLASS_STATUS_PARTNER="200";
 
+    String ASSET_CURRIKI_REVIEW_CLASS_REVIEWPENDING = "reviewpending";
+
+    /**
+     * XWikiComments
+     */
+    String COMMENTS_CLASS = "XWiki.XWikiComments";
+    String COMMENTS_CLASS_AUTHOR = "author";
+    String COMMENTS_CLASS_COMMENT = "comment";
+    String COMMENTS_CLASS_DATE = "date";
+    String COMMENTS_CLASS_RATING = "rating";
 
     /**
      * BASIC FILE CHECK STATUS
