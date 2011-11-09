@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317382011000</creationDate>
-<date>1317382011000</date>
-<contentUpdateDate>1317382011000</contentUpdateDate>
+<creationDate>1320851179000</creationDate>
+<date>1320851179000</date>
+<contentUpdateDate>1320851179000</contentUpdateDate>
 <version>1.1</version>
 <title>GoogleSearch</title>
 <template></template>
@@ -104,25 +104,23 @@
 <property>
 <code>google.setOnLoadCallback(function(){
   customSearchControl = new google.search.CustomSearchControl('012940815912449519308:-jyetlpxnyi');
-  customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);  
+  customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
 }, true);
 function googleDoSearch(modName) {
   if($('search-termPanel-'+modName+'-terms').value != _('search.text.entry.label')) {
     var drawOptions = new google.search.DrawOptions();
     drawOptions.setInput($('search-termPanel-'+modName+'-terms'));
+    
     customSearchControl.draw('cse', drawOptions);
     customSearchControl.execute($('search-termPanel-'+modName+'-terms').value);
-    $('cse').show();
+    $('googleSearch').show();
   } else {
-    $('cse').hide();
+    $('googleSearch').hide();
   }
 }
 Ext.onReady(function(){
-  Curriki.module.EventManager.addListener('Curriki.module.search:doSearch', function(modName){
+  Curriki.module.EventManager.addListener('Curriki.module.search:doGoogleSearch', function(modName){
     googleDoSearch(modName);
-  });
-Curriki.module.EventManager.addListener('Curriki.module.search:tabchange', function(tabId){
-    googleDoSearch(tabId);
   });
 });</code>
 </property>
@@ -585,7 +583,7 @@ div.gs-title,
 
 /* Full URL */
 .gs-webResult div.gs-visibleUrl-short {
-  display: none;
+  mar
 }
 .gs-webResult div.gs-visibleUrl-long {
   display: block;
@@ -624,6 +622,77 @@ div.gs-title,
 
 .cse .gs-result .gs-snippet, .gs-result .gs-snippet, .cse .gs-spelling, .gs-spelling {
   font-size: 12px !important;
+}
+
+#googleSearch h4 {
+  color: #749D37 !important;
+  font-size: 16px !important;
+  letter-spacing:1px !important; 
+  font-weight: bold !important;
+  text-align: center !important;
+  border-bottom-style: none;
+  margin-top: 40px;
+}
+
+.cse .gsc-control-cse, .gsc-control-cse {
+  padding: 0 !important;
+  border:none !important;
+ background: none !important;
+}
+
+.cse .gsc-webResult.gsc-result, .gsc-webResult.gsc-result, .gsc-imageResult-classic, .gsc-imageResult-column {
+  border: none !important;
+}
+
+.gsc-table-result td {
+  padding: 0 !important;
+}
+
+.gsc-control-cse .gs-result .gs-title {
+    font-size: 14px !important;
+    margin-bottom: 5px !important;
+    margin-top: 10px !important;
+  color: #663399;
+}
+
+.gs-snippet {
+  font-size: 12px !important;
+  color: #4D4D4D !important;
+  margin-top: 25px !important;
+  height: 36px !important;
+}
+
+.gs-webResult div.gs-visibleUrl-short {
+  display: block !important;
+  margin-top: -55px;
+  margin-bottom: 45px;
+}
+
+.gsc-table-result {
+  margin-top: 10px !important;
+}
+
+.gsc-result {
+  background: none !important;
+}
+
+.cse .gs-webResult.gs-result a.gs-title:link, .gs-webResult.gs-result a.gs-title:link, .cse .gs-webResult.gs-result a.gs-title:link b, .gs-webResult.gs-result a.gs-title:link b, .cse .gs-webResult.gs-result a.gs-title:visited, .gs-webResult.gs-result a.gs-title:visited, .cse .gs-webResult.gs-result a.gs-title:visited b, .gs-webResult.gs-result a.gs-title:visited b, .cse .gs-webResult.gs-result a.gs-title:hover, .gs-webResult.gs-result a.gs-title:hover, .cse .gs-webResult.gs-result a.gs-title:hover b, .gs-webResult.gs-result a.gs-title:hover b, .gs-imageResult a.gs-title:link, .gs-imageResult a.gs-title:link b, .gs-imageResult a.gs-title:visited, .gs-imageResult a.gs-title:visited b, .gs-imageResult a.gs-title:hover, .gs-imageResult a.gs-title:hover b, .cse .gsc-cursor-page, .gsc-cursor-page, .cse .gsc-trailing-more-results:link, .gsc-trailing-more-results:link, .cse .gs-spelling a, .gs-spelling a {
+  color: #663399 !important;
+}
+
+.gs-visibleUrl {
+  color: #009A32 !important;
+}
+
+.gsc-results .gsc-cursor-box {
+  text-align: center !important;
+  color: #663399 !important;
+}
+
+.cse .gsc-results .gsc-cursor-page.gsc-cursor-current-page, .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
+  background: none !important;
+  color: #000 !important;
+  text-shadow: none !important;
 }</code>
 </property>
 <property>
@@ -639,10 +708,14 @@ div.gs-title,
 <content>{{velocity}}
 {{html}}
 &lt;script src="http://www.google.com/jsapi" type="text/javascript"&gt;&lt;/script&gt;
-&lt;script type="text/javascript"&gt;google.load('search', '1', {language : '$context.language', style : google.loader.themes.MINIMALIST});&lt;/script&gt;
+&lt;script type="text/javascript"&gt;google.load('search', '1', {language : 'fr', style : google.loader.themes.MINIMALIST});&lt;/script&gt;
 #set($discard = $xwiki.jsx.use("Main.GoogleSearch", {'minify': false}))
 #set($discard = $xwiki.ssx.use("Main.GoogleSearch", {'minify': false}))
 ##&lt;input type="text" name="terms" id="search-termPanel-resource-terms" autocomplete="off" size="20" class=" x-form-text x-form-field search-termPanel-terms "&gt;
+&lt;div id="googleSearch" style="display: none;"&gt;
+&lt;h4&gt;$msg.get('googlesearch.title')&lt;/h4&gt;
+##&lt;p&gt;&lt;a href="http://${context.language}.wikipedia.org/wiki/Bookmarklet"&gt;$msg.get('googlesearch.bookmarklet')&lt;/a&gt;&lt;/p&gt;
 &lt;div id="cse" style="width: 100%;"&gt;Loading&lt;/div&gt;
+&lt;/div&gt;
 {{/html}}
 {{/velocity}}</content></xwikidoc>
