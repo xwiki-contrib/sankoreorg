@@ -590,7 +590,7 @@ $msg.get("groups_members_invite_backlink")
 #begingroupsection($msg.get("groups_members_invite_title"),"","","blue",false)
 <form action="" method="post">
 $msg.get("groups_members_invite_list_instruction",[$spaceTitle])
-<input type="text" name="invitees" value="" /><br />
+<textarea rows="1" cols="40" name="invitees" value=""></textarea><br />
 $msg.get("groups_members_invite_note_instruction")
 #tooltip("invite_note_instruction",$msg.get("groups_members_invite_note_instruction_tooltip"))
 <textarea name="text" rows="7">
