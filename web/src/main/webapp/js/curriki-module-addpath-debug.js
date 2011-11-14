@@ -3,6 +3,8 @@
 /*global Curriki */
 /*global _ */
 
+
+
 Ext.ns('Curriki.module.addpath');
 Curriki.module.addpath.init = function(){
   if (Ext.isEmpty(Curriki.module.addpath.initialized)) {
@@ -572,7 +574,8 @@ Curriki.module.addpath.init = function(){
         Ext.apply(this, {
            title:_('add.setrequiredinfo.part1.title')
           ,cls:'addpath addpath-metadata resource resource-add'
-          ,width:750
+          ,width:640
+          ,draggable:false
           ,items:[{
              xtype:'panel'
             ,cls:'guidingquestion-container'
@@ -757,7 +760,7 @@ Curriki.module.addpath.init = function(){
                 ,allowBlank:false
                 ,preventMark:true
                 ,hideLabel:true
-                ,value: Ext.urlDecode(window.location.search.substring(1))['url']
+                ,value: Ext.parseURIQuery(window.location.href)['url']
                 ,width:'80%'
               },{
     // Title
@@ -793,7 +796,7 @@ Curriki.module.addpath.init = function(){
               ,preventMark:true
               ,hideLabel:true
               ,width:'80%'
-              ,value: Ext.urlDecode(window.location.search.substring(1))['title']
+              ,value: Ext.parseURIQuery(window.location.href)['title']
             },{
   // Rating
               xtype:'box'
@@ -819,7 +822,23 @@ Curriki.module.addpath.init = function(){
                   ,qtip:_('sri.rating_tooltip')
                 }]
               }
-            },{
+            }, {
+              xtype: 'box'
+              ,autoEl:{
+                tag: 'div'
+                ,id: 'rating-stars'                
+              }
+              ,listeners:{
+                render: function(el){
+                  new Ext.ux.Rating(el, {
+                    values:[0,1,2,3,4,5]
+                    ,titles:['No rating','Very bad','Bad','Good','Very good','Excelent']
+                    ,name:'rating'
+                  });
+                }
+              }
+            }
+            /*{
                xtype:'radiogroup'
                ,items: [
                  {boxLabel: '1', name: 'rating', inputValue:1}
@@ -829,8 +848,10 @@ Curriki.module.addpath.init = function(){
                  ,{boxLabel: '5', name: 'rating', inputValue:5}
                ]
               
-    // Description
-            },{
+    
+            } */
+            // Description
+            ,{
                xtype:'box'
               ,autoEl:{
                  tag:'div'
@@ -938,7 +959,8 @@ Curriki.module.addpath.init = function(){
            id:'MetadataDialogueWindow'
           ,title:_('add.setrequiredinfo.part2.title')
           ,cls:'addpath addpath-metadata resource resource-add'
-          ,width:800
+          ,width:740
+          ,draggable:false
           ,items:[{
              xtype:'panel'
             ,cls:'guidingquestion-container'
@@ -962,7 +984,7 @@ Curriki.module.addpath.init = function(){
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
-            ,autoScroll:true
+            ,autoScroll:false
             ,border:false
             ,defaults:{
                labelSeparator:''
@@ -1038,9 +1060,9 @@ Curriki.module.addpath.init = function(){
             ,items:[{
                layout:'column'
               ,border:false
-              ,defaults:{border:false}
+              ,defaults:{border:false}              
               ,items:[{
-                 columnWidth:0.33
+                 columnWidth:0.4
                 ,items:[{
                    xtype:'box'
                   ,autoEl:{
@@ -1137,7 +1159,7 @@ Curriki.module.addpath.init = function(){
 
     // Educational Level
               },{
-                 columnWidth:0.33
+                 columnWidth:0.3
                 ,items:[{
                    xtype:'box'
                   ,autoEl:{
@@ -1234,7 +1256,7 @@ Curriki.module.addpath.init = function(){
 
     // Instructional Component Type
             },{
-                 columnWidth:0.33
+                 columnWidth:0.3
                 ,items:[{
                    xtype:'box'
                   ,autoEl:{
@@ -2852,7 +2874,34 @@ console.log("Published CB: ", newAsset);
     });
     Ext.reg('apDoneI', AddPath.DoneI);
     Ext.reg('apDoneO', AddPath.DoneI);
-    Ext.reg('apDoneBookmarklet', AddPath.DoneI);
+    
+    AddPath.AssetLink = function(linkMode) {
+      var pageName = (Curriki.current.asset&&Curriki.current.asset.assetPage)||Curriki.current.assetName;
+      var link = '/xwiki/bin/view/'+pageName.replace('.', '/');
+      return '<a href="http://sankore.devxwiki.com'+link+'" target="_blank">' + _('add.finalmessage.'+linkMode+'.link') +  '</a>';    
+    }
+    AddPath.CloseLink = function() {
+      return '<a href="" onclick="console.log(window.document);return false;">'+_('add.finalmessage.close.button')+'</a>';
+    }
+    AddPath.DoneBookmarklet = Ext.extend(Curriki.ui.dialog.Messages, {
+        initComponent:function(){
+        Ext.apply(this, {
+           title:_('add.finalmessage.title_resource')
+          ,cls:'addpath addpath-done resource resource-add'
+          ,width:740
+          ,draggable:false
+          ,autoHeight:true
+          ,bbar:[
+             AddPath.AssetLink('view'),'->'
+          ]
+          ,items:[
+             AddPath.DoneMessage('resource_simple')
+          ]
+        });
+        AddPath.DoneBookmarklet.superclass.initComponent.call(this);
+      }
+    });
+    Ext.reg('apDoneBookmarklet', AddPath.DoneBookmarklet);
 
     AddPath.DoneCopy = Ext.extend(Curriki.ui.dialog.Messages, {
         initComponent:function(){
