@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1310044054000</creationDate>
-<date>1310044054000</date>
-<contentUpdateDate>1310044054000</contentUpdateDate>
+<creationDate>1314884048000</creationDate>
+<date>1314884048000</date>
+<contentUpdateDate>1314884048000</contentUpdateDate>
 <version>1.1</version>
-<title>Computer_and_Telecom_Network</title>
+<title>$msg.get("CurrikiCode.AssetClass_fw_items_${doc.fullName}")</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
