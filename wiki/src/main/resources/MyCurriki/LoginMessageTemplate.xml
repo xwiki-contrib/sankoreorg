@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315573886000</creationDate>
-<date>1315573886000</date>
-<contentUpdateDate>1315573886000</contentUpdateDate>
+<creationDate>1319619177000</creationDate>
+<date>1319619177000</date>
+<contentUpdateDate>1319619177000</contentUpdateDate>
 <version>1.1</version>
 <title>LoginMessageTemplate</title>
 <template></template>
@@ -26,5 +26,5 @@
 **You are not logged in.**
 
 (% class="inside disc" style="margin-left:0; font-size:11px; margin-top:0;" %)
-* If you are already a member of planete.Sankoré, complete the fields below and click "Login" to access your profile.
+* If you are already a member of Planète Sankoré, complete the fields below and click "Login" to access your profile.
 * To create an account, simply click on the "Create a new account" below.</content></xwikidoc>

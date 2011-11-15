@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314275744000</creationDate>
-<date>1314275744000</date>
-<contentUpdateDate>1314275744000</contentUpdateDate>
+<creationDate>1320686734000</creationDate>
+<date>1320686734000</date>
+<contentUpdateDate>1320686734000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -859,6 +859,9 @@ add.setrequiredinfo.part2.title=Set Required Information, Part 2
 add.setrequiredinfo.part2.guidingquestion=Review and update the six fields below as needed.
 add.setrequiredinfo.part2.cancel.button=Cancel
 add.setrequiredinfo.part2.next.button=Next &gt;&gt;
+
+add.setrequiredinfo.url.publish.button=Publish
+add.setrequiredinfo.url.next.button=Complete indexing your resource
 
 
 ##CONTRIBUTE MENU

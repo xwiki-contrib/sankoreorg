@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319210772000</creationDate>
-<date>1319210772000</date>
-<contentUpdateDate>1319210772000</contentUpdateDate>
+<creationDate>1320935904000</creationDate>
+<date>1320935904000</date>
+<contentUpdateDate>1320935904000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -43,13 +43,18 @@ search.text.entry.help.title=Aide à la recherche
 
 ## Tab titles
 ##{0} is tab name, {1} is search result count, and {2} is the total count
-search.tab.title.results={0} ({1})
-search.tab.title.resultsmax_exceeds={0} ({2})
+search.tab.title.results={0} {1} résultats
+search.tab.title.resultsmax_exceeds={0} {2} résultats
+
+
+## Grid titles
+search.grid.title.results={0} {1} résultats
+search.grid.title.resultsmax_exceeds={0} {2} résultats
 
 ## Search URL
-search.internal.tab.title.sankore=Bibliothèque Sankoré
-search.external.tab.title.sankore=Bookmarklet Sankoré
-search.external.tab.title.google=Base des sites pédagogiques sélectionnés
+search.internal.tab.title.sankore=Bibliothèque de ressources éducatives Sankoré
+search.external.tab.title.sankore=URLs sélectionnées par la communauté Sankoré
+search.external.tab.title.google=Résultats google parmi les sites sélectionnés par Sankoré
 
 ## Search Tips Page
 search.text.entry.help.text=
@@ -102,7 +107,7 @@ search.pagination.refresh=Actualiser
 ##
 ##
 ##RESOURCES TAB
-search.resource.tab.title=Ressources
+search.resource.tab.title=Bibliothèque de ressources éducative Sankoré
 
 ##The ICT used in the columns are different than what is used in the drop down. These are from GWT with updated keys.
 
@@ -280,4 +285,9 @@ search.curriki.column.header.name=Page
 search.curriki.column.header.text=Texte
 search.curriki.column.header.updated=Updaté
 
+##SEARCH EXTERNAL
+search.featured-external.grid.title=Bibliothèque de ressources éducative Sankoré
+search.external.grid.title=URLs sélectionnées par la communauté Sankoré
+search.preview.statusbar.text.external=&lt;a href="/xwiki/bin/view/Main/"&gt;&lt;img src="/xwiki/bin/download/XWiki/Skin/green%2Darrow%2Dright.gif" alt=""&gt;Tous les résultats de la bibliothèque Sankoré&lt;/a&gt;
+search.statusbar.text.resource=&lt;a href="/xwiki/bin/view/Search/URL"&gt;&lt;img src="/xwiki/bin/download/XWiki/Skin/green%2Darrow%2Dright.gif" alt=""&gt;Voir les résultats du Bookmarklet Sankoré et de la Base des sites pédagogiques sélectionnés&lt;/a&gt;
 &lt;/pre&gt;</content></xwikidoc>

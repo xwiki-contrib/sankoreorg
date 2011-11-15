@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1318610719000</creationDate>
-<date>1318610719000</date>
-<contentUpdateDate>1318610719000</contentUpdateDate>
+<creationDate>1321281909000</creationDate>
+<date>1321281909000</date>
+<contentUpdateDate>1321281909000</contentUpdateDate>
 <version>1.1</version>
 <title>SearchCriteria</title>
 <template></template>
@@ -328,10 +328,10 @@ table#search-criteria ul li {
         &lt;span class="criterion-title"&gt;$msg.get('SearchCriteria.grade_range_age_range'):&lt;/span&gt;
         #set($query = ", BaseObject obj where obj.name=doc.fullName and doc.space='AssetMetadata' and doc.parent='' and obj.className='CurrikiCode.EducationalLevelClass' order by doc.fullName")
         #set($keys = $xwiki.searchDocuments($query))
-        &lt;ul
+        &lt;ul&gt;
            #foreach($key in $keys)
           &lt;li&gt;            
-            &lt;input type="radio" name="criteria_grade_age_range" value="$ $key"/&gt;
+            &lt;input type="radio" name="criteria_grade_age_range" value="$key"/&gt;
             $msg.get("CurrikiCode.AssetClass_educational_level_${key}")
           &lt;/li&gt;
           #end
@@ -401,7 +401,7 @@ table#search-criteria ul li {
         &lt;ul&gt;          
           #foreach($value in $sorted)
           &lt;li&gt;
-            &lt;input type="radio" name="criteria_subject" value="$keysMap($value)"/&gt;
+            &lt;input type="radio" name="criteria_subject" value="$valuesMap.get($value)"/&gt;
             $value
           &lt;/li&gt;
           #end
@@ -412,7 +412,7 @@ table#search-criteria ul li {
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td colspan="5"&gt;
-        &lt;a href="${xwiki.getURL('Search.WebHome')}#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-resource-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1" id="submit-link"&gt;Find &amp;raquo;&lt;/a&gt;
+        &lt;a href="${xwiki.getURL('Search.WebHome')}#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-resource-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1" id="submit-link"&gt;$msg.get('SearchCriteria.findbutton') &amp;raquo;&lt;/a&gt;
       &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;
