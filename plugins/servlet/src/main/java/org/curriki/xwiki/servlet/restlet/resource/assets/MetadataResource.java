@@ -130,11 +130,13 @@ public class MetadataResource extends BaseResource {
 
         // rating
         if (json.has("rating")) {
-            long rating = json.getLong("rating");
-            try {
-                asset.newComment("", rating);
-            } catch (XWikiException e) {
-                throw error(Status.SERVER_ERROR_INTERNAL, e.getMessage());
+            long rating = json.optLong("rating");
+            if (rating > 0) {
+                try {
+                    asset.newComment("", rating);
+                } catch (XWikiException e) {
+                    throw error(Status.SERVER_ERROR_INTERNAL, e.getMessage());
+                }
             }
         }
 
