@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319617509000</creationDate>
-<date>1319617509000</date>
-<contentUpdateDate>1319617509000</contentUpdateDate>
+<creationDate>1321461971000</creationDate>
+<date>1321461971000</date>
+<contentUpdateDate>1321461971000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -36,7 +36,7 @@
 
 ## TOC IN RVE*******************************************
 
-rve.toc.title=Table of Contents
+rve.toc.title=Table des matières
 
 ## RESOURCE TITLE AREA*******************************************
 
@@ -93,7 +93,7 @@ rve.tab.3.heading=Commentaires
 ## CONTENT TAB FUNCTION SECTION*******************************************
 
 rve.content.edit_link=Editer
-rve.content.edit_rollover=Revise the content or update the display of this resource
+rve.content.edit_rollover=Revoir le contenu ou mettre à jour cette ressource
 
 rve.content.copy_link=Copier
 rve.content.copy_rollover=Créer une nouvelle ressource basée sur celle-ci
@@ -184,14 +184,14 @@ rve.content.edit.caption.instruction_title=Créer une légende:
 rve.content.edit.caption.instruction_tooltip=Par défaut, le contneu que vous saisissez pour la description de la ressource appraraît aussi dans le champ légende quand vous éditez la ressource. Utilisez ce champ pour personnaliser le texte qui appraît dans la légende au lieu d'utiliser le tecte par défaut Ces chamgements n'affecteront pas la description de la ressource. La descriptiond de la ressource peut-être changée dans l'onglet Information.
 rve.content.edit.alt_text.instruction_title=Adapter le texte alternatif :
 rve.content.edit.alt_text.instruction_tooltip= By default, the content you entered as the resource&amp;#39;s title also appears in the Alternative Text location when someone views the resource. Alternative Text (also known as &amp;#34;Alt Text&amp;#34;) is displayed when a user hovers over an image; it should give any information necessary to understand what the image conveys. Using this field, you can replace the default and customize the text that appears as Alt Text. The changes you make in this field will not change the Title of the resource; the Title can be edited on the Information tab for this resource.
-rve.content.edit.replace_file.instruction_title=Upload a Replacement File:
-rve.content.edit.replace_file.instruction_title.archive=Upload a Replacement Archive File:
+rve.content.edit.replace_file.instruction_title=Mettre en ligne un fichier de remplacement:
+rve.content.edit.replace_file.instruction_title.archive=Mettre en ligne une archive de remplacement:
 rve.content.edit.replace_file.instruction_tooltip=Uploading a new file will replace the file currently displayed in your resource. If you upload a file for which the file extension (the part that comes after the period, as in &amp;#34;.doc&amp;#34;) does not match the current file extension, it may change the display of your resource. To upload a new file without replacing the current attachment, create a new resource by clicking &amp;#34;Add a Resource&amp;#34; under the Contribute heading in the the navigation menu on the left, or, if adding the new file into an existing folder or collection, by clicking &amp;#34;Build Up&amp;#34; for that parent resource.
-rve.content.edit.replace_video.instruction_title=Capture or Upload a Replacement Video:
+rve.content.edit.replace_video.instruction_title=Filmer ou mettre en ligne une vidéo de remplacement:
 rve.content.edit.replace_video.instruction_tooltip=Capturing or uploading a new video will replace the video currently displayed in your resource. After the video is converted, click &amp;#34;Next&amp;#34;. To upload a video without replacing the current video, create a new resource by clicking &amp;#34;Add a Resource&amp;#34; under the Contribute heading in the navigation menu on the left, or, if adding the new video into an existing folder or collection, by clicking &amp;#34;Build Up&amp;#34; for that parent resource.
 rve.content.edit.replace_file.browse_button=Parcourir
 rve.content.edit.replace_file.new_type_dialog.title=Changer le type de fichier?
-rve.content.edit.replace_file.new_type_dialog.instruction= The new file you have selected is a different type of file than the old version. Are you sure you want to continue? Uploading the new file may change the display of the resource.
+rve.content.edit.replace_file.new_type_dialog.instruction= Le nouveau fichier que vous avez sélectionner n'utilise pas la même extension. Voulez-vous vraiment continuer? Mettre un ligne un nouveau fichier va écraser le précédent.
 rve.content.edit.replace_file.new_type_dialog.continue_button=Continuer à télécharger
 rve.content.edit.replace_file.new_type_dialog.cancel_button=Annuler
 rve.content.edit.set_start.instruction_title=Set a New Start File:
@@ -296,9 +296,9 @@ rve.information.edlevel.edit_title=Niveau scolaire:
 rve.information.edlevel.edit_txt=Modifier le niveau éducationnel pour cette ressource.
 rve.information.edlevel.edit_tooltip=Please make sure the resource is correlated only to appropriate education levels; applying too many levels makes it harder for people to find what they need in search results.
 
-rve.information.ict.edit_title=Instructional Component Type:
-rve.information.ict.edit_txt=Scroll to find and update the selected type(s). Select multiple types by hitting the Ctrl (PC) or Apple (Mac) key as you click to select. Click &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/InstructionalComponentTypeICT" target="_blank"&gt;here&lt;/a&gt; for definitions.
-rve.information.ict.edit_tooltip=Help users understand the type or format for your resource in an instructional setting
+rve.information.ict.edit_title=Type de ressource:
+rve.information.ict.edit_txt=Parcourez la liste pour trouver le type de ressource approprié.
+rve.information.ict.edit_tooltip=Selectionnez le(s) type(s) d'activité(s) qui correspond(ent) le plus à cette ressource
 
 rve.information.keywords.edit_title=Mots clés:
 rve.information.keywords.edit_txt=
@@ -308,23 +308,22 @@ rve.information.language.edit_title=Langue:
 rve.information.language.edit_txt=
 rve.information.language.edit_tooltip=Select a language for this resource. If you select &amp;#34;Other&amp;#34; please add the language in the Key Words field above. (You may wish to enter it in both the native and English alphabets, if applicable.)
 
-rve.information.hidefromsearch.edit_title=Hide from Search:
-rve.information.hidefromsearch.edit_txt=Some content is not suitable for display in search results, because it does not offer value to the community as a standalone element. &lt;br&gt;&lt;br&gt;If this is such an element (for instance, a chart) that only makes sense within the context of a larger resource (like a lesson plan), make sure this option is selected so this element does not appear in search results.
+rve.information.hidefromsearch.edit_title=Cacher la ressource des résultats de recherche:
+rve.information.hidefromsearch.edit_txt=Certains contenus ne sont pas destinés à apparaître dans les résultats de recherche, parce qu'ils n'ont pas d'intérêt pour la communauté en tant qu'élément indépendant.&lt;br&gt;&lt;br&gt;Dans le cas d'un tel élément (par exemple, un tableau) qui a uniquement un sens dans le contexte d'une plus grande ressource (comme le plan d'une leçon), cliquez ci-dessous SVP pour que cet élément n'apparaisse pas dans les résultats des recherches.
 rve.information.hidefromsearch.edit_tooltip=Use this feature to help make Planète Sankoré&amp;#39;s search results work better for everyone!
-rve.information.hidefromsearch.edit_instruction=Do not show this element in search results.
-
-rve.information.rightsholder.edit_title=Rights Holder:
+rve.information.hidefromsearch.edit_instruction=Ne pas afficher cette ressource dans les résultats de recherche.
+rve.information.rightsholder.edit_title=Détenteur des droits:
 rve.information.rightsholder.edit_txt=
 rve.information.rightsholder.edit_tooltip=This is the person or organization that holds the rights to this resource -- the owner of this intellectual property.
 
-rve.information.accessprivileges.edit_title=Access Privileges:
-rve.information.accessprivileges.edit_txt=Update the selected level of privileges.
-rve.information.accessprivileges.edit_tooltip=Choose Private to keep material in &amp;#34;draft&amp;#34; until it is ready to be released for general use.
+rve.information.accessprivileges.edit_title=Droit d'accès:
+rve.information.accessprivileges.edit_txt=Met à jour les accès de la ressource.
+rve.information.accessprivileges.edit_tooltip=Choisissez privé tant que la ressource est à l'état de brouillon. Vous pourrez la passer en publique plus tard.
 
-rve.information.licensedeed.edit_title=License Deed:
-rve.information.licensedeed.edit_txt=Avez-vous lu les Conditions Générales d'Utilisation &lt;a href="http://www.curriki.org/xwiki/bin/view/Main/TOS" target="_blank"&gt;Terms of Use&lt;/a&gt; and that you have the rights to update the selected license. &lt;br&gt;&lt;br&gt;If you wish to assign another license, please select from the drop-down list below. To learn about all the Creative Commons licenses, please &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;click here&lt;/a&gt;.&lt;/p&gt;
-rve.information.licensedeed.edit_tooltip=This is the license selected for protecting this resource.
-rve.information.licensedeed.edit_instruction=Set License Deed:
+rve.information.licensedeed.edit_title=Chartes de licence:
+rve.information.licensedeed.edit_txt=Êtes-vous sûr d'avoir lu et compris les &lt;a href="/xwiki/bin/view/Main/Conditions+generales+d+utilisation?xpage=popup" target="TOS"&gt;conditions générales d'utilisation&lt;/a&gt; et que vous avez le droit de partager le contenu que vous vous appretez à soumettre.&lt;br /&gt;&lt;br /&gt;La licence Planète Sankoré-compatible vous offre un maximum de flexibilité envers la communauté, les membres pourront exploiter vos ressources.  Cette licence "Planète Sankoré" reprend majoritairement la licence "Creative Commons" &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;. Si vous voulez utiliser une autre licence, veuillez la choisir dans la liste déroulante suivante. Pour plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;&lt;strong&gt;C'est ici&lt;/strong&gt;&lt;/a&gt;.
+rve.information.licensedeed.edit_tooltip=Licence qui protège ce contenu
+rve.information.licensedeed.edit_instruction=Choisir une licence:
 
 ## INFORMATION TAB VERSION LISTING**************************************
 
