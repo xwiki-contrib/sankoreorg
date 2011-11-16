@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1321445348000</creationDate>
-<date>1321445348000</date>
-<contentUpdateDate>1321445348000</contentUpdateDate>
+<creationDate>1321456901000</creationDate>
+<date>1321456901000</date>
+<contentUpdateDate>1321456901000</contentUpdateDate>
 <version>1.1</version>
 <title>Reviews</title>
 <template></template>
@@ -178,6 +178,7 @@ document.observe('xwiki:dom:loaded', function(){
 </property>
 </object>
 <content>{{velocity}}
+#if($hasGlobalAdmin)
 #macro(reviewLivetable $divid $collist $colprops $options)
 ## Do not indent:
 #if($xwiki.getCurrentContentSyntaxId() != "xwiki/1.0")
@@ -456,5 +457,6 @@ $xwiki.jsx.use($doc.fullName, {'minify':false})
   "rowCount" : 10
 })
 #reviewLivetable("reviews" $columns $columnsProperties $options)
+#end
 {{/velocity}}
 </content></xwikidoc>

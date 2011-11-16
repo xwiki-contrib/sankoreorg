@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1321433576000</creationDate>
-<date>1321433576000</date>
-<contentUpdateDate>1321433576000</contentUpdateDate>
+<creationDate>1321456983000</creationDate>
+<date>1321456983000</date>
+<contentUpdateDate>1321456983000</contentUpdateDate>
 <version>1.1</version>
 <title>ReviewsResults</title>
 <template></template>
@@ -23,8 +23,8 @@
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
 <content>{{include document="ReviewSystem.ReviewsMacros" /}}
-
 {{velocity wiki="false"}}
+#if($hasGlobalAdmin)
 #macro(convertString $input)
 #set($str = "(")
   #foreach($word in $input)
@@ -68,5 +68,6 @@
   #set($filterWhere = "${filterWhere} and assetObj.id=fwProp.id.id and fwProp.id.name='fw_items' and fwPropValue IN ${str}")
   #end
 #gridresultwithfilter("$!request.classname" $request.collist.split(",") "$!{filterFrom}" "$!{filterWhere}" $params)
+#end
 {{/velocity}}
 </content></xwikidoc>

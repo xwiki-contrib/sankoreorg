@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1320073427000</creationDate>
-<date>1320073427000</date>
-<contentUpdateDate>1320073427000</contentUpdateDate>
+<creationDate>1321456864000</creationDate>
+<date>1321456864000</date>
+<contentUpdateDate>1321456864000</contentUpdateDate>
 <version>1.1</version>
 <title>Review</title>
 <template></template>
@@ -22,7 +22,8 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
-<content>## vim: ts=4:sw=4
+<content>#if($hasGlobalAdmin)
+## vim: ts=4:sw=4
 #set($asset = $xwiki.getDocument($request.page))
 #includeMacros("CreateResources.StyledMacros")
 &lt;input type="hidden" id="assetFullName" value="$asset.fullName"/&gt;
@@ -248,4 +249,4 @@ function validate() {
   #end
 #end
 $xwiki.addTooltipJS()
-</content></xwikidoc>
+#end</content></xwikidoc>
