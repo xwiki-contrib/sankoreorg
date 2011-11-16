@@ -1,12 +1,5 @@
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
-
-
-
 Ext.ns('Curriki.module.addpath');
-Curriki.module.addpath.init = function(){
+Curriki.module.addpath.init = function() {
   if (Ext.isEmpty(Curriki.module.addpath.initialized)) {
     // Local alias
     var AddPath = Curriki.module.addpath;
@@ -64,7 +57,7 @@ Curriki.module.addpath.init = function(){
 
     AddPath.AddSourceDialogueId = 'resource-source-dialogue';
     AddPath.AddSource = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent: function() {
         Ext.apply(this, {
            title:_('add.contributemenu.title_addto_'+(this.toFolder?'composite':'site'))
           ,cls:'addpath addpath-source resource resource-add'
@@ -129,8 +122,8 @@ Curriki.module.addpath.init = function(){
             }]
             ,monitorValid:true
             ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
+              render:function(fPanel) {
+              //TODO: Try to generalize this (for different # of panels)
                 fPanel.ownerCt.on(
                   'bodyresize'
                   ,function(wPanel, width, height){
@@ -144,7 +137,7 @@ Curriki.module.addpath.init = function(){
               }
             }
             ,items:[{
-    // Something had
+            // Something had
                xtype:'box'
               ,autoEl:{
                  tag:'div'
@@ -152,7 +145,7 @@ Curriki.module.addpath.init = function(){
                 ,cls:'subtitle'
               }
 
-    // File upload
+            // File upload
             },{
                xtype:'radio'
               ,value:'file'
@@ -612,7 +605,7 @@ Curriki.module.addpath.init = function(){
                 ,cls:'button button-publish mgn-rt'
                 ,listeners:{
                   click:{
-                    fn: function(){
+                    fn: function(){                                        
                       var form = this.findByType('form')[0].getForm();
                         if (form.isValid()){
                           Curriki.current.sri1 = form.getValues(false);                     
@@ -626,14 +619,18 @@ Curriki.module.addpath.init = function(){
                           ,invalid:0
                           ,form:form
                         }
-                        Ext.each(['url', 'title', 'description'], function(item){
+                        Ext.each(['link', 'title', 'rating', 'description'], function(item){
                           var invalid = null;
 
                           switch (item){
-                            case 'url':
-                            case 'title':
-                            case 'description':
+                            case 'link':                             
+                            case 'title':      
+                            case 'rating':                         
+                            case 'description':                                                    
                             default:
+                              if (!this.form.findField('metadata-'+item+'-entry').isValid()){
+                                invalid = item;
+                              }
                               break;
                           }
                           var title = Ext.get('metadata-'+item+'-title');                        
@@ -681,14 +678,18 @@ Curriki.module.addpath.init = function(){
                           ,invalid:0
                           ,form:form
                         }
-                        Ext.each(['url', 'title', 'description'], function(item){
+                        Ext.each(['url', 'title', 'rating', 'description'], function(item){
                           var invalid = null;
 
                           switch (item){
-                            case 'url':
+                            case 'url':                             
                             case 'title':
-                            case 'description':
+                            case 'rating':                              
+                            case 'description':                                
                             default:
+                              if (!this.form.findField('metadata-'+item+'-entry').isValid()){
+                                invalid = item;
+                              }
                               break;
                           }
                           var title = Ext.get('metadata-'+item+'-title');                        
@@ -798,7 +799,7 @@ Curriki.module.addpath.init = function(){
               ,width:'80%'
               ,value: Ext.parseURIQuery(window.location.href)['title']
             },{
-  // Rating
+            // Rating
               xtype:'box'
               ,autoEl:{
                  tag:'div'
@@ -823,33 +824,14 @@ Curriki.module.addpath.init = function(){
                 }]
               }
             }, {
-              xtype: 'box'
-              ,autoEl:{
-                tag: 'div'
-                ,id: 'rating-stars'                
-              }
-              ,listeners:{
-                render: function(el){
-                  new Ext.ux.Rating(el, {
-                    values:[0,1,2,3,4,5]
-                    ,titles:['No rating','Very bad','Bad','Good','Very good','Excelent']
-                    ,name:'rating'
-                  });
-                }
-              }
+              xtype: 'rating'
+              ,id: 'metadata-rating-entry'
+              ,hideLabel:true
+              ,name:'rating'
+              ,minValue:1
+              ,maxValue:5
+              ,value:0              
             }
-            /*{
-               xtype:'radiogroup'
-               ,items: [
-                 {boxLabel: '1', name: 'rating', inputValue:1}
-                 ,{boxLabel: '2', name: 'rating', inputValue:2}
-                 ,{boxLabel: '3', name: 'rating', inputValue:3}
-                 ,{boxLabel: '4', name: 'rating', inputValue:4}
-                 ,{boxLabel: '5', name: 'rating', inputValue:5}
-               ]
-              
-    
-            } */
             // Description
             ,{
                xtype:'box'
@@ -1016,6 +998,23 @@ Curriki.module.addpath.init = function(){
                         var invalid = null;
 
                         switch (item){
+                          case 'ict':
+                            if (!this.form.findField('instructional_component-validation').isValid()){
+                              invalid = item;
+                            }
+                            break;
+
+                          case 'subject':
+                            if (!this.form.findField('fw_items-validation').isValid()){
+                              invalid = item;
+                            }
+                            break;
+
+                          case 'level':
+                            if (!this.form.findField('educational_level-validation').isValid()){
+                              invalid = item;
+                            }
+                            break;
                           default:
                             break;
                         }

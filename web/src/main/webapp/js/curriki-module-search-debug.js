@@ -1,760 +1,847 @@
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
-
+Ext.ns('Curriki.module.search');
 (function(){
-	Ext.ns('Curriki.module.search');
+	
+  var Search = Curriki.module.search;
 
-	var Search = Curriki.module.search;
+  Search.settings = {
+    gridWidth:(Ext.isIE6?620:'auto')
+  };
 
-	Search.settings = {
-		gridWidth:(Ext.isIE6?620:'auto')
-	};
+  Search.stateProvider = new Ext.state.CookieProvider({
+  });
+  Ext.state.Manager.setProvider(Search.stateProvider);
 
-	Search.stateProvider = new Ext.state.CookieProvider({
-	});
-	Ext.state.Manager.setProvider(Search.stateProvider);
-
-	Search.sessionProvider = new Ext.state.CookieProvider({
-		expires: null // Valid until end of browser session
-	});
+  Search.sessionProvider = new Ext.state.CookieProvider({
+    expires: null // Valid until end of browser session
+  });
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
-(function(){
 Ext.ns('Curriki.module.search.util');
+(function(){
 
 var Search = Curriki.module.search;
 var module = Search.util;
 
 module.init = function(){
-	console.log('search util: init');
+  console.log('search util: init');
 
-	module.logFilterList = {
-		'resource':['subject', 'level', 'language', 'ict', 'review', 'special', 'other', 'sort', 'dir']
-		,'group':['subject', 'level', 'language', 'policy', 'other', 'sort', 'dir']
-		,'member':['subject', 'member_type', 'country', 'other', 'sort', 'dir']
-		,'blog':['other', 'sort', 'dir']
-		,'curriki':['other', 'sort', 'dir']
-	};
+  module.logFilterList = {
+    'resource':['subject', 'level', 'language', 'ict', 'review', 'special', 'other', 'sort', 'dir']
+		,'external':['subject', 'level', 'language', 'ict', 'review', 'special', 'other', 'sort', 'dir']
+    ,'group':['subject', 'level', 'language', 'policy', 'other', 'sort', 'dir']
+    ,'member':['subject', 'member_type', 'country', 'other', 'sort', 'dir']
+    ,'blog':['other', 'sort', 'dir']
+    ,'curriki':['other', 'sort', 'dir']
+  };
 
-	// Register a listener that will update counts on the tab
-	module.registerTabTitleListener = function(modName){
-		// Adjust title with count
-		Ext.StoreMgr.lookup('search-store-'+modName).addListener(
-			'datachanged'
-			,function(store) {
-				var overmax = false;
-				var totalCount = 0;
-				var resultCount = store.getTotalCount();
-				if (!Ext.isEmpty(store.reader.jsonData) && !Ext.isEmpty(store.reader.jsonData.totalResults)) {
-					totalCount = parseInt(store.reader.jsonData.totalResults);
-				}
-				if (totalCount > resultCount) {
-					overmax = true;
-				}
+  // Register a listener that will update counts on the tab
+  module.registerTabTitleListener = function(modName){
+    // Adjust title with count
+    Ext.StoreMgr.lookup('search-store-'+modName).addListener(
+      'datachanged'
+      ,function(store) {
+        var overmax = false;
+        var totalCount = 0;
+        var resultCount = store.getTotalCount();
+        if (!Ext.isEmpty(store.reader.jsonData) && !Ext.isEmpty(store.reader.jsonData.totalResults)) {
+          totalCount = parseInt(store.reader.jsonData.totalResults);
+        }
+        if (totalCount > resultCount) {
+          overmax = true;
+        }
 
-				var tab = Ext.getCmp('search-'+modName+'-tab');
-				if (!Ext.isEmpty(tab)) {
-					var titleMsg = _('search.tab.title.results');
-					if (overmax && (_('search.tab.title.resultsmax_exceeds') !== 'search.tab.title.resultsmax_exceeds')) {
-						titleMsg = _('search.tab.title.resultsmax_exceeds');
-					}
+        var tab = Ext.getCmp('search-results-'+modName);
+        if (!Ext.isEmpty(tab)) {
+          var titleMsg = _('search.tab.title.results');
+          if (overmax && (_('search.tab.title.resultsmax_exceeds') !== 'search.tab.title.resultsmax_exceeds')) {
+            titleMsg = _('search.tab.title.resultsmax_exceeds');
+          }
 
-					tab.setTitle(String.format(titleMsg, _('search.'+modName+'.tab.title'), resultCount, totalCount));
+          tab.setTitle(String.format(titleMsg, _('search.'+modName+'.tab.title'), resultCount, totalCount));
 
-				}
+        }
 
-				var pager = Ext.getCmp('search-pager-'+modName);
-				if (!Ext.isEmpty(pager)) {
-					var afterPageText = _('search.pagination.afterpage');
-					if (overmax && (_('search.pagination.afterpage_resultsmax_exceeds') !== 'search.pagination.afterpage_resultsmax_exceeds')) {
-						afterPageText = _('search.pagination.afterpage_resultsmax_exceeds');
-					}
-					pager.afterPageText = String.format(afterPageText, '{0}', totalCount);
+        var pager = Ext.getCmp('search-pager-'+modName);
+        if (!Ext.isEmpty(pager)) {
+          var afterPageText = _('search.pagination.afterpage');
+          if (overmax && (_('search.pagination.afterpage_resultsmax_exceeds') !== 'search.pagination.afterpage_resultsmax_exceeds')) {
+            afterPageText = _('search.pagination.afterpage_resultsmax_exceeds');
+          }
+          pager.afterPageText = String.format(afterPageText, '{0}', totalCount);
 
-					var displayMsg = _('search.pagination.displaying.'+modName);
-					if (overmax && (_('search.pagination.displaying.'+modName+'_resultsmax_exceeds') !== 'search.pagination.displaying.'+modName+'_resultsmax_exceeds')) {
-						displayMsg = _('search.pagination.displaying.'+modName+'_resultsmax_exceeds');
-					}
-					pager.displayMsg = String.format(displayMsg, '{0}', '{1}', '{2}', totalCount);
-				}
-			}
-		);
+          var displayMsg = _('search.pagination.displaying.'+modName);
+          if (overmax && (_('search.pagination.displaying.'+modName+'_resultsmax_exceeds') !== 'search.pagination.displaying.'+modName+'_resultsmax_exceeds')) {
+            displayMsg = _('search.pagination.displaying.'+modName+'_resultsmax_exceeds');
+          }
+          pager.displayMsg = String.format(displayMsg, '{0}', '{1}', '{2}', totalCount);
+        }
+      }
+    );
 
-		Ext.StoreMgr.lookup('search-store-'+modName).addListener(
-			'load'
-			,function(store, data, options) {
-				var params = options.params||{};
-				var tab = params.module;
-				var terms = escape(params.terms||'');
-				var advancedPanel = Ext.getCmp('search-advanced-'+tab);
-				var advanced = (advancedPanel&&!advancedPanel.collapsed)
-				               ?'advanced'
-				               :'simple';
-				var page = ''; // Only if not first page
-				if (params.start) {
-					if (params.start !== '0') {
-						page = '/start/'+params.start;
-					}
-				}
-				var filters = ''; // Need to construct
-				Ext.each(
-					module.logFilterList[tab]
-					,function(filter){
-						if (!Ext.isEmpty(params[filter], false)){
-							filters += '/'+filter+'/'+escape(params[filter]);
-						}
-					}
-				);
+    Ext.StoreMgr.lookup('search-store-'+modName).addListener(
+      'load'
+      ,function(store, data, options) {
+        /*var params = options.params||{};
+        var tab = params.module;
+        var terms = escape(params.terms||'');
+        var advancedPanel = Ext.getCmp('search-advanced-'+tab);
+        var advanced = (advancedPanel&&!advancedPanel.collapsed)
+                       ?'advanced'
+                       :'simple';
+        var page = ''; // Only if not first page
+        if (params.start) {
+          if (params.start !== '0') {
+            page = '/start/'+params.start;
+          }
+        }
+        var filters = ''; // Need to construct
+        Ext.each(
+          module.logFilterList[tab]
+          ,function(filter){
+            if (!Ext.isEmpty(params[filter], false)){
+              filters += '/'+filter+'/'+escape(params[filter]);
+            }
+          }
+        );
 
-				Curriki.logView('/features/search/'+tab+'/'+terms+'/'+advanced+filters+page);
+        Curriki.logView('/features/search/'+tab+'/'+terms+'/'+advanced+filters+page);
 
-				// Add to history
-				Search.doSearch(tab, false, true);
-			}
-		);
+        // Add to history
+        Search.doSearch(tab, false, true);*/
+      }
+    );
 
-	};
-
-	// Perform a search for a module
-	module.doSearch = function(modName, start){
-		console.log('Doing search', modName, start);
+  };
+	
+	module.getFilters = function(modName) {
+		
 		var filters = {};
 
-		// Global panel (if exists)
-		var filterPanel = Ext.getCmp('search-termPanel');
-		if (!Ext.isEmpty(filterPanel)) {
-			var filterForm = filterPanel.getForm();
-			if (!Ext.isEmpty(filterForm)) {
-				Ext.apply(filters, filterForm.getValues(false));
-			}
-		}
-		Ext.apply(filters, {module: modName});
+    // Global panel (if exists)
+    var filterPanel = Ext.getCmp('search-termPanel');
+    if (!Ext.isEmpty(filterPanel)) {
+      var filterForm = filterPanel.getForm();
+      if (!Ext.isEmpty(filterForm)) {
+        Ext.apply(filters, filterForm.getValues(false));
+      }
+    }
+    //Ext.apply(filters, {module: modName});
 
-		// Module panel
-		filterPanel = Ext.getCmp('search-filterPanel-'+modName);
-		if (!Ext.isEmpty(filterPanel)) {
-			var filterForm = filterPanel.getForm();
-			if (!Ext.isEmpty(filterForm)) {
-				Ext.apply(filters, filterForm.getValues(false));
-			}
-		}
+    // Module panel
+    filterPanel = Ext.getCmp('search-filterPanel-'+modName);
+    if (!Ext.isEmpty(filterPanel)) {
+      var filterForm = filterPanel.getForm();
+      if (!Ext.isEmpty(filterForm)) {
+        Ext.apply(filters, filterForm.getValues(false));
+      }
+    }
 
-		// Check for emptyText value in terms field
-		if (filters.terms && filters.terms === _('search.text.entry.label')){
-			filters.terms = '';
-		}
+    // Check for emptyText value in terms field
+    if (filters.terms && filters.terms === _('search.text.entry.label')){
+      filters.terms = '';
+    }
+		
+		return filters;
+	}
+	
+	module.applyFiltersFor = function(filterValues, modName) {
+		
+		var filters = {};
+		var list = Search.data[modName].filter.list;
+		Ext.each(list, function(filter){
+			if (!Ext.isEmpty(filterValues[filter]))
+			  filters[filter] = filterValues[filter];
+		  else
+			  filters[filter] = '';
+		});
+		return filters;
+	}
+	
+	module.registerStoreListeners = function(modName) {
+		
+		// Adjust title with count
+    Ext.StoreMgr.lookup('search-store-'+modName).addListener(
+      'datachanged'
+      ,function(store) {
+        var overmax = false;
+        var totalCount = 0;
+        var resultCount = store.getTotalCount();
+        if (!Ext.isEmpty(store.reader.jsonData) && !Ext.isEmpty(store.reader.jsonData.totalResults)) {
+          totalCount = parseInt(store.reader.jsonData.totalResults);
+        }
+        if (totalCount > resultCount) {
+          overmax = true;
+        }
 
-		console.log('Applying search filters', filters);
+        var grid = Ext.getCmp('search-results-'+modName);
+        if (!Ext.isEmpty(grid)) {
+			    var titleMsg = _('search.grid.title.results');
+			    if (overmax && (_('search.grid.title.resultsmax_exceeds') !== 'search.grid.title.resultsmax_exceeds')) {
+				    titleMsg = _('search.grid.title.resultsmax_exceeds');
+			    }
+			
+			    grid.setTitle(String.format(titleMsg, _('search.' + modName + '.grid.title'), resultCount, totalCount));
+			
+			
+			    var pager = Ext.getCmp('search-pager-' + modName);
+			    if (!Ext.isEmpty(pager)) {
+				    var afterPageText = _('search.pagination.afterpage');
+				    if (overmax && (_('search.pagination.afterpage_resultsmax_exceeds') !== 'search.pagination.afterpage_resultsmax_exceeds')) {
+					    afterPageText = _('search.pagination.afterpage_resultsmax_exceeds');
+				    }
+				    pager.afterPageText = String.format(afterPageText, '{0}', totalCount);
+				
+				    var displayMsg = _('search.pagination.displaying.' + modName);
+				    if (overmax && (_('search.pagination.displaying.' + modName + '_resultsmax_exceeds') !== 'search.pagination.displaying.' + modName + '_resultsmax_exceeds')) {
+					    displayMsg = _('search.pagination.displaying.' + modName + '_resultsmax_exceeds');
+				    }
+				    pager.displayMsg = String.format(displayMsg, '{0}', '{1}', '{2}', totalCount);
+			    } else {
+						if (resultCount === 0)
+				      grid.hide();
+			    }
+		    }
+      }
+    );
+	}
 
-		Ext.apply(Ext.StoreMgr.lookup('search-store-'+modName).baseParams || {}, filters);
+  // Perform a search for a module
+  module.doSearch = function(modName, start){
+    console.log('Doing search', modName, start);
+		
+    var filters = module.getFilters(modName);
 
-		var pager = Ext.getCmp('search-pager-'+modName)
-		if (!Ext.isEmpty(pager)) {
+    console.log('Applying search filters', filters);
+		var store = Ext.StoreMgr.lookup('search-store-'+modName);
+		if (!Ext.isEmpty(store)) {
+			// apply filters
+			Ext.apply(Ext.StoreMgr.lookup('search-store-'+modName).baseParams || {}, filters);
+			
+			console.log('Done util.doSearch', filters);
+			// load store
+			var pager = Ext.getCmp('search-pager-'+modName)
 			console.log('Searching', filters);
-			pager.doLoad(Ext.num(start, 0)); // Reset to first page if the tab is shown
-		}
-		console.log('Done util.doSearch', filters);
-		Curriki.module.EventManager.fireEvent('Curriki.module.search:doSearch', modName);
-	};
+      if (!Ext.isEmpty(pager)) {    
+        //pager.doLoad(Ext.num(start, 0)); // Reset to first page if the tab is shown
+				store.load();
+      } else {
+        store.load();
+      }
+			
+			var token = {
+				's': modName
+				,'f': {
+				}
+				,'p': {
+					'c': 0
+					,'s': 25
+				}
+				,'t': modName
+				,'a': false
+			};
+			token['f'][modName] = filters;
 
-	// General term panel (terms and search button)
-	module.createTermPanel = function(modName, form){
-		return {
-			xtype:'panel'
-			,labelAlign:'left'
-			,id:'search-termPanel-'+modName
-			,cls:'term-panel'
-			,border:false
-			,items:[{
-				layout:'column'
-				,border:false
-				,defaults:{border:false}
-				,items:[{
-					layout:'form'
-					,id:'search-termPanel-'+modName+'-form'
-					,cls:'search-termPanel-form'
-					,items:[{
-						xtype:'textfield'
-						,id:'search-termPanel-'+modName+'-terms'
-						,cls:'search-termPanel-terms'
-						,fieldLabel:_('search.text.entry.label')
-						,name:'terms'
-						,hideLabel:true
-						,emptyText:_('search.text.entry.label')
-						,listeners:{
-							specialkey:{
-								fn:function(field, e){
-									if (e.getKey() === Ext.EventObject.ENTER) {
-										e.stopEvent();
-										Search.doSearch(modName, true);
-									}
-								}
-							}
-						}
-					}]
-				},{
-					layout:'form'
-					,id:'search-termPanel-buttonColumn-'+modName
-					,cls:'search-termPanel-buttonColumn'
-					,items:[{
-						xtype:'button'
-						,id:'search-termPanel-button-'+modName
-						,cls:'button button-confirm'
-						,text:_('search.text.entry.button')
-						,listeners:{
-							click:{
-								fn: function(){
-									Search.doSearch(modName, true);
-								}
-							}
-						}
-					}]
-				},{
-					xtype:'box'
-					,id:'search-termPanel-tips-'+modName
-					,cls:'search-termPanel-tips'
-					,autoEl:{html:'<a href="/xwiki/bin/view/Search/Tips?xpage=popup" target="search_tips" onclick="{var popup=window.open(this.href, \'search_tips\', \'width=725,height=400,status=no,toolbar=no,menubar=no,location=no,resizable=yes\'); popup.focus();} return false;">'+_('search.text.entry.help.button')+'</a>'}
-				}]
-			},{
-				xtype:'hidden'
-				,name:'other'
-				,id:'search-termPanel-other-'+modName
-				,value:(!Ext.isEmpty(Search.restrictions)?Search.restrictions:'')
-			}]
-		};
-	};
+      var provider = new Ext.state.Provider();
+      var encodedToken = provider.encodeValue(token);
+      console.log('Saving History', {values: token});
+      Search.history.addToken(encodedToken);
+		}    
+  };
+	
+	module.doGridSearch = function(grid, filters) {
+		if (!Ext.isEmpty(grid)) {
+		  var store = grid.getStore();
+		  if (!Ext.isEmpty(store)) {
+				Ext.apply(store.baseParams || {}, filters);
+				store.load();			
+		  }
+	  }
+	}
+
+  // General term panel (terms and search button)
+  module.createTermPanel = function(modName, form) {
+    return {
+      xtype:'panel'
+      ,labelAlign:'left'
+      ,id:'search-termPanel-'+modName
+      ,cls:'term-panel'
+      ,border:false
+      ,items:[{
+        layout:'column'
+        ,border:false
+        ,defaults:{border:false}
+        ,items:[{
+          layout:'form'
+          ,id:'search-termPanel-'+modName+'-form'
+          ,cls:'search-termPanel-form'
+          ,items:[{
+            xtype:'textfield'
+            ,id:'search-termPanel-'+modName+'-terms'
+            ,cls:'search-termPanel-terms'
+            ,fieldLabel:_('search.text.entry.label')
+            ,name:'terms'
+            ,hideLabel:true
+            ,emptyText:_('search.text.entry.label')
+            ,listeners:{
+              specialkey:{
+                fn:function(field, e){
+                  if (e.getKey() === Ext.EventObject.ENTER) {
+                    e.stopEvent();
+                    Search.doSearch(modName, true);
+                  }
+                }
+              }
+            }
+          }]
+        },{
+          layout:'form'
+          ,id:'search-termPanel-buttonColumn-'+modName
+          ,cls:'search-termPanel-buttonColumn'
+          ,items:[{
+            xtype:'button'
+            ,id:'search-termPanel-button-'+modName
+            ,cls:'button button-confirm'
+            ,text:_('search.text.entry.button')
+            ,listeners:{
+              click:{
+                fn: function(){
+                  Search.doSearch(modName, true);
+                }
+              }
+            }
+          }]
+        },{
+          xtype:'box'
+          ,id:'search-termPanel-tips-'+modName
+          ,cls:'search-termPanel-tips'
+          ,autoEl:{html:'<a href="/xwiki/bin/view/Search/Tips?xpage=popup" target="search_tips" onclick="{var popup=window.open(this.href, \'search_tips\', \'width=725,height=400,status=no,toolbar=no,menubar=no,location=no,resizable=yes\'); popup.focus();} return false;">'+_('search.text.entry.help.button')+'</a>'}
+        }]
+      },{
+        xtype:'hidden'
+        ,name:'other'
+        ,id:'search-termPanel-other-'+modName
+        ,value:(!Ext.isEmpty(Search.restrictions)?Search.restrictions:'')
+      }]
+    };
+  };
 
 /*
-	// General help panel
-	module.createHelpPanel = function(modName, form){
-		var cookie = 'search_help_'+modName;
-		return {
-			xtype:'fieldset'
-			,id:'search-helpPanel-'+modName
-			,title:_('search.text.entry.help.button')
-			,collapsible:true
-			,collapsed:((Search.sessionProvider.get(cookie, 0)===0)?true:false)
-			,listeners:{
-				collapse:{
-					fn:function(panel){
-						Search.sessionProvider.clear(cookie);
-					}
-				}
-				,expand:{
-					fn:function(panel){
-						Search.sessionProvider.set(cookie, 1);
-					}
-				}
-			}
-			,border:true
-			,autoHeight:true
-			,items:[{
-				xtype:'box'
-				,autoEl:{
-					tag:'div'
-					,html:_('search.text.entry.help.text')
-					,cls:'help-text'
-				}
-			}]
-		};
-	};
+  // General help panel
+  module.createHelpPanel = function(modName, form){
+    var cookie = 'search_help_'+modName;
+    return {
+      xtype:'fieldset'
+      ,id:'search-helpPanel-'+modName
+      ,title:_('search.text.entry.help.button')
+      ,collapsible:true
+      ,collapsed:((Search.sessionProvider.get(cookie, 0)===0)?true:false)
+      ,listeners:{
+        collapse:{
+          fn:function(panel){
+            Search.sessionProvider.clear(cookie);
+          }
+        }
+        ,expand:{
+          fn:function(panel){
+            Search.sessionProvider.set(cookie, 1);
+          }
+        }
+      }
+      ,border:true
+      ,autoHeight:true
+      ,items:[{
+        xtype:'box'
+        ,autoEl:{
+          tag:'div'
+          ,html:_('search.text.entry.help.text')
+          ,cls:'help-text'
+        }
+      }]
+    };
+  };
 */
 
-	module.fieldsetPanelSave = function(panel, state){
-		if (Ext.isEmpty(state)) {
-			state = {};
-		}
-		if (!panel.collapsed) {
-			state.collapsed = panel.collapsed;
-		} else {
-			state = null;
-		}
-		console.log('fieldset Panel Save state:', state);
-		Search.sessionProvider.set(panel.stateId || panel.id, state);
-	};
+  module.fieldsetPanelSave = function(panel, state){
+    if (Ext.isEmpty(state)) {
+      state = {};
+    }
+    if (!panel.collapsed) {
+      state.collapsed = panel.collapsed;
+    } else {
+      state = null;
+    }
+    console.log('fieldset Panel Save state:', state);
+    Search.sessionProvider.set(panel.stateId || panel.id, state);
+  };
 
-	module.fieldsetPanelRestore = function(panel, state){
-		if (!Ext.isEmpty(state)
-		    && !Ext.isEmpty(state.collapsed)
-		    && !state.collapsed) {
-			panel.expand(false);
-		}
-	};
+  module.fieldsetPanelRestore = function(panel, state){
+    if (!Ext.isEmpty(state)
+        && !Ext.isEmpty(state.collapsed)
+        && !state.collapsed) {
+      panel.expand(false);
+    }
+  };
 
-	module.registerSearchLogging = function(tab){
-	};
+  module.registerSearchLogging = function(tab){
+  };
 
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  module.init();
-	});
+    module.init();
+  });
 });
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.data.resource');
 (function(){
 var modName = 'resource';
-
-Ext.ns('Curriki.module.search.data.'+modName);
 
 var data = Curriki.module.search.data.resource;
 
 data.init = function(){
-	console.log('data.'+modName+': init');
+  console.log('data.'+modName+': init');
 
-	// Set up filters
-	data.filter = {};
-	var f = data.filter; // Alias
+  // Set up filters
+  data.filter = {};
+  var f = data.filter; // Alias
+  
+	f.list = ['terms', 'subject', 'subsubject', 'category', 'level', 'sublevel', 'language', 'review', 'ict', 'subict', 'special'];
 
-	f.data = {};
+  f.data = {};	
 
-	f.data.subject =  {
-		mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
-		,list: []
-		,data: [
-			['', _('CurrikiCode.AssetClass_fw_items_FW_masterFramework.UNSPECIFIED')]
-		]
-	};
-	f.data.subject.mapping.each(function(value){
-		f.data.subject.list.push(value.id);
-	});
+  f.data.subject =  {
+    mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
+    ,list: []
+    ,data: [
+      ['', _('CurrikiCode.AssetClass_fw_items_FW_masterFramework.UNSPECIFIED')]
+    ]
+  };
+  f.data.subject.mapping.each(function(value){
+    f.data.subject.list.push(value.id);
+  });
 
-	f.data.subject.list.each(function(value){
-		f.data.subject.data.push([
-			value
-			,_('CurrikiCode.AssetClass_fw_items_'+value)
-		]);
-	});
+  f.data.subject.list.each(function(value){
+    f.data.subject.data.push([
+      value
+      ,_('CurrikiCode.AssetClass_fw_items_'+value)
+    ]);
+  });
 
-	// sort the list for the subject
-	f.data.subject.data.sort(function(a, b) { 
-		// if a or b are head, return as first
-		if(b[0] == "") return 1; 
-		if(a[0] == "") return -1;
-		// if a or b are uncategorized, return as last
-		if(b[0] == "UNCATEGORIZED") return -1; 
-		if(a[0] == "UNCATEGORIZED") return 1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1; 
-			else return 1;
-	});
+  // sort the list for the subject
+  f.data.subject.data.sort(function(a, b) { 
+    // if a or b are head, return as first
+    if(b[0] == "") return 1; 
+    if(a[0] == "") return -1;
+    // if a or b are uncategorized, return as last
+    if(b[0] == "UNCATEGORIZED") return -1; 
+    if(a[0] == "UNCATEGORIZED") return 1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1; 
+      else return 1;
+  });
 
-	f.data.subsubject =  {
-		mapping: Curriki.data.fw_item.fwMap
-		,data: [
-		]
-	};
-	f.data.subject.mapping.each(function(parentItem){
-		f.data.subsubject.data.push([
-			parentItem.id
-			,_('CurrikiCode.AssetClass_fw_items_'+parentItem.id+'.UNSPECIFIED')
-			,parentItem.id
-		]);
-		f.data.subsubject.mapping[parentItem.id].each(function(subject){
-			f.data.subsubject.data.push([
-				subject.id
-				,_('CurrikiCode.AssetClass_fw_items_'+subject.id)
-				,parentItem.id
-			]);
-		});
-	});
+  f.data.subsubject =  {
+    mapping: Curriki.data.fw_item.fwMap
+    ,data: [
+    ]
+  };
+  f.data.subject.mapping.each(function(parentItem){
+    f.data.subsubject.data.push([
+      parentItem.id
+      ,_('CurrikiCode.AssetClass_fw_items_'+parentItem.id+'.UNSPECIFIED')
+      ,parentItem.id
+    ]);
+    f.data.subsubject.mapping[parentItem.id].each(function(subject){
+      f.data.subsubject.data.push([
+        subject.id
+        ,_('CurrikiCode.AssetClass_fw_items_'+subject.id)
+        ,parentItem.id
+      ]);
+    });
+  });
 
-	// sort the list for the subsubject
-	f.data.subsubject.data.sort(function(a, b) {
-		// b is the subject index, put first
-		if(b[0] == b[2]) return 1;
-		// a is the subject index, put first
-		if(a[0] == a[2]) return -1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1;
-			else return 1;
-	});
+  // sort the list for the subsubject
+  f.data.subsubject.data.sort(function(a, b) {
+    // b is the subject index, put first
+    if(b[0] == b[2]) return 1;
+    // a is the subject index, put first
+    if(a[0] == a[2]) return -1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1;
+      else return 1;
+  });
 
-	f.data.level =  {
-		mapping: Curriki.data.el.elMap['TREEROOTNODE']
-		,list: []
-		,data: [
-			['', _('CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED')]
-		]
-	};
-	f.data.level.mapping.each(function(value){
-		f.data.level.list.push(value.id);
-	});
+  f.data.level =  {
+    mapping: Curriki.data.el.elMap['TREEROOTNODE']
+    ,list: []
+    ,data: [
+      ['', _('CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED')]
+    ]
+  };
+  f.data.level.mapping.each(function(value){
+    f.data.level.list.push(value.id);
+  });
 
-	f.data.level.list.each(function(value){
-		f.data.level.data.push([
-			value
-			,_('CurrikiCode.AssetClass_educational_level_'+value)
-		]);
-	});
+  f.data.level.list.each(function(value){
+    f.data.level.data.push([
+      value
+      ,_('CurrikiCode.AssetClass_educational_level_'+value)
+    ]);
+  });
 
-	f.data.level2 =  {
-		mapping: Curriki.data.el.elMap
-		,data: [
-		]
-	};
-	f.data.level.mapping.each(function(parentItem){
-		f.data.level2.data.push([
-			parentItem.id
-			,_('CurrikiCode.AssetClass_educational_level_'+parentItem.id+'.UNSPECIFIED')
-			,parentItem.id
-		]);
-	if(f.data.level2.mapping[parentItem.id]) {
-		  f.data.level2.mapping[parentItem.id].each(function(el){
-			  f.data.level2.data.push([
-	  			el.id
-		  		,_('CurrikiCode.AssetClass_educational_level_'+el.id)
-	  			,parentItem.id
-	  		]);
-	  	});
-	}
-	});
+  f.data.sublevel =  {
+    mapping: Curriki.data.el.elMap
+    ,data: [
+    ]
+  };
+  f.data.level.mapping.each(function(parentItem){
+    f.data.sublevel.data.push([
+      parentItem.id
+      ,_('CurrikiCode.AssetClass_educational_level_'+parentItem.id+'.UNSPECIFIED')
+      ,parentItem.id
+    ]);
+  if(f.data.sublevel.mapping[parentItem.id]) {
+      f.data.sublevel.mapping[parentItem.id].each(function(el){
+        f.data.sublevel.data.push([
+          el.id
+          ,_('CurrikiCode.AssetClass_educational_level_'+el.id)
+          ,parentItem.id
+        ]);
+      });
+  }
+  });
 
   f.data.ict =  {
-		mapping: Curriki.data.ict.ictMap['TREEROOTNODE']
-		,list: []
-		,data: [
-			['', _('CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED')]
-		]
-	};
-	f.data.ict.mapping.each(function(value){
-		f.data.ict.list.push(value.id);
-	});
+    mapping: Curriki.data.ict.ictMap['TREEROOTNODE']
+    ,list: []
+    ,data: [
+      ['', _('CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED')]
+    ]
+  };
+  f.data.ict.mapping.each(function(value){
+    f.data.ict.list.push(value.id);
+  });
 
-	f.data.ict.list.each(function(value){
-		f.data.ict.data.push([
-			value
-			,_('CurrikiCode.AssetClass_instructional_component_'+value)
-		]);
-	});
+  f.data.ict.list.each(function(value){
+    f.data.ict.data.push([
+      value
+      ,_('CurrikiCode.AssetClass_instructional_component_'+value)
+    ]);
+  });
 
-	// sort the list for the instructional component
-	f.data.ict.data.sort(function(a, b) {
-		// if a or b are head, return as first
-		if(b[0] == "") return 1;
-		if(a[0] == "") return -1;
-		// if a or b are uncategorized, return as last
-		if(b[0] == "UNCATEGORIZED") return -1;
-		if(a[0] == "UNCATEGORIZED") return 1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1;
-			else return 1;
-	});
+  // sort the list for the instructional component
+  f.data.ict.data.sort(function(a, b) {
+    // if a or b are head, return as first
+    if(b[0] == "") return 1;
+    if(a[0] == "") return -1;
+    // if a or b are uncategorized, return as last
+    if(b[0] == "UNCATEGORIZED") return -1;
+    if(a[0] == "UNCATEGORIZED") return 1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1;
+      else return 1;
+  });
 
-	f.data.subict =  {
-		mapping: Curriki.data.ict.ictMap
-		,data: [
-		]
-	};
-	f.data.ict.mapping.each(function(parentItem){
-		f.data.subict.data.push([
-			parentItem.id
-			,_('CurrikiCode.AssetClass_instructional_component_'+parentItem.id+'.UNSPECIFIED')
-			,parentItem.id
-		]);
+  f.data.subict =  {
+    mapping: Curriki.data.ict.ictMap
+    ,data: [
+    ]
+  };
+  f.data.ict.mapping.each(function(parentItem){
+    f.data.subict.data.push([
+      parentItem.id
+      ,_('CurrikiCode.AssetClass_instructional_component_'+parentItem.id+'.UNSPECIFIED')
+      ,parentItem.id
+    ]);
     if(f.data.subict.mapping[parentItem.id]) {
-		  f.data.subict.mapping[parentItem.id].each(function(ict){
-		  	f.data.subict.data.push([
-		  		ict.id
-	  			,_('CurrikiCode.AssetClass_instructional_component_'+ict.id)
-		  		,parentItem.id
-	  		]);
-	  	});
+      f.data.subict.mapping[parentItem.id].each(function(ict){
+        f.data.subict.data.push([
+          ict.id
+          ,_('CurrikiCode.AssetClass_instructional_component_'+ict.id)
+          ,parentItem.id
+        ]);
+      });
     }
-	});
+  });
 
-	// sort the list for the instructional component subtype
-	f.data.subict.data.sort(function(a, b) {
-		// b is the subject index, put first
-		if(b[0] == b[2]) return 1;
-		// a is the subject index, put first
-		if(a[0] == a[2]) return -1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1;
-			else return 1;
-	});
+  // sort the list for the instructional component subtype
+  f.data.subict.data.sort(function(a, b) {
+    // b is the subject index, put first
+    if(b[0] == b[2]) return 1;
+    // a is the subject index, put first
+    if(a[0] == a[2]) return -1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1;
+      else return 1;
+  });
 
-	f.data.language =  {
-		list: Curriki.data.language.list
-		,data: [
-			['', _('CurrikiCode.AssetClass_language_UNSPECIFIED')]
-		]
-	};
-	f.data.language.list.each(function(value){
-		f.data.language.data.push([
-			value
-			,_('CurrikiCode.AssetClass_language_'+value)
-		]);
-	});
+  f.data.language =  {
+    list: Curriki.data.language.list
+    ,data: [
+      ['', _('CurrikiCode.AssetClass_language_UNSPECIFIED')]
+    ]
+  };
+  f.data.language.list.each(function(value){
+    f.data.language.data.push([
+      value
+      ,_('CurrikiCode.AssetClass_language_'+value)
+    ]);
+  });
 
-	// sort the list for the language
-	f.data.language.data.sort(function(a, b) {
-		// if a or b are head, return as first
-		if(b[0] == "") return 1;
-		if(a[0] == "") return -1;
-		// if a or b are uncategorized, return as last
-		if(b[0] == "999") return -1;
-		if(a[0] == "999") return 1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1;
-			else return 1;
-	});
+  // sort the list for the language
+  f.data.language.data.sort(function(a, b) {
+    // if a or b are head, return as first
+    if(b[0] == "") return 1;
+    if(a[0] == "") return -1;
+    // if a or b are uncategorized, return as last
+    if(b[0] == "999") return -1;
+    if(a[0] == "999") return 1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1;
+      else return 1;
+  });
 
-	f.data.category =  {
-		list: Curriki.data.category.list
-		,data: [
-			['', _('CurrikiCode.AssetClass_category_UNSPECIFIED'), '   ']
-		]
-	};
-	f.data.category.list.each(function(value){
-		var sort = _('CurrikiCode.AssetClass_category_'+value);
-		if (value === 'unknown') {
-			sort = 'zzz';
-		}
-		if (value !== 'collection') { //collection should not be in the list
-			f.data.category.data.push([
-				value
-				,_('CurrikiCode.AssetClass_category_'+value)
-				,sort
-			]);
-		}
-	});
+  f.data.category =  {
+    list: Curriki.data.category.list
+    ,data: [
+      ['', _('CurrikiCode.AssetClass_category_UNSPECIFIED'), '   ']
+    ]
+  };
+  f.data.category.list.each(function(value){
+    var sort = _('CurrikiCode.AssetClass_category_'+value);
+    if (value === 'unknown') {
+      sort = 'zzz';
+    }
+    if (value !== 'collection' && value !== 'external') { //collection should not be in the list
+      f.data.category.data.push([
+        value
+        ,_('CurrikiCode.AssetClass_category_'+value)
+        ,sort
+      ]);
+    }
+  });
 
-	// category doesn't need to be sorted because it is sorted somewhere further
+  // category doesn't need to be sorted because it is sorted somewhere further
 
-	f.data.review = {
-		list: [
-			'partners', 'highest_rated', 'members.highest_rated'
-		]
-		,data: [
-			['', _('search.resource.review.selector.UNSPECIFIED')]
-		]
-	};
-	f.data.review.list.each(function(review){
-		f.data.review.data.push([
-			review
-			,_('search.resource.review.selector.'+review)
-		]);
-	});
+  f.data.review = {
+    list: [
+      'partners', 'highest_rated', 'members.highest_rated'
+    ]
+    ,data: [
+      ['', _('search.resource.review.selector.UNSPECIFIED')]
+    ]
+  };
+  f.data.review.list.each(function(review){
+    f.data.review.data.push([
+      review
+      ,_('search.resource.review.selector.'+review)
+    ]);
+  });
 
-	f.data.special = {
-		list: [
-			'contributions', 'collections', 'updated', 'sankore', 'notreviewed'
-		]
-		,data: [
-			['', _('search.resource.special.selector.UNSPECIFIED')]
-		]
-	};
-	f.data.special.list.each(function(special){
-		f.data.special.data.push([
-			special
-			,_('search.resource.special.selector.'+special)
-		]);
-	});
+  f.data.special = {
+    list: [
+      'contributions', 'collections', 'updated', 'sankore', 'notreviewed'
+    ]
+    ,data: [
+      ['', _('search.resource.special.selector.UNSPECIFIED')]
+    ]
+  };
+  f.data.special.list.each(function(special){
+    f.data.special.data.push([
+      special
+      ,_('search.resource.special.selector.'+special)
+    ]);
+  });
 
 
-	f.store = {
-		subject: new Ext.data.SimpleStore({
-			fields: ['id', 'subject']
-			,data: f.data.subject.data
-			,id: 0
-		})
-
-		,subsubject: new Ext.data.SimpleStore({
-			fields: ['id', 'subject', 'parentItem']
-			,data: f.data.subsubject.data
-			,id: 0
-		})
-
-		,level: new Ext.data.SimpleStore({
-			fields: ['id', 'level']
-			,data: f.data.level.data
-			,id: 0
-		})
-
-    ,level2: new Ext.data.SimpleStore({
-      fields: ['id', 'level', 'parentItem']
-      ,data: f.data.level2.data
+  f.store = {
+    subject: new Ext.data.SimpleStore({
+      fields: ['id', 'subject']
+      ,data: f.data.subject.data
       ,id: 0
     })
 
-		,ict: new Ext.data.SimpleStore({
-			fields: ['id', 'ict']
-			,data: f.data.ict.data
-			,id: 0
-		})
+    ,subsubject: new Ext.data.SimpleStore({
+      fields: ['id', 'subject', 'parentItem']
+      ,data: f.data.subsubject.data
+      ,id: 0
+    })
 
-		,subict: new Ext.data.SimpleStore({
-			fields: ['id', 'ict', 'parentItem']
-			,data: f.data.subict.data
-			,id: 0
-		})
+    ,level: new Ext.data.SimpleStore({
+      fields: ['id', 'level']
+      ,data: f.data.level.data
+      ,id: 0
+    })
 
-		,language: new Ext.data.SimpleStore({
-			fields: ['id', 'language']
-			,data: f.data.language.data
-			,id: 0
-		})
+    ,sublevel: new Ext.data.SimpleStore({
+      fields: ['id', 'level', 'parentItem']
+      ,data: f.data.sublevel.data
+      ,id: 0
+    })
 
-		,category: new Ext.data.SimpleStore({
-			fields: ['id', 'category', 'sortValue']
-			,sortInfo: {field:'sortValue', direction:'ASC'}
-			,data: f.data.category.data
-			,id: 0
-		})
+    ,ict: new Ext.data.SimpleStore({
+      fields: ['id', 'ict']
+      ,data: f.data.ict.data
+      ,id: 0
+    })
 
-		,review: new Ext.data.SimpleStore({
-			fields: ['id', 'review']
-			,data: f.data.review.data
-			,id: 0
-		})
+    ,subict: new Ext.data.SimpleStore({
+      fields: ['id', 'ict', 'parentItem']
+      ,data: f.data.subict.data
+      ,id: 0
+    })
 
-		,special: new Ext.data.SimpleStore({
-			fields: ['id', 'special']
-			,data: f.data.special.data
-			,id: 0
-		})
-	};
+    ,language: new Ext.data.SimpleStore({
+      fields: ['id', 'language']
+      ,data: f.data.language.data
+      ,id: 0
+    })
 
+    ,category: new Ext.data.SimpleStore({
+      fields: ['id', 'category', 'sortValue']
+      ,sortInfo: {field:'sortValue', direction:'ASC'}
+      ,data: f.data.category.data
+      ,id: 0
+    })
 
+    ,review: new Ext.data.SimpleStore({
+      fields: ['id', 'review']
+      ,data: f.data.review.data
+      ,id: 0
+    })
 
-	// Set up data store
-	data.store = {};
-
-	data.store.record = new Ext.data.Record.create([
-		{ name: 'title' }
-		,{ name: 'assetType' }
-		,{ name: 'category' }
-		,{ name: 'subcategory' }
-		,{ name: 'contributor' }
-		,{ name: 'contributorName' }
-		,{ name: 'rating', mapping: 'review' }
-		,{ name: 'memberRating', mapping: 'rating' }
-		,{ name: 'ratingCount' }
-		,{ name: 'description' }
-		,{ name: 'fwItems' }
-		,{ name: 'levels' }
-		,{ name: 'parents' }
-		,{ name: 'updated' }
-	]);
-
-	data.store.results = new Ext.data.Store({
-		storeId: 'search-store-'+modName
-		,proxy: new Ext.data.HttpProxy({
-			url: '/xwiki/bin/view/Search/Resources'
-			,method:'GET'
-		})
-		,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
-
-		,reader: new Ext.data.JsonReader({
-			root: 'rows'
-			,totalProperty: 'resultCount'
-			,id: 'page'
-		}, data.store.record)
-
-		// turn on remote sorting
-		,remoteSort: true
-	});
-	data.store.results.setDefaultSort('title', 'asc');
+    ,special: new Ext.data.SimpleStore({
+      fields: ['id', 'special']
+      ,data: f.data.special.data
+      ,id: 0
+    })
+  };
 
 
 
-	// Set up renderers
-	data.renderer = {
-		title: function(value, metadata, record, rowIndex, colIndex, store){
-			// Title
-			var page = record.id.replace(/\./, '/');
+  // Set up data store
+  data.store = {};
 
-			var desc = Ext.util.Format.stripTags(record.data.description);
-			desc = Ext.util.Format.ellipsis(desc, 256);
-			desc = Ext.util.Format.htmlEncode(desc);
+  data.store.record = new Ext.data.Record.create([
+    { name: 'title' }
+    ,{ name: 'assetType' }
+    ,{ name: 'category' }
+    ,{ name: 'subcategory' }
+    ,{ name: 'contributor' }
+    ,{ name: 'contributorName' }
+    ,{ name: 'rating', mapping: 'review' }
+    ,{ name: 'memberRating', mapping: 'rating' }
+    ,{ name: 'ratingCount' }
+    ,{ name: 'description' }
+    ,{ name: 'fwItems' }
+    ,{ name: 'levels' }
+    ,{ name: 'parents' }
+    ,{ name: 'updated' }
+  ]);
 
-			var fw = Curriki.data.fw_item.getRolloverDisplay(record.data.fwItems||[]);
-			var lvl = Curriki.data.el.getRolloverDisplay(record.data.levels||[]);
+  data.store.results = new Ext.data.Store({
+    storeId: 'search-store-'+modName
+    ,proxy: new Ext.data.HttpProxy({
+      url: '/xwiki/bin/view/Search/Resources'
+      ,method:'GET'
+    })
+    ,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
 
-			desc = String.format("{1}<br />{0}<br /><br />{3}<br />{2}<br />{5}<br />{4}"
-				,desc,_('global.title.popup.description')
-				,fw,_('global.title.popup.subject')
-				,lvl,_('global.title.popup.educationlevel')
-			);
+    ,reader: new Ext.data.JsonReader({
+      root: 'rows'
+      ,totalProperty: 'resultCount'
+      ,id: 'page'
+    }, data.store.record)
 
-			// Asset Type icon
-			var assetType = record.data.assetType;
-			var category = record.data.category;
-			var subcategory = record.data.subcategory;
-			metadata.css = String.format('resource-{0} category-{1} subcategory-{1}_{2}', assetType, category, subcategory); // Added to <td>
+    // turn on remote sorting
+    ,remoteSort: true
+  });
+  data.store.results.setDefaultSort('title', 'asc');
 
-			var rollover = _(category+'.'+subcategory);
-			if (rollover === category+'.'+subcategory) {
-				rollover = _('unknown.unknown');
-			}
 
-//			return String.format('<img class="x-tree-node-icon assettype-icon" style="width:16px;height:17px;background-repeat:no-repeat;" src="{0}" alt="{1}" ext:qtip="{1}" />', Ext.BLANK_IMAGE_URL, rollover);
-			return String.format('<img class="x-tree-node-icon assettype-icon" src="{3}" ext:qtip="{4}" /><a href="/xwiki/bin/view/{0}" class="asset-title" ext:qtip="{2}">{1}</a>', page, Ext.util.Format.ellipsis(value, 80), desc, Ext.BLANK_IMAGE_URL, rollover);
-		}
 
-		,contributor: function(value, metadata, record, rowIndex, colIndex, store){
-			var page = value.replace(/\./, '/');
-			return String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, record.data.contributorName);
-		}
+  // Set up renderers
+  data.renderer = {
+    title: function(value, metadata, record, rowIndex, colIndex, store){
+      // Title
+      var page = record.id.replace(/\./, '/');
 
-		,rating: function(value, metadata, record, rowIndex, colIndex, store){
-			if (value != "") {
-				var page = record.id.replace(/\./, '/');
+      var desc = Ext.util.Format.stripTags(record.data.description);
+      desc = Ext.util.Format.ellipsis(desc, 256);
+      desc = Ext.util.Format.htmlEncode(desc);
 
-				metadata.css = String.format('crs-{0}', value); // Added to <td>
-				//metadata.attr = String.format('title="{0}"', _('curriki.crs.rating'+value)); // Added to <div> around the returned HTML
-				return String.format('<a href="/xwiki/bin/view/{3}?viewer=comments"><img class="crs-icon" alt="" src="{2}" /><span class="crs-text">{1}</span></a>', value, _('search.resource.review.'+value), Ext.BLANK_IMAGE_URL, page);
-			} else {
-				return String.format('');
-			}
-		}
+      var fw = Curriki.data.fw_item.getRolloverDisplay(record.data.fwItems||[]);
+      var lvl = Curriki.data.el.getRolloverDisplay(record.data.levels||[]);
 
-		,memberRating: function(value, metadata, record, rowIndex, colIndex, store){
-			if (value != "") {
-				var page = record.id.replace(/\./, '/');
-				var ratingCount = record.data.ratingCount;
+      desc = String.format("{1}<br />{0}<br /><br />{3}<br />{2}<br />{5}<br />{4}"
+        ,desc,_('global.title.popup.description')
+        ,fw,_('global.title.popup.subject')
+        ,lvl,_('global.title.popup.educationlevel')
+      );
 
-				metadata.css = String.format('rating-{0}', value);
-				return String.format('<a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}"> ({1})</a>', value, ratingCount, page, _('search.resource.rating.'+value), Ext.BLANK_IMAGE_URL);
-			} else {
-				return String.format('');
-			}
-		}
+      // Asset Type icon
+      var assetType = record.data.assetType;
+      var category = record.data.category;
+      var subcategory = record.data.subcategory;
+      metadata.css = String.format('resource-{0} category-{1} subcategory-{1}_{2}', assetType, category, subcategory); // Added to <td>
 
-		,updated: function(value, metadata, record, rowIndex, colIndex, store){
-			var dt = Ext.util.Format.date(value, 'M-d-Y');
-			return String.format('{0}', dt);
-		}
-	};
+      var rollover = _(category+'.'+subcategory);
+      if (rollover === category+'.'+subcategory) {
+        rollover = _('unknown.unknown');
+      }
+
+//      return String.format('<img class="x-tree-node-icon assettype-icon" style="width:16px;height:17px;background-repeat:no-repeat;" src="{0}" alt="{1}" ext:qtip="{1}" />', Ext.BLANK_IMAGE_URL, rollover);
+      return String.format('<img class="x-tree-node-icon assettype-icon" src="{3}" ext:qtip="{4}" /><a href="/xwiki/bin/view/{0}" class="asset-title" ext:qtip="{2}">{1}</a>', page, Ext.util.Format.ellipsis(value, 80), desc, Ext.BLANK_IMAGE_URL, rollover);
+    }
+
+    ,contributor: function(value, metadata, record, rowIndex, colIndex, store){
+      var page = value.replace(/\./, '/');
+      return String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, record.data.contributorName);
+    }
+
+    ,rating: function(value, metadata, record, rowIndex, colIndex, store){
+      if (value != "") {
+        var page = record.id.replace(/\./, '/');
+
+        metadata.css = String.format('crs-{0}', value); // Added to <td>
+        //metadata.attr = String.format('title="{0}"', _('curriki.crs.rating'+value)); // Added to <div> around the returned HTML
+        return String.format('<a href="/xwiki/bin/view/{3}?viewer=comments"><img class="crs-icon" alt="" src="{2}" /><span class="crs-text">{1}</span></a>', value, _('search.resource.review.'+value), Ext.BLANK_IMAGE_URL, page);
+      } else {
+        return String.format('');
+      }
+    }
+
+    ,memberRating: function(value, metadata, record, rowIndex, colIndex, store){
+      if (value != "") {
+        var page = record.id.replace(/\./, '/');
+        var ratingCount = record.data.ratingCount;
+
+        metadata.css = String.format('rating-{0}', value);
+        return String.format('<a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}"> ({1})</a>', value, ratingCount, page, _('search.resource.rating.'+value), Ext.BLANK_IMAGE_URL);
+      } else {
+        return String.format('');
+      }
+    }
+
+    ,updated: function(value, metadata, record, rowIndex, colIndex, store){
+      var dt = Ext.util.Format.date(value, 'M-d-Y');
+      return String.format('{0}', dt);
+    }
+  };
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  data.init();
-	});
+    data.init();
+  });
 });
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.form.resource');
 (function(){
 var modName = 'resource';
-
-Ext.ns('Curriki.module.search.form.'+modName);
 
 var Search = Curriki.module.search;
 
@@ -762,837 +849,1561 @@ var form = Search.form[modName];
 var data = Search.data[modName];
 
 form.init = function(){
-	console.log('form.'+modName+': init');
+  console.log('form.'+modName+': init');
 
-	var comboWidth = 140;
-	var comboListWidth = 250;
+  var comboWidth = 140;
+  var comboListWidth = 250;
 
-	// Plugin to add icons to Category combo box
-	form.categoryCombo = function(config) {
-		Ext.apply(this, config);
-	};
-	Ext.extend(form.categoryCombo, Ext.util.Observable, {
-		init:function(combo){
-			Ext.apply(combo, {
-				tpl:  '<tpl for=".">'
-					+ '<div class="x-combo-list-item category-icon-combo-item '
-					+ 'category-{' + combo.valueField + '}">'
-					+ '<img class="category-icon" src="'+Ext.BLANK_IMAGE_URL+'"/>'
-					+ '<span class="category-title">{' + combo.displayField + '}</span>'
-					+ '</div></tpl>',
+  // Plugin to add icons to Category combo box
+  form.categoryCombo = function(config) {
+    Ext.apply(this, config);
+  };
+  Ext.extend(form.categoryCombo, Ext.util.Observable, {
+    init:function(combo){
+      Ext.apply(combo, {
+        tpl:  '<tpl for=".">'
+          + '<div class="x-combo-list-item category-icon-combo-item '
+          + 'category-{' + combo.valueField + '}">'
+          + '<img class="category-icon" src="'+Ext.BLANK_IMAGE_URL+'"/>'
+          + '<span class="category-title">{' + combo.displayField + '}</span>'
+          + '</div></tpl>',
 
-				onRender:combo.onRender.createSequence(function(ct, position) {
-					// adjust styles
-					this.wrap.applyStyles({position:'relative'});
-					this.el.addClass('category-icon-combo-input');
+        onRender:combo.onRender.createSequence(function(ct, position) {
+          // adjust styles
+          this.wrap.applyStyles({position:'relative'});
+          this.el.addClass('category-icon-combo-input');
 
-					// add div for icon
-					this.icon = Ext.DomHelper.append(this.el.up('div.x-form-field-wrap'), {
-						tag:'div'
-						,style:'position:absolute'
-						,children:{tag:'div', cls:'category-icon'}
-					});
-				}), // end of function onRender
+          // add div for icon
+          this.icon = Ext.DomHelper.append(this.el.up('div.x-form-field-wrap'), {
+            tag:'div'
+            ,style:'position:absolute'
+            ,children:{tag:'div', cls:'category-icon'}
+          });
+        }), // end of function onRender
 
-				setIconCls:function() {
-					var rec = this.store.query(this.valueField, this.getValue()).itemAt(0);
-					if(rec) {
-						this.icon.className = 'category-icon-combo-icon category-'+rec.get(this.valueField);
-					}
-				}, // end of function setIconCls
+        setIconCls:function() {
+          var rec = this.store.query(this.valueField, this.getValue()).itemAt(0);
+          if(rec) {
+            this.icon.className = 'category-icon-combo-icon category-'+rec.get(this.valueField);
+          }
+        }, // end of function setIconCls
 
-				setValue:combo.setValue.createSequence(function(value) {
-					this.setIconCls();
-				})
-			});
-		}
-	});
+        setValue:combo.setValue.createSequence(function(value) {
+          this.setIconCls();
+        })
+      });
+    }
+  });
 
-	form.termPanel = Search.util.createTermPanel(modName, form);
-//	form.helpPanel = Search.util.createHelpPanel(modName, form);
+  form.termPanel = Search.util.createTermPanel(modName, form);
+  //form.helpPanel = Search.util.createHelpPanel(modName, form);
 
-	form.filterPanel = {
-		xtype:'form'
-		,labelAlign:'left'
-		,id:'search-filterPanel-'+modName
-		,formId:'search-filterForm-'+modName
-		,border:false
-		,items:[
-			form.termPanel
-//			,form.helpPanel
-			,{
-				xtype:'fieldset'
-				,title:_('search.advanced.search.button')
-				,id:'search-advanced-'+modName
-				,autoHeight:true
-				,collapsible:true
-				,collapsed:true
-				,animCollapse:false
-				,border:true
-				,stateful:true
-				,stateEvents:['expand','collapse']
-				,listeners:{
-					'statesave':{
-						fn:Search.util.fieldsetPanelSave
-					}
-					,'staterestore':{
-						fn:Search.util.fieldsetPanelRestore
-					}
-					,'expand':{
-						fn:function(panel){
-							// CURRIKI-2989
-							//  - Force a refresh of the grid view, as this
-							//    seems to make the advanced search fieldset
-							//    visible in IE7
-							Ext.getCmp('search-results-'+modName).getView().refresh();
+  form.filterPanel = {
+    xtype: 'form'
+    ,labelAlign: 'left'
+    ,id: 'search-filterPanel-'+modName
+    ,formId: 'search-filterForm-'+modName
+    ,border: false
+    ,items:[
+      form.termPanel
+      //,form.helpPanel
+      ,{
+        xtype: 'fieldset'
+        ,title: _('search.advanced.search.button')
+        ,id: 'search-advanced-'+modName
+        ,autoHeight: true
+        ,collapsible: true
+        ,collapsed: true
+        ,animCollapse: false
+        ,border: true
+        ,stateful: true
+        ,stateEvents: ['expand','collapse']
+        ,listeners: {
+          'statesave': {
+            fn:Search.util.fieldsetPanelSave
+          }
+          ,'staterestore': {
+            fn:Search.util.fieldsetPanelRestore
+          }
+          ,'expand': {
+            fn:function(panel) {
+              // CURRIKI-2989
+              //  - Force a refresh of the grid view, as this
+              //    seems to make the advanced search fieldset
+              //    visible in IE7
+              Ext.getCmp('search-results-'+modName).getView().refresh();
 
-							Ext.select('.x-form-field-wrap', false, 'search-advanced-'+modName).setWidth(comboWidth);
+              Ext.select('.x-form-field-wrap', false, 'search-advanced-'+modName).setWidth(comboWidth);
 
-							// CURRIKI-2873
-							// - Force a repaint of the fieldset
-							Ext.getCmp('search-termPanel-'+modName).el.repaint();
-						}
-					}
-					,'collapse':{
-						fn:function(panel){
-							Ext.getCmp('search-results-'+modName).getView().refresh();
-							Ext.getCmp('search-termPanel-'+modName).el.repaint();
-						}
-					}
-				}
-				,items:[{
-					layout:'column'
-					,border:false
-					,defaults:{
-						border:false
-						,hideLabel:true
-					}
-					,items:[{
-						columnWidth:0.33
-						,layout:'form'
-						,defaults:{
-							hideLabel:true
-						}
-						,items:[{
-							xtype:'combo'
-							,id:'combo-subject-'+modName
-							,fieldLabel:'Subject'
-							,hiddenName:'subjectparent'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.subject
-							,displayField:'subject'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('CurrikiCode.AssetClass_fw_items_FW_masterFramework.UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-							,listeners:{
-								select:{
-									fn:function(combo, value){
-										var subSubject = Ext.getCmp('combo-subsubject-'+modName);
-										if (combo.getValue() === '') {
-											subSubject.clearValue();
-											subSubject.hide();
-										} else {
-											subSubject.show();
-											subSubject.clearValue();
-											subSubject.store.filter('parentItem', combo.getValue());
-											subSubject.setValue(combo.getValue());
-										}
-									}
-								}
-							}
-						},{
-							xtype:'combo'
-							,fieldLabel:'Sub Subject'
-							,id:'combo-subsubject-'+modName
-							,hiddenName:'subject'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.subsubject
-							,displayField:'subject'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-	//						,emptyText:'Select a Sub Subject...'
-							,selectOnFocus:true
-							,forceSelection:true
-							,lastQuery:''
-							,hidden:true
-							,hideMode:'visibility'
-						},{
-							xtype:'combo'
-							,id:'combo-category-'+modName
-							,fieldLabel:'Category'
-							,hiddenName:'category'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.category
-							,displayField:'category'
-							,valueField:'id'
-							,plugins:new form.categoryCombo()
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('CurrikiCode.AssetClass_category_UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-						}]
-					},{
-						columnWidth:0.33
-						,layout:'form'
-						,defaults:{
-							hideLabel:true
-						}
-						,items:[{
-							xtype:'combo'
-							,id:'combo-level-'+modName
-							,fieldLabel:'Level'
-							,hiddenName:'levelparent'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.level
-							,displayField:'level'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-							,listeners:{
-								select:{
-									fn:function(combo, value){
-										var level2 = Ext.getCmp('combo-level2-'+modName);
-										if (combo.getValue() === '') {
-											level2.clearValue();
-											level2.hide();
-										// Special case - UNCATEGORIZED does not show sub-items
-										} else if (combo.getValue() === 'UNCATEGORIZED') {
-											level2.show();
-											level2.clearValue();
-											level2.store.filter('parentItem', combo.getValue());
-											level2.setValue(combo.getValue());
-											level2.hide();
-										} else {
-											level2.show();
-											level2.clearValue();
-											level2.store.filter('parentItem', combo.getValue());
-											level2.setValue(combo.getValue());
-										}
-									}
-								}
-							}
-						},{
-							xtype:'combo'
-							,fieldLabel:'Level 2'
-							,id:'combo-level2-'+modName
-							,hiddenName:'level'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.level2
-							,displayField:'level'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-	//						,emptyText:'Select a Sub Subject...'
-							,selectOnFocus:true
-							,forceSelection:true
-							,lastQuery:''
-							,hidden:true
-							,hideMode:'visibility'
-						},{
-							xtype:'combo'
-							,id:'combo-language-'+modName
-							,fieldLabel:'Language'
-							,hiddenName:'language'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.language
-							,displayField:'language'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('CurrikiCode.AssetClass_language_UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-						},{
-							xtype:'combo'
-							,id:'combo-review-'+modName
-							,fieldLabel:'Review'
-							,hiddenName:'review'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.review
-							,displayField:'review'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('search.resource.review.selector.UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-						}]
-					},{
-						columnWidth:0.34
-						,layout:'form'
-						,defaults:{
-							hideLabel:true
-						}
-						,items:[{
-							xtype:'combo'
-							,id:'combo-ict-'+modName
-							,fieldLabel:'ICT'
-							,hiddenName:'ictparent'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.ict
-							,displayField:'ict'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-							,listeners:{
-								select:{
-									fn:function(combo, value){
-										var subict = Ext.getCmp('combo-subict-'+modName);
-										if (combo.getValue() === '') {
-											subict.clearValue();
-											subict.hide();
-										} else {
-											subict.show();
-											subict.clearValue();
-											subict.store.filter('parentItem', combo.getValue());
-											subict.setValue(combo.getValue());
-										}
-									}
-								}
-							}
-						},{
-							xtype:'combo'
-							,fieldLabel:'SubICT'
-							,id:'combo-subict-'+modName
-							,hiddenName:'ict'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.subict
-							,displayField:'ict'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-	//						,emptyText:'Select a Sub Subject...'
-							,selectOnFocus:true
-							,forceSelection:true
-							,lastQuery:''
-							,hidden:true
-							,hideMode:'visibility'
+              // CURRIKI-2873
+              // - Force a repaint of the fieldset
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
+            }
+          }
+          ,'collapse':{
+            fn:function(panel) {
+              Ext.getCmp('search-results-'+modName).getView().refresh();
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
+            }
+          }
+        }
+        ,items: [{
+          layout: 'column'
+          ,border: false
+          ,defaults: {
+            border: false
+            ,hideLabel: true
+          }
+          ,items: [{
+            columnWidth: 0.33
+            ,layout: 'form'
+            ,defaults: {
+              hideLabel: true
+            }
+            ,items: [{
+              xtype: 'combo'
+              ,id: 'combo-subject-'+modName
+              ,fieldLabel: 'Subject'
+              ,hiddenName: 'subject'
+              ,width: comboWidth
+              ,listWidth: comboListWidth
+              ,mode: 'local'
+              ,store:data.filter.store.subject
+              ,displayField: 'subject'
+              ,valueField: 'id'
+              ,typeAhead: true
+              ,triggerAction: 'all'
+              ,emptyText:_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED')
+              ,selectOnFocus: true
+              ,forceSelection: true
+              ,listeners: {
+                select: {
+                  fn:function(combo, value) {
+                    var subSubject = Ext.getCmp('combo-subsubject-'+modName);
+                    if (combo.getValue() === '') {
+                      subSubject.clearValue();
+                      subSubject.hide();
+                    } else {
+                      subSubject.show();
+                      subSubject.clearValue();
+                      subSubject.store.filter('parentItem', combo.getValue());
+                      subSubject.setValue(combo.getValue());
+                    }
+                  }
+                }
+              }
             },{
-							xtype:'combo'
-							,id:'combo-special-'+modName
-							,fieldLabel:'Special Filters'
-							,hiddenName:'special'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.special
-							,displayField:'special'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('search.resource.special.selector.UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
+              xtype: 'combo'
+              ,fieldLabel: 'Sub Subject'
+              ,id: 'combo-subsubject-'+modName
+              ,hiddenName: 'subsubject'
+              ,width: comboWidth
+              ,listWidth: comboListWidth
+              ,mode: 'local'
+              ,store: data.filter.store.subsubject
+              ,displayField: 'subject'
+              ,valueField: 'id'
+              ,typeAhead: true
+              ,triggerAction: 'all'
+              //,emptyText:'Select a Sub Subject...'
+              ,selectOnFocus: true
+              ,forceSelection: true
+              ,lastQuery: ''
+              ,hidden: true
+              ,hideMode: 'visibility'
+            },{
+              xtype:'combo'
+              ,id:'combo-category-'+modName
+              ,fieldLabel:'Category'
+              ,hiddenName:'category'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.category
+              ,displayField:'category'
+              ,valueField:'id'
+              ,plugins:new form.categoryCombo()
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_category_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+            }]
+          },{
+            columnWidth:0.33
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-level-'+modName
+              ,fieldLabel:'Level'
+              ,hiddenName:'level'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.level
+              ,displayField:'level'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,listeners:{
+                select:{
+                  fn:function(combo, value){
+                    var sublevel = Ext.getCmp('combo-sublevel-'+modName);
+                    if (combo.getValue() === '') {
+                      sublevel.clearValue();
+                      sublevel.hide();
+                    // Special case - UNCATEGORIZED does not show sub-items
+                    } else if (combo.getValue() === 'UNCATEGORIZED') {
+                      sublevel.show();
+                      sublevel.clearValue();
+                      sublevel.store.filter('parentItem', combo.getValue());
+                      sublevel.setValue(combo.getValue());
+                      sublevel.hide();
+                    } else {
+                      sublevel.show();
+                      sublevel.clearValue();
+                      sublevel.store.filter('parentItem', combo.getValue());
+                      sublevel.setValue(combo.getValue());
+                    }
+                  }
+                }
+              }
+            },{
+              xtype:'combo'
+              ,fieldLabel:'Sub Level'
+              ,id:'combo-sublevel-'+modName
+              ,hiddenName:'sublevel'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.sublevel
+              ,displayField:'level'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+  //            ,emptyText:'Select a Sub Subject...'
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,lastQuery:''
+              ,hidden:true
+              ,hideMode:'visibility'
+            },{
+              xtype:'combo'
+              ,id:'combo-language-'+modName
+              ,fieldLabel:'Language'
+              ,hiddenName:'language'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.language
+              ,displayField:'language'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_language_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+            },{
+              xtype:'combo'
+              ,id:'combo-review-'+modName
+              ,fieldLabel:'Review'
+              ,hiddenName:'review'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.review
+              ,displayField:'review'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('search.resource.review.selector.UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+            }]
+          },{
+            columnWidth:0.34
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-ict-'+modName
+              ,fieldLabel:'ICT'
+              ,hiddenName:'ict'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.ict
+              ,displayField:'ict'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,listeners:{
+                select:{
+                  fn:function(combo, value){
+                    var subict = Ext.getCmp('combo-subict-'+modName);
+                    if (combo.getValue() === '') {
+                      subict.clearValue();
+                      subict.hide();
+                    } else {
+                      subict.show();
+                      subict.clearValue();
+                      subict.store.filter('parentItem', combo.getValue());
+                      subict.setValue(combo.getValue());
+                    }
+                  }
+                }
+              }
+            },{
+              xtype:'combo'
+              ,fieldLabel:'Sub ICT'
+              ,id:'combo-subict-'+modName
+              ,hiddenName:'subict'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subict
+              ,displayField:'ict'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+  //            ,emptyText:'Select a Sub Subject...'
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,lastQuery:''
+              ,hidden:true
+              ,hideMode:'visibility'
+            },{
+              xtype:'combo'
+              ,id:'combo-special-'+modName
+              ,fieldLabel:'Special Filters'
+              ,hiddenName:'special'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.special
+              ,displayField:'special'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('search.resource.special.selector.UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
              }]
-					}]
-				}]
-			}
-		]
-	}
+          }]
+        }]
+      }
+    ]
+  }
 
-	form.rowExpander = new Ext.grid.RowExpander({
-		tpl: new Ext.XTemplate(
-			_('search.resource.resource.expanded.title'),
-			'<ul>',
-			'<tpl for="parents">',
-				'<li class="resource-{assetType} category-{category} subcategory-{category}_{subcategory}">',
-					'<a href="{[this.getParentURL(values)]}" ext:qtip="{[this.getQtip(values)]}">',
-						'{title}',
-					'</a>',
-				'</li>',
-			'</tpl>',
-			'</ul>', {
-				getParentURL: function(values){
-					var page = values.page||false;
-					if (page) {
-						return '/xwiki/bin/view/'+page.replace(/\./, '/');
-					} else {
-						return '';
-					}
-				},
-				getQtip: function(values){
-					var f = Curriki.module.search.data.resource.filter;
+  form.rowExpander = new Ext.grid.RowExpander({
+    tpl: new Ext.XTemplate(
+      _('search.resource.resource.expanded.title'),
+      '<ul>',
+      '<tpl for="parents">',
+        '<li class="resource-{assetType} category-{category} subcategory-{category}_{subcategory}">',
+          '<a href="{[this.getParentURL(values)]}" ext:qtip="{[this.getQtip(values)]}">',
+            '{title}',
+          '</a>',
+        '</li>',
+      '</tpl>',
+      '</ul>', {
+        getParentURL: function(values){
+          var page = values.page||false;
+          if (page) {
+            return '/xwiki/bin/view/'+page.replace(/\./, '/');
+          } else {
+            return '';
+          }
+        },
+        getQtip: function(values){
+          var f = Curriki.module.search.data.resource.filter;
 
-					var desc = Ext.util.Format.stripTags(values.description||'');
-					desc = Ext.util.Format.ellipsis(desc, 256);
-					desc = Ext.util.Format.htmlEncode(desc);
+          var desc = Ext.util.Format.stripTags(values.description||'');
+          desc = Ext.util.Format.ellipsis(desc, 256);
+          desc = Ext.util.Format.htmlEncode(desc);
 
-					var fw = Curriki.data.fw_item.getRolloverDisplay(values.fwItems||[]);
-					var lvl = Curriki.data.el.getRolloverDisplay(values.levels||[]);
-			
-					return String.format("{1}<br />{0}<br /><br />{3}<br />{2}<br />{5}<br />{4}"
-						,desc,_('global.title.popup.description')
-						,fw,_('global.title.popup.subject')
-						,lvl,_('global.title.popup.educationlevel')
-					);
-				}
-			}
-		)
-	});
+          var fw = Curriki.data.fw_item.getRolloverDisplay(values.fwItems||[]);
+          var lvl = Curriki.data.el.getRolloverDisplay(values.levels||[]);
+      
+          return String.format("{1}<br />{0}<br /><br />{3}<br />{2}<br />{5}<br />{4}"
+            ,desc,_('global.title.popup.description')
+            ,fw,_('global.title.popup.subject')
+            ,lvl,_('global.title.popup.educationlevel')
+          );
+        }
+      }
+    )
+  });
 
-	form.rowExpander.renderer = function(v, p, record){
-		var cls;
-		if (record.data.parents && record.data.parents.size() > 0) {
-			p.cellAttr = 'rowspan="2"';
-			cls = 'x-grid3-row-expander';
-//			return '<div class="x-grid3-row-expander">&#160;</div>';
-			return String.format('<img class="{0}" src="{1}" ext:qtip="{2}" />', cls, Ext.BLANK_IMAGE_URL, _('search.resource.icon.plus.rollover'));
-		} else {
-			cls = 'x-grid3-row-expander-empty';
-//			return '<div class="x-grid3-row-expander-empty">&#160;</div>';
-			return String.format('<img class="{0}" src="{1}" />', cls, Ext.BLANK_IMAGE_URL);
-		}
-	};
+  form.rowExpander.renderer = function(v, p, record){
+    var cls;
+    if (record.data.parents && record.data.parents.size() > 0) {
+      p.cellAttr = 'rowspan="2"';
+      cls = 'x-grid3-row-expander';
+//      return '<div class="x-grid3-row-expander">&#160;</div>';
+      return String.format('<img class="{0}" src="{1}" ext:qtip="{2}" />', cls, Ext.BLANK_IMAGE_URL, _('search.resource.icon.plus.rollover'));
+    } else {
+      cls = 'x-grid3-row-expander-empty';
+//      return '<div class="x-grid3-row-expander-empty">&#160;</div>';
+      return String.format('<img class="{0}" src="{1}" />', cls, Ext.BLANK_IMAGE_URL);
+    }
+  };
 
-	form.rowExpander.on('expand', function(expander, record, body, idx){
-		var row = expander.grid.view.getRow(idx);
-		var iconCol = Ext.DomQuery.selectNode('img[class=x-grid3-row-expander]', row);
-		Ext.fly(iconCol).set({'ext:qtip':_('search.resource.icon.minus.rollover')});
-	});
+  form.rowExpander.on('expand', function(expander, record, body, idx){
+    var row = expander.grid.view.getRow(idx);
+    var iconCol = Ext.DomQuery.selectNode('img[class=x-grid3-row-expander]', row);
+    Ext.fly(iconCol).set({'ext:qtip':_('search.resource.icon.minus.rollover')});
+  });
 
-	form.rowExpander.on('collapse', function(expander, record, body, idx){
-		var row = expander.grid.view.getRow(idx);
-		var iconCol = Ext.DomQuery.selectNode('img[class=x-grid3-row-expander]', row);
-		Ext.fly(iconCol).set({'ext:qtip':_('search.resource.icon.plus.rollover')});
-	});
+  form.rowExpander.on('collapse', function(expander, record, body, idx){
+    var row = expander.grid.view.getRow(idx);
+    var iconCol = Ext.DomQuery.selectNode('img[class=x-grid3-row-expander]', row);
+    Ext.fly(iconCol).set({'ext:qtip':_('search.resource.icon.plus.rollover')});
+  });
 
-	form.columnModel = new Ext.grid.ColumnModel([
-		Ext.apply(
-			form.rowExpander
-			,{
-//				tooltip:_('search.resource.icon.plus.title')
-			}
-		)
-		,{
-			id: 'title'
-			,header: _('search.resource.column.header.title')
-			,width: 164
-			,dataIndex: 'title'
-			,sortable:true
-			,hideable:false
-			,renderer: data.renderer.title
-//			,tooltip:_('search.resource.column.header.title')
-		},{
-			id: 'contributor'
-			,width: 110
-			,header: _('search.resource.column.header.contributor')
-			,dataIndex:'contributor'
-			,sortable:true
-			,renderer: data.renderer.contributor
-//			,tooltip: _('search.resource.column.header.contributor')
-		},{
-			id: 'rating'
-			,width: 88
-			,header: _('search.resource.column.header.rating')
-			,dataIndex:'rating'
-			,sortable:true
-			,renderer: data.renderer.rating
-//			,tooltip: _('search.resource.column.header.rating')
-		},{
-			id: 'memberRating'
-			,width: 105
-			,header: _('search.resource.column.header.member.rating')
-			,dataIndex:'memberRating'
-			,sortable:true
-			,renderer: data.renderer.memberRating
-//			,tooltip: _('search.resource.column.header.member.rating')
-		},{
-			id: 'updated'
-			,width: 80
-			,header: _('search.resource.column.header.updated')
-			,dataIndex:'updated'
-			,hidden:true
-			,sortable:true
-			,renderer: data.renderer.updated
-//			,tooltip: _('search.resource.column.header.updated')
-	}]);
+  form.columnModel = new Ext.grid.ColumnModel([
+    Ext.apply(
+      form.rowExpander
+      ,{
+//        tooltip:_('search.resource.icon.plus.title')
+      }
+    )
+    ,{
+      id: 'title'
+      ,header: _('search.resource.column.header.title')
+      ,width: 164
+      ,dataIndex: 'title'
+      ,sortable:true
+      ,hideable:false
+      ,renderer: data.renderer.title
+//      ,tooltip:_('search.resource.column.header.title')
+    },{
+      id: 'contributor'
+      ,width: 110
+      ,header: _('search.resource.column.header.contributor')
+      ,dataIndex:'contributor'
+      ,sortable:true
+      ,renderer: data.renderer.contributor
+//      ,tooltip: _('search.resource.column.header.contributor')
+    },{
+      id: 'rating'
+      ,width: 88
+      ,header: _('search.resource.column.header.rating')
+      ,dataIndex:'rating'
+      ,sortable:true
+      ,renderer: data.renderer.rating
+//      ,tooltip: _('search.resource.column.header.rating')
+    },{
+      id: 'memberRating'
+      ,width: 105
+      ,header: _('search.resource.column.header.member.rating')
+      ,dataIndex:'memberRating'
+      ,sortable:true
+      ,renderer: data.renderer.memberRating
+//      ,tooltip: _('search.resource.column.header.member.rating')
+    },{
+      id: 'updated'
+      ,width: 80
+      ,header: _('search.resource.column.header.updated')
+      ,dataIndex:'updated'
+      ,hidden:true
+      ,sortable:true
+      ,renderer: data.renderer.updated
+//      ,tooltip: _('search.resource.column.header.updated')
+  }]);
 
-	form.resultsPanel = {
-		xtype:'grid'
-		,id:'search-results-'+modName
-		//,title:'Results'
-		,border:false
-		,autoHeight:true
-		,width:Search.settings.gridWidth
-		,autoExpandColumn:'title'
-		,stateful:true
-		,frame:false
-		,stripeRows:true
-		,viewConfig: {
-			forceFit:true
-			,enableRowBody:true
-			,showPreview:true
-			// Remove the blank space on right of grid (reserved for scrollbar)
-			,scrollOffset:0
-		}
-		,columnsText:_('search.columns.menu.columns')
-		,sortAscText:_('search.columns.menu.sort_ascending')
-		,sortDescText:_('search.columns.menu.sort_descending')
-		,store: data.store.results
-		,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
-		,cm: form.columnModel
-		,loadMask: false
-		,plugins: form.rowExpander
-		,bbar: new Ext.PagingToolbar({
-			id: 'search-pager-'+modName
-			,plugins:new Ext.ux.Andrie.pPageSize({
-				 variations: [10, 25, 50]
-				,beforeText: _('search.pagination.pagesize.before')
-				,afterText: _('search.pagination.pagesize.after')
-				,addBefore: _('search.pagination.pagesize.addbefore')
-				,addAfter: _('search.pagination.pagesize.addafter')
-			})
-			,pageSize: 25
-			,store: data.store.results
-			,displayInfo: true
-			,displayMsg: _('search.pagination.displaying.'+modName)
-			,emptyMsg: _('search.find.no.results')
-			,beforePageText: _('search.pagination.beforepage')
-			,afterPageText: _('search.pagination.afterpage')
-			,firstText: _('search.pagination.first')
-			,prevText: _('search.pagination.prev')
-			,nextText: _('search.pagination.next')
-			,lastText: _('search.pagination.last')
-			,refreshText: _('search.pagination.refresh')
-		})
-	};
+  form.resultsPanel = {
+    xtype:'grid'
+    ,id:'search-results-'+modName
+    ,title:_('search.'+modName+'.tab.title')
+    ,border:false
+    ,autoHeight:true
+    ,width:Search.settings.gridWidth
+    ,autoExpandColumn:'title'
+    ,stateful:true
+    ,frame:false
+    ,stripeRows:true
+    ,viewConfig: {
+      forceFit:true
+      ,enableRowBody:true
+      ,showPreview:true
+      // Remove the blank space on right of grid (reserved for scrollbar)
+      ,scrollOffset:0
+    }
+    ,columnsText:_('search.columns.menu.columns')
+    ,sortAscText:_('search.columns.menu.sort_ascending')
+    ,sortDescText:_('search.columns.menu.sort_descending')
+    ,store: data.store.results
+    ,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
+    ,cm: form.columnModel
+    ,loadMask: false
+    ,plugins: form.rowExpander
+    ,bbar: new Ext.PagingToolbar({
+      id: 'search-pager-'+modName
+      ,plugins:new Ext.ux.Andrie.pPageSize({
+         variations: [10, 25, 50]
+        ,beforeText: _('search.pagination.pagesize.before')
+        ,afterText: _('search.pagination.pagesize.after')
+        ,addBefore: _('search.pagination.pagesize.addbefore')
+        ,addAfter: _('search.pagination.pagesize.addafter')
+      })
+      ,pageSize: 25
+      ,store: data.store.results
+      ,displayInfo: true
+      ,displayMsg: _('search.pagination.displaying.'+modName)
+      ,emptyMsg: _('search.find.no.results')
+      ,beforePageText: _('search.pagination.beforepage')
+      ,afterPageText: _('search.pagination.afterpage')
+      ,firstText: _('search.pagination.first')
+      ,prevText: _('search.pagination.prev')
+      ,nextText: _('search.pagination.next')
+      ,lastText: _('search.pagination.last')
+      ,refreshText: _('search.pagination.refresh')
+    })
+  };
+	
+	form.toolbar = new Ext.Toolbar({
+      id:'search-results-statusbar-'+modName
+      ,items:[{ 
+        text:_('search.statusbar.text.'+modName)
+        ,handler: function() {
+          
+          var filters = Search.util.getFilters(modName);
+          var resourceFilters = {};
+          resourceFilters['external'] = Search.util.applyFiltersFor(filters, 'external');
+          var token = {};
+          token['s'] = 'external';
+          token['f'] = resourceFilters;
+          token['p'] = {};
+          token['p']['c'] = 0;
+          token['p']['s'] = 25;
+          token['a'] = {};
+          token['a']['external'] = false;
 
-	form.mainPanel = {
-		xtype:'panel'
-		,id:'search-panel-'+modName
-		,autoHeight:true
-		,items:[
-			form.filterPanel
-			,form.resultsPanel
-		]
-	};
+          var provider = new Ext.state.Provider();
+          var encodedToken = provider.encodeValue(token);
 
-	form.doSearch = function(){
-		Search.util.doSearch(modName);
-	};
+          // redirect to resource search
+          window.location = '/xwiki/bin/view/Search/URL#'+encodedToken;
+        }  
+      }]
+    })
 
-	// Adjust title with count
-	Search.util.registerTabTitleListener(modName);
+  form.mainPanel = {
+    xtype:'panel'
+    ,id:'search-panel-'+modName
+    ,autoHeight:true
+    ,items:[
+      form.filterPanel
+      ,form.resultsPanel
+			,form.toolbar
+    ]
+  };
+
+  form.doSearch = function(){
+    Search.util.doSearch(modName);
+  };
+
+  // Adjust title with count
+  //Search.util.registerTabTitleListener(modName);
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  form.init();
-	});
+    form.init();
+  });
 });
 
 // TODO:  Register this tab somehow with the main form
 
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.data.external');
+(function(){
+var modName = 'external';
+
+var data = Curriki.module.search.data.external;
+
+data.init = function(){
+  console.log('data.'+modName+': init');
+
+  // Set up filters
+  data.filter = {};
+  var f = data.filter; // Alias
+  
+	f.list = ['terms', 'subject', 'subsubject', 'level', 'sublevel', 'language', 'review', 'ict', 'subict', 'special'];
+
+  f.data = {};
+
+  f.data.subject =  Curriki.module.search.data.resource.filter.data.subject;
+  f.data.subsubject =  Curriki.module.search.data.resource.filter.data.subsubject;
+
+  f.data.level =  Curriki.module.search.data.resource.filter.data.level;
+  f.data.sublevel =  Curriki.module.search.data.resource.filter.data.sublevel;
+
+  f.data.ict =  Curriki.module.search.data.resource.filter.data.ict;
+  f.data.subict =  Curriki.module.search.data.resource.filter.data.subict;
+
+  f.data.language =  Curriki.module.search.data.resource.filter.data.language;
+
+  f.data.review = {
+    list: [
+      'partners', 'highest_rated', 'members.highest_rated'
+    ]
+    ,data: [
+      ['', _('search.resource.review.selector.UNSPECIFIED')]
+    ]
+  };
+  f.data.review.list.each(function(review){
+    f.data.review.data.push([
+      review
+      ,_('search.resource.review.selector.'+review)
+    ]);
+  });
+
+  f.data.special = {
+    list: [
+      'contributions', 'updated', 'notreviewed'
+    ]
+    ,data: [
+      ['', _('search.resource.special.selector.UNSPECIFIED')]
+    ]
+  };
+  f.data.special.list.each(function(special){
+    f.data.special.data.push([
+      special
+      ,_('search.resource.special.selector.'+special)
+    ]);
+  });
+
+  f.store = {
+    subject: new Ext.data.SimpleStore({
+      fields: ['id', 'subject']
+      ,data: f.data.subject.data
+      ,id: 0
+    })
+
+    ,subsubject: new Ext.data.SimpleStore({
+      fields: ['id', 'subject', 'parentItem']
+      ,data: f.data.subsubject.data
+      ,id: 0
+    })
+
+    ,level: new Ext.data.SimpleStore({
+      fields: ['id', 'level']
+      ,data: f.data.level.data
+      ,id: 0
+    })
+
+    ,sublevel: new Ext.data.SimpleStore({
+      fields: ['id', 'level', 'parentItem']
+      ,data: f.data.sublevel.data
+      ,id: 0
+    })
+
+    ,ict: new Ext.data.SimpleStore({
+      fields: ['id', 'ict']
+      ,data: f.data.ict.data
+      ,id: 0
+    })
+
+    ,subict: new Ext.data.SimpleStore({
+      fields: ['id', 'ict', 'parentItem']
+      ,data: f.data.subict.data
+      ,id: 0
+    })
+
+    ,language: new Ext.data.SimpleStore({
+      fields: ['id', 'language']
+      ,data: f.data.language.data
+      ,id: 0
+    })
+
+    ,review: new Ext.data.SimpleStore({
+      fields: ['id', 'review']
+      ,data: f.data.review.data
+      ,id: 0
+    })
+
+    ,special: new Ext.data.SimpleStore({
+      fields: ['id', 'special']
+      ,data: f.data.special.data
+      ,id: 0
+    })
+  };
+
+  // Set up data store
+  data.store = {};
+
+  data.store.record = new Ext.data.Record.create([
+    { name: 'title' }
+    ,{name: 'link' }
+    ,{ name: 'description' }
+    ,{ name: 'assetType' }
+    ,{ name: 'contributor' }
+    ,{ name: 'contributorName' }
+    ,{ name: 'rating', mapping: 'review' }
+    ,{ name: 'memberRating', mapping: 'rating' }
+    ,{ name: 'ratingCount' }
+    ,{ name: 'fwItems' }
+    ,{ name: 'levels' }
+    ,{ name: 'updated' }
+  ]);
+
+  data.store.results = new Ext.data.Store({
+    storeId: 'search-store-'+modName
+    ,proxy: new Ext.data.HttpProxy({
+      url: '/xwiki/bin/view/Search/External'
+      ,method:'GET'
+    })
+    ,baseParams: { xpage: "plain", '_dc':(new Date().getTime()), category: 'external' }
+
+    ,reader: new Ext.data.JsonReader({
+      root: 'rows'
+      ,totalProperty: 'resultCount'
+      ,id: 'page'
+    }, data.store.record)
+
+    // turn on remote sorting
+    ,remoteSort: true
+  });
+  data.store.results.setDefaultSort('title', 'asc');
+
+  // Set up renderers
+  data.renderer = {
+    result: function(value, metadata, record, rowIndex, colIndex, store){
+      var page = record.id.replace(/\./, '/');
+
+      var desc = Ext.util.Format.stripTags(record.data.description);
+      desc = Ext.util.Format.ellipsis(desc, 256);
+      //desc = Ext.util.Format.htmlEncode(desc);
+      
+      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(value, 80));
+      var link = String.format('<a href="{0}">{0}</a>', record.data.link);
+      var rating = String.format('');
+      if (record.data.memberRating != "") {
+        rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}"> ({1})</a></span>', record.data.memberRating, record.data.ratingCount, page, _('search.resource.rating.'+record.data.memberRating), Ext.BLANK_IMAGE_URL);
+      }
+
+      return String.format('<h3>{1}{0}</h3><h4>{2}</h4><p>{3}</p>', rating, title, link, desc);
+    }
+  };
+
+  data.store.featuredResults = new Ext.data.Store({
+    storeId: 'search-store-featured-'+modName
+    ,proxy: new Ext.data.HttpProxy({
+      url: '/xwiki/bin/view/Search/External'
+      ,method:'GET'
+    })
+    ,baseParams: { start: '0', limit: '2', xpage: "plain", '_dc':(new Date().getTime()) }
+
+    ,reader: new Ext.data.JsonReader({
+      root: 'rows'
+      ,totalProperty: 'resultCount'
+      ,id: 'page'
+    }, data.store.record)
+
+    // turn on remote sorting
+    ,remoteSort: true
+  });
+  data.store.featuredResults.setDefaultSort('title', 'asc');
+
+  // Set up renderers
+  data.featuredRenderer = {
+    category: function(value, metadata, record, rowIndex, colIndex, store){
+      return String.format('<span class="resource-{0}"><img class="x-tree-node-icon assettype-icon" src="{1}" ext:qtip="" /></span>', record.data.assetType, Ext.BLANK_IMAGE_URL);
+    },
+    result: function(value, metadata, record, rowIndex, colIndex, store){
+      var page = record.id.replace(/\./, '/');
+
+      var desc = Ext.util.Format.stripTags(record.data.description);
+      desc = Ext.util.Format.ellipsis(desc, 256);
+      //desc = Ext.util.Format.htmlEncode(desc);
+      
+      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 80));
+
+      return String.format('<h3>{0}</h3><p>{1}</p>', title, desc);
+    }
+  };
+};
+
+Ext.onReady(function(){
+  Curriki.data.EventManager.on('Curriki.data:ready', function(){
+    data.init();
+  });
+});
+})();
+
+Ext.ns('Curriki.module.search.form.external');
+(function(){
+var modName = 'external';
+
+var Search = Curriki.module.search;
+
+var form = Search.form[modName];
+var data = Search.data[modName];
+
+form.init = function() {
+  console.log('form.'+modName+': init');
+
+  var comboWidth = 140;
+  var comboListWidth = 250;
+
+  form.termPanel = Search.util.createTermPanel(modName, form);
+  //form.helpPanel = Search.util.createHelpPanel(modName, form);
+
+  form.filterPanel = {
+    xtype:'form'
+    ,labelAlign:'left'
+    ,id:'search-filterPanel-'+modName
+    ,formId:'search-filterForm-'+modName
+    ,border:false
+    ,items:[
+      form.termPanel
+      //,form.helpPanel
+      ,{
+        xtype:'fieldset'
+        ,title:_('search.advanced.search.button')
+        ,id:'search-advanced-'+modName
+        ,autoHeight:true
+        ,collapsible:true
+        ,collapsed:true
+        ,animCollapse:false
+        ,border:true
+        //,stateful:true
+        //,stateEvents:['expand','collapse']
+        ,listeners:{
+          'statesave':{
+            fn:Search.util.fieldsetPanelSave
+          }
+          ,'staterestore':{
+            fn:Search.util.fieldsetPanelRestore
+          }
+          ,'expand':{
+            fn:function(panel){
+              // CURRIKI-2989
+              //  - Force a refresh of the grid view, as this
+              //    seems to make the advanced search fieldset
+              //    visible in IE7
+              Ext.getCmp('search-results-'+modName).getView().refresh();
+
+              Ext.select('.x-form-field-wrap', false, 'search-advanced-'+modName).setWidth(comboWidth);
+
+              // CURRIKI-2873
+              // - Force a repaint of the fieldset
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
+            }
+          }
+          ,'collapse':{
+            fn:function(panel){
+              Ext.getCmp('search-results-'+modName).getView().refresh();
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
+            }
+          }
+        }
+        ,items:[{
+          layout:'column'
+          ,border:false
+          ,defaults:{
+            border:false
+            ,hideLabel:true
+          }
+          ,items:[{
+            columnWidth:0.33
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-subject-'+modName
+              ,fieldLabel:'Subject'
+              ,hiddenName:'subject'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subject
+              ,displayField:'subject'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,listeners:{
+                select:{
+                  fn:function(combo, value){
+                    var subSubject = Ext.getCmp('combo-subsubject-'+modName);
+                    if (combo.getValue() === '') {
+                      subSubject.clearValue();
+                      subSubject.hide();
+                    } else {
+                      subSubject.show();
+                      subSubject.clearValue();
+                      subSubject.store.filter('parentItem', combo.getValue());
+                      subSubject.setValue(combo.getValue());
+                    }
+                  }
+                }
+              }
+            },{
+              xtype:'combo'
+              ,fieldLabel:'Sub Subject'
+              ,id:'combo-subsubject-'+modName
+              ,hiddenName:'subsubject'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subsubject
+              ,displayField:'subsubject'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              //,emptyText:'Select a Sub Subject...'
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,lastQuery:''
+              ,hidden:true
+              ,hideMode:'visibility'
+            },{
+              xtype:'combo'
+              ,id:'combo-language-'+modName
+              ,fieldLabel:'Language'
+              ,hiddenName:'language'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.language
+              ,displayField:'language'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_language_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+          }]
+          },{
+            columnWidth:0.33
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-level-'+modName
+              ,fieldLabel:'Level'
+              ,hiddenName:'level'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.level
+              ,displayField:'level'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_educational_level_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,listeners:{
+                select:{
+                  fn:function(combo, value){
+                    var sublevel = Ext.getCmp('combo-sublevel-'+modName);
+                    if (combo.getValue() === '') {
+                      sublevel.clearValue();
+                      sublevel.hide();
+                    // Special case - UNCATEGORIZED does not show sub-items
+                    } else if (combo.getValue() === 'UNCATEGORIZED') {
+                      sublevel.show();
+                      sublevel.clearValue();
+                      sublevel.store.filter('parentItem', combo.getValue());
+                      sublevel.setValue(combo.getValue());
+                      sublevel.hide();
+                    } else {
+                      sublevel.show();
+                      sublevel.clearValue();
+                      sublevel.store.filter('parentItem', combo.getValue());
+                      sublevel.setValue(combo.getValue());
+                    }
+                  }
+                }
+              }
+            },{
+              xtype:'combo'
+              ,fieldLabel:'Sub Level'
+              ,id:'combo-sublevel-'+modName
+              ,hiddenName:'sublevel'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.sublevel
+              ,displayField:'sublevel'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              //,emptyText:'Select a Sub Subject...'
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,lastQuery:''
+              ,hidden:true
+              ,hideMode:'visibility'
+            },{
+              xtype:'combo'
+              ,id:'combo-review-'+modName
+              ,fieldLabel:'Review'
+              ,hiddenName:'review'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.review
+              ,displayField:'review'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('search.resource.review.selector.UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+            }]
+          },{
+            columnWidth:0.34
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-ict-'+modName
+              ,fieldLabel:'ICT'
+              ,hiddenName:'ict'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.ict
+              ,displayField:'ict'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_instructional_component_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,listeners:{
+                select:{
+                  fn:function(combo, value){
+                    var subict = Ext.getCmp('combo-subict-'+modName);
+                    if (combo.getValue() === '') {
+                      subict.clearValue();
+                      subict.hide();
+                    } else {
+                      subict.show();
+                      subict.clearValue();
+                      subict.store.filter('parentItem', combo.getValue());
+                      subict.setValue(combo.getValue());
+                    }
+                  }
+                }
+              }
+            },{
+              xtype:'combo'
+              ,fieldLabel:'SubICT'
+              ,id:'combo-subict-'+modName
+              ,hiddenName:'subict'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subict
+              ,displayField:'subict'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              //,emptyText:'Select a Sub Subject...'
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,lastQuery:''
+              ,hidden:true
+              ,hideMode:'visibility'
+            },{
+              xtype:'combo'
+              ,id:'combo-special-'+modName
+              ,fieldLabel:'Special Filters'
+              ,hiddenName:'special'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.special
+              ,displayField:'special'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('search.resource.special.selector.UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+             }]
+          }]
+        }]
+      }
+    ]
+  }
+
+  form.featuredGrid = {
+    xtype:'grid'
+    ,id:'search-results-featured-'+modName
+    ,title:_('search.'+modName+'.featured.grid.title')
+    ,border:false
+    ,autoHeight:true
+    ,width:Search.settings.gridWidth
+    ,autoExpandColumn:'title'
+    ,stateful:true
+    ,frame:false
+    ,stripeRows:true
+		,hidden:true
+    ,viewConfig: {
+      forceFit:true
+      ,enableRowBody:true
+      ,showPreview:true
+      // Remove the blank space on right of grid (reserved for scrollbar)
+      ,scrollOffset:0
+    }
+		,listeners:{      
+      beforeshow: {
+        fn:function(grid) {
+          if(grid.getStore().getTotalCount() == 0)
+            return false;
+        }
+      }
+    }		
+    ,columnsText:_('search.columns.menu.columns')
+    ,sortAscText:_('search.columns.menu.sort_ascending')
+    ,sortDescText:_('search.columns.menu.sort_descending')
+    ,store:data.store.featuredResults
+    ,sm:new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
+    ,cm:new Ext.grid.ColumnModel([
+    {
+      id:'featured-category'
+      ,sortable:false
+      ,hideable:false
+      ,resizeable:false
+      ,renderer: data.featuredRenderer.category
+      ,width: 30
+      //,tooltip:_('search.preview-external.column.header.preview-result')
+    },{
+      id:'featured-result'
+      ,sortable:false
+      ,hideable:false
+      ,resizeable:false
+      ,renderer: data.featuredRenderer.result
+      ,width: 553
+      //,tooltip:_('search.preview-external.column.header.preview-result')
+    }])
+    ,loadMask:false
+    ,bbar:new Ext.Toolbar({
+      id:'search-preview-results-statusbar'+modName
+      ,items:[{ 
+        text:_('search.preview.statusbar.text.'+modName)
+        ,handler: function() {
+					
+          var filters = Search.util.getFilters(modName);
+					var resourceFilters = {};
+					resourceFilters['resource'] = Search.util.applyFiltersFor(filters, 'resource');
+					var token = {};
+          token['s'] = 'resource';
+          token['f'] = resourceFilters;
+          token['p'] = {};
+					token['p']['c'] = 0;
+					token['p']['s'] = 25;
+					token['a'] = {};
+					token['a']['resource'] = false;
+
+          var provider = new Ext.state.Provider();
+          var encodedToken = provider.encodeValue(token);
+
+          // redirect to resource search
+          window.location = '/xwiki/bin/view/Search/WebHome#'+encodedToken;
+        }  
+      }]
+    })		
+  };
+
+  form.resultsGrid = {
+    xtype:'grid'
+    ,id:'search-results-'+modName
+    ,title:_('search.'+modName+'.grid.title')
+    ,border:false
+    ,autoHeight:true
+    ,width:Search.settings.gridWidth
+    ,autoExpandColumn:'title'
+    ,stateful:true
+    ,frame:false
+    ,stripeRows:true
+    ,viewConfig:{
+      forceFit:true
+      ,enableRowBody:true
+      ,showPreview:true
+      // Remove the blank space on right of grid (reserved for scrollbar)
+      ,scrollOffset:0
+    }
+    ,columnsText:_('search.columns.menu.columns')
+    ,sortAscText:_('search.columns.menu.sort_ascending')
+    ,sortDescText:_('search.columns.menu.sort_descending')
+    ,store:data.store.results
+    ,sm:new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
+    ,cm:new Ext.grid.ColumnModel([
+    {
+      id:'result'
+      ,header:_('search.external.column.header.result')
+      ,sortable:true
+      ,hideable:false
+      ,renderer: data.renderer.result
+      //,tooltip:_('search.resource.column.header.result')
+    }])
+    ,loadMask: false
+    ,bbar:new Ext.PagingToolbar({
+      id:'search-pager-'+modName
+      ,plugins:new Ext.ux.Andrie.pPageSize({
+         variations:[10, 25, 50]
+        ,beforeText:_('search.pagination.pagesize.before')
+        ,afterText:_('search.pagination.pagesize.after')
+        ,addBefore:_('search.pagination.pagesize.addbefore')
+        ,addAfter:_('search.pagination.pagesize.addafter')
+      })
+      ,pageSize:25
+      ,store:data.store.results
+      ,displayInfo:true
+      ,displayMsg:_('search.pagination.displaying.'+modName)
+      ,emptyMsg:_('search.find.no.results')
+      ,beforePageText:_('search.pagination.beforepage')
+      ,afterPageText:_('search.pagination.afterpage')
+      ,firstText:_('search.pagination.first')
+      ,prevText:_('search.pagination.prev')
+      ,nextText:_('search.pagination.next')
+      ,lastText:_('search.pagination.last')
+      ,refreshText:_('search.pagination.refresh')
+      ,listeners:{
+        'change':{
+          fn:function(toolbar, page) {
+            var featuredGrid = Ext.getCmp('search-results-featured-'+modName);
+            if(page.activePage != 1)
+              featuredGrid.hide();
+            if(page.activePage == 1 && !featuredGrid.isVisible())
+              featuredGrid.show();
+            if(page.activePage == page.pages)
+              googleDoSearch(modName);
+            else
+              $('googleSearch').hide();
+          }
+        }
+      }
+    })
+  };
+
+  form.mainPanel = {
+    xtype:'panel'
+    ,id:'search-panel-'+modName
+    ,autoHeight:true
+    ,items:[
+      form.filterPanel
+      ,form.featuredGrid
+      ,form.resultsGrid
+    ]
+  };
+
+  form.doSearch = function(){
+		
+		Search.util.doGridSearch(Ext.getCmp('search-results-featured-'+modName), Search.util.getFilters(modName));
+    Search.util.doSearch(modName);
+  };
+
+  // Adjust title with count
+	Search.util.registerStoreListeners('featured-'+modName);
+  Search.util.registerStoreListeners(modName);
+};
+
+Ext.onReady(function(){
+  Curriki.data.EventManager.on('Curriki.data:ready', function(){
+    form.init();
+  });
+});
+
+})();
+
+Ext.ns('Curriki.module.search.data.group');
 (function(){
 var modName = 'group';
-
-Ext.ns('Curriki.module.search.data.'+modName);
 
 var data = Curriki.module.search.data.group;
 
 data.init = function(){
-	console.log('data.'+modName+': init');
+  console.log('data.'+modName+': init');
 
 
-	// Set up filters
-	data.filter = {};
-	var f = data.filter; // Alias
+  // Set up filters
+  data.filter = {};
+  var f = data.filter; // Alias
 
-	f.data = {};
+  f.data = {};
 
-	f.data.subject =  {
-		mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
-		,list: []
-		,data: [
-			['', _('XWiki.CurrikiSpaceClass_topic_FW_masterFramework.UNSPECIFIED')]
-		]
-	};
-	f.data.subject.mapping.each(function(value){
-		f.data.subject.list.push(value.id);
-	});
-	f.data.subject.list.each(function(value){
-		f.data.subject.data.push([
-			value
-			,_('XWiki.CurrikiSpaceClass_topic_'+value)
-		]);
-	});
-	
-	// sort the list for the subject
-	f.data.subject.data.sort(function(a, b) { 
-		// if a or b are head, return as first
-		if(b[0] == "") return 1; 
-		if(a[0] == "") return -1;
-		// if a or b are uncategorized, return as last
-		if(b[0] == "UNCATEGORIZED") return -1; 
-		if(a[0] == "UNCATEGORIZED") return 1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1; 
-			else return 1;
-	});
+  f.data.subject =  {
+    mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
+    ,list: []
+    ,data: [
+      ['', _('XWiki.CurrikiSpaceClass_topic_FW_masterFramework.UNSPECIFIED')]
+    ]
+  };
+  f.data.subject.mapping.each(function(value){
+    f.data.subject.list.push(value.id);
+  });
+  f.data.subject.list.each(function(value){
+    f.data.subject.data.push([
+      value
+      ,_('XWiki.CurrikiSpaceClass_topic_'+value)
+    ]);
+  });
+  
+  // sort the list for the subject
+  f.data.subject.data.sort(function(a, b) { 
+    // if a or b are head, return as first
+    if(b[0] == "") return 1; 
+    if(a[0] == "") return -1;
+    // if a or b are uncategorized, return as last
+    if(b[0] == "UNCATEGORIZED") return -1; 
+    if(a[0] == "UNCATEGORIZED") return 1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1; 
+      else return 1;
+  });
 
-	f.data.subsubject =  {
-		mapping: Curriki.data.fw_item.fwMap
-		,data: [
-		]
-	};
-	f.data.subject.mapping.each(function(parentItem){
-		f.data.subsubject.data.push([
-			parentItem.id
-			,_('XWiki.CurrikiSpaceClass_topic_'+parentItem.id+'.UNSPECIFIED')
-			,parentItem.id
-		]);
-		f.data.subsubject.mapping[parentItem.id].each(function(subject){
-			f.data.subsubject.data.push([
-				subject.id
-				,_('XWiki.CurrikiSpaceClass_topic_'+subject.id)
-				,parentItem.id
-			]);
-		});
-	});
-	
-	// sort the list for the subsubject
-	f.data.subsubject.data.sort(function(a, b) {
-		// b is the subject index, put first
-		if(b[0] == b[2]) return 1;
-		// a is the subject index, put first
-		if(a[0] == a[2]) return -1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1;
-			else return 1;
-	});
+  f.data.subsubject =  {
+    mapping: Curriki.data.fw_item.fwMap
+    ,data: [
+    ]
+  };
+  f.data.subject.mapping.each(function(parentItem){
+    f.data.subsubject.data.push([
+      parentItem.id
+      ,_('XWiki.CurrikiSpaceClass_topic_'+parentItem.id+'.UNSPECIFIED')
+      ,parentItem.id
+    ]);
+    f.data.subsubject.mapping[parentItem.id].each(function(subject){
+      f.data.subsubject.data.push([
+        subject.id
+        ,_('XWiki.CurrikiSpaceClass_topic_'+subject.id)
+        ,parentItem.id
+      ]);
+    });
+  });
+  
+  // sort the list for the subsubject
+  f.data.subsubject.data.sort(function(a, b) {
+    // b is the subject index, put first
+    if(b[0] == b[2]) return 1;
+    // a is the subject index, put first
+    if(a[0] == a[2]) return -1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1;
+      else return 1;
+  });
 
-	f.data.level =  {
-		mapping: Curriki.data.el.elMap['TREEROOTNODE']
-		,list: []
-		,data: [
-			['', _('XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED')]
-		]
-	};
-	f.data.level.mapping.each(function(value){
-		f.data.level.list.push(value.id);
-	});
+  f.data.level =  {
+    mapping: Curriki.data.el.elMap['TREEROOTNODE']
+    ,list: []
+    ,data: [
+      ['', _('XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED')]
+    ]
+  };
+  f.data.level.mapping.each(function(value){
+    f.data.level.list.push(value.id);
+  });
 
-	f.data.level.list.each(function(value){
-		f.data.level.data.push([
-			value
-			,_('XWiki.CurrikiSpaceClass_educationLevel_'+value)
-		]);
-	});
+  f.data.level.list.each(function(value){
+    f.data.level.data.push([
+      value
+      ,_('XWiki.CurrikiSpaceClass_educationLevel_'+value)
+    ]);
+  });
 
-	f.data.level2 =  {
-		mapping: Curriki.data.el.elMap
-		,data: [
-		]
-	};
-	f.data.level.mapping.each(function(parentItem){
-		f.data.level2.data.push([
-			parentItem.id
-			,_('XWiki.CurrikiSpaceClass_educationLevel_'+parentItem.id+'.UNSPECIFIED')
-			,parentItem.id
-		]);
-    if(f.data.level2.mapping[parentItem.id]) {
-		  f.data.level2.mapping[parentItem.id].each(function(el){
-			  f.data.level2.data.push([
-	  			el.id
-		  		,_('XWiki.CurrikiSpaceClass_educationLevel_'+el.id)
-	  			,parentItem.id
-	  		]);
-	  	});
+  f.data.sublevel =  {
+    mapping: Curriki.data.el.elMap
+    ,data: [
+    ]
+  };
+  f.data.level.mapping.each(function(parentItem){
+    f.data.sublevel.data.push([
+      parentItem.id
+      ,_('XWiki.CurrikiSpaceClass_educationLevel_'+parentItem.id+'.UNSPECIFIED')
+      ,parentItem.id
+    ]);
+    if(f.data.sublevel.mapping[parentItem.id]) {
+      f.data.sublevel.mapping[parentItem.id].each(function(el){
+        f.data.sublevel.data.push([
+          el.id
+          ,_('XWiki.CurrikiSpaceClass_educationLevel_'+el.id)
+          ,parentItem.id
+        ]);
+      });
     }
-	});
+  });
 
-	f.data.policy =  {
-		list: ['open', 'closed']
-		,data: [
-			['', _('search.XWiki.SpaceClass_policy_UNSPECIFIED')]
-		]
-	};
-	f.data.policy.list.each(function(value){
-		f.data.policy.data.push([
-			value
-			,_('search.XWiki.SpaceClass_policy_'+value)
-		]);
-	});
+  f.data.policy =  {
+    list: ['open', 'closed']
+    ,data: [
+      ['', _('search.XWiki.SpaceClass_policy_UNSPECIFIED')]
+    ]
+  };
+  f.data.policy.list.each(function(value){
+    f.data.policy.data.push([
+      value
+      ,_('search.XWiki.SpaceClass_policy_'+value)
+    ]);
+  });
 
-	f.data.language =  {
-		list: Curriki.data.language.list
-		,data: [
-			['', _('XWiki.CurrikiSpaceClass_language_UNSPECIFIED')]
-		]
-	};
-	f.data.language.list.each(function(value){
-		f.data.language.data.push([
-			value
-			,_('XWiki.CurrikiSpaceClass_language_'+value)
-		]);
-	});
-	
-	// sort the list for the language
-	f.data.language.data.sort(function(a, b) {
-		// if a or b are head, return as first
-		if(b[0] == "") return 1;
-		if(a[0] == "") return -1;
-		// if a or b are uncategorized, return as last
-		if(b[0] == "999") return -1;
-		if(a[0] == "999") return 1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1;
-			else return 1;
-	});
+  f.data.language =  {
+    list: Curriki.data.language.list
+    ,data: [
+      ['', _('XWiki.CurrikiSpaceClass_language_UNSPECIFIED')]
+    ]
+  };
+  f.data.language.list.each(function(value){
+    f.data.language.data.push([
+      value
+      ,_('XWiki.CurrikiSpaceClass_language_'+value)
+    ]);
+  });
+  
+  // sort the list for the language
+  f.data.language.data.sort(function(a, b) {
+    // if a or b are head, return as first
+    if(b[0] == "") return 1;
+    if(a[0] == "") return -1;
+    // if a or b are uncategorized, return as last
+    if(b[0] == "999") return -1;
+    if(a[0] == "999") return 1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1;
+      else return 1;
+  });
 
-	f.store = {
-		subject: new Ext.data.SimpleStore({
-			fields: ['id', 'subject']
-			,data: f.data.subject.data
-			,id: 0
-		})
+  f.store = {
+    subject: new Ext.data.SimpleStore({
+      fields: ['id', 'subject']
+      ,data: f.data.subject.data
+      ,id: 0
+    })
 
-		,subsubject: new Ext.data.SimpleStore({
-			fields: ['id', 'subject', 'parentItem']
-			,data: f.data.subsubject.data
-			,id: 0
-		})
+    ,subsubject: new Ext.data.SimpleStore({
+      fields: ['id', 'subject', 'parentItem']
+      ,data: f.data.subsubject.data
+      ,id: 0
+    })
 
-		,level: new Ext.data.SimpleStore({
-			fields: ['id', 'level']
-			,data: f.data.level.data
-			,id: 0
-		})
+    ,level: new Ext.data.SimpleStore({
+      fields: ['id', 'level']
+      ,data: f.data.level.data
+      ,id: 0
+    })
 
-    ,level2: new Ext.data.SimpleStore({
-			fields: ['id', 'level', 'parentItem']
-			,data: f.data.level2.data
-			,id: 0
-		}) 
+    ,sublevel: new Ext.data.SimpleStore({
+      fields: ['id', 'level', 'parentItem']
+      ,data: f.data.sublevel.data
+      ,id: 0
+    }) 
 
-		,policy: new Ext.data.SimpleStore({
-			fields: ['id', 'policy']
-			,data: f.data.policy.data
-			,id: 0
-		})
+    ,policy: new Ext.data.SimpleStore({
+      fields: ['id', 'policy']
+      ,data: f.data.policy.data
+      ,id: 0
+    })
 
-		,language: new Ext.data.SimpleStore({
-			fields: ['id', 'language']
-			,data: f.data.language.data
-			,id: 0
-		})
-	};
-
-
-
-	// Set up data store
-	data.store = {};
-
-	data.store.record = new Ext.data.Record.create([
-		{ name: 'title' }
-		,{ name: 'url' }
-		,{ name: 'policy' }
-		,{ name: 'description' }
-		,{ name: 'updated' }
-	]);
-
-	data.store.results = new Ext.data.Store({
-		storeId: 'search-store-'+modName
-		,proxy: new Ext.data.HttpProxy({
-			url: '/xwiki/bin/view/Search/Groups'
-			,method:'GET'
-		})
-		,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
-
-		,reader: new Ext.data.JsonReader({
-			root: 'rows'
-			,totalProperty: 'resultCount'
-			,id: 'page'
-		}, data.store.record)
-
-		// turn on remote sorting
-		,remoteSort: true
-	});
-	data.store.results.setDefaultSort('title', 'asc');
+    ,language: new Ext.data.SimpleStore({
+      fields: ['id', 'language']
+      ,data: f.data.language.data
+      ,id: 0
+    })
+  };
 
 
 
-	// Set up renderers
-	data.renderer = {
-		title: function(value, metadata, record, rowIndex, colIndex, store){
-			return String.format('<a href="{0}">{1}</a>', record.data.url, value);
-		}
+  // Set up data store
+  data.store = {};
 
-		,policy: function(value, metadata, record, rowIndex, colIndex, store){
-			if (value !== ''){
-				metadata.css = 'policy-'+value;
-			}
-			var policy = _('search.group.icon.'+value);
-			return String.format('<span ext:qtip="{1}">{0}</span>', policy, _('search.group.icon.'+value+'.rollover'));
-		}
+  data.store.record = new Ext.data.Record.create([
+    { name: 'title' }
+    ,{ name: 'url' }
+    ,{ name: 'policy' }
+    ,{ name: 'description' }
+    ,{ name: 'updated' }
+  ]);
 
-		,description: function(value, metadata, record, rowIndex, colIndex, store){
-			var desc = Ext.util.Format.htmlDecode(value);
-			desc = Ext.util.Format.stripScripts(value);
-			desc = Ext.util.Format.stripTags(desc);
-			desc = Ext.util.Format.ellipsis(desc, 128);
-			desc = Ext.util.Format.htmlEncode(desc);
-			desc = Ext.util.Format.trim(desc);
-			return String.format('{0}', desc);
-		}
+  data.store.results = new Ext.data.Store({
+    storeId: 'search-store-'+modName
+    ,proxy: new Ext.data.HttpProxy({
+      url: '/xwiki/bin/view/Search/Groups'
+      ,method:'GET'
+    })
+    ,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
 
-		,updated: function(value, metadata, record, rowIndex, colIndex, store){
-			var dt = Ext.util.Format.date(value, 'M-d-Y');
-			return String.format('{0}', dt);
-		}
-	};
+    ,reader: new Ext.data.JsonReader({
+      root: 'rows'
+      ,totalProperty: 'resultCount'
+      ,id: 'page'
+    }, data.store.record)
+
+    // turn on remote sorting
+    ,remoteSort: true
+  });
+  data.store.results.setDefaultSort('title', 'asc');
+
+
+
+  // Set up renderers
+  data.renderer = {
+    title: function(value, metadata, record, rowIndex, colIndex, store){
+      return String.format('<a href="{0}">{1}</a>', record.data.url, value);
+    }
+
+    ,policy: function(value, metadata, record, rowIndex, colIndex, store){
+      if (value !== ''){
+        metadata.css = 'policy-'+value;
+      }
+      var policy = _('search.group.icon.'+value);
+      return String.format('<span ext:qtip="{1}">{0}</span>', policy, _('search.group.icon.'+value+'.rollover'));
+    }
+
+    ,description: function(value, metadata, record, rowIndex, colIndex, store){
+      var desc = Ext.util.Format.htmlDecode(value);
+      desc = Ext.util.Format.stripScripts(value);
+      desc = Ext.util.Format.stripTags(desc);
+      desc = Ext.util.Format.ellipsis(desc, 128);
+      desc = Ext.util.Format.htmlEncode(desc);
+      desc = Ext.util.Format.trim(desc);
+      return String.format('{0}', desc);
+    }
+
+    ,updated: function(value, metadata, record, rowIndex, colIndex, store){
+      var dt = Ext.util.Format.date(value, 'M-d-Y');
+      return String.format('{0}', dt);
+    }
+  };
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  data.init();
-	});
+    data.init();
+  });
 });
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.form.group');
 (function(){
 var modName = 'group';
-
-Ext.ns('Curriki.module.search.form.'+modName);
 
 var Search = Curriki.module.search;
 
@@ -1600,571 +2411,562 @@ var form = Search.form[modName];
 var data = Search.data[modName];
 
 form.init = function(){
-	console.log('form.'+modName+': init');
+  console.log('form.'+modName+': init');
 
-	var comboWidth = 140;
-	var comboListWidth = 250;
+  var comboWidth = 140;
+  var comboListWidth = 250;
 
-	form.termPanel = Search.util.createTermPanel(modName, form);
-//	form.helpPanel = Search.util.createHelpPanel(modName, form);
+  form.termPanel = Search.util.createTermPanel(modName, form);
+//  form.helpPanel = Search.util.createHelpPanel(modName, form);
 
-	form.filterPanel = {
-		xtype:'form'
-		,labelAlign:'left'
-		,id:'search-filterPanel-'+modName
-		,formId:'search-filterForm-'+modName
-		,border:false
-		,items:[
-			form.termPanel
-//			,form.helpPanel
-			,{
-				xtype:'fieldset'
-				,title:_('search.advanced.search.button')
-				,id:'search-advanced-'+modName
-				,autoHeight:true
-				,collapsible:true
-				,collapsed:true
-				,animCollapse:false
-				,border:true
-				,stateful:true
-				,stateEvents:['expand','collapse']
-				,listeners:{
-					'statesave':{
-						fn:Search.util.fieldsetPanelSave
-					}
-					,'staterestore':{
-						fn:Search.util.fieldsetPanelRestore
-					}
-					,'expand':{
-						fn:function(panel){
-							// CURRIKI-2989
-							//  - Force a refresh of the grid view, as this
-							//    seems to make the advanced search fieldset
-							//    visible in IE7
-							Ext.getCmp('search-results-'+modName).getView().refresh();
+  form.filterPanel = {
+    xtype:'form'
+    ,labelAlign:'left'
+    ,id:'search-filterPanel-'+modName
+    ,formId:'search-filterForm-'+modName
+    ,border:false
+    ,items:[
+      form.termPanel
+//      ,form.helpPanel
+      ,{
+        xtype:'fieldset'
+        ,title:_('search.advanced.search.button')
+        ,id:'search-advanced-'+modName
+        ,autoHeight:true
+        ,collapsible:true
+        ,collapsed:true
+        ,animCollapse:false
+        ,border:true
+        ,stateful:true
+        ,stateEvents:['expand','collapse']
+        ,listeners:{
+          'statesave':{
+            fn:Search.util.fieldsetPanelSave
+          }
+          ,'staterestore':{
+            fn:Search.util.fieldsetPanelRestore
+          }
+          ,'expand':{
+            fn:function(panel){
+              // CURRIKI-2989
+              //  - Force a refresh of the grid view, as this
+              //    seems to make the advanced search fieldset
+              //    visible in IE7
+              Ext.getCmp('search-results-'+modName).getView().refresh();
 
-							Ext.select('.x-form-field-wrap', false, 'search-advanced-'+modName).setWidth(comboWidth);
+              Ext.select('.x-form-field-wrap', false, 'search-advanced-'+modName).setWidth(comboWidth);
 
-							// CURRIKI-2873
-							// - Force a repaint of the fieldset
-							Ext.getCmp('search-termPanel-'+modName).el.repaint();
-						}
-					}
-					,'collapse':{
-						fn:function(panel){
-							Ext.getCmp('search-results-'+modName).getView().refresh();
-							Ext.getCmp('search-termPanel-'+modName).el.repaint();
-						}
-					}
-				}
-				,items:[{
-					layout:'column'
-					,border:false
-					,defaults:{
-						border:false
-						,hideLabel:true
-					}
-					,items:[{
-						columnWidth:0.33
-						,layout:'form'
-						,defaults:{
-							hideLabel:true
-						}
-						,items:[{
-							xtype:'combo'
-							,fieldLabel:'Subject'
-							,id:'combo-subject-'+modName
-							,hiddenName:'subjectparent'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.subject
-							,displayField:'subject'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('XWiki.CurrikiSpaceClass_topic_TREEROOTNODE.UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-							,listeners:{
-								select:{
-									fn:function(combo, value){
-										var subSubject = Ext.getCmp('combo-subsubject-'+modName);
-										if (combo.getValue() === '') {
-											subSubject.clearValue();
-											subSubject.hide();
-										} else {
-											subSubject.show();
-											subSubject.clearValue();
-											subSubject.store.filter('parentItem', combo.getValue());
-											subSubject.setValue(combo.getValue());
-										}
-									}
-								}
-							}
-						},{
-							xtype:'combo'
-							,fieldLabel:'Sub Subject'
-							,id:'combo-subsubject-'+modName
-							,hiddenName:'subject'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.subsubject
-							,displayField:'subject'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-	//						,emptyText:'Select a Sub Subject...'
-							,selectOnFocus:true
-							,forceSelection:true
-							,lastQuery:''
-							,hidden:true
-							,hideMode:'visibility'
-						}]
-					},{
-						columnWidth:0.33
-						,layout:'form'
-						,defaults:{
-							hideLabel:true
-						}
-						,items:[{
-							xtype:'combo'
-							,id:'combo-level-'+modName
-							,fieldLabel:'Level'							
-							,hiddenName:'levelparent'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.level
-							,displayField:'level'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-							,listeners:{
-								select:{
-									fn:function(combo, value){
-										var level2 = Ext.getCmp('combo-level2-'+modName);
-										if (combo.getValue() === '') {
-											level2.clearValue();
-											level2.hide();
-										} else {
-											level2.show();
-											level2.clearValue();
-											level2.store.filter('parentItem', combo.getValue());
-											level2.setValue(combo.getValue());
-										}
-									}
-								}
-							}
-						},{
-							xtype:'combo'
-							,fieldLabel:'Level 2'
-							,id:'combo-level2-'+modName
-							,hiddenName:'level'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.level2
-							,displayField:'level'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-	//						,emptyText:'Select a Sub Subject...'
-							,selectOnFocus:true
-							,forceSelection:true
-							,lastQuery:''
-							,hidden:true
-							,hideMode:'visibility'
-						}]
-					},{
-						columnWidth:0.34
-						,layout:'form'
-						,defaults:{
-							hideLabel:true
-						}
-						,items:[{
-							xtype:'combo'
-							,id:'combo-policy-'+modName
-							,fieldLabel:'Membership Policy'
-							,hiddenName:'policy'
-							,mode:'local'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,store:data.filter.store.policy
-							,displayField:'policy'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('search.XWiki.SpaceClass_policy_UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
+              // CURRIKI-2873
+              // - Force a repaint of the fieldset
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
+            }
+          }
+          ,'collapse':{
+            fn:function(panel){
+              Ext.getCmp('search-results-'+modName).getView().refresh();
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
+            }
+          }
+        }
+        ,items:[{
+          layout:'column'
+          ,border:false
+          ,defaults:{
+            border:false
+            ,hideLabel:true
+          }
+          ,items:[{
+            columnWidth:0.33
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,fieldLabel:'Subject'
+              ,id:'combo-subject-'+modName
+              ,hiddenName:'subjectparent'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subject
+              ,displayField:'subject'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('XWiki.CurrikiSpaceClass_topic_TREEROOTNODE.UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,listeners:{
+                select:{
+                  fn:function(combo, value){
+                    var subSubject = Ext.getCmp('combo-subsubject-'+modName);
+                    if (combo.getValue() === '') {
+                      subSubject.clearValue();
+                      subSubject.hide();
+                    } else {
+                      subSubject.show();
+                      subSubject.clearValue();
+                      subSubject.store.filter('parentItem', combo.getValue());
+                      subSubject.setValue(combo.getValue());
+                    }
+                  }
+                }
+              }
             },{
-							xtype:'combo'
-							,id:'combo-language-'+modName
-							,fieldLabel:'Language'
-							,hiddenName:'language'
-							,mode:'local'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,store:data.filter.store.language
-							,displayField:'language'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('XWiki.CurrikiSpaceClass_language_UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-						}]
-					}]
-				}]
-			}
-		]
-	}
+              xtype:'combo'
+              ,fieldLabel:'Sub Subject'
+              ,id:'combo-subsubject-'+modName
+              ,hiddenName:'subject'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subsubject
+              ,displayField:'subject'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+  //            ,emptyText:'Select a Sub Subject...'
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,lastQuery:''
+              ,hidden:true
+              ,hideMode:'visibility'
+            }]
+          },{
+            columnWidth:0.33
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-level-'+modName
+              ,fieldLabel:'Level'              
+              ,hiddenName:'levelparent'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.level
+              ,displayField:'level'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,listeners:{
+                select:{
+                  fn:function(combo, value){
+                    var sublevel = Ext.getCmp('combo-sublevel-'+modName);
+                    if (combo.getValue() === '') {
+                      sublevel.clearValue();
+                      sublevel.hide();
+                    } else {
+                      sublevel.show();
+                      sublevel.clearValue();
+                      sublevel.store.filter('parentItem', combo.getValue());
+                      sublevel.setValue(combo.getValue());
+                    }
+                  }
+                }
+              }
+            },{
+              xtype:'combo'
+              ,fieldLabel:'Level 2'
+              ,id:'combo-sublevel-'+modName
+              ,hiddenName:'level'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.sublevel
+              ,displayField:'level'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+  //            ,emptyText:'Select a Sub Subject...'
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,lastQuery:''
+              ,hidden:true
+              ,hideMode:'visibility'
+            }]
+          },{
+            columnWidth:0.34
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-policy-'+modName
+              ,fieldLabel:'Membership Policy'
+              ,hiddenName:'policy'
+              ,mode:'local'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,store:data.filter.store.policy
+              ,displayField:'policy'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('search.XWiki.SpaceClass_policy_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+            },{
+              xtype:'combo'
+              ,id:'combo-language-'+modName
+              ,fieldLabel:'Language'
+              ,hiddenName:'language'
+              ,mode:'local'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,store:data.filter.store.language
+              ,displayField:'language'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('XWiki.CurrikiSpaceClass_language_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+            }]
+          }]
+        }]
+      }
+    ]
+  }
 
-	form.columnModel = new Ext.grid.ColumnModel([{
-			id: 'policy'
-			,header: _('search.group.column.header.policy')
-			,width: 62
-			,dataIndex: 'policy'
-			,sortable:true
-			,renderer: data.renderer.policy
-//			,tooltip: _('search.group.column.header.policy')
-		},{
-			id: 'title'
-			,header: _('search.group.column.header.name')
-			,width: 213
-			,dataIndex: 'title'
-			,sortable:true
-			,hideable:false
-			,renderer: data.renderer.title
-//			,tooltip:_('search.group.column.header.name')
-		},{
-			id: 'description'
-			,width: 217
-			,header: _('search.group.column.header.description')
-			,dataIndex:'description'
-			,sortable:false
-			,renderer: data.renderer.description
-//			,tooltip: _('search.group.column.header.description')
-		},{
-			id: 'updated'
-			,width: 96
-			,header: _('search.group.column.header.updated')
-			,dataIndex:'updated'
-			,sortable:true
-			,renderer: data.renderer.updated
-//			,tooltip: _('search.group.column.header.updated')
-	}]);
+  form.columnModel = new Ext.grid.ColumnModel([{
+      id: 'policy'
+      ,header: _('search.group.column.header.policy')
+      ,width: 62
+      ,dataIndex: 'policy'
+      ,sortable:true
+      ,renderer: data.renderer.policy
+//      ,tooltip: _('search.group.column.header.policy')
+    },{
+      id: 'title'
+      ,header: _('search.group.column.header.name')
+      ,width: 213
+      ,dataIndex: 'title'
+      ,sortable:true
+      ,hideable:false
+      ,renderer: data.renderer.title
+//      ,tooltip:_('search.group.column.header.name')
+    },{
+      id: 'description'
+      ,width: 217
+      ,header: _('search.group.column.header.description')
+      ,dataIndex:'description'
+      ,sortable:false
+      ,renderer: data.renderer.description
+//      ,tooltip: _('search.group.column.header.description')
+    },{
+      id: 'updated'
+      ,width: 96
+      ,header: _('search.group.column.header.updated')
+      ,dataIndex:'updated'
+      ,sortable:true
+      ,renderer: data.renderer.updated
+//      ,tooltip: _('search.group.column.header.updated')
+  }]);
 
-	form.resultsPanel = {
-		xtype:'grid'
-		,id:'search-results-'+modName
-		//,title:'Results'
-		,border:false
-		,autoHeight:true
-		,width:Search.settings.gridWidth
-		,autoExpandColumn:'description'
-		,stateful:true
-		,frame:false
-		,stripeRows:true
-		,viewConfig: {
-			forceFit:true
-			,enableRowBody:true
-			,showPreview:true
-			// Remove the blank space on right of grid (reserved for scrollbar)
-			,scrollOffset:0
-		}
-		,columnsText:_('search.columns.menu.columns')
-		,sortAscText:_('search.columns.menu.sort_ascending')
-		,sortDescText:_('search.columns.menu.sort_descending')
-		,store: data.store.results
-		,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
-		,cm: form.columnModel
-		,loadMask: false
-		,plugins: form.rowExpander
-		,bbar: new Ext.PagingToolbar({
-			id: 'search-pager-'+modName
-			,plugins:new Ext.ux.Andrie.pPageSize({
-				 variations: [10, 25, 50]
-				,beforeText: _('search.pagination.pagesize.before')
-				,afterText: _('search.pagination.pagesize.after')
-				,addBefore: _('search.pagination.pagesize.addbefore')
-				,addAfter: _('search.pagination.pagesize.addafter')
-			})
-			,pageSize: 25
-			,store: data.store.results
-			,displayInfo: true
-			,displayMsg: _('search.pagination.displaying.'+modName)
-			,emptyMsg: _('search.find.no.results')
-			,beforePageText: _('search.pagination.beforepage')
-			,afterPageText: _('search.pagination.afterpage')
-			,firstText: _('search.pagination.first')
-			,prevText: _('search.pagination.prev')
-			,nextText: _('search.pagination.next')
-			,lastText: _('search.pagination.last')
-			,refreshText: _('search.pagination.refresh')
-		})
-	};
+  form.resultsPanel = {
+    xtype:'grid'
+    ,id:'search-results-'+modName
+    //,title:'Results'
+    ,border:false
+    ,autoHeight:true
+    ,width:Search.settings.gridWidth
+    ,autoExpandColumn:'description'
+    ,stateful:true
+    ,frame:false
+    ,stripeRows:true
+    ,viewConfig: {
+      forceFit:true
+      ,enableRowBody:true
+      ,showPreview:true
+      // Remove the blank space on right of grid (reserved for scrollbar)
+      ,scrollOffset:0
+    }
+    ,columnsText:_('search.columns.menu.columns')
+    ,sortAscText:_('search.columns.menu.sort_ascending')
+    ,sortDescText:_('search.columns.menu.sort_descending')
+    ,store: data.store.results
+    ,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
+    ,cm: form.columnModel
+    ,loadMask: false
+    ,plugins: form.rowExpander
+    ,bbar: new Ext.PagingToolbar({
+      id: 'search-pager-'+modName
+      ,plugins:new Ext.ux.Andrie.pPageSize({
+         variations: [10, 25, 50]
+        ,beforeText: _('search.pagination.pagesize.before')
+        ,afterText: _('search.pagination.pagesize.after')
+        ,addBefore: _('search.pagination.pagesize.addbefore')
+        ,addAfter: _('search.pagination.pagesize.addafter')
+      })
+      ,pageSize: 25
+      ,store: data.store.results
+      ,displayInfo: true
+      ,displayMsg: _('search.pagination.displaying.'+modName)
+      ,emptyMsg: _('search.find.no.results')
+      ,beforePageText: _('search.pagination.beforepage')
+      ,afterPageText: _('search.pagination.afterpage')
+      ,firstText: _('search.pagination.first')
+      ,prevText: _('search.pagination.prev')
+      ,nextText: _('search.pagination.next')
+      ,lastText: _('search.pagination.last')
+      ,refreshText: _('search.pagination.refresh')
+    })
+  };
 
-	form.mainPanel = {
-		xtype:'panel'
-		,id:'search-panel-'+modName
-		,autoHeight:true
-		,items:[
-			form.filterPanel
-			,form.resultsPanel
-		]
-	};
+  form.mainPanel = {
+    xtype:'panel'
+    ,id:'search-panel-'+modName
+    ,autoHeight:true
+    ,items:[
+      form.filterPanel
+      ,form.resultsPanel
+    ]
+  };
 
-	form.doSearch = function(){
-		Search.util.doSearch(modName);
-	};
+  form.doSearch = function(){
+    Search.util.doSearch(modName);
+  };
 
-	// Adjust title with count
-	Search.util.registerTabTitleListener(modName);
+  // Adjust title with count
+  Search.util.registerTabTitleListener(modName);
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  form.init();
-	});
+    form.init();
+  });
 });
 
 
 // TODO:  Register this tab somehow with the main form
 
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.data.member');
 (function(){
 var modName = 'member';
-
-Ext.ns('Curriki.module.search.data.'+modName);
 
 var data = Curriki.module.search.data.member;
 
 data.init = function(){
-	console.log('data.'+modName+': init');
+  console.log('data.'+modName+': init');
 
-	// Set up filters
-	data.filter = {};
-	var f = data.filter; // Alias
+  // Set up filters
+  data.filter = {};
+  var f = data.filter; // Alias
 
-	f.data = {};
+  f.data = {};
 
-	f.data.subject =  {
-		mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
-		,list: []
-		,data: [
-			['', _('XWiki.XWikiUsers_topics_FW_masterFramework.UNSPECIFIED')]
-		]
-	};
-	f.data.subject.mapping.each(function(value){
-		f.data.subject.list.push(value.id);
-	});
-	f.data.subject.list.each(function(value){
-		f.data.subject.data.push([
-			value
-			,_('XWiki.XWikiUsers_topics_'+value)
-		]);
-	});
+  f.data.subject =  {
+    mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
+    ,list: []
+    ,data: [
+      ['', _('XWiki.XWikiUsers_topics_FW_masterFramework.UNSPECIFIED')]
+    ]
+  };
+  f.data.subject.mapping.each(function(value){
+    f.data.subject.list.push(value.id);
+  });
+  f.data.subject.list.each(function(value){
+    f.data.subject.data.push([
+      value
+      ,_('XWiki.XWikiUsers_topics_'+value)
+    ]);
+  });
 
   // sort the list for the subject
-	f.data.subject.data.sort(function(a, b) { 
-		// if a or b are head, return as first
-		if(b[0] == "") return 1; 
-		if(a[0] == "") return -1;
-		// if a or b are uncategorized, return as last
-		if(b[0] == "UNCATEGORIZED") return -1; 
-		if(a[0] == "UNCATEGORIZED") return 1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1; 
-			else return 1;
-	});
+  f.data.subject.data.sort(function(a, b) { 
+    // if a or b are head, return as first
+    if(b[0] == "") return 1; 
+    if(a[0] == "") return -1;
+    // if a or b are uncategorized, return as last
+    if(b[0] == "UNCATEGORIZED") return -1; 
+    if(a[0] == "UNCATEGORIZED") return 1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1; 
+      else return 1;
+  });
 
-	f.data.subsubject =  {
-		mapping: Curriki.data.fw_item.fwMap
-		,data: [
-		]
-	};
-	f.data.subject.mapping.each(function(parentItem){
-		f.data.subsubject.data.push([
-			parentItem.id
-			,_('XWiki.XWikiUsers_topics_'+parentItem.id+'.UNSPECIFIED')
-			,parentItem.id
-		]);
-		f.data.subsubject.mapping[parentItem.id].each(function(subject){
-			f.data.subsubject.data.push([
-				subject.id
-				,_('XWiki.XWikiUsers_topics_'+subject.id)
-				,parentItem.id
-			]);
-		});
-	});
+  f.data.subsubject =  {
+    mapping: Curriki.data.fw_item.fwMap
+    ,data: [
+    ]
+  };
+  f.data.subject.mapping.each(function(parentItem){
+    f.data.subsubject.data.push([
+      parentItem.id
+      ,_('XWiki.XWikiUsers_topics_'+parentItem.id+'.UNSPECIFIED')
+      ,parentItem.id
+    ]);
+    f.data.subsubject.mapping[parentItem.id].each(function(subject){
+      f.data.subsubject.data.push([
+        subject.id
+        ,_('XWiki.XWikiUsers_topics_'+subject.id)
+        ,parentItem.id
+      ]);
+    });
+  });
 
   // sort the list for the subsubject
-	f.data.subsubject.data.sort(function(a, b) {
-		// b is the subject index, put first
-		if(b[0] == b[2]) return 1;
-		// a is the subject index, put first
-		if(a[0] == a[2]) return -1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1;
-			else return 1;
-	});
+  f.data.subsubject.data.sort(function(a, b) {
+    // b is the subject index, put first
+    if(b[0] == b[2]) return 1;
+    // a is the subject index, put first
+    if(a[0] == a[2]) return -1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1;
+      else return 1;
+  });
 
-	f.data.country =  {
-		list: 'AD|AE|AF|AL|AM|AO|AQ|AR|AT|AU|AZ|BA|BB|BD|BE|BF|BG|BH|BI|BJ|BM|BN|BO|BR|BS|BT|BW|BY|BZ|CA|CD|CF|CG|CH|CI|CL|CM|CN|CO|CR|CU|CV|CY|CZ|DE|DJ|DK|DO|DZ|EC|EE|EG|ES|ET|FI|FR|GA|GB|GE|GF|GH|GI|GL|GM|GN|GP|GQ|GR|GT|GW|GY|HK|HN|HR|HT|HU|ID|IE|IL|IN|IQ|IR|IS|IT|JM|JO|JP|KE|KG|KH|KM|KP|KR|KW|KZ|LA|LB|LI|LK|LR|LS|LT|LU|LV|MA|MC|MD|ME|MG|ML|MN|MO|MQ|MR|MT|MU|MV|MW|MX|MY|MZ|NA|NC|NE|NG|NI|NL|NO|NP|NZ|PA|PE|PF|PG|PH|PK|PL|PR|PS|PT|PY|RO|RS|RU|RW|SA|SB|SC|SD|SE|SG|SI|SK|SL|SM|SN|SO|SR|SV|SY|SZ|TD|TG|TH|TJ|TM|TN|TR|TT|TW|TZ|UA|UG|US|UY|UZ|VA|VE|VN|YE|ZA|ZM|ZW'.split('|')
-		,data: [
-			['', _('XWiki.XWikiUsers_country_UNSPECIFIED')]
-		]
-	};
-	f.data.country.list.each(function(value){
-		f.data.country.data.push([
-			value
-			,_('XWiki.XWikiUsers_country_'+value)
-		]);
-	});
+  f.data.country =  {
+    list: 'AD|AE|AF|AL|AM|AO|AQ|AR|AT|AU|AZ|BA|BB|BD|BE|BF|BG|BH|BI|BJ|BM|BN|BO|BR|BS|BT|BW|BY|BZ|CA|CD|CF|CG|CH|CI|CL|CM|CN|CO|CR|CU|CV|CY|CZ|DE|DJ|DK|DO|DZ|EC|EE|EG|ES|ET|FI|FR|GA|GB|GE|GF|GH|GI|GL|GM|GN|GP|GQ|GR|GT|GW|GY|HK|HN|HR|HT|HU|ID|IE|IL|IN|IQ|IR|IS|IT|JM|JO|JP|KE|KG|KH|KM|KP|KR|KW|KZ|LA|LB|LI|LK|LR|LS|LT|LU|LV|MA|MC|MD|ME|MG|ML|MN|MO|MQ|MR|MT|MU|MV|MW|MX|MY|MZ|NA|NC|NE|NG|NI|NL|NO|NP|NZ|PA|PE|PF|PG|PH|PK|PL|PR|PS|PT|PY|RO|RS|RU|RW|SA|SB|SC|SD|SE|SG|SI|SK|SL|SM|SN|SO|SR|SV|SY|SZ|TD|TG|TH|TJ|TM|TN|TR|TT|TW|TZ|UA|UG|US|UY|UZ|VA|VE|VN|YE|ZA|ZM|ZW'.split('|')
+    ,data: [
+      ['', _('XWiki.XWikiUsers_country_UNSPECIFIED')]
+    ]
+  };
+  f.data.country.list.each(function(value){
+    f.data.country.data.push([
+      value
+      ,_('XWiki.XWikiUsers_country_'+value)
+    ]);
+  });
 
   // sort the list for the language
-	f.data.country.data.sort(function(a, b) {
-		// if a or b are head, return as first
-		if(b[0] == "") return 1;
-		if(a[0] == "") return -1;
-		// if a or b are uncategorized, return as last
-		if(b[0] == "999") return -1;
-		if(a[0] == "999") return 1;
-		// compare alphabetically
-		if (a[1] <= b[1]) return -1;
-			else return 1;
-	});
+  f.data.country.data.sort(function(a, b) {
+    // if a or b are head, return as first
+    if(b[0] == "") return 1;
+    if(a[0] == "") return -1;
+    // if a or b are uncategorized, return as last
+    if(b[0] == "999") return -1;
+    if(a[0] == "999") return 1;
+    // compare alphabetically
+    if (a[1] <= b[1]) return -1;
+      else return 1;
+  });
 
-	f.data.member_type =  {
-		list: ['parent', 'teacher', 'professional', 'student']
-		,data: [
-			['', _('XWiki.XWikiUsers_member_type_UNSPECIFIED')]
-		]
-	};
-	f.data.member_type.list.each(function(value){
-		f.data.member_type.data.push([
-			value
-			,_('XWiki.XWikiUsers_member_type_'+value)
-		]);
-	});
+  f.data.member_type =  {
+    list: ['parent', 'teacher', 'professional', 'student']
+    ,data: [
+      ['', _('XWiki.XWikiUsers_member_type_UNSPECIFIED')]
+    ]
+  };
+  f.data.member_type.list.each(function(value){
+    f.data.member_type.data.push([
+      value
+      ,_('XWiki.XWikiUsers_member_type_'+value)
+    ]);
+  });
 
-	f.store = {
-		subject: new Ext.data.SimpleStore({
-			fields: ['id', 'subject']
-			,data: f.data.subject.data
-			,id: 0
-		})
+  f.store = {
+    subject: new Ext.data.SimpleStore({
+      fields: ['id', 'subject']
+      ,data: f.data.subject.data
+      ,id: 0
+    })
 
-		,subsubject: new Ext.data.SimpleStore({
-			fields: ['id', 'subject', 'parentItem']
-			,data: f.data.subsubject.data
-			,id: 0
-		})
+    ,subsubject: new Ext.data.SimpleStore({
+      fields: ['id', 'subject', 'parentItem']
+      ,data: f.data.subsubject.data
+      ,id: 0
+    })
 
-		,member_type: new Ext.data.SimpleStore({
-			fields: ['id', 'member_type']
-			,data: f.data.member_type.data
-			,id: 0
-		})
+    ,member_type: new Ext.data.SimpleStore({
+      fields: ['id', 'member_type']
+      ,data: f.data.member_type.data
+      ,id: 0
+    })
 
-		,country: new Ext.data.SimpleStore({
-			fields: ['id', 'country']
-			,data: f.data.country.data
-			,id: 0
-		})
-	};
-
-
-
-	// Set up data store
-	data.store = {};
-
-	data.store.record = new Ext.data.Record.create([
-		{ name: 'name1' }
-		,{ name: 'name2' }
-		,{ name: 'url' }
-		,{ name: 'bio' }
-		,{ name: 'picture' }
-		,{ name: 'contributions' }
-	]);
-
-	data.store.results = new Ext.data.Store({
-		storeId: 'search-store-'+modName
-		,proxy: new Ext.data.HttpProxy({
-			url: '/xwiki/bin/view/Search/Members'
-			,method:'GET'
-		})
-		,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
-
-		,reader: new Ext.data.JsonReader({
-			root: 'rows'
-			,totalProperty: 'resultCount'
-			,id: 'page'
-		}, data.store.record)
-
-		// turn on remote sorting
-		,remoteSort: true
-	});
-	data.store.results.setDefaultSort('name1', 'asc');
+    ,country: new Ext.data.SimpleStore({
+      fields: ['id', 'country']
+      ,data: f.data.country.data
+      ,id: 0
+    })
+  };
 
 
 
-	// Set up renderers
-	data.renderer = {
-		name1: function(value, metadata, record, rowIndex, colIndex, store){
-			return String.format('<a href="{1}">{0}</a>', value, record.data.url);
-		}
+  // Set up data store
+  data.store = {};
 
-		,name2: function(value, metadata, record, rowIndex, colIndex, store){
-			return String.format('<a href="{1}">{0}</a>', value, record.data.url);
-		}
+  data.store.record = new Ext.data.Record.create([
+    { name: 'name1' }
+    ,{ name: 'name2' }
+    ,{ name: 'url' }
+    ,{ name: 'bio' }
+    ,{ name: 'picture' }
+    ,{ name: 'contributions' }
+  ]);
 
-		,picture: function(value, metadata, record, rowIndex, colIndex, store){
-			//TODO: Remove specialized style
-			return String.format('<a href="{2}"><img src="{0}" alt="{1}" class="member-picture" style="width:88px" /></a>', value, _('search.member.column.picture.alt.text'), record.data.url);
-		}
+  data.store.results = new Ext.data.Store({
+    storeId: 'search-store-'+modName
+    ,proxy: new Ext.data.HttpProxy({
+      url: '/xwiki/bin/view/Search/Members'
+      ,method:'GET'
+    })
+    ,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
 
-		,contributions: function(value, metadata, record, rowIndex, colIndex, store){
-			return String.format('{0}', value);
-		}
+    ,reader: new Ext.data.JsonReader({
+      root: 'rows'
+      ,totalProperty: 'resultCount'
+      ,id: 'page'
+    }, data.store.record)
 
-		,bio: function(value, metadata, record, rowIndex, colIndex, store){
-			var desc = Ext.util.Format.htmlDecode(value);
-			desc = Ext.util.Format.stripScripts(value);
-			desc = Ext.util.Format.stripTags(desc);
-			desc = Ext.util.Format.ellipsis(desc, 128);
-			desc = Ext.util.Format.htmlEncode(desc);
-			desc = Ext.util.Format.trim(desc);
-			return String.format('{0}', desc);
-		}
-	};
+    // turn on remote sorting
+    ,remoteSort: true
+  });
+  data.store.results.setDefaultSort('name1', 'asc');
+
+
+
+  // Set up renderers
+  data.renderer = {
+    name1: function(value, metadata, record, rowIndex, colIndex, store){
+      return String.format('<a href="{1}">{0}</a>', value, record.data.url);
+    }
+
+    ,name2: function(value, metadata, record, rowIndex, colIndex, store){
+      return String.format('<a href="{1}">{0}</a>', value, record.data.url);
+    }
+
+    ,picture: function(value, metadata, record, rowIndex, colIndex, store){
+      //TODO: Remove specialized style
+      return String.format('<a href="{2}"><img src="{0}" alt="{1}" class="member-picture" style="width:88px" /></a>', value, _('search.member.column.picture.alt.text'), record.data.url);
+    }
+
+    ,contributions: function(value, metadata, record, rowIndex, colIndex, store){
+      return String.format('{0}', value);
+    }
+
+    ,bio: function(value, metadata, record, rowIndex, colIndex, store){
+      var desc = Ext.util.Format.htmlDecode(value);
+      desc = Ext.util.Format.stripScripts(value);
+      desc = Ext.util.Format.stripTags(desc);
+      desc = Ext.util.Format.ellipsis(desc, 128);
+      desc = Ext.util.Format.htmlEncode(desc);
+      desc = Ext.util.Format.trim(desc);
+      return String.format('{0}', desc);
+    }
+  };
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  data.init();
-	});
+    data.init();
+  });
 });
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.form.member');
 (function(){
 var modName = 'member';
-Ext.ns('Curriki.module.search.form.'+modName);
 
 var Search = Curriki.module.search;
 
@@ -2172,395 +2974,387 @@ var form = Search.form[modName];
 var data = Search.data[modName];
 
 form.init = function(){
-	console.log('form.'+modName+': init');
+  console.log('form.'+modName+': init');
 
-	var comboWidth = 140;
-	var comboListWidth = 250;
+  var comboWidth = 140;
+  var comboListWidth = 250;
 
-	form.termPanel = Search.util.createTermPanel(modName, form);
-//	form.helpPanel = Search.util.createHelpPanel(modName, form);
+  form.termPanel = Search.util.createTermPanel(modName, form);
+//  form.helpPanel = Search.util.createHelpPanel(modName, form);
 
-	form.filterPanel = {
-		xtype:'form'
-		,labelAlign:'left'
-		,id:'search-filterPanel-'+modName
-		,formId:'search-filterForm-'+modName
-		,border:false
-		,items:[
-			form.termPanel
-//			,form.helpPanel
-			,{
-				xtype:'fieldset'
-				,title:_('search.advanced.search.button')
-				,id:'search-advanced-'+modName
-				,autoHeight:true
-				,collapsible:true
-				,collapsed:true
-				,animCollapse:false
-				,border:true
-				,stateful:true
-				,stateEvents:['expand','collapse']
-				,listeners:{
-					'statesave':{
-						fn:Search.util.fieldsetPanelSave
-					}
-					,'staterestore':{
-						fn:Search.util.fieldsetPanelRestore
-					}
-					,'expand':{
-						fn:function(panel){
-							// CURRIKI-2989
-							//  - Force a refresh of the grid view, as this
-							//    seems to make the advanced search fieldset
-							//    visible in IE7
-							Ext.getCmp('search-results-'+modName).getView().refresh();
+  form.filterPanel = {
+    xtype:'form'
+    ,labelAlign:'left'
+    ,id:'search-filterPanel-'+modName
+    ,formId:'search-filterForm-'+modName
+    ,border:false
+    ,items:[
+      form.termPanel
+//      ,form.helpPanel
+      ,{
+        xtype:'fieldset'
+        ,title:_('search.advanced.search.button')
+        ,id:'search-advanced-'+modName
+        ,autoHeight:true
+        ,collapsible:true
+        ,collapsed:true
+        ,animCollapse:false
+        ,border:true
+        ,stateful:true
+        ,stateEvents:['expand','collapse']
+        ,listeners:{
+          'statesave':{
+            fn:Search.util.fieldsetPanelSave
+          }
+          ,'staterestore':{
+            fn:Search.util.fieldsetPanelRestore
+          }
+          ,'expand':{
+            fn:function(panel){
+              // CURRIKI-2989
+              //  - Force a refresh of the grid view, as this
+              //    seems to make the advanced search fieldset
+              //    visible in IE7
+              Ext.getCmp('search-results-'+modName).getView().refresh();
 
-							Ext.select('.x-form-field-wrap', false, 'search-advanced-'+modName).setWidth(comboWidth);
+              Ext.select('.x-form-field-wrap', false, 'search-advanced-'+modName).setWidth(comboWidth);
 
-							// CURRIKI-2873
-							// - Force a repaint of the fieldset
-							Ext.getCmp('search-termPanel-'+modName).el.repaint();
-						}
-					}
-					,'collapse':{
-						fn:function(panel){
-							Ext.getCmp('search-results-'+modName).getView().refresh();
-							Ext.getCmp('search-termPanel-'+modName).el.repaint();
-						}
-					}
-				}
-				,items:[{
-					layout:'column'
-					,border:false
-					,defaults:{
-						border:false
-						,hideLabel:true
-					}
-					,items:[{
-						columnWidth:0.33
-						,layout:'form'
-						,defaults:{
-							hideLabel:true
-						}
-						,items:[{
-							xtype:'combo'
-							,id:'combo-subject-'+modName
-							,fieldLabel:'Subject'
-							,hiddenName:'subjectparent'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.subject
-							,displayField:'subject'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('XWiki.XWikiUsers_topics_TREEROOTNODE.UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-							,listeners:{
-								select:{
-									fn:function(combo, value){
-										var subSubject = Ext.getCmp('combo-subsubject-'+modName);
-										if (combo.getValue() === '') {
-											subSubject.clearValue();
-											subSubject.hide();
-										} else {
-											subSubject.show();
-											subSubject.clearValue();
-											subSubject.store.filter('parentItem', combo.getValue());
-											subSubject.setValue(combo.getValue());
-										}
-									}
-								}
-							}
-						},{
-							xtype:'combo'
-							,fieldLabel:'Sub Subject'
-							,id:'combo-subsubject-'+modName
-							,hiddenName:'subject'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.subsubject
-							,displayField:'subject'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-	//						,emptyText:'Select a Sub Subject...'
-							,selectOnFocus:true
-							,forceSelection:true
-							,lastQuery:''
-							,hidden:true
-							,hideMode:'visibility'
-						}]
-					},{
-						columnWidth:0.33
-						,layout:'form'
-						,defaults:{
-							hideLabel:true
-						}
-						,items:[{
-							xtype:'combo'
-							,id:'combo-member_type-'+modName
-							,fieldLabel:'Member Type'
-							,mode:'local'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,store:data.filter.store.member_type
-							,hiddenName:'member_type'
-							,displayField:'member_type'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('XWiki.XWikiUsers_member_type_UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-						}]
-					},{
-						columnWidth:0.34
-						,layout:'form'
-						,defaults:{
-							hideLabel:true
-						}
-						,items:[{
-							xtype:'combo'
-							,id:'combo-country-'+modName
-							,fieldLabel:'Country'
-							,hiddenName:'country'
-							,width:comboWidth
-							,listWidth:comboListWidth
-							,mode:'local'
-							,store:data.filter.store.country
-							,displayField:'country'
-							,valueField:'id'
-							,typeAhead:true
-							,triggerAction:'all'
-							,emptyText:_('XWiki.XWikiUsers_country_UNSPECIFIED')
-							,selectOnFocus:true
-							,forceSelection:true
-						}]
-					}]
-				}]
-			}
-		]
-	}
+              // CURRIKI-2873
+              // - Force a repaint of the fieldset
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
+            }
+          }
+          ,'collapse':{
+            fn:function(panel){
+              Ext.getCmp('search-results-'+modName).getView().refresh();
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
+            }
+          }
+        }
+        ,items:[{
+          layout:'column'
+          ,border:false
+          ,defaults:{
+            border:false
+            ,hideLabel:true
+          }
+          ,items:[{
+            columnWidth:0.33
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-subject-'+modName
+              ,fieldLabel:'Subject'
+              ,hiddenName:'subjectparent'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subject
+              ,displayField:'subject'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('XWiki.XWikiUsers_topics_TREEROOTNODE.UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,listeners:{
+                select:{
+                  fn:function(combo, value){
+                    var subSubject = Ext.getCmp('combo-subsubject-'+modName);
+                    if (combo.getValue() === '') {
+                      subSubject.clearValue();
+                      subSubject.hide();
+                    } else {
+                      subSubject.show();
+                      subSubject.clearValue();
+                      subSubject.store.filter('parentItem', combo.getValue());
+                      subSubject.setValue(combo.getValue());
+                    }
+                  }
+                }
+              }
+            },{
+              xtype:'combo'
+              ,fieldLabel:'Sub Subject'
+              ,id:'combo-subsubject-'+modName
+              ,hiddenName:'subject'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subsubject
+              ,displayField:'subject'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+  //            ,emptyText:'Select a Sub Subject...'
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,lastQuery:''
+              ,hidden:true
+              ,hideMode:'visibility'
+            }]
+          },{
+            columnWidth:0.33
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-member_type-'+modName
+              ,fieldLabel:'Member Type'
+              ,mode:'local'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,store:data.filter.store.member_type
+              ,hiddenName:'member_type'
+              ,displayField:'member_type'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('XWiki.XWikiUsers_member_type_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+            }]
+          },{
+            columnWidth:0.34
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'combo'
+              ,id:'combo-country-'+modName
+              ,fieldLabel:'Country'
+              ,hiddenName:'country'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.country
+              ,displayField:'country'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('XWiki.XWikiUsers_country_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+            }]
+          }]
+        }]
+      }
+    ]
+  }
 
-	form.columnModelList = [{
-			id: 'picture'
-			,header: _('search.member.column.header.picture')
-			,width: 116
-			,dataIndex: 'picture'
-			,sortable:false
-			,resizable:false
-			,menuDisabled:true
-			,renderer: data.renderer.picture
-//			,tooltip:_('search.member.column.header.picture')
-		},{
-			id: 'name1'
-			,header: _('search.member.column.header.name1')
-			,width: 120
-			,dataIndex: 'name1'
-			,sortable:true
-			,hideable:false
-			,renderer: data.renderer.name1
-//			,tooltip:_('search.member.column.header.name1')
-		},{
-			id: 'name2'
-			,width: 120
-			,header: _('search.member.column.header.name2')
-			,dataIndex:'name2'
-			,sortable:true
-			,hideable:false
-			,renderer: data.renderer.name2
-//			,tooltip: _('search.member.column.header.name2')
-		},{
-			id: 'bio'
-			,width: 120
-			,header: _('search.member.column.header.bio')
-			,dataIndex:'bio'
-			,sortable:false
-			,renderer: data.renderer.bio
-//			,tooltip: _('search.member.column.header.bio')
-		},{
-			id: 'contributions'
-			,width: 120
-			,header: _('search.member.column.header.contributions')
-			,dataIndex:'contributions'
-			,sortable:false
-			,renderer: data.renderer.contributions
-//			,tooltip: _('search.member.column.header.contributions')
-	}];
+  form.columnModelList = [{
+      id: 'picture'
+      ,header: _('search.member.column.header.picture')
+      ,width: 116
+      ,dataIndex: 'picture'
+      ,sortable:false
+      ,resizable:false
+      ,menuDisabled:true
+      ,renderer: data.renderer.picture
+//      ,tooltip:_('search.member.column.header.picture')
+    },{
+      id: 'name1'
+      ,header: _('search.member.column.header.name1')
+      ,width: 120
+      ,dataIndex: 'name1'
+      ,sortable:true
+      ,hideable:false
+      ,renderer: data.renderer.name1
+//      ,tooltip:_('search.member.column.header.name1')
+    },{
+      id: 'name2'
+      ,width: 120
+      ,header: _('search.member.column.header.name2')
+      ,dataIndex:'name2'
+      ,sortable:true
+      ,hideable:false
+      ,renderer: data.renderer.name2
+//      ,tooltip: _('search.member.column.header.name2')
+    },{
+      id: 'bio'
+      ,width: 120
+      ,header: _('search.member.column.header.bio')
+      ,dataIndex:'bio'
+      ,sortable:false
+      ,renderer: data.renderer.bio
+//      ,tooltip: _('search.member.column.header.bio')
+    },{
+      id: 'contributions'
+      ,width: 120
+      ,header: _('search.member.column.header.contributions')
+      ,dataIndex:'contributions'
+      ,sortable:false
+      ,renderer: data.renderer.contributions
+//      ,tooltip: _('search.member.column.header.contributions')
+  }];
 
-	form.columnModel = new Ext.grid.ColumnModel(form.columnModelList);
+  form.columnModel = new Ext.grid.ColumnModel(form.columnModelList);
 
-	form.resultsPanel = {
-		xtype:'grid'
-		,id:'search-results-'+modName
-		//,title:'Results'
-		,border:false
-		,autoHeight:true
-		,width:Search.settings.gridWidth
-		,autoExpandColumn:'bio'
-		,stateful:true
-		,frame:false
-		,stripeRows:true
-		,viewConfig: {
-			forceFit:true
-			,enableRowBody:true
-			,showPreview:true
-			// Remove the blank space on right of grid (reserved for scrollbar)
-			,scrollOffset:0
-		}
-		,columnsText:_('search.columns.menu.columns')
-		,sortAscText:_('search.columns.menu.sort_ascending')
-		,sortDescText:_('search.columns.menu.sort_descending')
-		,store: data.store.results
-		,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
-		,cm: form.columnModel
-		,loadMask: false
-		,plugins: form.rowExpander
-		,bbar: new Ext.PagingToolbar({
-			id: 'search-pager-'+modName
-			,plugins:new Ext.ux.Andrie.pPageSize({
-				 variations: [10, 25, 50]
-				,beforeText: _('search.pagination.pagesize.before')
-				,afterText: _('search.pagination.pagesize.after')
-				,addBefore: _('search.pagination.pagesize.addbefore')
-				,addAfter: _('search.pagination.pagesize.addafter')
-			})
-			,pageSize: 25
-			,store: data.store.results
-			,displayInfo: true
-			,displayMsg: _('search.pagination.displaying.'+modName)
-			,emptyMsg: _('search.find.no.results')
-			,beforePageText: _('search.pagination.beforepage')
-			,afterPageText: _('search.pagination.afterpage')
-			,firstText: _('search.pagination.first')
-			,prevText: _('search.pagination.prev')
-			,nextText: _('search.pagination.next')
-			,lastText: _('search.pagination.last')
-			,refreshText: _('search.pagination.refresh')
-		})
-	};
+  form.resultsPanel = {
+    xtype:'grid'
+    ,id:'search-results-'+modName
+    //,title:'Results'
+    ,border:false
+    ,autoHeight:true
+    ,width:Search.settings.gridWidth
+    ,autoExpandColumn:'bio'
+    ,stateful:true
+    ,frame:false
+    ,stripeRows:true
+    ,viewConfig: {
+      forceFit:true
+      ,enableRowBody:true
+      ,showPreview:true
+      // Remove the blank space on right of grid (reserved for scrollbar)
+      ,scrollOffset:0
+    }
+    ,columnsText:_('search.columns.menu.columns')
+    ,sortAscText:_('search.columns.menu.sort_ascending')
+    ,sortDescText:_('search.columns.menu.sort_descending')
+    ,store: data.store.results
+    ,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
+    ,cm: form.columnModel
+    ,loadMask: false
+    ,plugins: form.rowExpander
+    ,bbar: new Ext.PagingToolbar({
+      id: 'search-pager-'+modName
+      ,plugins:new Ext.ux.Andrie.pPageSize({
+         variations: [10, 25, 50]
+        ,beforeText: _('search.pagination.pagesize.before')
+        ,afterText: _('search.pagination.pagesize.after')
+        ,addBefore: _('search.pagination.pagesize.addbefore')
+        ,addAfter: _('search.pagination.pagesize.addafter')
+      })
+      ,pageSize: 25
+      ,store: data.store.results
+      ,displayInfo: true
+      ,displayMsg: _('search.pagination.displaying.'+modName)
+      ,emptyMsg: _('search.find.no.results')
+      ,beforePageText: _('search.pagination.beforepage')
+      ,afterPageText: _('search.pagination.afterpage')
+      ,firstText: _('search.pagination.first')
+      ,prevText: _('search.pagination.prev')
+      ,nextText: _('search.pagination.next')
+      ,lastText: _('search.pagination.last')
+      ,refreshText: _('search.pagination.refresh')
+    })
+  };
 
-	form.mainPanel = {
-		xtype:'panel'
-		,id:'search-panel-'+modName
-		,autoHeight:true
-		,items:[
-			form.filterPanel
-			,form.resultsPanel
-		]
-	};
+  form.mainPanel = {
+    xtype:'panel'
+    ,id:'search-panel-'+modName
+    ,autoHeight:true
+    ,items:[
+      form.filterPanel
+      ,form.resultsPanel
+    ]
+  };
 
-	form.doSearch = function(){
-		Search.util.doSearch(modName);
-	};
+  form.doSearch = function(){
+    Search.util.doSearch(modName);
+  };
 
-	// Adjust title with count
-	Search.util.registerTabTitleListener(modName);
+  // Adjust title with count
+  Search.util.registerTabTitleListener(modName);
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  form.init();
-	});
+    form.init();
+  });
 });
 
 
 // TODO:  Register this tab somehow with the main form
 
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.data.blog');
 (function(){
 var modName = 'blog';
-
-Ext.ns('Curriki.module.search.data.'+modName);
 
 var data = Curriki.module.search.data.blog;
 
 data.init = function(){
-	console.log('data.'+modName+': init');
+  console.log('data.'+modName+': init');
 
-	// No filters for blog search
+  // No filters for blog search
 
-	// Set up data store
-	data.store = {};
+  // Set up data store
+  data.store = {};
 
-	data.store.record = new Ext.data.Record.create([
-		{ name: 'name' }
-		,{ name: 'title' }
-		,{ name: 'text' }
-		,{ name: 'comments' }
-		,{ name: 'updated' }
-		,{ name: 'memberUrl' }
-		,{ name: 'blogUrl' }
-	]);
+  data.store.record = new Ext.data.Record.create([
+    { name: 'name' }
+    ,{ name: 'title' }
+    ,{ name: 'text' }
+    ,{ name: 'comments' }
+    ,{ name: 'updated' }
+    ,{ name: 'memberUrl' }
+    ,{ name: 'blogUrl' }
+  ]);
 
-	data.store.results = new Ext.data.Store({
-		storeId: 'search-store-'+modName
-		,proxy: new Ext.data.HttpProxy({
-			url: '/xwiki/bin/view/Search/Blogs'
-			,method:'GET'
-		})
-		,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
+  data.store.results = new Ext.data.Store({
+    storeId: 'search-store-'+modName
+    ,proxy: new Ext.data.HttpProxy({
+      url: '/xwiki/bin/view/Search/Blogs'
+      ,method:'GET'
+    })
+    ,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
 
-		,reader: new Ext.data.JsonReader({
-			root: 'rows'
-			,totalProperty: 'resultCount'
-			,id: 'page'
-		}, data.store.record)
+    ,reader: new Ext.data.JsonReader({
+      root: 'rows'
+      ,totalProperty: 'resultCount'
+      ,id: 'page'
+    }, data.store.record)
 
-		// turn on remote sorting
-		,remoteSort: true
-	});
-	data.store.results.setDefaultSort('updated', 'desc');
+    // turn on remote sorting
+    ,remoteSort: true
+  });
+  data.store.results.setDefaultSort('updated', 'desc');
 
 
 
-	// Set up renderers
-	data.renderer = {
-		name: function(value, metadata, record, rowIndex, colIndex, store){
-			return String.format('<a href="{1}">{0}</a>', value, record.data.memberUrl);
-		}
+  // Set up renderers
+  data.renderer = {
+    name: function(value, metadata, record, rowIndex, colIndex, store){
+      return String.format('<a href="{1}">{0}</a>', value, record.data.memberUrl);
+    }
 
-		,text: function(value, metadata, record, rowIndex, colIndex, store){
-			var desc = Ext.util.Format.htmlDecode(value); // Reverse conversion
-			desc = Ext.util.Format.stripScripts(value);
-			desc = Ext.util.Format.stripTags(desc);
-			desc = Ext.util.Format.trim(desc);
-			desc = Ext.util.Format.ellipsis(desc, 128);
-			//desc = Ext.util.Format.htmlEncode(desc);
-			return String.format('<a href="{2}" class="search-blog-title">{1}</a><br /><br />{0}', desc, record.data.title, record.data.blogUrl);
-		}
+    ,text: function(value, metadata, record, rowIndex, colIndex, store){
+      var desc = Ext.util.Format.htmlDecode(value); // Reverse conversion
+      desc = Ext.util.Format.stripScripts(value);
+      desc = Ext.util.Format.stripTags(desc);
+      desc = Ext.util.Format.trim(desc);
+      desc = Ext.util.Format.ellipsis(desc, 128);
+      //desc = Ext.util.Format.htmlEncode(desc);
+      return String.format('<a href="{2}" class="search-blog-title">{1}</a><br /><br />{0}', desc, record.data.title, record.data.blogUrl);
+    }
 
-		,comments: function(value, metadata, record, rowIndex, colIndex, store){
-			return String.format('{0}', value);
-		}
+    ,comments: function(value, metadata, record, rowIndex, colIndex, store){
+      return String.format('{0}', value);
+    }
 
-		,updated: function(value, metadata, record, rowIndex, colIndex, store){
-			var dt = Ext.util.Format.date(value, 'M-d-Y');
-			return String.format('{0}', dt);
-		}
-	};
+    ,updated: function(value, metadata, record, rowIndex, colIndex, store){
+      var dt = Ext.util.Format.date(value, 'M-d-Y');
+      return String.format('{0}', dt);
+    }
+  };
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  data.init();
-	});
+    data.init();
+  });
 });
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.form.blog');
 (function(){
 var modName = 'blog';
 
@@ -2572,219 +3366,209 @@ var form = Search.form[modName];
 var data = Search.data[modName];
 
 form.init = function(){
-	console.log('form.'+modName+': init');
+  console.log('form.'+modName+': init');
 
-	form.termPanel = Search.util.createTermPanel(modName, form);
+  form.termPanel = Search.util.createTermPanel(modName, form);
 
-	form.filterPanel = {
-		xtype:'form'
-		,labelAlign:'left'
-		,id:'search-filterPanel-'+modName
-		,formId:'search-filterForm-'+modName
-		,border:false
-		,items:[
-			form.termPanel
-		]
-	};
+  form.filterPanel = {
+    xtype:'form'
+    ,labelAlign:'left'
+    ,id:'search-filterPanel-'+modName
+    ,formId:'search-filterForm-'+modName
+    ,border:false
+    ,items:[
+      form.termPanel
+    ]
+  };
 
-	form.columnModel = new Ext.grid.ColumnModel([
-		{
-			id: 'name'
-			,header:_('search.blog.column.header.name')
-			,width: 160
-			,dataIndex: 'name'
-			,sortable:true
-			,renderer: data.renderer.name
-//			,tooltip:_('search.blog.column.header.name')
-		},{
-			id: 'text'
-			,header: _('search.blog.column.header.text')
-			,width: 260
-			,dataIndex: 'text'
-			,sortable:false
-			,renderer: data.renderer.text
-//			,tooltip:_('search.blog.column.header.text')
-		},{
-			id: 'comments'
-			,header: _('search.blog.column.header.comments')
-			,width: 80
-			,dataIndex: 'comments'
-			,sortable:false
-			,renderer: data.renderer.comments
-//			,tooltip:_('search.blog.column.header.comments')
-		},{
-			id: 'updated'
-			,width: 96
-			,header: _('search.blog.column.header.updated')
-			,dataIndex:'updated'
-			,sortable:true
-			,renderer: data.renderer.updated
-//			,tooltip: _('search.blog.column.header.updated')
-	}]);
+  form.columnModel = new Ext.grid.ColumnModel([
+    {
+      id: 'name'
+      ,header:_('search.blog.column.header.name')
+      ,width: 160
+      ,dataIndex: 'name'
+      ,sortable:true
+      ,renderer: data.renderer.name
+//      ,tooltip:_('search.blog.column.header.name')
+    },{
+      id: 'text'
+      ,header: _('search.blog.column.header.text')
+      ,width: 260
+      ,dataIndex: 'text'
+      ,sortable:false
+      ,renderer: data.renderer.text
+//      ,tooltip:_('search.blog.column.header.text')
+    },{
+      id: 'comments'
+      ,header: _('search.blog.column.header.comments')
+      ,width: 80
+      ,dataIndex: 'comments'
+      ,sortable:false
+      ,renderer: data.renderer.comments
+//      ,tooltip:_('search.blog.column.header.comments')
+    },{
+      id: 'updated'
+      ,width: 96
+      ,header: _('search.blog.column.header.updated')
+      ,dataIndex:'updated'
+      ,sortable:true
+      ,renderer: data.renderer.updated
+//      ,tooltip: _('search.blog.column.header.updated')
+  }]);
 
-	form.resultsPanel = {
-		xtype:'grid'
-		,id:'search-results-'+modName
-		//,title:'Results'
-		,border:false
-		,autoHeight:true
-		,width:Search.settings.gridWidth
-		,autoExpandColumn:'text'
-		,stateful:true
-		,frame:false
-		,stripeRows:true
-		,viewConfig: {
-			forceFit:true
-			,enableRowBody:true
-			,showPreview:true
-			// Remove the blank space on right of grid (reserved for scrollbar)
-			,scrollOffset:0
-		}
-		,columnsText:_('search.columns.menu.columns')
-		,sortAscText:_('search.columns.menu.sort_ascending')
-		,sortDescText:_('search.columns.menu.sort_descending')
-		,store: data.store.results
-		,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
-		,cm: form.columnModel
-		,loadMask: false
-		,bbar: new Ext.PagingToolbar({
-			id: 'search-pager-'+modName
-			,plugins:new Ext.ux.Andrie.pPageSize({
-				 variations: [10, 25, 50]
-				,beforeText: _('search.pagination.pagesize.before')
-				,afterText: _('search.pagination.pagesize.after')
-				,addBefore: _('search.pagination.pagesize.addbefore')
-				,addAfter: _('search.pagination.pagesize.addafter')
-			})
-			,pageSize: 25
-			,store: data.store.results
-			,displayInfo: true
-			,displayMsg: _('search.pagination.displaying.'+modName)
-			,emptyMsg: _('search.find.no.results')
-			,beforePageText: _('search.pagination.beforepage')
-			,afterPageText: _('search.pagination.afterpage')
-			,firstText: _('search.pagination.first')
-			,prevText: _('search.pagination.prev')
-			,nextText: _('search.pagination.next')
-			,lastText: _('search.pagination.last')
-			,refreshText: _('search.pagination.refresh')
-		})
-	};
+  form.resultsPanel = {
+    xtype:'grid'
+    ,id:'search-results-'+modName
+    //,title:'Results'
+    ,border:false
+    ,autoHeight:true
+    ,width:Search.settings.gridWidth
+    ,autoExpandColumn:'text'
+    ,stateful:true
+    ,frame:false
+    ,stripeRows:true
+    ,viewConfig: {
+      forceFit:true
+      ,enableRowBody:true
+      ,showPreview:true
+      // Remove the blank space on right of grid (reserved for scrollbar)
+      ,scrollOffset:0
+    }
+    ,columnsText:_('search.columns.menu.columns')
+    ,sortAscText:_('search.columns.menu.sort_ascending')
+    ,sortDescText:_('search.columns.menu.sort_descending')
+    ,store: data.store.results
+    ,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
+    ,cm: form.columnModel
+    ,loadMask: false
+    ,bbar: new Ext.PagingToolbar({
+      id: 'search-pager-'+modName
+      ,plugins:new Ext.ux.Andrie.pPageSize({
+         variations: [10, 25, 50]
+        ,beforeText: _('search.pagination.pagesize.before')
+        ,afterText: _('search.pagination.pagesize.after')
+        ,addBefore: _('search.pagination.pagesize.addbefore')
+        ,addAfter: _('search.pagination.pagesize.addafter')
+      })
+      ,pageSize: 25
+      ,store: data.store.results
+      ,displayInfo: true
+      ,displayMsg: _('search.pagination.displaying.'+modName)
+      ,emptyMsg: _('search.find.no.results')
+      ,beforePageText: _('search.pagination.beforepage')
+      ,afterPageText: _('search.pagination.afterpage')
+      ,firstText: _('search.pagination.first')
+      ,prevText: _('search.pagination.prev')
+      ,nextText: _('search.pagination.next')
+      ,lastText: _('search.pagination.last')
+      ,refreshText: _('search.pagination.refresh')
+    })
+  };
 
-	form.mainPanel = {
-		xtype:'panel'
-		,id:'search-panel-'+modName
-		,autoHeight:true
-		,items:[
-			form.filterPanel
-			,form.resultsPanel
-		]
-	};
+  form.mainPanel = {
+    xtype:'panel'
+    ,id:'search-panel-'+modName
+    ,autoHeight:true
+    ,items:[
+      form.filterPanel
+      ,form.resultsPanel
+    ]
+  };
 
-	form.doSearch = function(){
-		Search.util.doSearch(modName);
-	};
+  form.doSearch = function(){
+    Search.util.doSearch(modName);
+  };
 
-	// Adjust title with count
-	Search.util.registerTabTitleListener(modName);
+  // Adjust title with count
+  Search.util.registerTabTitleListener(modName);
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  form.init();
-	});
+    form.init();
+  });
 });
 
 
 // TODO:  Register this tab somehow with the main form
 
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.data.curriki');
 (function(){
 var modName = 'curriki';
-
-Ext.ns('Curriki.module.search.data.'+modName);
 
 var data = Curriki.module.search.data.curriki;
 
 data.init = function(){
-	console.log('data.'+modName+': init');
+  console.log('data.'+modName+': init');
 
-	// No filters for curriki search
+  // No filters for curriki search
 
-	// Set up data store
-	data.store = {};
+  // Set up data store
+  data.store = {};
 
-	data.store.record = new Ext.data.Record.create([
-		{ name: 'name' }
-//		,{ name: 'text' }
-		,{ name: 'updated' }
-		,{ name: 'url' }
-	]);
+  data.store.record = new Ext.data.Record.create([
+    { name: 'name' }
+//    ,{ name: 'text' }
+    ,{ name: 'updated' }
+    ,{ name: 'url' }
+  ]);
 
-	data.store.results = new Ext.data.Store({
-		storeId: 'search-store-'+modName
-		,proxy: new Ext.data.HttpProxy({
-			url: '/xwiki/bin/view/Search/Curriki'
-			,method:'GET'
-		})
-		,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
+  data.store.results = new Ext.data.Store({
+    storeId: 'search-store-'+modName
+    ,proxy: new Ext.data.HttpProxy({
+      url: '/xwiki/bin/view/Search/Curriki'
+      ,method:'GET'
+    })
+    ,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
 
-		,reader: new Ext.data.JsonReader({
-			root: 'rows'
-			,totalProperty: 'resultCount'
-//			,id: 'page'
-		}, data.store.record)
+    ,reader: new Ext.data.JsonReader({
+      root: 'rows'
+      ,totalProperty: 'resultCount'
+//      ,id: 'page'
+    }, data.store.record)
 
-		// turn on remote sorting
-		,remoteSort: true
-	});
-	data.store.results.setDefaultSort('name', 'asc');
+    // turn on remote sorting
+    ,remoteSort: true
+  });
+  data.store.results.setDefaultSort('name', 'asc');
 
 
 
-	// Set up renderers
-	data.renderer = {
-		name: function(value, metadata, record, rowIndex, colIndex, store){
-			return String.format('<a href="{1}">{0}</a>', value, record.data.url);
-		}
+  // Set up renderers
+  data.renderer = {
+    name: function(value, metadata, record, rowIndex, colIndex, store){
+      return String.format('<a href="{1}">{0}</a>', value, record.data.url);
+    }
 
 /*
-		,text: function(value, metadata, record, rowIndex, colIndex, store){
-			var desc = Ext.util.Format.stripScripts(value);
-			desc = Ext.util.Format.stripTags(desc);
-			desc = Ext.util.Format.ellipsis(desc, 128);
-			desc = Ext.util.Format.htmlEncode(desc);
-			return String.format('{0}', desc);
-		}
+    ,text: function(value, metadata, record, rowIndex, colIndex, store){
+      var desc = Ext.util.Format.stripScripts(value);
+      desc = Ext.util.Format.stripTags(desc);
+      desc = Ext.util.Format.ellipsis(desc, 128);
+      desc = Ext.util.Format.htmlEncode(desc);
+      return String.format('{0}', desc);
+    }
 */
 
-		,updated: function(value, metadata, record, rowIndex, colIndex, store){
-			var dt = Ext.util.Format.date(value, 'M-d-Y');
-			return String.format('{0}', dt);
-		}
-	};
+    ,updated: function(value, metadata, record, rowIndex, colIndex, store){
+      var dt = Ext.util.Format.date(value, 'M-d-Y');
+      return String.format('{0}', dt);
+    }
+  };
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  data.init();
-	});
+    data.init();
+  });
 });
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
+Ext.ns('Curriki.module.search.form.curriki');
 (function(){
 var modName = 'curriki';
-
-Ext.ns('Curriki.module.search.form.'+modName);
 
 var Search = Curriki.module.search;
 
@@ -2792,441 +3576,417 @@ var form = Search.form[modName];
 var data = Search.data[modName];
 
 form.init = function(){
-	console.log('form.'+modName+': init');
+  console.log('form.'+modName+': init');
 
-	form.termPanel = Search.util.createTermPanel(modName, form);
+  form.termPanel = Search.util.createTermPanel(modName, form);
 
-	form.filterPanel = {
-		xtype:'form'
-		,labelAlign:'left'
-		,id:'search-filterPanel-'+modName
-		,formId:'search-filterForm-'+modName
-		,border:false
-		,items:[
-			form.termPanel
-		]
-	};
+  form.filterPanel = {
+    xtype:'form'
+    ,labelAlign:'left'
+    ,id:'search-filterPanel-'+modName
+    ,formId:'search-filterForm-'+modName
+    ,border:false
+    ,items:[
+      form.termPanel
+    ]
+  };
 
-	form.columnModel = new Ext.grid.ColumnModel([
-		{
-			id: 'name'
-			,header:_('search.curriki.column.header.name')
-			,width: 500
-			,dataIndex: 'name'
-			,sortable:true
-			,renderer: data.renderer.name
-//			,tooltip:_('search.curriki.column.header.name')
-		},{
-			id: 'updated'
-			,width: 96
-			,header: _('search.curriki.column.header.updated')
-			,dataIndex:'updated'
-			,sortable:true
-			,renderer: data.renderer.updated
-//			,tooltip: _('search.curriki.column.header.updated')
-	}]);
+  form.columnModel = new Ext.grid.ColumnModel([
+    {
+      id: 'name'
+      ,header:_('search.curriki.column.header.name')
+      ,width: 500
+      ,dataIndex: 'name'
+      ,sortable:true
+      ,renderer: data.renderer.name
+//      ,tooltip:_('search.curriki.column.header.name')
+    },{
+      id: 'updated'
+      ,width: 96
+      ,header: _('search.curriki.column.header.updated')
+      ,dataIndex:'updated'
+      ,sortable:true
+      ,renderer: data.renderer.updated
+//      ,tooltip: _('search.curriki.column.header.updated')
+  }]);
 
-	form.resultsPanel = {
-		xtype:'grid'
-		,id:'search-results-'+modName
-		//,title:'Results'
-		,border:false
-		,autoHeight:true
-		,width:Search.settings.gridWidth
-		,autoExpandColumn:'name'
-		,stateful:true
-		,frame:false
-		,stripeRows:true
-		,viewConfig: {
-			forceFit:true
-			,enableRowBody:true
-			,showPreview:true
-			// Remove the blank space on right of grid (reserved for scrollbar)
-			,scrollOffset:0
-		}
-		,columnsText:_('search.columns.menu.columns')
-		,sortAscText:_('search.columns.menu.sort_ascending')
-		,sortDescText:_('search.columns.menu.sort_descending')
-		,store: data.store.results
-		,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
-		,cm: form.columnModel
-		,loadMask: false
-		,bbar: new Ext.PagingToolbar({
-			id: 'search-pager-'+modName
-			,plugins:new Ext.ux.Andrie.pPageSize({
-				 variations: [10, 25, 50]
-				,beforeText: _('search.pagination.pagesize.before')
-				,afterText: _('search.pagination.pagesize.after')
-				,addBefore: _('search.pagination.pagesize.addbefore')
-				,addAfter: _('search.pagination.pagesize.addafter')
-			})
-			,pageSize: 25
-			,store: data.store.results
-			,displayInfo: true
-			,displayMsg: _('search.pagination.displaying.'+modName)
-			,emptyMsg: _('search.find.no.results')
-			,beforePageText: _('search.pagination.beforepage')
-			,afterPageText: _('search.pagination.afterpage')
-			,firstText: _('search.pagination.first')
-			,prevText: _('search.pagination.prev')
-			,nextText: _('search.pagination.next')
-			,lastText: _('search.pagination.last')
-			,refreshText: _('search.pagination.refresh')
-		})
-	};
+  form.resultsPanel = {
+    xtype:'grid'
+    ,id:'search-results-'+modName
+    //,title:'Results'
+    ,border:false
+    ,autoHeight:true
+    ,width:Search.settings.gridWidth
+    ,autoExpandColumn:'name'
+    ,stateful:true
+    ,frame:false
+    ,stripeRows:true
+    ,viewConfig: {
+      forceFit:true
+      ,enableRowBody:true
+      ,showPreview:true
+      // Remove the blank space on right of grid (reserved for scrollbar)
+      ,scrollOffset:0
+    }
+    ,columnsText:_('search.columns.menu.columns')
+    ,sortAscText:_('search.columns.menu.sort_ascending')
+    ,sortDescText:_('search.columns.menu.sort_descending')
+    ,store: data.store.results
+    ,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
+    ,cm: form.columnModel
+    ,loadMask: false
+    ,bbar: new Ext.PagingToolbar({
+      id: 'search-pager-'+modName
+      ,plugins:new Ext.ux.Andrie.pPageSize({
+         variations: [10, 25, 50]
+        ,beforeText: _('search.pagination.pagesize.before')
+        ,afterText: _('search.pagination.pagesize.after')
+        ,addBefore: _('search.pagination.pagesize.addbefore')
+        ,addAfter: _('search.pagination.pagesize.addafter')
+      })
+      ,pageSize: 25
+      ,store: data.store.results
+      ,displayInfo: true
+      ,displayMsg: _('search.pagination.displaying.'+modName)
+      ,emptyMsg: _('search.find.no.results')
+      ,beforePageText: _('search.pagination.beforepage')
+      ,afterPageText: _('search.pagination.afterpage')
+      ,firstText: _('search.pagination.first')
+      ,prevText: _('search.pagination.prev')
+      ,nextText: _('search.pagination.next')
+      ,lastText: _('search.pagination.last')
+      ,refreshText: _('search.pagination.refresh')
+    })
+  };
 
-	form.mainPanel = {
-		xtype:'panel'
-		,id:'search-panel-'+modName
-		,autoHeight:true
-		,items:[
-			form.filterPanel
-			,form.resultsPanel
-		]
-	};
+  form.mainPanel = {
+    xtype:'panel'
+    ,id:'search-panel-'+modName
+    ,autoHeight:true
+    ,items:[
+      form.filterPanel
+      ,form.resultsPanel
+    ]
+  };
 
-	form.doSearch = function(){
-		Search.util.doSearch(modName);
-	};
+  form.doSearch = function(){
+    Search.util.doSearch(modName);
+  };
 
-	// Adjust title with count
-	Search.util.registerTabTitleListener(modName);
+  // Adjust title with count
+  Search.util.registerTabTitleListener(modName);
 };
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-	  form.init();
-	});
+    form.init();
+  });
 });
 
 
 // TODO:  Register this tab somehow with the main form
 
 })();
-// vim: ts=4:sw=4
-/*global Ext */
-/*global Curriki */
-/*global _ */
 
-(function(){
 Ext.ns('Curriki.module.search.form');
+(function(){
 
 var Search = Curriki.module.search;
 var forms = Search.form;
 
 Search.init = function(){
-	console.log('search: init');
-	if (Ext.isEmpty(Search.initialized)) {
-		if (Ext.isEmpty(Search.tabList)) {
-			Search.tabList = ['resource', 'member'];
-		}
+  console.log('search: init');
+  if (Ext.isEmpty(Search.initialized)) {
+    if (Ext.isEmpty(Search.tabList)) {
+      Search.tabList = ['resource'];
+    }
 
-		var comboWidth = 140;
+    var comboWidth = 140;
 
-		Search.doSearch = function(searchTab, resetPage /* default false */, onlyHistory /* default false */){
-			var filterValues = {};
-			if (Ext.getCmp('search-termPanel')
-			    && Ext.getCmp('search-termPanel').getForm) {
-				filterValues['all'] = Ext.getCmp('search-termPanel').getForm().getValues(false);
-			}
+    Search.doSearch = function(searchTab, resetPage /* default false */, onlyHistory /* default false */) {
 
-			var pagerValues = {};
-
-			var panelSettings = {};
-
-			Ext.each(
-				Search.tabList
-				,function(tab){
-					var module = forms[tab];
-					if (!Ext.isEmpty(module) && !Ext.isEmpty(module.doSearch)) {
-						// Get current values
-						var filterPanel = Ext.getCmp('search-filterPanel-'+tab);
-						if (!Ext.isEmpty(filterPanel)) {
-							var filterForm = filterPanel.getForm();
-							if (!Ext.isEmpty(filterForm)) {
-								filterValues[tab] = filterForm.getValues(false);
-								if ("undefined" !== typeof filterValues[tab]["terms"] && filterValues[tab]["terms"] === _('search.text.entry.label')) {
-									delete(filterValues[tab]["terms"]);
-								}
-								if ("undefined" !== typeof filterValues[tab]["other"] && filterValues[tab]["other"] === '') {
-									delete(filterValues[tab]["other"]);
-								}
-							}
-						}
-
-						var advancedSearch = Ext.getCmp('search-advanced-'+tab);
-						if (!Ext.isEmpty(advancedSearch)) {
-							if (!advancedSearch.collapsed) {
-								panelSettings[tab] = {a:true}; // Advanced open
-							}
-						}
-
-						var pagerPanel = Ext.getCmp('search-pager-'+tab);
-						if (!Ext.isEmpty(pagerPanel)) {
-							var pagerInfo = {};
-							pagerInfo.c = (("undefined" === typeof resetPage) || (resetPage !== true))?pagerPanel.cursor:0;
-							pagerInfo.s = pagerPanel.pageSize;
-							pagerValues[tab] = pagerInfo;
-						}
-
+      if (Ext.isEmpty(searchTab)) {
+	  	  Ext.each(Search.tabList, function(tab){
+	  		  var module = forms[tab];
+	  		  if (!Ext.isEmpty(module) && !Ext.isEmpty(module.doSearch)) {
+						
+						
+						/* Ignore history of advanced search
+			     var advancedSearch = Ext.getCmp('search-advanced-'+tab);
+			     if (!Ext.isEmpty(advancedSearch)) {
+			       if (!advancedSearch.collapsed) {
+			         panelSettings[tab] = {a:false}; // Advanced closed
+			       }
+			     }*/
+						
 						// Do the search
-						if ((("undefined" === typeof onlyHistory) || (onlyHistory = false)) && (Ext.isEmpty(searchTab) || searchTab === tab)) {
-console.log('now util.doSearch', tab, pagerValues);
-							Search.util.doSearch(tab, (("undefined" !== typeof pagerValues[tab])?pagerValues[tab].c:0));
-						}
+						module.doSearch();
 					}
-				}
-			);
-
-			var token = {};
-			token['s'] = Ext.isEmpty(searchTab)?'all':searchTab;
-			token['f'] = filterValues;
-			token['p'] = pagerValues;
-			if (Ext.getCmp('search-tabPanel').getActiveTab) {
-				token['t'] = Ext.getCmp('search-tabPanel').getActiveTab().id;
+				});
+			} else {
+				forms[searchTab].doSearch();
 			}
-			token['a'] = panelSettings;
+				
+      /* Adds to history, don't need that
+      var token = {};
+      token['s'] = Ext.isEmpty(searchTab)?'all':searchTab;
+      token['f'] = filterValues;
+      token['p'] = pagerValues;
+      if (Ext.getCmp('search-tabPanel').getActiveTab) {
+        token['t'] = Ext.getCmp('search-tabPanel').getActiveTab().id;
+      }
+      token['a'] = panelSettings;
 
-			var provider = new Ext.state.Provider();
-			var encodedToken = provider.encodeValue(token);
-			console.log('Saving History', {values: token});
-			Search.history.setLastToken(encodedToken);
-			Ext.History.add(encodedToken);
-		};
+      var provider = new Ext.state.Provider();
+      var encodedToken = provider.encodeValue(token);
+      console.log('Saving History', {values: token});
+      Search.history.setLastToken(encodedToken);
+      Ext.History.add(encodedToken);*/
+    };
 
-		Search.tabPanel = {
-			xtype:(Search.tabList.size()>1?'tab':'')+'panel'
-			,id:'search-tabPanel'
-			,activeTab:0
-			,deferredRender:false
-			,autoHeight:true
-			,layoutOnTabChange:true
-			,frame:false
-			,border:false
-			,plain:true
-			,defaults:{
-				autoScroll:false
-				,border:false
-			}
-			,listeners:{
-				tabchange:function(tabPanel, tab){
-					// Log changing to view a tab
-					var tabId = tab.id.replace(/(^search-|-tab$)/g, '');
-					Curriki.logView('/features/search/'+tabId);
+    Search.tabPanel = {
+      xtype:(Search.tabList.size()>1?'tab':'')+'panel'
+      ,id:'search-tabPanel'
+      ,activeTab:0
+      ,deferredRender:false
+      ,autoHeight:true
+      ,layoutOnTabChange:true
+      ,frame:false
+      ,border:false
+      ,plain:true
+      ,defaults:{
+        autoScroll:false
+        ,border:false
+      }
+      ,listeners:{
+        tabchange:function(tabPanel, tab){
+          // Log changing to view a tab
+          var tabId = tab.id.replace(/(^search-|-tab$)/g, '');
+          Curriki.logView('/features/search/'+tabId);
 
-					var advancedPanel = Ext.getCmp('search-advanced-'+tabId);
-					if (!Ext.isEmpty(advancedPanel)) {
-						if (!advancedPanel.collapsed) {
-							Ext.select('.x-form-field-wrap', false, 'search-advanced-'+tabId).setWidth(comboWidth);
-						}
-					}
+          var advancedPanel = Ext.getCmp('search-advanced-'+tabId);
+          if (!Ext.isEmpty(advancedPanel)) {
+            if (!advancedPanel.collapsed) {
+              Ext.select('.x-form-field-wrap', false, 'search-advanced-'+tabId).setWidth(comboWidth);
+            }
+          }
 /*
-					var URLtoken = Ext.History.getToken();
-					var provider = new Ext.state.Provider();
-					var token = provider.decodeValue(URLtoken);
-					token['t'] = tabPanel.getActiveTab().id;
-					console.log('Saving History', {values: token});
-					Ext.History.add(provider.encodeValue(token));
+          var URLtoken = Ext.History.getToken();
+          var provider = new Ext.state.Provider();
+          var token = provider.decodeValue(URLtoken);
+          token['t'] = tabPanel.getActiveTab().id;
+          console.log('Saving History', {values: token});
+          Ext.History.add(provider.encodeValue(token));
 */        
           Curriki.module.EventManager.fireEvent('Curriki.module.search:tabchange', tabId); 
+        }
+      }
+      ,items:[] // Filled in based on tabs available
+    };
+    Ext.each(
+      Search.tabList
+      ,function(tab){
+        panel = {
+          //title: _('search.'+tab+'.tab.title')
+          id:'search-'+tab+'-tab'
+          ,cls:'search-'+tab
+          ,autoHeight:true
+        };
+        module = forms[tab];
+        if (!Ext.isEmpty(module) && !Ext.isEmpty(module.mainPanel)) {
+          panel.items = [module.mainPanel];
+          Search.tabPanel.items.push(panel);
+        }
+      }
+    );
+
+    Search.mainPanel = {
+      el:'search-div'
+      //,title:_('search.top_titlebar')
+      ,border:false
+      ,height:'600px'
+      ,defaults:{border:false}
+      ,cls:'search-module'
+      ,items:[
+        Search.tabPanel
+      ]
+    };
+
+    
+    Ext.ns('Curriki.module.search.history');
+    var History = Search.history;
+    History.lastHistoryToken = false;
+
+    // Handle this change event in order to restore the UI
+    // to the appropriate history state
+    History.historyChange = function(token){
+      if(token){
+        if(token == History.lastHistoryToken){
+          // Ignore duplicate tokens
+        } else {
+          History.updateFromHistory(token);
+        }
+      } else {
+        // TODO:
+        // This is the initial default state.
+        // Necessary if you navigate starting from the
+        // page without any existing history token params
+        // and go back to the start state.
+      }
+    };
+		
+		History.addToken = function(token) {
+			if (token) {
+				if (token != History.lastHistoryToken) {
+					History.setLastToken(token);
+					Ext.History.add(token);
 				}
 			}
-			,items:[] // Filled in based on tabs available
-		};
-		Ext.each(
-			Search.tabList
-			,function(tab){
-				panel = {
-					title: _('search.'+tab+'.tab.title')
-					,id:'search-'+tab+'-tab'
-					,cls:'search-'+tab
-					,autoHeight:true
-				};
-				module = forms[tab];
-				if (!Ext.isEmpty(module) && !Ext.isEmpty(module.mainPanel)) {
-					panel.items = [module.mainPanel];
-					Search.tabPanel.items.push(panel);
-				}
-			}
-		);
+		}
 
-		Search.mainPanel = {
-			el:'search-div'
-			//,title:_('search.top_titlebar')
-			,border:false
-			,height:'600px'
-			,defaults:{border:false}
-			,cls:'search-module'
-			,items:[
-				Search.tabPanel
-			]
-		};
+    History.setLastToken = function(token){
+      History.lastHistoryToken = token;
+    };
 
-		Ext.ns('Curriki.module.search.history');
-		var History = Search.history;
-		History.lastHistoryToken = false;
+    History.updateFromHistory = function(token){
+      var provider = new Ext.state.Provider();
+      var values = provider.decodeValue(token);
+      console.log('Got History', {token: token, values: values});
 
-		// Handle this change event in order to restore the UI
-		// to the appropriate history state
-		History.historyChange = function(token){
-			if(token){
-				if(token == History.lastHistoryToken){
-					// Ignore duplicate tokens
-				} else {
-					History.updateFromHistory(token);
-				}
-			} else {
-				// TODO:
-				// This is the initial default state.
-				// Necessary if you navigate starting from the
-				// page without any existing history token params
-				// and go back to the start state.
-			}
-		};
+      if (!Ext.isEmpty(values)) {
+        var filterValues = values['f'];
+        if (!Ext.isEmpty(filterValues) && filterValues['all'] && Ext.getCmp('search-termPanel') && Ext.getCmp('search-termPanel').getForm) {
+          Ext.getCmp('search-termPanel').getForm().setValues(filterValues['all']);
+        }
 
-		History.setLastToken = function(token){
-			History.lastHistoryToken = token;
-		};
+        var pagerValues = values['p'];
 
-		History.updateFromHistory = function(token){
-			var provider = new Ext.state.Provider();
-			var values = provider.decodeValue(token);
-			console.log('Got History', {token: token, values: values});
+        var panelSettings = values['a'];
 
-			if (!Ext.isEmpty(values)) {
-				var filterValues = values['f'];
-				if (!Ext.isEmpty(filterValues) && filterValues['all'] && Ext.getCmp('search-termPanel') && Ext.getCmp('search-termPanel').getForm) {
-					Ext.getCmp('search-termPanel').getForm().setValues(filterValues['all']);
-				}
+        if (values['t']) {
+          if (Ext.getCmp('search-tabPanel').setActiveTab) {
+            Ext.getCmp('search-tabPanel').setActiveTab(values['t']);
+          }
+        }
 
-				var pagerValues = values['p'];
+        Ext.each(
+          Search.tabList
+          ,function(tab){
+            console.log('Updating '+tab);
+            var module = Search.form[tab];
+            if (!Ext.isEmpty(module) && !Ext.isEmpty(module.doSearch) && !Ext.isEmpty(filterValues) && !Ext.isEmpty(filterValues[tab])) {
+              var filterPanel = Ext.getCmp('search-filterPanel-'+tab);
+              if (!Ext.isEmpty(filterPanel)) {
+                var filterForm = filterPanel.getForm();
+                if (!Ext.isEmpty(filterForm)) {
+                  try {
+                    filterForm.setValues(filterValues[tab]);
 
-				var panelSettings = values['a'];
+                    // setValues does not trigger the visiblity change of the sub-lists
+                    var list = Ext.getCmp('combo-subject-'+tab);
+                    if (list) {
+                      list.fireEvent("select", list, list.getValue());
+                      if (!Ext.isEmpty(filterValues[tab].subject)) {
+                        if (Ext.getCmp('combo-subsubject-'+tab)) {
+                          Ext.getCmp('combo-subsubject-'+tab).setValue(filterValues[tab].subject);
+                        }
+                      }
+                    }
+                    list = Ext.getCmp('combo-ictprfx-'+tab);
+                    if (list) {
+                      list.fireEvent("select", list, list.getValue());
+                      if (!Ext.isEmpty(filterValues[tab].ict)) {
+                        if (Ext.getCmp('combo-subICT-'+tab)) {
+                          Ext.getCmp('combo-subICT-'+tab).setValue(filterValues[tab].ict);
+                        }
+                      }
+                    }
+                  } catch(e) {
+                    console.log('ERROR Updating '+tab, e);
+                  }
+                }
+              }
 
-				if (values['t']) {
-					if (Ext.getCmp('search-tabPanel').setActiveTab) {
-						Ext.getCmp('search-tabPanel').setActiveTab(values['t']);
-					}
-				}
+              // Open advanced panel if specified
+              if (!Ext.isEmpty(panelSettings) && !Ext.isEmpty(panelSettings[tab]) && panelSettings[tab].a) {
+                var advancedPanel = Ext.getCmp('search-advanced-'+tab);
+                if (!Ext.isEmpty(advancedPanel)) {
+                  advancedPanel.expand(false);
+                }
+              }
 
-				Ext.each(
-					Search.tabList
-					,function(tab){
-						console.log('Updating '+tab);
-						var module = Search.form[tab];
-						if (!Ext.isEmpty(module) && !Ext.isEmpty(module.doSearch) && !Ext.isEmpty(filterValues) && !Ext.isEmpty(filterValues[tab])) {
-							var filterPanel = Ext.getCmp('search-filterPanel-'+tab);
-							if (!Ext.isEmpty(filterPanel)) {
-								var filterForm = filterPanel.getForm();
-								if (!Ext.isEmpty(filterForm)) {
-									try {
-										filterForm.setValues(filterValues[tab]);
+              // Set pager values
+              var pagerPanel = Ext.getCmp('search-pager-'+tab);
+              if (!Ext.isEmpty(pagerPanel) && !Ext.isEmpty(pagerValues)) {
+                if (pagerValues[tab]) {
+                  try {
+                    if (pagerValues[tab]['c']) {
+                      pagerPanel.cursor = pagerValues[tab]['c'];
+                    }
+                    if (pagerValues[tab]['s']) {
+                      if (pagerPanel.pageSize != pagerValues[tab]['s']) {
+                        pagerPanel.setPageSize(pagerValues[tab]['s']);
+                      }
+                    }
+                  } catch(e) {
+                    console.log('ERROR Updating '+tab, e);
+                  }
+                }
+              }
+            }
+          }
+        );
 
-										// setValues does not trigger the visiblity change of the sub-lists
-										var list = Ext.getCmp('combo-subject-'+tab);
-										if (list) {
-											list.fireEvent("select", list, list.getValue());
-											if (!Ext.isEmpty(filterValues[tab].subject)) {
-												if (Ext.getCmp('combo-subsubject-'+tab)) {
-													Ext.getCmp('combo-subsubject-'+tab).setValue(filterValues[tab].subject);
-												}
-											}
-										}
-										list = Ext.getCmp('combo-ictprfx-'+tab);
-										if (list) {
-											list.fireEvent("select", list, list.getValue());
-											if (!Ext.isEmpty(filterValues[tab].ict)) {
-												if (Ext.getCmp('combo-subICT-'+tab)) {
-													Ext.getCmp('combo-subICT-'+tab).setValue(filterValues[tab].ict);
-												}
-											}
-										}
-									} catch(e) {
-										console.log('ERROR Updating '+tab, e);
-									}
-								}
-							}
+        if (values['s']) {
+          console.log('Starting search');
+          if (values['s'] === 'all') {
+            Search.doSearch();
+          } else {
+            Search.doSearch(values['s']);
+          }
+        }
 
-							// Open advanced panel if specified
-							if (!Ext.isEmpty(panelSettings) && !Ext.isEmpty(panelSettings[tab]) && panelSettings[tab].a) {
-								var advancedPanel = Ext.getCmp('search-advanced-'+tab);
-								if (!Ext.isEmpty(advancedPanel)) {
-									advancedPanel.expand(false);
-								}
-							}
-
-							// Set pager values
-							var pagerPanel = Ext.getCmp('search-pager-'+tab);
-							if (!Ext.isEmpty(pagerPanel) && !Ext.isEmpty(pagerValues)) {
-								if (pagerValues[tab]) {
-									try {
-										if (pagerValues[tab]['c']) {
-											pagerPanel.cursor = pagerValues[tab]['c'];
-										}
-										if (pagerValues[tab]['s']) {
-											if (pagerPanel.pageSize != pagerValues[tab]['s']) {
-												pagerPanel.setPageSize(pagerValues[tab]['s']);
-											}
-										}
-									} catch(e) {
-										console.log('ERROR Updating '+tab, e);
-									}
-								}
-							}
-						}
-					}
-				);
-
-				if (values['s']) {
-					console.log('Starting search');
-					if (values['s'] === 'all') {
-						Search.doSearch();
-					} else {
-						Search.doSearch(values['s']);
-					}
-				}
-
-				History.setLastToken(token);
-			}
-		};
+        History.setLastToken(token);
+      }
+    };
 
 
-		History.init = function(){
-			if (Ext.isEmpty(History.initialized)) {
-				var URLtoken = Ext.History.getToken(); // Get BEFORE init'd
-				Ext.History.init(
-					function(){
-						Ext.History.on('change', History.historyChange);
+    History.init = function(){
+      if (Ext.isEmpty(History.initialized)) {
+        var URLtoken = Ext.History.getToken(); // Get BEFORE init'd
+        Ext.History.init(
+          function(){
+            Ext.History.on('change', History.historyChange);
 
-						if (URLtoken) {
-							History.historyChange(URLtoken);
-						}
-					}
-				);
+            if (URLtoken) {
+              History.historyChange(URLtoken);
+            }
+          }
+        );
 
-				History.initialized = true;
-			};
-		};
+        History.initialized = true;
+      };
+    };
 
-		Search.initialized = true;
-		console.log('search: init done');
-	}
+    Search.initialized = true;
+    console.log('search: init done');
+  }
 };
 
 Search.display = function(){
-	Search.init();
+  Search.init();
 
-	var s = new Ext.Panel(Search.mainPanel);
-	s.render();
+  var s = new Ext.Panel(Search.mainPanel);
+  s.render();
 
-	Search.history.init();
+  Search.history.init();
 };
 
 Search.start = function(){
-	Ext.onReady(function(){
-	  Curriki.data.EventManager.on('Curriki.data:ready', function(){
-		  Search.display();
-		});
-	});
+  Ext.onReady(function(){
+    Curriki.data.EventManager.on('Curriki.data:ready', function(){
+      Search.display();
+    });
+  });
 };
 })();
