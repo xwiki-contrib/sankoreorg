@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>ReviewSystem</web>
+<name>ReviewsResults</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1321433576000</creationDate>
+<date>1321433576000</date>
+<contentUpdateDate>1321433576000</contentUpdateDate>
+<version>1.1</version>
+<title>ReviewsResults</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>{{include document="ReviewSystem.ReviewsMacros" /}}
+
+{{velocity wiki="false"}}
+#macro(convertString $input)
+#set($str = "(")
+  #foreach($word in $input)
+    #if($velocityCount == 1)
+      #set($str = "${str}${escapetool.S}${word}${escapetool.S}")
+    #else
+      #set($str = "$str, ${escapetool.S}${word}${escapetool.S}")
+    #end
+  #end
+#set($str = "$!{str})")
+#end
+#set($extra = "")
+#set($params = [])
+#if("$!request.space" != '')
+  #set($extra = "${extra} and doc.space = ?")
+  #set($discard = $params.add("$request.space"))
+#end
+#if("$!request.orphaned" == '1')
+  #set($extra = "${extra} and doc.parent='' and doc.name&lt;&gt;'WebHome'")
+#end
+#set($filterFrom = ', BaseObject as assetObj')
+#set($filterWhere = " ${extra} and assetObj.name=doc.fullName and assetObj.className='CurrikiCode.AssetClass'")
+#if("$!request.educational_level" != "")
+  #convertString($!request.getParameterValues('educational_level'))
+  #set($filterFrom = "${filterFrom}, DBStringListProperty as edLevelprop join edLevelprop.list edLevelValue")
+  #set($filterWhere = "${filterWhere} and assetObj.id=edLevelprop.id.id and edLevelprop.id.name='educational_level' and edLevelValue IN ${str}")
+#end
+#if("$!request.category" != "")
+  #convertString($!request.getParameterValues('category'))
+  #set($filterFrom = "${filterFrom}, StringProperty as catProp")
+  #set($filterWhere = "${filterWhere} and assetObj.id=catProp.id.id and catProp.id.name='category' and catProp.value IN ${str}")
+#end
+#if("$!request.instructional_component" != "")
+  #convertString($!request.getParameterValues('instructional_component'))
+  #set($filterFrom = "${filterFrom}, DBStringListProperty as icProp join icProp.list icPropValue ")
+  #set($filterWhere = "${filterWhere} and assetObj.id=icProp.id.id and icProp.id.name='instructional_component' and icPropValue IN ${str}")
+#end
+#if("$!request.fw_items" != "")
+  #convertString($!request.getParameterValues('fw_items'))
+  #set($filterFrom = "${filterFrom}, DBStringListProperty as fwProp join fwProp.list fwPropValue ")
+  #set($filterWhere = "${filterWhere} and assetObj.id=fwProp.id.id and fwProp.id.name='fw_items' and fwPropValue IN ${str}")
+  #end
+#gridresultwithfilter("$!request.classname" $request.collist.split(",") "$!{filterFrom}" "$!{filterWhere}" $params)
+{{/velocity}}
+</content></xwikidoc>
