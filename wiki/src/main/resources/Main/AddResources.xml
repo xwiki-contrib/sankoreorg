@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1321023697000</creationDate>
-<date>1321023697000</date>
-<contentUpdateDate>1321023697000</contentUpdateDate>
+<creationDate>1321626932000</creationDate>
+<date>1321626932000</date>
+<contentUpdateDate>1321626932000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -23,10 +23,10 @@
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden><attachment>
 <filename>bookmarklet.js</filename>
-<filesize>3941</filesize>
+<filesize>3999</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1321023697000</date>
-<version>1.44</version>
+<date>1321460370000</date>
+<version>1.47</version>
 <comment></comment><content>ZnVuY3Rpb24gaXNFbXB0eShzdHJpbmcpIHsNCiAgcmV0dXJuICFzdHJpbmcgfHwgIS9cUy8udGVz
 dChzdHJpbmcpOyAgICANCn0NCg0KZnVuY3Rpb24gcmVnaXN0ZXJ0aGlzKGlmcmFtZSkgew0KICB2
 YXIgY3VycmVudF9sb2NhdGlvbiA9IHdpbmRvdy5sb2NhdGlvbi5ocmVmOw0KICBjdXJyZW50X2xv
@@ -54,50 +54,221 @@ ew0KICAgIHZhciBqUSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3NjcmlwdCcpOw0KICAgIGpR
 LnR5cGUgPSAndGV4dC9qYXZhc2NyaXB0JzsNCiAgICBqUS5vbmxvYWQgPSBydW50aGlzOw0KICAg
 IGpRLnNyYyA9ICdodHRwOi8vYWpheC5nb29nbGVhcGlzLmNvbS9hamF4L2xpYnMvanF1ZXJ5LzEv
 anF1ZXJ5Lm1pbi5qcyc7DQogICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChqUSk7DQp9IGVs
-c2Ugew0KICAgIHJ1bnRoaXMoKTsNCn0NCg0KZnVuY3Rpb24gcnVudGhpcygpIHsNCiAgICB2YXIg
-dXJsID0gbG9jYXRpb24uaHJlZjsNCiAgICB2YXIgdGl0bGUgPSAoKGRvY3VtZW50LnRpdGxlKSA/
-IGRvY3VtZW50LnRpdGxlIDogZG9jdW1lbnQubG9jYXRpb24uaG9zdCk7DQogICAgdmFyIGlmcmFt
-ZVNyYyA9ICdodHRwOi8vc2Fua29yZS5kZXZ4d2lraS5jb20veHdpa2kvYmluL3ZpZXcvTWFpbi9B
-ZGRSZXNvdXJjZXM/eHBhZ2U9Ym9va21hcmtsZXQmdXJsPScrZXNjYXBlKHVybCkrJyZ0aXRsZT0n
-K2VzY2FwZSh0aXRsZSk7ICANCiAgICBpZnJhbWVTcmMgPSBpZnJhbWVTcmMgKyAnIz0nICsgZXNj
-YXBlKGxvY2F0aW9uLmhyZWYpOyAgDQogICAgdmFyIGVycm9yID0gZmFsc2U7DQogICAgDQogICAg
-aWYgKCQoIiNmcmFtZSIpLmxlbmd0aCA9PT0gMCkgew0KICAgICAgICBpZiAodXJsID09PSAiIikg
-ew0KICAgICAgICAgICAgYWxlcnQoIlVSTCBpbnZhbGlkZSIpOw0KICAgICAgICAgICAgZXJyb3Ig
-PSB0cnVlOw0KICAgICAgICB9DQogICAgICAgIGlmICghZXJyb3IpIHsNCiAgICAgICAgICAgICQo
-ImJvZHkiKS5hcHBlbmQoIlwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBpZD0nYm9v
-a21hcmtsZXQnPlwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBpZD0nZnJhbWVf
-dmVpbCcgc3R5bGU9Jyc+XA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cD5Mb2Fk
-aW5nLi4uPC9wPlwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XA0KICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICA8aWZyYW1lIGlkPSdib29rbWFya2xldC1pZnJhbWUnIHNy
-Yz0nIiArIGlmcmFtZVNyYyArICInIG9ubG9hZD1cImNvbnNvbGUubG9nKCdpZnJhbWUgbG9hZGVk
-Jyk7JCgnI2Jvb2ttYXJrbGV0IGlmcmFtZScpLmZhZGVJbigzMDApO1wiPkVuYWJsZSBpRnJhbWVz
-LjwvaWZyYW1lPlwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHN0eWxlIHR5cGU9J3Rl
-eHQvY3NzJz5cDQogICAgICAgICAgICAgICAgICAgICAjYm9va21hcmtsZXQgeyBkaXNwbGF5Om5v
-bmU7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgd2lkdGg6IDEwMCU7IGhlaWdodDogMTAwJTsgdG9wOiAw
-OyBsZWZ0OiAwOyBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwyNTUsMjU1LC43KTsgY3Vyc29y
-OiBwb2ludGVyOyB6LWluZGV4OiA5MDA7IH1cDQogICAgICAgICAgICAgICAgICAgICNmcmFtZV92
-ZWlsIHAgeyBjb2xvcjogIzY2NjsgZm9udDogYm9sZCAyMHB4LzIwcHggSGVsdmV0aWNhLCBzYW5z
-LXNlcmlmOyBwb3NpdGlvbjogYWJzb2x1dGU7IHRvcDogNTAlOyBsZWZ0OiA1MCU7IHdpZHRoOiAx
-MGVtOyBtYXJnaW46IC0xMHB4IGF1dG8gMCAtNWVtOyB0ZXh0LWFsaWduOiBjZW50ZXI7IH1cDQog
-ICAgICAgICAgICAgICAgICAgICNib29rbWFya2xldCBpZnJhbWUgeyBkaXNwbGF5OiBub25lOyBw
-b3NpdGlvbjogYWJzb2x1dGU7IHRvcDogNSU7IGxlZnQ6IDUwJTsgIHdpZHRoOiA3NjBweDsgaGVp
-Z2h0OiA5MCU7IHotaW5kZXg6IDk5OTsgYm9yZGVyOiAxMHB4IHNvbGlkIHJnYmEoMCwwLDAsLjUp
-OyBtYXJnaW46MCBhdXRvO21hcmdpbi1sZWZ0Oi0zODBweDsgfVwNCiAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgPC9zdHlsZT5cDQogICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+Iik7
-DQogICAgICAgICAgICAkKCIjYm9va21hcmtsZXQiKS5mYWRlSW4oMTAwKTsNCiAgICAgICAgICAg
-IHdpbmRvdy5zZXRJbnRlcnZhbCgicmVzaXpldGhpcygpIiw1MDApOw0KICAgICAgICB9DQogICAg
-fSBlbHNlIHsNCiAgICAgICAgJCgiI2Jvb2ttYXJrbGV0IikuZmFkZU91dCgzMDApOw0KICAgICAg
-ICBzZXRUaW1lb3V0KCIkKCcjYm9va21hcmtsZXQnKS5yZW1vdmUoKSIsIDQwMCk7DQogICAgfQ0K
-ICAgICQoIiNib29rbWFya2xldCIpLmNsaWNrKGZ1bmN0aW9uKGV2ZW50KSB7DQogICAgICAgICQo
-IiNib29rbWFya2xldCIpLmZhZGVPdXQoMzAwKTsNCiAgICAgICAgc2V0VGltZW91dCgiJCgnI2Jv
-b2ttYXJrbGV0JykucmVtb3ZlKCkiLCA0MDApOw0KICAgIH0pOw0KfQ0KDQoNCg0KZnVuY3Rpb24g
-Z2V0U2VsVGV4dCgpIHsNCiAgICB2YXIgcyA9ICcnOw0KICAgIGlmICh3aW5kb3cuZ2V0U2VsZWN0
-aW9uKSB7DQogICAgICAgIHMgPSB3aW5kb3cuZ2V0U2VsZWN0aW9uKCk7DQogICAgfSBlbHNlIGlm
-IChkb2N1bWVudC5nZXRTZWxlY3Rpb24pIHsNCiAgICAgICAgcyA9IGRvY3VtZW50LmdldFNlbGVj
-dGlvbigpOw0KICAgIH0gZWxzZSBpZiAoZG9jdW1lbnQuc2VsZWN0aW9uKSB7DQogICAgICAgIHMg
-PSBkb2N1bWVudC5zZWxlY3Rpb24uY3JlYXRlUmFuZ2UoKS50ZXh0Ow0KICAgIH0NCiAgICByZXR1
-cm4gczsNCn0=
-</content></attachment>
+c2Ugew0KICAgIHJ1bnRoaXMoKTsNCn0NCg0KZnVuY3Rpb24gcnVudGhpcygpIHsNCiAgICB3aW5k
+b3cualF1ZXJ5ID0galF1ZXJ5Lm5vQ29uZmxpY3QoKTsNCiAgICB2YXIgdXJsID0gbG9jYXRpb24u
+aHJlZjsNCiAgICB2YXIgdGl0bGUgPSAoKGRvY3VtZW50LnRpdGxlKSA/IGRvY3VtZW50LnRpdGxl
+IDogZG9jdW1lbnQubG9jYXRpb24uaG9zdCk7DQogICAgdmFyIGlmcmFtZVNyYyA9ICdodHRwOi8v
+c2Fua29yZS5kZXZ4d2lraS5jb20veHdpa2kvYmluL3ZpZXcvTWFpbi9BZGRSZXNvdXJjZXM/eHBh
+Z2U9Ym9va21hcmtsZXQmdXJsPScrZXNjYXBlKHVybCkrJyZ0aXRsZT0nK2VzY2FwZSh0aXRsZSk7
+ICANCiAgICBpZnJhbWVTcmMgPSBpZnJhbWVTcmMgKyAnIz0nICsgZXNjYXBlKGxvY2F0aW9uLmhy
+ZWYpOyAgDQogICAgdmFyIGVycm9yID0gZmFsc2U7DQogICAgDQogICAgaWYgKGpRdWVyeSgiI2Zy
+YW1lIikubGVuZ3RoID09PSAwKSB7DQogICAgICAgIGlmICh1cmwgPT09ICIiKSB7DQogICAgICAg
+ICAgICBhbGVydCgiVVJMIGludmFsaWRlIik7DQogICAgICAgICAgICBlcnJvciA9IHRydWU7DQog
+ICAgICAgIH0NCiAgICAgICAgaWYgKCFlcnJvcikgew0KICAgICAgICAgICAgalF1ZXJ5KCJib2R5
+IikuYXBwZW5kKCJcDQogICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgaWQ9J2Jvb2ttYXJr
+bGV0Jz5cDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgaWQ9J2ZyYW1lX3ZlaWwn
+IHN0eWxlPScnPlwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHA+TG9hZGluZy4u
+LjwvcD5cDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlwNCiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgPGlmcmFtZSBpZD0nYm9va21hcmtsZXQtaWZyYW1lJyBzcmM9JyIg
+KyBpZnJhbWVTcmMgKyAiJyBvbmxvYWQ9XCJqUXVlcnkoJyNib29rbWFya2xldCBpZnJhbWUnKS5m
+YWRlSW4oMzAwKTtcIj5FbmFibGUgaUZyYW1lcy48L2lmcmFtZT5cDQogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIDxzdHlsZSB0eXBlPSd0ZXh0L2Nzcyc+XA0KICAgICAgICAgICAgICAgICAg
+ICAgI2Jvb2ttYXJrbGV0IHsgZGlzcGxheTpub25lOyBwb3NpdGlvbjogYWJzb2x1dGU7IHdpZHRo
+OiAxMDAlOyBoZWlnaHQ6IDEwMCU7IHRvcDogMDsgbGVmdDogMDsgYmFja2dyb3VuZC1jb2xvcjog
+cmdiYSgyNTUsMjU1LDI1NSwuNyk7IGN1cnNvcjogcG9pbnRlcjsgei1pbmRleDogOTAwOyB9XA0K
+ICAgICAgICAgICAgICAgICAgICAjZnJhbWVfdmVpbCBwIHsgY29sb3I6ICM2NjY7IGZvbnQ6IGJv
+bGQgMjBweC8yMHB4IEhlbHZldGljYSwgc2Fucy1zZXJpZjsgcG9zaXRpb246IGFic29sdXRlOyB0
+b3A6IDUwJTsgbGVmdDogNTAlOyB3aWR0aDogMTBlbTsgbWFyZ2luOiAtMTBweCBhdXRvIDAgLTVl
+bTsgdGV4dC1hbGlnbjogY2VudGVyOyB9XA0KICAgICAgICAgICAgICAgICAgICAjYm9va21hcmts
+ZXQgaWZyYW1lIHsgZGlzcGxheTogbm9uZTsgcG9zaXRpb246IGFic29sdXRlOyB0b3A6IDUlOyBs
+ZWZ0OiA1MCU7ICB3aWR0aDogNzYwcHg7IGhlaWdodDogOTAlOyB6LWluZGV4OiA5OTk7IGJvcmRl
+cjogMTBweCBzb2xpZCByZ2JhKDAsMCwwLC41KTsgbWFyZ2luOjAgYXV0bzttYXJnaW4tbGVmdDot
+MzgwcHg7IH1cDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvc3R5bGU+XA0KICAgICAg
+ICAgICAgICAgICAgICAgICAgIDwvZGl2PiIpOw0KICAgICAgICAgICAgalF1ZXJ5KCIjYm9va21h
+cmtsZXQiKS5mYWRlSW4oMTAwKTsNCiAgICAgICAgICAgIHdpbmRvdy5zZXRJbnRlcnZhbCgicmVz
+aXpldGhpcygpIiw1MDApOw0KICAgICAgICB9DQogICAgfSBlbHNlIHsNCiAgICAgICAgalF1ZXJ5
+KCIjYm9va21hcmtsZXQiKS5mYWRlT3V0KDMwMCk7DQogICAgICAgIHNldFRpbWVvdXQoImpRdWVy
+eSgnI2Jvb2ttYXJrbGV0JykucmVtb3ZlKCkiLCA0MDApOw0KICAgIH0NCiAgICBqUXVlcnkoIiNi
+b29rbWFya2xldCIpLmNsaWNrKGZ1bmN0aW9uKGV2ZW50KSB7DQogICAgICAgIGpRdWVyeSgiI2Jv
+b2ttYXJrbGV0IikuZmFkZU91dCgzMDApOw0KICAgICAgICBzZXRUaW1lb3V0KCJqUXVlcnkoJyNi
+b29rbWFya2xldCcpLnJlbW92ZSgpIiwgNDAwKTsNCiAgICB9KTsNCn0NCg0KDQoNCmZ1bmN0aW9u
+IGdldFNlbFRleHQoKSB7DQogICAgdmFyIHMgPSAnJzsNCiAgICBpZiAod2luZG93LmdldFNlbGVj
+dGlvbikgew0KICAgICAgICBzID0gd2luZG93LmdldFNlbGVjdGlvbigpOw0KICAgIH0gZWxzZSBp
+ZiAoZG9jdW1lbnQuZ2V0U2VsZWN0aW9uKSB7DQogICAgICAgIHMgPSBkb2N1bWVudC5nZXRTZWxl
+Y3Rpb24oKTsNCiAgICB9IGVsc2UgaWYgKGRvY3VtZW50LnNlbGVjdGlvbikgew0KICAgICAgICBz
+ID0gZG9jdW1lbnQuc2VsZWN0aW9uLmNyZWF0ZVJhbmdlKCkudGV4dDsNCiAgICB9DQogICAgcmV0
+dXJuIHM7DQp9</content></attachment>
+<object>
+<class>
+<name>XWiki.JavaScriptExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>Main.AddResources</name>
+<number>0</number>
+<className>XWiki.JavaScriptExtension</className>
+<guid>4336c938-1820-413b-885e-aa7eb3a575f0</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code>if (typeof console == 'undefined') {
+  console = {};
+  console.log = function () {};
+}
+
+function registerthis(iframe) {
+  var current_location = window.location.href;
+  current_location = current_location.split('#=')[0];
+  console.log("registerthis: " + current_location);
+  iframe.contentWindow.location = iframe.src + '#=' + escape(current_location);  
+}
+
+function resizethis() {
+  var iframe = document.getElementById("bookmarklet-iframe");
+  var hash = window.location.hash.split('#=');
+  if (hash.length &gt; 1) {
+    var hashfragment = hash[1];
+    if (hashfragment) {
+      var pairs = hashfragment.split('&amp;');
+      var height = "";
+      var width = "";
+      jQuery.each(pairs, function(i, pair) {
+        var pairsplit = pair.split('=');
+        if (pairsplit[0] == "height") height = pairsplit[1];
+        if (pairsplit[0] == "width") width = pairsplit[1];
+      });
+      if (height != "" || width != "") {
+        if (height != "") {
+          height = parseInt(height, 10);
+          height = height + 1;
+          iframe.style.height = height + "px";
+        }
+        if (width != "") {
+          iframe.style.width = width + "px";
+        }
+        window.location.hash = hash[0];
+        console.log("resizethis: height=" + height);
+        console.log("resizethis: width=" + width);
+      }
+    }
+  }  
+}
+
+function runthis() {
+    var url = window.location.href;
+    var title = ((document.title) ? document.title : document.location.host);
+    var iframeSrc = 'http://sankore.devxwiki.com/xwiki/bin/view/Main/AddResources?xpage=bookmarklet&amp;url='+escape(url)+'&amp;title='+escape(title);  
+    iframeSrc = iframeSrc + '#=' + escape(window.location.href);  
+    var error = false;
+    
+    if (jQuery("#frame").length === 0) {
+        if (url === "") {
+            alert("URL invalide");
+            error = true;
+        }
+        if (!error) {
+            jQuery("body").append("&lt;div id='bookmarklet' style='display:none; position: absolute; width: 100%; height: 100%; top: 0; left: 0; background-color: rgb(255,255,255);background-color: rgba(255,255,255,0.7); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2FFFFFF, endColorstr=#B2FFFFFF); -ms-filter: \"progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2FFFFFF, endColorstr=#B2FFFFFF)\"; cursor: pointer; z-index: 900; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30);'&gt;&lt;div id='frame_veil' style='color: #666; font: bold 20px/20px Helvetica, sans-serif; position: absolute; top: 10%; left: 50%; width: 10em; margin: -10px auto 0 -5em; text-align: center;'&gt;&lt;p&gt;Loading...&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;iframe style='position: absolute; top: 10%; left: 50%;  width: 760px; z-index: 999; border-color: #666; border-style: solid; border-width:10px; margin:0 auto;margin-left:-380px;height:200px;' id='bookmarklet-iframe' src='" + iframeSrc + "' onload=\"jQuery(this).fadeIn(300);\" frameBorder='0'&gt;Enable iFrames.&lt;/iframe&gt;");
+            jQuery("#bookmarklet").fadeIn(100);
+            window.setInterval("resizethis()",500);
+        }
+    } else {
+        jQuery("#bookmarklet").fadeOut(300);
+        setTimeout("jQuery('#bookmarklet').remove()", 400);
+    }
+    jQuery("#bookmarklet").click(function(event) {
+        jQuery("#bookmarklet").fadeOut(300);
+        setTimeout("jQuery('#bookmarklet').remove()", 400);
+    });
+}
+
+if (typeof jQuery == 'undefined') {
+    var jQ = document.createElement('script');
+    jQ.type = 'text/javascript';
+    jQ.onload = runthis;
+    jQ.src = 'http://sankore.devxwiki.com/xwiki/resources/js/jquery/jquery.js';
+    document.body.appendChild(jQ);
+    setTimeout("runthis()", 1500);
+} else {
+    runthis();
+}</code>
+</property>
+<property>
+<name>Bookmarklet JSX</name>
+</property>
+<property>
+<parse>0</parse>
+</property>
+<property>
+<use>onDemand</use>
+</property>
+</object>
 <content>{{velocity}}
 #if($context.user=="XWiki.XWikiGuest")
 #set($qs = "")

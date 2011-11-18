@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1321517710000</creationDate>
-<date>1321517710000</date>
-<contentUpdateDate>1321517710000</contentUpdateDate>
+<creationDate>1321621205000</creationDate>
+<date>1321621205000</date>
+<contentUpdateDate>1321621205000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -2283,7 +2283,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>baseskin</name>
 <number>10</number>
 <picker>1</picker>
-<prettyName>Base Skin</prettyName>
+<prettyName>baseskin</prettyName>
 <size>30</size>
 <tooltip></tooltip>
 <unmodifiable>0</unmodifiable>
@@ -2314,7 +2314,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>comments.vm</name>
 <number>8</number>
 <picker>1</picker>
-<prettyName>Comments</prettyName>
+<prettyName>comments.vm</prettyName>
 <rows>15</rows>
 <size>100</size>
 <tooltip></tooltip>
@@ -2346,7 +2346,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>edit.vm</name>
 <number>9</number>
 <picker>1</picker>
-<prettyName>Edit</prettyName>
+<prettyName>edit.vm</prettyName>
 <rows>15</rows>
 <size>100</size>
 <tooltip></tooltip>
@@ -2397,7 +2397,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>footer.vm</name>
 <number>4</number>
 <picker>1</picker>
-<prettyName>Footer</prettyName>
+<prettyName>footer.vm</prettyName>
 <rows>15</rows>
 <size>100</size>
 <tooltip></tooltip>
@@ -2448,7 +2448,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>header.vm</name>
 <number>3</number>
 <picker>1</picker>
-<prettyName>Header</prettyName>
+<prettyName>header.vm</prettyName>
 <rows>15</rows>
 <size>100</size>
 <tooltip></tooltip>
@@ -2546,7 +2546,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>logo</name>
 <number>37</number>
 <picker>0</picker>
-<prettyName>Logo</prettyName>
+<prettyName>logo</prettyName>
 <size>30</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
@@ -2561,7 +2561,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>menuview.vm</name>
 <number>17</number>
 <picker>1</picker>
-<prettyName>menuview</prettyName>
+<prettyName>menuview.vm</prettyName>
 <rows>15</rows>
 <size>100</size>
 <tooltip></tooltip>
@@ -2591,7 +2591,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>name</name>
 <number>1</number>
 <picker>1</picker>
-<prettyName>Name</prettyName>
+<prettyName>name</prettyName>
 <size>30</size>
 <tooltip></tooltip>
 <unmodifiable>0</unmodifiable>
@@ -2607,7 +2607,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>pagemenu.vm</name>
 <number>7</number>
 <picker>1</picker>
-<prettyName>Page Menu</prettyName>
+<prettyName>pagemenu.vm</prettyName>
 <rows>15</rows>
 <size>100</size>
 <tooltip></tooltip>
@@ -2684,7 +2684,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>style.css</name>
 <number>2</number>
 <picker>1</picker>
-<prettyName>Style</prettyName>
+<prettyName>style.css</prettyName>
 <rows>15</rows>
 <size>100</size>
 <tooltip></tooltip>
@@ -2733,7 +2733,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <name>viewheader.vm</name>
 <number>6</number>
 <picker>1</picker>
-<prettyName>View Header</prettyName>
+<prettyName>viewheader.vm</prettyName>
 <rows>15</rows>
 <size>100</size>
 <tooltip></tooltip>
@@ -2785,13 +2785,13 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 #body {
  min-width: 0px;
 }
-#body.page-AddResources {
+#body {
   width: auto !important;
 }
-.page-AddResources #xwikimaincontainer {
+#xwikimaincontainer {
 width: auto !important;
 }
-.page-AddResources #xwikimaincontainerinner {
+#xwikimaincontainerinner {
   width: auto !important;
 }
 
@@ -2802,7 +2802,7 @@ width: auto !important;
   width: auto !important;
 }
 
-.page-AddResources .ext-el-mask {
+.ext-el-mask {
   display:none !important;
 }
 &lt;/style&gt;
@@ -4162,8 +4162,11 @@ font-size: 13px; font-weight:bold;}
 #if($xcontext.action == "admin" || $xcontext.action == "import" || $xcontext.action == "export")
   #set($bodyAction = "view")
 #end
+#if ("$!request.xpage" != "")
+  #set($bodyxpage = "xpage-$!{request.xpage}")
+#end
 ## These elements will be closed in the htmlfooter.vm file
-&lt;$bodyTagName id="body" class="wiki-${xcontext.database} space-${escapetool.xml($doc.space.replaceAll(' ', '_'))} page-${escapetool.xml($doc.name.replaceAll(' ', '_'))} ${bodyAction}body #if($showLeftPanels == "0")hideleft#end#if($showRightPanels == "0")hideright#end#if($hidecolumns &amp;&amp; ($!hidecolumns == 1))hidelefthideright#end"&gt;
+&lt;$bodyTagName id="body" class="wiki-${xcontext.database} space-${escapetool.xml($doc.space.replaceAll(' ', '_'))} page-${escapetool.xml($doc.name.replaceAll(' ', '_'))} ${bodyAction}body $!{bodyxpage} #if($showLeftPanels == "0")hideleft#end#if($showRightPanels == "0")hideright#end#if($hidecolumns &amp;&amp; ($!hidecolumns == 1))hidelefthideright#end"&gt;
 &lt;div id="xwikimaincontainer"&gt;
 &lt;div id="xwikimaincontainerinner"&gt;</htmlheader.vm>
 </property>
@@ -4196,7 +4199,7 @@ font-size: 13px; font-weight:bold;}
 ##
 ## If not using xwiki standalone you need to comment the following line
 &lt;script src="/xwiki/bin/view/Util/JSTrans?xpage=plain&amp;lang=${lang}"&gt;&lt;/script&gt;
-&lt;script src="/xwiki/js/i18n{debugging}.js"&gt;&lt;/script&gt;
+&lt;script src="/xwiki/js/i18n.js"&gt;&lt;/script&gt;
 ## and uncomment the next one out instead
 ##&lt;script src="/js/1/lang_${lang}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-main${debugging}.js"&gt;&lt;/script&gt;
