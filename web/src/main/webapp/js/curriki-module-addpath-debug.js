@@ -678,11 +678,11 @@ Curriki.module.addpath.init = function() {
                           ,invalid:0
                           ,form:form
                         }
-                        Ext.each(['url', 'title', 'rating', 'description'], function(item){
+                        Ext.each(['link', 'title', 'rating', 'description'], function(item){
                           var invalid = null;
 
                           switch (item){
-                            case 'url':                             
+                            case 'link':                             
                             case 'title':
                             case 'rating':                              
                             case 'description':                                
