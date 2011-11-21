@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1320687243000</creationDate>
-<date>1320687243000</date>
-<contentUpdateDate>1320687243000</contentUpdateDate>
+<creationDate>1321892999000</creationDate>
+<date>1321892999000</date>
+<contentUpdateDate>1321892999000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -422,7 +422,7 @@ ace.lesson.plan.title.description.link2.thumbnail=/xwiki/bin/download/CreateReso
 ace.lesson.plan.step1.header=Step 1. Enter Basic Information
 ace.lesson.plan.step1.instruction=How would you describe and categorize this lesson for yourself &lt;br&gt;and other educators?
 
-ace.lesson.plan.title_title=Title:
+ace.lesson.plan.title_title=Titre:
 ace.lesson.plan.title_txt=Enter a title for your lesson of no more than 250 characters (including spaces).
 ace.lesson.plan.title_tooltip=This title will be displayed in listings (such as search results) and should help you and others quickly identify it.
 
@@ -436,28 +436,28 @@ ace.lesson.plan.step2.header=Step 2. Enter &amp; Format Lesson Content
 ace.lesson.plan.step2.instruction=What would another educator need to know to successfully put this lesson &lt;br&gt;into practice ?
 
 ##CORRECT DISPLAY STRINGS FOR NUMBER OF DAYS
-ace.lesson.plan.introduction.title=Number of Days:
-ace.lesson.plan.introduction.instruction=Enter the estimated number of class days it will take students to meet the lesson plan objective.
+ace.lesson.plan.introduction.title=Nombre de Jours:
+ace.lesson.plan.introduction.instruction=Entrez le nombre approximatif de jours dont un élève aurait besoin pour apprendre ce cours.
 ace.lesson.plan.introduction.content=
 ace.lesson.plan.introduction.tooltip=Lesson plans that are 2-4 days in length help students connect discrete ideas or skills into larger, more complex concepts.
 
 ace.lesson.plan.number.days.title=Nombre de Jours:
 
 ##CORRECT DISPLAY STRINGS FOR PRIOR KNOWLEDGE
-ace.lesson.plan.group.size.title=Prior Knowledge:
-ace.lesson.plan.group.size.instruction=Describe what students need to know and be able to do in order to participate in this lesson's learning tasks and methods.
+ace.lesson.plan.group.size.title=Pré-requis:
+ace.lesson.plan.group.size.instruction=Décrivez les pré-requis pour qu'un élève puisse suivre et participer au cours.
 ace.lesson.plan.group.size.content=
 ace.lesson.plan.group.size.tooltip=placeholder
 
-ace.lesson.plan.prior.knowledge.title=Prior Knowledge:
+ace.lesson.plan.prior.knowledge.title=Pré-requis:
 
 ##CORRECT DISPLAY FOR LESSON OBJECTIVE
-ace.lesson.plan.learning.objectives.title=Lesson Objective:
-ace.lesson.plan.learning.objectives.instruction=Articulate what students will know and be able to do by the end of the lesson.
+ace.lesson.plan.learning.objectives.title=Objectif d'apprentissage:
+ace.lesson.plan.learning.objectives.instruction=Expliquez ce que l'élève va savoir / savoir faire après avoir suivi ce cours.
 ace.lesson.plan.learning.objectives.content=
 ace.lesson.plan.learning.objectives.tooltip=Effective lesson plan objectives often ask students to connect ideas across several days, and build toward the unit goal.
 
-ace.lesson.plan.lesson.objective.title=Lesson Objective:
+ace.lesson.plan.lesson.objective.title=Objectif d'apprentissage:
 
 ##CORRECT DISPLAY FOR LESSON ASSESSMENT
 ace.lesson.plan.assessment.title=Evaluation de la leçon
@@ -465,7 +465,7 @@ ace.lesson.plan.assessment.instruction=Décrivez l'évaluation individuelle de c
 ace.lesson.plan.assessment.content=
 ace.lesson.plan.assessment.tooltip=Ajoutez des quiz ou autres moyens d'évaluation pour cette leçon. 
 
-ace.lesson.plan.lesson.assessment.title=Lesson Assessment:
+ace.lesson.plan.lesson.assessment.title=Evaluation de la leçon:
 
 ##CORRECT DISPLAY FOR BENCHMARK OR STANDARDS
 ace.lesson.plan.standards.title=Benchmark or Standards:
@@ -861,13 +861,6 @@ add.setrequiredinfo.part2.guidingquestion=Relisez et mettez à jour les six cham
 add.setrequiredinfo.part2.cancel.button=Annuler
 add.setrequiredinfo.part2.next.button=Suivant &gt;&gt;
 
-add.setrequiredinfo.url.publish.button=Publier
-add.setrequiredinfo.url.next.button=Complétez l'indexation de votre ressource
-
-sri.rating_title=Evaluation:
-sri.link_title=Adresse de la ressource:
-add.setrequiredinfo.url.next.text=Complétez la ressource avec des métadonnées supplémentaires pour rendre le moteur de recherche Sankoré encore plus performant
-
 ##CONTRIBUTE MENU
 add.contributemenu.title_addto_site=Ajouter à Planète Sankoré
 add.contributemenu.title_addto_composite=Ajouter à la collection ou au dossier
@@ -924,8 +917,8 @@ add.selecttemplate.list4.description=This Planète Sankoré template offers the 
 add.selecttemplate.list4.thumbnail=/xwiki/bin/download/CreateResources/TemplateThumbnails/WebQuestThumb.png
 add.selecttemplate.list4.url=/xwiki/bin/view/CreateResources/WebQuest
 
-add.selecttemplate.cancel.button=Cancel
-add.selecttemplate.next.button=Next &gt;&gt;
+add.selecttemplate.cancel.button=Annuler
+add.selecttemplate.next.button=Suivant &gt;&gt;
 
 ## SELECT A FORMAT DIALOG
 
@@ -1029,5 +1022,13 @@ add.finalmessage.close.button=Fermer
 add.servertimedout.message.title=Erreur serveur
 add.servertimedout.message.text=Il y a eu un problème d'accès au serveur. Essayez encore SVP.
 add.servertimedout.message.button=OK
+
+## BOOKMARKLET
+add.setrequiredinfo.url.publish.button=Publier
+add.setrequiredinfo.url.next.button=Complétez l'indexation de votre ressource
+
+sri.rating_title=Evaluation:
+sri.link_title=Adresse de la ressource:
+add.setrequiredinfo.url.next.text=Complétez la ressource avec des métadonnées supplémentaires pour rendre le moteur de recherche Sankoré encore plus performant
 {/pre}
 </content></xwikidoc>
