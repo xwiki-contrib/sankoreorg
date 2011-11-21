@@ -62,6 +62,7 @@ Curriki.module.addpath.init = function() {
            title:_('add.contributemenu.title_addto_'+(this.toFolder?'composite':'site'))
           ,cls:'addpath addpath-source resource resource-add'
           ,id:AddPath.AddSourceDialogueId
+          ,width:400                    
           ,items:[{
              xtype:'panel'
             ,cls:'guidingquestion-container'
@@ -81,7 +82,9 @@ Curriki.module.addpath.init = function() {
             ,formId:'addDialogueForm'
             ,cls:'form-container'
             ,labelWidth:25
-            ,autoScroll:true
+            ,autoScroll:false
+            ,autoHeight:true
+            ,autoWidth:true
             ,border:false
             ,defaults:{
                labelSeparator:''
@@ -567,7 +570,7 @@ Curriki.module.addpath.init = function() {
         Ext.apply(this, {
            title:_('add.setrequiredinfo.part1.title')
           ,cls:'addpath addpath-metadata resource resource-add'
-          ,width:640
+          ,autoHeight:true
           ,draggable:false
           ,items:[{
              xtype:'panel'
@@ -592,7 +595,9 @@ Curriki.module.addpath.init = function() {
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
-            ,autoScroll:true
+            ,autoHeight:true
+            ,autoWidth:true
+            ,autoScroll:false
             ,border:false
             ,defaults:{
                labelSeparator:''
@@ -681,11 +686,7 @@ Curriki.module.addpath.init = function() {
                         Ext.each(['link', 'title', 'rating', 'description'], function(item){
                           var invalid = null;
 
-                          switch (item){
-                            case 'link':                             
-                            case 'title':
-                            case 'rating':                              
-                            case 'description':                                
+                          switch (item){                               
                             default:
                               if (!this.form.findField('metadata-'+item+'-entry').isValid()){
                                 invalid = item;
@@ -941,7 +942,7 @@ Curriki.module.addpath.init = function() {
            id:'MetadataDialogueWindow'
           ,title:_('add.setrequiredinfo.part2.title')
           ,cls:'addpath addpath-metadata resource resource-add'
-          ,width:740
+          ,autoHeight:true
           ,draggable:false
           ,items:[{
              xtype:'panel'
@@ -967,6 +968,8 @@ Curriki.module.addpath.init = function() {
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
             ,autoScroll:false
+            ,autoHeight:true
+            ,autoWidth:true
             ,border:false
             ,defaults:{
                labelSeparator:''
@@ -1563,8 +1566,6 @@ Curriki.module.addpath.init = function() {
                         var invalid = null;
 
                         switch (item){
-                          case 'title':
-                          case 'description':
                           case 'ict':
                             if (!this.form.findField('instructional_component-validation').isValid()){
                               invalid = item;
@@ -1584,6 +1585,9 @@ Curriki.module.addpath.init = function() {
                             break;
 
                           default:
+                            if (!this.form.findField('metadata-'+item+'-entry').isValid()) {
+                              invalid = item;
+                            }
                             break;
                         }
                         var title = Ext.get('metadata-'+item+'-title');
