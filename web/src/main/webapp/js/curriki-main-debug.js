@@ -2514,7 +2514,7 @@ Curriki.data.EventManager.on('Curriki.data.el:ready', function() {
 Ext.ns('Curriki.data.language');
 Curriki.data.EventManager.addListener('Curriki.data.language:ready', function() {
   Curriki.data.language.data = [];
-  Curriki.data.language.initial = Curriki.data.language.list[0];
+  Curriki.data.language.initial = XWiki.contextlanguage;
   Curriki.data.language.list.each(function(lang) {
     Curriki.data.language.data.push([lang, _('CurrikiCode.AssetClass_language_' + lang)]);
   });
