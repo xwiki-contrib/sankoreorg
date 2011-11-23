@@ -1578,7 +1578,7 @@ data.init = function(){
     // turn on remote sorting
     ,remoteSort: true
   });
-  data.store.results.setDefaultSort('title', 'asc');
+  data.store.results.setDefaultSort('rating', 'desc');
 
   // Set up renderers
   data.renderer = {
@@ -2345,7 +2345,7 @@ data.init = function(){
   data.store.results = new Ext.data.Store({
     storeId: 'search-store-'+modName
     ,proxy: new Ext.data.HttpProxy({
-      url: '/xwiki/bin/view/Search/Groups'
+      url: '/xwiki/bin/view/Search/GroupsJSON'
       ,method:'GET'
     })
     ,baseParams: { xpage: "plain", '_dc':(new Date().getTime()) }
@@ -2674,7 +2674,7 @@ form.init = function(){
   form.resultsPanel = {
     xtype:'grid'
     ,id:'search-results-'+modName
-    //,title:'Results'
+    ,title:_('search.'+modName+'.tab.title')
     ,border:false
     ,autoHeight:true
     ,width:Search.settings.gridWidth
