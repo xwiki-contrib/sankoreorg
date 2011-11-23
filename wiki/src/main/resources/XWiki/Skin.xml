@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1321621205000</creationDate>
-<date>1321621205000</date>
-<contentUpdateDate>1321621205000</contentUpdateDate>
+<creationDate>1322053289000</creationDate>
+<date>1322053289000</date>
+<contentUpdateDate>1322053289000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -5837,6 +5837,7 @@ img.subcategory-unknown_unknown {background-position: 0 -4770px;}
 .category-unknown img.category-icon, #x-form-el-combo-category-resource div.category-unknown, .subcategory-attachment_unknown .x-tree-node-icon, .category-unknown .x-tree-node-icon {background-position: 0 -4500px;}
 #search-advanced-resource {margin: 0;}
 #search-advanced-external {margin: 0;}
+#search-advanced-group {margin: 0;}
 
 /*** Adding Search styles for extjs Overrides ***/
 
@@ -5988,9 +5989,7 @@ td.x-grid3-hd-over .x-grid3-hd-text a,td.sort-desc .x-grid3-hd-text a,td.sort-as
 }
 td.x-grid3-hd-over .x-grid3-hd-contributions .x-grid3-hd-btn {background:none!important;}
 #search-results-member .x-grid3-hd-btn, #search-results-blog .x-grid3-hd-btn, #search-results-group .x-grid3-hd-btn {background:#069 url(/xwiki/skins/curriki8/images/grid3-hd-btn-blue.gif) no-repeat left center;}
-#search-results-member td.x-grid3-hd-over .x-grid3-hd-inner, #search-results-member td.sort-desc .x-grid3-hd-inner, #search-results-member td.sort-asc .x-grid3-hd-inner, #search-results-member td.x-grid3-hd-menu-open .x-grid3-hd-inner, #search-results-blog td.x-grid3-hd-over .x-grid3-hd-inner, #search-results-blog td.sort-desc .x-grid3-hd-inner, #search-results-blog td.sort-asc .x-grid3-hd-inner, #search-results-blog td.x-grid3-hd-menu-open .x-grid3-hd-inner, #search-results-group td.x-grid3-hd-over .x-grid3-hd-inner, #search-results-group td.sort-desc .x-grid3-hd-inner, #search-results-group td.sort-asc .x-grid3-hd-inner, #search-results-group td.x-grid3-hd-menu-open .x-grid3-hd-inner {background-color:#A73906;}
 #search-results-curriki .x-grid3-hd-btn {background:#669 url(/xwiki/skins/curriki8/images/grid3-hd-btn-purple.gif) no-repeat left center;}
-#search-results-curriki td.x-grid3-hd-over .x-grid3-hd-inner, #search-results-curriki td.sort-desc .x-grid3-hd-inner, #search-results-curriki td.sort-asc .x-grid3-hd-inner, #search-results-curriki td.x-grid3-hd-menu-open .x-grid3-hd-inner {background-color:#A73906;}
 .x-grid3-row-over {background:#ffffcf;}
 
 .x-tip {
@@ -6753,12 +6752,12 @@ ul.menu li {
 
 ##
 
-#search-results-external, #search-results-resource {
+#search-results-external, #search-results-resource, #search-results-group {
   background: transparent;
   border: none;
 }
 
-#search-results-external .x-panel-header-noborder, #search-results-resource .x-panel-header-noborder {
+#search-results-external .x-panel-header-noborder, #search-results-resource .x-panel-header-noborder, #search-results-group .x-panel-header-noborder {
   background: transparent;
   border: none;
   color: #749D37;
@@ -6768,7 +6767,7 @@ ul.menu li {
   margin-top: 15px;
 }
 
-#search-results-external .x-panel-body, #search-results-resource .x-panel-body {
+#search-results-external .x-panel-body, #search-results-resource .x-panel-body, #search-results-group .x-panel-body {
   background: transparent !important;
   border: none !important;
 }
@@ -6807,15 +6806,15 @@ ul.menu li {
   display: none;
 }
 
-#search-results-external .x-paging-info, #search-results-resource .x-paging-info {
+#search-results-external .x-paging-info, #search-results-resource .x-paging-info, #search-results-group .x-paging-info {
   display: none;
 }
 
-#search-pager-external table, #search-pager-resource table {
+#search-pager-external table, #search-pager-resource table, #search-pager-group table {
   margin-top: 0;
 }
 
-#search-filterPanel-external, #search-filterPanel-resource  {
+#search-filterPanel-external, #search-filterPanel-resource, #search-filterPanel-group  {
   background: none repeat scroll 0 0 #D9E39C;
   border-bottom: 1px solid #B7BC7A;
   border-right: 1px solid #B7BC7A;
@@ -6837,7 +6836,7 @@ fieldset#search-advanced-external {
   display: none;
 }
 
-#search-termPanel-button-external button, #search-termPanel-button-resource button {
+#search-termPanel-button-external button, #search-termPanel-button-resource button, #search-termPanel-button-group button {
 background: url("/xwiki/bin/download/Panels/SankoreSearchPanel/loupe.png") no-repeat scroll 0 0 transparent;
     cursor: pointer;
     display: inline;
@@ -6894,7 +6893,7 @@ input#search-termPanel-resource-terms, input#search-termPanel-external-terms, in
   letter-spacing:1px; 
 }
 
-#search-results-resource .x-grid3-header table {
+#search-results-resource .x-grid3-header table, #search-results-group .x-grid3-header table {
   height: 30px;
   background-color: #749D35;
 }
@@ -6907,18 +6906,18 @@ td.x-grid3-hd-over .x-grid3-hd-inner, td.sort-desc .x-grid3-hd-inner, td.sort-as
   background-color: #749D35;
 }
 
-#search-results-statusbar-resource {
+#search-results-statusbar-resource, #search-results-statusbar-group {
   background: none;
   background-color: #FAFAFA !important;
   border-color: #749D35;
   border-width: 1px;
 }
 
-#search-results-statusbar-resource table a {
+#search-results-statusbar-resource table a, #search-results-statusbar-group table a {
     color: #749D37;
 }
 
-#search-results-statusbar-resource a img {
+#search-results-statusbar-resource a img , #search-results-statusbar-group a img {
   clear: left;
   float: left;
   margin-right: 10px;
@@ -7002,6 +7001,18 @@ form#MetadataDialogueForm {
 #googleSearch {
   border-top: 2px solid #749D37;
   margin-top: 40px;
+}
+
+.x-panel-bwrap .x-panel-body {
+  overflow: hidden;
+}
+
+textarea {
+  width: 100%;
+}
+
+#search-results-member td.x-grid3-hd-over .x-grid3-hd-inner, #search-results-member td.sort-desc .x-grid3-hd-inner, #search-results-member td.sort-asc .x-grid3-hd-inner, #search-results-member td.x-grid3-hd-menu-open .x-grid3-hd-inner, #search-results-blog td.x-grid3-hd-over .x-grid3-hd-inner, #search-results-blog td.sort-desc .x-grid3-hd-inner, #search-results-blog td.sort-asc .x-grid3-hd-inner, #search-results-blog td.x-grid3-hd-menu-open .x-grid3-hd-inner, #search-results-group td.x-grid3-hd-over .x-grid3-hd-inner, #search-results-group td.sort-desc .x-grid3-hd-inner, #search-results-group td.sort-asc .x-grid3-hd-inner, #search-results-group td.x-grid3-hd-menu-open .x-grid3-hd-inner {
+    background-color: #749D35;
 }</sankore.css>
 </property>
 <property>
@@ -7842,7 +7853,13 @@ body.hideright #footerglobal {
 #breadcrumb {
   padding-bottom: 0.5em;
 }
-</style.css></property><property><stylesheets.vm>&lt;link href="$xwiki.getSkinFile('extjs/resources/css/ext-all.css', true)" rel="stylesheet" type="text/css" media="all" /&gt;
+
+.code, .code pre, .code * {
+  white-space: pre-wrap;
+}</style.css>
+</property>
+<property>
+<stylesheets.vm>&lt;link href="$xwiki.getSkinFile('extjs/resources/css/ext-all.css', true)" rel="stylesheet" type="text/css" media="all" /&gt;
 #*
 &lt;script type="text/javascript"&gt;
 //&lt;![CDATA[
