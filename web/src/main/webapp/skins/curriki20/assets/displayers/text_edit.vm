@@ -1,0 +1,45 @@
+#asset_displaycontentheader("")
+<div class="asset-display-edit">
+  <div class="asset-display-edit-inner">
+    <form name="text" action="$xwiki.getURL("CurrikiCode.AssetSaveService", "view")" onsubmit="return beforeAssetSubmit(this);" method="post" >
+      #set($xredirect = $xwiki.getFormEncoded($asset.getURL('view', $!request.queryString.replaceAll("viewer=assetedit", ""))))
+      <input  type="hidden" name="page" value="$asset.fullName" />
+      <input  type="hidden" name="xredirect" value="$xredirect" />
+      <fieldset>
+        <ul>
+        $asset.use("CurrikiCode.TextAssetClass")
+        #set($syntax = $asset.getValue("syntax"))
+        #if($syntax == "xwiki/1.0" || $syntax == "xwiki/2.0")
+          <li class="input-textarea">
+            <p>$msg.get("rve.content.edit.text.instruction_text.wiki_wysiwyg")</p>
+            #markup_editAssetProperty($asset "content" $syntax)
+            <div id="input-wiki-wysiwyg">
+              $asset.getTextArea()
+            </div>
+         </li>
+        #elseif($syntax=="xhtml/1.0")
+          <li class="input-textarea">
+            <p>$msg.get("rve.content.edit.text.instruction_text.html_wysiwyg")</p>
+            #markup_editAssetProperty($asset "content" $syntax)
+            <div id="input-html-wysiwyg">
+              $asset.getTextArea()
+            </div>
+          </li>       
+        #else
+          <li class="input-textarea">
+            <div id="input-text-wysiwyg">
+              $asset.getTextArea()
+            </div>
+          </li>
+        #end
+        #asset_edit_revision()
+        </ul>
+      </fieldset>
+      <hr>
+      #asset_edit_buttons($asset true)
+    </form>
+    ## this allows to check for changes
+    #curriki_clickawayjs("text" $xwiki.curriki.escapeForJS($msg.get("rve.content.edit.warning.message_text")))        
+  </div>
+</div>
+#asset_displaycontentfooter()

@@ -1,0 +1,21 @@
+#**
+  * Asset Text Displayer in View mode
+  *
+  *#
+#asset_displaycontentheader("")
+<div class="asset-display-text">
+  <div class="asset-display-text-inner xwikicontent">
+  #set($objTxt = $asset.getObject("CurrikiCode.TextAssetClass"))
+  #if($asset.getObject("CurrikiCode.TextAssetClass"))
+    #if($objTxt.syntax == "xwiki/1.0" || $objTxt.syntax == "xwiki/2.0")      
+      $asset.getRenderedContent("{{code}}$!{asset.content}{{/code}}", "xwiki/2.0")
+    #elseif($objTxt.syntax == "xhtml/1.0" || $objTxt.syntax == "html/4.01")
+      $asset.getRenderedContent("{{code language='html'}}$!{asset.content}{{/code}}", "xwiki/2.0")
+    #end
+  #else
+    $asset.content
+  #end
+  </div>
+</div>
+#asset_displaycontentfooter()
+
