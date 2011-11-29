@@ -1833,26 +1833,24 @@ function initLoader() {
 Ext.ns('Curriki');
 Ext.ns('Curriki.module');
 
-/*
- * Disable loading mask
+// Disable loading mask
 Ext.onReady(function(){
   Curriki.loadingCount = 0;
   Curriki.loadingMask = new Ext.LoadMask(Ext.getBody(), {msg:_('loading.loading_msg')});
 
-    Ext.Ajax.on('beforerequest', function(conn, options){
+  /*Ext.Ajax.on('beforerequest', function(conn, options){
 console.log('beforerequest', conn, options);
     Curriki.showLoading(options.waitMsg);
   });
-    Ext.Ajax.on('requestcomplete', function(conn, response, options){
+  Ext.Ajax.on('requestcomplete', function(conn, response, options){
 console.log('requestcomplete', conn, response, options);
     Curriki.hideLoading();
   });
-    Ext.Ajax.on('requestexception', function(conn, response, options){
+  Ext.Ajax.on('requestexception', function(conn, response, options){
 console.log('requestexception', conn, response, options);
     Curriki.hideLoading(true);
-  });
+  });*/
 });
-*/
 
 Curriki.id = function(prefix){
   return Ext.id('', prefix+':');
@@ -2193,7 +2191,7 @@ Curriki.ModuleObservable = function() {
   this.addEvents({
     'Curriki.module.search:ready': true,
     'Curriki.module.search:doSearch': true,
-    'Curriki.module.search:tabchange': true,
+    'Curriki.module.search:tabchange': true
   });
 }
 Ext.extend(Curriki.ModuleObservable, Ext.util.Observable);
@@ -3471,6 +3469,8 @@ Curriki.ui.dialog.Base = Ext.extend(Ext.Window, {
   ,modal:true
   ,minWidth:400
   ,minHeight:100
+  ,lastWidth:0
+  ,lastHeight:0
   ,autoScroll:false
   ,autoHeight:true
   ,constrain:true
@@ -3479,17 +3479,36 @@ Curriki.ui.dialog.Base = Ext.extend(Ext.Window, {
   ,resizable:false
   ,shadow:false
   ,defaults:{border:false}
+  ,maskDisabled:false
+  ,shim:false // MacOS fix, removes iframe on top
   ,listeners:{
-    afterlayout: function(wnd, layout) {      
+    afterlayout: function(wnd, layout) {   
+      console.log('afterlayout');   
       if (wnd.getBox().width < wnd.minWidth) {
         wnd.setWidth(wnd.minWidth);
       }
-      var topLocation = window.location.href.split("#=")[1];
-      if (topLocation && topLocation != "") {
-        var heightHash = "height=" + wnd.getBox().height;
-        var widthHash = "width=" + wnd.getBox().width;
-        window.top.location = unescape(topLocation) + '#=' + heightHash + '&' + widthHash;
+      console.log('wnd.height:'+wnd.lastHeight+' computed height:'+Ext.get("body").getComputedHeight());
+      if (wnd.lastWidth > Ext.get("body").getComputedWidth() || wnd.lastHeight > Ext.get("body").getComputedHeight()) {
+        var topLocation = Ext.parseURIQuery(window.location.href)['url'];
+        if (topLocation && topLocation != "" && topLocation != "undefined") {
+          var heightHash = "height=" + Ext.get("body").getComputedHeight();
+          var widthHash = "width=" + Ext.get("body").getComputedWidth();
+          ;
+          window.top.location = unescape(topLocation) + '#=' + heightHash + '&' + widthHash;
+        }
       }
+    }
+    ,show: function(wnd) {
+      console.log('show');
+      var topLocation = Ext.parseURIQuery(window.location.href)['url'];
+      if (topLocation && topLocation != "" && topLocation != "undefined") {
+        var heightHash = "height=" + Ext.get("body").getComputedHeight();
+        var widthHash = "width=" + Ext.get("body").getComputedWidth();
+        window.top.location = unescape(topLocation) + '#=' + heightHash + '&' + widthHash;
+        wnd.lastHeight = Ext.get("body").getComputedHeight();
+        wnd.lastWidth = Ext.get("body").getComputedWidth();
+      }
+      //Curriki.hideLoading();
     }
   }
   ,initComponent:function(){
