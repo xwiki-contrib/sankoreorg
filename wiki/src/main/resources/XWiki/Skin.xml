@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1322064190000</creationDate>
-<date>1322064190000</date>
-<contentUpdateDate>1322064190000</contentUpdateDate>
+<creationDate>1322585284000</creationDate>
+<date>1322585284000</date>
+<contentUpdateDate>1322585284000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -2782,35 +2782,51 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 #template("layoutvars.vm")
 #template("htmlheader.vm")
 &lt;style type="text/css"&gt;
+html {
+  height: 100%;
+}
 #body {
- min-width: 0px;
+  overflow:hidden;
+  min-width: 0px;
 }
 #body {
   width: auto !important;
 }
 #xwikimaincontainer {
-width: auto !important;
+  width: auto !important;
 }
 #xwikimaincontainerinner {
   width: auto !important;
 }
-
 .x-window {
   top: 0 !important;
   left: 0 !important;
   position: static !important;
   width: auto !important;
 }
-
 .ext-el-mask {
   display:none !important;
 }
 &lt;/style&gt;
 $context.setLinksQueryString("xpage=bookmarklet")
 #if($context.action.startsWith("login"))
+&lt;script type="text/javascript"&gt;
+Ext.onReady(function() {
+  var qs = Ext.parseURIQuery(window.location.href);
+  qs = Ext.parseURIQuery(qs['xredirect']);
+  var topLocation = qs['url'];
+  if (typeof topLocation != "undefined" &amp;&amp; topLocation != ""  &amp;&amp; topLocation != "undefined") { 
+    var width = Ext.get("body").getComputedWidth();
+    var height = Ext.get("body").getComputedHeight(); 
+    var heightHash = "height=" + height;
+    var widthHash = "width=" + width;
+    window.top.location = unescape(topLocation) + '#=' + heightHash + '&amp;' + widthHash;
+  }
+});
+&lt;/script&gt;
 #template("logininline.vm")
 #else
-#template("contentview.vm")
+  #template("contentview.vm")
 #end
 $context.unsetLinksQueryString()
 &lt;div class="clearfloats"&gt;&lt;/div&gt;
@@ -4398,7 +4414,7 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 </property>
 <property>
 <logininline.vm>&lt;div id="header-member"&gt;
-#if($isguest)
+#if($isGuest)
   #if($request.xredirect)
     #set($logredir = $request.xredirect)
   #elseif($doc.space == "Registration")
@@ -7065,7 +7081,7 @@ textarea {
 #asset_display($doc "view")
 #else
 #set($wikicontent = true)
-&lt;div id="content"&gt;
+&lt;div id="xcontent"&gt;
 #if($wikicontent)&lt;div class="xwikicontent"&gt;#end
  $cdoc.getRenderedContent()
 #if($wikicontent)&lt;/div&gt;#end
