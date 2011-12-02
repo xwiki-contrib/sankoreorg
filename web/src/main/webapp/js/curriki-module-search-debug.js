@@ -627,7 +627,7 @@ data.init = function(){
 
   f.data.review = {
     list: [
-      'partners', 'highest_rated', 'members.highest_rated'
+      'partners', 'curriki', 'members', 'not_reviewed'
     ]
     ,data: [
       ['', _('search.resource.review.selector.UNSPECIFIED')]
@@ -642,7 +642,7 @@ data.init = function(){
 
   f.data.special = {
     list: [
-      'contributions', 'collections', 'updated', 'sankore', 'notreviewed'
+      'contributions', 'collections', 'updated', 'sankore'
     ]
     ,data: [
       ['', _('search.resource.special.selector.UNSPECIFIED')]
@@ -802,7 +802,7 @@ data.init = function(){
     }
 
     ,rating: function(value, metadata, record, rowIndex, colIndex, store){
-      if (value != "") {
+      if (value != "" && value != 100) {
         var page = record.id.replace(/\./, '/');
 
         metadata.css = String.format('crs-{0}', value); // Added to <td>
@@ -814,7 +814,7 @@ data.init = function(){
     }
 
     ,memberRating: function(value, metadata, record, rowIndex, colIndex, store){
-      if (value != "") {
+      if (value != "" && value != 0) {
         var page = record.id.replace(/\./, '/');
         var ratingCount = record.data.ratingCount;
 
@@ -973,7 +973,7 @@ form.init = function(){
               ,valueField: 'id'
               ,typeAhead: true
               ,triggerAction: 'all'
-              ,emptyText:_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED')
+              ,emptyText:_('CurrikiCode.AssetClass_fw_items_FW_masterFramework.UNSPECIFIED')
               ,selectOnFocus: true
               ,forceSelection: true
               ,listeners: {
