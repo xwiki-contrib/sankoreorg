@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1322057136000</creationDate>
-<date>1322057136000</date>
-<contentUpdateDate>1322057136000</contentUpdateDate>
+<creationDate>1322837350000</creationDate>
+<date>1322837350000</date>
+<contentUpdateDate>1322837350000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -23,8 +23,6 @@
 <syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
 <content>&lt;pre&gt;
-## SEARCH AND BROWSE BY SUBJECT TRANSLATION PAGE
-
 ## I am making a global assumption that I only need to include strings that are not already covered in classes. To see the lookup strings for the classes, go here. XWiki/GlobalClassTranslation
 
 ## If a string has the word "placeholder" after the "=" sign, it means text is coming. If it is blank after the "=" sign, that means the string can be ignored until further notice.
@@ -45,7 +43,6 @@ search.text.entry.help.title=Aide à la recherche
 ##{0} is tab name, {1} is search result count, and {2} is the total count
 search.tab.title.results={0} {1} résultats
 search.tab.title.resultsmax_exceeds={0} {2} résultats
-
 
 ## Grid titles
 search.grid.title.results={0} {1} résultats
@@ -104,68 +101,15 @@ search.pagination.next=Page Suivante
 search.pagination.last=Dernière Page
 search.pagination.refresh=Actualiser
 
-##
-##
 ##RESOURCES TAB
 search.resource.tab.title=Bibliothèque de ressources éducative Sankoré
 
-##The ICT used in the columns are different than what is used in the drop down. These are from GWT with updated keys.
-
-##For ICT Column
-search.resource.ict.activity=Activité
-search.resource.ict.activity.assignment=Travail à la maison
-search.resource.ict.activity.exercise=Exercice
-search.resource.ict.activity.lab=Expérience
-search.resource.ict.activity.game=Jeu
-search.resource.ict.activity.worksheet=Feuille de calcul
-search.resource.ict.activity.problemset=Ensemble de problèmes
-search.resource.ict.activity.webquest=Webquest
-search.resource.ict.book=Livre
-search.resource.ict.book.fiction=Fiction
-search.resource.ict.book.nonfiction=Réalisme
-search.resource.ict.book.readings=Lecture
-search.resource.ict.book.textbook=Livre
-search.resource.ict.curriculum=Programme scolaire
-search.resource.ict.curriculum.assessment=Examen/Test
-search.resource.ict.curriculum.course=Cours à temps plein
-search.resource.ict.curriculum.unit=Unité
-search.resource.ict.curriculum.lp=Plan de Leçon
-search.resource.ict.curriculum.rubric=Rubrique
-search.resource.ict.curriculum.scope=Scope &amp; Séquence
-search.resource.ict.curriculum.standards=Standards
-search.resource.ict.curriculum.studyguide=Guide d'Étude/Notes
-search.resource.ict.curriculum.syllabus=Syllabus
-search.resource.ict.curriculum.tutorial=Tutoriel
-search.resource.ict.curriculum.workbook=Classeur/Cahier d'éxercice
-search.resource.ict.resource=Ressource
-search.resource.ict.resource.animation=Animation/Simulation
-search.resource.ict.resource.diagram=Diagramme/Illustration
-search.resource.ict.resource.glossary=Glossaire/Liste de Vvocabulaire
-search.resource.ict.resource.index=Index/Liste
-search.resource.ict.resource.photograph=Photographie
-search.resource.ict.resource.presentation=Présentation
-search.resource.ict.resource.collection=Collection de référence
-search.resource.ict.resource.script=Script/Transcription
-search.resource.ict.resource.speech=Discours/Lecture/Chanson
-search.resource.ict.resource.table=Tableau/Graphe/Diagramme
-search.resource.ict.resource.template=Template
-search.resource.ict.resource.webcast=Webcast/Podcast
-search.resource.ict.resource.study=Etude/Recherche
-search.resource.ict.resource.article=Article/Essaie
-search.resource.ict.other=Autre
-search.resource.ict.multiple=Multiple
-search.resource.ict.unknown=
-
 ##REVIEW
-## Dave not sure if you want to follow the CRS.CurrikiReviewStatusClass naming convention.
-
-## CRS.CurrikiReviewStatusClass_status_any=Avis: Tous
-## CRS.CurrikiReviewStatusClass_status_P=Partenaire
-## CRS.CurrikiReviewStatusClass_status_highest_rated=Les mieux notés
-
 search.resource.review.selector.UNSPECIFIED=Avis: Tous
-search.resource.review.selector.partners=Partenaire
-search.resource.review.selector.highest_rated=Meilleurs-notés par CRS
+search.resource.review.selector.partners=Examiné par les partenaires
+search.resource.review.selector.curriki=Examiné par Sankoré
+search.resource.review.selector.members=Examiné par les membres
+search.resource.review.selector.not_reviewed=Ressources non examiné
 
 ##For Review column
 search.resource.review.800=Exemplaire
@@ -178,6 +122,13 @@ search.resource.review.200=Partenaire
 search.resource.review.100=Non Évalué / Non Évaluable
 search.resource.review.0=Review À Venir
 
+##For Rating column
+search.resource.rating.0=Pas de note
+search.resource.rating.1=Inutilisable
+search.resource.rating.2=Faible
+search.resource.rating.3=Satisfaisant
+search.resource.rating.4=Solide
+search.resource.rating.5=Exceptionnelle
 
 ##SPECIAL FILTERS
 ## I don't think there is a Class I can model after here.
@@ -188,7 +139,6 @@ search.resource.special.selector.resources=Uniquement des Fichiers Ressource
 search.resource.special.selector.updated=Uniquement les Récemment Updatés
 search.resource.special.selector.updated.days=30
 search.resource.special.selector.sankore=Uniquement les Ressources Sankoré
-search.resource.special.selector.notreviewed=Ressources non examiné
 
 ##COLUMNS
 search.resource.column.header.assetType=Type de Ressource
@@ -200,13 +150,12 @@ search.resource.column.header.rating=Note
 search.resource.column.header.updated=Updaté
 search.resource.column.header.member.rating=Note membres
 
-search.resource.review.selector.members.highest_rated=Meilleurs-notés par membres
-
 search.resource.icon.plus.rollover=Cette ressource fait partie d'une collection ou d'un dossier. Cliquez pour voir plus.
 search.resource.icon.minus.rollover=Cliquez pour collapser
 
 ##search.resource.icon.CollectionComposite.rollover=Collection
 ##search.resource.icon.FolderComposite.rollover=Folder
+
 ##search.resource.icon.Text.rollover=File
 ##search.resource.icon.Image.rollover=File
 ##search.resource.icon.Attachment.rollover=File
@@ -225,14 +174,8 @@ search.resource.icon.minus.rollover=Cliquez pour collapser
 search.resource.resource.expanded.title=Cette ressource fait partie de:
 
 
-##
-##
 ##GROUPS TAB
 search.group.tab.title=Groupes communautaires Sankoré
-
-search.XWiki.SpaceClass_policy_UNSPECIFIED=Politique de Membership : Tous
-search.XWiki.SpaceClass_policy_open=Ouvert
-search.XWiki.SpaceClass_policy_closed=Fermé
 
 ##COLUMNS
 search.group.icon.open=Ouvert
@@ -245,8 +188,6 @@ search.group.column.header.description=Description
 search.group.column.header.updated=Updaté
 
 
-##
-##
 ##MEMBERS
 search.member.tab.title=Membres
 
@@ -258,8 +199,7 @@ search.member.column.header.bio=Bio
 search.member.column.header.contributions=Contributions
 search.member.column.picture.alt.text=
 
-##
-##
+
 ##BLOGS
 search.blog.tab.title=Blogs
 
@@ -269,8 +209,7 @@ search.blog.column.header.text=Texte
 search.blog.column.header.comments=Commentaires
 search.blog.column.header.updated=Updaté
 
-##
-##
+
 ##CURRIKI PAGE
 search.curriki.tab.title=Pages Planète Sankoré
 

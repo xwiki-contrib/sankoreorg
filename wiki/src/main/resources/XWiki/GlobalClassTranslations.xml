@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1322057591000</creationDate>
-<date>1322057591000</date>
-<contentUpdateDate>1322057591000</contentUpdateDate>
+<creationDate>1322841382000</creationDate>
+<date>1322841382000</date>
+<contentUpdateDate>1322841382000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -23,18 +23,17 @@
 <syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
 <content>## GLOBAL CLASS TRANSLATIONS
-
 ## I am pulling out many of the keys that are class based from individual translation files, such as Groups and Forms, and pulling them into this translation file. This is being done to avoid duplicate lookup strings across translation files. 
 ## To view the different classes, go here.  http://next.dev.curriki.org/xwiki/bin/edit/XWiki/CurrikiSpaceClass?editor=class
 ## I am also adding to this trans file elements that are used globally but not in class. Media Type roll over text for example.
 
 ## FROM GWT or XWIKI CORE
 loading.loading_msg=Loading, please wait... 
-problemoccured=A problem occurred while trying to process your request. Please email webmaster@curriki.org if this happens again.
+problemoccured=A problem occurred while trying to process your request. Please email webmaster@planete.sankore.org if this happens again.
 
-##
 ## ASSET CLASS USED IN RESOURCES
 ## CATEGORIES / MEDIA TYPES PLUS COLLECTIONS AND FOLDERS
+CurrikiCode.AssetClass_category_UNSPECIFIED=Media Type: Any
 CurrikiCode.AssetClass_category_document=Attached File
 CurrikiCode.AssetClass_category_archive=Archive
 CurrikiCode.AssetClass_category_audio=Audio
@@ -45,6 +44,7 @@ CurrikiCode.AssetClass_category_unknown=Other
 CurrikiCode.AssetClass_category_text=Text
 CurrikiCode.AssetClass_category_video=Video
 CurrikiCode.AssetClass_category_collection=Collection
+
 collection.collection=Collection
 collection.folder=Folder
 
@@ -95,7 +95,7 @@ document.jar=Attached File: jar
 document.ps=Attached File: ps
 unknown.unknown=Unknown
 
-##I added the below string as the one above is not working. This trans needs to be fixed so the above one works.
+## I added the below string as the one above is not working. This trans needs to be fixed so the above one works.
 search.resource.icon.Unknown.rollover=Unknown
 document.htm=Attached File: htm
 document.html=Attached File: html
@@ -126,8 +126,10 @@ external.http=Web Link: www
 
 
 ## SUBJECT
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.UNSPECIFIED=Subject: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.WebHome=Subjects Index
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Arts_and_Culture=Arts and Culture
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Arts_and_Culture.UNSPECIFIED=Arts and Culture: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Architecture_Design=Architecture Design
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Applied_Arts=Applied Arts
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Fine_Arts=Fine Arts
@@ -139,6 +141,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Music=Music
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Photography=Photography
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Theatre=Theatre
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Health_Education=Health Education
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Health_Education.UNSPECIFIED=Health Education: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Anatomy_and_Physiology=Anatomy and Physiology
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Health=Health
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Nutrition=Nutrition
@@ -147,13 +150,16 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sexual_Education=Sexual Educa
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Environmental_Sustainability=Environmental Sustainability
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Safety_and_Risk_Prevention=Safety and Risk Prevention
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Media_Education=Media Education
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Media_Education.UNSPECIFIED=Media Education: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Media_Ethics=Media Ethics
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Source_Assessment=Source Assessment
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Research_Methods_and_Documentation=Research Methods and Documentation
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Digital_Education=Digital Education
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Digital_Education.UNSPECIFIED=Digital Education: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Security=Security
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Preparation=Preparation
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Technology_Education=Technology Education
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Technology_Education.UNSPECIFIED=Technology Education: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Agriculture_and_Aquaculture=Agriculture and Aquaculture
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Automatism=Automatism
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Buildings_and_Public_Works=Buildings and Public Works
@@ -169,6 +175,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Human_Services=Human Services
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Materials_Technology=Materials Technology
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Tourism_Hotellerie_and_Restaurants=Tourism Hotellerie and Restaurants
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Language_Proficiency=Language Proficiency
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Language_Proficiency.UNSPECIFIED=Language Proficiency: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Literacy=Literacy
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Comprehension=Written Comprehension
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Grammar=Grammar
@@ -180,6 +187,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Oral_Expression=Oral Expressi
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Research=Research
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Vocabulary=Vocabulary
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Foreign_Languages=Foreign Languages
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Foreign_Languages.UNSPECIFIED=Foreign Language: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Comprehension_Foreign=Written Comprehension
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Oral_Comprehension_Foreign=Oral Comprehension
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Ancient_Languages=Ancient Languages
@@ -187,6 +195,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.LSF_and_Related_Languages=LSF
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Written_Expression_Foreign=Written Expression
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Oral_Expression_Foreign=Oral Expression
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Mathematics=Mathematics
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Mathematics.UNSPECIFIED=Mathematics: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Algebra=Algebra
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Data_Analysis_Probability=Data Analysis Probability
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Arithmetic=Arithmetic
@@ -200,6 +209,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Problem_Solving=Problem Solvi
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Statistics=Statistics
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Trigonometry=Trigonometry
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sciences=Sciences
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sciences.UNSPECIFIED=Sciences: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Agriculture_and_Agrifood=Agriculture and Agrifood
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Astronomy=Astronomy
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Other_Sciences=Other Sciences
@@ -217,6 +227,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Earth_Sciences=Earth Sciences
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Life_Sciences=Life Sciences
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Technology=Technology
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Humanities=Humanities
+CurrikiCode.AssetClass_fw_items_FW_masterFramework.Humanities.UNSPECIFIED=Humanities: Any
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Anthropology=Anthropology
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Law=Law
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Economics=Economics
@@ -231,19 +242,9 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Psychology=Psychology
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Educational_Sciences=Educational Sciences
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sociology=Sociology
 CurrikiCode.AssetClass_fw_items_FW_masterFramework._Other=Other
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Arts_and_Culture.UNSPECIFIED=Arts and Culture: Any
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Digital_Education.UNSPECIFIED=Digital Education: Any
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Foreign_Languages.UNSPECIFIED=Foreign Language: Any
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Health_Education.UNSPECIFIED=Health Education: Any
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Mathematics.UNSPECIFIED=Mathematics: Any
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Humanities.UNSPECIFIED=Humanities: Any
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Language_Proficiency.UNSPECIFIED=Language Proficiency: Any
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Media_Education.UNSPECIFIED=Media Education: Any
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sciences.UNSPECIFIED=Sciences: Any
-CurrikiCode.AssetClass_fw_items_FW_masterFramework.Technology_Education.UNSPECIFIED=Technology Education: Any
-
 
 ## EDUCATIONAL LEVEL
+CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED=Educational level: Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome=Index
 CurrikiCode.AssetClass_educational_level_AssetMetadata.0306=3-6
 CurrikiCode.AssetClass_educational_level_AssetMetadata.0306.UNSPECIFIED=3-6: Any
@@ -299,23 +300,33 @@ CurrikiCode.AssetClass_educational_level_AssetMetadata.SpecialEducation=Special 
 CurrikiCode.AssetClass_educational_level_AssetMetadata.SpecialEducation.UNSPECIFIED=Special Education: Any
 
 ## ICT
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED=Instructional component: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.WebHome=Index
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.CaseStudy=Case study
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.CaseStudy.UNSPECIFIED=Case Study: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Collection=Collection
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Collection.UNSPECIFIED=Collection: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CollectionAtlas=Atlas
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CollectionDocuments=Documents
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CollectionEBooks=eBooks
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CollectionImages=Images
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CollectionVideos=Videos
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.CaseStudy=Case study
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Course=Course
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Course.UNSPECIFIED=Course:Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete=Course complete
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete.UNSPECIFIED=Course complete: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Demonstration=Demonstration
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Demonstration.UNSPECIFIED=Demonstration: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Evaluation=Evaluation
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Evaluation.UNSPECIFIED=Evaluation: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Exercise=Exercise
-
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Exercise.UNSPECIFIED=Exercise: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Guide=Guide
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Guide.UNSPECIFIED=Guide: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Games=Games
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Games.UNSPECIFIED=Games: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Interactive=Interactive
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Interactive.UNSPECIFIED=Interactive: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Interactive3D=3D
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveAnimation=Animation
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveSelfAssesment=Self assesment
@@ -324,10 +335,12 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveSlidesho
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveWebMedia=Web media
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveWebsite=Website
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Lesson=Lesson
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Lesson.UNSPECIFIED=Lesson: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Quizz=Quizz
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Quizz.UNSPECIFIED=Quizz: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Software=Software and free software
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete.UNSPECIFIED=Course complete: Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Games.UNSPECIFIED=Games: Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Software.UNSPECIFIED=Software and free software: Any
+
 CurrikiCode.AssetClass_instructional_component_multiple=Multiple
 
 ## ACCESS RIGHTS
@@ -339,7 +352,6 @@ CurrikiCode.AssetClass_rights_private=Private: Only you (or your group members) 
 CurrikiCode.AssetClass_language_UNSPECIFIED=Language: All
 CurrikiCode.AssetClass_language_en=English
 CurrikiCode.AssetClass_language_fr=French
-
 
 ## LICENSES
 CurrikiCode.AssetLicenseClass_licenseType_Licences.CurrikiLicense=Planète Sankoré License (Creative Commons Attributions 3.0)
@@ -356,8 +368,10 @@ CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon
 ## Note that Groups also uses other classes.
 
 ## SUBJECT
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.UNSPECIFIED=Subject: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.WebHome=Subjects Index
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Arts_and_Culture=Arts and Culture
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Arts_and_Culture.UNSPECIFIED=Arts and Culture: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Architecture_Design=Architecture Design
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Applied_Arts=Applied Arts
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Fine_Arts=Fine Arts
@@ -369,6 +383,7 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Music=Music
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Photography=Photography
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Theatre=Theatre
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Health_Education=Health Education
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Health_Education.UNSPECIFIED=Health Education: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Anatomy_and_Physiology=Anatomy and Physiology
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Health=Health
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Nutrition=Nutrition
@@ -377,13 +392,16 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sexual_Education=Sexual Educati
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Environmental_Sustainability=Environmental Sustainability
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Safety_and_Risk_Prevention=Safety and Risk Prevention
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Media_Education=Media Education
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Media_Education.UNSPECIFIED=Media Education: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Media_Ethics=Media Ethics
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Source_Assessment=Source Assessment
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Research_Methods_and_Documentation=Research Methods and Documentation
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Digital_Education=Digital Education
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Digital_Education.UNSPECIFIED=Digital Education: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Security=Security
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Preparation=Preparation
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Technology_Education=Technology Education
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Technology_Education.UNSPECIFIED=Technology Education: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Agriculture_and_Aquaculture=Agriculture and Aquaculture
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Automatism=Automatism
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Buildings_and_Public_Works=Buildings and Public Works
@@ -399,6 +417,7 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Human_Services=Human Services
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Materials_Technology=Materials Technology
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Tourism_Hotellerie_and_Restaurants=Tourism Hotellerie and Restaurants
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Language_Proficiency=Language Proficiency
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Language_Proficiency.UNSPECIFIED=Language Proficiency: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Literacy=Literacy
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Written_Comprehension=Written Comprehension
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Grammar=Grammar
@@ -410,6 +429,7 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Oral_Expression=Oral Expression
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Research=Research
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Vocabulary=Vocabulary
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Foreign_Languages=Foreign Languages
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Foreign_Languages.UNSPECIFIED=Foreign Language: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Written_Comprehension_Foreign=Written Comprehension
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Oral_Comprehension_Foreign=Oral Comprehension
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Ancient_Languages=Ancient Languages
@@ -417,6 +437,7 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.LSF_and_Related_Languages=LSF a
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Written_Expression_Foreign=Written Expression
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Oral_Expression_Foreign=Oral Expression
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Mathematics=Mathematics
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Mathematics.UNSPECIFIED=Mathematics: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Algebra=Algebra
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Data_Analysis_Probability=Data Analysis Probability
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Arithmetic=Arithmetic
@@ -430,6 +451,7 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Problem_Solving=Problem Solving
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Statistics=Statistics
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Trigonometry=Trigonometry
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sciences=Sciences
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sciences.UNSPECIFIED=Sciences: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Agriculture_and_Agrifood=Agriculture and Agrifood
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Astronomy=Astronomy
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Other_Sciences=Other Sciences
@@ -447,6 +469,7 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Earth_Sciences=Earth Sciences
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Life_Sciences=Life Sciences
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Technology=Technology
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Humanities=Humanities
+XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Humanities.UNSPECIFIED=Humanities: Any
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Anthropology=Anthropology
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Law=Law
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Economics=Economics
@@ -461,17 +484,63 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Psychology=Psychology
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Educational_Sciences=Educational Sciences
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sociology=Sociology
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework._Other=Other
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Arts_and_Culture.UNSPECIFIED=Arts and Culture: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Digital_Education.UNSPECIFIED=Digital Education: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Foreign_Languages.UNSPECIFIED=Foreign Language: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Health_Education.UNSPECIFIED=Health Education: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Mathematics.UNSPECIFIED=Mathematics: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Humanities.UNSPECIFIED=Humanities: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Language_Proficiency.UNSPECIFIED=Language Proficiency: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Media_Education.UNSPECIFIED=Media Education: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sciences.UNSPECIFIED=Sciences: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Technology_Education.UNSPECIFIED=Technology Education: Any
-XWiki.CurrikiSpaceClass_topic_FW_masterFramework.UNSPECIFIED=Subject: Any
+
+##EducationLevel
+XWiki.CurrikiSpaceClass_topic_TREEROOTNODE.UNSPECIFIED=Topic:Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED=Educational Level: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.WebHome=Index
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0306=3-6
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0306.UNSPECIFIED=3-6: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0306Primary=Primary
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0306PrimaryCycle1=Cycle 1
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0608=6-8
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0608.UNSPECIFIED=6-8: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0608Primary=Primary
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0608PrimaryCycle2=Cycle 2
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0811=8-11
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0811Primary=Primary
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0811PrimaryCycle3=Cycle 3
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0811=8-11: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112=11-12
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112.UNSPECIFIED=11-12: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112Secondary=Secondary
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112SecondaryCollege=College
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112SecondaryCollegeAdaptationCycle=Adaptation cycle
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214=12-14
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214.UNSPECIFIED=12-14: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214Secondary=Secondary
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214SecondaryCollege=College
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214SecondaryCollegeMainCycle=Main cycle
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415=14-15
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415.UNSPECIFIED=14-15: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415Secondary=Secondary
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415SecondaryCollege=College
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415SecondaryCollegeGuidanceCycle=Guidance cycle
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516=15-16
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516.UNSPECIFIED=15-16: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516Secondary=Secondary
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516SecondaryHighschool=Highschool
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516SecondaryHighschool2de=2de
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617=16-17
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617.UNSPECIFIED=16-17: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617Secondary=Secondary
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617SecondaryHighschool=Highschool
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617SecondaryHighschool1re=1re
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718=17-18
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718.UNSPECIFIED=17-18: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718Secondary=Secondary
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718SecondaryHighschool=Highschool
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718SecondaryHighschoolSeniorYear=Senior year
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18=18+
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18.UNSPECIFIED=18+: Any
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducation=Higher Education
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducationBachelor=Bachelor
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducationMaster=Master
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducationTechnology=Technology
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducationPhD=PhD
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18SupplementaryEducation=Supplementary Education
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.SpecialEducation=Special Education
+XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.SpecialEducation.UNSPECIFIED=Special Education: Any
 
 ## LANGUAGE
 XWiki.CurrikiSpaceClass_language_en=English
@@ -869,7 +938,6 @@ XWiki.XWikiUsers_topics_FW_masterFramework.Technology_Education.UNSPECIFIED=Tech
 XWiki.XWikiUsers_topics_TREEROOTNODE.UNSPECIFIED=Topic: Any
 
 ##CRS
-
 ##CRS.CurrikiReviewStatusClass_status_1=curriki.crs.basic
 ##CRS.CurrikiReviewStatusClass_status_2=curriki.crs.good
 ##CRS.CurrikiReviewStatusClass_status_3=curriki.crs.exemplary
@@ -886,7 +954,6 @@ XWiki.SpaceClass_language_fr=French
 ## GLOBAL TRANSLATIONS
 
 ## PAGE NOT FOUND
-
 global.notfound.header=Resource or Page Not Found
 global.notfound.message=The requested resource or page cannot be found.
 global.notfound.goback_link=Go Back
@@ -898,7 +965,6 @@ global.notfound.help_url=/xwiki/bin/view/Coll_curriki/CurrikiHelp
 
 
 ## TITLE ROLLOVER POPUP
-
 global.title.popup.title=&lt;strong&gt;Title:&lt;/strong&gt;
 global.title.popup.description=&lt;strong&gt;Description:&lt;/strong&gt;
 global.title.popup.subject=&lt;strong&gt;Subject(s):&lt;/strong&gt;
@@ -1031,7 +1097,7 @@ changes.comment.author=Author
 changes.comment.date=Date
 changes.comment.comment=Comment
 
-##
+
 ## COMMENTS FOR HISTORY
 
 ## HISTORY: INFRASTRUCTURE
@@ -1077,7 +1143,6 @@ curriki.comment.crsvalueremoved=Resource value of {0} removed
 
 
 ## FUTURE HISTORY: FLAG
-
 flag.revision.history.note=Resource flagged by {0}, who submitted the resource for evaluation because s/he felt it was {1}.
 flag.revision.history.note.alt_reason=Resource flagged by {0}, who submitted the resource for evaluation for the reason specified to Planète Sankoré.
 
@@ -1088,80 +1153,5 @@ history.loadinghistory=Loading history
 comment.errorgettinghistory=Error getting history
 preview.loadingpreview=Loading preview
 preview.errorgettingpreview=Error getting preview
-
-## Todd added the below strings. Currently the old ones are hard coded. Nov-5-2008 - I have no recollection added this. Todd
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED=Instructional Component Type:Any
-CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED=Educational Level:Any
-CurrikiCode.AssetClass_instructional_component_UNCATEGORIZED=Uncategorized
-CurrikiCode.AssetClass_educational_level_UNCATEGORIZED=Uncategorized
-
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.CaseStudy.UNSPECIFIED=Case Study:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Collection.UNSPECIFIED=Collection:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Course.UNSPECIFIED=Course:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Demonstration.UNSPECIFIED=Demonstration:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Evaluation.UNSPECIFIED=Evaluation:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Exercise.UNSPECIFIED=Exercise:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Guide.UNSPECIFIED=Guide:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Interactive.UNSPECIFIED=Interactive:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Lesson.UNSPECIFIED=Lesson:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Quizz.UNSPECIFIED=Quizz:Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Software.UNSPECIFIED=Software and free software: Any
-
-XWiki.CurrikiSpaceClass_topic_TREEROOTNODE.UNSPECIFIED=Topic:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.WebHome=Index
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0306=3-6
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0306Primary=Primary
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0306PrimaryCycle1=Cycle 1
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0608=6-8
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0608Primary=Primary
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0608PrimaryCycle2=Cycle 2
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0811=8-11
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0811Primary=Primary
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0811PrimaryCycle3=Cycle 3
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0811=8-11: Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112=11-12
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112Secondary=Secondary
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112SecondaryCollege=College
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112SecondaryCollegeAdaptationCycle=Adaptation cycle
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214=12-14
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214Secondary=Secondary
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214SecondaryCollege=College
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214SecondaryCollegeMainCycle=Main cycle
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415=14-15
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415Secondary=Secondary
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415SecondaryCollege=College
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415SecondaryCollegeGuidanceCycle=Guidance cycle
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516=15-16
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516Secondary=Secondary
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516SecondaryHighschool=Highschool
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516SecondaryHighschool2de=2de
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617=16-17
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617Secondary=Secondary
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617SecondaryHighschool=Highschool
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617SecondaryHighschool1re=1re
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718=17-18
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718Secondary=Secondary
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718SecondaryHighschool=Highschool
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718SecondaryHighschoolSeniorYear=Senior year
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18=18+
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducation=Higher Education
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducationBachelor=Bachelor
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducationMaster=Master
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducationTechnology=Technology
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18HigherEducationPhD=PhD
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18SupplementaryEducation=Supplementary Education
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.SpecialEducation=Special Education
-XWiki.CurrikiSpaceClass_educationLevel_UNCATEGORIZED=Uncategorized
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0306.UNSPECIFIED=3-6:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.0608.UNSPECIFIED=6-8:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1112.UNSPECIFIED=11-12:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1214.UNSPECIFIED=12-14:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1415.UNSPECIFIED=14-15:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1516.UNSPECIFIED=15-16:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1617.UNSPECIFIED=16-17:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.1718.UNSPECIFIED=17-18:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.18.UNSPECIFIED=18+:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.SpecialEducation.UNSPECIFIED=Special Education:Any
-XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED=Educational Level:Any
 
 UNSPECIFIED=  Any</content></xwikidoc>

@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1321892543000</creationDate>
-<date>1321892543000</date>
-<contentUpdateDate>1321892543000</contentUpdateDate>
+<creationDate>1322836750000</creationDate>
+<date>1322836750000</date>
+<contentUpdateDate>1322836750000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -36,7 +36,7 @@ URL = /xwiki/bin/view/Search/Resources?xpage=plain&amp;
 
 *limit:* // number of results returned
 
-*sor:* // sort column
+*sort:* // sort column
 
 *dir:* // direction of sort
 
@@ -210,7 +210,7 @@ $ict:
 {/pre}
 
 #end
-## vim: ts=4:sw=4
+
 {pre}
 ## start=0&amp;limit=25&amp;sort=title&amp;dir=ASC
 ## terms=&amp;subject=&amp;filetype=&amp;level=&amp;language=&amp;ict=&amp;special=
@@ -352,7 +352,7 @@ $ict:
 #macro(searchResourceParents $resource)
   #set($ret_parents = "")
   #set($isComposite = $!resource.isFolder())
-  #if(!$isComposite) ##{
+  #if(!$isComposite)
     #set($sql = ", BaseObject as composite, BaseObject as subasset, StringProperty as cprops, StringProperty as sprops where doc.name != 'Favorites' and doc.name != 'WebHome' and composite.name=doc.fullName and composite.className='CurrikiCode.CompositeAssetClass' and composite.id=cprops.id.id and cprops.id.name='type' and (cprops.value='collection' or cprops.value='folder') and subasset.name=doc.fullName and subasset.id=sprops.id.id and subasset.className='CurrikiCode.SubAssetClass' and sprops.id.name='assetpage' and sprops.value='${resource.fullName}' order by doc.name")
     #set($parentList = $xwiki.searchDocuments($sql))
     #if($parentList.size() &gt; 0)
@@ -482,10 +482,10 @@ $ict:
       #set($sortField2 = 'title.untokenized')
     #end
     #if($request.sort == "rating")
-      #set($sortField1 = '-CRS.CurrikiReviewStatusClass.status.untokenized')
+      #set($sortField1 = 'CRS.CurrikiReviewStatusClass.status.untokenized')
       #set($sortField2 = 'title.untokenized')
     #end
-    #if($request.sort == "memberRating" &amp;&amp; "$!request.review" != "")
+    #if($request.sort == "memberRating")
       #set($sortField1 = 'CurrikiCode.AssetClass.rating')
       #set($sortField2 = 'title.untokenized')
     #end
@@ -498,30 +498,8 @@ $ict:
       #set($sortField2 = 'title.untokenized')
     #end
   #end
-  ##
-  ## Review
-  ## partners, highest_rated
-  #set($q = $xwiki.arrayList)
-  #if($!request.review != "") ##
-    #set($junk = $q.add("CurrikiCode.AssetClass.rating:(1 OR 2 OR 3 OR 4 OR 5)"))
-    #if($request.review == "members.highest_rated")
-      #set($sortField2 = $sortField1)
-      #set($sortField1 = '-CurrikiCode.AssetClass.rating')      
-    #end
-    #if($request.review == "members.lowest_rated")
-      #set($sortField2 = $sortField1)
-      #set($sortField1 = 'CurrikiCode.AssetClass.rating')
-    #end
-  #end
   #if($!request.dir == "DESC")
-    #if("$!request.review" != "")
-      #set($sortField2 = "-${sortField2}")
-    #else
-      #set($sortField1 = "-${sortField1}")
-    #end
-    #if($request.sort == "rating")
-      #set($sortField1 = 'CRS.CurrikiReviewStatusClass.status.untokenized')
-    #end
+    #set($sortField1 = "-${sortField1}")
   #end
   #set($sortFields = "${sortField1},${sortField2}")
   #set($sortFields = $sortFields.split(","))
@@ -542,7 +520,7 @@ $ict:
     #if($!request.subject != "UNCATEGORIZED")
       #set($junk = $q.add("CurrikiCode.AssetClass.fw_items:${request.subject}"))
     #else
-      #set($ucqry = "where doc.web='FW_masterFramework' and doc.parent='' order by doc.title")
+      #set($ucqry = "where doc.space='FW_masterFramework' and doc.parent='' order by doc.title")
       #set($topics = $xwiki.searchDocuments($ucqry))
       #foreach($topic in $topics)
         #set($junk = $q.add("-CurrikiCode.AssetClass.fw_items:${topic}"))
@@ -585,13 +563,18 @@ $ict:
   #end
   ##
   ## Review
-  ## partners, highest_rated
   #if("$!request.review" != "")
     #if($request.review == "partners")
       #set($junk = $q.add("CRS.CurrikiReviewStatusClass.status:200"))
     #end
-    #if($request.review == "highest_rated")
-      #set($junk = $q.add("CRS.CurrikiReviewStatusClass.status:(800 OR 700)"))
+    #if($request.review == "curriki")
+      #set($junk = $q.add("CRS.CurrikiReviewStatusClass.status:(300 OR 400 OR 500 OR 600 OR 700 OR 800)"))
+    #end
+    #if($request.review == "members")
+      #set($junk = $q.add("CurrikiCode.AssetClass.rating:(1 OR 2 OR 3 OR 4 OR 5)"))
+    #end
+    #if($request.review == "not_reviewed")
+      #set($junk = $q.add("NOT (CRS.CurrikiReviewStatusClass.status:(200 OR 300 OR 400 OR 500 OR 600 OR 700 OR 800) OR CurrikiCode.AssetClass.rating:(1 OR 2 OR 3 OR 4 OR 5))"))
     #end
   #end
   ##
@@ -604,24 +587,18 @@ $ict:
     #if($request.special == "collections")
       #set($junk = $q.add("CurrikiCode.CompositeAssetClass.type:collection"))
     #end
-    #if($request.special == "reviewed")
-      #set($junk = $q.add("CRS.CurrikiReviewStatusClass.status:(200 OR 300 OR 400 OR 500 OR 600 OR 700 OR 800)"))
-    #end
     #if($request.special == "sankore")
       #set($junk = $q.add("CurrikiCode.AttachmentAssetClass.file_type:(ubw OR ubz)"))
-    #end
-    #if($request.special == "notreviewed")
-      #set($junk = $q.add("NOT (XWiki.XWikiComments.author:$context.user AND XWiki.XWikiComments.rating:(1 OR 2 OR 3 OR 4 OR 5))"))
     #end
     #if($request.special == "updated")
       #set($dt = $xwiki.curriki.formatDate($xwiki.curriki.getDateMinusDays($msg.get('search.resource.special.selector.updated.days')), "yyyyMMdd"))
       #set($upq = "date:[$dt TO 29991231]")
       #set($junk = $q.add($upq))
-    #end ##}
+    #end
     #if($request.special == "groups")
       #set($junk = $q.add("web:Group_Coll_*"))
-    #end ##}
-  #end ##}
+    #end
+  #end
   ##
   ## Put together query conditions
   #set($conditions = "")
@@ -642,7 +619,6 @@ $ict:
     #set($include = "$!include AND ")
   #end
   #set($luceneQuery = "$!include $!conditions $!exclude")
-  ##$luceneQuery
   ##
   ## Do query
   ##
