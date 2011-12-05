@@ -1120,23 +1120,43 @@ public class Asset extends CurrikiDocument {
     	return getComments().size() + getObjectNumbers(Constants.ASSET_CURRIKI_REVIEW_CLASS);
     }
 
+    /**
+     * get a sorted by date list of comments
+     * @return comments sorted by date
+     */
     public List getCommentsByDate() {
         List comments = getComments();
         Collections.sort(comments, new CommentsSorter());
         return comments;
     }
 
+    /**
+     * get a sorted by date list of comments
+     * @return comments sorted by date
+     */
     public Long getRating() {
         use(Constants.ASSET_CLASS);
         return (Long)getValue(Constants.ASSET_CLASS_RATING);
     }
 
+    /**
+     * get a sorted by date list of comments
+     * @param comment
+     * @param rating
+     * @return comments sorted by date
+     */
     public Integer addComment(String comment, long rating) throws XWikiException {
         int nb = newComment(comment, rating);
         saveWithProgrammingRights("added a new comment");
         return nb;
     }
 
+    /**
+     * get a sorted by date list of comments
+     * @param comment
+     * @param rating
+     * @return the new comment number
+     */
     public Integer newComment(String comment, long rating) throws XWikiException {
         BaseObject newCommentObj = getDoc().newObject(Constants.COMMENTS_CLASS, context);
         newCommentObj.setStringValue(Constants.COMMENTS_CLASS_AUTHOR, context.getUser());
@@ -1158,8 +1178,54 @@ public class Asset extends CurrikiDocument {
         return newCommentObj.getNumber();
     }
 
+    /**
+     * get a sorted by date list of comments
+     * @param nb
+     * @return comment object by number
+     */
     public Object getComment(int nb) {
        return getObject(Constants.COMMENTS_CLASS, nb);
+    }
+
+    /**
+     * get a sorted by date list of comments
+     * @param nb
+     * @return review object by number
+     */
+    public Object getReview(int nb) {
+        return getObject(Constants.ASSET_CURRIKI_REVIEW_CLASS, nb);
+    }
+
+    /**
+     * get a sorted by date list of comments
+     * @return array of review objects
+     */
+    public Vector<Object> getReviews()
+    {
+        return getObjects(Constants.ASSET_CURRIKI_REVIEW_CLASS);
+    }
+
+    /**
+     * get a sorted by date list of comments
+     * @return a list of reviews sorted by date, descendent
+     */
+    public List getReviewsByDate() {
+        List reviews = getReviews();
+        Collections.sort(reviews, new CommentsSorter());
+        return reviews;
+    }
+
+    /**
+     * get a sorted by date list of comments
+     * @return the latest review object
+     */
+    public Object getLastReview() {
+        List reviews = getReviews();
+        if (reviews.isEmpty()) {
+             return null;
+        }
+
+        return (com.xpn.xwiki.api.Object)Collections.max(reviews, new CommentsSorter());
     }
 
     public boolean canBeNominatedOrReviewed(){
@@ -1268,22 +1334,20 @@ public class Asset extends CurrikiDocument {
      * @throws XWikiException
      */
     public Asset autoNominate() throws XWikiException {
-        LOG.debug(getFullName() + "autoNominate");
         XWikiDocument assetDoc = getDoc();
         BaseObject assetObj = assetDoc.getObject(Constants.ASSET_CLASS);
         long rating = assetObj.getLongValue(Constants.ASSET_CLASS_RATING);
         // compute autonominate
         if (rating > 3) {
-            LOG.debug(getFullName() + "autoNominate, rating > 3");
             String rights = assetObj.getStringValue(Constants.ASSET_CLASS_RIGHT);
             BaseObject reviewObj = assetDoc.getObject(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS);
             String status = "";
-            int reviewpending = 0;
+            int review_pending = 0;
             if (reviewObj != null) {
                 status = reviewObj.getStringValue(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_STATUS);
-                reviewpending = reviewObj.getIntValue(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_REVIEW_PENDING, 0);
+                review_pending = reviewObj.getIntValue(Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_REVIEW_PENDING, 0);
             }
-            if (reviewpending == 0 && !StringUtils.equals(rights, Constants.ASSET_CLASS_RIGHT_PRIVATE) &&
+            if (review_pending == 0 && !StringUtils.equals(rights, Constants.ASSET_CLASS_RIGHT_PRIVATE) &&
                     (StringUtils.equals(status, Constants.ASSET_CURRIKI_REVIEW_STATUS_CLASS_STATUS_NOT_RATED)
                     || StringUtils.isEmpty(status))) {
                 nominate(context.getMessageTool().get("curriki.crs.nominate.automatic_due_to_rating.note"));

@@ -252,8 +252,6 @@ public interface Constants {
     String ASSET_CURRIKI_REVIEW_STATUS_CLASS_STATUS_NOT_RATED = "100";
     String ASSET_CURRIKI_REVIEW_STATUS_CLASS_STATUS_PARTNER="200";
 
-    String ASSET_CURRIKI_REVIEW_CLASS_REVIEWPENDING = "reviewpending";
-
     /**
      * XWikiComments
      */
