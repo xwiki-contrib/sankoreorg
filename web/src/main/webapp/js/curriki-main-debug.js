@@ -1833,24 +1833,33 @@ function initLoader() {
 Ext.ns('Curriki');
 Ext.ns('Curriki.module');
 
-// Disable loading mask
-Ext.onReady(function(){
-  Curriki.loadingCount = 0;
-  Curriki.loadingMask = new Ext.LoadMask(Ext.getBody(), {msg:_('loading.loading_msg')});
-
-  /*Ext.Ajax.on('beforerequest', function(conn, options){
-console.log('beforerequest', conn, options);
-    Curriki.showLoading(options.waitMsg);
+Curriki.enableLoadingMask = function(containerId) {
+  // Disable loading mask
+  Ext.onReady(function() {
+    Curriki.loadingCount = 0;
+    var container = Ext.get(containerId);
+    if (Ext.isEmpty(containerId)) {
+      container = Ext.getBody()
+    }
+      
+    Curriki.loadingMask = new Ext.LoadMask(container, {
+      msg: _('loading.loading_msg')
+    });
+    
+    Ext.Ajax.on('beforerequest', function(conn, options) {
+      console.log('beforerequest', conn, options);
+      Curriki.showLoading(options.waitMsg);
+    });
+    Ext.Ajax.on('requestcomplete', function(conn, response, options) {
+      console.log('requestcomplete', conn, response, options);
+      Curriki.hideLoading();
+    });
+    Ext.Ajax.on('requestexception', function(conn, response, options) {
+      console.log('requestexception', conn, response, options);
+      Curriki.hideLoading(true);
+    });
   });
-  Ext.Ajax.on('requestcomplete', function(conn, response, options){
-console.log('requestcomplete', conn, response, options);
-    Curriki.hideLoading();
-  });
-  Ext.Ajax.on('requestexception', function(conn, response, options){
-console.log('requestexception', conn, response, options);
-    Curriki.hideLoading(true);
-  });*/
-});
+};
 
 Curriki.id = function(prefix){
   return Ext.id('', prefix+':');

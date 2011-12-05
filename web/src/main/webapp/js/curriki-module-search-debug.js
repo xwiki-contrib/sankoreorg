@@ -3696,6 +3696,9 @@ var forms = Search.form;
 
 Search.init = function(){
   console.log('search: init');
+  
+  Curriki.enableLoadingMask('xcontent');
+  
   if (Ext.isEmpty(Search.initialized)) {
     if (Ext.isEmpty(Search.tabList)) {
       Search.tabList = ['resource'];
