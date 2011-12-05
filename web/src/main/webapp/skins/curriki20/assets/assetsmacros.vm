@@ -935,10 +935,10 @@ $msg.get("rve.comments.commentrating.display.edit_link")
  *#
 #macro(asset_comments $asset)
 <div class="sub-asset-wrapper member-comments-wrapper">
-    <h3>$msg.get("rve.comments.comment.header")</h3>
-    <div class="sub-asset-wrapper-inner">
-        <ul class="comment-list">
-            #if($asset.getComments().size()>0)
+  <h3>$msg.get("rve.comments.comment.header")</h3>
+  <div class="sub-asset-wrapper-inner">
+    <ul class="comment-list">
+    #if($asset.getComments().size()>0)
             #foreach($comment in $asset.getCommentsByDate())
             #asset_comment($asset $comment)
             #end
