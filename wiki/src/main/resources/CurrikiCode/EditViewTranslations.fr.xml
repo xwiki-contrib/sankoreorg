@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1321461971000</creationDate>
-<date>1321461971000</date>
-<contentUpdateDate>1321461971000</contentUpdateDate>
+<creationDate>1323180054000</creationDate>
+<date>1323180054000</date>
+<contentUpdateDate>1323180054000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -54,7 +54,7 @@ rve.title.attribution.contributor=Contribution de:
 
 rve.title.rating.function.nominate=Soumettre cette ressource à évaluation
 rve.title.rating.crs.info=A propos de l'évaluation Planète Sankoré
-rve.title.rating.crs.info.url=http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem
+rve.title.rating.crs.info.url=/xwiki/bin/view/Main/AboutCES
 curriki.crs.rating=A propos des revues Planète Sankoré
 curriki.crs.rating.unrated=A propos des revues Planète Sankoré
 
@@ -92,7 +92,7 @@ rve.tab.3.heading=Commentaires
 
 ## CONTENT TAB FUNCTION SECTION*******************************************
 
-rve.content.edit_link=Editer
+rve.content.edit_link=Modifier
 rve.content.edit_rollover=Revoir le contenu ou mettre à jour cette ressource
 
 rve.content.copy_link=Copier
@@ -111,14 +111,14 @@ rve.content.organize_rollover=Réorganiser les ressources ou supprimer des resso
 ## CONTENT TAB "EDIT" ERROR &amp; CONFIRMATION MESSAGES*************
 ## Trying n\ or \\n instead of breaks for this JS browser message text:
 
-rve.content.edit.warning.message_text=Vous avez commencé à éditer cette ressource dans l'onglet contenu
+rve.content.edit.warning.message_text=Vous avez commencé à modifier cette ressource dans l'onglet contenu
 
 ## EDIT OR COPY?
-rve.content.edit.intention.message_text=Etes-vous sûr de vouloir modifier cette ressource créée par {0}?&lt;br&gt;&lt;br&gt;Vous allez modifier le fichier source.&lt;br&gt;&lt;br&gt;Pour créer votre propre version de cette ressource, cliquer sur Annuler pour quitter cette fenêtre et cliquer ensuite sur "Copier" dans l'onglet "Contenu".&lt;br&gt;&lt;br&gt;Pour continuer à éditer, cliquez sur OK.
+rve.content.edit.intention.message_text=Etes-vous sûr de vouloir modifier cette ressource créée par {0}?&lt;br&gt;&lt;br&gt;Vous allez modifier le fichier source.&lt;br&gt;&lt;br&gt;Pour créer votre propre version de cette ressource, cliquer sur Annuler pour quitter cette fenêtre et cliquer ensuite sur "Copier" dans l'onglet "Contenu".&lt;br&gt;&lt;br&gt;Pour continuer à modifier, cliquez sur OK.
 
-rve.content.edit.force.message_text=Cette ressource est verrouillée ({0}) est en train de l'éditer. Voulez-vous&lt;a href="{1}"&gt;forcer l'édition&lt;/a&gt; et écraser tous les changements effectués par l'autre membre ?
+rve.content.edit.force.message_text=Cette ressource est verrouillée ({0}) est en train de l'modifier. Voulez-vous&lt;a href="{1}"&gt;forcer l'édition&lt;/a&gt; et écraser tous les changements effectués par l'autre membre ?
 
-rve.content.edit.dialog.continue_button=Continuer à éditer
+rve.content.edit.dialog.continue_button=Continuer à modifier
 rve.content.edit.dialog.cancel_button=Annuler
 rve.content.edit.dialog.ok_button=OK
 
@@ -160,10 +160,10 @@ rve.content.view.preview.previewubwattachment.tooltip=Cliquez pour prévisualier
 
 ## CONTENT TAB EDIT FILE RESOURCES****************************************
 
-rve.content.edit.text.instruction_text.wiki_wysiwyg=Utiliser la barre d'outils du WYSIWYG pour éditer et mettre en forme votre contenu. 
-rve.content.edit.text.instruction_text.html_wysiwyg=Utiliser la barre d'outils HTML pour éditer et mettre en forme votre contenu.
-rve.content.edit.text.instruction_text.wiki_text=Editez et mettez en forme votre contenu en syntaxe wiki.
-rve.content.edit.text.instruction_text.html_text=Editez et mettez en forme votre contenu en utilisant les balises HTML 
+rve.content.edit.text.instruction_text.wiki_wysiwyg=Utiliser la barre d'outils du WYSIWYG pour modifier et mettre en forme votre contenu. 
+rve.content.edit.text.instruction_text.html_wysiwyg=Utiliser la barre d'outils HTML pour modifier et mettre en forme votre contenu.
+rve.content.edit.text.instruction_text.wiki_text=Modifiez et mettez en forme votre contenu en syntaxe wiki.
+rve.content.edit.text.instruction_text.html_text=Modifiez et mettez en forme votre contenu en utilisant les balises HTML 
 rve.content.edit.text.switch_dialog.switch_plain.title=Passer en mode texte?
 rve.content.edit.text.switch_dialog.switch_wysiwyg.title=Passer en mode WYSIWYG?
 
@@ -172,7 +172,7 @@ rve.content.edit.text.instruction_text.wiki_text=Vous êtes actuellement en mode
 rve.content.edit.text.switch_dialog.switch_plain.instruction=Passer en mode texte vous permettra de modifier la syntaxe Wiki/HTML vous-même. Notez que le retour en mode WYSIWYG après une édition en HTML/Wiki peut cause des problèmes de mise en forme. Vérifiez le formatage avant de soumettre vos changements.
 rve.content.edit.text.switch_dialog.switch_wysiwyg.instruction=Passer au mode WYSIWYG vous permettra d'utiliser la barre &amp;#34;WYSIWYG&amp;#34; pour mettre en forme votre contenu. Notez que le retour en mode WYSIWYG après une édition en HTML/Wiki peut cause des problèmes de mise en forme. Vérifiez le formatage avant de soumettre vos changements.
 
-rve.content.edit.text.switch_dialog.continue_button=Continuer à éditer
+rve.content.edit.text.switch_dialog.continue_button=Continuer à modifier
 rve.content.edit.text.switch_dialog.cancel_button=Annuler
 rve.content.edit.revision.instruction_title=Commentaire de révision:
 rve.content.edit.revision.instruction_tooltip=Décrivez ici vos modifications dans un cours commentaire. Le contenu que vous saisierez appraîtra dans l'historique des versions pour décrire la manière dont cette ressource a changée.
@@ -181,7 +181,7 @@ rve.content.edit.save_button=Sauvegarder
 rve.content.edit.cancel_button=Annuler
 rve.content.edit.save_continue_button=Sauvegarder et continuer
 rve.content.edit.caption.instruction_title=Créer une légende:
-rve.content.edit.caption.instruction_tooltip=Par défaut, le contneu que vous saisissez pour la description de la ressource appraraît aussi dans le champ légende quand vous éditez la ressource. Utilisez ce champ pour personnaliser le texte qui appraît dans la légende au lieu d'utiliser le tecte par défaut Ces chamgements n'affecteront pas la description de la ressource. La descriptiond de la ressource peut-être changée dans l'onglet Information.
+rve.content.edit.caption.instruction_tooltip=Par défaut, le contneu que vous saisissez pour la description de la ressource appraraît aussi dans le champ légende quand vous modifiez la ressource. Utilisez ce champ pour personnaliser le texte qui appraît dans la légende au lieu d'utiliser le tecte par défaut Ces chamgements n'affecteront pas la description de la ressource. La descriptiond de la ressource peut-être changée dans l'onglet Information.
 rve.content.edit.alt_text.instruction_title=Adapter le texte alternatif :
 rve.content.edit.alt_text.instruction_tooltip= By default, the content you entered as the resource&amp;#39;s title also appears in the Alternative Text location when someone views the resource. Alternative Text (also known as &amp;#34;Alt Text&amp;#34;) is displayed when a user hovers over an image; it should give any information necessary to understand what the image conveys. Using this field, you can replace the default and customize the text that appears as Alt Text. The changes you make in this field will not change the Title of the resource; the Title can be edited on the Information tab for this resource.
 rve.content.edit.replace_file.instruction_title=Mettre en ligne un fichier de remplacement:
@@ -206,7 +206,6 @@ CurrikiCode.ArchiveAssetClass_type_scoims=SCO/IMS Package Contenu
 CurrikiCode.ArchiveAssetClass_type_imscc=IMS Chargeur Commun
 CurrikiCode.ArchiveAssetClass_type_xo=XO Paquet Contenu
 
-
 rve.content.edit.link_title.instruction_title=Customize the Link Display:
 rve.content.edit.link_title.instruction_tooltip=Enter the text you would like to display in place of the real URL for your web link.
 rve.content.edit.link_title.sample=Enter text here to replace the URL displaying for the hyperlink.
@@ -215,22 +214,18 @@ rve.content.edit.link_url.instruction_tooltip=Check that you have a single &amp;
 rve.content.edit.link_url.error=The URL you have entered is not valid. Please check (a) the format to make sure that &amp;#34;http://&amp;#34; appears only once at the beginning, and (b) that there are no spaces within the URL, then try again.
 
 
-
-
 ## INFORMATION TAB*******************************************
 
 ## INFORMATION TAB FUNCTION SECTION**************************************
 
-rve.information.edit_link=Editer
-rve.information.edit_rollover=Editer les informations de cette ressource
+rve.information.edit_link=Modifier
+rve.information.edit_rollover=Modifier les informations de cette ressource
 
 rve.information.history=Historique
 rve.information.history_rollover=Historique des modifications
 
 rve.information.back_to_history_link=Retour à l'historique des modifications
 rve.information.back_to_history_rollover=
-
-
 
 rve.information.back_to_information_link=Revenir aux informations
 rve.information.back_to_information_rollover=Revenir à la vue par défaut des informations de la ressource
@@ -241,34 +236,23 @@ rve.information.back_to_information_rollover=Revenir à la vue par défaut des i
 
 rve.information.header1=INFORMATIONS GENERALES
 rve.information.title_title=Titre:
-
 rve.information.description_title=Description:
-
 rve.information.subject_title=Sujet(s):
-
 rve.information.edlevel_title=Niveau(x) scolaire(s)
-
 rve.information.ict_title=Type de composant éducatif:
-
 rve.information.keywords_title=Mots clés:
-
 rve.information.language_title=langue:
-
 rve.information.bfcs_title=Vérification basique du fichier:
 
 ## PLEASE NOTE: The BFCS values displayed in this page location will be pulled from the page at /xwiki/bin/view/FileCheck/Translations
 
 rve.information.bfcs_apply_link=Appliquer
-
 rve.information.header2=INFORMATION SUR LES DROITS D'ACCES
 rve.information.accessprivileges_title=Droits d'accès:
-
 rve.information.hidefromsearch_title=Caché dans les résultats de recherche:
 rve.information.hidefromsearch_yes=Oui
 rve.information.hidefromsearch_no=Non
-
 rve.information.rightsholder_title=Détenteur des droits:
-
 rve.information.licensedeed_title=Licence:
 
 ## INFORMATION TAB EDITABLE**************************************
@@ -312,6 +296,7 @@ rve.information.hidefromsearch.edit_title=Cacher la ressource des résultats de 
 rve.information.hidefromsearch.edit_txt=Certains contenus ne sont pas destinés à apparaître dans les résultats de recherche, parce qu'ils n'ont pas d'intérêt pour la communauté en tant qu'élément indépendant.&lt;br&gt;&lt;br&gt;Dans le cas d'un tel élément (par exemple, un tableau) qui a uniquement un sens dans le contexte d'une plus grande ressource (comme le plan d'une leçon), cliquez ci-dessous SVP pour que cet élément n'apparaisse pas dans les résultats des recherches.
 rve.information.hidefromsearch.edit_tooltip=Use this feature to help make Planète Sankoré&amp;#39;s search results work better for everyone!
 rve.information.hidefromsearch.edit_instruction=Ne pas afficher cette ressource dans les résultats de recherche.
+
 rve.information.rightsholder.edit_title=Détenteur des droits:
 rve.information.rightsholder.edit_txt=
 rve.information.rightsholder.edit_tooltip=This is the person or organization that holds the rights to this resource -- the owner of this intellectual property.
@@ -327,9 +312,9 @@ rve.information.licensedeed.edit_instruction=Choisir une licence:
 
 ## INFORMATION TAB VERSION LISTING**************************************
 
-##PLEASE NOTE: This tab uses -- for any date/time displayed within the interface -- the central location for these Trans elements TBD.
+## PLEASE NOTE: This tab uses -- for any date/time displayed within the interface -- the central location for these Trans elements TBD.
 
-##History "notes" or "comments" are captured in Global Class trans.
+## History "notes" or "comments" are captured in Global Class trans.
 
 rve.information.revision.list.header=Informations sur les révisions
 rve.information.revision.list.from_title=From
@@ -351,15 +336,13 @@ rve.information.compare.versions.header=COMPARE VERSIONS
 ##All other Trans on this page is the default and comes from svn.xwiki.org/svnroot/xwiki/platform/core/trunk/xwiki-core/src/main/resources/ApplicationResources.properties or it is referenced in Planète Sankoré here: /xwiki/bin/view/XWiki/GlobalClassTranslations
 
 
-
 ## INFORMATION TAB ERROR &amp; CONFIRMATION MESSAGES
 
 ## EDIT CONFIRMATION
 
+rve.information.edit.intention.message_text=Etes vous certain de vouloir modifier les informations de {0} créé par {1}?&lt;br&gt;&lt;br&gt;Vous modifications modifieront le numéro de version.&lt;br&gt;&lt;br&gt;Cliquez sur OK pour continuer ou sur annuler pour retourner sur l'onglet Information
 
-rve.information.edit.intention.message_text=Etes vous certain de vouloir éditer les informations de {0} créé par {1}?&lt;br&gt;&lt;br&gt;Vous modifications modifieront le numéro de version.&lt;br&gt;&lt;br&gt;Cliquez sur OK pour continuer ou sur annuler pour retourner sur l'onglet Information
-
-rve.information.edit.warning.message=Vous avez commencé à éditer les champs de l'onglet information.
+rve.information.edit.warning.message=Vous avez commencé à modifier les champs de l'onglet information.
 
 rve.information.rollback.confirm.message=Etes-vous sûr de vouloir revenir à la version {0}? Click OK to continue.
 
@@ -375,14 +358,12 @@ rve.information.dialog.ok_button=OK
 rve.information.dialog.cancel_button=Annuler
 
 ## COMMENTS TAB*******************************************
-
-##PLEASE NOTE: This tab uses -- for any date/time displayed within the interface -- the central location for these Trans elements TBD.
+## PLEASE NOTE: This tab uses -- for any date/time displayed within the interface -- the central location for these Trans elements TBD.
 
 ## COMMENTS TAB FUNCTION SECTION**************************************
 
 rve.comments.review.review_link=Révision
 rve.comments.review.review_rollover=Ouvrir le formulaire d'évaluation pour cette ressource
-
 
 rve.comments.review.nominate_link=Signaler pour évaluation
 rve.comments.review.nominate_rollover=Soumettre cette ressource à évaluation
@@ -391,40 +372,38 @@ rve.comments.comment.addcomment_link=Ajouter un commentaire
 rve.comments.comment.addcomment_rollover=Livrer vos impressions pour cette ressource
 
 ## COMMENTS TAB CURRIKI REVIEW SECTION********************************
+## PLEASE NOTE: This tab uses -- for any CRS values displayed within the interface -- the trans at /xwiki/bin/view/CRS/Translations
 
-##PLEASE NOTE: This tab uses -- for any CRS values displayed within the interface -- the trans at /xwiki/bin/view/CRS/Translations
+rve.comments.review.header=EVALUATION PAR LE COMITÉ DE VALIDATION SANKORÉ
 
-rve.comments.review.header=EVALUATION PAR L'EQUIPE PLANETE.SANKORE
-
-rve.comments.review.reviewed.default_text=This resource was reviewed using the rubric for {0} and received an overall &lt;a href="http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem"&gt;Planète Sankoré Review System&lt;/a&gt; rating of &lt;strong&gt;{1}, as of {2}.&lt;/strong&gt;
-rve.comments.review.reviewed.component_title=Component Ratings:
-rve.comments.review.reviewed.component1=Technical Completeness:
-rve.comments.review.reviewed.component2=Content Accuracy:
-rve.comments.review.reviewed.component3=Appropriate Pedagogy:
+rve.comments.review.reviewed.default_text=Cette ressource a été examinée par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; en utilisant la grille de validation ci-dessous le &lt;strong&gt; {1}&lt;/ strong&gt;.
+rve.comments.review.reviewed.component_title=Notation décomposée:
+rve.comments.review.reviewed.component1=Niveau technique
+rve.comments.review.reviewed.component2=Exactitude du contenu:
+rve.comments.review.reviewed.component3=Pédagogie:
 rve.comments.review.reviewed.reviewtext_title=Commentaires :
 
 rve.comments.review.update_link=Mettre à jour cette révision
 
-rve.comments.review.empty.loggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été évaluée par l'équipe Planète Sankoré.&lt;/strong&gt;. Cliquez sur "Soumettre cette ressource à évaluation" ci-dessus pour soumettre cette ressource à évaluation par l'équipe Planète Sankoré
+rve.comments.review.empty.loggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été évaluée.&lt;/strong&gt;. Cliquez sur "Soumettre cette ressource à évaluation" ci-dessus pour soumettre cette ressource à évaluation par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; (CVS).
 
-rve.comments.review.empty.notloggedin_message=&lt;strong&gt;This resource has not yet been reviewed by the &lt;a href="http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem"&gt;Planète Sankoré Review System&lt;/a&gt; (CRS).&lt;/strong&gt; &lt;br&gt;&lt;br&gt;Expert reviewers apply CRS criteria to help users find high quality resources.&lt;br&gt;&lt;br&gt;&lt;a href="http://www.curriki.org/xwiki/bin/view/Main/JoinSankore"&gt;Join Planète Sankoré&lt;/a&gt; or &lt;a href="http://www.curriki.org/xwiki/bin/login/XWiki/XWikiLogin"&gt;log in&lt;/a&gt; so you can nominate a resource for Planète Sankoré Review.
+rve.comments.review.empty.notloggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été analysée par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; (CVS).&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Des relecteurs experts appliquent les critères du CVS pour aider les utilisateurs à trouver des ressources de hautes qualitées.&lt;br&gt;&lt;br&gt;&lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoindre Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; afin de pouvoir demander une évaluation par le CVS.
 
-rve.comments.review.empty.nominated_message=This resource has been nominated for evaluation by the &lt;a href="http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem"&gt;Planète Sankoré Review System&lt;/a&gt; (CRS).&lt;br&gt;&lt;br&gt;Check back soon for this resource’s CRS rating and review!
+rve.comments.review.empty.nominated_message=Cette ressource à été retenue pour être analysé par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; (CVS).&lt;br&gt;&lt;br&gt;Revenez voir plus tard l'évaluation de cette ressource par le CVS. Vous pouvez tout de même la commenter.
 
-rve.comments.review.asterix.rating_message=Cette ressource a recu un vote special parce que elle fait partie des ressources revisee. Verifier la section des commentaires des Membres pour plus d informations.&lt;br&gt;&lt;br&gt;( Cette ressource peut etre selectionne pour une revue complete. Si aucune revue n est planifie mais que vous le voulez: cliquer sur "Selection pour moderation" en bas. )
-
-
-
+rve.comments.review.asterix.rating_message=Cette ressource a recu un vote spécial (*) parce qu'elle fait partie des ressources évalués. Verifier la section des commentaires des membres pour plus d'informations.&lt;br&gt;&lt;br&gt;(Cette ressource peut être selectionnée pour une évaluation complète. Si aucune évaluation n'est planifiée mais que vous le voulez: cliquez sur "Soumettre cette ressource à évaluation" ci-dessus. )
 
 ## COMMENTS TAB MEMBER COMMENTS SECTION**************************
 
 rve.comments.comment.header=COMMENTAIRES DES MEMBRES
-rve.comments.comment.edit_link=Editer
+rve.comments.comment.edit_link=Modifier
 rve.comments.comment.delete_link=Supprimer
 
-rve.comments.comment.empty.loggedin_message:&lt;strong&gt;Aucun commentaires pour cette ressource.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Cliquez sur &amp;#34;Ajoutez un commentaire&amp;#34; pour donner votre avis sur cette resource.
+rve.comments.comment.empty.loggedin_message=&lt;strong&gt;Aucun commentaires pour cette ressource.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Cliquez sur &amp;#34;Ajoutez un commentaire&amp;#34; pour donner votre avis sur cette resource.
 
-rve.comments.comment.empty.notloggedin_message:&lt;strong&gt;Personne n'a encore commenté cette ressource.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Les membres peuvent commenter les ressources. &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Join Planète Sankoré&lt;/a&gt; or &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;log in&lt;/a&gt; so you can add a comment here.
+rve.comments.comment.empty.notloggedin_message=&lt;strong&gt;Personne n'a encore commenté cette ressource.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Les membres peuvent commenter les ressources. &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoindre Planète Sankoré&lt;/a&gt; or &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; ainsi vous pouvez ajouter un commentaire ici.
+
+rve.comments.comment.notloggedin_message=Les membres peuvent commenter les ressources. &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoindre Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; ainsi vous pouvez ajouter un commentaire ici.
 
 rve.comments.comment.add_title=Ajouter un commentaire
 rve.comments.comment.add.submit_button=Soumettre un commentaire
@@ -434,89 +413,59 @@ rve.comments.comment.edit.savechanges_button=Sauvegarder modifications
 rve.comments.comment.edit.cancel_button=Annuler
 
 ## COMMENTS TAB ERROR &amp; CONFIRMATION MESSAGES
-
 rve.comments.comment.delete.confirm.message=Etes vous sur de vouloir supprimer ce commentaire? Cliquer sur OK pour continuer.
-
 rve.comments.comment.error.message.min=Votre commentaire doit contenir au moins 5 caracteres
-
-rve.comments.comment.warning.message.add_edit=Vous ajoutez ou editez un commentaire
-
+rve.comments.comment.warning.message.add_edit=Vous ajoutez ou modifiez un commentaire
 rve.comments.comment.dialog.ok_button=OK
 rve.comments.comment.dialog.cancel_button=Annuler
-
 rve.comments.comment.revision.edit=Commentaires des membres mis a jour
 rve.comments.comment.revision.delete=Commentaires des membres supprimé
 
-
 ## PRINT PREVIEW MODE
-
 mode.print.header_title=Aperçu avant impression
 mode.print.header_txt=Vous visualisez actuellement {0}
 mode.print.header.view_link=Voir
 mode.print.header.close_button=Fermer
 mode.print.header.print_button=Imprimer
 
-
 ## EMBED MODE
-
 ## PLEASE NOTE - this mode uses most keys reused from the main view mode of RVE.
-
 mode.embed.footer_txt=All Content Licensed &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;Creative Commons&lt;/a&gt;
 
 
 ## ORGANIZE FEATURE*******************************************
 
 ## BUTTONS USED IN ALL ORGANIZE DIALOGS
-
 organize.dialog.cancel_button=Annuler 
-
 organize.dialog.ok_button=OK
 
 ## CONFIRM INTENT DIALOG / WARNING MESSAGE
-
 organize.intention.dialog_title=Confirmation Organisation
 organize.intention.message_text=Etes vous sur de vouloir organiser les ressources dans {0} ajoutées par {1}?&lt;br&gt;&lt;br&gt;Vos modifications seront ajoutées dans une nouvelle version du document.
 organize.intention.message.continue_button=Continuer organisation
 
-
 ## ORGANIZE DIALOG
-
 organize.dialog_header=ORGANISER CETTE COLLECTION OU CE DOSSIER
-
 organize.dialog.guidingquestion_text=Comment voulez-vous organiser cette collection ou ce dossier ?
-
 organize.dialog.instruction_text=Pour retirer une ressource, cliquez pour la sélectionner puis cliquez sur Retirer.&lt;br&gt;&lt;br&gt;Pour déplacer des ressources, cliquez puis glissez-déposez.&lt;br&gt;&lt;br&gt; Quand vous êtes satisfait de la manière dont la collection ou le dossier sont organisés, cliquez sur Terminer. 
-
 organize.dialog.resource.unavailable.indicator_node=Ressource Inaccessible
-
 organize.dialog.resource.unavailable.indicator_rollover=Vous ne pouvez pas accéder à cette ressource car ses droits d'accès ont été définis sur Privé. 
-
 organize.dialog.remove_button=Retirer
-
 organize.dialog.done_button=Terminé
 
 ## ORGANIZE CONFIRMATION DIALOG
-
 organize.confirmation.dialog_header=Confirmez l'organisation
-
 organize.confirmation.dialog_summary_text=Vous choisi de réaliser les actions suivantes pour organiser cette ressource :
-
 organize.confirmation.dialog_note_text=Les ressources déplacées seront toujours disponibles dans Mes Contributions ou dans les contributions d'un groupe si elles ont été ajoutées par un groupe. 
-
 organize.confirmation.dialog_instruction_text=Cliquez sur OK pour confirmer ces changements
-
 organize.confirmation.dialog_removed_listing=- Retirer &lt;strong&gt;{0}&lt;/strong&gt; de {1} 
-
 organize.confirmation.dialog_moved_listing=- Déplacer &lt;strong&gt;{0}&lt;/strong&gt; de la position {1} dans {2} à la position {3} dans {4} 
-
-## Organize History resides in Global Class Trans
 
 ## CONCURRENCY ERROR
 organize.error.concurrency_text=Pendant que vous organisiez cette ressource, un autre membre a changer son contenu. Afin de de gerer les versions de ces contenus, votre changement a ete annule. Veuillez essayer a nouveau
 
 
-
-##NO ACCESS PRIVILEGES PAGE
+## NO ACCESS PRIVILEGES PAGE
 
 rve.noaccess.header=ACCESS PRIVILEGES REQUIRED
 rve.noaccess.message=Vous ne pouvez pas consulter cette ressource car vous n'avez pas les droits requis
@@ -529,7 +478,7 @@ rve.noaccess.home_url=/xwiki/bin/view/Main/WebHome
 rve.noaccess.help_link=Aide
 rve.noaccess.help_url=/xwiki/bin/view/Coll_curriki/CurrikiHelp
 
-##PAGE OR RESOURCE NOT FOUND
+## PAGE OR RESOURCE NOT FOUND
 rve.notfound.header=NO PAGE OR RESOURCE FOUND
 rve.notfound.message=No page or resource exists at this location. Please check the URL and try again.
 rve.notfound.goback_link=Go Back
@@ -540,12 +489,7 @@ rve.notfound.help_link=Aide
 rve.notfound.help_url=/xwiki/bin/view/Coll_curriki/CurrikiHelp
 
 
-
-
-
-
 ## NOT SURE WHAT THIS IS, SOME REMOVED FROM GWT TRANS*******************************************
-
 
 ## Params
 params.iconsurl=/xwiki/skins/curriki8/icons/
@@ -587,7 +531,7 @@ PST
 
 
 
-##COMMENT/RATE MODULES
+## COMMENT/RATE MODULES
 
 rve.comments.commentrating.comment.add_title=Ajouter un commentaire:
 rve.comments.commentrating.rating.add_title=Ajouter une Note:
@@ -604,9 +548,7 @@ rve.comments.commentrating.edit.cancel_button=Annuler
 ## COMMENTS TAB ERROR &amp; CONFIRMATION MESSAGES
 
 rve.comments.comment.delete.confirm.message=Etes-vous sûr de vouloir supprimer ce commentaire? Cliquez sur OK pour continuer.
-
 rve.comments.comment.error.message.min=Votre commentaire doit être composé d'au moins cinq caractères.
-
 rve.comments.comment.warning.message.add_edit=Vous avez commencé l'ajout ou la modification d'un commentaire.
 
 rve.comments.comment.dialog.ok_button=Approuver
@@ -622,31 +564,4 @@ rve.comments.commentrating.display.edit_link=Modifier
 rve.comments.commentrating.display.edit_comment_link=Modifier et commentaires
 rve.comments.commentrating.display.edit_rate_link=Edit &amp; Rate
 rve.comments.commentrating.display.delete_link=Supprimer
-
-##COMMENT/RATE MODULES
-
-rve.comments.commentrating.comment.add_title=Ajouter un commentaire:
-rve.comments.commentrating.rating.add_title=Ajouter une Note:
-
-rve.comments.commentrating.comment.edit_title=Ajouter une Note:
-rve.comments.commentrating.rating.edit_title=Modifier Note:
-
-rve.comments.commentrating.add.submit_button=Soumettre
-rve.comments.commentrating.add.cancel_button=Annuler
-
-rve.comments.commentrating.edit.savechanges_button=Enregistrer les modifications
-rve.comments.commentrating.edit.cancel_button=Annuler
-
-## COMMENTS TAB ERROR &amp; CONFIRMATION MESSAGES
-
-rve.comments.comment.delete.confirm.message=Etes-vous sûr de vouloir supprimer ce commentaire? Cliquez sur OK pour continuer.
-
-rve.comments.comment.error.message.min=Votre commentaire doit être composé d'au moins cinq caractères.
-
-rve.comments.comment.warning.message.add_edit=Vous avez commencé l'ajout ou la modification d'un commentaire.
-
-rve.comments.comment.dialog.ok_button=Approuver
-rve.comments.comment.dialog.cancel_button=Annuler
-
-rve.comments.comment.revision.edit=Membres commentaire mis à jour
-rve.comments.comment.revision.delete=Membres commentaire supprimé</content></xwikidoc>
+</content></xwikidoc>
