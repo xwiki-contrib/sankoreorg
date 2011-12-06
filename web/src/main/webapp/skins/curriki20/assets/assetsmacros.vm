@@ -939,61 +939,58 @@ $msg.get("rve.comments.commentrating.display.edit_link")
   <div class="sub-asset-wrapper-inner">
     <ul class="comment-list">
     #if($asset.getComments().size()>0)
-            #foreach($comment in $asset.getCommentsByDate())
-            #asset_comment($asset $comment)
-            #end
-            #else
-            <li class="no-comment">
-                <ul>
-                    <li>
-                        <p>
-                            #if($isguest)
-                            $msg.get("rve.comments.comment.empty.notloggedin_message")
-                            #else
-                            $msg.get("rve.comments.comment.empty.loggedin_message")
-                            #end
-                        </p>
-                    </li>
-                </ul>
-            </li>
-            #end
+      #foreach($comment in $asset.getCommentsByDate())
+        #asset_comment($asset $comment)
+      #end
+      #if($isGuest)
+        <li class="comment"><ul><li><p>$msg.get("rve.comments.comment.notloggedin_message")</p></li></ul></li>
+      #end
+    #else
+      <li class="no-comment">
+        <ul>
+          <li><p>#if($isGuest) $msg.get("rve.comments.comment.empty.notloggedin_message")
+                 #else $msg.get("rve.comments.comment.empty.loggedin_message")
+                 #end</p>
+          </li>
         </ul>
-        <div id="comment-submit-form" class="comment-submit-form" style="display: none;">
-            #set($cclass = $xwiki.getDocument("XWiki.XWikiComments").getxWikiClass())
-            #set($comment = $cclass.newObject())
-            #set($qs = "")
-            #set($qs = $request.queryString)
-            #set($xredirect= $xwiki.getFormEncoded($asset.getURL('view', $qs)))
-            <form name="comment-add" action="$xwiki.getURL("CurrikiCode.CreateCommentService")" method="post" onsubmit="return checkComment(this['XWiki.XWikiComments_comment'], this['XWiki.XWikiComments_rating']);">
-		<input type="hidden" name="page" value="${asset.fullName}" />
-                <input type="hidden" name="xredirect" value="${xredirect}" />
-                <input type="hidden" name="XWiki.XWikiComments_author" value="$context.user"/>
-                <input type="hidden" name="XWiki.XWikiComments_date" value=""/>
-                <fieldset>
-                    <label for="XWiki.XWikiComments_rating">$msg.get("rve.comments.commentrating.rating.add_title")</label>
-                    <input type="text" id="XWiki.XWikiComments_rating" name="XWiki.XWikiComments_rating" style="margin: 0;padding:0;" />
-                    <label style="clear: left; display: block; float: left; margin-top: 20px;">$msg.get("rve.comments.commentrating.comment.add_title")</label>
-                    <textarea cols="35" rows="7" name="XWiki.XWikiComments_comment" style="margin: 0;padding:0;"></textarea>
-                </fieldset>
-                <fieldset class="buttons">
-                    <input type="button" class="button button-cancel mgn-rt-5" name="cancel" value="$msg.get("rve.comments.commentrating.add.cancel_button")" 
-                           onclick="document.getElementById('comment-submit-form').style.display = 'none' ;  clickAwayCounter--; if (clickAwayCounter==0) clickAwayActive = false; "/>
-                    <input type="submit" class="button button-confirm" name="save" value="$msg.get("rve.comments.commentrating.add.submit_button")"/>
-                </fieldset>
+      </li>
+    #end
+    </ul>
+    <div id="comment-submit-form" class="comment-submit-form" style="display: none;">
+    #set($cclass = $xwiki.getDocument("XWiki.XWikiComments").getxWikiClass())
+    #set($comment = $cclass.newObject())
+    #set($qs = "")
+    #set($qs = $request.queryString)
+    #set($xredirect= $xwiki.getFormEncoded($asset.getURL('view', $qs)))
+    <form name="comment-add" action="$xwiki.getURL("CurrikiCode.CreateCommentService")" method="post" onsubmit="return checkComment(this['XWiki.XWikiComments_comment'], this['XWiki.XWikiComments_rating']);">
+      <input type="hidden" name="page" value="${asset.fullName}" />
+      <input type="hidden" name="xredirect" value="${xredirect}" />
+      <input type="hidden" name="XWiki.XWikiComments_author" value="$context.user"/>
+      <input type="hidden" name="XWiki.XWikiComments_date" value=""/>
+      <fieldset>
+        <label for="XWiki.XWikiComments_rating">$msg.get("rve.comments.commentrating.rating.add_title")</label>
+        <input type="text" id="XWiki.XWikiComments_rating" name="XWiki.XWikiComments_rating" style="margin: 0;padding:0;" />
+        <label style="clear: left; display: block; float: left; margin-top: 20px;">$msg.get("rve.comments.commentrating.comment.add_title")</label>
+        <textarea cols="35" rows="7" name="XWiki.XWikiComments_comment" style="margin: 0;padding:0;"></textarea>
+      </fieldset>
+      <fieldset class="buttons">
+        <input type="button" class="button button-cancel mgn-rt-5" name="cancel" value="$msg.get("rve.comments.commentrating.add.cancel_button")" onclick="document.getElementById('comment-submit-form').style.display = 'none' ;  clickAwayCounter--; if (clickAwayCounter==0) clickAwayActive = false; "/>
+        <input type="submit" class="button button-confirm" name="save" value="$msg.get("rve.comments.commentrating.add.submit_button")"/>
+      </fieldset>
 <script type="text/javascript">
 /* <![CDATA[ */
 Ext.onReady(function(){
-if (Ext.get('XWiki.XWikiComments_rating') && !Ext.get('XWiki.XWikiComments_rating').hasClass('x-hidden')) {
-var nr = new Curriki.ui.Rating({id:'XWikiComments_rating'});
-nr.applyToMarkup('XWiki.XWikiComments_rating');
-}
+  if (Ext.get('XWiki.XWikiComments_rating') && !Ext.get('XWiki.XWikiComments_rating').hasClass('x-hidden')) {
+    var nr = new Curriki.ui.Rating({id:'XWikiComments_rating'});
+    nr.applyToMarkup('XWiki.XWikiComments_rating');
+  }
 });
 /* ]]> */
 </script>
-            </form>
-        </div>
-    </div>
-</div>
+    </form>
+    </div> ## #comment-submit-form
+  </div> ## .sub-asset-wrapper-inner
+</div> ## .sub-asset-wrapper member-comments-wrapper
 #asset_editcomment_js()
 #end
 
