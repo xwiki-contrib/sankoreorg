@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1321892999000</creationDate>
-<date>1321892999000</date>
-<contentUpdateDate>1321892999000</contentUpdateDate>
+<creationDate>1323249765000</creationDate>
+<date>1323249765000</date>
+<contentUpdateDate>1323249765000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -119,7 +119,7 @@ form.title.description.link1.url=/xwiki/bin/view/Coll_curriki/SampleWikiResource
 form.title.description.link3=Aide
 form.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
 form.title.description.link2=Système de Revue Planète Sankoré
-form.title.description.link2.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
+form.title.description.link2.url=/xwiki/bin/view/Main/AboutCES
 form.title.description.link2.thumbnail=/xwiki/skins/curriki8/icons/CRS.png
 
 ## SWR STEP 1
@@ -153,7 +153,7 @@ form.html.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll
 form.html.title.description.link3=Aide
 form.html.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheHTMLResourcefromScratchForm?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository;Coll_curriki.CreatingResourceswithFormsTemplates
 form.html.title.description.link2=Système de revue Planète Sankoré
-form.html.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem
+form.html.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Main/AboutCES
 form.html.title.description.link2.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
 ## SHR STEP 1
@@ -188,7 +188,7 @@ lesson.plan.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Co
 lesson.plan.title.description.link3=Aide
 lesson.plan.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
 lesson.plan.title.description.link2=Système de revue Planète Sankoré
-lesson.plan.title.description.link2.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
+lesson.plan.title.description.link2.url=/xwiki/bin/view/Main/AboutCES
 lesson.plan.title.description.link2.thumbnail=/xwiki/skins/curriki8/icons/CRS.png
 
 ## CSLP STEP 1
@@ -534,7 +534,7 @@ ace.lesson.plan.file.size.dialog.button=OK
 form.scratch.step4.header=Étape 4. Revoir &amp; Soumettre
 
 ##CORRECT DISPLAY FOR STEP 4
-ace.form.scratch.step4.instruction=Relisez-vous avant de soumettre vos données. &lt;br /&gt; &lt;br /&gt;Si votre contenu &lt;i&gt;n'est pas prêt&lt;/i&gt; à être visualisé par d'autres, n'oubliez pas de changer les droits d'accès à privé.&lt;br /&gt; &lt;br /&gt;Notez qu'il y a deux champs, Changements pour la prochaine fois et Ce qui a bien marché qui apparaîtront dans la ressource après soumission. Lorsque vous serez prêt à remplir ces champs, éditez simplement la ressource. 
+ace.form.scratch.step4.instruction=Relisez-vous avant de soumettre vos données. &lt;br /&gt; &lt;br /&gt;Si votre contenu &lt;i&gt;n'est pas prêt&lt;/i&gt; à être visualisé par d'autres, n'oubliez pas de changer les droits d'accès à privé.&lt;br /&gt; &lt;br /&gt;Notez qu'il y a deux champs, Changements pour la prochaine fois et Ce qui a bien marché qui apparaîtront dans la ressource après soumission. Lorsque vous serez prêt à remplir ces champs, modifiez simplement la ressource. 
 
 ## ACELP OUTPUT ONLY
 
@@ -563,7 +563,7 @@ wq.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Coll_currik
 wq.title.description.link3=WebQuest Background
 wq.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/WebQuestBackgroundInstructionalDesign
 wq.title.description.link4=Planète Sankoré Review System
-wq.title.description.link4.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
+wq.title.description.link4.url=/xwiki/bin/view/Main/AboutCES
 wq.title.description.link4.thumbnail=/xwiki/skins/curriki8/crs/crs.png
 
 ##WEBQUEST STEP 1
@@ -807,7 +807,7 @@ sri.right_holder_tooltip=Noms des personnes propriétaires du Copyright pour cet
 ## ACCESS PRIVELEGES
 sri.rights_title=Privilèges d'accès:
 sri.rights_txt=Choisissez &lt;strong&gt;Privé&lt;/strong&gt; pour conserver votre matériel dans l'état "draft" jusqu'au moment où il sera prêt à être publié&lt;br /&gt;dans le repository pour un usage général.
-sri.rights_tooltip=Ce paramètre détermine qui a les droits pour visualiser ou pour éditer les ressources.
+sri.rights_tooltip=Ce paramètre détermine qui a les droits pour visualiser ou pour modifier les ressources.
 sri.rights_content=
 
 ## LICENSE DEED
