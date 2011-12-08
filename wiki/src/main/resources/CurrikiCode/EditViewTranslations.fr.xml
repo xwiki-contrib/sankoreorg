@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323180054000</creationDate>
-<date>1323180054000</date>
-<contentUpdateDate>1323180054000</contentUpdateDate>
+<creationDate>1323363772000</creationDate>
+<date>1323363772000</date>
+<contentUpdateDate>1323363772000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -52,15 +52,15 @@ rve.title.function.email.icon.rollover=Envoyer cette ressource à un ami
 rve.title.attribution.group=De:
 rve.title.attribution.contributor=Contribution de:
 
-rve.title.rating.function.nominate=Soumettre cette ressource à évaluation
-rve.title.rating.crs.info=A propos de l'évaluation Planète Sankoré
-rve.title.rating.crs.info.url=/xwiki/bin/view/Main/AboutCES
-curriki.crs.rating=A propos des revues Planète Sankoré
-curriki.crs.rating.unrated=A propos des revues Planète Sankoré
+rve.title.rating.function.nominate=Soumettre cette ressource à validation
+rve.title.rating.crs.info=A propos du comité de validation Sankoré
+rve.title.rating.crs.info.url=/xwiki/bin/view/Main/AboutCVS
+curriki.crs.rating=A propos de l'évaluation par le CVS
+curriki.crs.rating.unrated=A propos de l'évaluation par le CVS
 
-rve.title.member.rating.function.add_rating=Evaluer cette ressource en tant que membre
+rve.title.member.rating.function.add_rating=Évaluer cette ressource en tant que membre
 rve.title.member.rating.info=A propos de l'évaluation par les membres
-rve.title.member.rating.info.url=http://www.curriki.org/xwiki/bin/view/Main/AboutMemberRating
+rve.title.member.rating.info.url=/xwiki/bin/view/Main/AboutMemberRating
 
 rve.title.member.rating.1.rollover=Inutilisable
 rve.title.member.rating.2.rollover=Faible
@@ -114,9 +114,9 @@ rve.content.organize_rollover=Réorganiser les ressources ou supprimer des resso
 rve.content.edit.warning.message_text=Vous avez commencé à modifier cette ressource dans l'onglet contenu
 
 ## EDIT OR COPY?
-rve.content.edit.intention.message_text=Etes-vous sûr de vouloir modifier cette ressource créée par {0}?&lt;br&gt;&lt;br&gt;Vous allez modifier le fichier source.&lt;br&gt;&lt;br&gt;Pour créer votre propre version de cette ressource, cliquer sur Annuler pour quitter cette fenêtre et cliquer ensuite sur "Copier" dans l'onglet "Contenu".&lt;br&gt;&lt;br&gt;Pour continuer à modifier, cliquez sur OK.
+rve.content.edit.intention.message_text=Etes-vous sûr de vouloir modifier cette ressource créée par {0}?&lt;br&gt;&lt;br&gt;Vous allez modifier le fichier source.&lt;br&gt;&lt;br&gt;Pour créer votre propre version de cette ressource, cliquer sur Annuler pour quitter cette fenêtre et cliquer ensuite sur "Copier" dans l'onglet "Contenu".&lt;br&gt;&lt;br&gt;Pour continuer vers la modification de cette ressource, cliquez sur OK.
 
-rve.content.edit.force.message_text=Cette ressource est verrouillée ({0}) est en train de l'modifier. Voulez-vous&lt;a href="{1}"&gt;forcer l'édition&lt;/a&gt; et écraser tous les changements effectués par l'autre membre ?
+rve.content.edit.force.message_text=Cette ressource est verrouillée. ({0}) est en train de la modifier. Voulez-vous&lt;a href="{1}"&gt;forcer l'édition&lt;/a&gt; et écraser tout les derniers changements effectués par {0}?
 
 rve.content.edit.dialog.continue_button=Continuer à modifier
 rve.content.edit.dialog.cancel_button=Annuler
@@ -129,9 +129,9 @@ rve.content.downarrow_icon_rollover=Cacher
 
 ##CONTENT TAB EMPTY CONTAINING RESOURCE*********************
 
-rve.content.empty.loggedin=&lt;strong&gt;Cette collection ou ce dossier est vide, ou contient des ressources qui ne peuvent-être vues à cause du paramétrage de leurs droits.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Si cette collection ou ce dossier est accessible, vous pouvez cliquer sur &amp;#34;Contribuer&amp;#34; pour y ajouter des ressources.
+rve.content.empty.loggedin=&lt;strong&gt;Cette collection ou ce dossier est vide ou contient des ressources qui ne peuvent-être vues à cause du paramétrage de leurs droits.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Si cette collection ou ce dossier est accessible, vous pouvez cliquer sur &amp;#34;Contribuer&amp;#34; pour y ajouter des ressources.
 
-rve.content.empty.notloggedin=&lt;strong&gt;Cette collection ou ce dossier est vide, ou contient des ressources qui ne peuvent-être vues à cause du paramétrage de leurs droits.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoingez-nous&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; pour ajouter des ressources à cette collection ou ce dossier ou pour faire des commentaires.
+rve.content.empty.notloggedin=&lt;strong&gt;Cette collection ou ce dossier est vide ou contient des ressources qui ne peuvent-être vues à cause du paramétrage de leurs droits.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoingez-nous&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; pour y ajouter des ressources ou pour simplement faire des commentaires.
 
 
 ## CONTENT TAB VIEW FILE RESOURCES***************************************
@@ -139,7 +139,7 @@ rve.content.empty.notloggedin=&lt;strong&gt;Cette collection ou ce dossier est v
 rve.content.view.download.instruction_title.single_file=Ouvrir ou télécharger ce fichier:
 rve.content.view.download.instruction_title.multiple_files=Ouvrir ou télécharger ces fichiers:
 rve.content.view.download.instruction_tooltip=Le lien ci-dessous ouvrira le document dans une nouvelle fenêtre de votre navigateur. Le bouton de téléchargement à droite &amp;#39;forcera&amp;#39; le téléchargement pour que vous puissiez sauvegarder le fichier sur votre ordinateur.
-rve.content.view.download.instruction_tooltip.viditalk=Right-click on the document link below and select the option to to save the file or link onto your computer. Clicking on the link below will follow your browser’s normal behavior for opening files on the Internet, i.e., it will open the file in the current browser window, while clicking the orange download button to the right will open the file in a new browser window.
+rve.content.view.download.instruction_tooltip.viditalk=Vous pouvez aussi utiliser le clic droit et choisir de enregistrer la cible du lien sur votre ordinateur. Cliquer sur ce lien va suivre le comprotement habituel de votre navigateur; Généralement le fichier s'ouvre directement dans le navigateur. En cliquant sur le bouton orange à droite, le fichier s'ouvrira dans une nouvelle fenêtre.
 rve.content.view.download.download_button=Télécharger
 rve.content.view.download.viditalk.download_button=Télécharger fichier VidiTalk
 rve.content.view.download.viditalk.download_button_original=Télécharger le fichier original
@@ -160,17 +160,17 @@ rve.content.view.preview.previewubwattachment.tooltip=Cliquez pour prévisualier
 
 ## CONTENT TAB EDIT FILE RESOURCES****************************************
 
-rve.content.edit.text.instruction_text.wiki_wysiwyg=Utiliser la barre d'outils du WYSIWYG pour modifier et mettre en forme votre contenu. 
-rve.content.edit.text.instruction_text.html_wysiwyg=Utiliser la barre d'outils HTML pour modifier et mettre en forme votre contenu.
+rve.content.edit.text.instruction_text.wiki_wysiwyg=Utilisez la barre d'outils du WYSIWYG pour modifier et mettre en forme votre contenu. 
+rve.content.edit.text.instruction_text.html_wysiwyg=Utilisez la barre d'outils HTML pour modifier et mettre en forme votre contenu.
 rve.content.edit.text.instruction_text.wiki_text=Modifiez et mettez en forme votre contenu en syntaxe wiki.
 rve.content.edit.text.instruction_text.html_text=Modifiez et mettez en forme votre contenu en utilisant les balises HTML 
-rve.content.edit.text.switch_dialog.switch_plain.title=Passer en mode texte?
-rve.content.edit.text.switch_dialog.switch_wysiwyg.title=Passer en mode WYSIWYG?
+rve.content.edit.text.switch_dialog.switch_plain.title=Voulez vous passer en mode texte?
+rve.content.edit.text.switch_dialog.switch_wysiwyg.title=Voulez vous passer en mode WYSIWYG?
 
-rve.content.edit.text.instruction_text.wiki_text=Vous êtes actuellement en mode wiki car ce contenu contient des balises qui ne sont pas compatibles avec l'éditeur WYSIWYG. Vous pouvez décider de &lt;a href="javascript:void(0)" onclick="location = location + '&amp;forcewysiwyg=1';"&gt;lancer l'éditeur WYSIWYG&lt;/a&gt; mais ceci pourrait altérer votre contenu. 
+rve.content.edit.text.instruction_text.wiki_text=Vous êtes actuellement en mode wiki car ce contenu contient des balises qui ne sont pas compatibles avec l'éditeur WYSIWYG. Vous pouvez décider de &lt;a href="javascript:void(0)" onclick="location = location + '&amp;forcewysiwyg=1';"&gt;lancer l'éditeur WYSIWYG&lt;/a&gt; mais ceci pourrait altérer votre contenu lors de la sauvegarde de vos modifications. 
 
-rve.content.edit.text.switch_dialog.switch_plain.instruction=Passer en mode texte vous permettra de modifier la syntaxe Wiki/HTML vous-même. Notez que le retour en mode WYSIWYG après une édition en HTML/Wiki peut cause des problèmes de mise en forme. Vérifiez le formatage avant de soumettre vos changements.
-rve.content.edit.text.switch_dialog.switch_wysiwyg.instruction=Passer au mode WYSIWYG vous permettra d'utiliser la barre &amp;#34;WYSIWYG&amp;#34; pour mettre en forme votre contenu. Notez que le retour en mode WYSIWYG après une édition en HTML/Wiki peut cause des problèmes de mise en forme. Vérifiez le formatage avant de soumettre vos changements.
+rve.content.edit.text.switch_dialog.switch_plain.instruction=Passer en mode texte vous permettra de modifier la syntaxe Wiki/HTML vous-même. Notez que le retour en mode WYSIWYG après une édition en HTML/Wiki peut cause des problèmes de mise en forme. Vérifiez le formatage avant de soumettre vos changements en utilisant le bouton &amp;#34;Prévisualiser&amp;#34;.
+rve.content.edit.text.switch_dialog.switch_wysiwyg.instruction=Passer au mode WYSIWYG vous permettra d'utiliser la barre &amp;#34;WYSIWYG&amp;#34; pour mettre en forme votre contenu. Notez que le retour en mode WYSIWYG après une édition en HTML/Wiki peut cause des problèmes de mise en forme. Vérifiez le formatage avant de soumettre vos changements en utilisant le bouton &amp;#34;Prévisualiser&amp;#34;.
 
 rve.content.edit.text.switch_dialog.continue_button=Continuer à modifier
 rve.content.edit.text.switch_dialog.cancel_button=Annuler
@@ -181,27 +181,27 @@ rve.content.edit.save_button=Sauvegarder
 rve.content.edit.cancel_button=Annuler
 rve.content.edit.save_continue_button=Sauvegarder et continuer
 rve.content.edit.caption.instruction_title=Créer une légende:
-rve.content.edit.caption.instruction_tooltip=Par défaut, le contneu que vous saisissez pour la description de la ressource appraraît aussi dans le champ légende quand vous modifiez la ressource. Utilisez ce champ pour personnaliser le texte qui appraît dans la légende au lieu d'utiliser le tecte par défaut Ces chamgements n'affecteront pas la description de la ressource. La descriptiond de la ressource peut-être changée dans l'onglet Information.
+rve.content.edit.caption.instruction_tooltip=Par défaut, le contneu que vous saisissez pour la description de la ressource appraraît aussi dans le champ légende quand vous modifiez la ressource. Utilisez ce champ pour personnaliser le texte qui appraît dans la légende au lieu d'utiliser le tecte par défaut Ces chamgements n'affecteront pas la description de la ressource. La description de la ressource peut-être changée dans l'onglet Information.
 rve.content.edit.alt_text.instruction_title=Adapter le texte alternatif :
-rve.content.edit.alt_text.instruction_tooltip= By default, the content you entered as the resource&amp;#39;s title also appears in the Alternative Text location when someone views the resource. Alternative Text (also known as &amp;#34;Alt Text&amp;#34;) is displayed when a user hovers over an image; it should give any information necessary to understand what the image conveys. Using this field, you can replace the default and customize the text that appears as Alt Text. The changes you make in this field will not change the Title of the resource; the Title can be edited on the Information tab for this resource.
+rve.content.edit.alt_text.instruction_tooltip= Par defaut, c'est le titre qui est pris en compte pour le texte alternatif. Le texte alternatif apparait au survol de l'élément; il doit aider à comprendre l'élément. Vous pouvez ajouter un nouveau texte alternatif ici.
 rve.content.edit.replace_file.instruction_title=Mettre en ligne un fichier de remplacement:
 rve.content.edit.replace_file.instruction_title.archive=Mettre en ligne une archive de remplacement:
-rve.content.edit.replace_file.instruction_tooltip=Uploading a new file will replace the file currently displayed in your resource. If you upload a file for which the file extension (the part that comes after the period, as in &amp;#34;.doc&amp;#34;) does not match the current file extension, it may change the display of your resource. To upload a new file without replacing the current attachment, create a new resource by clicking &amp;#34;Add a Resource&amp;#34; under the Contribute heading in the the navigation menu on the left, or, if adding the new file into an existing folder or collection, by clicking &amp;#34;Build Up&amp;#34; for that parent resource.
+rve.content.edit.replace_file.instruction_tooltip=Mettre en ligne un nouveau fichier va aussi changer l'affichage de celle ci.
 rve.content.edit.replace_video.instruction_title=Filmer ou mettre en ligne une vidéo de remplacement:
-rve.content.edit.replace_video.instruction_tooltip=Capturing or uploading a new video will replace the video currently displayed in your resource. After the video is converted, click &amp;#34;Next&amp;#34;. To upload a video without replacing the current video, create a new resource by clicking &amp;#34;Add a Resource&amp;#34; under the Contribute heading in the navigation menu on the left, or, if adding the new video into an existing folder or collection, by clicking &amp;#34;Build Up&amp;#34; for that parent resource.
+rve.content.edit.replace_video.instruction_tooltip=Pour mettre en ligne une nouvelle vidéo sans remplacer la vidéo actuelle, créez une nouvelle ressource en utilisant  &amp;#34;Ajouter une ressource&amp;#34;.
 rve.content.edit.replace_file.browse_button=Parcourir
 rve.content.edit.replace_file.new_type_dialog.title=Changer le type de fichier?
-rve.content.edit.replace_file.new_type_dialog.instruction= Le nouveau fichier que vous avez sélectionner n'utilise pas la même extension. Voulez-vous vraiment continuer? Mettre un ligne un nouveau fichier va écraser le précédent.
+rve.content.edit.replace_file.new_type_dialog.instruction= Le nouveau fichier que vous avez sélectionné n'utilise pas la même extension. Voulez-vous vraiment continuer? Mettre un ligne un nouveau fichier va écraser le précédent.
 rve.content.edit.replace_file.new_type_dialog.continue_button=Continuer à télécharger
 rve.content.edit.replace_file.new_type_dialog.cancel_button=Annuler
 rve.content.edit.set_start.instruction_title=Set a New Start File:
 rve.content.edit.set_start.instruction_tooltip=Certain types of Zip files (such as SCORM learning objects) can be played from the server. Select the file that should load first in order to activate this feature.
 rve.content.edit.archive_type.instruction_title=Personnaliser l'archive type:
-rve.content.edit.archive_type.instruction_tooltip=Select one of the options below to help savvy users find archives of a specific type.
+rve.content.edit.archive_type.instruction_tooltip=
 
 
 CurrikiCode.ArchiveAssetClass_type_zip=Zip: Archive Generique
-CurrikiCode.ArchiveAssetClass_type_zipweb=Zip: Archive Site
+CurrikiCode.ArchiveAssetClass_type_zipweb=Xar: Archive Site
 CurrikiCode.ArchiveAssetClass_type_scoims=SCO/IMS Package Contenu 
 CurrikiCode.ArchiveAssetClass_type_imscc=IMS Chargeur Commun
 CurrikiCode.ArchiveAssetClass_type_xo=XO Paquet Contenu
@@ -210,8 +210,8 @@ rve.content.edit.link_title.instruction_title=Customize the Link Display:
 rve.content.edit.link_title.instruction_tooltip=Enter the text you would like to display in place of the real URL for your web link.
 rve.content.edit.link_title.sample=Enter text here to replace the URL displaying for the hyperlink.
 rve.content.edit.link_url.instruction_title=Mettre à jour l'URL :
-rve.content.edit.link_url.instruction_tooltip=Check that you have a single &amp;#34;http://&amp;#34; and that there are no spaces in your URL.
-rve.content.edit.link_url.error=The URL you have entered is not valid. Please check (a) the format to make sure that &amp;#34;http://&amp;#34; appears only once at the beginning, and (b) that there are no spaces within the URL, then try again.
+rve.content.edit.link_url.instruction_tooltip=Vérifiez qu'il y'a bien &amp;#34;http://&amp;#34; et qu'il n'y a pas d'espace dans l'URL.
+rve.content.edit.link_url.error=L'URL n'est pas valide. Veuillez vérifier (a) le format pour être sur que l'adresse commence par &amp;#34;http://&amp;#34; et que (b) il n'y a pas d'espace dans l'URL puis, essayez à nouveau.
 
 
 ## INFORMATION TAB*******************************************
@@ -225,7 +225,7 @@ rve.information.history=Historique
 rve.information.history_rollover=Historique des modifications
 
 rve.information.back_to_history_link=Retour à l'historique des modifications
-rve.information.back_to_history_rollover=
+rve.information.back_to_history_rollover=Revenir à la vue par défaut de l'historique des modifications
 
 rve.information.back_to_information_link=Revenir aux informations
 rve.information.back_to_information_rollover=Revenir à la vue par défaut des informations de la ressource
@@ -266,11 +266,11 @@ rve.information.edit.required.field.icon=!
 
 rve.information.title.edit_title=Titre:
 rve.information.title.edit_txt=Modifiez le titre de cette ressource.
-rve.information.title.edit_tooltip=Use no more than 250 characters (including spaces) in the resource title, which should be unique enough to help identify its relevance in search results.
+rve.information.title.edit_tooltip=N'utilisez pas plus de 250 caractères (espaces inclus), le titre doit permettre de comprendre globalement le contenu de la ressource.
 
 rve.information.description.edit_title=Description:
 rve.information.description.edit_txt=Mettre à jour la description de cette ressource
-rve.information.description.edit_tooltip=If relevant, you may want to include the relationship of this resource to its larger instructional context, i.e., &amp;#34;This lesson, in which students learn and practice basic conversation skills, is part of a Spanish II unit for a year-long high school course.&amp;#34;
+rve.information.description.edit_tooltip=Le descriptif doit permettre de comprendre en détail le contenu de la ressource.
 
 rve.information.subject.edit_title=Sujet:
 rve.information.subject.edit_txt=Modifier les thèmes correspondant à cette ressource.
@@ -278,34 +278,33 @@ rve.information.subject.edit_tooltip=Please make sure the resource is correlated
 
 rve.information.edlevel.edit_title=Niveau scolaire:
 rve.information.edlevel.edit_txt=Modifier le niveau éducationnel pour cette ressource.
-rve.information.edlevel.edit_tooltip=Please make sure the resource is correlated only to appropriate education levels; applying too many levels makes it harder for people to find what they need in search results.
+rve.information.edlevel.edit_tooltip=Assurez vous de ne pas mettre trop de niveau différents.
 
 rve.information.ict.edit_title=Type de ressource:
 rve.information.ict.edit_txt=Parcourez la liste pour trouver le type de ressource approprié.
-rve.information.ict.edit_tooltip=Selectionnez le(s) type(s) d'activité(s) qui correspond(ent) le plus à cette ressource
+rve.information.ict.edit_tooltip=Sélectionnez le(s) type(s) d'activité(s) qui correspond(ent) le plus à cette ressource
 
 rve.information.keywords.edit_title=Mots clés:
 rve.information.keywords.edit_txt=
-rve.information.keywords.edit_tooltip=Add any terms to help people find this resource in search results. Include &amp;#34;student-facing&amp;#34; if this resource is meant for use by learners.
+rve.information.keywords.edit_tooltip=Ajoutez des termes qui pourraient définir la ressource.
 
 rve.information.language.edit_title=Langue:
 rve.information.language.edit_txt=
-rve.information.language.edit_tooltip=Select a language for this resource. If you select &amp;#34;Other&amp;#34; please add the language in the Key Words field above. (You may wish to enter it in both the native and English alphabets, if applicable.)
+rve.information.language.edit_tooltip=Sélectionnez la langue de cette ressource. Si vous choisissez &amp;#34;Autre&amp;#34; merci d'ajouter la langue dans les mots clés de cette ressource.
 
 rve.information.hidefromsearch.edit_title=Cacher la ressource des résultats de recherche:
 rve.information.hidefromsearch.edit_txt=Certains contenus ne sont pas destinés à apparaître dans les résultats de recherche, parce qu'ils n'ont pas d'intérêt pour la communauté en tant qu'élément indépendant.&lt;br&gt;&lt;br&gt;Dans le cas d'un tel élément (par exemple, un tableau) qui a uniquement un sens dans le contexte d'une plus grande ressource (comme le plan d'une leçon), cliquez ci-dessous SVP pour que cet élément n'apparaisse pas dans les résultats des recherches.
-rve.information.hidefromsearch.edit_tooltip=Use this feature to help make Planète Sankoré&amp;#39;s search results work better for everyone!
+rve.information.hidefromsearch.edit_tooltip=Utilisez cette fonctionnalité pour améliorer la pertinence du moteur de recherche pour la communauté Sankoré!
 rve.information.hidefromsearch.edit_instruction=Ne pas afficher cette ressource dans les résultats de recherche.
 
 rve.information.rightsholder.edit_title=Détenteur des droits:
 rve.information.rightsholder.edit_txt=
-rve.information.rightsholder.edit_tooltip=This is the person or organization that holds the rights to this resource -- the owner of this intellectual property.
-
+rve.information.rightsholder.edit_tooltip=La personne a qui revient le propriété intellectuel de l’œuvre.
 rve.information.accessprivileges.edit_title=Droit d'accès:
 rve.information.accessprivileges.edit_txt=Met à jour les accès de la ressource.
 rve.information.accessprivileges.edit_tooltip=Choisissez privé tant que la ressource est à l'état de brouillon. Vous pourrez la passer en publique plus tard.
 
-rve.information.licensedeed.edit_title=Chartes de licence:
+rve.information.licensedeed.edit_title=Charte de licence:
 rve.information.licensedeed.edit_txt=Êtes-vous sûr d'avoir lu et compris les &lt;a href="/xwiki/bin/view/Main/Conditions+generales+d+utilisation?xpage=popup" target="TOS"&gt;conditions générales d'utilisation&lt;/a&gt; et que vous avez le droit de partager le contenu que vous vous appretez à soumettre.&lt;br /&gt;&lt;br /&gt;La licence Planète Sankoré-compatible vous offre un maximum de flexibilité envers la communauté, les membres pourront exploiter vos ressources.  Cette licence "Planète Sankoré" reprend majoritairement la licence "Creative Commons" &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;. Si vous voulez utiliser une autre licence, veuillez la choisir dans la liste déroulante suivante. Pour plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="CCmeet" onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;"&gt;&lt;strong&gt;C'est ici&lt;/strong&gt;&lt;/a&gt;.
 rve.information.licensedeed.edit_tooltip=Licence qui protège ce contenu
 rve.information.licensedeed.edit_instruction=Choisir une licence:
@@ -317,21 +316,21 @@ rve.information.licensedeed.edit_instruction=Choisir une licence:
 ## History "notes" or "comments" are captured in Global Class trans.
 
 rve.information.revision.list.header=Informations sur les révisions
-rve.information.revision.list.from_title=From
-rve.information.revision.list.to_title=To
+rve.information.revision.list.from_title=De
+rve.information.revision.list.to_title=Pour
 rve.information.revision.list.version_title=Version
 rve.information.revision.list.author_title=Auteur
 rve.information.revision.list.note_title=Note
 rve.information.revision.list.datetime_title=Date/Heure
 rve.information.revision.list.action_title=Action
-rve.information.revision.list.compare_button=Compare Versions
-rve.information.revision.list.rollback_button=Rollback
+rve.information.revision.list.compare_button=Comparer les versions
+rve.information.revision.list.rollback_button=Revenir à cette version
 
-history.rollback.exception=Une erreur est survenue lors du rollback. Si le problème persiste, merci de nous contacter.
+history.rollback.exception=Une erreur est survenue lors du retour à la version choisie. Si le problème persiste, merci de nous contacter.
 
 ## INFORMATION TAB COMPARE VERSIONS************************************
 
-rve.information.compare.versions.header=COMPARE VERSIONS
+rve.information.compare.versions.header=COMPAREZ LES VERSIONS
 
 ##All other Trans on this page is the default and comes from svn.xwiki.org/svnroot/xwiki/platform/core/trunk/xwiki-core/src/main/resources/ApplicationResources.properties or it is referenced in Planète Sankoré here: /xwiki/bin/view/XWiki/GlobalClassTranslations
 
@@ -340,11 +339,11 @@ rve.information.compare.versions.header=COMPARE VERSIONS
 
 ## EDIT CONFIRMATION
 
-rve.information.edit.intention.message_text=Etes vous certain de vouloir modifier les informations de {0} créé par {1}?&lt;br&gt;&lt;br&gt;Vous modifications modifieront le numéro de version.&lt;br&gt;&lt;br&gt;Cliquez sur OK pour continuer ou sur annuler pour retourner sur l'onglet Information
+rve.information.edit.intention.message_text=Etes-vous certain de vouloir modifier les informations de {0} créé par {1}?&lt;br&gt;&lt;br&gt;Vos modifications modifieront le numéro de version.&lt;br&gt;&lt;br&gt;Cliquez sur OK pour continuer ou sur annuler pour retourner sur l'onglet Information
 
 rve.information.edit.warning.message=Vous avez commencé à modifier les champs de l'onglet information.
 
-rve.information.rollback.confirm.message=Etes-vous sûr de vouloir revenir à la version {0}? Click OK to continue.
+rve.information.rollback.confirm.message=Etes-vous sûr de vouloir revenir à la version {0}? Cliquez sur OK pour continuer.
 
 rve.information.required.fields.dialog=Remplissez les champs suivants :
 rve.information.error.required.title=-Titre
@@ -399,27 +398,27 @@ rve.comments.comment.header=COMMENTAIRES DES MEMBRES
 rve.comments.comment.edit_link=Modifier
 rve.comments.comment.delete_link=Supprimer
 
-rve.comments.comment.empty.loggedin_message=&lt;strong&gt;Aucun commentaires pour cette ressource.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Cliquez sur &amp;#34;Ajoutez un commentaire&amp;#34; pour donner votre avis sur cette resource.
+rve.comments.comment.empty.loggedin_message=&lt;strong&gt;Aucun commentaire pour cette ressource.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Cliquez sur &amp;#34;Ajoutez un commentaire&amp;#34; pour donner votre avis sur cette resource.
 
-rve.comments.comment.empty.notloggedin_message=&lt;strong&gt;Personne n'a encore commenté cette ressource.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Les membres peuvent commenter les ressources. &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoindre Planète Sankoré&lt;/a&gt; or &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; ainsi vous pouvez ajouter un commentaire ici.
+rve.comments.comment.empty.notloggedin_message=&lt;strong&gt;Personne n'a encore commenté cette ressource.&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Les membres peuvent commenter les ressources. &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoignez Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; et vous pourez vous aussi ajouter un commentaire.
 
-rve.comments.comment.notloggedin_message=Les membres peuvent commenter les ressources. &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoindre Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; ainsi vous pouvez ajouter un commentaire ici.
+rve.comments.comment.notloggedin_message=Les membres peuvent commenter les ressources. &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoignez Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; et vous pourez vous aussi ajouter un commentaire.
 
 rve.comments.comment.add_title=Ajouter un commentaire
 rve.comments.comment.add.submit_button=Soumettre un commentaire
 rve.comments.comment.add.cancel_button=Annuler
 
-rve.comments.comment.edit.savechanges_button=Sauvegarder modifications
+rve.comments.comment.edit.savechanges_button=Sauvegarder les modifications
 rve.comments.comment.edit.cancel_button=Annuler
 
 ## COMMENTS TAB ERROR &amp; CONFIRMATION MESSAGES
-rve.comments.comment.delete.confirm.message=Etes vous sur de vouloir supprimer ce commentaire? Cliquer sur OK pour continuer.
+rve.comments.comment.delete.confirm.message=Etes-vous sur de vouloir supprimer ce commentaire? Cliquez sur OK pour continuer.
 rve.comments.comment.error.message.min=Votre commentaire doit contenir au moins 5 caracteres
 rve.comments.comment.warning.message.add_edit=Vous ajoutez ou modifiez un commentaire
 rve.comments.comment.dialog.ok_button=OK
 rve.comments.comment.dialog.cancel_button=Annuler
-rve.comments.comment.revision.edit=Commentaires des membres mis a jour
-rve.comments.comment.revision.delete=Commentaires des membres supprimé
+rve.comments.comment.revision.edit=Commentaire mis a jour
+rve.comments.comment.revision.delete=Commentaire supprimé
 
 ## PRINT PREVIEW MODE
 mode.print.header_title=Aperçu avant impression
@@ -441,28 +440,28 @@ organize.dialog.ok_button=OK
 
 ## CONFIRM INTENT DIALOG / WARNING MESSAGE
 organize.intention.dialog_title=Confirmation Organisation
-organize.intention.message_text=Etes vous sur de vouloir organiser les ressources dans {0} ajoutées par {1}?&lt;br&gt;&lt;br&gt;Vos modifications seront ajoutées dans une nouvelle version du document.
-organize.intention.message.continue_button=Continuer organisation
+organize.intention.message_text=Etes-vous sûr de vouloir organiser les ressources dans {0} ajoutées par {1}?&lt;br&gt;&lt;br&gt;Vos modifications seront ajoutées dans une nouvelle version du document.
+organize.intention.message.continue_button=Continuer à organiser
 
 ## ORGANIZE DIALOG
 organize.dialog_header=ORGANISER CETTE COLLECTION OU CE DOSSIER
 organize.dialog.guidingquestion_text=Comment voulez-vous organiser cette collection ou ce dossier ?
-organize.dialog.instruction_text=Pour retirer une ressource, cliquez pour la sélectionner puis cliquez sur Retirer.&lt;br&gt;&lt;br&gt;Pour déplacer des ressources, cliquez puis glissez-déposez.&lt;br&gt;&lt;br&gt; Quand vous êtes satisfait de la manière dont la collection ou le dossier sont organisés, cliquez sur Terminer. 
+organize.dialog.instruction_text=Pour retirer une ressource, cliquez sur son nom pour la sélectionner puis cliquez sur Retirer.&lt;br&gt;&lt;br&gt;Pour déplacer des ressources, cliquez puis glissez-déposez le nom de la ressource.&lt;br&gt;&lt;br&gt; Quand vous êtes satisfait de la manière dont la collection ou le dossier est organisé, cliquez sur Terminer. 
 organize.dialog.resource.unavailable.indicator_node=Ressource Inaccessible
 organize.dialog.resource.unavailable.indicator_rollover=Vous ne pouvez pas accéder à cette ressource car ses droits d'accès ont été définis sur Privé. 
 organize.dialog.remove_button=Retirer
-organize.dialog.done_button=Terminé
+organize.dialog.done_button=Terminer
 
 ## ORGANIZE CONFIRMATION DIALOG
 organize.confirmation.dialog_header=Confirmez l'organisation
-organize.confirmation.dialog_summary_text=Vous choisi de réaliser les actions suivantes pour organiser cette ressource :
+organize.confirmation.dialog_summary_text=Vous avez choisi de réaliser les actions suivantes pour organiser cette ressource :
 organize.confirmation.dialog_note_text=Les ressources déplacées seront toujours disponibles dans Mes Contributions ou dans les contributions d'un groupe si elles ont été ajoutées par un groupe. 
 organize.confirmation.dialog_instruction_text=Cliquez sur OK pour confirmer ces changements
 organize.confirmation.dialog_removed_listing=- Retirer &lt;strong&gt;{0}&lt;/strong&gt; de {1} 
 organize.confirmation.dialog_moved_listing=- Déplacer &lt;strong&gt;{0}&lt;/strong&gt; de la position {1} dans {2} à la position {3} dans {4} 
 
 ## CONCURRENCY ERROR
-organize.error.concurrency_text=Pendant que vous organisiez cette ressource, un autre membre a changer son contenu. Afin de de gerer les versions de ces contenus, votre changement a ete annule. Veuillez essayer a nouveau
+organize.error.concurrency_text=Pendant que vous organisiez cette ressource, un autre membre a changer son contenu. Afin de de gerer les versions de ces contenus, votre changement a été annule. Veuillez essayer à nouveau.
 
 
 ## NO ACCESS PRIVILEGES PAGE
@@ -479,9 +478,9 @@ rve.noaccess.help_link=Aide
 rve.noaccess.help_url=/xwiki/bin/view/Coll_curriki/CurrikiHelp
 
 ## PAGE OR RESOURCE NOT FOUND
-rve.notfound.header=NO PAGE OR RESOURCE FOUND
-rve.notfound.message=No page or resource exists at this location. Please check the URL and try again.
-rve.notfound.goback_link=Go Back
+rve.notfound.header=Page inexistante
+rve.notfound.message=La page ou la resource n'a pas été trouvée. Veuillez vérifier l'adresse et réessayer.
+rve.notfound.goback_link=Retour
 rve.notfound.goback_url=javascript:history.go(-1)
 rve.notfound.home_link=Accueil Planète Sankoré
 rve.notfound.home_url=/xwiki/bin/view/Main/WebHome
@@ -505,7 +504,7 @@ addexistingasset.couldnotaddtocollection=Impossible d''ajouter {0} à la collect
 addexistingasset.failedtoaddtocollection=Echec de l''ajout de {0} à la collection.
 
 viditalk.sitecode=8204167813
-viditalk.loading_player=Video player is loading. One moment please.
+viditalk.loading_player=Le lecteur se cahrge. Patientez svp...
 
 ##PULLED FROM GWT TRANS
 asset.asset_corrupted=Cette ressource est corrompue: retirez-la de votre collection.
@@ -514,13 +513,13 @@ asset.asset_corrupted=Cette ressource est corrompue: retirez-la de votre collect
 ## GLOBAL DATE AND TIMESTAMP TRANS
 
 Jan
-Feb
+Fev
 Mar
-Apr
-May
-Jun
+Avr
+Mai
+Jui
 Jul
-Aug
+Aou
 Sep
 Oct
 Nov
@@ -554,14 +553,14 @@ rve.comments.comment.warning.message.add_edit=Vous avez commencé l'ajout ou la 
 rve.comments.comment.dialog.ok_button=Approuver
 rve.comments.comment.dialog.cancel_button=Annuler
 
-rve.comments.comment.revision.edit=Membres commentaire mis à jour
-rve.comments.comment.revision.delete=Membres commentaire supprimé
+rve.comments.comment.revision.edit=Commentaire mis à jour
+rve.comments.comment.revision.delete=Commentaire supprimé
 
 ## MEMBER COMMENTS &amp; RATINGS DISPLAY MODULE
 rve.comments.commentrating.comment.display_header=Commentaire:
 rve.comments.commentrating.rating.display_header=Note:
 rve.comments.commentrating.display.edit_link=Modifier
-rve.comments.commentrating.display.edit_comment_link=Modifier et commentaires
-rve.comments.commentrating.display.edit_rate_link=Edit &amp; Rate
+rve.comments.commentrating.display.edit_comment_link=Modifier &amp; Commenter
+rve.comments.commentrating.display.edit_rate_link=Modifier &amp; Noter
 rve.comments.commentrating.display.delete_link=Supprimer
 </content></xwikidoc>
