@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323105110000</creationDate>
-<date>1323105110000</date>
-<contentUpdateDate>1323105110000</contentUpdateDate>
+<creationDate>1323340069000</creationDate>
+<date>1323340069000</date>
+<contentUpdateDate>1323340069000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -4845,20 +4845,20 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
 #mycurriki-main-content .button-right { padding-right: 10px; }
 
 /** MY CURRIKI - PROFILE **/
-.edit-profile table table td { padding-bottom: 5px; }
-.edit-profile .userpic, form#inline .userpic {
+.edit-profile table table td, .view-profile table table td  { padding-bottom: 5px; }
+.edit-profile .userpic, .view-profile .userpic, form#inline .userpic {
   width: 115px;
   border: 1px solid #D2D2D2;
   padding: 5px;
   text-align: center;
 }
-.edit-profile .userpic img {
+.edit-profile .userpic img, .view-profile .userpic img {
   width: 88px;
   align: center;
   border: 0px;
 }
-.edit-profile table table td {overflow: hidden;}
-.edit-profile input.button {
+.edit-profile table table td, .view-profile table table td {overflow: hidden;}
+.edit-profile input.button, .view-profile input.button {
 -moz-border-radius-bottomleft:0;
 -moz-border-radius-bottomright:0;
 -moz-border-radius-topleft:0;
@@ -7934,6 +7934,7 @@ document.write(unescape("%3Clink rel='stylesheet' type='text/css' href='" + ejcL
 &lt;link href="$xwiki.getSkinFile("curriki/filetypes.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("curriki/search.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("curriki.css", false)" rel="stylesheet" type="text/css"  /&gt;
+&lt;link href="$xwiki.getSkinFile("mycurriki.css", false)" rel="stylesheet" type="text/css"  /&gt;
 ## we should not need that one
 ##&lt;link href="$xwiki.getSkinFile("curriki/style2.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("sankore.css", false)" rel="stylesheet" type="text/css"  /&gt;

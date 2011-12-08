@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317814229000</creationDate>
-<date>1317814229000</date>
-<contentUpdateDate>1317814229000</contentUpdateDate>
+<creationDate>1322156628000</creationDate>
+<date>1322156628000</date>
+<contentUpdateDate>1322156628000</contentUpdateDate>
 <version>1.1</version>
 <title>Profile</title>
 <template></template>
@@ -20,12 +20,16 @@
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/1.0</syntaxId>
+<syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#mycurriki_pageheader("profile" "")
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
+#mycurriki_pageheader("profile" "")
 #mycurriki_editprofilebutton($userdoc)
 #mycurriki_pagecontentheader("profile" "")
 #mycurriki_viewprofilebox($userdoc $userobj)
 #mycurriki_pagefooter("")
+{{/html}}
+{{/velocity}}
 
-#includeInContext("MySankore.ActivityStream")</content></xwikidoc>
+{{include document="MySankore.ActivityStream"/}}</content></xwikidoc>
