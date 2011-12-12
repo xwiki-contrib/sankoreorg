@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323248513000</creationDate>
-<date>1323248513000</date>
-<contentUpdateDate>1323248513000</contentUpdateDate>
+<creationDate>1323704793000</creationDate>
+<date>1323704793000</date>
+<contentUpdateDate>1323704793000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -671,12 +671,13 @@ groups.disclaimer.create.group.third.list.fourth.row=* vous tenir prêt à consa
 groups.disclaimer.create.group.button=Suivant
 
 ##AboutGroups
-groups.about.title= À QUOI SERVENT LES GROUPES
-groups.about.intro2=
-groups.about.first.row=* À partager un espace de groupe ouvert ou fermé
-groups.about.second.row=* À collaborer sur la création ou la modification des parcours de connaissance
-groups.about.third.row=* À utiliser un forum pour discuter du groupe en général ou à propos de projets particuliers du groupe
-groups.about.fourth.row=* À inclure de nouveaux membres
-groups.about.fifth.row=* À partager des documents
-groups.about.sixth.row=* À mettre en valeur les parcours de connaissance et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré, ou pour l'inciter à participer
+groups.about.title=À QUOI SERVENT LES GROUPES
+groups.about.intro=Créer un groupe sur Planète Sankoré est un bon moyen pour développer une petite communauté ciblée à l’intérieur de la grande communauté de l’éducation.
+groups.about.intro2=Un groupe peut :
+groups.about.first.row=* partager un espace de groupe ouvert ou fermé
+groups.about.second.row=* collaborer sur la création ou la modification des parcours de connaissance
+groups.about.third.row=* utiliser un forum pour discuter du groupe en général ou à propos de projets particuliers du groupe
+groups.about.fourth.row=* inclure de nouveaux membres
+groups.about.fifth.row=* partager des documents
+groups.about.sixth.row=* mettre en valeur les parcours de connaissance et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré, ou pour l'inciter à participer
 &lt;/pre&gt;</content></xwikidoc>

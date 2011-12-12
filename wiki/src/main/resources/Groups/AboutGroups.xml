@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323188845000</creationDate>
-<date>1323188845000</date>
-<contentUpdateDate>1323188845000</contentUpdateDate>
+<creationDate>1323704457000</creationDate>
+<date>1323704457000</date>
+<contentUpdateDate>1323704457000</contentUpdateDate>
 <version>1.1</version>
 <title>AboutGroups</title>
 <template></template>
@@ -22,10 +22,16 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>=== À QUOI SERVENT LES GROUPES ===
-* À partager un espace de groupe ouvert ou fermé
-* À collaborer sur la création ou la modification des parcours de connaissance 
-* À utiliser un forum pour discuter du groupe en général ou à propos de projets particuliers du groupe.
-* À inclure de nouveaux membres
-* À partager des documents
-* À mettre en valeur les parcours de connaissance et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré, ou pour l'inciter à participer</content></xwikidoc>
+<content>{{velocity}}
+=== $msg.get("groups.about.title") ===
+$msg.get("groups.about.intro")
+
+$msg.get("groups.about.intro2")
+
+* $msg.get("groups.about.first.row")
+* $msg.get("groups.about.second.row")
+* $msg.get("groups.about.third.row")
+* $msg.get("groups.about.fourth.row")
+* $msg.get("groups.about.fifth.row")
+* $msg.get("groups.about.sixth.row")
+{{/velocity}}</content></xwikidoc>
