@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323249453000</creationDate>
-<date>1323249453000</date>
-<contentUpdateDate>1323249453000</contentUpdateDate>
+<creationDate>1323950856000</creationDate>
+<date>1323950856000</date>
+<contentUpdateDate>1323950856000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -664,10 +664,12 @@ ace.lesson.plan.file.size.dialog.button=OK
 ## FROM SCRATCH ERROR MESSAGES (ALSO USED IN OTHER FORMS)
 form.scratch.title.more.250=You entered more than 250 characters into the Title field in Step 1. Please shorten the text in this field.
 form.scratch.required.fields.dialog=Please complete the following required field(s):
+form.scratch.required.fields.dialog.link=- Lien
 form.scratch.required.fields.dialog.title=- Title
 form.scratch.required.fields.dialog.description=- Description
 form.scratch.required.fields.dialog.subject=- Subject
 form.scratch.required.fields.dialog.level=- Educational Level
+form.scratch.required.fields.dialog.rating=- Evaluation
 form.scratch.required.fields.dialog.ict=- Instructional Component Type
 form.scratch.required.fields.dialog.content=- Content
 form.scratch.required.fields.dialog.rights=- Rights Holder
