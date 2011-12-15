@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323704793000</creationDate>
-<date>1323704793000</date>
-<contentUpdateDate>1323704793000</contentUpdateDate>
+<creationDate>1323941719000</creationDate>
+<date>1323941719000</date>
+<contentUpdateDate>1323941719000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -76,7 +76,8 @@ groups_creategroup_select_subjectlevel_level_tooltip=Choisissez le niveau scolai
 groups_creategroup_select_language_title=Choisissez une langue
 groups_creategroup_select_language_infotxt=Ce choix de language par défaut s'appliquera à toutes les ressources ou collections créées ou ajoutées par votre groupe. Il permettra aussi aux gens qui cherchent un groupe qui communique et qui travaille dans votre langage de trouver votre groupe.
 groups_creategroup_select_license_title=Licence par défaut
-groups_creategroup_select_license_infotxt=&lt;p&gt;Vous pouvez déterminer sous quel modèle les contributions à votre groupe seront distribuées par défaut au sein de Planète Sankoré (les membres qui le souhaitent pourront choisir une licence différente pour leurs propres contributions).&lt;/p&gt;&lt;p&gt;Les différentes licences ci-dessous ont été choisies pour leur compatibilité avec le modèle de Planète Sankoré et pour offrir le maximum de flexibilité aux membres de la communauté, de telle sorte qu'il pourront adapter vos contenus dans leurs propres cours. Les licences utilisées sur Planète Sankoré viennent pour l'essentiel des licences Creative Commons 3.0, qui sont très largement utilisées. Si vous souhaitez utiliser une autre licence, veuillez la sélectionner dans le menu ci-dessous. Vous pourrez trouver plus d'informations sur les licences Creative Commons sur &lt;a href="http://creativecommons.org/about/licenses/meet-the-licenses" target="_blank"&gt;cette page&lt;/a&gt;.&lt;/p&gt;
+groups_creategroup_select_license_infotxt=&lt;p&gt;Vous pouvez déterminer sous quel modèle les contributions à votre groupe seront distribuées par défaut au sein de Planète Sankoré (les membres qui le souhaitent pourront choisir une licence différente pour leurs propres contributions).&lt;/p&gt;&lt;p&gt;Les différentes licences ci-dessous ont été choisies pour leur compatibilité avec le modèle de Planète Sankoré et pour offrir le maximum de flexibilité aux membres de la communauté, de telle sorte qu'il pourront adapter vos contenus dans leurs propres cours. Les licences utilisées sur Planète Sankoré viennent pour l'essentiel des licences Creative Commons 3.0, qui sont très largement utilisées. Si vous souhaitez utiliser une autre licence, veuillez la sélectionner dans le menu ci-dessous. Vous pourrez trouver plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.fr/licences/les-6-licences/" target="_blank"&gt;&lt;strong&gt;c'est ici&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
 groups_creategroup_select_access_title=Privilèges d'accès par défaut
 groups_creategroup_select_access_infotxt=Sélectionnez l'accès en lecture et/ou en modification par défaut des contenus de votre groupe :
 groups_creategroup_select_access_open=Public : Tout le monde peut voir et modifier les contenus du groupe.
