@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323936463000</creationDate>
-<date>1323936463000</date>
-<contentUpdateDate>1323936463000</contentUpdateDate>
+<creationDate>1323950190000</creationDate>
+<date>1323950190000</date>
+<contentUpdateDate>1323950190000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -66,7 +66,7 @@ panel.navigation.contribute.about=A propos des contributions
 panel.navigation.addresource=Ajouter une ressource
 panel.navigation.addresource.rollover.member=Ajoutez vos meilleurs outils éducatifs ou créez quelque chose de nouveau
 panel.navigation.addresource.rollover.visitor=Les membres de Planète Sankoré peuvent ajouter et créer des outils éducatifs
-panel.navigation.crs=Système de revue Planète Sankoré
+panel.navigation.crs=Comité de Validation Sankoré
 
 ##HORIZONTAL NAVBAR FOR SANKORE
 
