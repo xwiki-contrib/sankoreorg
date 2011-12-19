@@ -66,7 +66,7 @@
   * @author dward@curriki.org
   *#
 #macro(mycurriki_header $userobj)
-<h2>$userobj.first_name $userobj.last_name</h2>
+  <h2>$userobj.first_name $userobj.last_name</h2>
 #end
 
 
@@ -138,7 +138,7 @@
     <td class="profile-link"><a href="#">$msg.get("sankore.profile.downloadplugin.title")</a></td><td class="profile-splitter" valign="top">»</td><td>$msg.get("sankore.profile.downloadplugin.description")</td>
   </tr>
   <tr>
-    #set($url = $xwiki.getURL("Search.WebHome", "view", "#o%3As%3Ds%253Agroup%5Ef%3Do%253Aresource%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Ecategory%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%255Egroup%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%255Emember%253Do%25253Asubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Emember_type%25253Ds%2525253A%25255Ecountry%25253Ds%2525253A%255Eblog%253Do%25253A%255Ecurriki%253Do%25253A%5Ep%3Do%253Aresource%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Egroup%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Emember%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Eblog%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%255Ecurriki%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Et%3Ds%253Asearch-group-tab%5Ea%3Do%253Aresource%253Do%25253Aa%25253Db%2525253A1"))
+    #set($url = $xwiki.getURL("Search.Groups", "view", "#o%3As%3Ds%253Agroup%5Ef%3Do%253Agroup%253Do%25253Aterms%25253Ds%2525253A%25255Eother%25253Ds%2525253A%25255Esubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%5Ep%3Do%253Ac%253Dn%25253A0%255Es%253Dn%25253A25%5Et%3Ds%253Agroup%5Ea%3Db%253A0"))
     <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></td><td class="profile-splitter" valign="top">»</td><td>$msg.get("sankore.profile.joingroup.description")</td>
     #set($url = $xwiki.getURL("Invitation.WebHome", "view"))
     <td class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></td><td class="profile-splitter" valign="top">»</td><td>$msg.get("sankore.profile.inviteuser.description")</td>
@@ -323,31 +323,31 @@
 #set($descpopupjs=1)
 Ext.ns('Curriki.mycurriki.util.title');
 Curriki.mycurriki.util.title.popup = function(title_id, attr){
-	if ('string' === Ext.type(attr.description)
-	    && 'array' === Ext.type(attr.fwItems)
-	    && 'array' === Ext.type(attr.levels)
-	    && 'array' === Ext.type(attr.ict)
-	) {
-		var desc = attr.description||'';
-		desc = Ext.util.Format.ellipsis(desc, 256);
-		desc = Ext.util.Format.htmlEncode(desc);
+  if ('string' === Ext.type(attr.description)
+      && 'array' === Ext.type(attr.fwItems)
+      && 'array' === Ext.type(attr.levels)
+      && 'array' === Ext.type(attr.ict)
+  ) {
+    var desc = attr.description||'';
+    desc = Ext.util.Format.ellipsis(desc, 256);
+    desc = Ext.util.Format.htmlEncode(desc);
 
-		var fw = Curriki.data.fw_item.getRolloverDisplay(attr.fwItems||[]);
-		var lvl = Curriki.data.el.getRolloverDisplay(attr.levels||[]);
-		var ict = Curriki.data.ict.getRolloverDisplay(attr.ict||[]);
-		
-		var qtip = String.format("{1}<br />{0}<br /><br />{3}<br />{2}<br />{5}<br />{4}<br />{7}<br />{6}"
-			,desc,_('global.title.popup.description')
-			,fw,_('global.title.popup.subject')
-			,lvl,_('global.title.popup.educationlevel')
-			,ict,_('global.title.popup.ict')
-		);
+    var fw = Curriki.data.fw_item.getRolloverDisplay(attr.fwItems||[]);
+    var lvl = Curriki.data.el.getRolloverDisplay(attr.levels||[]);
+    var ict = Curriki.data.ict.getRolloverDisplay(attr.ict||[]);
+    
+    var qtip = String.format("{1}<br />{0}<br /><br />{3}<br />{2}<br />{5}<br />{4}<br />{7}<br />{6}"
+      ,desc,_('global.title.popup.description')
+      ,fw,_('global.title.popup.subject')
+      ,lvl,_('global.title.popup.educationlevel')
+      ,ict,_('global.title.popup.ict')
+    );
 
-		Ext.QuickTips.getQuickTip().register({
-			target:title_id
-			,text:qtip
-		});
-	}
+    Ext.QuickTips.getQuickTip().register({
+      target:title_id
+      ,text:qtip
+    });
+  }
 };
 #end ##}
 Ext.onReady(function(){
@@ -460,11 +460,11 @@ $xwiki.ssfx.use("curriki/filetypes.css")
 #set($assetType = $!asset.getAssetType())
 #set($category = $!asset.getCategory())
 #if("$!category" == "") ##{
-	#set($category = "unknown")
+  #set($category = "unknown")
 #end ##}
 #set($subcategory = $!asset.getCategorySubtype())
 #if("$!subcategory" == "") ##{
-	#set($subcategory = "unknown")
+  #set($subcategory = "unknown")
 #end ##}
 #set($rollover = $msg.get("${category}.${subcategory}"))
 #if($!rollover == "${category}.${subcategory}") ##{
@@ -527,10 +527,10 @@ $!desc
       <a class="curriki-link" href="$userdoc.getAttachmentURL($attach.filename,"download")" >
       <img src="$userdoc.getAttachmentURL($attach.filename,"download")" width="${width}" /></a>
       <a class="curriki-link" id="profile-removephoto"
-	 href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${xeditredirect}")"
-	 onclick="return confirm('$msg.get("profile.removePhoto.confirmation")');"
-	 title="$msg.get("profile.removeYourPhoto")">
-	 $msg.get("profile.removePhoto")
+   href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${xeditredirect}")"
+   onclick="return confirm('$msg.get("profile.removePhoto.confirmation")');"
+   title="$msg.get("profile.removeYourPhoto")">
+   $msg.get("profile.removePhoto")
       </a>
     #end ##}
   #end ##}
@@ -545,114 +545,114 @@ $!desc
   * @param $userobj User object to display the form for
   * @author dward@curriki.org
   *#
-#macro(mycurriki_editprofile $userdoc $userobj) ##{
- <!-- Edit Profile Form -->
- <table border="0" cellspacing="2" cellpadding="2">
+#macro(mycurriki_editprofile $userdoc $userobj)
+  <table border="0" cellspacing="2" cellpadding="2">
   <tbody> 
-   <tr>
-     <td> *${msg.get("profile.field.firstName")}*</td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("first_name", "edit", $userobj) </td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.lastName")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("last_name", "edit", $userobj)</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.memberType")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("member_type", "edit", $userobj)</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.affiliation")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("affiliation", "edit", $userobj)</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.city")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("city", "edit", $userobj)</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.state")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("state", "edit", $userobj)</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.country")* </td>
-   </tr>
-   <tr>
-     <td>
-       <select id="XWiki.XWikiUsers_0_country" size="1" name="XWiki.XWikiUsers_0_country">
-         #set($xwikiusers_xclass = $xwiki.getClass("XWiki.XWikiUsers"))
-         #set($field_xclass = $xwikiusers_xclass.get('country'))
-         #set($hashmap = $util.hashMap)
-         #set($keys = $field_xclass.listValues)
-         #set($values = $util.arrayList)
-         #foreach($key in $keys)
-           #set($value = $msg.get("XWiki.XWikiUsers_country_${key}"))
-           #set($discard = $values.add($value))
-           #set($discard = $hashmap.put($value, $key))
-         #end
-         #set($sorted = $sorttool.sort($values))
-         #set($currentCountry = $userobj.getProperty('country').value)
-         #foreach($value in $sorted)
-           #set($currentKey = $hashmap.get($value))
-           <option label="$value" value="$currentKey" #if($currentCountry == $currentKey) selected="selected" #end >$value</option>
-         #end
-       </select>
-     </td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.showContact")* $userdoc.display("show_contact", "edit", $userobj)</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.email")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("email", "edit", $userobj)</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.opt_out")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("opt_out", "edit", $userobj) $msg.get("profile.field.opt_out.checkbox_text")</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.password")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("password", "edit", $userobj)</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.passwordConfirm")* </td>
-   </tr>
-   <tr>
-     <td> {pre}<input size='30' id='XWiki.XWikiUsers_0_password_repeat' value='$userdoc.display("password", "view", $userobj)' name='XWiki.XWikiUsers_0_password_repeat' type='password'/>{/pre}</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.topics")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("topics", "edit", $userobj)</td>
-   </tr>
-   <tr>
-     <td> *$msg.get("profile.field.bio")* </td>
-   </tr>
-   <tr>
-     <td> $userdoc.display("comment", "edit", $userobj) </td>
-   </tr>
+  <tr>
+    <td><strong>${msg.get("profile.field.firstName")}</strong></td>
+  </tr>
+  <tr>
+    <td>$userdoc.display("first_name", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.lastName")</strong></td>
+  </tr>
+  <tr>
+    <td>$userdoc.display("last_name", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.memberType")</strong></td>
+  </tr>
+  <tr>
+    <td>$userdoc.display("member_type", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.affiliation")</strong></td>
+  </tr>
+  <tr>
+    <td> $userdoc.display("affiliation", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.city")</strong></td>
+  </tr>
+  <tr>
+   <td>$userdoc.display("city", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.state")</strong></td>
+  </tr>
+  <tr>
+    <td>$userdoc.display("state", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.country")</strong></td>
+  </tr>
+  <tr>
+    <td>
+      <select id="XWiki.XWikiUsers_0_country" size="1" name="XWiki.XWikiUsers_0_country">
+      #set($xwikiusers_xclass = $xwiki.getClass("XWiki.XWikiUsers"))
+      #set($field_xclass = $xwikiusers_xclass.get('country'))
+      #set($hashmap = $util.hashMap)
+      #set($keys = $field_xclass.listValues)
+      #set($values = $util.arrayList)
+      #foreach($key in $keys)
+        #set($value = $msg.get("XWiki.XWikiUsers_country_${key}"))
+        #set($discard = $values.add($value))
+        #set($discard = $hashmap.put($value, $key))
+      #end
+      #set($sorted = $sorttool.sort($values))
+      #set($currentCountry = $userobj.getProperty('country').value)
+      #foreach($value in $sorted)
+        #set($currentKey = $hashmap.get($value))
+        <option label="$value" value="$currentKey" #if($currentCountry == $currentKey) selected="selected" #end >$value</option>
+      #end
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.showContact")</strong> $userdoc.display("show_contact", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.email")</strong></td>
+  </tr>
+  <tr>
+    <td>$userdoc.display("email", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.opt_out")</strong></td>
+  </tr>
+  <tr>
+    <td>$userdoc.display("opt_out", "edit", $userobj) $msg.get("profile.field.opt_out.checkbox_text")</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.password")</strong></td>
+  </tr>
+  <tr>
+    <td>$userdoc.display("password", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.passwordConfirm")</strong></td>
+  </tr>
+  <tr>
+    <td>
+      <input size='30' id='XWiki.XWikiUsers_0_password_repeat' value="$userdoc.display('password', 'view', $userobj)" name='XWiki.XWikiUsers_0_password_repeat' type='password'/>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.topics")</strong></td>
+  </tr>
+  <tr>
+    <td>$userdoc.display("topics", "edit", $userobj)</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.bio")</strong></td>
+  </tr>
+  <tr>
+    <td>$userdoc.display("comment", "edit", $userobj) </td>
+  </tr>
   </tbody>
- </table>
- <!-- End Edit Profile Form -->
-#end ##}
+  </table>
+#end
 
 
 #**
@@ -779,19 +779,19 @@ function checkInlineForm() {
     document.forms.inline.onSubmit = "";
     if (($F("XWiki.XWikiUsers_0_email") != $F("origemail"))
      && (document.forms.inline['XWiki.XWikiUsers_0_password'].value != $F("origpw"))){
-	var ia=document.createElement('input');
-	ia.setAttribute('id', "XWiki.XWikiUsers_0_active");
-	ia.setAttribute('name', "XWiki.XWikiUsers_0_active");
-	ia.setAttribute('type', "hidden");
-	ia.setAttribute('value', "0");
-	$('inline').appendChild(ia);
+  var ia=document.createElement('input');
+  ia.setAttribute('id', "XWiki.XWikiUsers_0_active");
+  ia.setAttribute('name', "XWiki.XWikiUsers_0_active");
+  ia.setAttribute('type', "hidden");
+  ia.setAttribute('value', "0");
+  $('inline').appendChild(ia);
 
-	var eu=document.createElement('input');
-	eu.setAttribute('id', "XWiki.XWikiUsers_0_email_undeliverable");
-	eu.setAttribute('name', "XWiki.XWikiUsers_0_email_undeliverable");
-	eu.setAttribute('type', "hidden");
-	eu.setAttribute('value', "1");
-	$('inline').appendChild(eu);
+  var eu=document.createElement('input');
+  eu.setAttribute('id', "XWiki.XWikiUsers_0_email_undeliverable");
+  eu.setAttribute('name', "XWiki.XWikiUsers_0_email_undeliverable");
+  eu.setAttribute('type', "hidden");
+  eu.setAttribute('value', "1");
+  $('inline').appendChild(eu);
 
         document.forms.inline.action='$userdoc.getURL("save", "xredirect=$xredirectemail2")';
       }
@@ -838,19 +838,19 @@ function checkInlineForm() {
     #if ($context.action=="inline")
       #set($deleteredir = $userdoc.getURL("inline"))
       <a class="curriki-link" href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${deleteredir}")" onclick="return confirm(&quot;$msg.get("profile.removePhoto.confirmation")&quot;);" title="$msg.get("profile.removeYourPhoto")">$msg.get("profile.removePhoto")</a>
-	#end ## if inline
+  #end ## if inline
   #end ## foreach attach in list
   #if ($context.action!="inline")
     #set($i = $context.user.indexOf(":")+1)
     #set($attach = $userdoc.attachmentList.get(0))
     #if ($context.user.substring($i) == $userdoc.fullName || $hasGlobalAdmin)
-	  #set($deleteredir = $doc.getURL("view"))
-	  <a class="curriki-link" href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${deleteredir}")" onclick="return confirm(&quot;$msg.get("profile.modifyPhoto.confirmation")&quot;);" >$msg.get("profile.modifyYourPhoto")</a>
-	#end ## is same user
+    #set($deleteredir = $doc.getURL("view"))
+    <a class="curriki-link" href="$userdoc.getAttachmentURL("${attach.filename}", "delattachment", "xredirect=${deleteredir}")" onclick="return confirm(&quot;$msg.get("profile.modifyPhoto.confirmation")&quot;);" >$msg.get("profile.modifyYourPhoto")</a>
+  #end ## is same user
       #end ## is inline
    #end ##
 </div>
-#end ##
+#end
 
 #**
   * Edit the profile email
@@ -895,94 +895,95 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_viewprofile $userdoc $userobj)
-<table border="0" cellspacing="2" cellpadding="2">
+  <table border="0" cellspacing="2" cellpadding="2">
   <tbody>
-    <tr>
+  <tr>
     <td><strong>$msg.get("profile.field.display.firstName")</strong>
-     #if ($context.action=="inline") </td></tr><tr><td> #end
-     #mycurriki_dashifempty($userdoc.display("first_name", $userobj)) </td>
-    </tr>
-    <tr>
-     <td><strong>$msg.get("profile.field.display.lastName")</strong>
-     #if ($context.action=="inline") </td></tr><tr><td> #end
-     #mycurriki_dashifempty($userdoc.display("last_name", $userobj))</td>
-    </tr>
-    <tr>
-     <td><strong>$msg.get("profile.field.memberType")</strong>
-     #mycurriki_dashifempty($userdoc.display("member_type", $userobj))</td>
-    </tr>
-    <tr>
-     <td><strong>$msg.get("profile.field.affiliation")</strong>
-     #if ($context.action=="inline") </td></tr><tr><td> #end
-     #mycurriki_dashifempty($userdoc.display("affiliation", $userobj))</td>
-    </tr>
-    </tr>
-     <td><strong>$msg.get("profile.field.city")</strong>
-     #if ($context.action=="inline") </td></tr><tr><td> #end
-     #mycurriki_dashifempty($userdoc.display("city", $userobj))</td>
-    </tr>
-    <tr>
-     <td><strong>$msg.get("profile.field.state")</strong>
-     #if ($context.action=="inline") </td></tr><tr><td> #end
-     #mycurriki_dashifempty($userdoc.display("state", $userobj))</td>
-    </tr>
-    <tr>
-     <td><strong>$msg.get("profile.field.country")</strong>
-     #if ($context.action=="inline") </td></tr><tr><td> #end
-     #mycurriki_dashifempty($userdoc.display("country", $userobj))</td>
-     </tr>
-     #if ($context.action=="inline")
-       <tr>
-         <td><strong>$msg.get("profile.field.showContact")</strong>
-         #mycurriki_dashifempty($userdoc.display("show_contact", $userobj))</td>
-       </tr>
-     #end
-     #if(($context.user==$userdoc.fullName)||($xwiki.hasAdminRights()))
-       <tr>
-         <td><strong>$msg.get("profile.field.email")</strong>
-         #if ($context.action=="inline") </td></tr><tr><td> #end
-         #mycurriki_dashifempty($userdoc.display("email", $userobj))</td>
-       </tr>
-       <tr>
-         <td><strong>$msg.get("profile.field.showContact")</strong>
-         #if ($context.action=="inline") </td></tr><tr><td> #end
-         #mycurriki_dashifempty($userdoc.display("show_contact", $userobj))</td>
-       </tr>
-       <tr>
-         <td><strong>$msg.get("profile.field.opt_out")</strong>
-         #if ($context.action=="inline") </td></tr><tr><td> #end
-         #mycurriki_dashifempty($userdoc.display("opt_out", $userobj))</td>
-       </tr>
-       #if ($context.action=="inline")
-         <tr>
-           <td><strong>$msg.get("profile.field.passwordConfirm")</strong>
-             #if ($context.action=="inline") </td></tr><tr><td> #end
-             {pre}<input size='30' id='XWiki.XWikiUsers_0_password_repeat' value='$userdoc.display("password", "view", $userobj)' name='XWiki.XWikiUsers_0_password_repeat' type='password'/>{/pre}</td>
-         </tr>
-      #end
-    #end
-    <tr>
-      <td><strong>$msg.get("profile.field.topics")</strong>
-      #if ($context.action=="inline") </td></tr><tr><td> #end
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("first_name", $userobj)) </td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.display.lastName")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("last_name", $userobj))</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.memberType")</strong>
+    #mycurriki_dashifempty($userdoc.display("member_type", $userobj))</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.affiliation")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("affiliation", $userobj))</td>
+  </tr>
+  </tr>
+    <td><strong>$msg.get("profile.field.city")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("city", $userobj))</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.state")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("state", $userobj))</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.country")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("country", $userobj))</td>
+  </tr>
+  #if ($context.action=="inline")
+  <tr>
+    <td><strong>$msg.get("profile.field.showContact")</strong>
+    #mycurriki_dashifempty($userdoc.display("show_contact", $userobj))</td>
+  </tr>
+  #end
+  #if(($context.user==$userdoc.fullName)||($xwiki.hasAdminRights()))
+  <tr>
+    <td><strong>$msg.get("profile.field.email")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("email", $userobj))</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.showContact")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("show_contact", $userobj))</td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.opt_out")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("opt_out", $userobj))</td>
+  </tr>
+  #if ($context.action=="inline")
+  <tr>
+    <td><strong>$msg.get("profile.field.passwordConfirm")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    {pre}<input size='30' id='XWiki.XWikiUsers_0_password_repeat' value='$userdoc.display("password", "view", $userobj)' name='XWiki.XWikiUsers_0_password_repeat' type='password'/>{/pre}</td>
+  </tr>
+  #end
+  #end
+  <tr>
+    <td><strong>$msg.get("profile.field.topics")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
       #set($topics = "")
       #set($titems = $userdoc.topics.split("<br />"))
       #foreach($titem in $titems)
-    #if($titem.trim().startsWith("Subject Index &gt;"))
-      #set($titem = $titem.trim().substring(18))
-    #end
-    #set($topics = "${topics}, ${titem}")
+        #if($titem.trim().startsWith("Subject Index &gt;"))
+          #set($titem = $titem.trim().substring(18))
+        #end
+        #set($topics = "${topics}, ${titem}")
       #end
       #if($topics.length() > 2)
-    #set($topics = $topics.substring(2))
+        #set($topics = $topics.substring(2))
       #end
-      #mycurriki_dashifempty($topics)</td>
-    </tr>
-    <tr>
-      <td><strong>$msg.get("profile.field.bio")</strong>
-      #if ($context.action=="inline") </td></tr><tr><td> #end
-      #mycurriki_dashifempty($userdoc.display("comment", $userobj)) </td>
-    </tr>
-   </tbody>
+      #mycurriki_dashifempty($topics)
+    </td>
+  </tr>
+  <tr>
+    <td><strong>$msg.get("profile.field.bio")</strong>
+    #if ($context.action=="inline") </td></tr><tr><td> #end
+    #mycurriki_dashifempty($userdoc.display("comment", $userobj)) </td>
+  </tr>
+  </tbody>
   </table>
 #end ## end macro
 
@@ -1044,7 +1045,7 @@ function getFileExtension() {
   return "";
 }
 </script>
-            #verbatim_end
+#verbatim_end
             </div>
           </fieldset>
         </form>
@@ -1362,7 +1363,7 @@ $msg.get("deleted")
 #set($sm = $xwiki.csm)
 #set($ret_assetGroupAdmin = false)
 #if($asset.creator == $context.user || $sm.isAdmin($asset.web.replaceFirst('Coll_', ''), $context.user) || $hasGlobalAdmin) ##{
-	#set($ret_assetGroupAdmin = true)
+  #set($ret_assetGroupAdmin = true)
 #end ##}
 #end ##}
 
@@ -1376,7 +1377,7 @@ $msg.get("deleted")
 #set($sm = $xwiki.csm)
 #set($ret_userInAssetGroup = false)
 #if($asset.creator == $context.user || $sm.isMember($asset.web.replaceFirst('Coll_', ''), $context.user) || $hasGlobalAdmin) ##{
-	#set($ret_assetGroupMember = true)
+  #set($ret_assetGroupMember = true)
 #end ##}
 #end ##}
 
@@ -1388,18 +1389,18 @@ $msg.get("deleted")
   * @param $g_userHasCollections Impl param True if the user has collections
   *#
 #macro(mycurriki_action_add $asset $addpath) ##{
-	## Not available on "Favorites" page except for owner/admin
-	#checkForCollections()
-	#if($g_userHasCollections) ##{
-		#escapeForJS($asset.fullName)
-		#set($escapedFullName = $ret_escaped)
-		#asset_findtitle($asset)
-		#escapeForJS($currikiTitle)
-		#set($escapedTitle = $ret_escaped)
-		#if($asset.creator == $context.user || $hasGlobalAdmin || $doc.name != 'Favorites' || ($g_userdoc.fullName == $context.user && $doc.name == 'Favorites'))##{
-		<a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {assetName:'$escapedFullName', assetTitle:'$escapedTitle'}); return false;" ext:qtip="$msg.get('mycurriki.link.add.tooltip')">$msg.get('mycurriki.link.add')</a>
-		#end##}
-	#end##}
+  ## Not available on "Favorites" page except for owner/admin
+  #checkForCollections()
+  #if($g_userHasCollections) ##{
+    #escapeForJS($asset.fullName)
+    #set($escapedFullName = $ret_escaped)
+    #asset_findtitle($asset)
+    #escapeForJS($currikiTitle)
+    #set($escapedTitle = $ret_escaped)
+    #if($asset.creator == $context.user || $hasGlobalAdmin || $doc.name != 'Favorites' || ($g_userdoc.fullName == $context.user && $doc.name == 'Favorites'))##{
+    <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {assetName:'$escapedFullName', assetTitle:'$escapedTitle'}); return false;" ext:qtip="$msg.get('mycurriki.link.add.tooltip')">$msg.get('mycurriki.link.add')</a>
+    #end##}
+  #end##}
 #end ##}
 
 #**
@@ -1408,13 +1409,13 @@ $msg.get("deleted")
   * @param $asset Asset
   *#
 #macro(mycurriki_action_remove $asset) ##{
-	## ONLY on Favorites page (removes from Favorites list)
-	## ONLY for owner + admin
-	#if($doc.name == 'Favorites' && ($g_userdoc.fullName == $context.user || $hasGlobalAdmin)) ##{
-		#set($removeMsg = $msg.get('mycurriki.favorites.table.action.remove.confirm'))
-		#set($deleteUrl = $xwiki.getURL("MySankore.RemoveFavorite", "view", "confirm=1&docName=${asset.fullName}&sourceDoc=$doc.getURL('view')"))
-		<a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" onclick="return confirm('$removeMsg')" href="$deleteUrl" ext:qtip="$msg.get('mycurriki.favorites.table.action.remove_tooltip')">$msg.get("mycurriki.favorites.table.action.remove")</a>
-	#end ##}
+  ## ONLY on Favorites page (removes from Favorites list)
+  ## ONLY for owner + admin
+  #if($doc.name == 'Favorites' && ($g_userdoc.fullName == $context.user || $hasGlobalAdmin)) ##{
+    #set($removeMsg = $msg.get('mycurriki.favorites.table.action.remove.confirm'))
+    #set($deleteUrl = $xwiki.getURL("MySankore.RemoveFavorite", "view", "confirm=1&docName=${asset.fullName}&sourceDoc=$doc.getURL('view')"))
+    <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" onclick="return confirm('$removeMsg')" href="$deleteUrl" ext:qtip="$msg.get('mycurriki.favorites.table.action.remove_tooltip')">$msg.get("mycurriki.favorites.table.action.remove")</a>
+  #end ##}
 #end ##}
 
 #**
@@ -1423,13 +1424,13 @@ $msg.get("deleted")
   * @param $asset Asset
   *#
 #macro(mycurriki_action_delete $asset) ##{
-	## ONLY for owner + admin
-	#assets_userIsGroupAdmin($asset)
-	#if($ret_assetGroupAdmin || $hasGlobalAdmin) ##{
-		#set($deleteMsg = $msg.get('mycurriki.link.delete.confirm'))
-		#set($deleteUrl = $xwiki.getURL("XWiki.DeleteDocument", "view", "confirm=1&docName=${asset.fullName}&sourceDoc=$doc.getURL('view')"))
-		<a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" onclick="return confirm('$deleteMsg')" href="$deleteUrl" ext:qtip="$msg.get('mycurriki.link.delete.tooltip')">$msg.get("mycurriki.link.delete")</a>
-	#end ##}
+  ## ONLY for owner + admin
+  #assets_userIsGroupAdmin($asset)
+  #if($ret_assetGroupAdmin || $hasGlobalAdmin) ##{
+    #set($deleteMsg = $msg.get('mycurriki.link.delete.confirm'))
+    #set($deleteUrl = $xwiki.getURL("XWiki.DeleteDocument", "view", "confirm=1&docName=${asset.fullName}&sourceDoc=$doc.getURL('view')"))
+    <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" onclick="return confirm('$deleteMsg')" href="$deleteUrl" ext:qtip="$msg.get('mycurriki.link.delete.tooltip')">$msg.get("mycurriki.link.delete")</a>
+  #end ##}
 #end ##}
 
 #**
@@ -1440,16 +1441,16 @@ $msg.get("deleted")
   * @param $g_userHasCollections Impl param True if the user has collections
   *#
 #macro(mycurriki_action_copy $asset $addpath) ##{
-	## Not available on "Favorites" page
-	## File Resources only (not Collections/Folders)
-	#checkForCollections()
-	#if($asset.getCategory() != 'collection') ##{
-		#escapeForJS($asset.fullName)
-		#set($escapedFullName = $ret_escaped)
-		#if($doc.name != 'Favorites' && ($asset.creator == $context.user || $hasGlobalAdmin))##{
-		<a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {copyOf:'${escapedFullName}'}); return false;" ext:qtip="$msg.get('mycurriki.link.copy.tooltip')">$msg.get('mycurriki.link.copy')</a>
-		#end##}
-	#end##}
+  ## Not available on "Favorites" page
+  ## File Resources only (not Collections/Folders)
+  #checkForCollections()
+  #if($asset.getCategory() != 'collection') ##{
+    #escapeForJS($asset.fullName)
+    #set($escapedFullName = $ret_escaped)
+    #if($doc.name != 'Favorites' && ($asset.creator == $context.user || $hasGlobalAdmin))##{
+    <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {copyOf:'${escapedFullName}'}); return false;" ext:qtip="$msg.get('mycurriki.link.copy.tooltip')">$msg.get('mycurriki.link.copy')</a>
+    #end##}
+  #end##}
 #end ##}
 
 #**
@@ -1458,13 +1459,13 @@ $msg.get("deleted")
   * @param $asset Asset
   *#
 #macro(mycurriki_action_editcontent $asset) ##{
-	## ONLY for owner + admin
-	## ONLY for File Resources (not Collections)
-	#assets_userIsGroupAdmin($asset)
-	#if($asset.getCategory() != 'collection' && ($ret_assetGroupAdmin || $hasGlobalAdmin)) ##{
-		#set($editUrl = $asset.getURL('view', 'viewer=assetedit'))
-		<a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="$editUrl" ext:qtip="$msg.get('mycurriki.link.editcontent.tooltip')">$msg.get("mycurriki.link.editcontent")</a>
-	#end ##}
+  ## ONLY for owner + admin
+  ## ONLY for File Resources (not Collections)
+  #assets_userIsGroupAdmin($asset)
+  #if($asset.getCategory() != 'collection' && ($ret_assetGroupAdmin || $hasGlobalAdmin)) ##{
+    #set($editUrl = $asset.getURL('view', 'viewer=assetedit'))
+    <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="$editUrl" ext:qtip="$msg.get('mycurriki.link.editcontent.tooltip')">$msg.get("mycurriki.link.editcontent")</a>
+  #end ##}
 #end ##}
 
 #**
@@ -1473,12 +1474,12 @@ $msg.get("deleted")
   * @param $asset Asset
   *#
 #macro(mycurriki_action_editinfo $asset) ##{
-	## ONLY for owner + admin
-	#assets_userIsGroupAdmin($asset)
-	#if($ret_assetGroupAdmin || $hasGlobalAdmin) ##{
-		#set($editUrl = $asset.getURL('view', 'viewer=infoedit'))
-		<a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="$editUrl" ext:qtip="$msg.get('mycurriki.link.editinfo.tooltip')">$msg.get("mycurriki.link.editinfo")</a>
-	#end ##}
+  ## ONLY for owner + admin
+  #assets_userIsGroupAdmin($asset)
+  #if($ret_assetGroupAdmin || $hasGlobalAdmin) ##{
+    #set($editUrl = $asset.getURL('view', 'viewer=infoedit'))
+    <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="$editUrl" ext:qtip="$msg.get('mycurriki.link.editinfo.tooltip')">$msg.get("mycurriki.link.editinfo")</a>
+  #end ##}
 #end ##}
 
 #**
@@ -1488,20 +1489,20 @@ $msg.get("deleted")
   * @param $addpath Add path to follow
   *#
 #macro(mycurriki_action_buildup $asset $addpath) ##{
-	## Not available on "Favorites" page
-	## ONLY for owner + admin
-	## ONLY Collections
-	#if($asset.getCategory() == 'collection') ##{
-		#escapeForJS($asset.fullName)
-		#set($escapedFullName = $ret_escaped)
-		#asset_findtitle($asset)
-		#escapeForJS($currikiTitle)
-		#set($escapedTitle = $ret_escaped)
-		#assets_userInGroup($asset)
-		#if($doc.name != 'Favorites' && ($ret_assetGroupMember || $hasGlobalAdmin))##{
-		<a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {parentAsset:'$escapedFullName', parentTitle:'$escapedTitle'}); return false;" ext:qtip="$msg.get('mycurriki.link.buildup.tooltip')">$msg.get('mycurriki.link.buildup')</a>
-		#end##}
-	#end##}
+  ## Not available on "Favorites" page
+  ## ONLY for owner + admin
+  ## ONLY Collections
+  #if($asset.getCategory() == 'collection') ##{
+    #escapeForJS($asset.fullName)
+    #set($escapedFullName = $ret_escaped)
+    #asset_findtitle($asset)
+    #escapeForJS($currikiTitle)
+    #set($escapedTitle = $ret_escaped)
+    #assets_userInGroup($asset)
+    #if($doc.name != 'Favorites' && ($ret_assetGroupMember || $hasGlobalAdmin))##{
+    <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {parentAsset:'$escapedFullName', parentTitle:'$escapedTitle'}); return false;" ext:qtip="$msg.get('mycurriki.link.buildup.tooltip')">$msg.get('mycurriki.link.buildup')</a>
+    #end##}
+  #end##}
 #end ##}
 
 #**
@@ -1510,24 +1511,24 @@ $msg.get("deleted")
   * @param $asset Asset
   *#
 #macro(mycurriki_action_organize $asset) ##{
-	## Not available on "Favorites" page
-	## ONLY for owner + admin
-	## ONLY Collections
-	#if($asset.getCategory() == 'collection') ##{
-		#escapeForJS($asset.fullName)
-		#set($escapedFullName = $ret_escaped)
-		#asset_findtitle($asset)
-		#escapeForJS($currikiTitle)
-		#set($escapedTitle = $ret_escaped)
-		#escapeForJS(${xwiki.getUserName($asset.creator, false)})
-		#set($escapedCreatorName = $ret_escaped)
-		#if($doc.name != 'Favorites' && ($asset.creator == $context.user || $hasGlobalAdmin))##{
-			#set($cnt = $asset.as($xwiki.null).getSubassetList().size())
-			#if($cnt > 0) ##{
-			<a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.organize.start({assetPage:'$escapedFullName', title:'$escapedTitle', creator:'${asset.creator}', creatorName:'${escapedCreatorName}'}); return false;" ext:qtip="$msg.get('mycurriki.link.organize.tooltip')">$msg.get('mycurriki.link.organize')</a>
-			#end##}
-		#end##}
-	#end##}
+  ## Not available on "Favorites" page
+  ## ONLY for owner + admin
+  ## ONLY Collections
+  #if($asset.getCategory() == 'collection') ##{
+    #escapeForJS($asset.fullName)
+    #set($escapedFullName = $ret_escaped)
+    #asset_findtitle($asset)
+    #escapeForJS($currikiTitle)
+    #set($escapedTitle = $ret_escaped)
+    #escapeForJS(${xwiki.getUserName($asset.creator, false)})
+    #set($escapedCreatorName = $ret_escaped)
+    #if($doc.name != 'Favorites' && ($asset.creator == $context.user || $hasGlobalAdmin))##{
+      #set($cnt = $asset.as($xwiki.null).getSubassetList().size())
+      #if($cnt > 0) ##{
+      <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.organize.start({assetPage:'$escapedFullName', title:'$escapedTitle', creator:'${asset.creator}', creatorName:'${escapedCreatorName}'}); return false;" ext:qtip="$msg.get('mycurriki.link.organize.tooltip')">$msg.get('mycurriki.link.organize')</a>
+      #end##}
+    #end##}
+  #end##}
 #end ##}
 
 
@@ -1804,9 +1805,9 @@ $msg.get("deleted")
 <script type="text/javascript">
 /* <![CDATA[ */
 Curriki.data.reorder = {
-	place:'users'
-	,which:'${userdoc.fullName}'
-	,reordered:${reordered}
+  place:'users'
+  ,which:'${userdoc.fullName}'
+  ,reordered:${reordered}
 };
 /* ]]> */
 </script>
