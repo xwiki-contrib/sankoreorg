@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1321281909000</creationDate>
-<date>1321281909000</date>
-<contentUpdateDate>1321281909000</contentUpdateDate>
+<creationDate>1324304673000</creationDate>
+<date>1324304673000</date>
+<contentUpdateDate>1324304673000</contentUpdateDate>
 <version>1.1</version>
 <title>SearchCriteria</title>
 <template></template>
@@ -378,7 +378,7 @@ table#search-criteria ul li {
         &lt;ul&gt;          
           #foreach($value in $sorted)
           &lt;li&gt;
-            &lt;input type="radio" name="criteria_subject" value="$valuesMap.get($value)"/&gt;
+            &lt;input type="radio" name="criteria_resource_type" value="$valuesMap.get($value)"/&gt;
             $value
           &lt;/li&gt;
           #end
@@ -401,7 +401,7 @@ table#search-criteria ul li {
         &lt;ul&gt;          
           #foreach($value in $sorted)
           &lt;li&gt;
-            &lt;input type="radio" name="criteria_subject" value="$valuesMap.get($value)"/&gt;
+            &lt;input type="radio" name="criteria_usage_type" value="$valuesMap.get($value)"/&gt;
             $value
           &lt;/li&gt;
           #end
