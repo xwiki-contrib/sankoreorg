@@ -2042,3 +2042,68 @@ document.writeln("<" + "/div>");
 // ]]>
 </script>
 #end
+
+#macro(wysiwyg_jsx_editProperty $editedDocument $propertyId $full)
+#set($parameters = $util.hashMap)
+#wysiwyg_storeConfig($parameters $editedDocument $propertyId $full)
+#wysiwyg_jsx_editPropertyCustom($editedDocument $parameters)
+#end
+
+#macro(wysiwyg_jsx_hide $fieldId)
+(function() {
+  var field = document.getElementById('$!{fieldId}');
+  if (field) {
+    // Hide the element that will be wrapped by the WYSIWYG editor.
+    field.style.visibility = 'hidden';
+    // Show the loading animation.
+    var loading = document.createElement('span');
+    loading.className = 'loading';
+    loading.style.display = 'block';
+    loading.style.position = 'absolute';
+    loading.style.width = field.offsetWidth + 'px';
+    loading.style.height = field.offsetHeight + 'px';
+    field.parentNode.insertBefore(loading, field);
+    // Remove the loading animation after the WYSIWYG module has been loaded.
+    Wysiwyg.onModuleLoad(function() {
+      loading.parentNode.removeChild(loading);
+    });
+  }
+}).call();
+#end
+
+#macro(wysiwyg_jsx_createCache $parameters)
+#set($ok = $parameters.put('cacheId', "wysiwygCache$!{util.generateRandomString(4)}"))
+$("$parameters.hookId").insert({after: new Element('input', {'type': 'hidden', 'id': "$!{parameters.cacheId}"})});
+#end
+
+#macro(wysiwyg_jsx_writeConfig $jsVarName $parameters)
+var $jsVarName = {
+#set($separator = '')
+#foreach($entry in $parameters.entrySet())
+  #if($entry.value || "$!entry.value" != '')
+    ${separator}$entry.key: '$!{escapetool.javascript($entry.value)}'
+    #set($separator = ',')
+  #end
+#end
+};
+#end
+
+#macro(wysiwyg_jsx_createEditor $parameters)
+#set($jsVarName = "wysiwygConfig${util.generateRandomString(4)}")
+#wysiwyg_jsx_writeConfig($jsVarName $parameters)
+Wysiwyg.onModuleLoad(function() {
+  new WysiwygEditor($jsVarName);
+  $jsVarName = undefined;
+});
+#end
+
+#macro(wysiwyg_jsx_editPropertyCustom $editedDocument $parameters)
+## Hide the plain text area.
+#wysiwyg_jsx_hide($parameters.hookId)
+## Display conversion errors, if present.
+#wysiwyg_displayConversionError($parameters)
+## Create the cache.
+#wysiwyg_jsx_createCache($parameters)
+## Create the editor UI.
+#wysiwyg_jsx_createEditor($parameters)
+#end

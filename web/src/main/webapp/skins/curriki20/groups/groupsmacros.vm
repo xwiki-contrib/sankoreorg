@@ -92,19 +92,19 @@ $xwiki.ssfx.use("groups.css")
   * Macro to display the welcome block and allow editing it
   *#
 #macro(groupsdisplaywelcome $title $spaceName $pageName $isGroupAdmin)
-#groupsdisplaywelcomecolour($title $spaceName $pageName "blue" $isGroupAdmin)
+  #groupsdisplaywelcomecolour($title $spaceName $pageName "blue" $isGroupAdmin)
 #end
 
 #macro(groupsdisplaywelcomecolour $title $spaceName $pageName $colour $isGroupAdmin)
-#if($isGroupAdmin)
-#groupsajaxjs()
-<script src="$xwiki.getSkinFile("Pork.Iframe.js")" type="text/javascript"></script>
-#set($wdoc = $xwiki.getDocument($spaceName, $pageName))
-#if($wdoc.syntaxId == "xwiki/1.0")
-<script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/tiny_mce/tiny_mce.js")"></script>
-<script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/wiki_editor/wiki_editor.js")"></script>
-<script type="text/javascript">
- wikiEditor.init({
+  #if($isGroupAdmin)
+    #groupsajaxjs()
+    <script src="$xwiki.getSkinFile("Pork.Iframe.js")" type="text/javascript"></script>
+    #set($wdoc = $xwiki.getDocument($spaceName, $pageName))
+    #if($wdoc.syntaxId == "xwiki/1.0")
+    <script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/tiny_mce/tiny_mce.js")"></script>
+    <script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/wiki_editor/wiki_editor.js")"></script>
+    <script type="text/javascript">
+      wikiEditor.init({
 		elements : "",
 	    language: "en",
 		mode: "exact",
@@ -117,113 +117,110 @@ $xwiki.ssfx.use("groups.css")
         wiki_images_path : '/xwiki/bin/download/${spaceName}/${pageName}/',
         wiki_attach_path : '/xwiki/bin/view/${spaceName}/${pageName}'
         });
-</script>
-#elseif($services.wysiwyg.isSyntaxSupported($wdoc.syntax.toIdString()))
-## Import the JavaScript files required by the WYSIWYG editor (lazy=false).
-#wysiwyg_import(false)
-## Store the WYSIWYG editor configuration in a JavaScript variable which will be used later to create the editor.
-##wysiwyg_storeConfig("welcomeWysiwygConfig" $wdoc "XWiki.CurrikiWelcomeBlockClass_0_content" false)
-#end
-#begingroupsection($title,"$msg.groups_home_welcome_link","javascript:editWelcomeBlock('$spaceName','$pageName','groups-members-welcomeblock')", $colour, true)
-<div id="groups-members-welcomeblock">
-#groupsdisplaywelcomeblock($doc)
-</div>
-#endgroupsection()
-#elseif($doc.name=="WebHome")
-#set($ok = $doc.use("XWiki.CurrikiWelcomeBlockClass"))
-## Hack CURRIKI-3338 Fix paragraph carriage return issues in wiki rendered content
-#set($welcomeContent = $!doc.display("content").replaceAll("<br/><p/>","<br/>&nbsp;<p/>"))
-#if($welcomeContent!="")
-#begingroupsection($title,"","", $colour, false)
-<div id="groups-members-welcomeblock">
-$welcomeContent
-</div>
-#endgroupsection()
-#end
-#else
-#begingroupsection($title,"","", $colour, false)
-<div id="groups-members-welcomeblock">
-#groupsdisplaywelcomeblock($doc)
-</div>
-#endgroupsection()
-#end
+    </script>
+    #elseif($services.wysiwyg.isSyntaxSupported($wdoc.syntax.toIdString()))
+      ## Import the JavaScript files required by the WYSIWYG editor (lazy=false).
+      #wysiwyg_import(false)
+      ## Store the WYSIWYG editor configuration in a JavaScript variable which will be used later to create the editor.
+      ##wysiwyg_storeConfig("welcomeWysiwygConfig" $wdoc "XWiki.CurrikiWelcomeBlockClass_0_content" false)
+    #end
+    #begingroupsection($title,"$msg.groups_home_welcome_link","javascript:editWelcomeBlock('$spaceName','$pageName','groups-members-welcomeblock')", $colour, true)
+    <div id="groups-members-welcomeblock">
+    #groupsdisplaywelcomeblock($doc)
+    </div>
+    #endgroupsection()
+  #elseif($doc.name=="WebHome")
+    #set($ok = $doc.use("XWiki.CurrikiWelcomeBlockClass"))
+    ## Hack CURRIKI-3338 Fix paragraph carriage return issues in wiki rendered content
+    #set($welcomeContent = $!doc.display("content").replaceAll("<br/><p/>","<br/>&nbsp;<p/>"))
+    #if($welcomeContent!="")
+      #begingroupsection($title,"","", $colour, false)
+      <div id="groups-members-welcomeblock">$welcomeContent</div>
+      #endgroupsection()
+    #end
+  #else
+    #begingroupsection($title,"","", $colour, false)
+    <div id="groups-members-welcomeblock">
+    #groupsdisplaywelcomeblock($wdoc)
+    </div>
+    #endgroupsection()
+  #end
 #end
 ##
 #macro(groupsdisplaywelcomeblock $wdoc)
-#set($ok = $wdoc.use("XWiki.CurrikiWelcomeBlockClass"))
-## Hack CURRIKI-3338 Fix paragraph carriage return issues in wiki rendered content
-#set($welcomeContent = $!wdoc.display("content").replaceAll("<br/><p/>","<br/>&nbsp;<p/>"))
-#if($welcomeContent=="")
-## Hack CURRIKI-3338 Fix paragraph carriage return issues in wiki rendered content
-<div class="xwikicontent">
-$xwiki.getDocument("Groups.${wdoc.name}Welcome").getRenderedContent().replaceAll("<br/><p/>","<br/>&nbsp;<p/>")
-</div>
-#else
-$welcomeContent
-#end
+  #set($wobj = $wdoc.getObject("XWiki.CurrikiWelcomeBlockClass"))
+  ## Hack CURRIKI-3338 Fix paragraph carriage return issues in wiki rendered content
+  #set($welcomeContent = $!wobj.display("content", "view").replaceAll("<br/><p/>","<br/>&nbsp;<p/>"))
+  #if("$!welcomeContent" == "")
+    ## Hack CURRIKI-3338 Fix paragraph carriage return issues in wiki rendered content
+    <div class="xwikicontent">
+    $xwiki.getDocument("Groups.${wdoc.name}Welcome").getRenderedContent().replaceAll("<br/><p/>","<br/>&nbsp;<p/>")
+    </div>
+  #else
+    $welcomeContent
+  #end
 #end
 ##
 #macro(groupsdisplayeditwelcome $spaceName $pageName $divid)
-$msg.get("groups_home_editwelcome_direction")
-<br />
-#set($wdoc = $xwiki.getDocument("${spaceName}.${pageName}"))
-#if(!$wdoc.getObject("XWiki.CurrikiWelcomeBlockClass"))
-#set($ok = $wdoc.newObject("XWiki.CurrikiWelcomeBlockClass"))
+  $msg.get("groups_home_editwelcome_direction")
+  <br />
+  #set($wdoc = $xwiki.getDocument("${spaceName}.${pageName}"))
+  #if(!$wdoc.getObject("XWiki.CurrikiWelcomeBlockClass"))
+    #set($ok = $wdoc.newObject("XWiki.CurrikiWelcomeBlockClass"))
+  #end
+  #set($ok = $doc.use("XWiki.CurrikiWelcomeBlockClass"))
+  <form id="wblockform" action="$xwiki.getURL("Groups.SaveWelcomeBlockService")" method="post" onsubmit="new iframe(this,{onComplete:function(t){afterSubmitEditWelcomeBlock(t,'${divid}')}}); return false;">
+  <p>
+    <input type="hidden" name="xpage" value="plain" />
+    <input type="hidden" name="space" value="$spaceName" />
+    <input type="hidden" name="page" value="$pageName" />
+    $wdoc.display("content", "edit")
+    <br />
+  #if($services.wysiwyg.isSyntaxSupported($wdoc.syntax.toIdString()))
+    #verbatim_start
+    <script type="text/javascript">
+    #wysiwyg_jsx_editProperty($wdoc, "XWiki.CurrikiWelcomeBlockClass_0_content", $wdoc.syntax.toIdString(), false)
+    </script>
+    #verbatim_end
+  #end
+    <div class="right mgn-vrt-15">
+      <input type="button" class="button button-cancel mgn-rt" value="$msg.get("groups_home_editwelcome_cancel_btt")" onclick="cancelEditWelcomeBlock('${spaceName}','${pageName}','${divid}');" />
+      <input type="submit" class="button button-confirm" value="$msg.get("groups_home_editwelcome_submit_btt")" onclick="beforeSubmitEditWelcomeBlock();" />
+    </div>
+  </p>
+  </form>
 #end
-#set($ok = $doc.use("XWiki.CurrikiWelcomeBlockClass"))
-<form id="wblockform" action="$xwiki.getURL("Groups.SaveWelcomeBlockService")" method="post" onsubmit="new iframe(this,{onComplete:function(t){afterSubmitEditWelcomeBlock(t,'${divid}')}}); return false;">
-<p>
-<input type="hidden" name="xpage" value="plain" />
-<input type="hidden" name="space" value="$spaceName" />
-<input type="hidden" name="page" value="$pageName" />
-$wdoc.display("content", "edit")
-<br />
-#if($services.wysiwyg.isSyntaxSupported($wdoc.syntax.toIdString()))
-#verbatim_start
-#wysiwyg_editProperty($wdoc, "XWiki.CurrikiWelcomeBlockClass_0_content", false)
-#verbatim_end
-#end
-<div class="right mgn-vrt-15">
-<input type="button" class="button button-cancel mgn-rt" value="$msg.get("groups_home_editwelcome_cancel_btt")" onclick="cancelEditWelcomeBlock('${spaceName}','${pageName}','${divid}');" />
-<input type="submit" class="button button-confirm" value="$msg.get("groups_home_editwelcome_submit_btt")" onclick="beforeSubmitEditWelcomeBlock();" />
-</div>
-</p>
-</form>
-#end
-
 
 #**
   * Groups View Welcome Block Service
   * This handles the call to show a welcome block in view mode
   *#
 #macro(groups_viewwelcomeblock_service)
-#set($adoc = $xwiki.getDocument("${request.space}.${request.page}"))
-#groupsdisplaywelcomeblock($adoc)
+  #set($adoc = $xwiki.getDocument("${request.space}.${request.page}"))
+  #groupsdisplaywelcomeblock($adoc)
 #end
-
-
 
 #**
   * Groups Save Welcome block service
   * This handles the call to save a welcome block
   *#
 #macro(groups_savewelcomeblock_service)
-#set($spaceName = $request.space)
-#set($pageName = $request.page)
-#set($wdoc = $xwiki.getDocument("${spaceName}.${pageName}"))
-#set($ok = $wdoc.updateObjectFromRequest("XWiki.CurrikiWelcomeBlockClass"))
-#set($ok = $wdoc.save())
-#groupsdisplaywelcomeblock($wdoc)
+  #set($spaceName = $request.space)
+  #set($pageName = $request.page)
+  #set($wdoc = $xwiki.getDocument("${spaceName}.${pageName}"))
+  #set($ok = $wdoc.updateObjectFromRequest("XWiki.CurrikiWelcomeBlockClass"))
+  #set($ok = $wdoc.save())
+  #groupsdisplaywelcomeblock($wdoc)
 #end
 
 ## Macros for begin and end section
 
-#macro(begingroupsection $title $righttitle $link $color) ##{
-#begingroupsection($title "" "" $color false)
-#end ##}
+#macro(begingroupsection $title $righttitle $link $color)
+  #begingroupsection($title "" "" $color false)
+#end
 
 ## Macro for the sections with information int the group pages
-#macro(begingroupsection $title $righttitle $link $color $isGroupAdmin) ##{
+#macro(begingroupsection $title $righttitle $link $color $isGroupAdmin)
   ## this is the autoincrement value used to create unique ids
   #if(!$counter)
     #set($counter = 1)
@@ -234,25 +231,25 @@ $wdoc.display("content", "edit")
   #normalizelink($link)
   ##if the right title is too big we truncate it
   #set($righttitletrunc = $righttitle)
-  #if ($righttitletrunc.length() > 35)
+  #if($righttitletrunc.length() > 35)
     #set($righttitletrunc = $righttitle.substring(0, 34))
     #set($righttitletrunc = "${righttitletrunc}...")
   #end
   <div class="frame" id="section_${counter}">
-     #if($isGroupAdmin)
-     #curriki_titlebar($title $righttitle $link $color)
-     #else
-     #curriki_titlebar($title "" "" $color)
-	 #end
-     <div class="frame-content" id="section${counter}content">
-#end ##}
+    #if($isGroupAdmin)
+      #curriki_titlebar($title $righttitle $link $color)
+    #else
+      #curriki_titlebar($title "" "" $color)
+	#end
+  <div class="frame-content" id="section${counter}content">
+#end
 
 ## ending macro for begingroupsection
-#macro(endgroupsection) ##{
+#macro(endgroupsection)
 <div class="clearfloats"></div>
-     </div>
-  </div>
-#end ##}
+</div> ## div.frame
+</div> ## div.frame-content
+#end
 
 ## Tools
 
@@ -689,33 +686,33 @@ $xwiki.addTooltipJS()
   * @internalapi
   *#
 #macro(groups_homepage)
-#groupinit()
-#groupsheader("home")
-#groups_homepage_aftercreate()
-#set($action = $request.get("action"))
-#if($action=="editmasthead")
- #if($isGroupAdmin)
-  #groups_homepage_editmasthead()
- #else
-  #curriki_noaccess()
- #end
-#elseif($action=="editinfo")
- ## this call requires programming rights
- #if($isGroupAdmin)
-  #groups_homepage_editinfo()
- #else
-  #curriki_noaccess()
- #end
-#else
- #groups_homepage_viewinfo()
- #groupsdisplaywelcome($msg.groups_home_welcome $spaceName $doc.name $isGroupAdmin)
- #groups_homepage_activitystream()
- #groups_homepage_details()
- #groups_homepage_contributions()
- #groupsmembershipinfo($spaceName)
-#end
-#groupsfooter()
-<br clear="all"/>
+  #groupinit()
+  #groupsheader("home")
+  #groups_homepage_aftercreate()
+  #set($action = $request.get("action"))
+  #if($action=="editmasthead")
+    #if($isGroupAdmin)
+      #groups_homepage_editmasthead()
+    #else
+      #curriki_noaccess()
+    #end
+  #elseif($action=="editinfo")
+    ## this call requires programming rights
+    #if($isGroupAdmin)
+      #groups_homepage_editinfo()
+    #else
+      #curriki_noaccess()
+    #end
+  #else
+    #groups_homepage_viewinfo()
+    #groupsdisplaywelcome($msg.groups_home_welcome $spaceName $doc.name $isGroupAdmin)
+    #groups_homepage_activitystream()
+    #groups_homepage_details()
+    #groups_homepage_contributions()
+    #groupsmembershipinfo($spaceName)
+  #end
+  #groupsfooter()
+  <br clear="all"/>
 #end
 
 #**
@@ -723,17 +720,15 @@ $xwiki.addTooltipJS()
   *
   *#
 #macro(groups_homepage_aftercreate)
-#if($request.firsttime=="1")
-<div id="groups_firsttimewelcome">
-<div id="groups_firsttimewelcome_title">
-$msg.get("groups_home_firsttimewelcome_title")
-</div>
-##<div id="groups_firsttimewelcome_closebutton">
-##<a href="javascript:void()" onclick="$('groups_firsttimewelcome').style.display='none'; return false;">$msg.groups_firsttimewelcome_close</a>
-##</div>
-#includeInContext("Groups.CreateNewGroupDone")
-</div>
-#end
+  #if($request.firsttime=="1")
+    <div id="groups_firsttimewelcome">
+      <div id="groups_firsttimewelcome_title">$msg.get("groups_home_firsttimewelcome_title")</div>
+      ##<div id="groups_firsttimewelcome_closebutton">
+      ##<a href="javascript:void()" onclick="$('groups_firsttimewelcome').style.display='none'; return false;">$msg.groups_firsttimewelcome_close</a>
+      ##</div>
+      #includeInContext("Groups.CreateNewGroupDone")
+    </div>
+  #end
 #end
 
 #**
@@ -741,23 +736,23 @@ $msg.get("groups_home_firsttimewelcome_title")
   *
   *#
 #macro(groups_homepage_editmasthead)
-#set($spaceName = $doc.space)
-#set($s = $sm.getSpace($spaceName))
-#if($request.method=="POST")
-  #set($filename = $xwiki.fileupload.getFileName("filepath"))
-  #set($ok = $sm.updateSpaceFromRequest($s))
-#end
-#if($ok)
-  #if($filename&&($filename!=""))    
-    #set($ok = $xwiki.getDocument("${doc.space}.WebHome").addAttachments("filepath"))    
-    #if($ok)
-      $s.set("logo", $filename)
-      $s.save()
-    #end
+  #set($spaceName = $doc.space)
+  #set($s = $sm.getSpace($spaceName))
+  #if($request.method=="POST")
+    #set($filename = $xwiki.fileupload.getFileName("filepath"))
+    #set($ok = $sm.updateSpaceFromRequest($s))
   #end
-  $response.sendRedirect($s.getHomeURL())
-#else
-<div class="frame">
+  #if($ok)
+    #if($filename&&($filename!=""))    
+      #set($ok = $xwiki.getDocument("${doc.space}.WebHome").addAttachments("filepath"))    
+      #if($ok)
+        $s.set("logo", $filename)
+        $s.save()
+      #end
+    #end
+    $response.sendRedirect($s.getHomeURL())
+  #else
+  <div class="frame">
   <form class="CreateNewGroup" action="#" enctype="multipart/form-data" method="post" onsubmit="if (!checkFileExtension()) return false; else return true;">
     <input type="hidden" name="action" value="editmasthead" />
     #curriki_titlebar($msg.get("groups_home_editmasthead_title"), "", "", "blue")
@@ -806,20 +801,20 @@ $msg.get("groups_home_firsttimewelcome_title")
     </div> ## frame-content
     <div class="center mgn-vrt-15"><input class="button button-confirm mgn-rt" type="submit" value="$msg.groups_home_editmasthead_submit_btt" />#button(  "$msg.groups_home_editinformation_cancel_btt"  "cancel"  "reset"  ""  "if(confirm('$msg.groups_home_editmasthead_cancel_confirm')) window.location='$s.getHomeURL()';" )</div>    
   </form>
-</div> ## frame
-#end
-<div class="tooltips">
-  $xwiki.addTooltipJS()
-</div>
+  </div> ## frame
+  #end
+  <div class="tooltips">
+    $xwiki.addTooltipJS()
+  </div>
 #end
 
 #**
   * Group suffix URL. Built from hostname
   *#
 #macro(groups_groupsuffixurl)
-#set($serverURL=$xwiki.getXWiki().Param('curriki.system.hostname', 'curriki.org'))
-#set($serverURL=$serverURL.replaceAll("www.", ""))
-#set($groupURL=".groups."+$serverURL)
+  #set($serverURL=$xwiki.getXWiki().Param('curriki.system.hostname', 'curriki.org'))
+  #set($serverURL=$serverURL.replaceAll("www.", ""))
+  #set($groupURL=".groups."+$serverURL)
 ${groupURL}#end
 
 #**
@@ -914,13 +909,13 @@ $xwiki.addTooltipJS()
   *
   *#
 #macro(groups_homepage_viewinfo)
-<div class="head">
-#if($isGroupAdmin)
-#groups_groupinfo($s.spaceName "edit")
-#else
-#groups_groupinfo($s.spaceName "view")
-#end
-</div>
+  <div class="head">
+  #if($isGroupAdmin)
+    #groups_groupinfo($s.spaceName "edit")
+  #else
+    #groups_groupinfo($s.spaceName "view")
+  #end
+  </div>
 #end
 
 #**
@@ -1148,4 +1143,4 @@ $xwiki.addTooltipJS()
 #end
 #end
 
-## End of Groups Macros ## }
+## End of Groups Macros
