@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323954052000</creationDate>
-<date>1323954052000</date>
-<contentUpdateDate>1323954052000</contentUpdateDate>
+<creationDate>1327580207000</creationDate>
+<date>1327580207000</date>
+<contentUpdateDate>1327580207000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -231,7 +231,7 @@ $ict:
     #else
       #set($ret_ict = "$ret_ict, ")
     #end
-    #set($ret_ict = "$ret_ict""$item""")
+    #set($ret_ict = "${ret_ict}${escapetool.Q}${item}${escapetool.Q}")
   #end
   #set($ret_ict = "[ $ret_ict ]")
 #end
@@ -246,7 +246,6 @@ $ict:
   #if(!$ret_title || $ret_title.length() == 0)
     #set($ret_title = $msg.get("caption.untitled"))
   #end
-  #set($ret_title = $ret_title.replace("'", "&amp;#39;"))
 #end
 #**
   * Get the review for a resource
@@ -293,7 +292,7 @@ $ict:
 #macro(searchResourceDescription $resource)
   #set($ret_desc = "")
   #set($ret_desc = $!resource.getObject("CurrikiCode.AssetClass").getProperty("description").getValue())
-  #set($ret_desc = $ret_desc.replaceAll('\\', '\\\\').replace("'", "&amp;#39;").replaceAll("[\n|\r]+", "&lt;br /&gt;"))
+  #set($ret_desc = $ret_desc.replaceAll("[\n|\r]+", "&lt;br /&gt;"))
 #end
 #**
   * Get the framework items for a resource
@@ -310,7 +309,7 @@ $ict:
     #else
       #set($ret_FW = "$ret_FW, ")
     #end
-    #set($ret_FW = "$ret_FW""$item""")
+    #set($ret_FW = "${ret_FW}${escapetool.Q}${item}${escapetool.Q}")
   #end
   #set($ret_FW = "[ $ret_FW ]")
 #end
@@ -329,7 +328,7 @@ $ict:
     #else
       #set($ret_lvl = "$ret_lvl, ")
     #end
-    #set($ret_lvl = "$ret_lvl""$item""")
+    #set($ret_lvl = "${ret_lvl}${escapetool.Q}${item}${escapetool.Q}")
   #end
   #set($ret_lvl = "[ $ret_lvl ]")
 #end
@@ -341,7 +340,6 @@ $ict:
 #macro(searchResourceContributorName $resource)
   #set($ret_cname = "")
   #set($ret_cname = $xwiki.getUserName($resource.creator, false))
-  #set($ret_cname = $ret_cname.replace("'", "&amp;#39;"))
   #set($ret_cname = $ret_cname.replaceAll("[\n|\r]+", "&lt;br /&gt;"))
 #end
 #**
@@ -362,22 +360,22 @@ $ict:
           #set($parentAsset = $xwiki.getDocument($parentPage))
           #searchResourceInfo($parentAsset false)
           #set($date = $datetool.format($parentAsset.date))
-          #set($pJSON = "{ ""page"":""${parentAsset.fullName}"" 
-          ,""title"":""${ret_title}"" 
-          ,""assetType"":""${ret_assetType}"" 
-          ,""category"":""${ret_category}"" 
-          ,""subcategory"":""${ret_subcategory}"" 
-          ,""ict"":${ret_ict} 
-          ,""contributor"":""${parentAsset.creator}"" 
-          ,""contributorName"":""${ret_cname}"" 
-          ,""review"":""$!{ret_review}"" 
-          ,""description"":""${ret_desc}"" 
-          ,""subjects"":${ret_FW} 
-          ,""levels"":${ret_lvl} 
-          ,""updated"":""${date}""
-          ,""creation"":""${parentAsset.creationDate}""
-          ,""author"":""${ret_rightsHolder}""
-          ,""authorName"": ""${ret_rightsHolderName}"" 
+          #set($pJSON = "{ ${escapetool.Q}page${escapetool.Q}:${escapetool.Q}${escapetool.javascript($escapetool.url($parentAsset.fullName))}${escapetool.Q}
+          ,${escapetool.Q}title${escapetool.Q}:${escapetool.Q}${escapetool.javascript($escapetool.xml($ret_title))}${escapetool.Q}
+          ,${escapetool.Q}assetType${escapetool.Q}:${escapetool.Q}${escapetool.javascript($ret_assetType)}${escapetool.Q}
+          ,${escapetool.Q}category${escapetool.Q}:${escapetool.Q}${escapetool.javascript($ret_category)}${escapetool.Q}
+          ,${escapetool.Q}subcategory${escapetool.Q}:${escapetool.Q}${escapetool.javascript($ret_subcategory)}${escapetool.Q}
+          ,${escapetool.Q}ict${escapetool.Q}:$ret_ict
+          ,${escapetool.Q}contributor${escapetool.Q}:${escapetool.Q}${escapetool.javascript($escapetool.url($parentAsset.creator))}${escapetool.Q}
+          ,${escapetool.Q}contributorName${escapetool.Q}:${escapetool.Q}${escapetool.javascript($escapetool.xml($ret_cname))}${escapetool.Q}
+          ,${escapetool.Q}review${escapetool.Q}:${escapetool.Q}$!ret_review${escapetool.Q}
+          ,${escapetool.Q}description${escapetool.Q}:${escapetool.Q}${escapetool.javascript($escapetool.xml($ret_desc))}${escapetool.Q}
+          ,${escapetool.Q}subjects${escapetool.Q}:$ret_FW
+          ,${escapetool.Q}levels${escapetool.Q}:$ret_lvl
+          ,${escapetool.Q}updated${escapetool.Q}:${escapetool.Q}$date${escapetool.Q}
+          ,${escapetool.Q}creation${escapetool.Q}:${escapetool.Q}$parentAsset.creationDate${escapetool.Q}
+          ,${escapetool.Q}author${escapetool.Q}:${escapetool.Q}${escapetool.javascript($escapetool.xml($ret_rightsHolder))}${escapetool.Q}
+          ,${escapetool.Q}authorName${escapetool.Q}: ${escapetool.Q}${escapetool.javascript($escapetool.xml($ret_rightsHolderName))}${escapetool.Q} 
           }")
           #if($isFirstParent)
             #set($isFirstParent = false)
@@ -395,7 +393,6 @@ $ict:
 #macro(searchResourceRightsHolder $resource)
   #set($ret_rightsHolder = $resource.getObject("CurrikiCode.AssetLicenseClass").getProperty("rightsHolder").value)
   #set($ret_rightsHolderName = $ret_rightsHolder)
-  #set($ret_rightsHolderName = $ret_rightsHolderName.replace("'", "&amp;#39;"))
   #set($ret_rightsHolderName = $ret_rightsHolderName.replaceAll("[\n|\r]+", "&lt;br /&gt;"))
 #end
 
@@ -618,6 +615,9 @@ $ict:
   ##
   ## Do query
   ##
+  #if($request.debug)
+Query: $luceneQuery
+  #end
   #set($searchResults = $lucene.getSearchResults($luceneQuery, $sortFields, $languages))
   #set($results = $searchResults.getResults($start, $limit))
   #set($resultCount = $searchResults.totalHitcount)
@@ -652,29 +652,29 @@ $ict:
     #else
 ,
     #end
-{ "page":"${d.fullName}" 
-    ,"title":"${ret_title}" 
-    ,"assetType":"${ret_assetType}" 
-    ,"category":"${ret_category}" 
-    ,"subcategory":"${ret_subcategory}"
-    ,"ict":${ret_ict}
-    ,"contributor":"${d.creator}" 
-    ,"contributorName":"${ret_cname}" 
-    ,"review":"$!{ret_review}"
-    ,"rating":"$!{ret_rating}"
-    ,"ratingCount":"$!{ret_ratingCount}"
-    ,"description":"${ret_desc}" 
-    ,"subjects":${ret_FW} 
-    ,"levels":${ret_lvl} 
-    ,"parents":${ret_parents} 
-    ,"updated":"${date}" 
-    ,"creation":"${d.creationDate}"
-    ,"author":"${ret_rightsHolder}"
-    ,"authorName": "${ret_rightsHolderName}"
-    ,"file": "${ret_file}"
+{ "page":"$escapetool.javascript($escapetool.url($d.fullName))" 
+    ,"title":"$escapetool.javascript($escapetool.xml($ret_title))" 
+    ,"assetType":"$escapetool.javascript($ret_assetType)" 
+    ,"category":"$escapetool.javascript($ret_category)" 
+    ,"subcategory":"$escapetool.javascript($ret_subcategory)"
+    ,"ict":$ret_ict
+    ,"contributor":"$escapetool.javascript($escapetool.url($d.creator))" 
+    ,"contributorName":"$escapetool.javascript($escapetool.xml($ret_cname))" 
+    ,"review":"$!ret_review"
+    ,"rating":"$!ret_rating"
+    ,"ratingCount":"$!ret_ratingCount"
+    ,"description":"$escapetool.javascript($escapetool.xml($ret_desc))" 
+    ,"subjects":$ret_FW
+    ,"levels": $ret_lvl
+    ,"parents": $ret_parents
+    ,"updated":"$escapetool.javascript($date)" 
+    ,"creation":"$escapetool.javascript($d.creationDate)"
+    ,"author":"$escapetool.javascript($escapetool.xml($ret_rightsHolder))"
+    ,"authorName": "$escapetool.javascript($escapetool.xml($ret_rightsHolderName))"
+    ,"file": "$escapetool.javascript($escapetool.url($ret_file))"
 #if($ret_width!="")
-    ,"width": ${ret_width}
-    ,"height": ${ret_height}
+    ,"width": "$escapetool.javascript($ret_width)"
+    ,"height": "$escapetool.javascript($ret_height)"
 #end
     }
 #end ## end
