@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323950937000</creationDate>
-<date>1323950937000</date>
-<contentUpdateDate>1323950937000</contentUpdateDate>
+<creationDate>1330936089000</creationDate>
+<date>1330936089000</date>
+<contentUpdateDate>1330936089000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -85,10 +85,10 @@ form.scratch.step3.header=Étape 3. Confirmer les Droits &amp; l'Accès à l'Inf
 form.scratch.step3.instruction=À qui appartient ce contenu, qui doit pouvoir le lire ou le modifier et comment peut-il être utilisé par d'autres utilisateurs?
 
 ## STEP 4 (used in SWR, SHR, CSLP, and NLLP forms; partial use in ACELP)
-form.scratch.step4.header=Étape 4. Revoir &amp; Soumettre
-form.scratch.step4.instruction=Relisez vos entrées une dernière fois avant de cliquer sur le bouton "soumettre". &lt;br /&gt; &lt;br /&gt;Si votre contenu n'est &lt;i&gt;pas totalement prêt&lt;/i&gt; pour être diffusé, n'oubliez pas de mettre les Privilèges d'accès ci-dessus à "Privé".
+form.scratch.step4.header=Étape 4. Revoir &amp; Partager
+form.scratch.step4.instruction=Relisez vos entrées une dernière fois avant de cliquer sur le bouton "partager". &lt;br /&gt; &lt;br /&gt;Si votre contenu n'est &lt;i&gt;pas totalement prêt&lt;/i&gt; pour être diffusé, n'oubliez pas de mettre les Privilèges d'accès ci-dessus à "Privé".
 
-form.scratch.submit.button=Soumettre
+form.scratch.submit.button=Partager
 form.scratch.cancel.button=Annuler
 
 ## GENERIC REQUIRED FIELDS WARNING USED IN SRI DIALOGS AND FORMS
@@ -531,10 +531,10 @@ ace.lesson.plan.file.size.dialog.button=OK
 
 ## ACELP STEP 4
 
-form.scratch.step4.header=Étape 4. Revoir &amp; Soumettre
+form.scratch.step4.header=Étape 4. Revoir &amp; Partager
 
 ##CORRECT DISPLAY FOR STEP 4
-ace.form.scratch.step4.instruction=Relisez-vous avant de soumettre vos données. &lt;br /&gt; &lt;br /&gt;Si votre contenu &lt;i&gt;n'est pas prêt&lt;/i&gt; à être visualisé par d'autres, n'oubliez pas de changer les droits d'accès à privé.&lt;br /&gt; &lt;br /&gt;Notez qu'il y a deux champs, Changements pour la prochaine fois et Ce qui a bien marché qui apparaîtront dans la ressource après soumission. Lorsque vous serez prêt à remplir ces champs, modifiez simplement la ressource. 
+ace.form.scratch.step4.instruction=Relisez-vous avant de partager vos données. &lt;br /&gt; &lt;br /&gt;Si votre contenu &lt;i&gt;n'est pas prêt&lt;/i&gt; à être visualisé par d'autres, n'oubliez pas de changer les droits d'accès à privé.&lt;br /&gt; &lt;br /&gt;Notez qu'il y a deux champs, Changements pour la prochaine fois et Ce qui a bien marché qui apparaîtront dans la ressource après soumission. Lorsque vous serez prêt à remplir ces champs, modifiez simplement la ressource. 
 
 ## ACELP OUTPUT ONLY
 
@@ -817,7 +817,7 @@ sri.rights_content=
 
 sri.license_type_title=Chartes de licence:
 
-sri.license_type_txt=Êtes-vous sûr d'avoir lu et compris les &lt;a href="/xwiki/bin/view/Main/Conditions+generales+d+utilisation?xpage=popup" target="TOS"&gt;conditions générales d'utilisation&lt;/a&gt; et que vous avez le droit de partager le contenu que vous vous appretez à soumettre.&lt;br /&gt;&lt;br /&gt;La licence Planète Sankoré-compatible vous offre un maximum de flexibilité envers la communauté, les membres pourront exploiter vos ressources.  Cette licence "Planète Sankoré" reprend majoritairement la licence "Creative Commons" &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;. Si vous voulez utiliser une autre licence, veuillez la choisir dans la liste déroulante suivante. Pour plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.fr/licences/les-6-licences/" target="CCmeet" onclick="window.open('http://creativecommons.fr/licences/les-6-licences/'); return false;"&gt;&lt;strong&gt;C'est ici&lt;/strong&gt;&lt;/a&gt;.
+sri.license_type_txt=Êtes-vous sûr d'avoir lu et compris les &lt;a href="/xwiki/bin/view/Main/Conditions+generales+d+utilisation?xpage=popup" target="TOS"&gt;conditions générales d'utilisation&lt;/a&gt; et que vous avez le droit de partager le contenu que vous vous appretez à partager.&lt;br /&gt;&lt;br /&gt;La licence Planète Sankoré-compatible vous offre un maximum de flexibilité envers la communauté, les membres pourront exploiter vos ressources.  Cette licence "Planète Sankoré" reprend majoritairement la licence "Creative Commons" &lt;a href="http://creativecommons.org/licenses/by/3.0/" target="CC30" onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;"&gt;3.0&lt;/a&gt;. Si vous voulez utiliser une autre licence, veuillez la choisir dans la liste déroulante suivante. Pour plus d'informations sur les licences Creative Commons, &lt;a href="http://creativecommons.fr/licences/les-6-licences/" target="CCmeet" onclick="window.open('http://creativecommons.fr/licences/les-6-licences/'); return false;"&gt;&lt;strong&gt;C'est ici&lt;/strong&gt;&lt;/a&gt;.
 sri.license_type_heading=Ensemble de chartes de licence:
 
 sri.license_type_tooltip=Licence qui protège ce contenu
@@ -849,20 +849,65 @@ sri.license_type_content=
 ##
 ## ADD PATH SELECTION DIALOGS
 
-##Set Required Information, Part 1
-add.setrequiredinfo.part1.title=Description:
-add.setrequiredinfo.part1.guidingquestion=Description simple et évaluation de la ressource
-sri.description.empty_msg=
-sri.keywords.empty_msg=
+## Step 1
+add.setrequiredinfo.part1.title=Étape 1 - Description simple de la ressource
+add.setrequiredinfo.part1.guidingquestion=Cette ressource va être ajoutée à planète Sankoré sous le nom d'utilisateur **USERNAME**
 add.setrequiredinfo.part1.cancel.button=Annuler
-add.setrequiredinfo.part1.next.button=Suivant &gt;&gt;
+add.setrequiredinfo.part1.next.button=Compléter l'indexation &gt;&gt;
+add.setrequiredinfo.part1.name=Nom de la ressource
+add.setrequiredinfo.part1.name.Tip=Le nom de la ressource apparaît dans les résultats de recherche. Il aide les autres utilisateurs à identifier son utilité ou ses applications.
+add.setrequiredinfo.part1.description=Description
+add.setrequiredinfo.part1.description.Tip=Cette description permet aux utilisateurs d'identifier clairement ce que propose votre ressource. Plus il y a de détails, mieux c'est !
+add.setrequiredinfo.part1.keyword=Mots-clés
+add.setrequiredinfo.part1.intro=Séparez les mots-clés par un ';' point virgule
+add.setrequiredinfo.part1.keyword.tip=Les mots-clés permettent aux utilisateurs de trouver votre ressource plus facilement lorsqu'ils recherchent dans Planète Sankoré ou par un moteur de recherche comme Google ou Bing.
 
-
-##Set Required Information, Part 2
-add.setrequiredinfo.part2.title=Description facultative:
-add.setrequiredinfo.part2.guidingquestion=Description détaillée
-add.setrequiredinfo.part2.cancel.button=Annuler
+## Step 2
+add.setrequiredinfo.part2.title=Étape 2 - Situer la ressource
+add.setrequiredinfo.part2.guidingquestion=
+add.setrequiredinfo.part2.previous.button=&lt;&lt; Précédent
 add.setrequiredinfo.part2.next.button=Suivant &gt;&gt;
+add.setrequiredinfo.part2.educsystem.title=Système éducatif
+add.setrequiredinfo.part2.educsystem.intro=Pour quel système éducatif votre ressource a t'elle été produite ?
+add.setrequiredinfo.part2.educsystem.tip=Préciser le système éducatif du pays de référence pour lequel la ressource a été conçue.
+add.setrequiredinfo.part2.language.title=Langue
+add.setrequiredinfo.part2.language.tip=Indiquer la langue utilisée au sein de la ressource proposée
+
+## Step 3
+add.setrequiredinfo.part3.title=Étape 3 - Niveau éducatif
+add.setrequiredinfo.part3.guidingquestion=Veuillez préciser le ou les niveaux éducatifs correspondant(s) à cette ressource
+add.setrequiredinfo.part3.previous.button=&lt;&lt; Précédent
+add.setrequiredinfo.part3.next.button=Suivant &gt;&gt;
+
+## Step 4
+add.setrequiredinfo.part4.title=Étape 4 - Discipline d'enseignement
+add.setrequiredinfo.part4.guidingquestion=Veuillez préciser le ou les sujets traités par cette ressource
+add.setrequiredinfo.part4.previous.button=&lt;&lt; Précédent
+add.setrequiredinfo.part4.next.button=Suivant &gt;&gt;
+
+## Step 5
+add.setrequiredinfo.part5.title=Étape 5 - Type de la ressource
+add.setrequiredinfo.part5.guidingquestion=Définissez le ou les types de ressource proposée
+add.setrequiredinfo.part5.previous.button=&lt;&lt; Précédent
+add.setrequiredinfo.part5.next.button=Suivant &gt;&gt;
+
+## Step 6
+add.setrequiredinfo.part6.title=Étape 6 - Accès et partage
+add.setrequiredinfo.part6.rights.title=Ayant droit(s)
+add.setrequiredinfo.part6.rights.tip=Noms de la ou des personne(s) ou structure(s) titulaire(s) de la licence d'utilisation de cette ressource. Si la ressource est du domaine public, indiquer DP (pour Domaine Public).
+add.setrequiredinfo.part6.license.title=Choix de la licence
+add.setrequiredinfo.part6.license.guidingquestion=Êtes-vous sûr d'avoir lu et compris les [[conditions générales d'utilisation]] et que vous avez le droit de partager la ressource que vous vous apprêtez à envoyer ?
+add.setrequiredinfo.part6.license.tip=La licence proposée par défaut sur Planète-Sankoré est une licence Creative Commons 3.0 By (CC-Attributions). Celle ci offre un maximum de flexibilité aux membres de la communauté qui pourront ré-utiliser et modifier vos ressources. Si vous souhaitez proposer une licence Creative Commons différente ou de Domaine Public, veuillez la choisir dans la liste déroulante ci-dessous.
+add.setrequiredinfo.part6.share.title=Partage sur Planète Sankoré
+add.setrequiredinfo.part6.share.tip=Ce paramètre détermine quels utilisateurs pourront disposer des autorisations nécessaires pour visualiser ou modifier les ressources.
+add.setrequiredinfo.part6.share.public=Public : visible et éditable par tous.
+add.setrequiredinfo.part6.share.protected=Protégé : visible par tous et éditable par les membres du groupe et vous-même
+add.setrequiredinfo.part6.share.private=Privé : non-visible, éditable par les membres du groupe et vous-même
+add.setrequiredinfo.part6.hidesearch=Cacher lors des recherches
+add.setrequiredinfo.part6.hidesearch.tip=Si vous cochez cette case, votre ressource ne pourra pas apparaître dans les résultats de recherche.
+add.setrequiredinfo.part6.hidesearch.text=Ne pas montrer cet élément dans les résultats de recherche.
+add.setrequiredinfo.part6.previous.button=&lt;&lt; Précédent
+add.setrequiredinfo.part6.next.button=Valider
 
 ##CONTRIBUTE MENU
 add.contributemenu.title_addto_site=Ajouter à Planète Sankoré

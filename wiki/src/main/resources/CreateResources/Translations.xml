@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323950856000</creationDate>
-<date>1323950856000</date>
-<contentUpdateDate>1323950856000</contentUpdateDate>
+<creationDate>1330606573000</creationDate>
+<date>1330606573000</date>
+<contentUpdateDate>1330606573000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -847,20 +847,41 @@ sri.license_type_content=
 ##
 ## ADD PATH SELECTION DIALOGS
 
-##Set Required Information, Part 1
-add.setrequiredinfo.part1.title=Set Required Information, Part 1
-add.setrequiredinfo.part1.guidingquestion=What details will best describe and present this resource in search results and other listings?
+add.setrequiredinfo.cancel.button=Cancel
+add.setrequiredinfo.previous.button=&lt;&lt; Previous
+add.setrequiredinfo.next.button=Next &gt;&gt;
+
 sri.description.empty_msg=
 sri.keywords.empty_msg=
-add.setrequiredinfo.part1.cancel.button=Cancel
-add.setrequiredinfo.part1.next.button=Next &gt;&gt;
+
+## Education system
+sri.education_system_title=Education system
+sri.education_system_txt=Education system description
 
 
-##Set Required Information, Part 2
-add.setrequiredinfo.part2.title=Set Required Information, Part 2
-add.setrequiredinfo.part2.guidingquestion=Review and update the six fields below as needed.
-add.setrequiredinfo.part2.cancel.button=Cancel
-add.setrequiredinfo.part2.next.button=Next &gt;&gt;
+## Step 1
+add.setrequiredinfo.part1.title=Step 1 - Simple description of the resource
+add.setrequiredinfo.part1.guidingquestion=This resource will be added to Sankore planet under the username
+
+## Step 2
+add.setrequiredinfo.part2.title=Step 2 - Localization of the resource
+add.setrequiredinfo.part2.guidingquestion=Localization of the resource
+
+## Step 3
+add.setrequiredinfo.part3.title=Step 3 - Educational Level
+add.setrequiredinfo.part3.guidingquestion=Please specify the corresponding levels of education (s) to this resource
+
+## Step 4
+add.setrequiredinfo.part4.title=Step 4 - Teaching Discipline
+add.setrequiredinfo.part4.guidingquestion=Please specify the topics covered by this resource
+
+## Step 5
+add.setrequiredinfo.part5.title=Step 5 - Type of resource
+add.setrequiredinfo.part5.guidingquestion=Set or the case of use of the resource
+
+## Step 6
+add.setrequiredinfo.part6.title=Step 6 - Access and share
+add.setrequiredinfo.part6.guidingquestion=Access and share
 
 add.setrequiredinfo.url.publish.button=Publish
 add.setrequiredinfo.url.next.button=Complete indexing your resource
