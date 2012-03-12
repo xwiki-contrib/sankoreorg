@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1330936089000</creationDate>
-<date>1330936089000</date>
-<contentUpdateDate>1330936089000</contentUpdateDate>
+<creationDate>1331034403000</creationDate>
+<date>1331034403000</date>
+<contentUpdateDate>1331034403000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -847,67 +847,121 @@ sri.license_type_content=
 
 
 ##
-## ADD PATH SELECTION DIALOGS
+## ADD RESSOURCE SELECTION DIALOGS
+
+add.setrequiredinfo.cancel.button=Annuler
+add.setrequiredinfo.part1.next.button=Compléter l'indexation
+add.setrequiredinfo.next.button=Suivant &gt;&gt;
+add.setrequiredinfo.previous.button=&lt;&lt; Précédent
+add.setrequiredinfo.publish.button=Valider
+
 
 ## Step 1
 add.setrequiredinfo.part1.title=Étape 1 - Description simple de la ressource
-add.setrequiredinfo.part1.guidingquestion=Cette ressource va être ajoutée à planète Sankoré sous le nom d'utilisateur **USERNAME**
+add.setrequiredinfo.part1.guidingquestion=Cette ressource va être ajoutée à planète Sankoré sous le nom d'utilisateur
 add.setrequiredinfo.part1.cancel.button=Annuler
 add.setrequiredinfo.part1.next.button=Compléter l'indexation &gt;&gt;
 add.setrequiredinfo.part1.name=Nom de la ressource
 add.setrequiredinfo.part1.name.Tip=Le nom de la ressource apparaît dans les résultats de recherche. Il aide les autres utilisateurs à identifier son utilité ou ses applications.
-add.setrequiredinfo.part1.description=Description
-add.setrequiredinfo.part1.description.Tip=Cette description permet aux utilisateurs d'identifier clairement ce que propose votre ressource. Plus il y a de détails, mieux c'est !
-add.setrequiredinfo.part1.keyword=Mots-clés
-add.setrequiredinfo.part1.intro=Séparez les mots-clés par un ';' point virgule
-add.setrequiredinfo.part1.keyword.tip=Les mots-clés permettent aux utilisateurs de trouver votre ressource plus facilement lorsqu'ils recherchent dans Planète Sankoré ou par un moteur de recherche comme Google ou Bing.
+sri.description_title=Description
+sri.description_tooltip=Cette description permet aux utilisateurs d'identifier clairement ce que propose votre ressource. Plus il y a de détails, mieux c'est !
+sri.description.empty_msg=
+sri.keywords_title=Mots-clés
+sri.keywords_txt=Séparez les mots-clés par un ';' point virgule
+sri.keywords_tooltip=Les mots-clés permettent aux utilisateurs de trouver votre ressource plus facilement lorsqu'ils recherchent dans Planète Sankoré ou par un moteur de recherche comme Google ou Bing.
+sri.keywords.empty_msg=
 
 ## Step 2
 add.setrequiredinfo.part2.title=Étape 2 - Situer la ressource
 add.setrequiredinfo.part2.guidingquestion=
 add.setrequiredinfo.part2.previous.button=&lt;&lt; Précédent
 add.setrequiredinfo.part2.next.button=Suivant &gt;&gt;
-add.setrequiredinfo.part2.educsystem.title=Système éducatif
-add.setrequiredinfo.part2.educsystem.intro=Pour quel système éducatif votre ressource a t'elle été produite ?
-add.setrequiredinfo.part2.educsystem.tip=Préciser le système éducatif du pays de référence pour lequel la ressource a été conçue.
-add.setrequiredinfo.part2.language.title=Langue
-add.setrequiredinfo.part2.language.tip=Indiquer la langue utilisée au sein de la ressource proposée
+sri.education_system_title=Système éducatif
+sri.education_system_txt=Pour quel système éducatif votre ressource a t'elle été produite ?
+sri.education_system_tooltip=Préciser le système éducatif du pays de référence pour lequel la ressource a été conçue.
+sri.education_system_empty_msg=
+sri.language_title=Langue
+sri.language_tooltip=Indiquer la langue utilisée au sein de la ressource proposée
+sri.language_empty_msg=
 
 ## Step 3
 add.setrequiredinfo.part3.title=Étape 3 - Niveau éducatif
-add.setrequiredinfo.part3.guidingquestion=Veuillez préciser le ou les niveaux éducatifs correspondant(s) à cette ressource
-add.setrequiredinfo.part3.previous.button=&lt;&lt; Précédent
-add.setrequiredinfo.part3.next.button=Suivant &gt;&gt;
+add.setrequiredinfo.part3.guidingquestion=
+sri.educational_level_txt=Veuillez préciser le ou les niveaux éducatifs correspondant(s) à cette ressource
 
 ## Step 4
 add.setrequiredinfo.part4.title=Étape 4 - Discipline d'enseignement
-add.setrequiredinfo.part4.guidingquestion=Veuillez préciser le ou les sujets traités par cette ressource
-add.setrequiredinfo.part4.previous.button=&lt;&lt; Précédent
-add.setrequiredinfo.part4.next.button=Suivant &gt;&gt;
+add.setrequiredinfo.part4.guidingquestion=
+sri.fw_items_txt=Veuillez préciser le ou les sujets traités par cette ressource
+
 
 ## Step 5
 add.setrequiredinfo.part5.title=Étape 5 - Type de la ressource
-add.setrequiredinfo.part5.guidingquestion=Définissez le ou les types de ressource proposée
-add.setrequiredinfo.part5.previous.button=&lt;&lt; Précédent
-add.setrequiredinfo.part5.next.button=Suivant &gt;&gt;
+add.setrequiredinfo.part5.guidingquestion=
+sri.instructional_component_txt=Définissez le ou les types de ressource proposée
 
 ## Step 6
 add.setrequiredinfo.part6.title=Étape 6 - Accès et partage
-add.setrequiredinfo.part6.rights.title=Ayant droit(s)
-add.setrequiredinfo.part6.rights.tip=Noms de la ou des personne(s) ou structure(s) titulaire(s) de la licence d'utilisation de cette ressource. Si la ressource est du domaine public, indiquer DP (pour Domaine Public).
-add.setrequiredinfo.part6.license.title=Choix de la licence
-add.setrequiredinfo.part6.license.guidingquestion=Êtes-vous sûr d'avoir lu et compris les [[conditions générales d'utilisation]] et que vous avez le droit de partager la ressource que vous vous apprêtez à envoyer ?
-add.setrequiredinfo.part6.license.tip=La licence proposée par défaut sur Planète-Sankoré est une licence Creative Commons 3.0 By (CC-Attributions). Celle ci offre un maximum de flexibilité aux membres de la communauté qui pourront ré-utiliser et modifier vos ressources. Si vous souhaitez proposer une licence Creative Commons différente ou de Domaine Public, veuillez la choisir dans la liste déroulante ci-dessous.
-add.setrequiredinfo.part6.share.title=Partage sur Planète Sankoré
-add.setrequiredinfo.part6.share.tip=Ce paramètre détermine quels utilisateurs pourront disposer des autorisations nécessaires pour visualiser ou modifier les ressources.
-add.setrequiredinfo.part6.share.public=Public : visible et éditable par tous.
-add.setrequiredinfo.part6.share.protected=Protégé : visible par tous et éditable par les membres du groupe et vous-même
-add.setrequiredinfo.part6.share.private=Privé : non-visible, éditable par les membres du groupe et vous-même
-add.setrequiredinfo.part6.hidesearch=Cacher lors des recherches
-add.setrequiredinfo.part6.hidesearch.tip=Si vous cochez cette case, votre ressource ne pourra pas apparaître dans les résultats de recherche.
+sri.right_holder_title=Ayant droit(s)
+sri.right_holder_tooltip=Noms de la ou des personne(s) ou structure(s) titulaire(s) de la licence d'utilisation de cette ressource. Si la ressource est du domaine public, indiquer DP (pour Domaine Public).
+sri.license_type_title=Choix de la licence
+sri.license_type_txt=Êtes-vous sûr d'avoir lu et compris les [[conditions générales d'utilisation]] et que vous avez le droit de partager la ressource que vous vous apprêtez à envoyer ?
+sri.license_type_tooltip=La licence proposée par défaut sur Planète-Sankoré est une licence Creative Commons 3.0 By (CC-Attributions). Celle ci offre un maximum de flexibilité aux membres de la communauté qui pourront ré-utiliser et modifier vos ressources. Si vous souhaitez proposer une licence Creative Commons différente ou de Domaine Public, veuillez la choisir dans la liste déroulante ci-dessous.
+sri.license_type_heading=
+sri.rights_title=Partage sur Planète Sankoré
+sri.rights_tooltip=Ce paramètre détermine quels utilisateurs pourront disposer des autorisations nécessaires pour visualiser ou modifier les ressources.
+CurrikiCode.AssetClass_rights_public=Public : visible et éditable par tous.
+CurrikiCode.AssetClass_rights_members=Protégé : visible par tous et éditable par les membres du groupe et vous-même
+CurrikiCode.AssetClass_rights_private=Privé : non-visible, éditable par les membres du groupe et vous-même
+sri.hidden_from_search_title=Cacher lors des recherches
+sri.hidden_from_search_tooltip=Si vous cochez cette case, votre ressource ne pourra pas apparaître dans les résultats de recherche.
 add.setrequiredinfo.part6.hidesearch.text=Ne pas montrer cet élément dans les résultats de recherche.
-add.setrequiredinfo.part6.previous.button=&lt;&lt; Précédent
-add.setrequiredinfo.part6.next.button=Valider
+
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CurrikiLicense=Planète Sankoré License (Creative Commons Attributions 3.0)
+CurrikiCode.AssetLicenseClass_licenseType_Licences.PublicDomain=Public Domain
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-Commercial=Creative Commons Attribution Non-Commercial
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-CommercialNoDerivatives=Creative Commons Attribution Non-Commercial No Derivatives
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNoDerivatives=Creative Commons Attribution No Derivatives
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionSharealike=Creative Commons Attribution Share Alike
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-CommercialShareAlike=Creative Commons Attribution Non-Commercial Share Alike
+
+##
+##BOOKMARKLET RESSOURCE DIALOGUE
+
+##Step 1
+sri.bookmarklet.part1.title=Étape 1 – Description simple du signet
+sri.bookmarklet.part1.text=Ce signet va être ajouté à Planète-Sankoré au nom de **USER NAME**
+sri.bookmarklet.part1.name=Nom de la ressource
+sri.bookmarklet.part1.name.tip=Le nom du signet apparaît dans les résultats de recherche. Il aide les autres utilisateurs à identifier son utilité ou ses applicantions.
+sri.bookmarklet.part1.mark=Évaluation
+sri.bookmarklet.part1.mark.Tip=Vous pouvez choisir un nombre d'étoiles proportionnel à la valeur que vous attribuez à ce signet.
+sri.bookmarklet.part1.description=Description
+sri.bookmarklet.part1.description.tip=Cette description permet aux utilisateurs d'identifier clairement ce que propose ce signet. Plus il y a de détails, mieux c'est !
+sri.bookmarklet.part1.keyword=Mots-clés
+sri.bookmarklet.part1.keyword.intro=Séparez les mots-clés par un ';' (point-virgule)
+sri.bookmarklet.part1.keyword.tip=Les mots-clés permettent aux utilisateurs de trouver votre signet plus facilement lorsqu'ils recherchent dans Planète Sankoré ou par un moteur de recherche comme Google ou Bing.
+sri.bookmarklet.part1.quickpublish.intro=*Ne pas compléter l'indexation et définir ce signet comme « publique » avec une licence par défaut « Planète Sankoré Creativ Commons By »
+sri.bookmarklet.part1.button.quickpublish=Publier immédiatement*
+
+##Step 2
+sri.bookmarklet.part2.title=Étape 2 – Situer le signet
+sri.bookmarklet.part2.educSystem=Système éducatif
+sri.bookmarklet.part2.educSystem.intro=Quel est le système éducatif de référence pour votre signet ?
+sri.bookmarklet.part2.educSystem.tip=Préciser le système éducatif du pays de référence pour lequel la ressource à été conçue.
+sri.bookmarklet.part2.language=Langue
+sri.bookmarklet.part2.language.tip=Indiquer la langue utilisée au sein de la ressource proposée
+
+##Step 3
+sri.bookmarklet.part3.title=Étape 3 – Niveau éducatif
+sri.bookmarklet.part3.intro=Veuillez préciser le ou les niveaux éducatifs correspondant(s) à ce signet
+
+##Step 4
+sri.bookmarklet.part4.title=Étape 4 – Discipline d'enseignement
+sri.bookmarklet.part4.intro=Veuillez préciser le ou les sujets traités par ce signet
+
+##Step 5
+sri.bookmarklet.part5.title=Étape 5 – Type du signet
+sri.bookmarklet.part5.intro=Définissez le ou les types du signet proposé
 
 ##CONTRIBUTE MENU
 add.contributemenu.title_addto_site=Ajouter à Planète Sankoré
@@ -1072,8 +1126,59 @@ add.servertimedout.message.text=Il y a eu un problème d'accès au serveur. Essa
 add.servertimedout.message.button=OK
 
 ## BOOKMARKLET
-add.setrequiredinfo.url.publish.button=Publier immédiatement
-add.setrequiredinfo.url.next.button=Compléter l'indexation
+bookmarklet.add.setrequiredinfo.part1.publish.button=Publier immédiatement*
+bookmarklet.add.setrequiredinfo.part1.next.button=Compléter l'indexation
+bookmarklet.add.setrequiredinfo.previous.button=Compléter l'indexation
+
+bookmarklet.add.setrequiredinfo.cancel.button=Annuler
+bookmarklet.add.setrequiredinfo.previous.button=&lt;&lt; Précédent
+bookmarklet.add.setrequiredinfo.next.button=Suivant &gt;&gt;
+bookmarklet.add.setrequiredinfo.publish.button=Valider
+
+## Step 1
+bookmarklet.add.setrequiredinfo.part1.title=Étape 1 - Description simple de la ressource
+bookmarklet.add.setrequiredinfo.part1.guidingquestion=Cette ressource va être ajoutée à planète Sankoré sous le nom d'utilisateur
+bookmarklet.sri.title_title=Nom de la ressource
+bookmarklet.sri.title_tooltip=Le nom de la ressource apparaît dans les résultats de recherche. Il aide les autres utilisateurs à identifier son utilité ou ses applications.
+bookmarklet.sri.title_content=
+bookmarklet.sri.rating_title=Evaluation
+bookmarklet.sri.rating_tooltip=Vous pouvez choisir un nombre d'étoiles proportionnel à la valeur que vous attribuez à ce signet.
+
+bookmarklet.sri.description_title=Description
+bookmarklet.sri.description_tooltip=Cette description permet aux utilisateurs d'identifier clairement ce que propose votre ressource. Plus il y a de détails, mieux c'est !
+bookmarklet.sri.description_txt=
+bookmarklet.sri.description.empty_msg=
+
+bookmarklet.sri.keywords_title=Mots-clés
+bookmarklet.sri.keywords_tooltip=Les mots-clés permettent aux utilisateurs de trouver votre ressource plus facilement lorsqu'ils recherchent dans Planète Sankoré ou par un moteur de recherche comme Google ou Bing.
+bookmarklet.sri.keywords_txt=Séparez les mots-clés par un ';' point virgule
+bookmarklet.sri.keywords.empty_msg=
+
+bookmarklet.sri.quickpublish.intro=*Ne pas compléter l'indexation et définir ce signet comme « publique » avec une licence par défaut « Planète Sankoré Creativ Commons By »
+
+## Step 2
+bookmarklet.add.setrequiredinfo.part2.title=Étape 2 - Situer la ressource
+bookmarklet.sri.education_system_title=Système éducatif
+bookmarklet.sri.education_system_txt=Pour quel système éducatif votre ressource a t'elle été produite ?
+bookmarklet.sri.education_system_tooltip=Préciser le système éducatif du pays de référence pour lequel la ressource a été conçue.
+bookmarklet.sri.education_system_empty_msg=
+bookmarklet.sri.language_title=Langue
+bookmarklet.sri.language_tooltip=Indiquer la langue utilisée au sein de la ressource proposée
+bookmarklet.sri.language_txt=
+bookmarklet.sri.language_empty_msg=
+
+
+## Step 3
+bookmarklet.add.setrequiredinfo.part3.title=Étape 3 - Niveau éducatif
+bookmarklet.sri.educational_level_txt=Veuillez préciser le ou les niveaux éducatifs correspondant(s) à cette ressource
+
+## Step 4
+bookmarklet.add.setrequiredinfo.part4.title=Étape 4 - Discipline d'enseignement
+bookmarklet.sri.fw_items_txt=Veuillez préciser le ou les sujets traités par cette ressource
+
+## Step 5
+bookmarklet.add.setrequiredinfo.part5.title=Étape 5 - Type de la ressource
+bookmarklet.sri.instructional_component_txt=Définissez le ou les types de ressource proposée
 
 sri.rating_title=Evaluation:
 sri.link_title=Adresse de la ressource:

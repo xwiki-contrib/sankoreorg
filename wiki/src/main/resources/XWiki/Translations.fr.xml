@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323950190000</creationDate>
-<date>1323950190000</date>
-<contentUpdateDate>1323950190000</contentUpdateDate>
+<creationDate>1330005095000</creationDate>
+<date>1330005095000</date>
+<contentUpdateDate>1330005095000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -56,7 +56,7 @@ panel.navigation.free_software.rollover=Requête affichage logiciel libre
 panel.navigation.ressources=Les ressources
 
 panel.navigation.mygroups=Mes groupes
-panel.navigation.network=Les groupes communautaires
+panel.navigation.network=Chercher un groupe
 panel.navigation.createnewgroup=Créer un groupe
 panel.navigation.aboutgroups=À propos des groupes
 
@@ -219,7 +219,7 @@ footer.privacy.link=/xwiki/bin/view/Main/Politique+de+confidentialite
 footer.license=Contenu du site sous licences Creative Commons 
 footer.license.link=http://creativecommons.org/licenses/
 
-footer.link.creativecommons=All content licensed &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/RightsHolderLicensing"&gt;Creative Commons&lt;/a&gt;
+footer.link.creativecommons=Le site et son contenu sont sous licences &lt;a href="http://creativecommons.org/licenses/"&gt;Creative Commons&lt;/a&gt;
 
 
 ## Captions
@@ -737,7 +737,7 @@ panel.searchsankore.title=Le moteur de recherche Sankoré
 panel.searchsankore.description=&lt;strong&gt;Sankoré&lt;/strong&gt; c'est un moteur de recherche intelligent pour trouver, évaluer et partager les meilleures ressources numériques d'enseignement libres (RNEL) dans la base Sankoré et dans plus de 600 sites sélectionnés.
 panel.logicielsankore.title=Enseigner et créer avec le logiciel libre Open-Sankoré
 panel.logicielsankore.description=&lt;ul class="disc inside"&gt;&lt;li&gt;Un logiciel d'enseignement sur tableau numérique interactif (TNI) libre, gratuit, universel, en open source&lt;/li&gt;&lt;li&gt;Un logiciel d'édition de ressources numériques d’enseignement intuitif et facile d'usage&lt;/li&gt;&lt;li&gt;Un logiciel universel pour tous les TNI&lt;/li&gt;&lt;li&gt;Un logiciel intégré à un navigateur web&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a class="voirPlus" href="#"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;
-panel.logicielsankore.button.download=Télécharger l'application Open-Sankoré
+panel.logicielsankore.button.download=Télécharger l'outil Open-Sankoré
 panel.labsankore.title=Participer au labo Sankoré
 panel.labsankore.description=&lt;p&gt;Pour développer le logiciel Open-Sankoré, ouvert à la communauté des développeurs du libre et aux enseignants branchés HTML.&lt;br&gt;&lt;a class="voirPlus" href="http://open-sankore.org/fr/contributeurs/"&gt;Connectez-vous&lt;/a&gt;&lt;/p&gt;
 
