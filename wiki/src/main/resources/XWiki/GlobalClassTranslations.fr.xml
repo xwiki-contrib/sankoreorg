@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1324391912000</creationDate>
-<date>1324391912000</date>
-<contentUpdateDate>1324391912000</contentUpdateDate>
+<creationDate>1331551336000</creationDate>
+<date>1331551336000</date>
+<contentUpdateDate>1331551336000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -26,13 +26,14 @@
 ## I am pulling out many of the keys that are class based from individual translation files, such as Groups and Forms, and pulling them into this translation file. This is being done to avoid duplicate lookup strings across translation files. 
 ## To view the different classes, go here.  http://next.dev.curriki.org/xwiki/bin/edit/XWiki/CurrikiSpaceClass?editor=class
 ## I am also adding to this trans file elements that are used globally but not in class. Media Type roll over text for example.
-
 ## FROM GWT or XWIKI CORE
+
 loading.loading_msg=Chargement, veuillez patienter
 problemoccured=Un problème est survenu lors du traitement de votre requête. Envoyez un mail au webmaster si ceci se produit encore.
 
 ## ASSET CLASS USED IN RESOURCES
 ## CATEGORIES / MEDIA TYPES PLUS COLLECTIONS AND FOLDERS
+
 CurrikiCode.AssetClass_category_UNSPECIFIED=Type de média: Tous
 CurrikiCode.AssetClass_category_document=Fichier attaché
 CurrikiCode.AssetClass_category_archive=Archive
@@ -50,6 +51,7 @@ collection.folder=Dossier
 
 ## CATEGORY AND / OR FILE TYPE 
 ## Although the below are not taken from the Assets, that is, these most of these values are NOT stored in the classes, I am adding them to this file because they are global. Todd December 31, 2008.
+
 archive.sco=Archive: sco
 archive.zip=Archive: zip
 archive.gz=Archive: gz
@@ -61,6 +63,7 @@ audio.wav=Audio: wav
 audio.mp3=Audio: mp3
 
 ##The next two are duplicates from above. Should be able to remove these once the above are approved. If the above changes, then these will need stay.
+
 collection.collection=Collection
 collection.folder=Dossier
 document.notebook=Fichier attaché: notebook
@@ -96,6 +99,7 @@ document.ps=Fichier attaché: ps
 unknown.unknown=Inconnu
 
 ## I added the below string as the one above is not working. This trans needs to be fixed so the above one works.
+
 search.resource.icon.Unknown.rollover=Inconnu
 document.htm=Fichier attaché: htm
 document.html=Fichier attaché: html
@@ -121,10 +125,12 @@ video.viditalk=Vidéo: vidi
 external.url=URL: www
 
 ## The next two external are included for completeness but are not used and cannot be tested at this time. Todd Jan-07-2009
+
 external.www=URL: www
 external.http=URL: www
 
 ## SUBJECT
+
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.UNSPECIFIED=Sujet: Tous
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.WebHome=Index des thèmes
 CurrikiCode.AssetClass_fw_items_FW_masterFramework.Arts_and_Culture=Arts et cultures
@@ -243,6 +249,7 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework.Sociology=Sociologie
 CurrikiCode.AssetClass_fw_items_FW_masterFramework._Other=Autres thèmes
 
 ## EDUCATIONAL LEVEL
+
 CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED=Education : Toutes
 CurrikiCode.AssetClass_educational_level_UNCATEGORIZED=Tous
 CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome=Index
@@ -300,6 +307,7 @@ CurrikiCode.AssetClass_educational_level_AssetMetadata.SpecialEducation=Adaptati
 CurrikiCode.AssetClass_educational_level_AssetMetadata.SpecialEducation.UNSPECIFIED=Adaptation scolaire: Tous
 
 ## ICT
+
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.UNSPECIFIED=Type de ressource: tous
 CurrikiCode.AssetClass_instructional_component_UNCATEGORIZED=Autres
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.WebHome=Index
@@ -345,17 +353,20 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete.UNSP
 CurrikiCode.AssetClass_instructional_component_multiple=*TO FIX* Multi-sujet *TO FIX*
 
 ## ACCESS RIGHTS
+
 CurrikiCode.AssetClass_rights_public=Public: visible et éditable par tous.
 CurrikiCode.AssetClass_rights_members=Protégé : visible par tous et éditable par les membres du groupe et vous-même.
 CurrikiCode.AssetClass_rights_private=Privé: non-visible, éditable par les membres du groupe et vous-même.
 
 ## LANGUAGE
+
 CurrikiCode.AssetClass_language_UNSPECIFIED=Langue: Tous
 CurrikiCode.AssetClass_language_en=Anglais
 CurrikiCode.AssetClass_language_fr=Français
 
 ## LICENSES
-CurrikiCode.AssetLicenseClass_licenseType_Licences.CurrikiLicense=License planète.Sankoré (Creative Commons Attributions 3.0)
+
+CurrikiCode.AssetLicenseClass_licenseType_Licences.CurrikiLicense=Licence Planète Sankoré (Creative Commons Attributions 3.0)
 CurrikiCode.AssetLicenseClass_licenseType_Licences.PublicDomain=Domaine public
 CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-Commercial=Creative Commons Attribution Non-Commercial
 CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-CommercialNoDerivatives=Creative Commons Attribution Non-Commercial sans travaux dérivés
@@ -363,11 +374,10 @@ CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNoD
 CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionSharealike=Creative Commons Attribution Partage à l'identique
 CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon-CommercialShareAlike=Creative Commons Attribution Non-Commercial Partage à l'identique
 
-
 ## CURRIKI SPACE CLASS Used by GROUPS 
 ## Note that Groups also uses other classes.
-
 ## SUBJECT
+
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.UNSPECIFIED=Sujet: Tous
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.WebHome=Index des thèmes
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Arts_and_Culture=Arts et cultures
@@ -486,6 +496,7 @@ XWiki.CurrikiSpaceClass_topic_FW_masterFramework.Sociology=Sociologie
 XWiki.CurrikiSpaceClass_topic_FW_masterFramework._Other=Autres thèmes
 
 ## EDUCATION LEVEL
+
 XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED=Niveau d'études: Tous
 XWiki.CurrikiSpaceClass_educationLevel_TREEROOTNODE.UNSPECIFIED=Niveau d'études: Tous
 XWiki.CurrikiSpaceClass_educationLevel_UNCATEGORIZED=Tous
@@ -544,12 +555,14 @@ XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.SpecialEducation=Éducation
 XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.SpecialEducation.UNSPECIFIED=Adaptation scolaire: Tous
 
 ## LANGUAGE
+
 XWiki.CurrikiSpaceClass_language_en=Anglais
 XWiki.CurrikiSpaceClass_language_fr=Français
 XWiki.CurrikiSpaceClass_language_UNSPECIFIED=Langue: Tous
 
 ## LICENSES
-XWiki.CurrikiSpaceClass_licence_Licences.CurrikiLicense=License Planète Sankoré (Creative Commons Attributions 3.0)
+
+XWiki.CurrikiSpaceClass_licence_Licences.CurrikiLicense=Licence Planète Sankoré (Creative Commons Attributions 3.0)
 XWiki.CurrikiSpaceClass_licence_Licences.PublicDomain=Domaine public
 XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNon-Commercial=Creative Commons Attribution Non-Commercial
 XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNon-CommercialNoDerivatives=Creative Commons Attribution Non-Commercial sans travaux dérivés
@@ -557,16 +570,16 @@ XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNoDerivatives
 XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionSharealike=Creative Commons Attribution Partage à l'identique
 XWiki.CurrikiSpaceClass_licence_Licences.CreativeCommonsAttributionNon-CommercialShareAlike=Creative Commons Attribution Non-Commercial Partage à l'identique
 
-
 ## MEMBERS
-
 ## MEMBER TYPE
+
 XWiki.XWikiUsers_member_type_student=Etudiant
 XWiki.XWikiUsers_member_type_teacher=Professeur
 XWiki.XWikiUsers_member_type_professional=Professionnel 
 XWiki.XWikiUsers_member_type_parent=Parent
 
 ##COUNTRY
+
 XWiki.XWikiUsers_country_---=---
 XWiki.XWikiUsers_country_AD=Andorre
 XWiki.XWikiUsers_country_AE=Emirats Arabes Unis
@@ -758,10 +771,12 @@ XWiki.XWikiUsers_country_ZR=Zaïre
 XWiki.XWikiUsers_country_ZW=Zimbabwe
 
 ## Display profile to other users
+
 XWiki.XWikiUsers_show_contact_0=Non
 XWiki.XWikiUsers_show_contact_1=Oui
 
 ## TOPICS
+
 XWiki.XWikiUsers_topics_TREEROOTNODE.UNSPECIFIED=Sujets: Tous
 XWiki.XWikiUsers_topics_FW_masterFramework.UNSPECIFIED=Sujets: Tous
 XWiki.XWikiUsers_topics_FW_masterFramework.WebHome=Index des thèmes
@@ -920,6 +935,7 @@ global.notfound.help_link=Aide
 global.notfound.help_url=/xwiki/bin/view/Coll_curriki/CurrikiHelp
 
 ##TITLE ROLLOVER POPUP
+
 global.title.popup.title=*Titre:* 
 global.title.popup.description=*Description:* 
 global.title.popup.subject=*Suject(s):* 
@@ -997,6 +1013,7 @@ history.rollback.exception=Une erreur est survenue lors du changement de version
 history.rollback.confirm.message=Etes vous sûr de vouloir revenir à la version {0} de cette ressource ?
 
 ## compare page
+
 changes.changesofpage=Modifications de la ressource ou de la page
 changes.in=dans
 changes.space=espave
@@ -1058,6 +1075,7 @@ changes.comment.comment=Commentaire
 
 ## COMMENTS FOR HISTORY
 ## HISTORY: INFRASTRUCTURE
+
 curriki.comment.initmetadatafornewcollection=Initialisation des informations pour la nouvelle collection
 curriki.comment.initmetadatafornewasset=Initialisation des informations pour la nouvelle ressource
 curriki.comment.datamodelmigration=Ressource migrée automatiquement vers le nouveau modèle de données Planète Sankoré
@@ -1069,21 +1087,25 @@ curriki.comment.createlinksourceasset=Ressource d'URL créée
 curriki.comment.finishcreatingsubasset=Sous ressource de catégorie {0} créée
 
 ## HISTORY: PRIOR MOVE &amp; REMOVE AND ADD, MAY STILL BE IN USE
+
 curriki.comment.insertsubassetincompositeasset=Sous-ressource {0} ({1}) de catégorie {2} insérée en position {3} 
 curriki.comment.removesubassetincompositeasset=Sous-ressource {0} ({1}) supprimée de la position {2}
 curriki.comment.addingsubassettocompositeasset=Sous-ressource {0}({1}) de catégorie {2} à la position {3}
 
 ## HISTORY: ORGANIZE
+
 organize.history.removed_note=Ressource {0} supprimée de la position {1};
 organize.history.inserted_note={0} inséré en position {1};
 
 ## HISTORY: INFO EDITING
+
 curriki.comment.updatemetadata=Information sur la ressource mis à jour
 curriki.comment.updatemetadata.nochange=Information sauvegardée sans changements
 curriki.comment.applyrights=Droits appliqués
 curriki.comment.protectspace=Espace protégé
 
 ## ISTORY: CONTENT EDITING
+
 rve.content.edit.revision.defaultnote=Ressource éditée
 curriki.comment.reordered=Réordonné
 curriki.comment.addsubasset=Sous-ressource ajoutée
@@ -1099,13 +1121,13 @@ curriki.comment.unnominateasset=Cette ressource n'est pas nommée
 curriki.comment.crsvalueadded=Valeur CRS changée à {0}
 curriki.comment.crsvalueremoved=Valeur de {0} supprimée
 
-
 ## FUTURE HISTORY: FLAG
 
 flag.revision.history.note=Ressource signalée par {0} qui considère qu''elle est {1}.
 flag.revision.history.note.alt_reason=Ressource signalée par {0} pour la raison dont Planète Sankoré a été informé. 
 
 ##TBD if we need these
+
 comment.loadingcomments=Chargement des commentaires
 comment.errorgettingcomments=Erreur chargement des commentaires
 history.loadinghistory=Chargement de l'historique
@@ -1114,5 +1136,6 @@ preview.loadingpreview=Chargement de la prévisualisation
 preview.errorgettingpreview=Erreur lors de la prévisualisation
 
 ##Todd added the below strings. Currently the old ones are hard coded. Nov-5-2008 - I have no recollection added this. Todd
+
 UNSPECIFIED=  Tous
 </content></xwikidoc>
