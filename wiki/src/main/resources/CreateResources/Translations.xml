@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1330606573000</creationDate>
-<date>1330606573000</date>
-<contentUpdateDate>1330606573000</contentUpdateDate>
+<creationDate>1331807771000</creationDate>
+<date>1331807771000</date>
+<contentUpdateDate>1331807771000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -904,10 +904,10 @@ add.contributemenu.option.link=A link for a great web resource
 add.contributemenu.link.empty_msg=http://
 add.contributemenu.option.repository=A resource I can find by searching Planète Sankoré
 add.contributemenu.subtitle_make=Something I want to make on Planète Sankoré:
-add.contributemenu.option.template=A resource I&amp;#39;ll create using a template
-add.contributemenu.option.scratch=A resource I&amp;#39;ll create from "scratch"
-add.contributemenu.option.video_capture=A video I&amp;#39;ll capture with my webcam
-add.contributemenu.option.folder=A folder where I&amp;#39;ll organize resources
+add.contributemenu.option.template=A resource I'll create using a template
+add.contributemenu.option.scratch=A resource I'll create from "scratch"
+add.contributemenu.option.video_capture=A video I'll capture with my webcam
+add.contributemenu.option.folder=A folder where I'll organize resources
 
 add.contributemenu.required.fields.dialog_file=Click Browse to select a file from your computer.
 add.contributemenu.required.fields.dialog_video_upload=Select a video to upload. Once uploaded, select Continue to complete the process.
