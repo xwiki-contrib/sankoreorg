@@ -2,6 +2,26 @@ Array.prototype.contains = function(element) {
   return this.indexOf(element) !== -1;
 };
 
+if (!Array.prototype.some)
+{
+  Array.prototype.some = function(fun /*, thisp*/)
+  {
+    var len = this.length;
+    if (typeof fun != "function")
+      throw new TypeError();
+
+    var thisp = arguments[1];
+    for (var i = 0; i < len; i++)
+    {
+      if (i in this &&
+          fun.call(thisp, this[i], i, this))
+        return true;
+    }
+
+    return false;
+  };
+}
+
 Ext.parseURIQuery = function(string) {
   if (!string || !string.length) {
     return {};
@@ -29,6 +49,14 @@ Ext.parseURIQuery = function(string) {
   });
   
   return qs;  
+}
+Ext.htmlDecodeDiv = document.createElement('div');
+Ext.htmlDecode = function(str) {
+  if(str) {
+    Ext.htmlDecodeDiv.innerHTML = str;
+    return Ext.htmlDecodeDiv.firstChild.nodeValue;
+  }
+  return "";
 }
 
 Ext.namespace("Ext.ux"); 
@@ -1778,6 +1806,12 @@ Ext.override(Ext.grid.GridView, {
     this.onLayout(vw, vh);
   }
 });
+
+Ext.ns('Curriki');
+Ext.ns('Curriki.ui');
+
+
+
 // vim: ts=4:sw=4
 /*global Ext */
 /*global _ */
@@ -1794,7 +1828,7 @@ Ext.Ajax.disableCaching=false;
 
 
 
-if (!('console' in window) || !('firebug' in console)) {
+if (!('console' in window)) {
   var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];
   window.console = {};
   for (var i = 0; i < names.length; ++i) 
@@ -1847,15 +1881,15 @@ Curriki.enableLoadingMask = function(containerId) {
     });
     
     Ext.Ajax.on('beforerequest', function(conn, options) {
-      console.log('beforerequest', conn, options);
+      //console.log('beforerequest', conn, options);
       Curriki.showLoading(options.waitMsg);
     });
     Ext.Ajax.on('requestcomplete', function(conn, response, options) {
-      console.log('requestcomplete', conn, response, options);
+      //console.log('requestcomplete', conn, response, options);
       Curriki.hideLoading();
     });
     Ext.Ajax.on('requestexception', function(conn, response, options) {
-      console.log('requestexception', conn, response, options);
+      //console.log('requestexception', conn, response, options);
       Curriki.hideLoading(true);
     });
   });
@@ -1902,7 +1936,7 @@ Curriki.logView = function(page) {
 }
 
 Curriki.start = function(callback) {
-  console.log('Start Callback: ', callback);
+  //console.log('Start Callback: ', callback);
   var args = {};
   
   if ("object" === typeof callback) {
@@ -2186,7 +2220,12 @@ Curriki.DataObservable = function() {
     'Curriki.data:ready': true,
     'Curriki.data.ict:ready': true,
     'Curriki.data.fw_item:ready': true,
+    'Curriki.data.education_system:ready': true,
     'Curriki.data.el:ready': true,
+    'Curriki.data.el.France:ready': true,
+    'Curriki.data.el.USA:ready': true,
+    'Curriki.data.el.Senegal:ready': true,
+    'Curriki.data.disciplines:ready': true,
     'Curriki.data.rights:ready': true,
     'Curriki.data.language:ready': true,
     'Curriki.data.category:ready': true,
@@ -2347,13 +2386,49 @@ Curriki.data.ict.getRolloverDisplay = function(ict_array) {
   return ict;
 };
 
-Ext.ns('Curriki.data.el');
+Ext.ns('Curriki.data.education_system');
 
-Curriki.data.EventManager.addListener('Curriki.data.el:ready', function() {
-  Curriki.data.el.elChildren = Curriki.data.el.elAddNode(Curriki.data.el.elMap, 'TREEROOTNODE').children;
+Curriki.data.EventManager.addListener('Curriki.data.education_system:ready', function() {
+  Curriki.data.education_system.data = [];
+  Curriki.data.education_system.initial = 'AssetMetadata.FranceEducation';
+  Curriki.data.education_system.list.each(function(item) {
+    Curriki.data.education_system.data.push([item, _('CurrikiCode.AssetClass_education_system_' + item)]);
+  });
+  Curriki.data.education_system.store = new Ext.data.SimpleStore({
+    fields: ['id', 'education_system'],
+    data: Curriki.data.education_system.data
+  });
 });
 
 Curriki.data.EventManager.on('Curriki.data.ict:ready', function() {
+  Ext.Ajax.request({
+    url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/education_system",
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json'
+    },
+    success: function(response, options) {
+      try {
+        Curriki.data.education_system.list = Ext.util.JSON.decode(response.responseText).allowedValues;
+      } 
+      catch (e) {
+        console.error('Invalid metadata information', response, options);
+      }
+      Curriki.data.EventManager.fireEvent('Curriki.data.education_system:ready');
+    },
+    failure: function(response, options) {
+      console.error('Cannot get metadata information', response, options);
+    }
+  });
+});
+
+Ext.ns('Curriki.data.el');
+
+Curriki.data.EventManager.addListener('Curriki.data.el:ready', function() {
+  Curriki.data.el.elChildren = Curriki.data.el.elAddNode(Curriki.data.el.elMap, 'TREEROOTNODE').children;;
+});
+
+Curriki.data.EventManager.on('Curriki.data.education_system:ready', function() {
   Ext.Ajax.request({
     url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/educational_level",
     method: 'GET',
@@ -2372,7 +2447,7 @@ Curriki.data.EventManager.on('Curriki.data.ict:ready', function() {
     failure: function(response, options) {
       console.error('Cannot get metadata information', response, options);
     }
-  });
+  });  
 });
 
 Curriki.data.el.elCheckListener = function(node, checked) {
@@ -2403,6 +2478,7 @@ Curriki.data.el.elAddNode = function(elMap, nodeName) {
     id: nodeName,
     text: _('CurrikiCode.AssetClass_educational_level_' + nodeName),
     checked: false,
+    filters: [],
     listeners: {
       checkchange: Curriki.data.el.elCheckListener
     }
@@ -2410,9 +2486,12 @@ Curriki.data.el.elAddNode = function(elMap, nodeName) {
   if ("undefined" !== typeof elMap[nodeName]) {
     var children = [];
     elMap[nodeName].each(function(childNode) {
-      children.push(Curriki.data.el.elAddNode(elMap, childNode.id));
+      var node = Curriki.data.el.elAddNode(elMap, childNode.id);
+      node.filters = childNode.value ? childNode.value.split("|") : [];
+      children.push(node);      
     });
     nodeInfo.children = children;
+    nodeInfo.filters = elMap[nodeName].value ? elMap[nodeName].value.split("|") : [];
     nodeInfo.cls = 'el-item el-item-parent';
   }
   else {
@@ -2482,6 +2561,140 @@ Curriki.data.el.getRolloverDisplay = function(el_array) {
   return el;
 };
 
+Ext.ns('Curriki.data.discipline');
+
+Curriki.data.EventManager.addListener('Curriki.data.discipline:ready', function() {
+  Curriki.data.discipline.TREEROOTNODE = Curriki.data.discipline.addNode(Curriki.data.discipline.allowedValueMap, 'TREEROOTNODE');  
+});
+
+Curriki.data.EventManager.on('Curriki.data.el:ready', function() {
+  Ext.Ajax.request({
+    url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/fw_items",
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json'
+    },
+    success: function(response, options) {
+      try {
+        Curriki.data.discipline.allowedValueMap = Ext.util.JSON.decode(response.responseText).allowedValueMap;
+      } 
+      catch (e) {
+        console.error('Invalid metadata information', response, options);
+      }
+      Curriki.data.EventManager.fireEvent('Curriki.data.discipline:ready');
+    },
+    failure: function(response, options) {
+      console.error('Cannot get metadata information', response, options);
+    }
+  });  
+});
+
+Curriki.data.discipline.checkListener = function(node, checked) {
+  var validator = Ext.getCmp('discipline-validation');
+  if (validator) {
+    validator.setValue(validator.getValue() + (checked ? 1 : -1));
+  }
+  if (checked) {
+    if ("undefined" !== typeof node.parentNode) {
+      if (!node.parentNode.ui.isChecked()) {
+        node.parentNode.ui.toggleCheck();
+      }
+    }
+  }
+  else {
+    if (Ext.isArray(node.childNodes)) {
+      node.childNodes.each(function(node) {
+        if (node.ui.isChecked()) {
+          node.ui.toggleCheck();
+        }
+      });
+    }
+  }
+};
+
+Curriki.data.discipline.addNode = function(allowedValueMap, nodeName) {
+  var nodeInfo = {
+    id: nodeName,
+    text: _('CurrikiCode.AssetClass_discipline_' + nodeName),
+    checked: false,
+    listeners: {
+      checkchange: Curriki.data.discipline.checkListener
+    }
+  };
+  if ("undefined" !== typeof allowedValueMap[nodeName]) {
+    var children = [];
+    allowedValueMap[nodeName].each(function(childNode) {
+      children.push(Curriki.data.discipline.addNode(allowedValueMap, childNode.id));
+    });
+    nodeInfo.children = children;
+    nodeInfo.cls = 'discipline-item discipline-item-parent';
+  }
+  else {
+    nodeInfo.leaf = true;
+    nodeInfo.cls = 'discipline-item discipline-item-bottom';
+  }
+  
+  return nodeInfo;
+};
+
+Curriki.data.discipline.getRolloverDisplay = function(el_array) {
+  var els = el_array || [];
+  var el = "";
+  var allowedValueMap = Curriki.data.discipline.allowedValueMap;
+  
+  if (els[0] === 'TREEROOTNODE') {
+    els.shift();
+  }
+  
+  if ("undefined" !== typeof els && "undefined" !== typeof els[0]) {
+    var elD = "";
+    var eli = els[0];
+    var elParent = allowedValueMap['TREEROOTNODE'].find(function(item) {
+      if ("undefined" !== typeof allowedValueMap[item.id]) 
+        return (allowedValueMap[item.id].find(function(sub) {
+          return sub.id == eli;
+        }));
+      return;
+    });
+    
+    if (!Ext.type(elParent)) {
+      elD = _('CurrikiCode.AssetClass_discipline_' + eli);
+    }
+    else {
+      elParent = elParent.id;
+      elD = _('CurrikiCode.AssetClass_discipline_' + elParent) + " > " + _('CurrikiCode.AssetClass_discipline_' + eli);
+    }
+    el += Ext.util.Format.htmlEncode(elD) + "<br />";
+    if ("undefined" !== typeof els[1]) {
+      var elD = "";
+      var eli = els[1];
+      var elParent = allowedValueMap['TREEROOTNODE'].find(function(item) {
+        if ("undefined" !== typeof allowedValueMap[item.id]) 
+          return (allowedValueMap[item.id].find(function(sub) {
+            return sub.id == eli;
+          }));
+        return;
+      });
+      
+      if (!Ext.type(elParent)) {
+        elD = _('CurrikiCode.AssetClass_discipline_' + eli);
+      }
+      else {
+        elParent = elParent.id;
+        elD = _('CurrikiCode.AssetClass_discipline_' + elParent) + " > " + _('CurrikiCode.AssetClass_discipline_' + eli);
+      }
+      el += Ext.util.Format.htmlEncode(elD) + "<br />";
+      if ("undefined" !== typeof els[2]) {
+        el += "...<br />";
+      }
+    }
+  }
+  else {
+    el += _('global.title.popup.none.selected') + '<br />';
+  }
+  
+  return el;
+};
 
 Ext.ns('Curriki.data.rights');
 Curriki.data.EventManager.addListener('Curriki.data.rights:ready', function() {
@@ -2496,7 +2709,7 @@ Curriki.data.EventManager.addListener('Curriki.data.rights:ready', function() {
   });
 });
 
-Curriki.data.EventManager.on('Curriki.data.el:ready', function() {
+Curriki.data.EventManager.on('Curriki.data.discipline:ready', function() {
   Ext.Ajax.request({
     url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/rights",
     method: 'GET',
@@ -2676,6 +2889,7 @@ Curriki.data.fw_item.fwAddNode = function(fwMap, nodeName) {
     id: nodeName,
     text: _('CurrikiCode.AssetClass_fw_items_' + nodeName),
     checked: false,
+    filters: [],
     listeners: {
       checkchange: Curriki.data.fw_item.fwCheckListener
     }
@@ -2690,9 +2904,12 @@ Curriki.data.fw_item.fwAddNode = function(fwMap, nodeName) {
       return 0;
     });
     fwMap[nodeName].each(function(childNode) {
-      children.push(Curriki.data.fw_item.fwAddNode(fwMap, childNode.id));
+      var node = Curriki.data.fw_item.fwAddNode(fwMap, childNode.id);
+      node.filters = childNode.value ? childNode.value.split("|") : [];
+      children.push(node);
     });
     nodeInfo.children = children;
+    nodeInfo.filters = fwMap[nodeName].value ? fwMap[nodeName].value.split("|") : [];
     nodeInfo.cls = 'fw-item fw-item-parent';
   }
   else {
@@ -2764,22 +2981,23 @@ Curriki.data.fw_item.getRolloverDisplay = function(fw_array) {
 
 
 Ext.ns('Curriki.ui.component.asset');
-Curriki.ui.component.asset.getFwTree = function() {
+Curriki.ui.component.asset.getFwTree = function(filters) {
   return {
-    xtype: 'treepanel',
-    loader: new Ext.tree.TreeLoader({
-      preloadChildren: true
+    xtype: 'curriki-treepanel',
+    loader: new Curriki.ui.tree.TreeLoader({
+      preloadChildren: true,
+      filters: filters
     }),
     id: 'fw_items-tree',
     useArrows: true,
-    autoHeight: true,
+    autoHeight: false,
     border: false,
     cls: 'fw-tree',
     animate: true,
     enableDD: false,
     containerScroll: true,
     rootVisible: false,
-    root: new Ext.tree.AsyncTreeNode({
+    root: new Curriki.ui.tree.AsyncTreeNode({
       text: _('CurrikiCode.AssetClass_fw_items_FW_masterFramework.WebHome'),
       id: 'FW_masterFramework.WebHome',
       cls: 'fw-item-top fw-item-parent fw-item',
@@ -2790,48 +3008,49 @@ Curriki.ui.component.asset.getFwTree = function() {
   };
 };
 
-Curriki.ui.component.asset.getElTree = function() {
+Curriki.ui.component.asset.getElTree = function(filters) {
   return {
-    xtype: 'treepanel',
-    loader: new Ext.tree.TreeLoader({
-      preloadChildren: true
+    xtype: 'curriki-treepanel',
+    loader: new Curriki.ui.tree.TreeLoader({
+      preloadChildren: true,
+      filters: filters
     }),
     id: 'el-tree',
     useArrows: true,
-    autoHeight: true,
+    autoHeight: false,
     border: false,
     cls: 'el-tree',
     animate: true,
     enableDD: false,
     containerScroll: true,
     rootVisible: false,
-    root: new Ext.tree.AsyncTreeNode({
+    root: new Curriki.ui.tree.AsyncTreeNode({
       text: _('CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome'),
       id: 'TREEROOTNODE',
       cls: 'el-item-top el-item-parent el-item',
       leaf: false,
       expanded: true,
       children: Curriki.data.el.elChildren
-    })
+    })    
   };
 };
 
 Curriki.ui.component.asset.getIctTree = function() {
   return {
-    xtype: 'treepanel',
-    loader: new Ext.tree.TreeLoader({
+    xtype: 'curriki-treepanel',
+    loader: new Curriki.ui.tree.TreeLoader({
       preloadChildren: true
     }),
     id: 'ict-tree',
     useArrows: true,
-    autoHeight: true,
+    autoHeight: false,
     border: false,
     cls: 'ict-tree',
     animate: true,
     enableDD: false,
     containerScroll: true,
     rootVisible: false,
-    root: new Ext.tree.AsyncTreeNode({
+    root: new Curriki.ui.tree.AsyncTreeNode({
       text: _('CurrikiCode.AssetClass_instructional_component_AssetMetadata.WebHome'),
       id: 'TREEROOTNODE',
       cls: 'ict-item-top ict-item-parent ict-item',
@@ -3478,8 +3697,6 @@ Curriki.ui.dialog.Base = Ext.extend(Ext.Window, {
   ,modal:true
   ,minWidth:400
   ,minHeight:100
-  ,lastWidth:0
-  ,lastHeight:0
   ,autoScroll:false
   ,autoHeight:true
   ,constrain:true
@@ -3490,36 +3707,6 @@ Curriki.ui.dialog.Base = Ext.extend(Ext.Window, {
   ,defaults:{border:false}
   ,maskDisabled:false
   ,shim:false // MacOS fix, removes iframe on top
-  ,listeners:{
-    afterlayout: function(wnd, layout) {   
-      console.log('afterlayout');   
-      if (wnd.getBox().width < wnd.minWidth) {
-        wnd.setWidth(wnd.minWidth);
-      }
-      console.log('wnd.height:'+wnd.lastHeight+' computed height:'+Ext.get("body").getComputedHeight());
-      if (wnd.lastWidth > Ext.get("body").getComputedWidth() || wnd.lastHeight > Ext.get("body").getComputedHeight()) {
-        var topLocation = Ext.parseURIQuery(window.location.href)['url'];
-        if (topLocation && topLocation != "" && topLocation != "undefined") {
-          var heightHash = "height=" + Ext.get("body").getComputedHeight();
-          var widthHash = "width=" + Ext.get("body").getComputedWidth();
-          ;
-          window.top.location = unescape(topLocation) + '#=' + heightHash + '&' + widthHash;
-        }
-      }
-    }
-    ,show: function(wnd) {
-      console.log('show');
-      var topLocation = Ext.parseURIQuery(window.location.href)['url'];
-      if (topLocation && topLocation != "" && topLocation != "undefined") {
-        var heightHash = "height=" + Ext.get("body").getComputedHeight();
-        var widthHash = "width=" + Ext.get("body").getComputedWidth();
-        window.top.location = unescape(topLocation) + '#=' + heightHash + '&' + widthHash;
-        wnd.lastHeight = Ext.get("body").getComputedHeight();
-        wnd.lastWidth = Ext.get("body").getComputedWidth();
-      }
-      //Curriki.hideLoading();
-    }
-  }
   ,initComponent:function(){
     Curriki.ui.dialog.Base.superclass.initComponent.call(this);
   }
@@ -3531,6 +3718,58 @@ Curriki.ui.dialog.Actions = Ext.extend(Curriki.ui.dialog.Base, {
   }
 });
 Ext.reg('dialogueactions', Curriki.ui.dialog.Actions);
+
+Curriki.ui.dialog.Bookmarklet = Ext.extend(Curriki.ui.dialog.Base, {
+  lastWidth:0
+  ,lastHeight:0
+  ,initComponent: function() {
+    Curriki.ui.dialog.Bookmarklet.superclass.initComponent.call(this);
+  }
+  // private
+    ,beforeShow : function() {
+        Curriki.ui.dialog.Bookmarklet.superclass.beforeShow.apply(this, arguments);
+        this.updateDimensions();
+    }
+    // private
+    ,afterShow : function() {
+        Curriki.ui.dialog.Bookmarklet.superclass.afterShow.apply(this, arguments);
+        this.updateTopLocation();
+    }
+    ,onResize : function() {
+      Curriki.ui.dialog.Bookmarklet.superclass.onResize.apply(this, arguments);
+      if (!this.hidden) {
+        this.updateDimensions();
+        this.updateTopLocation();
+      }
+    }
+  // private
+  ,updateDimensions: function() {
+    var topLocation = Ext.parseURIQuery(window.location.href)['url'];
+    if (topLocation && topLocation != "" && topLocation != "undefined") {
+      var heightHash = "height=" + Ext.get("body").getComputedHeight();
+      var widthHash = "width=" + Ext.get("body").getComputedWidth();
+      window.top.location = unescape(topLocation) + '#=' + heightHash + '&' + widthHash;
+      this.lastHeight = Ext.get("body").getComputedHeight();
+      this.lastWidth = Ext.get("body").getComputedWidth();
+    }
+  }
+  //
+  ,updateTopLocation: function() {
+    if (this.getBox().width < this.minWidth) {
+      this.setWidth(wnd.minWidth);
+    }
+    //console.log('wnd.height:'+wnd.lastHeight+' computed height:'+Ext.get("body").getComputedHeight());
+    if (this.lastWidth > Ext.get("body").getComputedWidth() || this.lastHeight > Ext.get("body").getComputedHeight()) {
+      var topLocation = Ext.parseURIQuery(window.location.href)['url'];
+      if (topLocation && topLocation != "" && topLocation != "undefined") {
+        var heightHash = "height=" + Ext.get("body").getComputedHeight();
+        var widthHash = "width=" + Ext.get("body").getComputedWidth();
+        window.top.location = unescape(topLocation) + '#=' + heightHash + '&' + widthHash;
+      }
+    }
+  }
+});
+Ext.reg('dialoguebookmarklet', Curriki.ui.dialog.Bookmarklet);
 
 Curriki.ui.dialog.Messages = Ext.extend(Curriki.ui.dialog.Base, {
   width: 500,
@@ -3570,7 +3809,7 @@ Ext.extend(Curriki.ui.treeLoader.Base, Ext.tree.TreeLoader, {
   ,unviewableText:_('add.chooselocation.resource_unavailable')
   ,unviewableQtip:_('add.chooselocation.resource_unavailable_tooltip')
   ,createNode: function(attr) {
-    console.log('createNode: ', attr);
+    //console.log('createNode: ', attr);
     if (this.setFullRollover) {
       if ('string' !== Ext.type(attr.qtip) &&
       'string' === Ext.type(attr.description) &&
@@ -3586,7 +3825,7 @@ Ext.extend(Curriki.ui.treeLoader.Base, Ext.tree.TreeLoader, {
       if (this.truncateTitle !== false) {
         p.setText(Ext.util.Format.ellipsis(p.text, Ext.num(this.truncateTitle, 125)));
       }
-      console.log('createNode: parent', p);
+      //console.log('createNode: parent', p);
       return p;
     }
     
@@ -3669,7 +3908,7 @@ Ext.extend(Curriki.ui.treeLoader.Base, Ext.tree.TreeLoader, {
       childInfo.uiProvider = this.uiProviders[attr.uiProvider] || eval(attr.uiProvider);
     }
     
-    console.log('createNode: End ', childInfo);
+    //console.log('createNode: End ', childInfo);
     var retNode = (childInfo.leaf ? new Ext.tree.TreeNode(childInfo) : new Ext.tree.AsyncTreeNode(childInfo));
     
     // hidden seems to need to be applied after node is created
@@ -4043,3 +4282,74 @@ Curriki.ui.Rating = Ext.extend(Ext.form.NumberField, {
 });
 Ext.reg('rating', Curriki.ui.Rating);
 })();
+
+Ext.Toolbar.AddPathProgress  = function(config){
+    var p = document.createElement("div");
+    p.className = "ytb-progress";
+    this.items = config.items;    
+    Ext.Toolbar.AddPathProgress.superclass.constructor.call(this, p);
+};
+Ext.extend(Ext.Toolbar.AddPathProgress, Ext.Toolbar.Item, {
+    enable:Ext.emptyFn,
+    disable:Ext.emptyFn,
+    focus:Ext.emptyFn,
+    render : function(td){
+        td.style.width = '100%';
+        td.style.textAlign = 'center';
+        Ext.Toolbar.AddPathProgress.superclass.render.call(this, td);        
+        Ext.each(this.items, function(item){
+          var newel = Ext.DomHelper.append(this.el, item, true);
+          newel.on(item.listeners);          
+        }, this);   
+    }
+});
+Ext.reg('tbprogress', Ext.Toolbar.AddPathProgress);
+
+Ext.override(Ext.Toolbar, {
+  add : function(){
+    var a = arguments, l = a.length;
+    for(var i = 0; i < l; i++){
+      var el = a[i];
+      if(el.isFormField){ // some kind of form field
+        this.addField(el);
+      }else if(el.render){ // some kind of Toolbar.Item
+        this.addItem(el);
+      }else if(typeof el == "string"){ // string
+        if(el == "separator" || el == "-"){
+          this.addSeparator();
+        }else if(el == " "){
+          this.addSpacer();
+        }else if(el == "->"){
+          this.addFill();
+        }else if(el == "--"){
+          this.newRow();
+        }else{
+          this.addText(el);
+        }
+      }else if(el.tagName){ // element
+        this.addElement(el);
+      }else if(typeof el == "object"){ // must be button config?
+        if(el.xtype){
+          this.addField(Ext.ComponentMgr.create(el, 'button'));
+        }else{
+          this.addButton(el);
+        }
+      }
+    }
+  },
+  newRow: function(){
+    var tr = document.createElement('tr');
+    this.tr.parentNode.appendChild(tr);
+    this.tr = tr;
+    return tr;
+  }
+})
+
+Ext.Toolbar.Item.prototype.render = function(td) {
+  this.td = td;
+  if (this.align) {
+    td.setAttribute("align", this.align);
+  }
+  td.appendChild(this.el);  
+}
+
