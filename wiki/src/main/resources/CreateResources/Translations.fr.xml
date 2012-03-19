@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1331034403000</creationDate>
-<date>1331034403000</date>
-<contentUpdateDate>1331034403000</contentUpdateDate>
+<creationDate>1332166213000</creationDate>
+<date>1332166213000</date>
+<contentUpdateDate>1332166213000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -903,10 +903,10 @@ sri.instructional_component_txt=Définissez le ou les types de ressource propos�
 ## Step 6
 add.setrequiredinfo.part6.title=Étape 6 - Accès et partage
 sri.right_holder_title=Ayant droit(s)
-sri.right_holder_tooltip=Noms de la ou des personne(s) ou structure(s) titulaire(s) de la licence d'utilisation de cette ressource. Si la ressource est du domaine public, indiquer DP (pour Domaine Public).
+sri.right_holder_tooltip=Noms de la ou des personne(s) ou structure(s) titulaire(s) de la licence d'utilisation de cette ressource. Si la ressource est du domaine public, indiquer DP (pour Domaine Public)
 sri.license_type_title=Choix de la licence
 sri.license_type_txt=Êtes-vous sûr d'avoir lu et compris les [[conditions générales d'utilisation]] et que vous avez le droit de partager la ressource que vous vous apprêtez à envoyer ?
-sri.license_type_tooltip=La licence proposée par défaut sur Planète-Sankoré est une licence Creative Commons 3.0 By (CC-Attributions). Celle ci offre un maximum de flexibilité aux membres de la communauté qui pourront ré-utiliser et modifier vos ressources. Si vous souhaitez proposer une licence Creative Commons différente ou de Domaine Public, veuillez la choisir dans la liste déroulante ci-dessous.
+sri.license_type_tooltip=La licence proposée par défaut sur Planète-Sankoré est une licence Creative Commons 3.0 By (CC-Attributions). Celle-ci offre un maximum de flexibilité aux membres de la communauté qui pourront ré-utiliser et modifier vos ressources. Si vous souhaitez proposer une licence Creative Commons différente ou de Domaine Public, veuillez la choisir dans la liste déroulante ci-dessous.
 sri.license_type_heading=
 sri.rights_title=Partage sur Planète Sankoré
 sri.rights_tooltip=Ce paramètre détermine quels utilisateurs pourront disposer des autorisations nécessaires pour visualiser ou modifier les ressources.
@@ -932,7 +932,7 @@ CurrikiCode.AssetLicenseClass_licenseType_Licences.CreativeCommonsAttributionNon
 sri.bookmarklet.part1.title=Étape 1 – Description simple du signet
 sri.bookmarklet.part1.text=Ce signet va être ajouté à Planète-Sankoré au nom de **USER NAME**
 sri.bookmarklet.part1.name=Nom de la ressource
-sri.bookmarklet.part1.name.tip=Le nom du signet apparaît dans les résultats de recherche. Il aide les autres utilisateurs à identifier son utilité ou ses applicantions.
+sri.bookmarklet.part1.name.tip=Le nom du signet apparaît dans les résultats de recherche. Il aide les autres utilisateurs à identifier son utilité ou ses applications.
 sri.bookmarklet.part1.mark=Évaluation
 sri.bookmarklet.part1.mark.Tip=Vous pouvez choisir un nombre d'étoiles proportionnel à la valeur que vous attribuez à ce signet.
 sri.bookmarklet.part1.description=Description
