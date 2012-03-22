@@ -3049,6 +3049,7 @@ Curriki.ui.component.asset.getIctTree = function() {
     animate: true,
     enableDD: false,
     containerScroll: true,
+    offsetWidth:100,
     rootVisible: false,
     root: new Curriki.ui.tree.AsyncTreeNode({
       text: _('CurrikiCode.AssetClass_instructional_component_AssetMetadata.WebHome'),
@@ -3713,14 +3714,18 @@ Curriki.ui.dialog.Base = Ext.extend(Ext.Window, {
 });
 
 Curriki.ui.dialog.Actions = Ext.extend(Curriki.ui.dialog.Base, {
-  initComponent: function() {
+  closable: true
+  ,id: 'dialog-actions'
+  ,initComponent: function() {
     Curriki.ui.dialog.Actions.superclass.initComponent.call(this);
   }
 });
 Ext.reg('dialogueactions', Curriki.ui.dialog.Actions);
 
 Curriki.ui.dialog.Bookmarklet = Ext.extend(Curriki.ui.dialog.Base, {
-  lastWidth:0
+  closable: false
+  ,id: 'dialog-bookmarklet'
+  ,lastWidth:0
   ,lastHeight:0
   ,initComponent: function() {
     Curriki.ui.dialog.Bookmarklet.superclass.initComponent.call(this);

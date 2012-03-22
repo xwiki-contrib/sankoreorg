@@ -1,3 +1,54 @@
+// Initialize "current" information
+Ext.ns('Curriki.current');
+Curriki.current = {
+  init:function(){
+    Ext.apply(this, {
+       assetName:null
+      ,parentAsset:null
+      ,publishSpace:null
+      ,copyOf:null
+      ,cameFrom:null
+      ,flow:null
+      ,flowFolder:''
+
+      ,assetTitle:null
+      ,assetType:null
+      ,parentTitle:null
+      ,copyOfTitle:null
+
+      ,asset:null
+      ,metadata:null
+
+      ,selected:null
+      ,fileName:null
+      ,videoId:null
+      ,linkUrl:null
+      
+      ,sri:null
+
+      ,sri1:null
+      ,sri1fillin:null
+      ,sri2:null
+      ,sri2fillin:null
+      ,sri3:null
+      ,sri3fillin:null
+      ,sri4:null
+      ,sri4fillin:null
+      ,sri5:null
+      ,sri5fillin:null
+      ,sri6:null
+      ,sri6fillin:null
+
+      ,submitToTemplate:null
+
+      ,templateType:null
+
+      ,drop:null
+    });
+  }
+}
+Curriki.current.init();
+
 Ext.ns('Curriki.module.addpath');
 Curriki.module.addpath.init = function() {
   if (Ext.isEmpty(Curriki.module.addpath.initialized)) {
@@ -808,7 +859,7 @@ Curriki.module.addpath.init = function() {
               ,name:'rating'
               ,minValue:1
               ,maxValue:5
-              ,value:0              
+              ,value:Curriki.current.sri?Curriki.current.sri.rating:0              
             }
             // Description
             ,{
@@ -845,6 +896,7 @@ Curriki.module.addpath.init = function() {
               ,allowBlank:false
               ,preventMark:true
               ,hideLabel:true
+              ,value:Curriki.current.sri?Curriki.current.sri.description:''
               ,width:'80%'
               // Keywords
               },{
@@ -882,6 +934,7 @@ Curriki.module.addpath.init = function() {
                   emptyText: _('bookmarklet.sri.keywords.empty_msg'),
                   hideLabel: true,
                   width: '60%',
+                  value:Curriki.current.sri?Curriki.current.sri.keywords:'',
                   listeners: {
                     render: function(comp){
                       comp.findParentByType('apUrlM1').on('show', function(){
@@ -911,8 +964,7 @@ Curriki.module.addpath.init = function() {
     AddPath.UrlMetadata2 = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
         initComponent:function(){
         Ext.apply(this, {
-           id:'MetadataDialogueWindow'
-          ,title:_('bookmarklet.add.setrequiredinfo.part2.title')
+          title:_('bookmarklet.add.setrequiredinfo.part2.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,items:[{
              xtype:'form'
@@ -1159,8 +1211,7 @@ Curriki.module.addpath.init = function() {
     AddPath.UrlMetadata3 = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
         initComponent:function(){
         Ext.apply(this, {
-           id:'MetadataDialogueWindow'
-          ,title:_('bookmarklet.add.setrequiredinfo.part3.title')
+          title:_('bookmarklet.add.setrequiredinfo.part3.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,autoHeight:true
           ,items:[{
@@ -1369,8 +1420,7 @@ Curriki.module.addpath.init = function() {
     AddPath.UrlMetadata4 = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
         initComponent:function(){
         Ext.apply(this, {
-           id:'MetadataDialogueWindow'
-          ,title:_('bookmarklet.add.setrequiredinfo.part4.title')
+          title:_('bookmarklet.add.setrequiredinfo.part4.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,autoHeight:true
           ,items:[{
@@ -1587,8 +1637,7 @@ Curriki.module.addpath.init = function() {
     AddPath.UrlMetadata5 = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
         initComponent:function(){
         Ext.apply(this, {
-           id:'MetadataDialogueWindow'
-          ,title:_('bookmarklet.add.setrequiredinfo.part5.title')
+          title:_('bookmarklet.add.setrequiredinfo.part5.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,autoHeight:true
           ,items:[{
@@ -1804,6 +1853,7 @@ Curriki.module.addpath.init = function() {
                   return Ext.apply(AddPath.ictTree = Curriki.ui.component.asset.getIctTree(), {
                     listeners: {
                       render:function(comp){
+                        this.offsetWidth = 100;
                         comp.findParentByType('apUrlM5').on('show', function() {
                           Ext.getCmp('instructional_component-validation').setValue(checkedCount)
                         });
@@ -1829,7 +1879,7 @@ Curriki.module.addpath.init = function() {
       initComponent:function(){
         Ext.apply(this, {
            title:_('add.setrequiredinfo.part1.title')
-          ,cls:'addpath addpath-metadata resource resource-add'
+          ,cls:'addpath addpath-metadata resource resource-add'          
           ,width:800
           ,items:[{
              xtype:'panel'
@@ -1974,6 +2024,7 @@ Curriki.module.addpath.init = function() {
               ,preventMark:true
               ,hideLabel:true
               ,width:'80%'
+              ,value:Curriki.current.sri?Curriki.current.sri.title:''
 
     // Description
             },{
@@ -2004,6 +2055,7 @@ Curriki.module.addpath.init = function() {
               ,preventMark:true
               ,hideLabel:true
               ,width:'80%'
+              ,value:Curriki.current.sri?Curriki.current.sri.description:''
               
     // Keywords
               },{
@@ -2041,6 +2093,7 @@ Curriki.module.addpath.init = function() {
                   ,emptyText:_('sri.keywords.empty_msg')
                   ,hideLabel:true
                   ,width:'60%'
+                  ,value:Curriki.current.sri?Curriki.current.sri.keywords:''
                   ,listeners:{
                     render:function(comp){
                       comp.findParentByType('apSRI1').on('show', function() {
@@ -2071,8 +2124,7 @@ Curriki.module.addpath.init = function() {
     AddPath.Metadata2 = Ext.extend(Curriki.ui.dialog.Actions, {
         initComponent:function(){
         Ext.apply(this, {
-           id:'MetadataDialogueWindow'
-          ,title:_('add.setrequiredinfo.part2.title')
+          title:_('add.setrequiredinfo.part2.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
@@ -2316,8 +2368,7 @@ Curriki.module.addpath.init = function() {
     AddPath.Metadata3 = Ext.extend(Curriki.ui.dialog.Actions, {
         initComponent:function(){
         Ext.apply(this, {
-           id:'MetadataDialogueWindow'
-          ,title:_('add.setrequiredinfo.part3.title')
+          title:_('add.setrequiredinfo.part3.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
@@ -2511,6 +2562,10 @@ Curriki.module.addpath.init = function() {
                         comp.findParentByType('apSRI3').on('show', function() {
                           Ext.getCmp('educational_level-validation').setValue(checkedCount)
                         });
+                       // new Ext.tree.TreeSorter(comp, {
+                        //  dir: "asc"                         
+                        //  ,property: "id" 
+                        //});
                       }
                       ,resize: function(comp) {
                         var ct = comp.findParentByType('apSRI3');
@@ -2531,8 +2586,7 @@ Curriki.module.addpath.init = function() {
     AddPath.Metadata4 = Ext.extend(Curriki.ui.dialog.Actions, {
         initComponent:function(){
         Ext.apply(this, {
-           id:'MetadataDialogueWindow'
-          ,title:_('add.setrequiredinfo.part4.title')
+          title:_('add.setrequiredinfo.part4.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,autoScroll:false
@@ -2769,8 +2823,7 @@ Curriki.module.addpath.init = function() {
     AddPath.Metadata5 = Ext.extend(Curriki.ui.dialog.Actions, {
         initComponent:function(){
         Ext.apply(this, {
-           id:'MetadataDialogueWindow'
-          ,title:_('add.setrequiredinfo.part5.title')
+          title:_('add.setrequiredinfo.part5.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
@@ -2992,6 +3045,7 @@ Curriki.module.addpath.init = function() {
                   return Ext.apply(AddPath.ictTree = Curriki.ui.component.asset.getIctTree(), {
                     listeners: {
                       render:function(comp){
+                        this.offsetWidth = 100;
                         comp.findParentByType('apSRI5').on('show', function() {
                           Ext.getCmp('instructional_component-validation').setValue(checkedCount)
                         });
@@ -3016,8 +3070,7 @@ Curriki.module.addpath.init = function() {
     AddPath.Metadata6 = Ext.extend(Curriki.ui.dialog.Actions, {
         initComponent:function(){
         Ext.apply(this, {
-           id:'MetadataDialogueWindow'
-          ,title:_('add.setrequiredinfo.part6.title')
+          title:_('add.setrequiredinfo.part6.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
@@ -4628,54 +4681,3 @@ Curriki.module.addpath.initAndStart = function(fcn, options){
 }
 
 Curriki.module.addpath.loaded = true;
-
-// Initialize "current" information
-Ext.ns('Curriki.current');
-Curriki.current = {
-  init:function(){
-    Ext.apply(this, {
-       assetName:null
-      ,parentAsset:null
-      ,publishSpace:null
-      ,copyOf:null
-      ,cameFrom:null
-      ,flow:null
-      ,flowFolder:''
-
-      ,assetTitle:null
-      ,assetType:null
-      ,parentTitle:null
-      ,copyOfTitle:null
-
-      ,asset:null
-      ,metadata:null
-
-      ,selected:null
-      ,fileName:null
-      ,videoId:null
-      ,linkUrl:null
-      
-      ,sri:null
-
-      ,sri1:null
-      ,sri1fillin:null
-      ,sri2:null
-      ,sri2fillin:null
-      ,sri3:null
-      ,sri3fillin:null
-      ,sri4:null
-      ,sri4fillin:null
-      ,sri5:null
-      ,sri5fillin:null
-      ,sri6:null
-      ,sri6fillin:null
-
-      ,submitToTemplate:null
-
-      ,templateType:null
-
-      ,drop:null
-    });
-  }
-}
-Curriki.current.init();

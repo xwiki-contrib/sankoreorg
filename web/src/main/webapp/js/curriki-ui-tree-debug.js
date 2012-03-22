@@ -194,8 +194,10 @@ Ext.extend(Curriki.ui.tree.TreeNodeUI, Ext.tree.TreeNodeUI, {
   onOver : function(e) {
     Curriki.ui.tree.TreeNodeUI.superclass.onOver.call(this, e);
  
-    if (this.node.parentNode)
+    if (this.node.parentNode) {
       this.node.parentNode.cancelCollapse();
+      this.node.parentNode.ui.addClass('x-tree-node-over');
+    }
     
     if (this.node.previousSibling)    
       this.node.previousSibling.collapse();
@@ -215,6 +217,7 @@ Ext.extend(Curriki.ui.tree.TreeNodeUI, Ext.tree.TreeNodeUI, {
       this.node.delayedCollapse(100);      
     } else {  
       this.node.parentNode.delayedCollapse(50);
+      this.node.parentNode.ui.removeClass('x-tree-node-over');  
     }
   },
   animExpand : function(callback) {
@@ -226,7 +229,7 @@ Ext.extend(Curriki.ui.tree.TreeNodeUI, Ext.tree.TreeNodeUI, {
       Ext.callback(callback);
       return;
     }
-    ct.setLeft(this.node.parentNode.ui.ctNode.getWidth());
+    ct.setLeft(this.node.parentNode.ui.ctNode.getWidth());    
         
     this.animating = true;
     this.updateExpandIcon();        
