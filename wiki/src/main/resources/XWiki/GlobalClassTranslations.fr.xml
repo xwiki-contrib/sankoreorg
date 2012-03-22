@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1331551336000</creationDate>
-<date>1331551336000</date>
-<contentUpdateDate>1331551336000</contentUpdateDate>
+<creationDate>1332435479000</creationDate>
+<date>1332435479000</date>
+<contentUpdateDate>1332435479000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -250,8 +250,8 @@ CurrikiCode.AssetClass_fw_items_FW_masterFramework._Other=Autres thèmes
 
 ## EDUCATIONAL LEVEL
 
-CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED=Education : Toutes
-CurrikiCode.AssetClass_educational_level_UNCATEGORIZED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.UNSPECIFIED=Education : Tous
+CurrikiCode.AssetClass_educational_level_UNCATEGORIZED=Sans catégorie
 CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome=Index
 CurrikiCode.AssetClass_educational_level_AssetMetadata.0306=3-6
 CurrikiCode.AssetClass_educational_level_AssetMetadata.0306Primary=Primaire
@@ -317,24 +317,24 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.CollectionDocuments
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CollectionEBooks=Livre numérique
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CollectionImages=Banque d'images
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CollectionVideos=Banque de vidéos
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Collection.UNSPECIFIED=Collection: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Collection.UNSPECIFIED=Collection: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CaseStudy=Etude de cas
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.CaseStudy.UNSPECIFIED=Etude de cas: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.CaseStudy.UNSPECIFIED=Etude de cas: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Course=Cours/Présentation
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Course.UNSPECIFIED=Cours/Présentation: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Course.UNSPECIFIED=Cours/Présentation: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete=Cours complet
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Demonstration=Démonstration
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Demonstration.UNSPECIFIED=Démonstration: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Demonstration.UNSPECIFIED=Démonstration: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Evaluation=Evaluation
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Evaluation.UNSPECIFIED=Evaluation: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Evaluation.UNSPECIFIED=Evaluation: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Exercise=Exercice
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Exercise.UNSPECIFIED=Exercice: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Exercise.UNSPECIFIED=Exercice: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Guide=Guide
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Guide.UNSPECIFIED=Guide: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Guide.UNSPECIFIED=Guide: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Games=Jeu
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Games.UNSPECIFIED=Jeux: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Games.UNSPECIFIED=Jeux: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Interactive=Ressource interactive
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Interactive.UNSPECIFIED=Ressource interactive: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Interactive.UNSPECIFIED=Ressource interactive: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Interactive3D=3D
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveAnimation=Animation
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveSelfAssesment=Autoévaluation
@@ -343,14 +343,14 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveSlidesho
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveWebMedia=Web media
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.InteractiveWebsite=Site web
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Lesson=Scénario pédagogique
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Lesson.UNSPECIFIED=Scénario pédagogique: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Lesson.UNSPECIFIED=Scénario pédagogique: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Quizz=Questionnaire
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Quizz.UNSPECIFIED=Questionnaire: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Quizz.UNSPECIFIED=Questionnaire: Tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Software=Logiciels libres
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Software.UNSPECIFIED=Logiciel et logiciels libres: Non spécifié
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete.UNSPECIFIED=Cours complet: Non spécifié
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Software.UNSPECIFIED=Logiciel et logiciels libres: Tous
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.CourseComplete.UNSPECIFIED=Cours complet: Tous
 
-CurrikiCode.AssetClass_instructional_component_multiple=*TO FIX* Multi-sujet *TO FIX*
+CurrikiCode.AssetClass_instructional_component_multiple=Multi-sujet
 
 ## ACCESS RIGHTS
 
@@ -952,7 +952,7 @@ global.title.popup.ict.missing= --Non sélectionné--
 
 changes.changesofpage=Modifications de la ressource ou de la page
 changes.in=dans
-changes.space=espave
+changes.space=espace
 changes.from=De
 changes.to=à
 
