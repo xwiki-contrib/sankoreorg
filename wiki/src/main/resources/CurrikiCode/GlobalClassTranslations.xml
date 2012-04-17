@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1332776519000</creationDate>
-<date>1332776519000</date>
-<contentUpdateDate>1332776519000</contentUpdateDate>
+<creationDate>1334072306000</creationDate>
+<date>1334072306000</date>
+<contentUpdateDate>1334072306000</contentUpdateDate>
 <version>1.1</version>
 <title>GlobalClassTranslations</title>
 <template></template>
@@ -22,12 +22,13 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>
+<content>## English
 ## Education System 
-
-CurrikiCode.AssetClass_education_system_AssetMetadata.FranceEducation=Système éducatif français
-CurrikiCode.AssetClass_education_system_AssetMetadata.USAEducation=United States education system
-CurrikiCode.AssetClass_education_system_AssetMetadata.SenegalEducation=Système éducatif sénégalais
+CurrikiCode.AssetClass_education_system_UNSPECIFIED=Educational system
+CurrikiCode.AssetClass_education_system_AssetMetadata.FranceEducation=France
+CurrikiCode.AssetClass_education_system_AssetMetadata.USAEducation=United States 
+CurrikiCode.AssetClass_education_system_AssetMetadata.SenegalEducation=Sénégal
+CurrikiCode.AssetClass_education_system_AssetMetadata.InternationalEducation=International
 
 ## Instructional Component (to translate in all language)
 
@@ -74,12 +75,20 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.Webcast=Webcast/Pod
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Workbook=Workbook
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Worksheet=Graphic Organizer/Worksheet
 
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Activity.UNSPECIFIED=Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Asset.UNSPECIFIED=Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Book.UNSPECIFIED=Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Curriculum.UNSPECIFIED=Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Other.UNSPECIFIED=Any
 
 ## Disciplines (Translation on demand)
 
 CurrikiCode.AssetClass_fw_items_Disciplines.AncientLanguagesAndCulture=Langues et cultures de l'Antiquité (latin,grec ancien)
 CurrikiCode.AssetClass_fw_items_Disciplines.AppliedMathematics=Mathématiques appliquées
 CurrikiCode.AssetClass_fw_items_Disciplines.Arts=Arts
+CurrikiCode.AssetClass_fw_items_Disciplines.ArtsArchitecture=Architecture
+CurrikiCode.AssetClass_fw_items_Disciplines.ArtsArtsVisuels=Pratiques artistiques - arts visuels
+CurrikiCode.AssetClass_fw_items_Disciplines.ArtsEducationMusicale=Pratiques artistiques - éducation musicale
 CurrikiCode.AssetClass_fw_items_Disciplines.ArtsCareers=Careers
 CurrikiCode.AssetClass_fw_items_Disciplines.ArtsDance=Dance
 CurrikiCode.AssetClass_fw_items_Disciplines.ArtsDramaDramatics=Drama / Dramatics
@@ -89,6 +98,7 @@ CurrikiCode.AssetClass_fw_items_Disciplines.ArtsPopularCulture=Popular Culture
 CurrikiCode.AssetClass_fw_items_Disciplines.ArtsTechnology=Technology
 CurrikiCode.AssetClass_fw_items_Disciplines.ArtsEducation=Enseignements artistiques
 CurrikiCode.AssetClass_fw_items_Disciplines.ArtsHistory=History
+CurrikiCode.AssetClass_fw_items_Disciplines.ArtsHistoiredesArts=Histoire des arts
 CurrikiCode.AssetClass_fw_items_Disciplines.ArtsPractices=Pratiques artistiques
 CurrikiCode.AssetClass_fw_items_Disciplines.ArtsPracticesMusic=Music
 CurrikiCode.AssetClass_fw_items_Disciplines.ArtsPracticesVisualArts=Visual Arts
@@ -202,6 +212,7 @@ CurrikiCode.AssetClass_fw_items_Disciplines.proEconomyLawPoliticalSciences=Econo
 CurrikiCode.AssetClass_fw_items_Disciplines.proElectricityElectronics=Electricité - Electronique
 CurrikiCode.AssetClass_fw_items_Disciplines.proEnvironmentEnergyFacilitiesClean=Environnement - Energies - Aménagement - Propreté
 CurrikiCode.AssetClass_fw_items_Disciplines.proGeneralEducation=Formation générale - Lettres et langues - Enseignement
+CurrikiCode.AssetClass_fw_items_Disciplines.ProGestionEntreprises=Gestion des entreprises
 CurrikiCode.AssetClass_fw_items_Disciplines.proHealthSocialSports=Santé - Social - Sport
 CurrikiCode.AssetClass_fw_items_Disciplines.proHotelsRestaurantsTourism=Hôtellerie - Restauration - Tourisme
 CurrikiCode.AssetClass_fw_items_Disciplines.proHumanitiesSocialSciences=Sciences humaines et sociales
@@ -289,9 +300,43 @@ CurrikiCode.AssetClass_fw_items_Disciplines.WorldLangVocabulary=Vocabulary
 CurrikiCode.AssetClass_fw_items_Disciplines.WorldLangWriting=Writing
 CurrikiCode.AssetClass_fw_items_Disciplines.Writing=Découvrir l'écrit
 
+## Search
+CurrikiCode.AssetClass_fw_items_AssetMetadata.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.Arts.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.CareerAndTechnicalEducation.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.EducationalTechnology.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.Education.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.EducationalTechnology.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.Health.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.InformationAndMediaLiteracy.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.Mathematics.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.LanguageArts.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.SocialStudies.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.WorldLanguages.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.SocialStudies.UNSPECIFIED=Any
+CurrikiCode.AssetClass_fw_items_Disciplines.Science.UNSPECIFIED=Any
 
 ## Educational levels (NOT TO translate)
 
+CurrikiCode.AssetClass_educational_level_AssetMetadata.34=Age 3-4
+CurrikiCode.AssetClass_educational_level_AssetMetadata.45=Age 4-5
+CurrikiCode.AssetClass_educational_level_AssetMetadata.56=Age 5-6
+CurrikiCode.AssetClass_educational_level_AssetMetadata.67=Age 6-7
+CurrikiCode.AssetClass_educational_level_AssetMetadata.78=Age 7-8
+CurrikiCode.AssetClass_educational_level_AssetMetadata.89=Age 8-9
+CurrikiCode.AssetClass_educational_level_AssetMetadata.910=Age 9-10
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1011=Age 10-11
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1112=Age 11-12
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1213=Age 12-13
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1314=Age 13-14
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1415=Age 14-15
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1516=Age 15-16
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1617=Age 16-17
+CurrikiCode.AssetClass_educational_level_AssetMetadata.1718=Age 17-18
+CurrikiCode.AssetClass_educational_level_AssetMetadata.SuperiorTechEducation=Superior Tech Education
+CurrikiCode.AssetClass_educational_level_AssetMetadata.HigherEducation=Higher Education
+CurrikiCode.AssetClass_educational_level_AssetMetadata.LongLifeLearning=Long Life Learning
+CurrikiCode.AssetClass_educational_level_AssetMetadata.SpecialEducation=Special Education
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USKindergartenY1=Kindergarten Y1
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USKindergartenY2=Kindergarten Y2
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USElementary1=1st Grade Elementary School
@@ -307,38 +352,47 @@ CurrikiCode.AssetClass_educational_level_AssetMetadata.USElementary10=10th Grade
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USElementary11=11th Grade High School
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USElementary12=12th Grade High School
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USK2=K-2
+CurrikiCode.AssetClass_educational_level_AssetMetadata.USK2.UNSPECIFIED=All
 CurrikiCode.AssetClass_educational_level_AssetMetadata.US35=3-5
+CurrikiCode.AssetClass_educational_level_AssetMetadata.US35.UNSPECIFIED=All
 CurrikiCode.AssetClass_educational_level_AssetMetadata.US68=6-8
+CurrikiCode.AssetClass_educational_level_AssetMetadata.US68.UNSPECIFIED=All
 CurrikiCode.AssetClass_educational_level_AssetMetadata.US910=9-10
+CurrikiCode.AssetClass_educational_level_AssetMetadata.US910.UNSPECIFIED=All
 CurrikiCode.AssetClass_educational_level_AssetMetadata.US1112=11-12
+CurrikiCode.AssetClass_educational_level_AssetMetadata.US1112.UNSPECIFIED=All
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USCollege=College and Beyond
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USHigherEducation=Technical Superior Education
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USPreSchool=PreSchool
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USSpecialEducation=Special Education
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USLongLifeLearning=Long Life Learning
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR0Maternelle=Maternelle
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR1Elementaire=Elémentaire
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR2College=Collège
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR3Lycee=Lycée
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR4Professionnel=Bac+2 professionnel
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR5Universite=Classes Préparatoires, Université et Grandes Ecoles
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR6FormationContinue=Formation continue Professionnelle
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR7EducationSpecialisee=Education Spécialisée
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR003=Maternelle Petite Section (3-4 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR004=Maternelle Moyenne Section (4-5 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR005=Maternelle Grande Section (5-6 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR106=CP (6-7 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR107=CE1 (7-8 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR108=CE2 (8-9 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR109=CM1 (9-10ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR110=CM2 (10-11 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR211=6ème (11-12 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR212=5ème (12-13 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR213=4ème (13-14 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR214=3ème (14-15 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR315=2nde dont CAP/BEP (15-16 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR316=1ère dont CAP/BEP (16-17 ans)
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FR317=Terminale dont Bac Pro (17-18 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRMaternelle=Maternelle
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRMaternelle.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRElementaire=Elémentaire
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRElementaire.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRCollege=Collège
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRCollege.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRLycee=Lycée
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRLycee.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRProfessionnel=Bac+2 professionnel
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRUniversite=Classes Préparatoires, Université et Grandes Ecoles
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRFormationContinue=Formation continue Professionnelle
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FREducationSpecialisee=Education Spécialisée
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR34=Maternelle Petite Section (3-4 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR45=Maternelle Moyenne Section (4-5 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR56=Maternelle Grande Section (5-6 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR67=CP (6-7 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR78=CE1 (7-8 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR89=CE2 (8-9 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR910=CM1 (9-10ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR1011=CM2 (10-11 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR1112=6ème (11-12 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR1213=5ème (12-13 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR1314=4ème (13-14 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR1415=3ème (14-15 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR1516=2nde dont CAP/BEP (15-16 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR1617=1ère dont CAP/BEP (16-17 ans)
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FR1718=Terminale dont Bac Pro (17-18 ans)
 CurrikiCode.AssetClass_educational_level_AssetMetadata.SN67=CI (6-7 ans)
 CurrikiCode.AssetClass_educational_level_AssetMetadata.SN78=CP (7-8 ans)
 CurrikiCode.AssetClass_educational_level_AssetMetadata.SN89=CE1 (8-9 ans)
@@ -386,6 +440,4 @@ CurrikiCode.AssetClass_educational_level_AssetMetadata.I18NSpecialEducation=Spec
 
 CurrikiCode.AssetClass_language_fr=Français
 CurrikiCode.AssetClass_language_en=English
-
-
 </content></xwikidoc>
