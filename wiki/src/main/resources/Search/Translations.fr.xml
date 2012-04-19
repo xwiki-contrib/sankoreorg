@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1324393168000</creationDate>
-<date>1324393168000</date>
-<contentUpdateDate>1324393168000</contentUpdateDate>
+<creationDate>1334756817000</creationDate>
+<date>1334756817000</date>
+<contentUpdateDate>1334756817000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -50,8 +50,8 @@ search.grid.title.resultsmax_exceeds={0} {2} résultats
 
 ## Search URL
 search.internal.tab.title.sankore=Bibliothèque de ressources éducatives Sankoré
-search.external.tab.title.sankore=URLs sélectionnées par la communauté Sankoré
-search.external.tab.title.google=Résultats google parmi les sites sélectionnés par Sankoré
+search.external.tab.title.sankore=URL sélectionnées par la communauté Sankoré
+search.external.tab.title.google=Résultats Google parmi les sites sélectionnés par Sankoré
 
 ## Search Tips Page
 search.text.entry.help.text=
@@ -86,10 +86,10 @@ search.pagination.displaying.curriki=Affichage des pages {0} - {1} de {2}
 search.pagination.displaying.curriki_resultsmax_exceeds=Affichage des Pages {0} - {1} du Top {2}
 
 ## Pagination Buttons
-search.pagination.first.button=&amp;laquo; Première
-search.pagination.prev.button=&amp;lsaquo; Précédent
-search.pagination.next.button=Suivant &amp;rsaquo; 
-search.pagination.last.button=Dernière &amp;raquo;
+search.pagination.first.button=&lt;&lt; Première
+search.pagination.prev.button=&lt; Précédent
+search.pagination.next.button=Suivant &gt;&gt; 
+search.pagination.last.button=Dernière &gt;
 
 ## Pagination Buttons Rollovers
 search.pagination.beforepage=Page
@@ -102,7 +102,7 @@ search.pagination.last=Dernière Page
 search.pagination.refresh=Actualiser
 
 ##RESOURCES TAB
-search.resource.tab.title=Bibliothèque de ressources éducative Sankoré
+search.resource.tab.title=Bibliothèque de ressources éducatives Sankoré
 
 ##REVIEW
 search.resource.review.selector.UNSPECIFIED=Avis: Tous
@@ -228,8 +228,13 @@ search.curriki.column.header.text=Texte
 search.curriki.column.header.updated=Updaté
 
 ##SEARCH EXTERNAL
-search.featured-external.grid.title=Bibliothèque de ressources éducative Sankoré
-search.external.grid.title=URLs sélectionnées par la communauté Sankoré
+search.featured-external.grid.title=Bibliothèque de ressources éducatives Sankoré
+search.external.grid.title=URL sélectionnées par la communauté Sankoré
 search.preview.statusbar.text.external=&lt;a href="/xwiki/bin/view/Main/"&gt;&lt;img src="/xwiki/bin/download/XWiki/Skin/green%2Darrow%2Dright.gif" alt=""&gt;Tous les résultats de la bibliothèque Sankoré&lt;/a&gt;
 search.statusbar.text.resource=&lt;a href="/xwiki/bin/view/Search/URL"&gt;&lt;img src="/xwiki/bin/download/XWiki/Skin/green%2Darrow%2Dright.gif" alt=""&gt;Voir les résultats du Bookmarklet Sankoré et de la Base des sites pédagogiques sélectionnés&lt;/a&gt;
-&lt;/pre&gt;</content></xwikidoc>
+&lt;/pre&gt;
+
+
+search.combo-system.label=Systèmes éducatifs
+search.combo-level.label=Niveaux éducatifs
+search.combo-subject.label=Thèmes</content></xwikidoc>

@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334655635000</creationDate>
-<date>1334655635000</date>
-<contentUpdateDate>1334655635000</contentUpdateDate>
+<creationDate>1334842020000</creationDate>
+<date>1334842020000</date>
+<contentUpdateDate>1334842020000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -736,10 +736,10 @@ xe.admin.accountvalidation.success=Votre compte a été activé. Vous pouvez mai
 panel.searchsankore.title=Le moteur de recherche Sankoré
 panel.searchsankore.description=&lt;strong&gt;Sankoré&lt;/strong&gt; c'est un moteur de recherche intelligent pour trouver, évaluer et partager les meilleures ressources numériques d'enseignement libres (RNEL) dans la base Sankoré et dans plus de 600 sites sélectionnés.
 panel.logicielsankore.title=Enseigner et créer avec le logiciel libre Open-Sankoré
-panel.logicielsankore.description=&lt;ul class="disc inside"&gt;&lt;li&gt;Un logiciel d'enseignement sur tableau numérique interactif (TNI) libre, gratuit, universel, en open source&lt;/li&gt;&lt;li&gt;Un logiciel d'édition de ressources numériques d’enseignement intuitif et facile d'usage&lt;/li&gt;&lt;li&gt;Un logiciel universel pour tous les TNI&lt;/li&gt;&lt;li&gt;Un logiciel intégré à un navigateur web&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a class="voirPlus" href="#"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;
+panel.logicielsankore.description=&lt;ul class="disc inside"&gt;&lt;li&gt;Un logiciel d'enseignement sur tableau numérique interactif (TNI) libre, gratuit, universel, en open source&lt;/li&gt;&lt;li&gt;Un logiciel d'édition de ressources numériques d’enseignement intuitif et facile d'usage&lt;/li&gt;&lt;li&gt;Un logiciel universel pour tous les TNI&lt;/li&gt;&lt;li&gt;Un logiciel intégré à un navigateur web&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a class="voirPlus" href="http://open-sankore.org/fr" target="_blank"&gt;En savoir plus&lt;/a&gt;&lt;/p&gt;
 panel.logicielsankore.button.download=Télécharger l'outil Open-Sankoré
 panel.labsankore.title=Participer au labo Sankoré
-panel.labsankore.description=&lt;p&gt;Pour développer le logiciel Open-Sankoré, ouvert à la communauté des développeurs du libre et aux enseignants branchés HTML.&lt;br&gt;&lt;a class="voirPlus" href="http://open-sankore.org/fr/contributeurs/"&gt;Connectez-vous&lt;/a&gt;&lt;/p&gt;
+panel.labsankore.description=&lt;p&gt;Pour développer le logiciel Open-Sankoré, ouvert à la communauté des développeurs du libre et aux enseignants branchés HTML.&lt;br&gt;&lt;a class="voirPlus" href="http://dev.open-sankore.org" target="_blank"&gt;Connectez-vous&lt;/a&gt;&lt;/p&gt;
 
 search.preview-external.tab.title=Bibliothèque Sankoré
 search.preview.statusbar.text.external=Tous les résultats de la bibliothèque Sankoré

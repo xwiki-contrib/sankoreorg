@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323950293000</creationDate>
-<date>1323950293000</date>
-<contentUpdateDate>1323950293000</contentUpdateDate>
+<creationDate>1334841947000</creationDate>
+<date>1334841947000</date>
+<contentUpdateDate>1334841947000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -711,10 +711,10 @@ browse.title=Browse by subject
 panel.searchsankore.title=The Sankoré search engine
 panel.searchsankore.description=&lt;strong&gt;Sankore&lt;/strong&gt; is an intelligent search engine to find, evaluate and share best teaching free digital resources (RNEL) Sankore in the database and more than 600 selected sites.
 panel.logicielsankore.title=Teach and create with free software Sankoré
-panel.logicielsankore.description=&lt;ul class="disc inside"&gt;&lt;li&gt;An Interactive Whiteboard Software (IWB) free/libre/open-source software (FLOSS) &lt;/li&gt;&lt;li&gt;An educationnal user friendly ressource editor&lt;/li&gt;&lt;li&gt;A universal software for all IWB&lt;/li&gt;&lt;li&gt;A browser integrated software&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a class="voirPlus" href="#"&gt;More informations (fr)&lt;/a&gt;&lt;/p&gt;
+panel.logicielsankore.description=&lt;ul class="disc inside"&gt;&lt;li&gt;An Interactive Whiteboard Software (IWB) free/libre/open-source software (FLOSS) &lt;/li&gt;&lt;li&gt;An educationnal user friendly ressource editor&lt;/li&gt;&lt;li&gt;A universal software for all IWB&lt;/li&gt;&lt;li&gt;A browser integrated software&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a class="voirPlus" href="http://open-sankore.org/" target="_blank"&gt;More informations (fr)&lt;/a&gt;&lt;/p&gt;
 panel.logicielsankore.button.download=Download Open-Sankoré software
 panel.labsankore.title=Go in for  the Sankoré lab
-panel.labsankore.description=&lt;p&gt;To develop the Sankoré software, open to the open source community and to teachers interested in HTML.&lt;br&gt;&lt;a class="voirPlus" href="http://open-sankore.org/fr/contributeurs/"&gt;More informations (fr)&lt;/a&gt;&lt;/p&gt;
+panel.labsankore.description=&lt;p&gt;To develop the Sankoré software, open to the open source community and to teachers interested in HTML.&lt;br&gt;&lt;a class="voirPlus" href="http://dev.open-sankore.org" target="_blank"&gt;More informations (fr)&lt;/a&gt;&lt;/p&gt;
 
 googlesearch.title=Our selection of results among the sites selected by Sankoré
 googlesearch.bookmarklet=Rate your favorite resources by installing the bookmarklet Sankoré

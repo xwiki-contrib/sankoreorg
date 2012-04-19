@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323941719000</creationDate>
-<date>1323941719000</date>
-<contentUpdateDate>1323941719000</contentUpdateDate>
+<creationDate>1334330862000</creationDate>
+<date>1334330862000</date>
+<contentUpdateDate>1334330862000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -216,7 +216,7 @@ groups_home_contributions_find_btt=Chercher
 
 ## GROUP HOME -- MEMBERSHIP
 groups_home_membership_title=Informations sur l'adhésion
-groups_home_membership_open_visitor_infotxt=Si vous souhaitez devenir un membre de ce groupe, cliquez "Rejoindre ce Groupe" ci-dessous pour soumettre votre information.
+groups_home_membership_open_visitor_infotxt=Si vous souhaitez devenir un membre de ce groupe, cliquez "Rejoindre ce Groupe" ci-dessous pour soumettre vos informations.
 groups_home_membership_open_visitor_btt=Rejoindre ce Groupe
 groups_home_membership_closed_visitor_infotxt=Parce que ceci est un groupe privé, les membres potentiels doivent soumettre une requête d'inscription. Si vous désirez rejoindre ce groupe, cliquez "Requête d'Inscription" ci-dessous.
 groups_home_membership_closed_visitor_btt=Requête d'Inscription
@@ -409,7 +409,7 @@ groups_members_admin_current_membersettings_removeadmin_link=Supprimer le Statut
 groups_members_admin_current_membersettings_addadmin_confirm=Êtes-vous sûr de vouloir élever ce membre au statut de leader de groupe ?
 groups_members_admin_current_membersettings_addadmin_link=Assigner le Statut d'administrateur de groupe
 groups_members_admin_list_togglepending=En attente ({0})
-groups_members_admin_pending_infotxt=Les membres suivants ont été invités à devenir membres ou ont demandé l'appartenance à votre groupe privé. Cliquez "Dénier" ou "Accepter" pour soumettre un statut de membre basé sur votre appréciation.
+groups_members_admin_pending_infotxt=Les membres suivants ont été invités à devenir membres ou ont demandé l'appartenance à votre groupe privé. Cliquez "Refuser" ou "Accepter" pour soumettre un statut de membre basé sur votre appréciation.
 groups_members_admin_pending_nomembershiprequests=Il n'y a actuellement pas de requêtes d'adhésion en attente.
 groups_members_admin_pending_invitedby=Invité par
 groups_members_admin_pending_requested=Appartenance demandée
@@ -656,29 +656,29 @@ groups.disclaimer.create.group.first.list.third.row=* Parcours de connaissance
 groups.disclaimer.create.group.first.list.fourth.row=* Membres
 groups.disclaimer.create.group.first.list.fifth.row=* Documentation
 groups.disclaimer.create.group.second.row=Vous prenez en charge le rôle de dirigeant du groupe, ce qui veut dire que vous pouvez :
-groups.disclaimer.create.group.second.list.first.row=* modifier les informations du groupe,
-groups.disclaimer.create.group.second.list.second.row=* accepter des nouveaux membres dans votre groupe,
-groups.disclaimer.create.group.second.list.third.row=* contrôler des sections particulières de contenus qui s'affichent sur les pages de votre groupe,
-groups.disclaimer.create.group.second.list.fourth.row=* contribuer à définir et à documenter les bonnes pratiques pour le groupe,
-groups.disclaimer.create.group.second.list.fifth.row=* participer au groupe des administrateurs de Planète Sankoré.
+groups.disclaimer.create.group.second.list.first.row=* Modifier les informations du groupe,
+groups.disclaimer.create.group.second.list.second.row=* Accepter des nouveaux membres dans votre groupe,
+groups.disclaimer.create.group.second.list.third.row=* Contrôler des sections particulières de contenus qui s'affichent sur les pages de votre groupe,
+groups.disclaimer.create.group.second.list.fourth.row=* Contribuer à définir et à documenter les bonnes pratiques pour le groupe,
+groups.disclaimer.create.group.second.list.fifth.row=* Participer au groupe des administrateurs de Planète Sankoré.
 groups.disclaimer.create.group.third.row=Votre espace de groupe bénéficie de sa propre adresse web pour en faciliter l'accès et le partage
 groups.disclaimer.create.group.second.title=POUR COMMENCER
 groups.disclaimer.create.group.fourth.row=Pour de plus amples informations sur la création des groupes sur Planète Sankoré, visitez la section des groupes sur la bibliothèque d'assistance de Planète Sankoré.
 groups.disclaimer.create.group.fifth.row=Si vous souhaitez créer un groupe sur Planète Sankoré, il est important de :
-groups.disclaimer.create.group.third.list.first.row=* savoir que les groupes Planète Sankoré peuvent être présentés et mis en lien à partir de divers endroits du site, tels que la page d'accueil ou la page "trouver des groupes",
-groups.disclaimer.create.group.third.list.second.row=* vous engager en qualité de dirigeant du groupe,
-groups.disclaimer.create.group.third.list.third.row=* faire de votre groupe une zone active et utile pour ses membres et pour la communauté Planète Sankoré,
-groups.disclaimer.create.group.third.list.fourth.row=* vous tenir prêt à consacrer environ deux heures par mois à la maintenance de votre espace de groupe et à y contribuer de manière active.
+groups.disclaimer.create.group.third.list.first.row=* Savoir que les groupes Planète Sankoré peuvent être présentés et mis en lien à partir de divers endroits du site, tels que la page d'accueil ou la page "trouver des groupes",
+groups.disclaimer.create.group.third.list.second.row=* Vous engager en qualité de dirigeant du groupe,
+groups.disclaimer.create.group.third.list.third.row=* Faire de votre groupe une zone active et utile pour ses membres et pour la communauté Planète Sankoré,
+groups.disclaimer.create.group.third.list.fourth.row=* Vous tenir prêt à consacrer environ deux heures par mois à la maintenance de votre espace de groupe et à y contribuer de manière active.
 groups.disclaimer.create.group.button=Suivant
 
 ##AboutGroups
 groups.about.title=À QUOI SERVENT LES GROUPES
 groups.about.intro=Créer un groupe sur Planète Sankoré est un bon moyen pour développer une petite communauté ciblée à l’intérieur de la grande communauté de l’éducation.
 groups.about.intro2=Un groupe peut :
-groups.about.first.row=* partager un espace de groupe ouvert ou fermé
-groups.about.second.row=* collaborer sur la création ou la modification des parcours de connaissance
-groups.about.third.row=* utiliser un forum pour discuter du groupe en général ou à propos de projets particuliers du groupe
-groups.about.fourth.row=* inclure de nouveaux membres
-groups.about.fifth.row=* partager des documents
-groups.about.sixth.row=* mettre en valeur les parcours de connaissance et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré, ou pour l'inciter à participer
+groups.about.first.row=* Partager un espace de groupe ouvert ou fermé
+groups.about.second.row=* Collaborer sur la création ou la modification des parcours de connaissance
+groups.about.third.row=* Utiliser un forum pour discuter du groupe en général ou à propos de projets particuliers du groupe
+groups.about.fourth.row=* Inclure de nouveaux membres
+groups.about.fifth.row=* Partager des documents
+groups.about.sixth.row=* Mettre en valeur les parcours de connaissance et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré, ou pour l'inciter à participer
 &lt;/pre&gt;</content></xwikidoc>

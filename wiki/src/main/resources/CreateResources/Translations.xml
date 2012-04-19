@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1331896758000</creationDate>
-<date>1331896758000</date>
-<contentUpdateDate>1331896758000</contentUpdateDate>
+<creationDate>1332172394000</creationDate>
+<date>1332172394000</date>
+<contentUpdateDate>1332172394000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -955,12 +955,12 @@ add.selectformat.guidingquestion=What kind of resource would you like to create?
 
 add.selectformat.instruction=If you're not sure, leave "Wiki Resource" selected and click Next.&lt;br&gt;&lt;br&gt;
 
-add.selectformat.list1.header=&lt;b&gt;Wiki Resource&lt;/b&gt;
+add.selectformat.list1.header=Wiki Resource
 add.selectformat.list1.description=No special skills required -- simple "what you see is what you get" format makes creating content easy!
 add.selectformat.list1.thumbnail=/xwiki/bin/download/CreateResources/TemplateThumbnails/WIKIThumb.png
 add.selectformat.list1.url=/xwiki/bin/view/CreateResources/SimpleWikiResource
 
-add.selectformat.list2.header=&lt;b&gt;HTML Resource&lt;/b&gt;
+add.selectformat.list2.header=HTML Resource
 add.selectformat.list2.description=Use for pasting in existing HTML or formatted text from MS Word
 add.selectformat.list2.thumbnail=/xwiki/bin/download/CreateResources/TemplateThumbnails/HTMLThumb.png
 add.selectformat.list2.url=/xwiki/bin/view/CreateResources/SimpleHTMLResource

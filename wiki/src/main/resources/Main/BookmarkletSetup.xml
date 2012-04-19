@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1333440918000</creationDate>
-<date>1333440918000</date>
-<contentUpdateDate>1333440918000</contentUpdateDate>
+<creationDate>1334569792000</creationDate>
+<date>1334569792000</date>
+<contentUpdateDate>1334569792000</contentUpdateDate>
 <version>1.1</version>
 <title>BookmarkletSetup</title>
 <template></template>
@@ -16575,11 +16575,16 @@ H0Ts3+8fjLh5CS020O+OJ1+SVYkKNjS9ni/9K//Z</content></attachment>
 </property>
 </object>
 <content>{{html}}
+&lt;a href="#Bookmarklet_titre1"&gt;Qu'est-ce que le Bookmarklet Sankoré?&lt;/a&gt;&lt;br /&gt;
+&lt;a href="#Bookmarklet_titre2"&gt;Pourquoi l'utiliser?&lt;/a&gt;&lt;br /&gt;
+&lt;a href="#Bookmarklet_titre3"&gt;Comment fonctionne-t-il?&lt;/a&gt;&lt;br /&gt;
+&lt;a href="#Bookmarklet_titre4"&gt;Comment l'installer?&lt;/a&gt;&lt;br /&gt;
+&lt;a href="#Bookmarklet_titre5"&gt;Comment l'utiliser?&lt;/a&gt;&lt;br /&gt;
 
 &lt;table width="612" cellspacing="0" cellpadding="0" border="0"&gt;
   &lt;tbody&gt;&lt;tr&gt;
     &lt;td align="left" valign="top"&gt;&lt;table width="612" cellspacing="0" cellpadding="0" border="0"&gt;
-      &lt;tbody&gt;&lt;tr&gt;
+      &lt;tbody&gt;&lt;tr id="Bookmarklet_titre1"&gt;
         &lt;td&gt;&lt;img width="612" height="67" src="/xwiki/bin/download/Main/BookmarkletSetup/titre1.jpg"&gt;&lt;br&gt;
           &lt;table width="612" cellspacing="2" cellpadding="2" border="0"&gt;
             &lt;tbody&gt;&lt;tr&gt;
@@ -16589,7 +16594,7 @@ H0Ts3+8fjLh5CS020O+OJ1+SVYkKNjS9ni/9K//Z</content></attachment>
             &lt;/tr&gt;
           &lt;/tbody&gt;&lt;/table&gt;
           &lt;table width="612" cellspacing="0" cellpadding="0" border="0"&gt;
-            &lt;tbody&gt;&lt;tr&gt;
+            &lt;tbody&gt;&lt;tr id="Bookmarklet_titre2"&gt;
               &lt;td align="left" valign="top"&gt;&lt;br&gt;
                 &lt;img width="612" height="67" src="/xwiki/bin/download/Main/BookmarkletSetup/titre2.jpg"&gt;
                 &lt;table width="612" cellspacing="2" cellpadding="2" border="0"&gt;
@@ -16607,7 +16612,7 @@ H0Ts3+8fjLh5CS020O+OJ1+SVYkKNjS9ni/9K//Z</content></attachment>
                         &lt;/tr&gt;
                       &lt;/tbody&gt;&lt;/table&gt;
                       &lt;table width="612" cellspacing="0" cellpadding="0" border="0"&gt;
-                        &lt;tbody&gt;&lt;tr&gt;
+                        &lt;tbody&gt;&lt;tr id="Bookmarklet_titre3"&gt;
                           &lt;td align="left" valign="top"&gt;&lt;br&gt;                            &lt;img width="612" height="67" src="/xwiki/bin/download/Main/BookmarkletSetup/titre3.jpg"&gt;&lt;/td&gt;
                         &lt;/tr&gt;
                       &lt;/tbody&gt;&lt;/table&gt;
@@ -16619,7 +16624,7 @@ H0Ts3+8fjLh5CS020O+OJ1+SVYkKNjS9ni/9K//Z</content></attachment>
                         &lt;/tr&gt;
                       &lt;/tbody&gt;&lt;/table&gt;
                       &lt;table width="612" cellspacing="0" cellpadding="0" border="0"&gt;
-                        &lt;tbody&gt;&lt;tr&gt;
+                        &lt;tbody&gt;&lt;tr id="Bookmarklet_titre4"&gt;
                           &lt;td align="left" valign="top"&gt;&lt;br&gt;                            &lt;img width="612" height="67" src="/xwiki/bin/download/Main/BookmarkletSetup/titre4.jpg"&gt;&lt;/td&gt;
                         &lt;/tr&gt;
                       &lt;/tbody&gt;&lt;/table&gt;
@@ -16639,7 +16644,7 @@ H0Ts3+8fjLh5CS020O+OJ1+SVYkKNjS9ni/9K//Z</content></attachment>
                       &lt;img width="376" height="250" src="/xwiki/bin/download/Main/BookmarkletSetup/glissebook.jpg" alt="Bookmarklet Sankoré" /&gt;
 &lt;br&gt;
                       &lt;table width="612" cellspacing="0" cellpadding="0" border="0"&gt;
-                        &lt;tbody&gt;&lt;tr&gt;
+                        &lt;tbody&gt;&lt;tr id="Bookmarklet_titre5"&gt;
                           &lt;td&gt;&lt;br&gt;                            &lt;img width="612" height="67" src="/xwiki/bin/download/Main/BookmarkletSetup/titre5.jpg"&gt;&lt;/td&gt;
                         &lt;/tr&gt;
                       &lt;/tbody&gt;&lt;/table&gt;
@@ -16666,7 +16671,7 @@ H0Ts3+8fjLh5CS020O+OJ1+SVYkKNjS9ni/9K//Z</content></attachment>
                         &lt;/tr&gt;
                       &lt;/tbody&gt;&lt;/table&gt;
                       &lt;table width="612" cellspacing="2" cellpadding="2" border="0"&gt;
-                        &lt;tbody&gt;&lt;tr&gt;
+                        &lt;tbody&gt;&lt;tr id="titre5"&gt;
                           &lt;td align="left" valign="top" height="68"&gt;&lt;p class="texte"&gt;L’utilisation avancée est la même que l’utilisation  simple, avec quelques champs supplémentaires (système éducatif, langue, niveaux,  sujets, types de la ressource), permettant une indexation plus complète et plus  précise de la ressource que vous voulez partager. &lt;br&gt;
                             Nous vous invitons à renseigner le mieux possible la  description de la ressource&amp;nbsp;proposée afin de permettre aux utilisateurs de  retrouver facilement ces informations dans la base de données partagées.&lt;/p&gt;&lt;/td&gt;
                         &lt;/tr&gt;
