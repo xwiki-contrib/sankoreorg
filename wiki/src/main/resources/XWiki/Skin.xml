@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323349857000</creationDate>
-<date>1323349857000</date>
-<contentUpdateDate>1323349857000</contentUpdateDate>
+<creationDate>1334844529000</creationDate>
+<date>1334844529000</date>
+<contentUpdateDate>1334844529000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -1889,6 +1889,134 @@ mgIWgd8FzepinKGQ5tvOjUn7QZ9awjbW03yon9vbE92/vTmkxXXAUuDoML4Wnru5petlWjcmhJDm
 Kxq1iEHuG0NWtFn9HHPzsOif049PvoF8BHFvSPN3kjhqVqASLl6b3X/+CzAD+LT115Ru8v8DT9f8
 /Ii5FFsAAAAASUVORK5CYII=
 </content></attachment><attachment>
+<filename>arrow2.png</filename>
+<filesize>6950</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1332174476000</date>
+<version>1.1</version>
+<comment></comment><content>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
+</content></attachment><attachment>
 <filename>footer-share.png</filename>
 <filesize>1971</filesize>
 <author>XWiki.FlaviusOlaru</author>
@@ -2260,6 +2388,23 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <defaultWeb></defaultWeb>
 <nameField></nameField>
 <validationScript></validationScript>
+<addpath.css>
+<contenttype>FullyRenderedText</contenttype>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>---</editor>
+<name>addpath.css</name>
+<number>13</number>
+<picker>1</picker>
+<prettyName>addpath.css</prettyName>
+<rows>45</rows>
+<size>100</size>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</addpath.css>
 <advancedsearch.vm>
 <contenttype>FullyRenderedText</contenttype>
 <customDisplay></customDisplay>
@@ -2296,7 +2441,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <disabled>0</disabled>
 <editor>---</editor>
 <name>bookmarklet.vm</name>
-<number>32</number>
+<number>27</number>
 <picker>0</picker>
 <prettyName>bookmarklet.vm</prettyName>
 <rows>5</rows>
@@ -2361,7 +2506,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <disabled>0</disabled>
 <editor>---</editor>
 <name>editmeta.vm</name>
-<number>36</number>
+<number>29</number>
 <picker>1</picker>
 <prettyName>editmeta.vm</prettyName>
 <rows>15</rows>
@@ -2372,23 +2517,6 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
 </editmeta.vm>
-<editpanels.vm>
-<contenttype>FullyRenderedText</contenttype>
-<customDisplay></customDisplay>
-<disabled>0</disabled>
-<editor>---</editor>
-<name>editpanels.vm</name>
-<number>13</number>
-<picker>1</picker>
-<prettyName>editpanels.vm</prettyName>
-<rows>15</rows>
-<size>100</size>
-<tooltip></tooltip>
-<unmodifiable>0</unmodifiable>
-<validationMessage></validationMessage>
-<validationRegExp></validationRegExp>
-<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
-</editpanels.vm>
 <footer.vm>
 <contenttype>FullyRenderedText</contenttype>
 <customDisplay></customDisplay>
@@ -2398,7 +2526,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <number>4</number>
 <picker>1</picker>
 <prettyName>footer.vm</prettyName>
-<rows>15</rows>
+<rows>30</rows>
 <size>100</size>
 <tooltip></tooltip>
 <unmodifiable>0</unmodifiable>
@@ -2412,7 +2540,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <disabled>0</disabled>
 <editor>---</editor>
 <name>global.vm</name>
-<number>32</number>
+<number>28</number>
 <picker>1</picker>
 <prettyName>global.vm</prettyName>
 <rows>15</rows>
@@ -2449,7 +2577,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <number>3</number>
 <picker>1</picker>
 <prettyName>header.vm</prettyName>
-<rows>15</rows>
+<rows>30</rows>
 <size>100</size>
 <tooltip></tooltip>
 <unmodifiable>0</unmodifiable>
@@ -2514,7 +2642,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <disabled>0</disabled>
 <editor>---</editor>
 <name>login.vm</name>
-<number>31</number>
+<number>24</number>
 <picker>1</picker>
 <prettyName>login.vm</prettyName>
 <rows>15</rows>
@@ -2544,7 +2672,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <customDisplay></customDisplay>
 <disabled>0</disabled>
 <name>logo</name>
-<number>37</number>
+<number>30</number>
 <picker>0</picker>
 <prettyName>logo</prettyName>
 <size>30</size>
@@ -2621,7 +2749,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <disabled>0</disabled>
 <editor>---</editor>
 <name>panel.vm</name>
-<number>31</number>
+<number>25</number>
 <picker>0</picker>
 <prettyName>panel.vm</prettyName>
 <rows>15</rows>
@@ -2636,7 +2764,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <disabled>0</disabled>
 <editor>---</editor>
 <name>panels.css</name>
-<number>38</number>
+<number>31</number>
 <picker>0</picker>
 <prettyName>panels.css</prettyName>
 <rows>15</rows>
@@ -2666,7 +2794,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <disabled>0</disabled>
 <editor>---</editor>
 <name>siteembed.vm</name>
-<number>31</number>
+<number>26</number>
 <picker>0</picker>
 <prettyName>siteembed.vm</prettyName>
 <rows>15</rows>
@@ -2685,7 +2813,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <number>2</number>
 <picker>1</picker>
 <prettyName>style.css</prettyName>
-<rows>15</rows>
+<rows>30</rows>
 <size>100</size>
 <tooltip></tooltip>
 <unmodifiable>0</unmodifiable>
@@ -2747,7 +2875,7 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <disabled>0</disabled>
 <editor>---</editor>
 <name>views.css</name>
-<number>30</number>
+<number>23</number>
 <picker>0</picker>
 <prettyName>views.css</prettyName>
 <rows>15</rows>
@@ -2762,6 +2890,305 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 <number>0</number>
 <className>XWiki.XWikiSkins</className>
 <guid>d471eda1-a1e8-4e4f-a15f-cf51f1f64ee0</guid>
+<property>
+<addpath.css>/* Add Path */
+.x-panel, .x-window { text-align: left; }
+.x-panel-ghost ul, .x-panel-ghost .x-window-tl { border: none; }
+.x-panel-noborder .x-panel-bbar-noborder .x-toolbar { border: none;  }
+.x-window, .x-panel-ghost, .ext-el-mask-msg { background-color: #fff; border: 1px solid #dcdcdc; font-size: 13px; padding: 0; }
+.x-window div, .x-panel-ghost * { background-color: transparent; background-image: none; }
+.x-window .x-window-tl, .x-panel-ghost .x-window-tl { background-color: #93c53c; padding: 0em 0.5em; text-transform: uppercase; }
+
+.x-window-tl .x-window-header { color: #fff; font: 12px arial;  font-weight: bold; padding: 3px 0; }
+.x-window .x-panel-body { padding: 6px 6px 0; }
+.x-window #resource-drop .x-panel-body { padding-top: 0; }
+ 
+.x-toolbar .x-btn-over .x-btn-right, .x-toolbar .x-btn-over .x-btn-left { background-image: none; } 
+.x-window-mc, .x-form-item { font: 13px Arial,sans-serif; }  
+.x-window .guidingquestion { font-size: 1.2em; font-weight: bold; padding: 0.5em 0; }
+.x-window .subtitle { font-size: 1em; font-weight: bold; padding: 0.5em 0; }
+input.x-form-radio { margin-bottom: -2px }
+.x-tree .x-panel-body, #ext-comp-1022 div, #ext-comp-1022 ul, ul.x-tree-root-ct, ul.x-tree-root-ct ul { padding-left: 0; }
+.ext-el-mask-msg * { border: none !important; background-image: none; font: 13px Arial; }
+.x-window .listheader {font-weight: bold;}
+
+.ext-gecko .x-btn button { 
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.ctv-groups a, .ctv-top a { font: 12px Arial; font-weight: bold; text-transform: uppercase; }
+.x-tree-node-anchor { font: 12px Arial; } 
+#resource-pickup { background: transparent url($xwiki.getSkinFile("images/ctv/drag_area.jpg")) no-repeat; height: 85px; margin-top: 1em; padding: 0.7em; width: 360px; }
+#resource-pickup * { background-color: transparent; }
+#resource-pickup .x-panel-body { padding-top: 0.1em; }
+#resource-pickup .x-tree-node-el { border: 1px dashed #93c53c; }
+#resource-pickup .x-tree-ec-icon { background-image: none; width: 5px; }
+
+.x-dd-drag-proxy, .x-tree-node .x-tree-drag-append a span, .addpath-ctv .ctv-target .x-tree-node-anchor { background-color: #93c53c; border: none; }
+##.x-tree-node .x-tree-selected a span { color: #fff; }
+##.x-tree-node .x-tree-node-over { background-color: transparent; }
+.x-panel-bwrap, .x-panel-bwrap .x-panel-body, .x-column-inner .x-panel { overflow: visible; height: auto; }
+#resource-drop-box .x-panel-body { padding: 0; }
+.x-tree-node a span { overflow: hidden; }
+form#MetadataDialogueForm { height: 420px !important; overflow-y: auto; overflow-x: hidden; }
+
+#MetadataDialoguePanel table#cancelbutton, #MetadataDialoguePanel table#nextbutton {
+	margin-top: 15px !important;
+	margin-bottom: 15px !important;
+}
+
+#MetadataDialogueForm img.x-tree-node-icon { display: none; }
+ul.x-tree-root-ct, #educational_level2-set .x-form-item { margin: 0; }
+.x-combo-list { border-color:#b2b2b2 #e5e5e5 #e5e5e5 #b2b2b2; text-align: left; }
+.x-combo-list-item { text-align: left; }
+.x-panel-body #metadata-language-entry, .x-panel-body #metadata-license_type-entry { width: 98% !important; }
+#MetadataDialoguePanel #fw_items-tree {overflow: hidden;}
+.ux-mselect-item { font: 12px Arial; padding: 0 2px; }
+.x-panel .instruction { font-size: 13px; }
+.directions { font-size: 10px; padding-bottom: 5px; }
+#fw_items-tree .x-panel-body { padding-top: 0; }
+#educational_level2-set { padding: 0; }
+.information-header { font-weight: bold; margin-top: 15px; }
+.information-header img { margin: 0 0 -4px 3px; }
+#ext-comp-1022  .x-panel-body { padding: 0; }
+.x-dd-drag-ghost { padding-left: 5px; text-align: left; width: 300px; }
+.x-dd-drop-icon { background-image: none; width: 0; }
+.x-shadow * { background-image: none; visibility: hidden; }
+.x-dd-drag-proxy { opacity: 0.80;}
+.x-dd-drag-proxy * { background-color: transparent; }
+  
+.ict-icon-combo-item {
+	background-repeat: no-repeat ! important;
+	background-position: 3px 50% ! important;
+}
+
+.crs-icon { width:15px; height:15px; background-repeat:no-repeat; }
+.ctv-groups .x-tree-node-icon, .ctv-top .x-tree-node-icon { display: none; } 
+.x-tree-node div.x-tree-drag-insert-above  { border-top: 1px dashed #93c53c; }
+.x-tree-node div.x-tree-drag-insert-below  { border-bottom: 1px dashed #93c53c; }
+.done-message { font: 13px Arial; padding: 1em 0; }
+.x-window-bbar .x-toolbar { border: none; }
+.x-toolbar .ytb-sep { background-image: none; border-left: 1px solid #999; }
+#header-search button:hover {text-decoration: underline !important;}
+.x-toolbar .x-btn-over td.x-btn-center { background-image: none !important; text-decoration: none; }
+.x-window .ux-mselect-selected, .x-combo-list .x-combo-list-inner .x-combo-selected { background-color: #3399ff; color: #fff; }
+.required-indicator {
+	color: #fb0f0c;
+	font-size: 15px;
+	font-style:normal;
+	font-weight:bold;
+	margin-right: 3px;
+}
+.x-toolbar .ytb-sep { margin: 0; padding: 0; width: 1px; }
+.x-fieldset legend { display: none; }
+#link-entry-box { width: 80%; }
+.ext-gecko .x-window-body .x-form-item { overflow: hidden; }
+
+/* Add Path - CURRIKI-2431 */
+.x-window div.description { display:block; padding:5px 0; }
+.x-btn-left { background-image: none; }
+
+/** EXTJS INVALID **/
+
+.metadata-title-field-invalid {color: #fb0f0c; text-transform: uppercase;}
+.x-form-invalid, textarea.x-form-invalid {background: none;}
+.x-form-invalid, textarea.x-form-invalid {border: 0;}
+
+.ext-safari .x-form-invalid {
+	background: none;
+	border: 0;
+}
+
+.x-tree-root-node * {
+  line-height: 24px !important;
+}
+
+.x-tree-node {
+  position: relative;
+}
+
+.x-tree-node-cb { 
+  position: absolute;
+  top: 4px;
+}
+
+.x-tree-node-anchor {
+  margin-left: 24px !important;
+}
+
+.x-tree-node-ct .x-tree-node {
+  position: relative;
+}
+
+.x-tree-node-el {
+  padding-left:4px !important;
+  overflow: auto; /*force hasLayout in IE7 */
+}
+
+.x-tree-node-el + .x-tree-node-ct {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  background-color: #fff;
+  z-index: 999;
+}
+
+.x-tree-node-cb {
+  cursor: pointer;
+}
+
+.x-tree-node-root {
+  display: none;
+}
+
+.x-panel-bwrap .x-panel-body {
+  overflow: visible;
+}
+
+.x-panel-body #metadata-education_system-entry {
+  width: 98% !important;
+}
+
+.x-tree-node .x-tree-selected {
+  background-color: transparent;
+}
+
+.circle {
+display: inline-block;
+padding: 3px 7px;
+background: #DDDDDD;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+font-family: Arial !important;
+font-size: 12px !important;
+font-weight: bold !important;
+margin-right:3px;
+}
+
+.addpath-page {
+  cursor: default;
+  text-decoration: none;
+}
+
+.addpath-page:hover {
+  text-decoration: none;
+}
+
+.addpath-page-current {
+  background: #A73906;
+  color:#fff;
+}
+
+.addpath-page-previous {
+  cursor: pointer;
+  background: #BF9256;
+  color:#fff;
+}
+
+.x-toolbar .ytb-text {
+ white-space: normal;
+}
+
+.x-tool-close {
+  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Main/AddResources/close.png") repeat scroll 0 0 transparent !important;
+    cursor: pointer;
+    height: 32px;
+    position: absolute;
+    right: -28px;
+    top: -28px;
+    width: 32px;
+    z-index: 9004;
+}
+
+#dialog-actions {
+   border-color: #666666;
+    border-style: solid;
+    border-width: 10px;
+}
+
+#resource-source-dialogue {
+     border-color: #666666;
+    border-style: solid;
+    border-width: 10px;
+}
+
+.x-tree-node .el-item-parent.x-tree-node-over {
+  background: url($xwiki.getSkinFile("arrow2.png")) no-repeat scroll right center transparent !important;
+}
+
+.x-tree-node .el-item-parent + .x-tree-node-ct {
+  border-left: 1px solid #a73c00;
+}
+
+.x-tree-node .fw-item-parent.x-tree-node-over {
+  background: url($xwiki.getSkinFile("arrow2.png")) no-repeat scroll right center transparent !important;
+}
+
+.x-tree-node .fw-item-parent + .x-tree-node-ct {
+  border-left: 1px solid #a73c00;
+}
+
+.x-tree-node .ict-item-parent.x-tree-node-over {
+  background: url($xwiki.getSkinFile("arrow2.png")) no-repeat scroll right center transparent !important;
+}
+
+.x-tree-node .ict-item-parent + .x-tree-node-ct {
+  border-left: 1px solid #a73c00;
+}
+
+.x-tree-node a {
+  background-color: #FFFFFF !important;
+}
+
+.x-tree-node-over a {
+  background-color: #FFFFFF !important;
+}
+
+.x-tree-node-leaf {
+  background: none !important;
+}
+
+#switchbutton button {
+  background-color: #FFF;
+  color: #000;
+  text-decoration: underline;
+}
+
+#switchbutton .x-btn-left {
+  background: none;
+}
+
+#switchbutton .x-btn-right {
+  background: none;
+}
+
+#switchbutton .x-btn-center {
+  background: none;
+}
+
+#MetadataDialoguePanel1 .x-panel-bbar {
+  height: 49px;
+}
+
+
+#MetadataDialoguePanel1 .x-panel-bbar td {
+  height: 24px;
+}
+
+.x-window-tl .x-window-header {
+  padding: 0;
+}
+
+.x-window-header-text {
+  display: block;
+  margin: 3px 0;
+}
+
+#MetadataDialogue {
+  border: none;
+}</addpath.css>
+</property>
 <property>
 <advancedsearch.vm>#set($defaultsearchtext = $msg.get("header.defaultsearchtext"))
 &lt;form id="searchform" name="searchform" class="search-box" action="$xwiki.getURL('Search.URL')" onsubmit="document.location.href=this.action+'#o%3As%3Ds%253Aexternal%5Ef%3Do%253Aexternal%253Do%25253A'+(($('curriki-searchbox').value!=='$defaultsearchtext')?'terms%25253Ds%2525253A'+escape(escape(escape(escape($('curriki-searchbox').value))))+'%25255E':'')+'subjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%5Ep%3Do%253Aexternal%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Ea%3Do%253A'; return false"&gt;
@@ -3467,9 +3894,6 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
     &lt;label for="content"&gt;$msg.get('core.editors.content.contentField.label')&lt;/label&gt;
   &lt;/div&gt;
 #end</editmeta.vm>
-</property>
-<property>
-<editpanels.vm></editpanels.vm>
 </property>
 <property>
 <footer.vm>#if($isInServletMode)## Visible only in a page
@@ -4198,7 +4622,7 @@ font-size: 13px; font-weight:bold;}
 #set($debugging = "-debug")
 &lt;script type="text/javascript" src="$xwiki.getSkinFile("js/prototype/prototype.js")"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="$xwiki.getSkinFile("extjs/adapter/ext/ext-base.js")"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="$xwiki.getSkinFile("extjs/ext-all${debugging}.js")"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="$xwiki.getSkinFile("extjs/ext-all-debug.js")"&gt;&lt;/script&gt;
 #if($doc.fullName != "Main.JoinSankore" || $context.user != "XWiki.XWikiGuest")
   #if("$!request.lang" != "")
     #set($lang = $request.lang)
@@ -4217,8 +4641,10 @@ font-size: 13px; font-weight:bold;}
 &lt;script src="/xwiki/js/i18n.js"&gt;&lt;/script&gt;
 ## and uncomment the next one out instead
 ##&lt;script src="/js/1/lang_${lang}.js"&gt;&lt;/script&gt;
+&lt;script src="/xwiki/js/curriki-ui-tree${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-main${debugging}.js"&gt;&lt;/script&gt;
-&lt;script src="/xwiki/js/curriki-module-addpath${debugging}.js"&gt;&lt;/script&gt;
+##&lt;script src="/xwiki/js/curriki-module-addpath${debugging}.js"&gt;&lt;/script&gt;
+&lt;script src="/xwiki/js/sankore-module-addpath${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-module-organize${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-module-nominate${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-module-review${debugging}.js"&gt;&lt;/script&gt;
@@ -5967,6 +6393,7 @@ ul.x-tab-strip-top { border-bottom: none; }
 .x-grid3-header {
   background:#A73906;
   color:#fff;
+  padding: 0px;
 }
 #search-results-member .x-grid3-header, #search-results-blog .x-grid3-header, #search-results-group
 .x-grid3-header {background:#FF4100;}
@@ -6858,7 +7285,7 @@ background: url("/xwiki/bin/download/Panels/SankoreSearchPanel/loupe.png") no-re
     display: inline;
     float: left;
     height: 34px;
-   margin: -6px 0 0 -17px;
+   margin: -3px 0 0 -14px;
     width: 34px;
    border: none !important;
     color: transparent;
@@ -6912,6 +7339,7 @@ input#search-termPanel-resource-terms, input#search-termPanel-external-terms, in
 #search-results-resource .x-grid3-header table, #search-results-group .x-grid3-header table {
   height: 30px;
   background-color: #749D35;
+  padding-left: 0px;
 }
 
 td.x-grid3-hd-over .x-grid3-hd-inner, td.sort-desc .x-grid3-hd-inner, td.sort-asc .x-grid3-hd-inner, td.x-grid3-hd-menu-open .x-grid3-hd-inner {
@@ -6920,6 +7348,7 @@ td.x-grid3-hd-over .x-grid3-hd-inner, td.sort-desc .x-grid3-hd-inner, td.sort-as
 
 .x-grid3-header {
   background-color: #749D35;
+  padding-left: 0px;
 }
 
 #search-results-statusbar-resource, #search-results-statusbar-group {
@@ -7042,6 +7471,18 @@ textarea {
 
 .x-window, .x-panel-ghost, .ext-el-mask-msg {
   top: 100px !important;
+}
+
+#MetadataDialoguePanel1 #publishbutton button {
+  font-size: 14px;  
+}
+
+.x-grid3-header-offset {
+    padding: 0px;
+}
+
+#search-termPanel-resource-form, #x-form-el-search-termPanel-external-terms {
+  margin-top: 3px;
 }</sankore.css>
 </property>
 <property>
@@ -7116,7 +7557,7 @@ body.main ul {
   list-style-type: circle;
 }
 .main table {
-  margin: 0 1px;
+  margin: 0px;
 }
 #xwikimaincontainerinner {
   background-color: $theme.pageContentBackgroundColor;
@@ -7929,7 +8370,7 @@ document.write(unescape("%3Clink rel='stylesheet' type='text/css' href='" + ejcL
 &lt;link href="/xwiki/js/curriki-js.css" type="text/css" rel="stylesheet" type="text/css" /&gt;
 &lt;link href="$xwiki.getSkinFile("curriki/ictcrs.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("panels.css", false)" rel="stylesheet" type="text/css"  /&gt;
-&lt;link href="$xwiki.getSkinFile("curriki/addpath.css", false)" rel="stylesheet" type="text/css"  /&gt;
+&lt;link href="$xwiki.getSkinFile("addpath.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("curriki/filetypes.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("curriki/search.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("curriki.css", false)" rel="stylesheet" type="text/css"  /&gt;
@@ -7938,6 +8379,7 @@ document.write(unescape("%3Clink rel='stylesheet' type='text/css' href='" + ejcL
 ##&lt;link href="$xwiki.getSkinFile("curriki/style2.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("sankore.css", false)" rel="stylesheet" type="text/css"  /&gt;
 &lt;link href="$xwiki.getSkinFile("js/yui/treeview/assets/tree.css", false)" rel="stylesheet" type="text/css"  /&gt;
+&lt;link href="$xwiki.getSkinFile("sankoreaddpath.css", false)" rel="stylesheet" type="text/css"  /&gt;
 #if($doc.getObject("CurrikiCode.AssetClass"))
 &lt;link href="$xwiki.getSkinFile("views.css", false)" rel="stylesheet" type="text/css"  /&gt;
 #if("$!request.viewer"=="embed")
