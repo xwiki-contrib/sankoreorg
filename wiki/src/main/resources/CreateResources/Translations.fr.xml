@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334841095000</creationDate>
-<date>1334841095000</date>
-<contentUpdateDate>1334841095000</contentUpdateDate>
+<creationDate>1334932979000</creationDate>
+<date>1334932979000</date>
+<contentUpdateDate>1334932979000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -115,9 +115,9 @@ form.scratch.url=/xwiki/bin/view/CreateResources/SimpleWikiResource
 form.scratch.title=Créer une Ressource depuis "Zéro" (Simple Document Wiki)
 form.scratch.title.description=Pas sûr de ce que c'est ou de ce que ça pourrait être?&lt;br/&gt;En savoir plus:
 form.title.description.link1=Examples
-form.title.description.link1.url=/xwiki/bin/view/Coll_curriki/SampleWikiResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
+form.title.description.link1.url=#
 form.title.description.link3=Aide
-form.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
+form.title.description.link3.url=#
 form.title.description.link2=Comité de Validation Sankoré
 form.title.description.link2.url=/xwiki/bin/view/Main/AboutCES
 form.title.description.link2.thumbnail=/xwiki/skins/curriki8/icons/CRS.png
@@ -138,7 +138,7 @@ form.scratch.description_tooltip=Si cette ressource fait partie d'un contexte é
 form.scratch.step2.header=Étape 2. Saisir &amp; Mettre en page le Contenu
 form.scratch.step2.instruction=Quel contenu devrait apparaître dans votre ressource?
 form.scratch.step2.content.title=Contenu:
-form.scratch.step2.content.instruction=Entrez le contenu dans la fenêtre d'édition ci-dessous. Formatez et développez votre contenu en utilisant &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;la barre d'outils&lt;/a&gt;.
+form.scratch.step2.content.instruction=Entrez le contenu dans la fenêtre d'édition ci-dessous. Formatez et développez votre contenu en utilisant la barre d'outils.
 
 ############################
 ## SIMPLE HTML RESOURCE (SHR) FORM
@@ -149,9 +149,9 @@ form.html.scratch.url=/xwiki/bin/view/CreateResources/SimpleHTMLResource
 form.html.scratch.title=Créer une ressource sans modèle (document simple en HTML)
 form.html.scratch.title.description=Pas sûr de ce que c'est ou de ce que ça pourrait être?&lt;br/&gt;En savoir plus:
 form.html.title.description.link1=Exemples
-form.html.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/SampleHTMLResources?bc=;Coll_curriki.SampleModelResourcesCreatedUsingForms
+form.html.title.description.link1.url=#
 form.html.title.description.link3=Aide
-form.html.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheHTMLResourcefromScratchForm?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository;Coll_curriki.CreatingResourceswithFormsTemplates
+form.html.title.description.link3.url=#
 form.html.title.description.link2=Comité de Validation Sankoré
 form.html.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Main/AboutCES
 form.html.title.description.link2.thumbnail=/xwiki/skins/curriki8/crs/crs.png
@@ -184,9 +184,9 @@ lesson.plan.title=Créer une Ressource d'après un Template (Plan de Leçon Plan
 lesson.plan.title.description=En apprendre plus:
 
 lesson.plan.title.description.link1=Examples
-lesson.plan.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/ModelLessonsfromCurrikisForm-BasedTemplate
+lesson.plan.title.description.link1.url=#
 lesson.plan.title.description.link3=Aide
-lesson.plan.title.description.link3.url=/xwiki/bin/view/Coll_curriki/CreatingResourceswithFormsTemplates?bc=;Coll_curriki.CurrikiHelp
+lesson.plan.title.description.link3.url=#
 lesson.plan.title.description.link2=Comité de Validation Sankoré
 lesson.plan.title.description.link2.url=/xwiki/bin/view/Main/AboutCES
 lesson.plan.title.description.link2.thumbnail=/xwiki/skins/curriki8/icons/CRS.png
@@ -223,7 +223,7 @@ lesson.plan.group.size.content5=Apprenant indépendants
 lesson.plan.group.size.tooltip=Quelle est la composition idéale d'étudiants pour cette leçon?
 
 lesson.plan.learning.objectives.title=Objectifs d'apprentissage:
-lesson.plan.learning.objectives.instruction=Entrez l'objectif d'apprentissage dans la fenêtre d'édition ci-dessous. Formatez et développez votre contenu en utilisant &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;la barre d'outils&lt;/a&gt;.
+lesson.plan.learning.objectives.instruction=Entrez l'objectif d'apprentissage dans la fenêtre d'édition ci-dessous. Formatez et développez votre contenu en utilisant la barre d'outils&lt;/a&gt;.
 lesson.plan.learning.objectives.content=
 lesson.plan.learning.objectives.tooltip=Qu'est-ce que les étudiants devraient savoir et être capables de faire après avoir complété cette leçon?
 
@@ -238,7 +238,7 @@ lesson.plan.materials.content=
 lesson.plan.materials.tooltip=Quelles fournitures, livres, équipement spécial, logiciel, ou autre matériel sont nécessaires pour cette leçon?
 
 lesson.plan.procedures.title=Procédures:
-lesson.plan.procedures.instruction=Entrez la procédure à suivre dans la fenêtre d'édition ci-dessous. Formatez et développez votre contenu en utilisant &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;la barre d'outils&lt;/a&gt;.
+lesson.plan.procedures.instruction=Entrez la procédure à suivre dans la fenêtre d'édition ci-dessous. Formatez et développez votre contenu en utilisant la barre d'outils&lt;/a&gt;.
 lesson.plan.procedures.content=
 lesson.plan.procedures.tooltip=Quelles instructions pouvez-vous fournir pour assurer que vous et d'autres mènerez à bien les instructions prévues avec succès pendant cette leçon?
 
@@ -248,7 +248,7 @@ lesson.plan.assessment.content=
 lesson.plan.assessment.tooltip=Comment pouvez-vous évaluer les nouvelles connaissances et aptitudes des étudiants?
 
 lesson.plan.answer.key.title=Réponse clé ou Rubrique:
-lesson.plan.answer.key.instruction=Listez les réponses dans l'espace ci-dessous ou développez une rubrique en utilisant &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;la barre d'outils&lt;/a&gt;.
+lesson.plan.answer.key.instruction=Listez les réponses dans l'espace ci-dessous ou développez une rubrique en utilisant la barre d'outils&lt;/a&gt;.
 lesson.plan.answer.key.content=
 lesson.plan.answer.key.tooltip=Quels critères peut-on utiliser pour clarifier ce qu'on attend des étudiants ou quantifier l'évaluation?
 
@@ -281,13 +281,13 @@ nortel.lesson.plan.title=Créer un plan de leçon (Nortel LearniT 6E + S Templat
 nortel.lesson.plan.title.description=&lt;br&gt;En savoir plus:
 
 nortel.form.title.description.link1=Modèles
-nortel.form.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/ModelLessonsfromNortelLearniTs6ETemplate?bc=;Coll_NortelLearniT.NortelLearniT6ESForm
+nortel.form.title.description.link1.url=#
 nortel.form.title.description.link2=Aide détaillée sur l'utilisation du formulaire
-nortel.form.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/NortelLearniT6ESForm?bc
+nortel.form.title.description.link2.url=#
 nortel.form.title.description.link3=&lt;img src="/xwiki/bin/download/CreateResources/NortelLearniTLessonPlan/NLorglogo2Crev1207.JPG" /&gt;
-nortel.form.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Demo/nortellearnit
+nortel.form.title.description.link3.url=#
 nortel.form.title.description.link4=A propos de 6E + S Leçon Plans
-nortel.form.title.description.link4.url=http://www.curriki.org/xwiki/bin/view/Coll_NortelLearniT/6eslessonplan?bc=;Coll_NortelLearniT.NortelLearniT6ESForm
+nortel.form.title.description.link4.url=#
 
 
 
@@ -412,7 +412,7 @@ ace.lesson.plan.title.description=Learn more:
 ace.lesson.plan.title.description.link1=Models
 ace.lesson.plan.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/ModelLessonsfromCurrikisForm-BasedTemplate
 ace.lesson.plan.title.description.link3=Help
-ace.lesson.plan.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheACELessonPlanForm?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.CreatingResourceswithFormsTemplates
+ace.lesson.plan.title.description.link3.url=#
 ace.lesson.plan.title.description.link2=ACE
 ace.lesson.plan.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Demo/ace
 ace.lesson.plan.title.description.link2.thumbnail.url=http://www.curriki.org/xwiki/bin/view/Demo/ace
@@ -557,11 +557,11 @@ wq.plan.title=Create a WebQuest from a Template
 wq.title.description=Learn more:
 
 wq.title.description.link1=Models
-wq.title.description.link1.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/ModelsCreatedUsingtheWebQuestTemplate
+wq.title.description.link1.url=#
 wq.title.description.link2=Help
-wq.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/UsingtheWebquestForm
+wq.title.description.link2.url=#
 wq.title.description.link3=WebQuest Background
-wq.title.description.link3.url=http://www.curriki.org/xwiki/bin/view/Coll_curriki/WebQuestBackgroundInstructionalDesign
+wq.title.description.link3.url=#
 wq.title.description.link4=Comité de Validation Sankoré
 wq.title.description.link4.url=/xwiki/bin/view/Main/AboutCES
 wq.title.description.link4.thumbnail=/xwiki/skins/curriki8/crs/crs.png
@@ -587,12 +587,12 @@ wq.intro.content=
 wq.intro.tooltip=The purpose of this section is to both prepare and hook the learner. If there is a role or scenario involved (e.g., \\&amp;#34;You are a detective trying to identify the mysterious poet...\\&amp;#34;), here is where you\\&amp;#39;ll set the stage. Otherwise, use this section to provide a short advance organizer or overview. 
 
 wq.task.title=The Task:
-wq.task.instruction=Describe crisply and clearly what the end result of the learners' activities will be, directing your words to your students. If the final product involves using some tool (e.g., HyperStudio, the Web, video), mention it here. Try functions on the &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;editing toolbar&lt;/a&gt; to format your text, add images, etc.
+wq.task.instruction=Describe crisply and clearly what the end result of the learners' activities will be, directing your words to your students. If the final product involves using some tool (e.g., HyperStudio, the Web, video), mention it here. Try functions on the editing toolbar&lt;/a&gt; to format your text, add images, etc.
 wq.task.content=
 wq.task.tooltip=The Task could be a problem or mystery to be solved, a position to be formulated and defended, a product to be designed, a creative work, a journalistic account -- anything that requires the learners to process and transform the information they find. Do not use this section to list the steps that students will go through to get to the end point; that belongs in the Process section below.
 
 wq.process.title=The Process:
-wq.process.instruction=Addressing the student, describe the steps s/he should take to accomplish the task described above. You may wish to use the numbered list format in the &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/FormattingContentwiththeWYSIWYGEditingToolbar?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.ContributingtoEditingResourcesintheRepository" target="_blank"&gt;editing toolbar&lt;/a&gt;. Upload any additional materials you've created to support steps of The Process using the Required Attachments section below, and reference use of these in the relevant step.
+wq.process.instruction=Addressing the student, describe the steps s/he should take to accomplish the task described above. You may wish to use the numbered list format in the editing toolbar&lt;/a&gt;. Upload any additional materials you've created to support steps of The Process using the Required Attachments section below, and reference use of these in the relevant step.
 wq.process.content=
 wq.process.tooltip=Learners will access the online resources that you have identified as they go through The Process, so embed each link within the relevant step. (You can find out more about hyperlinking text by clicking the \\&amp;#34;editing toolbar\\&amp;#34; link in the instructions for this section.) 
 
