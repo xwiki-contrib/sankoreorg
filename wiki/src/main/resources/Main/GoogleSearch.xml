@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1320851179000</creationDate>
-<date>1320851179000</date>
-<contentUpdateDate>1320851179000</contentUpdateDate>
+<creationDate>1334938693000</creationDate>
+<date>1334938693000</date>
+<contentUpdateDate>1334938693000</contentUpdateDate>
 <version>1.1</version>
 <title>GoogleSearch</title>
 <template></template>
@@ -693,6 +693,14 @@ div.gs-title,
   background: none !important;
   color: #000 !important;
   text-shadow: none !important;
+}
+
+.gsc-above-wrapper-area{
+  visibility: hidden;
+}
+
+.gsc-wrapper{
+  margin: -60px 0 0 0;
 }</code>
 </property>
 <property>
