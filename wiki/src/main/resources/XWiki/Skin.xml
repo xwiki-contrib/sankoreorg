@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334934836000</creationDate>
-<date>1334934836000</date>
-<contentUpdateDate>1334934836000</contentUpdateDate>
+<creationDate>1334937873000</creationDate>
+<date>1334937873000</date>
+<contentUpdateDate>1334937873000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -6953,20 +6953,20 @@ li a.active {
 }
 
 .download-link {
-  background-image: url("/xwiki/bin/download/XWiki/Skin/arrowDownload.png");
-  background-position: 150px 11px;
-  background-repeat: no-repeat;
-  border-radius: 4px 4px 4px 4px;
-  color: #FFFFFF !important;
-  cursor: pointer;
-  display: block;
-  font-size: 12px;
-  font-weight: bold;
-  height: 43px;
-  margin:auto;
-  padding: 5px 60px 0 15px;
-  text-decoration: none;
-  width: 125px;
+    background-image: url("/xwiki/bin/download/XWiki/Skin/arrowDownload.png");
+    background-position: 160px 11px;
+    background-repeat: no-repeat;
+    border-radius: 4px 4px 4px 4px;
+    color: #FFFFFF !important;
+    cursor: pointer;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    height: 43px;
+    margin: auto;
+    padding: 5px 50px 0 16px;
+    text-decoration: none;
+    width: 136px;
 }
 .download:hover {
   color: #FFFFFF;
