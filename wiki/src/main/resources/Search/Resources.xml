@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1327580207000</creationDate>
-<date>1327580207000</date>
-<contentUpdateDate>1327580207000</contentUpdateDate>
+<creationDate>1335193326000</creationDate>
+<date>1335193326000</date>
+<contentUpdateDate>1335193326000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -508,38 +508,59 @@ $ict:
     #set($junk = $q.add("(${escapetool.Q}${terms}${escapetool.Q} OR ${terms}*)"))
   #end
   ##
-  ## Subject
-  #if("$!request.subject" != "")
-    #if($!request.subject != "UNCATEGORIZED")
-      #set($junk = $q.add("CurrikiCode.AssetClass.fw_items:${request.subject}"))
-    #else
-      #set($ucqry = "where doc.space='FW_masterFramework' and doc.parent='' order by doc.title")
-      #set($topics = $xwiki.searchDocuments($ucqry))
-      #foreach($topic in $topics)
-        #set($junk = $q.add("-CurrikiCode.AssetClass.fw_items:${topic}"))
+  ## Education system
+  #set($international = true)
+  #if("$!request.system" != "" &amp;&amp; "$!request.system" != "AssetMetadata.InternationalEducation")
+    #set($international = false)
+    #set($junk = $q.add("CurrikiCode.AssetClass.education_system:${request.system}"))
+  #end
+  ##
+  ## Educational level
+  #if("$!request.level" != "")
+    #if($international == false)    
+      #set($junk = $q.add("CurrikiCode.AssetClass.educational_level:${request.level}"))
+      #if("$!request.sublevel" != "")
+        #set($junk = $q.add("CurrikiCode.AssetClass.educational_level:${request.sublevel}"))
       #end
+    #else
+      #set($pivot = $xwiki.getDocument($request.level).getValue("pivot"))
+      #set($pivotlvls = $xwiki.searchDocuments(", BaseObject AS obj, StringProperty AS prop WHERE obj.name=doc.fullName AND obj.className='CurrikiCode.EducationalLevelClass' AND prop.id.id=obj.id AND prop.name='pivot' AND prop.value='${pivot}' AND NOT doc.fullName='${request.level}'"))      
+      #set($lvlquery = "")
+      #foreach($pivotlvl in $pivotlvls)
+        #set($lvlquery = "${lvlquery} CurrikiCode.AssetClass.educational_level:${pivotlvl}")
+        #if($velocityCount &lt; $pivotlvls.size())
+          #set($lvlquery = "${lvlquery} OR")
+        #end        
+      #end
+      #set($junk = $q.add("(${lvlquery})"))
     #end
   #end
   ##
-  ## FileType
-  #if("$!request.filetype" != "")
-    #set($junk = $q.add("CurrikiCode.AssetClass.category:${request.filetype}"))
+  ## Subject
+  #if("$!request.subject" != "")    
+      #set($junk = $q.add("CurrikiCode.AssetClass.fw_items:${request.subject}"))
+    #if("$!request.subsubject" != "")
+      #set($junk = $q.add("CurrikiCode.AssetClass.fw_items:${request.subsubject}"))
+    #end
   #end
   ##
-  ## Level
-  #if($!request.level != "")
-    #set($junk = $q.add("CurrikiCode.AssetClass.educational_level:${request.level}"))
+  ## Instructional component
+  #if("$!request.ict" != "")
+    #set($junk = $q.add("CurrikiCode.AssetClass.instructional_component:${request.ict}"))
+    #if("$!request.subict" != "")
+      #set($junk = $q.add("CurrikiCode.AssetClass.instructional_component:${request.subict}"))
+    #end
   #end
   ##
   ## Language
   #if("$!request.language" != "")
     #set($junk = $q.add("CurrikiCode.AssetClass.language:${request.language}"))
-  #end
+  #end  
   ##
-  ## ICT
-  #if("$!request.ict" != "")
-    #set($junk = $q.add("CurrikiCode.AssetClass.instructional_component:${request.ict}"))
-  #end
+  ## FileType
+  #if("$!request.filetype" != "")
+    #set($junk = $q.add("CurrikiCode.AssetClass.category:${request.filetype}"))
+  #end    
   ##
   ## Category
   #if("$!request.category" != "")
@@ -607,7 +628,8 @@ $ict:
   #set($wikinames = "xwiki")
   #set($languages = "default,en,fr")
   #set($include = "CurrikiCode.AssetClass.hidden_from_search:0 ")
-  #set($exclude = "AND NOT CurrikiCode.TextAssetClass.syntax:cboe AND NOT web:AssetTemp AND NOT web:Coll_Templates AND NOT name:WebHome AND NOT name:WebPreferences AND NOT name:MyCollections AND NOT name:SpaceIndex AND NOT CurrikiCode.AssetClass.category:external")
+  ## AND NOT CurrikiCode.TextAssetClass.syntax:cboe 
+  #set($exclude = " AND NOT web:AssetTemp AND NOT web:Coll_Templates AND NOT name:WebHome AND NOT name:WebPreferences AND NOT name:MyCollections AND NOT name:SpaceIndex AND NOT CurrikiCode.AssetClass.category:external")
   #if("$!conditions" != "")
     #set($include = "$!include AND ")
   #end
