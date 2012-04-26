@@ -221,6 +221,7 @@ Ext.extend(Curriki.ui.tree.TreeNodeUI, Ext.tree.TreeNodeUI, {
     }
   },
   animExpand : function(callback) {
+    this.node.ownerTree.animating = true;
     var ct = Ext.get(this.ctNode);
     ct.stopFx();
     if(!this.node.isExpandable()){
@@ -228,44 +229,50 @@ Ext.extend(Curriki.ui.tree.TreeNodeUI, Ext.tree.TreeNodeUI, {
       this.ctNode.style.display = "";
       Ext.callback(callback);
       return;
-    }
-    ct.setLeft(this.node.parentNode.ui.ctNode.getWidth());    
+    }   
         
     this.animating = true;
     this.updateExpandIcon();        
     ct.fadeIn('l', {
       callback : function() {
-        this.animating = false;               
+        this.animating = false;   
+        this.node.ownerTree.animating = false;            
         Ext.callback(callback);               
       },
       scope: this,
       duration: this.node.ownerTree.duration || .25
-    });
+    });    
+    
+    ct.setLeft(this.node.parentNode.ui.ctNode.getWidth());    
     this.node.ownerTree.setWidth(ct.getWidth() + this.node.parentNode.ui.ctNode.getWidth());
-    var newheight = this.elNode.offsetParent.offsetTop + this.ctNode.offsetHeight;
+    var newheight = this.elNode.offsetParent.offsetTop + this.ctNode.offsetHeight;    
     if(newheight > this.node.ownerTree.defaultHeight) {
       this.node.ownerTree.setHeight(newheight);     
+      console.log('default height: '+this.node.ownerTree.defaultHeight+' new height: '+newheight);
       this.node.ownerTree.fireEvent('resize', this.node.ownerTree);     
-    }        
+    }    
   },  
   animCollapse : function(callback) {
     var ct = Ext.get(this.ctNode);
     ct.enableDisplayMode('block');
-    ct.stopFx();
+    ct.stopFx();    
 
     this.animating = true;
     this.updateExpandIcon();
 
     ct.fadeOut('r', {
       callback : function(){
-        this.animating = false;               
+        this.animating = false;      
         Ext.callback(callback);
       },
       scope: this,
       duration: this.node.ownerTree.duration || .25
-    });
-    this.node.ownerTree.setHeight(this.node.ownerTree.defaultHeight);
-    this.node.ownerTree.fireEvent('resize', this.node.ownerTree); 
+    });   
+    
+    if (!this.node.ownerTree.animating) {
+      this.node.ownerTree.setHeight(this.node.ownerTree.defaultHeight);
+      this.node.ownerTree.fireEvent('resize', this.node.ownerTree);
+    }
   },
   toggleCheck : function(value) {
     var cb = this.checkbox;
@@ -352,7 +359,7 @@ Ext.extend(Curriki.ui.tree.TreeNodeUI, Ext.tree.TreeNodeUI, {
     }
     this.anchor = this.elNode.childNodes[index];
     this.textNode = this.elNode.childNodes[index].firstChild;
-    var ctWidth = this.textNode.getWidth() + this.node.ownerTree.offsetWidth;
+    var ctWidth = Ext.get(this.textNode).getTextWidth() + this.node.ownerTree.offsetWidth;
     if(this.node.parentNode && this.node.parentNode.ui.ctNode.getWidth() < ctWidth) {
       Ext.get(this.node.parentNode.ui.ctNode).setWidth(ctWidth);
     }
@@ -397,6 +404,7 @@ Curriki.ui.tree.TreePanel = Ext.extend(Ext.tree.TreePanel, {
     this.lastChecked = [];
     this.defaultHeight = 0;
     this.offsetWidth = 50;
+    this.animating = false;
     Curriki.ui.tree.TreePanel.superclass.initComponent.call(this);
    
   },

@@ -21,3 +21,7 @@ function _() {
 		return arguments[0];
 	}
 }
+
+function __() {
+  return Ext.htmlDecode(_.apply(this, arguments))
+}
