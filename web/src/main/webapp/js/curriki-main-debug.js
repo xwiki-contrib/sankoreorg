@@ -2286,7 +2286,31 @@ Curriki.data.EventManager.addListener('Curriki.data.education_system:ready', fun
 Ext.ns('Curriki.data.el');
 
 Curriki.data.EventManager.addListener('Curriki.data.el:ready', function() {
-  Curriki.data.el.elChildren = Curriki.data.el.elAddNode(Curriki.data.el.elMap, 'TREEROOTNODE').children;;
+  Curriki.data.el.elChildren = Curriki.data.el.elAddNode(Curriki.data.el.elMap, 'TREEROOTNODE').children;
+  Curriki.data.el.mapping = Curriki.data.el.elMap['TREEROOTNODE'];
+  Curriki.data.el.list = [];
+  Curriki.data.el.data = [];
+  Curriki.data.el.mapping.each(function(item){
+    Curriki.data.el.list.push(item.id);
+    Curriki.data.el.data.push([
+      item.id      
+      ,item.value
+    ]);
+    if(Curriki.data.el.elMap[item.id]) {
+      Curriki.data.el.elMap[item.id].each(function(i){
+        Curriki.data.el.list.push(i.id);
+        Curriki.data.el.data.push([
+          i.id      
+          ,i.value
+        ]);
+      });
+    }
+  });    
+  Curriki.data.el.store = new Ext.data.SimpleStore({
+    fields: ['id', 'system']
+    ,data: Curriki.data.el.data
+    ,id: 0
+  })
 });
 
 Curriki.data.EventManager.on('Curriki.data.education_system:ready', function() {
@@ -2425,6 +2449,30 @@ Curriki.data.el.getRolloverDisplay = function(el_array) {
 Ext.ns('Curriki.data.fw_item');
 Curriki.data.EventManager.addListener('Curriki.data.fw_item:ready', function() {
   Curriki.data.fw_item.fwChildren = Curriki.data.fw_item.fwAddNode(Curriki.data.fw_item.fwMap, 'TREEROOTNODE').children;
+  Curriki.data.fw_item.mapping = Curriki.data.fw_item.fwMap['TREEROOTNODE'];
+  Curriki.data.fw_item.list = [];
+  Curriki.data.fw_item.data = [];
+  Curriki.data.fw_item.mapping.each(function(item){
+    Curriki.data.fw_item.list.push(item.id);
+    Curriki.data.fw_item.data.push([
+      item.id      
+      ,item.value
+    ]);
+    if(Curriki.data.fw_item.fwMap[item.id]) {
+      Curriki.data.fw_item.fwMap[item.id].each(function(i){
+        Curriki.data.fw_item.list.push(i.id);
+        Curriki.data.fw_item.data.push([
+          i.id      
+          ,i.value
+        ]);
+      });
+    }
+  });    
+  Curriki.data.fw_item.store = new Ext.data.SimpleStore({
+    fields: ['id', 'level']
+    ,data: Curriki.data.fw_item.data
+    ,id: 0
+  })
 });
 Curriki.data.EventManager.on('Curriki.data.el:ready', function() {
   Ext.Ajax.request({
