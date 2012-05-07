@@ -56,10 +56,11 @@ public class FieldResource extends BaseResource {
             } else if (shortFieldType.equals("Date")) {
                 // No extra info
             } else if (shortFieldType.equals("DBList")) {
-                json.put("allowedValues", ((com.xpn.xwiki.objects.classes.DBListClass) field).getList(xwikiContext));
+                //json.put("allowedValues", ((com.xpn.xwiki.objects.classes.DBListClass) field).getList(xwikiContext));
+                json.put("allowedValues", ((com.xpn.xwiki.objects.classes.DBListClass) field).getDBList(xwikiContext));
             } else if (shortFieldType.equals("DBTreeList")) {
                 JsonConfig config = new JsonConfig();
-                config.setExcludes(new String[] {"value"});
+                //config.setExcludes(new String[] {"value"});
                 Map map = ((com.xpn.xwiki.objects.classes.DBTreeListClass) field).getTreeMap(xwikiContext);
 
                 // The XML representation cannot have an empty name

@@ -46,10 +46,28 @@ public interface Constants {
 
     String ASSET_CLASS_DESCRIPTION = "description";
     String ASSET_CLASS_KEYWORDS = "keywords";
-    String ASSET_CLASS_CATEGORY = "category";
+
+    String ASSET_CLASS_EDUCATION_SYSTEM = "education_system";
+    String ASSET_CLASS_EDUCATION_SYSTEM_DEFAULT = "AssetMetadata.InternationalEducation";
+    String ASSET_CLASS_EDUCATION_SYSTEM_INTERNATIONAL = "AssetMetadata.InternationalEducation";
+    String ASSET_CLASS_EDUCATION_SYSTEM_QUERY = "select doc.fullName, prop.value from XWikiDocument as doc, BaseObject as obj, StringProperty as prop where doc.space='AssetMetadata' and doc.fullName=obj.name and obj.className='CurrikiCode.EducationSystemClass' and prop.id.id=obj.id and prop.name='language'";
+
+    String ASSET_CLASS_LANGUAGE = "language";
+    String ASSET_CLASS_LANGUAGE_VALUES = "fr|en";
+
+    String ASSET_CLASS_EDUCATIONAL_LEVEL = "educational_level";
+    String ASSET_CLASS_EDUCATIONAL_LEVEL_DEFAULT = "";
+    String ASSET_CLASS_EDUCATIONAL_LEVEL_QUERY = "select doc.fullName, prop.value, doc.parent from XWikiDocument as doc, BaseObject as obj, StringProperty as prop, StringProperty as pivot where doc.space in ('AssetMetadata') and doc.fullName=obj.name and obj.className='CurrikiCode.EducationalLevelClass' and obj.id=prop.id.id and prop.name='education_system' and obj.id=pivot.id.id and pivot.name='pivot' order by pivot.value";
+
     String ASSET_CLASS_FRAMEWORK_ITEMS = "fw_items";
-    String ASSET_CLASS_FRAMEWORK_ITEMS_DEFAULT = "FW_masterFramework.WebHome";
-    String ASSET_CLASS_FRAMEWORK_ITEMS_QUERY = "select doc.fullName, doc.title, doc.parent from XWikiDocument as doc, BaseObject as obj where doc.web in ('FW_masterFramework') and doc.fullName=obj.name and obj.className='XWiki.FrameworkItemClass' order by doc.title";
+    String ASSET_CLASS_FRAMEWORK_ITEMS_DEFAULT = "";
+    String ASSET_CLASS_FRAMEWORK_ITEMS_QUERY = "select doc.fullName, prop.textValue, doc.parent from XWikiDocument as doc, BaseObject as obj, StringListProperty as prop where doc.space in ('Disciplines') and doc.fullName=obj.name and obj.className='CurrikiCode.DisciplineClass' and obj.id=prop.id.id and prop.name='educational_levels' order by doc.fullName";
+
+    String ASSET_CLASS_INSTRUCTIONAL_COMPONENT = "instructional_component";
+    String ASSET_CLASS_INSTRUCTIONAL_COMPONENT_DEFAULT = "";
+    String ASSET_CLASS_INSTRUCTIONAL_COMPONENT_QUERY = "select doc.fullName, doc.fullName, doc.parent from XWikiDocument as doc, BaseObject as obj where doc.space in ('AssetMetadata') and doc.fullName=obj.name and obj.className='CurrikiCode.InstructionalComponentClass' and doc.name<>'WebHome' order by doc.title";
+
+    String ASSET_CLASS_CATEGORY = "category";
 
     String ASSET_CLASS_RIGHT = "rights";
     String ASSET_CLASS_RIGHT_PUBLIC = "public";
@@ -57,21 +75,8 @@ public interface Constants {
     String ASSET_CLASS_RIGHT_PRIVATE = "private";
     String ASSET_CLASS_RIGHT_VALUES = "public=Public: Available to anyone and any member can edit.|members=Protected: Available to anyone but only you (or your group members) can edit this copy.|private=Private: Only you (or your group members) can view or edit.";
 
-    String ASSET_CLASS_EDUCATIONAL_LEVEL = "educational_level";
-    String ASSET_CLASS_EDUCATIONAL_LEVEL_DEFAULT = "";
-    String ASSET_CLASS_EDUCATIONAL_LEVEL_QUERY = "select doc.fullName, doc.title, doc.parent from XWikiDocument as doc, BaseObject as obj where doc.space in ('AssetMetadata') and doc.fullName=obj.name and obj.className='CurrikiCode.EducationalLevelClass' order by doc.fullName";
-    // TODO remove
-    String ASSET_CLASS_EDUCATIONAL_LEVEL_VALUES = "prek=Preschool / Ages 0-4|gr-k-2=Gr. K-2 / Ages 5-7|gr-3-5=Gr. 3-5 / Ages 8-10|gr-6-8=Gr. 6-8 / Ages 11-13|gr-9-10=Gr. 9-10 / Ages 14-16|gr-11-12=Gr. 11-12 / Ages 16-18|college_and_beyond=College and Beyond|professional_development=Professional Development|special_education=Special Education|na=Other";
-
-    String ASSET_CLASS_INSTRUCTIONAL_COMPONENT = "instructional_component";
-    String ASSET_CLASS_INSTRUCTIONAL_COMPONENT_DEFAULT = "";
-    String ASSET_CLASS_INSTRUCTIONAL_COMPONENT_QUERY = "select doc.fullName, doc.title, doc.parent from XWikiDocument as doc, BaseObject as obj where doc.space in ('AssetMetadata') and doc.fullName=obj.name and obj.className='CurrikiCode.InstructionalComponentClass' order by doc.title";
-    // TODO remove
-    String ASSET_CLASS_INSTRUCTIONAL_COMPONENT_VALUES = "activity_assignment=Activity: Assignment/Homework|activity_exercise=Activity: Exercise|activity_lab=Activity: Experiment/Lab|activity_game=Activity: Game|activity_worksheet=Activity: Graphic Organizer/Worksheet|activity_problemset=Activity: Problem Set|activity_webquest=Activity: WebQuest|book_fiction=Book: Fiction|book_nonfiction=Book: Non-Fiction|book_readings=Book: Readings/Excerpts|book_textbook=Book: Text Book|curriculum_assessment=Curriculum: Assessment/Test|curriculum_course=Curriculum: Full Course|curriculum_unit=Curriculum: Unit|curriculum_lp=Curriculum: Lesson Plan|curriculum_rubric=Curriculum: Rubric|curriculum_scope=Curriculum: Scope & Sequence|curriculum_standards=Curriculum: Standards|curriculum_studyguide=Curriculum: Study Guide/Notes|curriculum_syllabus=Curriculum: Syllabus|curriculum_tutorial=Curriculum: Tutorial|curriculum_workbook=Curriulum: Workbook|resource_animation=Resource: Animation/Simulation|resource_diagram=Resource: Diagram/Illustration|resource_glossary=Resource: Glossary/Vocabulary List|resource_index=Resource: Index/List|resource_photograph=Resource: Photograph|resource_presentation=Resource: Video/Presentation/Slides|resource_collection=Resource: Reference Collection|resource_script=Resource: Script/Transcript|resource_speech=Resource: Audio/Speech/Lecture|resource_table=Resource: Table/Graph/Chart|resource_template=Resource: Template|resource_webcast=Resource: Webcast/Podcast|other=Other";
- 
-    String ASSET_CLASS_LANGUAGE = "language";
-    String ASSET_CLASS_LANGUAGE_VALUES = "eng=English|ind=Bahasa Indonesia|zho=Chinese|nld=Dutch|fra=French|deu=German|hin=Hindi|ita=Italian|jpn=Japanese|kor=Korean|nep=Nepali|por=Portuguese|rus=Russian|sin=Sinhalese|spa=Spanish|tam=Tamil|---=Other";
     String ASSET_CLASS_HIDDEN_FROM_SEARCH = "hidden_from_search";
+
     String ASSET_CLASS_RATING = "rating";
     String ASSET_CLASS_RATING_COUNT = "rating_count";
     String ASSET_CLASS_RATING_SUM = "rating_sum";

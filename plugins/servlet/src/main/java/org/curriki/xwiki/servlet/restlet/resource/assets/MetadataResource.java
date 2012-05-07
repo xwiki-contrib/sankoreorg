@@ -83,15 +83,11 @@ public class MetadataResource extends BaseResource {
         if (json.has("description")) {
             assetObj.set(Constants.ASSET_CLASS_DESCRIPTION,  json.getString("description"));
         }
-        
-        // fw_items (array)
-        List fw_items;
-        if (json.has("fw_items")) {
-            fw_items = json.getJSONArray("fw_items");
-        } else {
-            fw_items = new ArrayList();
+
+        // education_system
+        if (json.has(Constants.ASSET_CLASS_EDUCATION_SYSTEM)) {
+            assetObj.set(Constants.ASSET_CLASS_EDUCATION_SYSTEM, json.getString(Constants.ASSET_CLASS_EDUCATION_SYSTEM));
         }
-        assetObj.set(Constants.ASSET_CLASS_FRAMEWORK_ITEMS,  fw_items);
 
         // educational_level (array)
         List educational_level;
@@ -101,6 +97,15 @@ public class MetadataResource extends BaseResource {
             educational_level = new ArrayList();
         }
         assetObj.set(Constants.ASSET_CLASS_EDUCATIONAL_LEVEL,  educational_level);
+        
+        // fw_items (array)
+        List fw_items;
+        if (json.has("fw_items")) {
+            fw_items = json.getJSONArray("fw_items");
+        } else {
+            fw_items = new ArrayList();
+        }
+        assetObj.set(Constants.ASSET_CLASS_FRAMEWORK_ITEMS,  fw_items);
 
         // instructional_component (array)
         List instructional_component;
