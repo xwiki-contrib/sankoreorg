@@ -623,7 +623,7 @@ $asset.display('instructional_component', 'view')
     <div id="asset-wrapper-inner">
         <ul id="asset-links">
             #if($asset.hasAccessLevel("edit"))
-            <li><a href="$asset.getURL("view", "bc=$!{request.bc}&viewer=infoedit")"  title="$msg.get("rve.information.edit_rollover")" #if(!$isOriginalAuthorOrAdmin) onclick="return checkEditOrCopy();" #end>$msg.get("rve.information.edit_link")</a></li>
+            <li><a href="javascript:Curriki.module.addpath.startPath('Metadata', {assetName:'${asset.fullName}'});"  title="$msg.get("rve.information.edit_rollover")" #if(!$isOriginalAuthorOrAdmin) onclick="return checkEditOrCopy();" #end>$msg.get("rve.information.edit_link")</a></li>
             #end
             <li class="last-item"><a href="$asset.getURL("view", "bc=$!{request.bc}&viewer=history")" title="$msg.get("rve.information.history_rollover")">$msg.get("rve.information.history")</a></li>
         </ul>
@@ -644,27 +644,34 @@ $asset.display('instructional_component', 'view')
                         <strong>$msg.get("rve.information.description_title")</strong>
                         <p>$asset.display("description")</p>
                     </li>
+                    
+                    <li id="assetinfo-basic-education_system">
+                      <strong>$msg.get("rve.information.education_system_title")</strong>
+                      <p>$asset.display("education_system")</p>
+                    </li>
 
                     <li id="assetinfo-basic-subject-education">
                         <table>
                             <tr>
                                 <th>
-                                    <strong>$msg.get("rve.information.subject_title")</strong>
-                                </th>
-                                <th>
                                     <strong>$msg.get("rve.information.edlevel_title")</strong>
                                 </th>
+                                <th>
+                                    <strong>$msg.get("rve.information.subject_title")</strong>
+                                </th>
+                                
                                 <th>
                                     <strong>$msg.get("rve.information.ict_title")</strong>
                                 </th>
                             </tr>
                             <tr>
                                 <td>
-                                    #asset_info_subject($asset false)                                   
-                                </td>
-                                <td>
                                     #asset_info_edlevel($asset false)                                    
                                 </td>
+                                <td>
+                                    #asset_info_subject($asset false)                                   
+                                </td>
+                                
                                 <td>
                                     #asset_info_ict($asset false)                                    
                                 </td>
