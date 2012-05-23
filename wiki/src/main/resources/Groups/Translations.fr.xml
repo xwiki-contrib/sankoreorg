@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334330862000</creationDate>
-<date>1334330862000</date>
-<contentUpdateDate>1334330862000</contentUpdateDate>
+<creationDate>1337777142000</creationDate>
+<date>1337777142000</date>
+<contentUpdateDate>1337777142000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -669,7 +669,7 @@ groups.disclaimer.create.group.third.list.first.row=* Savoir que les groupes Pla
 groups.disclaimer.create.group.third.list.second.row=* Vous engager en qualité de dirigeant du groupe,
 groups.disclaimer.create.group.third.list.third.row=* Faire de votre groupe une zone active et utile pour ses membres et pour la communauté Planète Sankoré,
 groups.disclaimer.create.group.third.list.fourth.row=* Vous tenir prêt à consacrer environ deux heures par mois à la maintenance de votre espace de groupe et à y contribuer de manière active.
-groups.disclaimer.create.group.button=Suivant
+groups.disclaimer.create.group.button=Créer un groupe
 
 ##AboutGroups
 groups.about.title=À QUOI SERVENT LES GROUPES
@@ -681,4 +681,48 @@ groups.about.third.row=* Utiliser un forum pour discuter du groupe en général 
 groups.about.fourth.row=* Inclure de nouveaux membres
 groups.about.fifth.row=* Partager des documents
 groups.about.sixth.row=* Mettre en valeur les parcours de connaissance et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré, ou pour l'inciter à participer
+
+##Create groups wizard
+##First pannel
+group.add.setrequiredinfo.part1.title=Étape 1 - Description du groupe
+group.add.setrequiredinfo.part1.guidingquestion=Complétez les informations de votre groupe en cinq étapes.
+group.sri.title.title=Nom du groupe
+group.sri.title.tooltip=Le nom du groupe va apparaitre dans le moteur de recherche
+group.sri.title.empty=
+group.sri.description.title=Description du groupe
+group.sri.description.tooltip=Cette description permet aux utilisateurs d'identifier clairement ce que propose votre groupe. Plus il y a de détails, mieux c'est !
+group.sri.description.empty=
+group.sri.urlshortcut.title=Nom du groupe dans l'adresse internet
+group.sri.urlshortcut.tooltip=Votre adresse va resembler à http://nomdugroupe.groups.planete.sankore.org 
+group.sri.urlshortcut.empty=
+	
+##Second pannel	
+group.add.setrequiredinfo.part2.title=Étape 2 - Situer le groupe
+group.sri.education_system.title=Système éducatif
+group.sri.education_system.tooltip=Préciser le système éducatif du pays de référence dans lequel le groupe est spécialisé.
+group.sri.education_system.txt=Dans quel système éducatif votre groupe se définit-il ?
+group.sri.language.title=Langue
+group.sri.language.tooltip=Indiquer la langue utilisée au sein du groupe
+	
+##Third pannel	
+group.add.setrequiredinfo.part3.title=Étape 3 - Niveau éducatif
+group.sri.educational_level.txt=Veuillez préciser le ou les niveaux éducatifs correspondant(s) à ce groupe
+	
+##Fourth pannel
+group.add.setrequiredinfo.part4.title=Étape 4 - Discipline d'enseignement
+group.sri.fw_items_txt=Veuillez préciser le ou les principaux sujets traités par ce groupe
+	
+##Fifth pannel
+group.add.setrequiredinfo.part5.title=Étape 5 - Accès et partage
+group.sri.access_level.title=Partage sur Planète Sankoré
+group.sri.access_level.tooltip=Ce paramètre détermine quels utilisateurs pourront disposer des autorisations nécessaires pour visualiser ou modifier les ressources.
+group.sri.policy.title=Mode d'inscription
+group.sri.policy.tooltip=Un groupe privée vous permettra de mieux maîtriser la diffusion des ressources alors qu'un groupe publique vous aidera à trouver des membes.
+group.sri.license.title=Choix de la licence
+group.sri.license.tooltip=La licence proposée par défaut sur Planète-Sankoré est une licence Creative Commons 3.0 By (CC-Attributions). Celle-ci offre un maximum de flexibilité aux membres de la communauté qui pourront ré-utiliser et modifier vos ressources. Si vous souhaitez proposer une licence Creative Commons différente ou de Domaine Public, veuillez la choisir dans la liste déroulante ci-dessous.
+group.sri.license.txt=Êtes-vous sûr d'avoir lu et compris les conditions générales d'utilisation et que vous avez le droit de partager les ressources que vous vous apprêtez à ajouter à ce groupe?
+groul.sri.license.heading=
+
+
+
 &lt;/pre&gt;</content></xwikidoc>

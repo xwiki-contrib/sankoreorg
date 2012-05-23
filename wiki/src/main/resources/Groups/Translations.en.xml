@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323248717000</creationDate>
-<date>1323248717000</date>
-<contentUpdateDate>1323248717000</contentUpdateDate>
+<creationDate>1337781543000</creationDate>
+<date>1337781543000</date>
+<contentUpdateDate>1337781543000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -669,7 +669,7 @@ groups.disclaimer.create.group.third.list.first.row=*Know that Curriki groups ca
 groups.disclaimer.create.group.third.list.second.row=* Recognize your commitment – as the group’s creator and leader – to making your group a useful and active area for its members and for the wider Curriki community.
 groups.disclaimer.create.group.third.list.third.row=* Be prepared to commit about two hours per month to maintaining your group space and proactively building your group.
 groups.disclaimer.create.group.third.list.fourth.row=
-groups.disclaimer.create.group.button=Next
+groups.disclaimer.create.group.button=Create group
 
 ##AboutGroups
 groups.about.title= WHAT CAN SANKORE GROUPS DO?
@@ -681,6 +681,52 @@ groups.about.third.row=* Use a message board to communicate about the group in g
 groups.about.fourth.row=* Grow to include new members
 groups.about.fifth.row=* Share documents
 groups.about.sixth.row=* Highlight group curricula and activities for use or participation by the rest of the Curriki community
+
+##Create groups wizard
+##First pannel
+group.add.setrequiredinfo.part1.title=Step 1 - group description
+group.add.setrequiredinfo.part1.guidingquestion=Complete the five step to create your own group.
+group.sri.title.title=Group name
+group.sri.title.tooltip=The group name will appear in the group search engine
+group.sri.title.empty=
+group.sri.description.title=Group description
+group.sri.description.tooltip=This description will help users to clearly identify the objectives of your group. The more you explain the better it is!
+group.sri.description.empty=
+group.sri.urlshortcut.title=Group name for URL
+group.sri.urlshortcut.tooltip=Your URL will look like http://groupname.groups.planete.sankore.org 
+group.sri.urlshortcut.empty=
+	
+##Second pannel	
+group.add.setrequiredinfo.part2.title=Step 2 - Position your group
+group.sri.education_system.title=Educational system
+group.sri.education_system.tooltip=Precise in which Educational system your group is specialised.
+group.sri.education_system.txt=In which educational system your group take place ?
+group.sri.language.title=Language
+group.sri.language.tooltip=What's the group speaking language
+	
+##Third pannel	
+group.add.setrequiredinfo.part3.title=Step 3 - Educational level
+group.sri.educational_level.txt=Define one or more educational level where your group take place
+	
+##Fourth pannel
+group.add.setrequiredinfo.part4.title=Step 4 - Teaching discipline
+group.sri.fw_items_txt=Define which teaching discipline your group will deal with
+	
+##Fifth pannel
+group.add.setrequiredinfo.part5.title=Step 5 - Access and share
+group.sri.access_level.title=Sharing option on Planète Sankoré
+group.sri.access_level.tooltip=Select what kinf of user will be able to see and/or edit your group informations.
+group.sri.policy.title=Registration method
+group.sri.policy.tooltip=A private group will help you control the information and a public group will help you having more members.
+group.sri.license.title=License Deed
+group.sri.license.tooltip=The Planète Sankoré-compatible license provides maximum flexibility to the community, so members can use and modify others' contributions. The default Planète Sankoré license is a widely used Creative Commons license Attribution
+&lt;a onclick="window.open('http://creativecommons.org/licenses/by/3.0/', 'CC30'); return false;" target="CC30" href="http://creativecommons.org/licenses/by/3.0/"&gt;3.0&lt;/a&gt;
+. If you wish to assign another license, please select from the drop-down list below. To learn about all the Creative Commons licenses, please
+&lt;a onclick="window.open('http://creativecommons.org/about/licenses/meet-the-licenses', 'CCmeet'); return false;" target="CCmeet" href="http://creativecommons.org/about/licenses/meet-the-licenses"&gt;click here&lt;/a&gt;.
+group.sri.license.txt=Please be sure you have read and understand the
+&lt;a target="TOS" href="/xwiki/bin/view/Main/TOS?xpage=popup"&gt;Terms of Use&lt;/a&gt;
+and that you have the rights to share the contribution that you're going to add to this group.
+groul.sri.license.heading=
 
 ## &lt;/pre&gt;
 </content></xwikidoc>
