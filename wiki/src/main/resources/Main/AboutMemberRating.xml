@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Main</web>
+<name>AboutMemberRating</name>
+<language></language>
+<defaultLanguage>fr</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1338282222000</creationDate>
+<date>1338282222000</date>
+<contentUpdateDate>1338282222000</contentUpdateDate>
+<version>1.1</version>
+<title>A propos de la notation des membres</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>Les notes des utilisateurs jouent un rôle très important dans le développement de la communauté Sankoré. En permettant aux lecteurs de contribuer par des exemples, des remarques et critiques, ou encore des clarifications, nous intégrons des aspects importants de partages.
+
+La note que va donner la communauté à une ressource va contribuer en deux points:
+* Elle va aider à faire remonter les ressources dans le moteur de recherche dans l'optique d'améliorer la qualité des résultats
+* Elle va aider le contributeur à améliorer ça ressource
+
+&gt;**Note**: Les notes des utilisateurs ne sont pas modérées avant d'apparaître sur le site, et même si elles le sont, leur véracité ne peut être garantie.
+&gt; 
+
+&gt;**Note**: Pour des questions de portée de licence, les notes utilisateurs sont considérées comme faisant partie du site planète.sankoré.org, et sont donc couvertes par la même licence qui couvre ces ressources par défaut (License Planète Sankoré).
+&gt; </content></xwikidoc>
