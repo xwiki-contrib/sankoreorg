@@ -701,8 +701,7 @@ Curriki.module.addpath.init = function() {
                 ,{tag:'a', cls:'addpath-page circle', html:'2'}
                 ,{tag:'a', cls:'addpath-page circle', html:'3'}
                 ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}
-                ,{tag:'a', cls:'addpath-page circle', html:'6'}
+                ,{tag:'a', cls:'addpath-page circle', html:'5'}                
                 ]                
             }
               
