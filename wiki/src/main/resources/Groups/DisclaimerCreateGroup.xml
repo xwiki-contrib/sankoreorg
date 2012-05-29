@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1335364004000</creationDate>
-<date>1335364004000</date>
-<contentUpdateDate>1335364004000</contentUpdateDate>
+<creationDate>1336755194000</creationDate>
+<date>1336755194000</date>
+<contentUpdateDate>1336755194000</contentUpdateDate>
 <version>1.1</version>
 <title>Intro : créer un nouveau groupe</title>
 <template></template>
@@ -53,7 +53,7 @@ $msg.get("groups.disclaimer.create.group.fifth.row")
 * $msg.get("groups.disclaimer.create.group.third.list.fourth.row")
 
 {{html}}
-&lt;button class="button button-confirm mgn-rt-5" onclick="window.location='/xwiki/bin/view/Groups/CreateNewGroup';"&gt;$msg.get("groups.disclaimer.create.group.button")&lt;/button&gt;
+&lt;button class="button button-confirm mgn-rt-5" onclick="javascript:Curriki.module.addpath.group.startPath('Add');"&gt;$msg.get("groups.disclaimer.create.group.button")&lt;/button&gt;
 {{/html}}
 
 {{/velocity}}</content></xwikidoc>

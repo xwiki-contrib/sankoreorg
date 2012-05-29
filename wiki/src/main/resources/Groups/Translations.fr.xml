@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1337846538000</creationDate>
-<date>1337846538000</date>
-<contentUpdateDate>1337846538000</contentUpdateDate>
+<creationDate>1338284026000</creationDate>
+<date>1338284026000</date>
+<contentUpdateDate>1338284026000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -175,8 +175,9 @@ groups_home_information_member_policy=Politique d'Appartenance \:
 groups_home_information_license=Politique de Licence par Défaut \:
 groups_home_information_language=Langage \:
 groups_home_information_access=Privilèges d'Accès par Défaut \:
-groups_home_information_subject=Sujet \:
-groups_home_information_level=Niveau scolaire
+groups_home_information_education=Système éducatif \:
+groups_home_information_levels=Niveau scolaire \:
+groups_home_information_disciplines=Disciplines \:
 groups_home_information_creationdate=Date de Création \:
 groups_home_information_subject_index=Index des Sujets
 groups_home_information_webaddress=Adresse Web
@@ -497,7 +498,7 @@ groups_members_join_needaccount=Si vous n'êtes pas encore inscrit sur Planète 
 groups_members_join_alreadymember=Vous êtes déjà membre de ce groupe.
 groups_members_join_success=Félicitation! Vous avez rejoint ce groupe. La liste de membre est disponible sur la [[liste des membres&gt;&gt;Members]].
 groups_members_join_failure=Cette opération a échoué. Essayez encore SVP. Si vous continuez à avoir des problèmes, contactez groups@curriki.org SVP.
-groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans Planète Sankoré avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez groups@curriki.org SVP.
+groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-vous logué dans Planète Sankoré avec le compte membre qui correspond à cette invitation? Si vous continuez à avoir des difficultés à accepter cette invitation, contactez support@sankore.org
 
 
 ## old stuff
@@ -700,7 +701,7 @@ group.sri.urlshortcut.empty=
 group.add.setrequiredinfo.part2.title=Étape 2 - Situer le groupe
 group.sri.education_system.title=Système éducatif
 group.sri.education_system.tooltip=Préciser le système éducatif du pays de référence dans lequel le groupe est spécialisé.
-group.sri.education_system.txt=Dans quel système éducatif votre groupe se définit-il ?
+group.sri.education_system.txt=Pour quel système éducatif votre groupe va-t-il rassembler des ressources?
 group.sri.language.title=Langue
 group.sri.language.tooltip=Indiquer la langue utilisée dans les échanges du groupe
 	
