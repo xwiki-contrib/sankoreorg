@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1338284026000</creationDate>
-<date>1338284026000</date>
-<contentUpdateDate>1338284026000</contentUpdateDate>
+<creationDate>1338307040000</creationDate>
+<date>1338307040000</date>
+<contentUpdateDate>1338307040000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -725,5 +725,18 @@ group.sri.license.txt=Êtes-vous sûr d'avoir lu et compris les conditions gén�
 groul.sri.license.heading=
 
 
+groups.livetable.doc.name=Title
+groups.livetable.category=Resource Type
+groups.livetable.doc.author=Contributor
+groups.livetable.doc.date=Updated
+groups.livetable.rights=Access
+groups.livetable._actions=Actions
+groups.livetable.emptyvalue=
+
+## ADD GROUP DIALOGS
+add.finalmessage.title.groupadd=Groupe créé
+add.finalmessage.text_groupadd_success=Vous avez réussi à créer un nouveau groupe.
+add.finalmessage.text_metadata_success=Vos informations ont été mises à jour
+add.finalmessage.title_metadata=Groupe modifié
 
 &lt;/pre&gt;</content></xwikidoc>
