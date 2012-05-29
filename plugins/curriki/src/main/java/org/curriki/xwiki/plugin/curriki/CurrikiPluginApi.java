@@ -77,6 +77,18 @@ public class CurrikiPluginApi extends Api {
         return fetchCollectionsInfo(forGroup);
     }
 
+    public Map<String,Object> createGroup(String title) throws XWikiException {
+        return plugin.createGroup(title, context);
+    }
+
+    public Map<String,Object> fetchGroupInfo(String groupName) {
+        return plugin.getGroupInfo(groupName, context);
+    }
+
+    public List<Property> fetchGroupMetadata(String groupName) throws XWikiException {
+        return plugin.fetchGroupMetadata(groupName, context);
+    }
+
     public Asset createAsset(String parentAsset) throws XWikiException {
         return plugin.createAsset(parentAsset, context);
     }
@@ -244,5 +256,4 @@ public class CurrikiPluginApi extends Api {
         else
           return Util.escapeForJS(origtext);
     }
-
 }

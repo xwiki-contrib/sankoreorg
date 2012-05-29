@@ -13,13 +13,14 @@ import java.lang.reflect.Method;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.curriki.plugin.spacemanager.impl.CurrikiSpaceManager;
-import org.curriki.plugin.spacemanager.plugin.CurrikiSpaceManagerPluginApi;
 import org.curriki.xwiki.plugin.asset.Asset;
 import org.curriki.xwiki.plugin.asset.CollectionSpace;
 import org.curriki.xwiki.plugin.asset.Constants;
 import org.curriki.xwiki.plugin.asset.DefaultAssetManager;
 import org.curriki.xwiki.plugin.asset.composite.RootCollectionCompositeAsset;
+import org.xwiki.sankore.DefaultGroupManager;
+import org.xwiki.sankore.Group;
+import org.xwiki.sankore.GroupManager;
 
 import com.xpn.xwiki.XWikiContext;
 import com.xpn.xwiki.XWikiException;
@@ -39,7 +40,7 @@ import com.xpn.xwiki.objects.classes.StaticListClass;
 import com.xpn.xwiki.objects.classes.BooleanClass;
 import com.xpn.xwiki.plugin.XWikiDefaultPlugin;
 import com.xpn.xwiki.plugin.XWikiPluginInterface;
-import com.xpn.xwiki.plugin.spacemanager.api.Space;
+import com.xpn.xwiki.web.Utils;
 import com.xpn.xwiki.web.XWikiRequest;
 
 /**
@@ -73,16 +74,18 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             initReorderAssetClass(context);
             initCompositeAssetClass(context);
         } catch (XWikiException e) {
-            if (LOG.isErrorEnabled())
+            if (LOG.isErrorEnabled()) {
                 LOG.error("Error generating asset classes", e);
+            }
         }
 
         try {
             // init the asset type managers
             DefaultAssetManager.initAssetSubTypes(context);
         } catch (Exception e) {
-            if (LOG.isErrorEnabled())
+            if (LOG.isErrorEnabled()) {
                 LOG.error("Error initing sub asset type classes", e);
+            }
         }
 
         // Insert a notification so that we can handle rollback and convert assets
@@ -103,7 +106,26 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
         super.flushCache();
     }
 
+    public Map<String, Object> createGroup(String title, XWikiContext context) throws XWikiException {
 
+        GroupManager groupManager = Utils.getComponent(GroupManager.class);
+
+        Group group = groupManager.createGroupFromTemplate(title, "Groups_TemplateSpace");
+
+        Map<String, Object> groupInfo = new HashMap<String, Object>(getGroupInfo(group.getName(), context));
+
+        groupInfo.put("groupName", group.getName());
+
+        return groupInfo;
+    }
+
+    public List<Property> fetchGroupMetadata(String groupName, XWikiContext context) throws XWikiException {
+
+        GroupManager groupManager = Utils.getComponent(GroupManager.class);
+        Group group = groupManager.getGroup(groupName);
+
+        return group.getMetadata();
+    }
 
     public Asset createAsset(String parent, String publishSpace, XWikiContext context) throws XWikiException {
         return Asset.createTempAsset(parent, publishSpace, context);
@@ -178,8 +200,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
      * @return List of all groups that the specified user is in
      */
     public Map<String,Object> fetchUserGroups(String forUser, XWikiContext context) {
+        /*
         Map<String,Object> groups = new HashMap<String,Object>();
-        CurrikiSpaceManagerPluginApi sm = (CurrikiSpaceManagerPluginApi) context.getWiki().getPluginApi(CurrikiSpaceManager.CURRIKI_SPACEMANGER_NAME, context);
+        CurrikiSpaceManagerPluginApi sm = (CurrikiSpaceManagerPluginApi) context.getWiki().getPluginApi(CurrikiSpaceManager.CURRIKI_SPACEMANAGER_NAME, context);
         List spaces;
         try {
             spaces = sm.getSpaceNames(forUser, null);
@@ -193,20 +216,20 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             if (space instanceof String) {
                 groups.put((String) space, getGroupInfo((String) space, context));
             }
-        }
+        }*/
 
-        return groups;
+        return null;
     }
 
-    protected Map<String,Object> getGroupInfo(String group, XWikiContext context) {
+    protected Map<String,Object> getGroupInfo(String groupName, XWikiContext context) {
         Map<String,Object> groupInfo = new HashMap<String,Object>();
-        CurrikiSpaceManagerPluginApi sm = (CurrikiSpaceManagerPluginApi) context.getWiki().getPluginApi("csm", context);
+        GroupManager groupManager = Utils.getComponent(GroupManager.class);
 
         try {
-            Space space = sm.getSpace(group);
-            groupInfo.put("displayTitle", space.getDisplayTitle());
-            groupInfo.put("description", space.getDescription());
-            Map<String,Object> collections = fetchCollectionsInfo(group, context);
+            Group group = groupManager.getGroup(groupName);
+            groupInfo.put("displayTitle", group.getTitle());
+            groupInfo.put("description", group.getDescription());
+            Map<String,Object> collections = fetchCollectionsInfo(groupName, context);
             groupInfo.put("collectionCount", collections.size());
             int editableCount = 0;
             for (String collection : collections.keySet()) {
@@ -244,8 +267,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
                 if (group!=null)
                 {
                     String groupMember = group.getStringValue("member");
-                    if (groupMember!=null && context.getUser().equals(groupMember))
+                    if (groupMember != null && context.getUser().equals(groupMember)) {
                         return true;
+                    }
                 }
             }
         }
@@ -351,8 +375,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             count = tokenPattern.countTokens();
             for (int i = 0; i < count; i++) {
                 result += hashData.get(tokenPattern.nextToken());
-                if (i<count-1)
+                if (i < count - 1) {
                     result += delim;
+                }
             }
             return result;
         } catch (Exception e) {
@@ -363,12 +388,13 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
 
     public String formatDate(Date date,String pattern)
     {
-        if (date!=null && date instanceof Date)
+        if (date != null && date instanceof Date) {
             try {
                 return (new SimpleDateFormat(pattern)).format(date);
             } catch (Exception e) {
-                LOG.debug(e.getMessage(),e);
+                LOG.debug(e.getMessage(), e);
             }
+        }
         return ""+date;
     }
 
@@ -508,8 +534,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.ASSET_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
 
     private void initAssetLicenseClass(XWikiContext context) throws XWikiException {
@@ -540,8 +567,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.ASSET_LICENCE_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
 
     private void initAssetDocumentClass(XWikiContext context) throws XWikiException {
@@ -571,8 +599,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.ATTACHMENT_ASSET_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
 
     private void initAssetVideoClass(XWikiContext context) throws XWikiException {
@@ -601,8 +630,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.VIDEO_ASSET_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
 
     private void initAssetArchiveClass(XWikiContext context) throws XWikiException {
@@ -632,8 +662,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.ARCHIVE_ASSET_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
 
     private void initAssetImageClass(XWikiContext context) throws XWikiException {
@@ -661,8 +692,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.IMAGE_ASSET_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
 
     private void initAssetExternalClass(XWikiContext context) throws XWikiException {
@@ -690,8 +722,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.EXTERNAL_ASSET_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
     private void initAssetTextClass(XWikiContext context) throws XWikiException {
         XWikiDocument doc;
@@ -719,8 +752,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.TEXT_ASSET_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
 
     private void initSubAssetClass(XWikiContext context) throws XWikiException {
@@ -748,8 +782,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.SUBASSET_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
     private void initReorderAssetClass(XWikiContext context) throws XWikiException {
         XWikiDocument doc;
@@ -775,8 +810,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.COLLECTION_REORDERED_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
 
     private void initCompositeAssetClass(XWikiContext context) throws XWikiException {
@@ -804,8 +840,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
             doc.setContent("1 " + Constants.COMPOSITE_ASSET_CLASS);
         }
 
-        if (needsUpdate)
+        if (needsUpdate) {
             xwiki.saveDocument(doc, context);
+        }
     }
 
     
@@ -824,8 +861,9 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
                 Asset asset = (Asset) apidoc;
                 if (!asset.isLatestVersion()) {
                     // We need to convert this document
-                    if (LOG.isInfoEnabled())
+                    if (LOG.isInfoEnabled()) {
                         LOG.info("CURRIKI ASSET CONVERTER: asset Needs to be converted: " + newdoc.getFullName());
+                    }
 
                     LOG.error("Converting " + newdoc.getFullName());
 
@@ -836,8 +874,10 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
                         method.setAccessible(true);
                         method.invoke(apidoc);
                     } catch (Exception e) {
-                        if (LOG.isErrorEnabled())
-                            LOG.error("CURRIKI ASSET CONVERTER: could not overide clone field for asset: " + newdoc.getFullName(), e);
+                        if (LOG.isErrorEnabled()) {
+                            LOG.error("CURRIKI ASSET CONVERTER: could not overide clone field for asset: " +
+                                    newdoc.getFullName(), e);
+                        }
                         return;
                     }
 
@@ -846,13 +886,16 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
 
                     LOG.error("Converted " + newdoc.getFullName());
 
-                    if (LOG.isInfoEnabled())
+                    if (LOG.isInfoEnabled()) {
                         LOG.info("CURRIKI ASSET CONVERTER: asset has been converted: " + newdoc.getFullName());
+                    }
                 }
             }
         } catch (Exception e) {
-            if (LOG.isErrorEnabled())
-                LOG.error("CURRIKI ASSET CONVERTER: Error evaluating asset conversion or converting asset for asset: " + newdoc.getFullName(), e);
+            if (LOG.isErrorEnabled()) {
+                LOG.error("CURRIKI ASSET CONVERTER: Error evaluating asset conversion or converting asset for asset: " +
+                        newdoc.getFullName(), e);
+            }
         }
     }
 }

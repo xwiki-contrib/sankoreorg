@@ -57,9 +57,9 @@
 .groups-home .head .frame-inset-logo img { float: left; }
 .groups-home .head .frame-inset-description { margin-left: 140px; padding-right: 10px; padding-top: 10px; height: auto  !important; height: 100px; min-height: 100px; }
 .groups-home #section3content p.paragraph { padding-top: 5px; }
-.groups-home .group-subject-education-level { padding-top: 10px; }
+.groups-home .group-education-levels-disciplines { padding-top: 10px; }
 
-.groups-home .group-subject-education-level td { 
+.groups-home .group-education-levels-disciplines td { 
   vertical-align: top; 
   padding: 10px;
   border: 1px solid #eee;
@@ -401,5 +401,5 @@
 #nominate-resource-dialogue .x-window-tl, #nominate-resource-dialogue .x-window-tl {background-color:#ff4100;}
 
 /** GROUPS **/
-.groups-home .group-subject-education-level th {background: #fff; font-size: 13px; font-weight:bold;}
+.groups-home .group-education-levels-disciplines th {background: #fff; font-size: 13px; font-weight:bold;}
 

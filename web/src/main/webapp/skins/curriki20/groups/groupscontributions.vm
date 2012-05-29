@@ -1,152 +1,40 @@
 #**
   * Groups Contributions Macros
   *
-  *#                m
-
-
+  *#  
 #**
   * Displays the list of contributions
   *
   *#
 #macro(groups_contributions)
-#set($headerArgs="")
-#set($allcols=true)
 #groupsinit()
 #groupsheader("curriculum")
-<div id="groups-main-header">
-#if($context.action == "view" && ($isGroupMember || $hasGlobalAdmin))##{
-<a class="button button-confirm" onclick="Curriki.module.addpath.startPath('O', {publishSpace:'Coll_${doc.space}'});" title="$msg.get('groups.curriculum.contributions.addButton_tooltip')">$msg.get('groups.curriculum.contributions.addButton')</a>
-#end ##}
-<div id="groups-main-header-title" class="main-title">
-$s.getDisplayTitle() $msg.get("groups.curriculum.contributions.title")<br />
-</div>
-<div id="groups-main-header-subtitle" class="tab-deck">
-$msg.get("groups.curriculum.contributions.about")
-</div>
-</div>
-<div id="groups-main-content" class="frame">
-## Do query for contributions
-#if("$!request.sortBy"=="") ## {
-#set($sortBy = "date")
-#set($sortDir = 'desc')
-#elseif($request.sortBy=="date") ## } {
-#set($sortBy = "date")
-#set($sortDir = 'desc')
-#elseif($request.sortBy=="title") ## } {
-#set($sortBy = "title")
-#set($sortDir = 'asc')
-#elseif($request.sortBy=="access" && $allcols) ## } {
-#set($sortBy = "access")
-#set($sortDir = 'asc')
-#else ## } {
-#set($sortBy = "date")
-#set($sortDir = 'desc')
-#end ## }
-##
-#if("$!request.sortDir"=="") ## {
-#elseif($request.sortDir=="asc") ## } {
-#set($sortDir = 'asc')
-#elseif($request.sortDir=="desc") ## } {
-#set($sortDir = 'desc')
-#end ## }
-##
-#set($sortArgs = "")
-#if($sortBy == "date") ## {
-#if($sortDir == "asc") ## {
-#set($sortArgs = "sortDir=asc")
-#end ## }
-#elseif ($sortBy == "title") ## } {
-#set($sortArgs = "sortBy=title")
-#if($sortDir == "desc") ## {
-#set($sortArgs = "${sortArgs}&sortDir=desc")
-#end ## }
-#elseif ($sortBy == "access") ## } {
-#set($sortArgs = "sortBy=access")
-#if($sortDir == "desc") ## {
-#set($sortArgs = "${sortArgs}&sortDir=desc")
-#end ## }
-#end ## }
-##
-## Order by reverse last updated
-#if($sortBy=="title") ## {
-#set($sql = ", BaseObject as obj where doc.fullName=obj.name and obj.className='CurrikiCode.AssetClass' and doc.web='Coll_${spaceName}' and doc.name != 'WebHome' order by doc.title $sortDir")
-#elseif($sortBy=="access") ## Default sort by rights ## } {
-#set($sql = ", BaseObject as obj, StringProperty as prop1 where doc.fullName=obj.name and obj.className='CurrikiCode.AssetClass' and doc.web='Coll_${spaceName}' and doc.name != 'WebHome' and obj.id=prop1.id.id and prop1.id.name='rights' order by prop1.value $sortDir, doc.title asc")
-#else ## Default sort by date ## } {
-#set($sql = ", BaseObject as obj where doc.fullName=obj.name and doc.name != 'WebHome' and obj.className='CurrikiCode.AssetClass' and doc.web='Coll_${spaceName}' order by doc.date $sortDir")
-#end ## }
-## Order by property ascending
-## How can we sort by
-## filetype (determined in a macro)
-## instructional_component (if not exists how do we act as blank)
-##doesnt work #set($sql = ", BaseObject as obj left outer join StringProperty as prop1 on obj.id=prop1.id.id and prop1.id.name='instructional_component' where doc.fullName=obj.name and obj.className='CurrikiCode.AssetClass' and doc.web='Coll_${spaceName}' order by prop1.value $sortDir")
-##
-##
-#set($assetList = $xwiki.searchDocuments($sql))
-#set($nbToDisplay = 20)
-#set($startIndex = 0)
-#set($Integer = 0)
-#if($request.startIndex)
- #set($startIndex = $Integer.parseInt($request.getParameter("startIndex")))
-#end
-#if($startIndex > ($assetList.size() - 1))
- #set($startIndex = $assetList.size() - 1)
-#end
-#set($endIndex = $startIndex - 1 + $nbToDisplay)
-#if($endIndex > ($assetList.size() - 1))
- #set($endIndex = $assetList.size() - 1)
-#end
-## Display contributions in table using pagination
-<table id="mycurriki-contributions-table" class="table table-contributions">
-<tr>
-#if($sortBy=="title" && $sortDir == "asc") ## {
-#set($url = $xwiki.getURL($doc.fullName, "view", "${headerArgs}sortBy=title&sortDir=desc"))
-#else ## } {
-#set($url = $xwiki.getURL($doc.fullName, "view", "${headerArgs}sortBy=title"))
-#end ## }
-<th class="table-header#if($sortBy=="title") table-header-sorted#end table-col-title"><a href="$url">$msg.get('mycurriki.contributions.table.title')</a></th>
-<th class="table-header table-header-fixed table-col-ict">$msg.get('mycurriki.contributions.table.ict')</th>
-#if($sortBy=="date" && $sortDir == "desc") ## {
-#set($url = $xwiki.getURL($doc.fullName, "view", "${headerArgs}sortDir=asc"))
-#else ## } {
-#set($url = $xwiki.getURL($doc.fullName, "view", "${headerArgs}"))
-#end ## }
-<th class="table-header#if($sortBy=="date") table-header-sorted#end table-col-lastupdated"><a href="$url">$msg.get('mycurriki.contributions.table.lastupdated')</a></th>
-#if($allcols)
-#if($sortBy=="access" && $sortDir == "asc") ## {
-#set($url = $xwiki.getURL($doc.fullName, "view", "${headerArgs}sortBy=access&sortDir=desc"))
-#else ## } {
-#set($url = $xwiki.getURL($doc.fullName, "view", "${headerArgs}sortBy=access"))
-#end ## }
-<th class="table-header#if($sortBy=="access") table-header-sorted#end table-col-access"><a href="$url">$msg.get('mycurriki.contributions.table.access')</a></th>
-#end ## if allcols
-<th class="table-header table-header-fixed table-col-filetype">$msg.get('mycurriki.contributions.table.filetype')</th>
-#if($allcols)
-<th class="table-header table-header-fixed table-col-action">$msg.get('mycurriki.contributions.table.action')</th>
-#end ## if allcols
-</tr>
-## row per item -- number of rows configurable
-#set($showcount = 0)
-#set($descnb = 0)
-#foreach($assetPage in $assetList)
-#if($xwiki.hasAccessLevel("view", $context.user, $assetPage))
-#set($asset = $xwiki.getDocument($assetPage))
-#set($type = 0)
-#set($type = $!asset.getValue("type", $asset.getObject("CurrikiCode.TextAssetClass")))
-#if("$!type"!="2")
-#set($showcount = 1 + $showcount)
-#if(($showcount > $startIndex) && ($showcount < ($endIndex + 2)))
-#groups_contributions_asset($asset $allcols)
-#end ## showcount > startIndex && showcount < endIndex
-#end ## type != 2
-#end  ## if has view access
-#end ## foreach assetPage in list
-#if($showcount == 0)
-<tr><td colspan="6">$msg.get("mycurriki.contributions.noresults")</td></tr>
-#end
-</table>
-## Pagination here
-#curriki_paginatorargs($msg.get("mycurriki.tab.contributions.label") $startIndex $nbToDisplay $showcount $sortArgs)
+<div id="groups-contributions-main" class="frame">
+  #if($context.action == "view" && ($isGroupMember || $hasGlobalAdmin))
+    #curriki_titlebar($msg.get("groups.curriculum.contributions.title")  "$msg.get('groups.curriculum.contributions.addButton')" "javascript:Curriki.module.addpath.startPath('O', {publishSpace:'${collSpaceName}'});" "red")
+  #else
+    #curriki_titlebar($msg.get("groups.curriculum.contributions.title") "" "" "red")
+  #end  
+  <div class="frame-content">
+  $msg.get("groups.curriculum.contributions.about")
+  #set($collist = ["doc.name", "category", "doc.author", "doc.date", "rights", "_actions"])
+  #set($colprops = {
+    "doc.name" : { "type":"text" , "link":"view", "size":30, "sortable":true, "filterable":true},
+    "category" : { "type" : "text" },
+    "doc.author" : { "type":"text", "link":"author"},
+    "doc.date" : { "type":"date" },
+    "rights" : {"type" : "text", "sortable":true, "filterable":true},
+    "_actions" : { "actions": ["add", "copy", "edit", "editinfo", "delete"]}
+    })
+  #set($options = { 
+    "className":"CurrikiCode.AssetClass",
+    "resultPage":"Groups.ContributionsLiveTableResults",
+    "tagCloud" : true,
+    "translationPrefix" : "groups.livetable.",
+    "extraParams" : "&space=Coll_Group_Sankore",
+    "rowCount": 10 })
+  #livetable("allassets" $collist $colprops $options) 
+  </div>
 </div>
 #groupsfooter()
 #end

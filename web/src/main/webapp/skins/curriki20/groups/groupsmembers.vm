@@ -60,9 +60,9 @@ $msg.get("groups_members_onlyaccessibletomembers")
 ## page: Groups.WebHomeSheet and Groups.MembersSheet
 ## Groups membership info
 ##
-#macro(groupsmembershipinfo $spaceName)
+#macro(groups_membershipinfo)
 #begingroupsection($msg.get("groups_home_membership_title"),"","", "blue", false)
-#if($sm.isMember($spaceName,$context.user))
+#if($group.isMember())
 $msg.get("groups_home_membership_group_infotxt")
 <div id="groups-members-invite-button" class="center groups-members-button mgn-vrt">
 <a href="$xwiki.getURL("${spaceName}.InviteMembers")" class="button button-confirm">
@@ -70,7 +70,7 @@ $msg.get("groups_home_membership_group_btt")
 </a>
 </div>
 #else
-#set($gpolicy = $sm.getSpace($spaceName).policy)
+#set($gpolicy = $group.policy)
 #if($gpolicy=="open")
 $msg.get("groups_home_membership_open_visitor_infotxt")
 <div class="right mgn-vrt-15">

@@ -3423,6 +3423,10 @@ Curriki.module.addpath.init = function() {
     });
     Ext.reg('apSRI6', AddPath.Metadata6);
     
+    
+    
+    
+    
     AddPath.EditMetadata = {};
     AddPath.EditMetadata.SetMetadata = function(cmp){
       var form = cmp.findById('MetadataDialoguePanel').getForm();      
@@ -4452,9 +4456,7 @@ Curriki.module.addpath.init = function() {
       }
     });
     Ext.reg('apESRI4', AddPath.EditMetadata4);    
-    
-    
-    
+           
     AddPath.EditMetadata5 = Ext.extend(Curriki.ui.dialog.Actions, {
         initComponent:function(){
         Ext.apply(this, {
@@ -5007,7 +5009,7 @@ Curriki.module.addpath.init = function() {
         AddPath.Metadata6.superclass.initComponent.call(this);
       }
     });
-    Ext.reg('apESRI6', AddPath.EditMetadata6);
+    Ext.reg('apESRI6', AddPath.EditMetadata6);        
     
     AddPath.EditMetadataFinished = function(){
       // Save asset      
@@ -5112,8 +5114,6 @@ Curriki.module.addpath.init = function() {
         }
       );
     }
-
-
 
     AddPath.FinalLink = function(linkName){
     // Types of links to deal with:
@@ -6247,6 +6247,8 @@ console.log('Not signed in:');
           break;
       }
     }
+    
+    Curriki.module.addpath.group.init();
 
     Curriki.module.addpath.initialized = true;
   }
@@ -6281,7 +6283,7 @@ Curriki.module.addpath.initAndStart = function(fcn, options){
     current.parentTitle = options.parentTitle||current.parentTitle;
     current.copyOfTitle = options.copyOfTitle||current.copyOfTitle;
     
-    current.linkUrl = options.linkUrl;
+    current.linkUrl = options.linkUrl;     
   }
 
   Curriki.init(function(){

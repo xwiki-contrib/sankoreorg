@@ -45,6 +45,25 @@
       <version>${pom.version}</version>
     </dependency>
     <dependency>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-sankore-plugins-sankore</artifactId>
+      <version>${pom.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <!--
+    <dependency>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-plugin-spacemanager</artifactId>
+      <version>${pom.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-sankore-plugins-spacemanager</artifactId>
+      <version>${pom.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    -->
+    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <!-- Note: The 2.4 version is not technically correct as 2.4 corresponds to a specification

@@ -3645,6 +3645,10 @@ console.log('Not signed in:');
           AddPath.SourceSelected('url', {'link': Curriki.current.linkUrl})
           return;
           break;
+        case 'Metadata':
+          AddPath.SourceSelected('url', {'link': Curriki.current.linkUrl});
+          return;
+          break;
       }
     }
 

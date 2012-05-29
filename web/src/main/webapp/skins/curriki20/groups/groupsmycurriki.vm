@@ -50,23 +50,22 @@
   * @param $space Space/Group to display the logo of
   * @author dward@curriki.org
   *#
-#macro(groups_grouplogo $space)
-  #set($logofilename = $space.display("logo","view"))
-  #set($attachLogo = "")
-  #if($logofilename != "")
-   #set($spacehome = $space.getSpaceName()+".WebHome")
-   #set($srcdoc = $xwiki.getDocument($spacehome))
-   #set($attachLogo = $srcdoc.getAttachment($logofilename))
-  #end
-  #if(($logofilename != "")&&$attachLogo&&($attachLogo!=""))
-    #set($m_logo = $srcdoc.getAttachmentURL($logofilename))
-    #set($logowidth = $xwiki.image.getWidth($srcdoc.fullName,$logofilename))
-    #set($logoheight = $xwiki.image.getHeight($srcdoc.fullName,$logofilename))
-  #else
-    #set($m_logo = $xwiki.getSkinFile("curriki/images/groups_default_logo.gif"))
-	#set($logowidth = 82)
-	#set($logoheight = 50)
-  #end
+#macro(groups_grouplogo $group)
+#set($groupHome = $group.getHomeDocument())
+#set($logofilename = $group.getLogo())
+#set($attachLogo = "")
+#if($logofilename != "")
+  #set($attachLogo = $groupHome.getAttachment($logofilename))
+#end
+#if(($logofilename != "") && $attachLogo && ($attachLogo!=""))
+  #set($m_logo = $groupHome.getAttachmentURL($logofilename))
+  #set($logowidth = $xwiki.image.getWidth($groupHome.fullName,$logofilename))
+  #set($logoheight = $xwiki.image.getHeight($groupHome.fullName,$logofilename))
+#else
+  #set($m_logo = $xwiki.getSkinFile("curriki/images/groups_default_logo.gif"))
+  #set($logowidth = 82)
+  #set($logoheight = 50)
+#end
 #set( $image_resize = "" )
 #if($logowidth > 120 || $logoheight > 82)
   ## find out wich dimmension overflows the most and computes scaled sizes
@@ -85,12 +84,12 @@
   #set($height = $logoheight)
   #set($width = $logowidth)
 #end
-  ##display logo
-  <div class="frame-inset-logo">
-    <a href="$space.getHomeURL()" title="$xwiki.escapeText($space.getDisplayTitle())" alt="$xwiki.escapeText($space.getDisplayTitle())">
-      <img src="${m_logo}${image_resize}" width="$width" height="$height" title="$xwiki.escapeText(${space.getDisplayTitle()})" alt="$xwiki.escapeText(${space.getDisplayTitle()})" />
-    </a>
-  </div>
+##display logo
+<div class="frame-inset-logo">
+  <a href="$groupHome.getURL()" title="$escapetool.html($group.getTitle())" alt="$escapetool.html($group.getTitle())">
+    <img src="${m_logo}$!{image_resize}" width="$!width" height="$!height" title="$escapetool.html($group.getTitle())" alt="$escapetool.html($group.getTitle())" />
+  </a>
+</div>
 #end
 
 #**
@@ -100,36 +99,32 @@
   * @param displayType display in view or edit mode
   * @author dward@curriki.org
   *#
-#macro(groups_groupinfo $m_groupName $displayType) ## {
-#if(!$g_rowCount) ## {
-#set($g_rowCount = 0)
-#end ## }
+#macro(groups_groupinfo $m_groupName $displayType)
+#if(!$g_rowCount)
+  #set($g_rowCount = 0)
+#end
 #set($g_rowCount = $g_rowCount + 1)
-#set($m_sm = $xwiki.csm)
-#set($s = $m_sm.getSpace($m_groupName))
-#if("$!first_frame_done" == "") ## {
+#set($m_group = $services.groupmgr.getGroup($m_groupName))
+#if("$!first_frame_done" == "")
 <div class="frame">
-#else ## } {
-#set($first_frame_done = "")
-#end ## }
+#else
+  #set($first_frame_done = "")
+#end
 <div class="frame-inset-titlebar">
 #if($displayType == "edit")
-  #set($editmastheadurl = $s.getHomeURL()+"?action=editmasthead")
-  #curriki_titlebar("$xwiki.escapeText($s.getDisplayTitle())" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
+  #set($homeUrl = $xwiki.getURL("Group_${m_group.getName()}.WebHome"))
+  #set($editmastheadurl = $homeUrl + "?action=editmasthead")
+  #curriki_titlebar("$escapetool.html($group.getTitle())" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
 #elseif($displayType == "view")
-  #curriki_titlebar("$xwiki.escapeText($s.getDisplayTitle())" "" "" "blue")
+  #curriki_titlebar("$escapetool.html($group.getTitle())" "" "" "blue")
 #else
-  #curriki_titlebar("$xwiki.escapeText($s.getDisplayTitle())" $msg.get('mycurriki.groups.visit') $s.getHomeURL() "blue")
+  #curriki_titlebar("$escapetool.html($group.getTitle())" $msg.get('mycurriki.groups.visit') $homeUrl "blue")
 #end
 </div>
-#groups_grouplogo( $s )
-<div class="frame-inset-description">
-<p>
-$s.getDescription()
-</p>
+#groups_grouplogo($m_group)
+<div class="frame-inset-description"><p>$m_group.getDescription()</p></div>
 </div>
-</div>
-#end ## }
+#end
 
 
 
@@ -145,30 +140,29 @@ $s.getDescription()
 #set($g_rowCount = 0)
 #end ## }
 #set($g_rowCount = $g_rowCount + 1)
-#set($m_sm = $xwiki.csm)
-#set($s = $m_sm.getSpace($m_groupName))
-#if("$!first_frame_done" == "") ## {
+#set($group = $services.groupmgr.getGroup($m_groupName))
+#if("$!first_frame_done" == "")
 <div class="frame">
-#else ## } {
+#else
 #set($first_frame_done = "")
-#end ## }
+#end
 <div class="frame-inset-titlebar">
 #if($displayType == "edit")
   #set($editmastheadurl = $s.getHomeURL()+"?action=editmasthead")
-  #curriki_titlebar("$xwiki.escapeText($s.getDisplayTitle())" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
+  #curriki_titlebar("$escapetool.html($s.getDisplayTitle())" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
 #elseif($displayType == "view")
-  #curriki_titlebar("$xwiki.escapeText($s.getDisplayTitle())" "" "" "blue")
+  #curriki_titlebar("$escapetool.html($s.getDisplayTitle())" "" "" "blue")
 #else
-  #curriki_titlebar("$xwiki.escapeText($s.getDisplayTitle())" $msg.get('mycurriki.groups.visit') $s.getHomeURL() "blue")
+  #curriki_titlebar("$escapetool.html($s.getDisplayTitle())" $msg.get('mycurriki.groups.visit') $s.getHomeURL() "blue")
 #end
 </div>
-#groups_grouplogo( $s )
+#groups_grouplogo($group)
 <div class="frame-inset-description">
 <p>
-$s.getDescription()
+$group.getDescription()
 </p>
 </div>
-#if("$context.user" == "$!userdoc.fullName" ) ## {
+#if("$context.user" == "$!userdoc.fullName" )
 ## Get last 5 messages
 #set($sql = ", BaseObject as obj where obj.name=doc.fullName and obj.className='XWiki.ArticleClass' and doc.web='Messages_${m_groupName}' order by doc.creationDate desc")
 #set($messages = $xwiki.searchDocuments($sql, 100, 0))
@@ -182,9 +176,9 @@ $s.getDescription()
 <b>$msg.get("mycurriki.groups.mymessages")</b>
 </div>
 #set($showCount = 0)
-#foreach($messageName in $messages) ## {
+#foreach($messageName in $messages)
 #if($showCount < 3) ## {
-#if($xwiki.hasAccessLevel("view", $context.user, $messageName)) ## {
+#if($xwiki.hasAccessLevel("view", $context.user, $messageName))
 #set($showCount = 1 + $showCount)
 #set($message = $xwiki.getDocument($messageName))
 #set($msgContent = $message.getObject("XWiki.ArticleClass"))
@@ -199,11 +193,11 @@ $msg.get("mycurriki.groups.message.by") <a href="$xwiki.getURL("${message.creato
 #end ## }
 <a href="$xwiki.getURL($message.fullName, "view")"><b>$showTitle</b></a>
 </div>
-#end ## }
-#end ## }
-#end ## }
+#end
+#end
+#end
 </div>
-#end ## }
-#end ## }
+#end
+#end
 </div>
-#end ## }
+#end

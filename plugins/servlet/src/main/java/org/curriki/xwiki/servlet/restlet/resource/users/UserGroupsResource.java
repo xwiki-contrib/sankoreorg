@@ -8,6 +8,7 @@ import org.restlet.data.Request;
 import org.restlet.data.Response;
 import org.curriki.xwiki.servlet.restlet.resource.BaseResource;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import net.sf.json.JSONArray;
@@ -28,6 +29,8 @@ public class UserGroupsResource extends BaseResource {
         String forUser = (String) request.getAttributes().get("userName");
 
         Map<String,Object> results = plugin.fetchUserGroups(forUser);
+        if (results == null)
+            results = new HashMap<String, Object>();
         
         JSONArray json = flattenMapToJSONArray(results, "groupSpace");
 

@@ -1,0 +1,4 @@
+org.xwiki.sankore.DefaultSpaceManager
+org.xwiki.sankore.SpaceManagerScriptService
+org.xwiki.sankore.DefaultGroupManager
+org.xwiki.sankore.GroupManagerScriptService

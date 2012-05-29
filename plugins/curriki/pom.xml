@@ -49,17 +49,24 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>com.xpn.xwiki.platform.plugins</groupId>
-      <artifactId>xwiki-plugin-spacemanager</artifactId>
-      <version>${platform.plugins.spacemanager.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.curriki</groupId>
-      <artifactId>curriki-plugin-spacemanager</artifactId>
-      <version>${curriki.version}</version>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-sankore-plugins-sankore</artifactId>
+      <version>${pom.version}</version>
       <scope>provided</scope>
     </dependency>
-<!--
+    <!--
+    <dependency>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-plugin-spacemanager</artifactId>
+      <version>${pom.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.xwiki.projects</groupId>
+      <artifactId>xwiki-sankore-plugins-spacemanager</artifactId>
+      <version>${pom.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
     <dependency>
       <groupId>org.curriki</groupId>
       <artifactId>curriki-plugin-licence</artifactId>

@@ -2217,16 +2217,17 @@ Ext.onReady(function() {
 
 Curriki.DataObservable = function() {
   this.addEvents({
-    'Curriki.data:ready': true,
-    'Curriki.data.education_system:ready': true,
-    'Curriki.data.el:ready': true,    
-    'Curriki.data.fw_item:ready': true,            
-    'Curriki.data.disciplines:ready': true,
-    'Curriki.data.ict:ready': true,
-    'Curriki.data.category:ready': true,
-    'Curriki.data.rights:ready': true,
-    'Curriki.data.language:ready': true,    
-    'Curriki.data.license:ready': true
+    'Curriki.data:ready': true
+    ,'Curriki.data.education_system:ready': true
+    ,'Curriki.data.el:ready': true    
+    ,'Curriki.data.fw_item:ready': true            
+    ,'Curriki.data.ict:ready': true
+    ,'Curriki.data.category:ready': true
+    ,'Curriki.data.rights:ready': true
+    ,'Curriki.data.access_level:ready': true
+    ,'Curriki.data.policy:ready': true       
+    ,'Curriki.data.license:ready': true
+    ,'Curriki.data.language:ready': true
   });
 }
 Ext.extend(Curriki.DataObservable, Ext.util.Observable);
@@ -2242,7 +2243,7 @@ Curriki.ModuleObservable = function() {
 Ext.extend(Curriki.ModuleObservable, Ext.util.Observable);
 Curriki.module.EventManager = new Curriki.ModuleObservable();
 
-Curriki.data.EventManager.addListener('Curriki.data.license:ready', function() {
+Curriki.data.EventManager.addListener('Curriki.data.language:ready', function() {
   Curriki.data.EventManager.fireEvent('Curriki.data:ready');
 });
 
@@ -2614,147 +2615,13 @@ Curriki.data.fw_item.getRolloverDisplay = function(fw_array) {
   return fw;
 };
 
-Ext.ns('Curriki.data.discipline');
-
-Curriki.data.EventManager.addListener('Curriki.data.discipline:ready', function() {
-  Curriki.data.discipline.TREEROOTNODE = Curriki.data.discipline.addNode(Curriki.data.discipline.allowedValueMap, 'TREEROOTNODE');  
-});
-
-Curriki.data.EventManager.on('Curriki.data.fw_item:ready', function() {
-  Ext.Ajax.request({
-    url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/fw_items",
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json'
-    },
-    success: function(response, options) {
-      try {
-        Curriki.data.discipline.allowedValueMap = Ext.util.JSON.decode(response.responseText).allowedValueMap;
-      } 
-      catch (e) {
-        console.error('Invalid metadata information', response, options);
-      }
-      Curriki.data.EventManager.fireEvent('Curriki.data.discipline:ready');
-    },
-    failure: function(response, options) {
-      console.error('Cannot get metadata information', response, options);
-    }
-  });  
-});
-
-Curriki.data.discipline.checkListener = function(node, checked) {
-  var validator = Ext.getCmp('discipline-validation');
-  if (validator) {
-    validator.setValue(validator.getValue() + (checked ? 1 : -1));
-  }
-  if (checked) {
-    if ("undefined" !== typeof node.parentNode) {
-      if (!node.parentNode.ui.isChecked()) {
-        node.parentNode.ui.toggleCheck();
-      }
-    }
-  }
-  else {
-    if (Ext.isArray(node.childNodes)) {
-      node.childNodes.each(function(node) {
-        if (node.ui.isChecked()) {
-          node.ui.toggleCheck();
-        }
-      });
-    }
-  }
-};
-
-Curriki.data.discipline.addNode = function(allowedValueMap, nodeName) {
-  var nodeInfo = {
-    id: nodeName,
-    text: _('CurrikiCode.AssetClass_discipline_' + nodeName),
-    checked: false,
-    listeners: {
-      checkchange: Curriki.data.discipline.checkListener
-    }
-  };
-  if ("undefined" !== typeof allowedValueMap[nodeName]) {
-    var children = [];
-    allowedValueMap[nodeName].each(function(childNode) {
-      children.push(Curriki.data.discipline.addNode(allowedValueMap, childNode.id));
-    });
-    nodeInfo.children = children;
-    nodeInfo.cls = 'discipline-item discipline-item-parent';
-  }
-  else {
-    nodeInfo.leaf = true;
-    nodeInfo.cls = 'discipline-item discipline-item-bottom';
-  }
-  
-  return nodeInfo;
-};
-
-Curriki.data.discipline.getRolloverDisplay = function(el_array) {
-  var els = el_array || [];
-  var el = "";
-  var allowedValueMap = Curriki.data.discipline.allowedValueMap;
-  
-  if (els[0] === 'TREEROOTNODE') {
-    els.shift();
-  }
-  
-  if ("undefined" !== typeof els && "undefined" !== typeof els[0]) {
-    var elD = "";
-    var eli = els[0];
-    var elParent = allowedValueMap['TREEROOTNODE'].find(function(item) {
-      if ("undefined" !== typeof allowedValueMap[item.id]) 
-        return (allowedValueMap[item.id].find(function(sub) {
-          return sub.id == eli;
-        }));
-      return;
-    });
-    
-    if (!Ext.type(elParent)) {
-      elD = _('CurrikiCode.AssetClass_discipline_' + eli);
-    }
-    else {
-      elParent = elParent.id;
-      elD = _('CurrikiCode.AssetClass_discipline_' + elParent) + " > " + _('CurrikiCode.AssetClass_discipline_' + eli);
-    }
-    el += Ext.util.Format.htmlEncode(elD) + "<br />";
-    if ("undefined" !== typeof els[1]) {
-      var elD = "";
-      var eli = els[1];
-      var elParent = allowedValueMap['TREEROOTNODE'].find(function(item) {
-        if ("undefined" !== typeof allowedValueMap[item.id]) 
-          return (allowedValueMap[item.id].find(function(sub) {
-            return sub.id == eli;
-          }));
-        return;
-      });
-      
-      if (!Ext.type(elParent)) {
-        elD = _('CurrikiCode.AssetClass_discipline_' + eli);
-      }
-      else {
-        elParent = elParent.id;
-        elD = _('CurrikiCode.AssetClass_discipline_' + elParent) + " > " + _('CurrikiCode.AssetClass_discipline_' + eli);
-      }
-      el += Ext.util.Format.htmlEncode(elD) + "<br />";
-      if ("undefined" !== typeof els[2]) {
-        el += "...<br />";
-      }
-    }
-  }
-  else {
-    el += _('global.title.popup.none.selected') + '<br />';
-  }
-  
-  return el;
-};
 
 Ext.ns('Curriki.data.ict');
 Curriki.data.EventManager.addListener('Curriki.data.ict:ready', function() {
   Curriki.data.ict.ictChildren = Curriki.data.ict.ictAddNode(Curriki.data.ict.ictMap, 'TREEROOTNODE').children;
 });
 
-Curriki.data.EventManager.on('Curriki.data.discipline:ready', function() {
+Curriki.data.EventManager.on('Curriki.data.fw_item:ready', function() {
   Ext.Ajax.request({
     url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/instructional_component",
     method: 'GET',
@@ -2957,6 +2824,92 @@ Curriki.data.EventManager.on('Curriki.data.category:ready', function() {
   });
 });
 
+Ext.ns('Curriki.data.access_level');
+Curriki.data.EventManager.addListener('Curriki.data.access_level:ready', function() {
+  Curriki.data.access_level.data = [];
+  Curriki.data.access_level.radios = [];
+  Curriki.data.access_level.initial = Curriki.data.access_level.list[0];
+  Curriki.data.access_level.list.each(function(level) {
+    Curriki.data.access_level.radios.push({
+      inputValue: level
+      ,boxLabel: _('XWiki.CurrikiSpaceClass_access_level_' + level)
+      ,checked: Curriki.data.access_level.initial == level ? true : false
+    });
+  });
+  Curriki.data.access_level.list.each(function(level) {
+    Curriki.data.access_level.data.push([level, _('XWiki.CurrikiSpaceClass_access_level_' + level)]);
+  });
+  Curriki.data.access_level.store = new Ext.data.SimpleStore({
+    fields: ['id', 'access_level'],
+    data: Curriki.data.access_level.data
+  });
+});
+
+Curriki.data.EventManager.on('Curriki.data.rights:ready', function() {
+  Ext.Ajax.request({
+    url: "/xwiki/curriki/metadata/XWiki.GroupClass/fields/access_level",
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json'
+    },
+    success: function(response, options) {
+      try {
+        Curriki.data.access_level.list = Ext.util.JSON.decode(response.responseText).allowedValues;
+      } 
+      catch (e) {
+        console.error('Invalid metadata information', response, options);
+      }
+      Curriki.data.EventManager.fireEvent('Curriki.data.access_level:ready');
+    },
+    failure: function(response, options) {
+      console.error('Cannot get metadata information', response, options);
+    }
+  });
+});
+
+Ext.ns('Curriki.data.policy');
+Curriki.data.EventManager.addListener('Curriki.data.policy:ready', function() {
+  Curriki.data.policy.data = [];
+  Curriki.data.policy.radios = [];
+  Curriki.data.policy.initial = Curriki.data.policy.list[0];
+  Curriki.data.policy.list.each(function(policy) {
+    Curriki.data.policy.radios.push({
+      inputValue: policy
+      ,boxLabel: _('XWiki.SpaceClass_policy_' + policy)
+      ,checked: Curriki.data.policy.initial == policy ? true : false
+    });
+  });
+  Curriki.data.policy.list.each(function(policy) {
+    Curriki.data.policy.data.push([policy, _('XWiki.SpaceClass_policy_' + policy)]);
+  });
+  Curriki.data.policy.store = new Ext.data.SimpleStore({
+    fields: ['id', 'policy'],
+    data: Curriki.data.policy.data
+  });
+});
+
+Curriki.data.EventManager.on('Curriki.data.access_level:ready', function() {
+  Ext.Ajax.request({
+    url: "/xwiki/curriki/metadata/XWiki.GroupClass/fields/policy",
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json'
+    },
+    success: function(response, options) {
+      try {
+        Curriki.data.policy.list = Ext.util.JSON.decode(response.responseText).allowedValues;
+      } 
+      catch (e) {
+        console.error('Invalid metadata information', response, options);
+      }
+      Curriki.data.EventManager.fireEvent('Curriki.data.policy:ready');
+    },
+    failure: function(response, options) {
+      console.error('Cannot get metadata information', response, options);
+    }
+  });
+});
+
 Ext.ns('Curriki.data.language');
 Curriki.data.EventManager.addListener('Curriki.data.language:ready', function() {
   Curriki.data.language.data = [];
@@ -2970,7 +2923,7 @@ Curriki.data.EventManager.addListener('Curriki.data.language:ready', function() 
   });
 });
 
-Curriki.data.EventManager.on('Curriki.data.rights:ready', function() {
+Curriki.data.EventManager.on('Curriki.data.policy:ready', function() {
   Ext.Ajax.request({
     url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/language",
     method: 'GET',
@@ -3110,6 +3063,127 @@ Curriki.ui.component.asset.getIctTree = function() {
 };
 
 });
+
+Ext.ns('Curriki.groups');
+Curriki.groups = {
+  json_prefix:'/xwiki/curriki/groups'
+  ,CreateGroup: function(spaceTitle, callback){
+    Ext.Ajax.request({
+      url:this.json_prefix
+      ,method:'POST'      
+      ,headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      }
+      ,jsonData: {
+        'spaceTitle': spaceTitle || ''
+        //,'templateSpaceName': templateSpaceName || ''
+      }
+      ,scope: this
+      ,success: function(response, options) {
+        var json = response.responseText;
+        // Should return an object with
+        //   groupHome, displayTitle, description, collectionCount, editableCollectionCount
+        var o = json.evalJSON(true);
+        if (!o || !o.groupName) {
+          console.warn('Cannot create group', response.responseText, options);
+          alert(_('add.servertimedout.message.text'));
+        }
+        else {
+          callback(o);
+        }
+      }
+      ,failure: function(response, options) {
+        console.error('Cannot create group', response, options);
+        alert(_('add.servertimedout.message.text'));
+      }
+    });
+  }
+  ,GetGroupInfo:function(groupName, callback){
+    Ext.Ajax.request({
+      url: this.json_prefix + '/' + groupName,
+      method: 'GET',
+      disableCaching: true,
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      },
+      scope: this,
+      success: function(response, options) {
+        var json = response.responseText;
+        // Should return an object with info
+        var o = json.evalJSON(true);
+        if (!o) {
+          console.warn('Cannot get group info', response.responseText, options);
+          alert(_('add.servertimedout.message.text'));
+        }
+        else {
+          callback(o);
+        }
+      },
+      failure: function(response, options) {
+        console.error('Cannot get group info', response, options);
+        alert(_('add.servertimedout.message.text'));
+      }
+    });    
+  }
+  ,GetMetadata:function(groupName, callback){
+    Ext.Ajax.request({
+      url: this.json_prefix + '/' + groupName + '/metadata',
+      method: 'GET',
+      disableCaching: true,
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      },
+      scope: this,
+      success: function(response, options) {
+        var json = response.responseText;
+        // Should return an object with metadata
+        var o = json.evalJSON(true);
+        if (!o) {
+          console.warn('Cannot get group metadata', response.responseText, options);
+          alert(_('add.servertimedout.message.text'));
+        }
+        else {          
+          callback(o);
+        }
+      },
+      failure: function(response, options) {
+        console.error('Cannot get group metadata', response, options);
+        alert(_('add.servertimedout.message.text'));
+      }
+    });
+  }
+  ,SetMetadata:function(groupName, metadata, callback){
+    Ext.Ajax.request({
+      url: this.json_prefix + '/' + groupName + '/metadata',
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      },
+      jsonData: metadata,
+      scope: this,
+      success: function(response, options) {
+        var json = response.responseText;
+        // Should return an object with metadata
+        var o = json.evalJSON(true);
+        if (!o) {
+          console.warn('Cannot set group metadata', response.responseText, options);
+          alert(_('add.servertimedout.message.text'));
+        }
+        else {
+          callback(o);
+        }
+      },
+      failure: function(response, options) {
+        console.error('Cannot set group metadata', response, options);
+        alert(_('add.servertimedout.message.text'));
+      }
+    });
+  }
+}
 
 Ext.ns('Curriki.assets');
 Curriki.assets = {
@@ -4531,4 +4605,25 @@ Curriki.current = {
     });
   }
 }
+Ext.ns('Curriki.group.current');
+Curriki.group.current = {
+  init:function(){
+    Ext.apply(this, {
+       groupName:null
+      ,cameFrom:null
+      ,flow:null
+      ,flowFolder:''
+
+      ,groupTitle:null
+
+      ,info:null
+      ,metadata:null
+
+      ,selected:null
+      
+      ,sri:null
+    });
+  }
+}
 Curriki.current.init();
+Curriki.group.current.init();
