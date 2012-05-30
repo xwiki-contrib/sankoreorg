@@ -134,14 +134,14 @@
   </tr>
   <tr>
     #set($url = $xwiki.getURL("MySankore.EditProfile", "view", "user=${context.user}"))
-    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a></td><td class="profile-splitter" valign="top">»</td><td>$msg.get("sankore.profile.editprofile.description")</td>
-    <td class="profile-link"><a href="#">$msg.get("sankore.profile.downloadplugin.title")</a></td><td class="profile-splitter" valign="top">»</td><td>$msg.get("sankore.profile.downloadplugin.description")</td>
+    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a></td><td class="profile-splitter" valign="top">ï¿½</td><td>$msg.get("sankore.profile.editprofile.description")</td>
+    <td class="profile-link"><a href="#">$msg.get("sankore.profile.downloadplugin.title")</a></td><td class="profile-splitter" valign="top">ï¿½</td><td>$msg.get("sankore.profile.downloadplugin.description")</td>
   </tr>
   <tr>
     #set($url = $xwiki.getURL("Search.Groups", "view", "#o%3As%3Ds%253Agroup%5Ef%3Do%253Agroup%253Do%25253Aterms%25253Ds%2525253A%25255Eother%25253Ds%2525253A%25255Esubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%5Ep%3Do%253Ac%253Dn%25253A0%255Es%253Dn%25253A25%5Et%3Ds%253Agroup%5Ea%3Db%253A0"))
-    <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></td><td class="profile-splitter" valign="top">»</td><td>$msg.get("sankore.profile.joingroup.description")</td>
+    <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></td><td class="profile-splitter" valign="top">ï¿½</td><td>$msg.get("sankore.profile.joingroup.description")</td>
     #set($url = $xwiki.getURL("Invitation.WebHome", "view"))
-    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></td><td class="profile-splitter" valign="top">»</td><td>$msg.get("sankore.profile.inviteuser.description")</td>
+    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></td><td class="profile-splitter" valign="top">ï¿½</td><td>$msg.get("sankore.profile.inviteuser.description")</td>
   </tr>
   </table>
   </div>
@@ -628,22 +628,16 @@ $!desc
     <td><strong>$msg.get("profile.field.password")</strong></td>
   </tr>
   <tr>
-    <td>$userdoc.display("password", "edit", $userobj)</td>
+    <td><input size='30' id='password' name='password' type='password'/></td>
   </tr>
   <tr>
     <td><strong>$msg.get("profile.field.passwordConfirm")</strong></td>
   </tr>
   <tr>
     <td>
-      <input size='30' id='XWiki.XWikiUsers_0_password_repeat' value="$userdoc.display('password', 'view', $userobj)" name='XWiki.XWikiUsers_0_password_repeat' type='password'/>
+      <input size='30' id='password_repeat' name='password_repeat' type='password'/>
     </td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.topics")</strong></td>
-  </tr>
-  <tr>
-    <td>$userdoc.display("topics", "edit", $userobj)</td>
-  </tr>
+  </tr> 
   <tr>
     <td><strong>$msg.get("profile.field.bio")</strong></td>
   </tr>
@@ -692,7 +686,7 @@ $!desc
   <form id="inline" action="$userdoc.getURL("preview")" method="post">
     <input id="origemail" name="origemail" type="hidden" value="${userobj.getProperty('email').getValue()}" />
     #verbatim_start
-    <input id="origpw" name="origpw" type="hidden" value="********" />
+    <input id="XWiki.XWikiUsers_0_password" name="XWiki.XWikiUsers_0_password" type="hidden" />
     #verbatim_end
     <br />
     <table border="0" cellspacing="0" cellpadding="3">
@@ -713,15 +707,10 @@ $!desc
 <script type="text/javascript">
 function checkInlineForm() {
   var isValid = true;
-  if (document.forms.inline['XWiki.XWikiUsers_0_password'].value.indexOf(" ") >= 0){
+  if (document.forms.inline['password'].value.indexOf(" ") >= 0){
     alert("$msg.get("profile.field.password.nospaces")");
     isValid = false;
-  }
-
-  if (document.forms.inline['XWiki.XWikiUsers_0_password'].value.length < 5) {
-    alert("$msg.get("profile.field.password.tooShort")");
-    isValid = false;
-  }
+  } 
 
   if (document.forms.inline['XWiki.XWikiUsers_0_first_name'].value.length == 0) {
     alert("$msg.get("profile.field.firstName.mandatory")");
@@ -745,18 +734,48 @@ function checkInlineForm() {
      }
    }
 
-   if (document.forms.inline['XWiki.XWikiUsers_0_password_repeat'].value != document.forms.inline['XWiki.XWikiUsers_0_password'].value){
-       alert("$msg.get("profile.field.password.mustMatch")");
+   if (document.forms.inline['password_repeat'].value != document.forms.inline['password'].value){
+       alert("$msg.get("profile.field.password.mustMatch")");       
        isValid = false;
+  } else {
+    if (document.forms.inline['password'].value.length > 0) {
+        if (document.forms.inline['password'].value.length < 5) {
+          alert("$msg.get("profile.field.password.tooShort")");
+          isValid = false;
+        } else {
+          document.forms.inline['XWiki.XWikiUsers_0_password'].value = document.forms.inline['password'].value          
+        }           
+    }
   }
 
   if (document.forms.inline['origemail'].value != document.forms.inline['XWiki.XWikiUsers_0_email'].value) {
+    isValid = checkEmail();
     document.forms.inline.action='$userdoc.getURL("save", "xredirect=$xredirectemail")';
-  }
+    if (isValid) {
+      document.forms.inline.onSubmit = "";    
+      var ia=document.createElement('input');
+    ia.setAttribute('id', "XWiki.XWikiUsers_0_active");
+    ia.setAttribute('name', "XWiki.XWikiUsers_0_active");
+    ia.setAttribute('type', "hidden");
+    ia.setAttribute('value', "0");
+    $('inline').appendChild(ia);
 
-  if (isValid) {
-    checkEmail();
+    var eu=document.createElement('input');
+    eu.setAttribute('id', "XWiki.XWikiUsers_0_email_undeliverable");
+    eu.setAttribute('name', "XWiki.XWikiUsers_0_email_undeliverable");
+    eu.setAttribute('type', "hidden");
+    eu.setAttribute('value', "1");
+    $('inline').appendChild(eu);
+
+    document.forms.inline.action='$userdoc.getURL("save", "xredirect=$xredirectemail2")';    
+    document.forms.inline.submit();
+    }
   }
+  
+  if (isValid) {
+    return true;
+  }
+  
   return false;
 }
 
@@ -765,39 +784,20 @@ function checkInlineForm() {
     var account = "${userdoc.fullName}";
     var url= "$xwiki.getURL("XWiki.CheckAccountCreation").replaceAll("http","https")";
     var pars = 'xpage=plain&email=' + email + '&account=' + account;
-    var myAjax = new Ajax.Request( url, { method: 'get', parameters: pars, onComplete: checkEmailResponse });
+    var valid = false;
+    var myAjax = new Ajax.Request( url, { method: 'get', parameters: pars, onComplete: function(originalRequest){
+      var text = originalRequest.responseText;
+      var res = eval('[' + text + '][0]');
+      if(!res.email){
+        alert("$msg.get("joincurriki.email.alreadyUsed")");
+        valid = false;
+        }
+      valid = true;
+    } });
     return false;
   }
 
-  function checkEmailResponse(originalRequest){
-    var text = originalRequest.responseText;
-    var res = eval('[' + text + '][0]');
-    if(!res.email){
-      alert("$msg.get("joincurriki.email.alreadyUsed")");
-      return false;
-    }
-    document.forms.inline.onSubmit = "";
-    if (($F("XWiki.XWikiUsers_0_email") != $F("origemail"))
-     && (document.forms.inline['XWiki.XWikiUsers_0_password'].value != $F("origpw"))){
-  var ia=document.createElement('input');
-  ia.setAttribute('id', "XWiki.XWikiUsers_0_active");
-  ia.setAttribute('name', "XWiki.XWikiUsers_0_active");
-  ia.setAttribute('type', "hidden");
-  ia.setAttribute('value', "0");
-  $('inline').appendChild(ia);
-
-  var eu=document.createElement('input');
-  eu.setAttribute('id', "XWiki.XWikiUsers_0_email_undeliverable");
-  eu.setAttribute('name', "XWiki.XWikiUsers_0_email_undeliverable");
-  eu.setAttribute('type', "hidden");
-  eu.setAttribute('value', "1");
-  $('inline').appendChild(eu);
-
-        document.forms.inline.action='$userdoc.getURL("save", "xredirect=$xredirectemail2")';
-      }
-      document.forms.inline.submit();
-    }
-    document.forms.inline.onsubmit=checkInlineForm;
+  document.forms.inline.onsubmit=checkInlineForm;
   </script>
   #if("$!footerJScript" == "")
     #set($footerJScript = "")
