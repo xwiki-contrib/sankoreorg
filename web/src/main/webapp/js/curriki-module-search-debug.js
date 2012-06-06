@@ -1012,7 +1012,7 @@ form.init = function(){
               ,triggerAction:'all'
               ,selectOnFocus:true
               ,forceSelection:true
-              ,value:Curriki.data.education_system.initial
+              ,value:Curriki.data.education_system.international
               ,validator:function(value){
                 if(this.store.find('education_system', value) == -1)
                   this.setRawValue(Curriki.data.education_system.initial);
@@ -1034,9 +1034,6 @@ form.init = function(){
                   }
                 }
               }
-            },{
-              xtype:'combo'
-              ,hidden:true              
             },{
               xtype:'combo'
               ,id:'combo-ict-'+modName
@@ -1533,9 +1530,10 @@ form.init = function(){
     ,sm: new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
     ,cm: form.columnModel
     ,loadMask: false
-    ,plugins: form.rowExpander
+    ,plugins: form.rowExpander    
     ,bbar: new Ext.PagingToolbar({
       id: 'search-pager-'+modName
+      ,layout:'xpagingtoolbar'
       ,plugins:new Ext.ux.Andrie.pPageSize({
          variations: [10, 25, 50]
         ,beforeText: _('search.pagination.pagesize.before')
@@ -1627,9 +1625,21 @@ data.init = function(){
   data.filter = {};
   var f = data.filter; // Alias
   
-	f.list = ['terms', 'subject', 'subsubject', 'level', 'sublevel', 'language', 'review', 'ict', 'subict', 'special'];
+	f.list = ['terms', 'system', 'subject', 'subsubject', 'level', 'sublevel', 'language', 'review', 'ict', 'subict', 'special'];
 
   f.data = {};
+  f.data.system = {
+    list: Curriki.data.education_system.list
+    ,data: [
+      ['AssetMetadata.InternationalEducation', _('CurrikiCode.AssetClass_education_system_AssetMetadata.InternationalEducation')]
+    ]
+  }  
+  f.data.system.list.each(function(item){
+    f.data.system.data.push([
+      item.id
+      ,_('CurrikiCode.AssetClass_education_system_'+item.id)
+    ]);
+  });
 
   f.data.subject =  Curriki.module.search.data.resource.filter.data.subject;
   f.data.subsubject =  Curriki.module.search.data.resource.filter.data.subsubject;
@@ -1673,7 +1683,12 @@ data.init = function(){
   });
 
   f.store = {
-    subject: new Ext.data.SimpleStore({
+    system: new Ext.data.SimpleStore({
+      fields: ['id', 'education_system']
+      ,data: f.data.system.data
+      ,id: 0
+    })
+    ,subject: new Ext.data.SimpleStore({
       fields: ['id', 'subject']
       ,data: f.data.subject.data
       ,id: 0
@@ -1763,7 +1778,7 @@ data.init = function(){
     // turn on remote sorting
     ,remoteSort: true
   });
-  data.store.results.setDefaultSort('rating', 'desc');
+  data.store.results.setDefaultSort('memberRating', 'desc');
 
   // Set up renderers
   data.renderer = {
@@ -1911,6 +1926,43 @@ form.init = function() {
               hideLabel:true
             }
             ,items:[{
+              xtype:'combo'
+              ,id:'combo-system-'+modName
+              ,fieldLabel:'System'
+              ,hiddenName:'system'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.system
+              ,displayField:'education_system'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,value:Curriki.data.education_system.international
+              ,validator:function(value){
+                if(this.store.find('education_system', value) == -1)
+                  this.setRawValue(Curriki.data.education_system.initial);
+                return true;
+              }
+              ,listeners:{
+                select:{
+                  fn:function(combo, value){
+                    var level = Ext.getCmp('combo-level-'+modName);                                      
+                    level.clearValue();
+                    var sublevel = Ext.getCmp('combo-sublevel-'+modName);                                  
+                    sublevel.clearValue();
+                    sublevel.hide();
+                    var subject = Ext.getCmp('combo-subject-'+modName);                                        
+                    subject.clearValue(); 
+                    var subsubject = Ext.getCmp('combo-subsubject-'+modName);                                        
+                    subsubject.clearValue();  
+                    subsubject.hide();                                                      
+                  }
+                }
+              }
+            },{
               xtype:'combo'
               ,id:'combo-subject-'+modName
               ,fieldLabel:'Subject'
@@ -2215,7 +2267,7 @@ form.init = function() {
           window.location = '/xwiki/bin/view/Search/WebHome#'+encodedToken;
         }  
       }]
-    })		
+    })	
   };
 
   form.resultsGrid = {
@@ -2250,9 +2302,10 @@ form.init = function() {
       ,renderer: data.renderer.result
       //,tooltip:_('search.resource.column.header.result')
     }])
-    ,loadMask: false
+    ,loadMask: false    
     ,bbar:new Ext.PagingToolbar({
       id:'search-pager-'+modName
+      ,layout:'xpagingtoolbar'
       ,plugins:new Ext.ux.Andrie.pPageSize({
          variations:[10, 25, 50]
         ,beforeText:_('search.pagination.pagesize.before')
@@ -2280,7 +2333,7 @@ form.init = function() {
               featuredGrid.hide();
             if(page.activePage == 1 && !featuredGrid.isVisible())
               featuredGrid.show();
-            if(page.activePage == page.pages)
+            if(page.activePage == page.pages && Ext.getCmp('search-termPanel-'+modName+'-terms').isVisible())
               googleDoSearch(modName);
             else
               $('googleSearch').hide();
@@ -4042,7 +4095,7 @@ Search.init = function(){
       console.log('Got History', {token: token, values: values});
 
       if (!Ext.isEmpty(values)) {
-        var filterValues = values['f'];
+        var filterValues = values['f'];        
         if (!Ext.isEmpty(filterValues) && filterValues['all'] && Ext.getCmp('search-termPanel') && Ext.getCmp('search-termPanel').getForm) {
           Ext.getCmp('search-termPanel').getForm().setValues(filterValues['all']);
         }
@@ -4068,52 +4121,7 @@ Search.init = function(){
                 var filterForm = filterPanel.getForm();
                 if (!Ext.isEmpty(filterForm)) {
                   try {
-                    filterForm.setValues(filterValues[tab]);
-
-                    // setValues does not trigger the visiblity change of the sub-lists
-                    var list = Ext.getCmp('combo-system-'+tab);
-                    //if(list.getValue() === '')
-                    //  list.setRawValue('UNSPECIFIED');
-                    //list.validate();
-                    list = Ext.getCmp('combo-level-'+tab);
-                    if(list.getValue() === '')
-                      list.setRawValue('UNSPECIFIED');
-                    list.validate();
-                    list = Ext.getCmp('combo-sublevel-'+tab);
-                    if(list.getValue() === '')
-                      list.setRawValue('UNSPECIFIED');
-                    list.validate();
-                    list = Ext.getCmp('combo-subject-'+tab);
-                    if(list.getValue() === '')
-                      list.setRawValue('UNSPECIFIED');
-                    list.validate();
-                    list = Ext.getCmp('combo-subsubject-'+tab);
-                    if(list.getValue() === '')
-                      list.setRawValue('UNSPECIFIED');
-                    list.validate();
-                    list = Ext.getCmp('combo-ict-'+tab);
-                    if(list.getValue() === '')
-                      list.setRawValue('UNSPECIFIED');
-                    list.validate();
-                    list = Ext.getCmp('combo-subict-'+tab);
-                    if(list.getValue() === '')
-                      list.setRawValue('UNSPECIFIED');
-                    list.validate();
-                    //  if (!Ext.isEmpty(filterValues[tab].subject)) {
-                    //    if (Ext.getCmp('combo-subsubject-'+tab)) {
-                    //      Ext.getCmp('combo-subsubject-'+tab).setValue(filterValues[tab].subject);
-                    //    }
-                    //  }
-                    //}
-                    //list = Ext.getCmp('combo-ictprfx-'+tab);
-                    ///if (list) {
-                    //  list.fireEvent("select", list, list.getValue());
-                    //  if (!Ext.isEmpty(filterValues[tab].ict)) {
-                    //    if (Ext.getCmp('combo-subICT-'+tab)) {
-                    //      Ext.getCmp('combo-subICT-'+tab).setValue(filterValues[tab].ict);
-                    //    }
-                    //  }
-                    //}
+                    filterForm.setValues(filterValues[tab]);                    
                   } catch(e) {
                     console.log('ERROR Updating '+tab, e);
                   }

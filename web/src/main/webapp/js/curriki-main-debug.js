@@ -1305,6 +1305,11 @@ Ext.extend(Ext.ux.Andrie.pPageSize, Ext.util.Observable, {
     this.pagingToolbar.getPageSize = function() {
       return this.pageSize;
     }
+    this.pagingToolbar.first.setText("« First");
+    this.pagingToolbar.prev.setText("‹ Prev");
+    this.pagingToolbar.next.setText("Next ›");
+    this.pagingToolbar.last.setText("Last »");
+    
     this.pagingToolbar.on('render', this.onRender, this);
   },
   
@@ -1411,6 +1416,7 @@ Ext.extend(Ext.ux.Andrie.pPageSize, Ext.util.Observable, {
     this.combo.on('select', this.setPageSize, this);
     this.updateStore();
     
+    this.pagingToolbar.add("->");
     if (this.addBefore) {
       this.pagingToolbar.add(this.addBefore);
     }
@@ -1627,6 +1633,7 @@ Ext.override(Ext.Component, {
 
 // Fix issues with combo boxes not hiding with correct method
 // Default uses display CSS method with no thought to what hideMode is
+/*
 Ext.override(Ext.form.TriggerField, {
   // private
   onShow: function() {
@@ -1669,11 +1676,13 @@ Ext.override(Ext.form.TriggerField, {
     }
   }
 });
+*/
 
 // CURRIKI-2724
 // Remove "Refresh" button from paging toolbar
+/*
 Ext.override(Ext.PagingToolbar, {
-  // private
+  // private  
   onRender: function(ct, position) {
     Ext.PagingToolbar.superclass.onRender.call(this, ct, position);
     this.first = this.addButton({
@@ -1720,9 +1729,8 @@ Ext.override(Ext.PagingToolbar, {
       disabled: true,
       handler: this.onClick.createDelegate(this, ["last"])
     });
-    /* Removed for CURRIKI-2724
-     this.addSeparator();
-     */
+    // Removed for CURRIKI-2724
+    // this.addSeparator();    
     this.loading = this.addButton({
       hidden: true, // Added for CURRIKI-2724 - We can't actually remove this item as it is referred to elsewhere
       tooltip: this.refreshText,
@@ -1740,7 +1748,7 @@ Ext.override(Ext.PagingToolbar, {
     }
   }
 });
-
+*/
 Ext.override(Ext.ux.Andrie.pPageSize, {
   setPageSize: function(value, forced) {
     var pt = this.pagingToolbar;
@@ -4415,9 +4423,9 @@ Ext.Toolbar.AddPathProgress  = function(config){
     this.el.id = config.id;  
     this.items = config.items;
     this.hidden = config.hidden;
-    config.td.style.width = '100%';
-    config.td.style.textAlign = 'center';
-    config.td.appendChild(this.el);
+    //config.td.style.width = '100%';
+    //config.td.style.textAlign = 'center';
+    //config.td.appendChild(this.el);
     Ext.Toolbar.AddPathProgress.superclass.constructor.call(this, this.el);
     //Ext.apply(this, config); 
 };
@@ -4449,6 +4457,7 @@ Ext.extend(Ext.Toolbar.AddPathProgress, Ext.Component, {
 
 Ext.reg('tbprogress', Ext.Toolbar.AddPathProgress);
 
+/*
 Ext.Toolbar.TextItem = function(t) {
   this.el = document.createElement("span");
   this.el.className = "ytb-text";
@@ -4468,7 +4477,46 @@ Ext.extend(Ext.Toolbar.TextItem, Ext.Toolbar.Item, {
     }
 });
 Ext.reg('tbtext', Ext.Toolbar.TextItem);
+*/
 
+var T = Ext.Toolbar;
+
+
+Ext.override(Ext.Toolbar, {
+  lookupComponent : function(c) {
+    if(Ext.isString(c)){
+      if(c == '-'){
+        c = new T.Separator();
+      }else if(c == ' '){
+        c = new T.Spacer();
+      }else if(c == '->'){
+        c = new T.Fill();
+      }else if (c == '--'){
+        this.newrow();
+        c = new T.Item();        
+      }else{
+        c = new T.TextItem(c);
+      }
+      this.applyDefaults(c);
+    }else{
+      if(c.isFormField || c.render){ // some kind of form field, some kind of Toolbar.Item
+        c = this.createComponent(c);
+      }else if(c.tag){ // DomHelper spec
+        c = new T.Item({autoEl: c});
+      }else if(c.tagName){ // element
+        c = new T.Item({el:c});
+      }else if(Ext.isObject(c)){ // must be button config?
+        c = c.xtype ? this.createComponent(c) : this.constructButton(c);
+      }
+    }
+    return c;
+  }
+  , newrow : function() {
+    console.log(this);
+  }
+});
+
+/*
 Ext.override(Ext.Toolbar, {
   add : function(){
     var a = arguments, l = a.length;
@@ -4525,7 +4573,8 @@ Ext.override(Ext.Toolbar, {
     return tr;
   }
 })
-
+*/
+/*
 Ext.Toolbar.Item.prototype.render = function(td) {
   this.td = td;
   if (this.align) {
@@ -4539,7 +4588,7 @@ Ext.Toolbar.Item.prototype.render = function(td) {
   }
   td.appendChild(this.el);  
 }
-
+*/
 Ext.override(Ext.data.Store, {
   filterAdd : function(property, value, anyMatch, caseSensitive){
     var fn = this.createFilterFn(property, value, anyMatch, caseSensitive);
@@ -4627,3 +4676,34 @@ Curriki.group.current = {
 }
 Curriki.current.init();
 Curriki.group.current.init();
+
+Curriki.encodeFilters = function(modName, filters) {
+  var token = {
+    's': modName
+    ,'f': {}
+    ,'p': {
+      'c': 0
+      ,'s': 25
+      }
+    ,'t': modName
+    ,'a': false
+    };
+  token['f'][modName] = filters;
+  var provider = new Ext.state.Provider();
+  return provider.encodeValue(token); 
+}
+
+Curriki.decodeFilters = function(token) {
+  var provider = new Ext.state.Provider();
+  return provider.decodeValue(token); 
+}
+
+Curriki.redirectToSearch = function(pathname, modName, filters) {
+  if (window.location.pathname != pathname)
+    window.location.href = pathname + '#' + Curriki.encodeFilters(modName, filters);
+  else
+    Curriki.module.search.history.historyChange(Curriki.encodeFilters(modName, filters));
+}
+
+//Ext.Button.buttonTemplate = new Ext.Template('<div id="{4}" class="x-btn {3} {1}"><em class="{2}" unselectable="on"><button type="{0}"></button></em>');
+//Ext.Button.buttonTemplate.compile();
