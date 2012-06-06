@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>SankoreCode</web>
+<name>BrowseMacros</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1338984834000</creationDate>
+<date>1338984834000</date>
+<contentUpdateDate>1338984834000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>{{velocity output="false"}}
+#set($query = ", BaseObject as obj, StringProperty as language where obj.name=doc.fullName and obj.className='CurrikiCode.EducationSystemClass' and language.id.id=obj.id and language.name='language' and language.value='${context.language}'")
+#set($education_system = $xwiki.searchDocuments($query).get(0))
+$education_system
+#set($query = ", BaseObject obj, StringProperty as system, StringProperty as pivot where obj.name=doc.fullName and doc.space='AssetMetadata' and obj.className='CurrikiCode.EducationalLevelClass' and obj.id=system.id.id and system.name='education_system' and system.value='${education_system}' and obj.id=pivot.id.id and pivot.name='pivot' and pivot.value not in ('18', '19', '20', '21') and doc.parent='' order by pivot.value")
+#set($educational_levels = $xwiki.searchDocuments($query))
+$educational_levels
+#set($levelslike= "")
+#foreach($level in $educational_levels)
+  #if($velocityCount &gt; 1) #set($levelslike = "${levelslike} or ") #end
+  #set($levelslike = "$!{levelslike} levels.textValue like '%${level}%'")   
+#end
+#set($subjects = $xwiki.searchDocuments(", BaseObject as obj, StringListProperty as levels where doc.parent='' and doc.fullName=obj.name and obj.className='CurrikiCode.DisciplineClass' and levels.id.id=obj.id and levels.name='educational_levels' and (${levelslike})"))
+##
+##
+#set($discard = $xwiki.ssx.use("${doc.space}.${doc.name}"))
+#set($lucene = $xwiki.getPlugin("lucene"))
+#if(!$lucene)
+  #error("Error loading Lucene search")
+#end
+##
+## start lucene rebuild if requested
+#set($doRebuild = $request.getParameter("rebuild"))
+#if($doRebuild=="yes")
+  #set($documentCount = $lucene.rebuildIndex($xwiki,$context))
+  #if($documentCount&gt;=0)
+    $msg.get("browseSearch.rebuilding", [$documentCount])
+  #end
+#end
+## end lucene rebuild
+##
+##
+## Get search and area from request
+#set($squery = $!request.brsqry)
+#set($sarea = $!request.area)
+##
+#set($inarea = $!request.area)
+#if ($inarea &amp;&amp; $inarea != "")
+  #set($inarea = $xwiki.getDocument($inarea).title)
+  #set($inarea = ": $inarea")
+#end
+##
+##
+## Set up a few things for the page and searching
+#set($thispage = $xwiki.getURL($doc.fullName))
+#set($searchpage = $xwiki.getURL("Search.WebHome"))
+##
+#set($wikinames = "xwiki")
+#set($defaultLanguage = $xwiki.getPreference("default_language", "en"))
+#set($languages = $xwiki.getXWikiPreference("languages", "$defaultLanguage"))
+#set($languages = "default, $languages")
+#set($itemsPerPage = "20")  ## NOTE: This must be hardcoded below for pagecount
+#set($firstIndex = $request.getParameter("firstIndex"))
+#if(!$firstIndex)
+  #set($firstIndex = "1")
+#end
+#set($firstIndex = ($xwiki.parseInt($firstIndex)))
+#set($uncat = $msg.get("Uncategorized"))
+#set($uncatqry = "")
+#set($nonasset = "Curriki Site Pages")
+#set($members = "Curriki Members")
+#set($allres = "All_Resources")
+##
+##
+##
+## Start of macros
+#macro(dosearch $sq $subject)
+  ##set($luceneQuery = "CurrikiCode.AssetClass.fw_items:${subject} AND NOT web:AssetTemp AND NOT name:WebHome AND NOT name:WebPreferences AND NOT name:MyCollections AND NOT name:SpaceIndex AND NOT CurrikiCode.AssetClass.hidden_from_search:1")
+  #set($luceneQuery = "CurrikiCode.AssetClass.education_system:${education_system} AND CurrikiCode.AssetClass.fw_items:${subject} AND NOT CurrikiCode.AssetClass.hidden_from_search:1 AND NOT web:AssetTemp AND NOT web:Coll_Templates AND NOT name:WebHome AND NOT name:WebPreferences AND NOT name:MyCollections AND NOT name:SpaceIndex AND NOT CurrikiCode.AssetClass.category:external")
+  #if($request.debug)
+    Searching: $luceneQuery
+  #end 
+  #set($searchresults = $lucene.getSearchResults($luceneQuery, $languages))
+#end
+## end macro dosearch
+##
+#macro(subjectlinkurl $subject $specificArg)
+  #if($subject &amp;&amp; $subject != "" &amp;&amp; $specificArg == "")
+    #set($subjectArg = $subject)
+    #if($subject == $uncat)
+      #set($subjectArg = 'UNCATEGORIZED')
+    #end
+javascript:Curriki.redirectToSearch('$searchpage', 'resource', {'system':'${education_system}', 'subject':'${subject}'})    
+##${searchpage}#${escapetool.url("o:s=s:resource^f=o:resource=o:terms=s:^other=s:^system=s:${education_system}^ict=s:^subict=s:^level=s:^sublevel=s:^language=s:^review=s:^subject=s:${subject}^subsubject=s:^special=s:^p=o:c=n:0^t=s:resource^a=b:0")}
+  #else
+    #if($specificArg != "")
+      ${searchpage}#${specificArg}
+    #end
+  #end
+#end
+## end macro subjectlinkurl
+##
+##
+##
+#macro(subjectlink $subject $specificQuery $specificArg)
+&lt;div class="subject-link"&gt;
+  &lt;a href="#subjectlinkurl($subject $specificArg)" target="_top"&gt;
+    &lt;span class="subject-title"&gt;
+      $msg.get("CurrikiCode.AssetClass_fw_items_$subject")
+      #dosearch($squery $subject)
+    &lt;/span&gt;
+    &lt;span class="subject-title-count"&gt;($searchresults.totalHitcount)&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+#end
+## end macro subjectlink
+#macro(subjectcard $subject $specificQuery $specificArg $imgUrl $text)
+  #set($subjdoc = $xwiki.getDocument($subject) )
+  #set($promo = "")
+  #if($specifc != "")
+    #set($promo = "subject-card-promo")
+  #end
+  &lt;div class="subject-card $promo"&gt;
+  #subjectlink($subject $specificQuery $specificArg)
+  #if($imgUrl != "-")
+    &lt;div class="subject-image"&gt;
+      &lt;a href="#subjectlinkurl($subject $specificArg)" target="_top"&gt;
+    #if($specificQuery == "" &amp;&amp; $subject != $uncat &amp;&amp; $subject != $nonasset &amp;&amp; $subject != $members &amp;&amp; $subject != $allres)
+      #set($altText=${msg.get($subjdoc.getTranslatedDocument().getDisplayTitle())})
+    #else
+      #set($altText=$msg.get("CurrikiCode.AssetClass_fw_items_$subject"))
+    #end
+    #if($imgUrl == "")
+      #if($subjdoc.getAttachmentList().contains('icon.png'))
+      &lt;img src="${subjdoc.getAttachmentURL('icon.png')}" alt="${altText}" title="${altText}" /&gt;
+      #end
+    #else
+      &lt;img src="$imgUrl" alt="${altText}" title="${altText}" /&gt;
+    #end
+    &lt;/a&gt;
+  &lt;/div&gt;
+  #end
+  #*
+  &lt;div class="subject-desc"&gt;
+  #set ($subjdesc = $subjdoc.getContent() )
+  #if($text == "")
+    #if(${subjdesc} != "-")
+      ${subjdesc}
+    #end
+  #else
+    #if($text != "-")
+      $text
+    #end
+  #end
+  &lt;/div&gt;
+  *#
+  &lt;/div&gt;
+#end
+## end macro subjectcard
+##
+##
+##
+#macro(transsubjectcard $translationKey $specificQuery $specificArg)
+  #subjectcard($translationKey $specificQuery $specificArg "" "")
+#end
+## end macro transsubjectcard
+##
+##
+##
+#macro(simplesubjectcard $subject)
+  #subjectcard($subject "" "" "" "")
+#end
+## end macro simplesubjectcard
+##
+## end macros
+{{/velocity}}</content></xwikidoc>

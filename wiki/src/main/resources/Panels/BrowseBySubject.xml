@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xwikidoc>
 <web>Panels</web>
-<name>PlaneteSankore</name>
+<name>BrowseBySubject</name>
 <language></language>
 <defaultLanguage>en</defaultLanguage>
 <translation>0</translation>
@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1338912788000</creationDate>
-<date>1338912788000</date>
-<contentUpdateDate>1338912788000</contentUpdateDate>
+<creationDate>1338989862000</creationDate>
+<date>1338989862000</date>
+<contentUpdateDate>1338989862000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -96,49 +96,31 @@
 <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
 </type>
 </class>
-<name>Panels.PlaneteSankore</name>
+<name>Panels.BrowseBySubject</name>
 <number>0</number>
 <className>Panels.PanelClass</className>
-<guid>931c43e1-883d-4bd2-9d70-cb47597b61a1</guid>
+<guid>eb34a5f9-8fa8-43bd-8814-f24a774671f1</guid>
 <property>
 <category>Information</category>
 </property>
 <property>
 <content>#includeMacros("SankoreCode.PanelsMacros")
-#sankore_panelheader($msg.get("panel.sankoreplanet.title") "" "planete imgpanel" "/xwiki/bin/download/Panels/SankorePlanetPanel/BGplanete.png")
-#template("logininline.vm")
-#if(!$isGuest)
-  &lt;p&gt;&lt;a class="action-link" target="_top" href="javascript:Curriki.module.addpath.startPath('B');"&gt;$msg.get("panel.sankoreplanet.addresource")&lt;/a&gt;&lt;/p&gt;
-#end
-#sankore_panelfooter()
-#if($isGuest)
-  #sankore_panelheader("" "" "planete" "")
-  #includeInContext("Main.JoinTemplate")
-  #sankore_panelfooter()
-#else
-  #includeMacros("SankoreCode.BrowseMacros")
-  #sankore_panelheader("" "" "planete" "")
-  &lt;div class="browse-page"&gt;
+#includeMacros("SankoreCode.BrowseMacros")
+#sankore_panelheader("" "" "planete" "")
+&lt;div class="browse-page"&gt;
   &lt;h3&gt;$msg.get("browse.title")&lt;/h3&gt;
   &lt;p class="browse-text"&gt;$msg.get("browse.info")&lt;/p&gt;
-  #set($keysMap = $util.hashMap)
-  #set($valuesMap = $util.hashMap)
-  #foreach($key in $subjects)
-    #set($value = $msg.get("CurrikiCode.AssetClass_fw_items_${key}"))
-    #set($discard = $keysMap.put($key, $value))
-    #set($discard = $valuesMap.put($value, $key))
+  #foreach($subject in $subjects)
+    #simplesubjectcard($subject)
   #end
-  #set($sortedsubjects = $sorttool.sort($keysMap))
-  #foreach($subject in $sortedsubjects)
-    #simplesubjectcard($valuesMap.get($subject))
-  #end
-  &lt;/div&gt;
-#sankore_panelfooter()
-#end
-</content></property><property><description>Panel Description</description>
+&lt;/div&gt;
+#sankore_panelfooter()</content>
 </property>
 <property>
-<name>PlaneteSankore</name>
+<description>Panel Description</description>
+</property>
+<property>
+<name>BrowseBySubject</name>
 </property>
 <property>
 <type>view</type>
