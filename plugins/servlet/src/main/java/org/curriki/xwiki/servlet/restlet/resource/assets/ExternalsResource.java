@@ -105,6 +105,8 @@ public class ExternalsResource extends BaseResource {
             // call the sub type asset manager to get more details
             ExternalAssetManager assetManager = (ExternalAssetManager) DefaultAssetManager.getAssetSubTypeManager(Constants.ASSET_CATEGORY_EXTERNAL);
             if (assetManager!=null) {
+                if (link.length() > 255)
+                    link = link.split("#")[0];
                 assetManager.makeExternalAsset(asset, link, (linktext==null) ? "" : linktext);
             } else {
                 throw error(Status.CLIENT_ERROR_PRECONDITION_FAILED, "Could not add external link");
