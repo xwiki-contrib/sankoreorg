@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1339057291000</creationDate>
-<date>1339057291000</date>
-<contentUpdateDate>1339057291000</contentUpdateDate>
+<creationDate>1339058604000</creationDate>
+<date>1339058604000</date>
+<contentUpdateDate>1339058604000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -30,15 +30,17 @@
 * [Check Server Status&gt;Admin.RequestsStatus]
 
 1.1 User Administration
+
 * [PagedUsers]
-## * [Users&gt;XWiki.XWikiUsers]
+
+## &amp;#42; [Users&gt;XWiki.XWikiUsers]
+
 * [Groups Albotros&gt;XWiki.XWikiGroups?editor=groups&amp;space=XWiki&amp;force=1&amp;skin=albotros]
 * [Groups&gt;XWiki.XWikiGroups]
 * [XWiki.AdminGroup?skin=toucan]: Add or Remove Admins
 * [Rights&gt;Admin.Rights]
 * [Search for Users&gt;Admin.UserSearch]
-* [Listing of all users&gt;Admin.XWiki+User+List]
-
+* [Listing of all users&gt;XWiki User List]
 1.1 Blog
 
 * [Categories&gt;Blog.Categories]
