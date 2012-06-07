@@ -1803,7 +1803,7 @@ data.init = function(){
   data.store.featuredResults = new Ext.data.Store({
     storeId: 'search-store-featured-'+modName
     ,proxy: new Ext.data.HttpProxy({
-      url: '/xwiki/bin/view/Search/External'
+      url: '/xwiki/bin/view/Search/Resources'
       ,method:'GET'
     })
     ,baseParams: { start: '0', limit: '2', xpage: "plain", '_dc':(new Date().getTime()) }
@@ -1817,7 +1817,7 @@ data.init = function(){
     // turn on remote sorting
     ,remoteSort: true
   });
-  data.store.featuredResults.setDefaultSort('title', 'asc');
+  data.store.featuredResults.setDefaultSort('rating', 'asc');
 
   // Set up renderers
   data.featuredRenderer = {
