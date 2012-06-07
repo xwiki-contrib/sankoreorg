@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Admin</web>
+<name>XWiki User List</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>XWiki.XWikiUsers</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1339056906000</creationDate>
+<date>1339056906000</date>
+<contentUpdateDate>1339056906000</contentUpdateDate>
+<version>1.1</version>
+<title>XWiki User List</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>1 Users
+
+   * [XWiki.RegisterNewUser]
+
+#if($xwiki.hasAdminRights())
+{{warning}}List of users shown only to admins{{/warning}}
+
+1 Current Users
+
+#set($list = $xwiki.searchDocuments(",BaseObject as obj where doc.fullName=obj.name and obj.className='XWiki.XWikiUsers'"))
+{table}
+Photo | First Name | Last Name | eMail | View Profile
+#foreach($user in $list)
+#set($userdoc = $xwiki.getDocument($user)) $userdoc.use("XWiki.XWikiUsers") #if($userdoc.attachmentList.size()&gt;0) #set($attach = $userdoc.attachmentList.get(0)) &lt;img src="$userdoc.getAttachmentURL($attach.filename,"download", "height=50")" height="50"/&gt; #end | $userdoc.first_name | $userdoc.last_name | #if($xwiki.hasAdminRights()) $userdoc.email #else not shown #end | [View Profile&gt;$userdoc.fullName]
+#end
+{table}
+
+1 Admin
+
+   * [XWiki.XWikiUserTemplate]
+   * [XWiki.XWikiUserSheet]
+#end</content></xwikidoc>
