@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xwikidoc>
 <web>Search</web>
-<name>Resources</name>
+<name>External</name>
 <language></language>
 <defaultLanguage>en</defaultLanguage>
 <translation>0</translation>
@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1339008090000</creationDate>
-<date>1339008090000</date>
-<contentUpdateDate>1339008090000</contentUpdateDate>
+<creationDate>1339008266000</creationDate>
+<date>1339008266000</date>
+<contentUpdateDate>1339008266000</contentUpdateDate>
 <version>1.1</version>
-<title></title>
+<title>External</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -563,13 +563,11 @@ $ict:
   #end    
   ##
   ## Category
-  #if("$!request.category" != "")
-    #if($request.category == "unknown")
-      #set($junk = $q.add("CurrikiCode.AssetClass.category:(${request.category} OR attachment)"))
-    #else
-      #set($junk = $q.add("CurrikiCode.AssetClass.category:${request.category}"))
-    #end
-  #end
+  ##if("$!request.category" != "")
+    ##set($junk = $q.add("CurrikiCode.AssetClass.category:${request.category}"))
+  ##else
+    ##set($junk = $q.add(" CurrikiCode.AssetClass.category:external"))
+  ##end
   ##
   ## Other
   #if("$!request.other" != "")
@@ -629,7 +627,7 @@ $ict:
   #set($languages = "default,en,fr")
   #set($include = "CurrikiCode.AssetClass.hidden_from_search:0 ")
   ## AND NOT CurrikiCode.TextAssetClass.syntax:cboe 
-  #set($exclude = " AND NOT web:AssetTemp AND NOT web:Coll_Templates AND NOT name:WebHome AND NOT name:WebPreferences AND NOT name:MyCollections AND NOT name:SpaceIndex AND NOT CurrikiCode.AssetClass.category:external")
+  #set($exclude = " AND CurrikiCode.AssetClass.category:external AND NOT web:AssetTemp AND NOT web:Coll_Templates AND NOT name:WebHome AND NOT name:WebPreferences AND NOT name:MyCollections AND NOT name:SpaceIndex")
   #if("$!conditions" != "")
     #set($include = "$!include AND ")
   #end
