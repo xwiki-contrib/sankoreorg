@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1335195735000</creationDate>
-<date>1335195735000</date>
-<contentUpdateDate>1335195735000</contentUpdateDate>
+<creationDate>1338477140000</creationDate>
+<date>1338477140000</date>
+<contentUpdateDate>1338477140000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -2904,10 +2904,10 @@ QHXzX+pOx1aRHig31zBU8kqOMIshYig4xXnLBBh+S+vs6JyLilP1Q2218sphMuujIYmo+NoElDuy
 .x-window #resource-drop .x-panel-body { padding-top: 0; }
  
 .x-toolbar .x-btn-over .x-btn-right, .x-toolbar .x-btn-over .x-btn-left { background-image: none; } 
-.x-window-mc, .x-form-item { font: 13px Arial,sans-serif; }  
+##.x-window-mc, .x-form-item { font: 13px Arial,sans-serif; }  
 .x-window .guidingquestion { font-size: 1.2em; font-weight: bold; padding: 0.5em 0; }
 .x-window .subtitle { font-size: 1em; font-weight: bold; padding: 0.5em 0; }
-input.x-form-radio { margin-bottom: -2px }
+##input.x-form-radio { margin-bottom: -2px }
 .x-tree .x-panel-body, #ext-comp-1022 div, #ext-comp-1022 ul, ul.x-tree-root-ct, ul.x-tree-root-ct ul { padding-left: 0; }
 .ext-el-mask-msg * { border: none !important; background-image: none; font: 13px Arial; }
 .x-window .listheader {font-weight: bold;}
@@ -2933,20 +2933,14 @@ input.x-form-radio { margin-bottom: -2px }
 .x-tree-node a span { overflow: hidden; }
 form#MetadataDialogueForm { height: 420px !important; overflow-y: auto; overflow-x: hidden; }
 
-#MetadataDialoguePanel table#cancelbutton, #MetadataDialoguePanel table#nextbutton {
-	margin-top: 15px !important;
-	margin-bottom: 15px !important;
-}
-
 #MetadataDialogueForm img.x-tree-node-icon { display: none; }
 ul.x-tree-root-ct, #educational_level2-set .x-form-item { margin: 0; }
 .x-combo-list { border-color:#b2b2b2 #e5e5e5 #e5e5e5 #b2b2b2; text-align: left; }
 .x-combo-list-item { text-align: left; }
-.x-panel-body #metadata-language-entry, .x-panel-body #metadata-license_type-entry { width: 98% !important; }
+##.x-panel-body #metadata-language-entry, .x-panel-body #metadata-license_type-entry { width: 98% !important; }
 #MetadataDialoguePanel #fw_items-tree {overflow: hidden;}
 .ux-mselect-item { font: 12px Arial; padding: 0 2px; }
 .x-panel .instruction { font-size: 13px; }
-.directions { font-size: 10px; padding-bottom: 5px; }
 #fw_items-tree .x-panel-body { padding-top: 0; }
 #educational_level2-set { padding: 0; }
 .information-header { font-weight: bold; margin-top: 15px; }
@@ -2984,6 +2978,7 @@ ul.x-tree-root-ct, #educational_level2-set .x-form-item { margin: 0; }
 .x-fieldset legend { display: none; }
 #link-entry-box { width: 80%; }
 .ext-gecko .x-window-body .x-form-item { overflow: hidden; }
+
 
 /* Add Path - CURRIKI-2431 */
 .x-window div.description { display:block; padding:5px 0; }
@@ -3048,6 +3043,10 @@ ul.x-tree-root-ct, #educational_level2-set .x-form-item { margin: 0; }
 
 .x-panel-body #metadata-education_system-entry {
   width: 98% !important;
+}
+
+.x-panel-body #metadata-license_type-entry {
+  width: 85% !important;
 }
 
 .x-tree-node .x-tree-selected {
@@ -3167,15 +3166,6 @@ margin-right:3px;
   background: none;
 }
 
-#MetadataDialoguePanel1 .x-panel-bbar {
-  height: 49px;
-}
-
-
-#MetadataDialoguePanel1 .x-panel-bbar td {
-  height: 24px;
-}
-
 .x-window-tl .x-window-header {
   padding: 0;
 }
@@ -3187,10 +3177,61 @@ margin-right:3px;
 
 #MetadataDialogue {
   border: none;
-}</addpath.css>
-</property>
-<property>
-<advancedsearch.vm>#set($defaultsearchtext = $msg.get("header.defaultsearchtext"))
+}
+
+
+## SANKORE EXTJS extensions
+
+.x-form textarea {
+  resize: none;
+  color: #000000;
+}
+
+.x-form input[type="text"], input[type="password"] {
+  color: #000000;
+  background-color: #FFFFFF;
+  border-color: 1px solid #B5B8C8;
+}
+
+.x-tree-node {
+  color: #000000;
+  font: 11px tahoma,arial,helvetica,sans-serif;
+}
+
+.x-btn-tl, .x-btn-tr, .x-btn-tc, .x-btn-ml, .x-btn-mr, .x-btn-mc, .x-btn-bl, .x-btn-br, .x-btn-bc {
+  background-image: none;
+}
+
+## ADDPATH
+
+.directions { font-size: 11px; padding-bottom: 5px; }
+
+.x-btn-noicon .x-btn-small .x-btn-text {
+  height: auto;
+  font: 12px tahoma,arial,helvetica,sans-serif;
+}
+
+
+### ATTRIBUTER
+
+#ctv-to-tree-cmp .x-tree-node-el + .x-tree-node-ct {
+  position: static;  
+}
+
+#organize-tree-cmp .x-tree-node-el + .x-tree-node-ct {
+  position: static;  
+}
+
+.x-toolbar-ct .x-btn {
+  float: left;
+}
+
+## Curriki paging toolbar
+.curriki-paging-toolbar .x-toolbar-extras table {
+  width: 100%;
+}
+
+</addpath.css></property><property><advancedsearch.vm>#set($defaultsearchtext = $msg.get("header.defaultsearchtext"))
 &lt;form id="searchform" name="searchform" class="search-box" action="$xwiki.getURL('Search.URL')" onsubmit="document.location.href=this.action+'#o%3As%3Ds%253Aexternal%5Ef%3Do%253Aexternal%253Do%25253A'+(($('curriki-searchbox').value!=='$defaultsearchtext')?'terms%25253Ds%2525253A'+escape(escape(escape(escape($('curriki-searchbox').value))))+'%25255E':'')+'subjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Eictparent%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Especial%25253Ds%2525253A%5Ep%3Do%253Aexternal%253Do%25253Ac%25253Dn%2525253A0%25255Es%25253Dn%2525253A25%5Ea%3Do%253A'; return false"&gt;
   &lt;input type="hidden" class="hidden" name="area" value=""/&gt;
   #set($brsqry = $request.brsqry)
@@ -4118,14 +4159,14 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 .groups-home .head .frame-inset-logo img { float: left; }
 .groups-home .head .frame-inset-description { margin-left: 140px; padding-right: 10px; padding-top: 10px; height: auto  !important; height: 100px; min-height: 100px; }
 .groups-home #section3content p.paragraph { padding-top: 5px; }
-.groups-home .group-subject-education-level { padding-top: 10px; }
+.groups-home .group-education-levels-disciplines { padding-top: 10px; }
 
 .frame .groups-members-button {
     padding: 15px 0;
     text-align: center;
 }
 
-.groups-home .group-subject-education-level td { 
+.groups-home .group-education-levels-disciplines td { 
   vertical-align: top; 
   padding: 10px;
   border: 1px solid #eee;
@@ -4461,7 +4502,7 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 #nominate-resource-dialogue .x-window-tl, #nominate-resource-dialogue .x-window-tl {background-color:#ff4100;}
 
 /** GROUPS **/
-.groups-home .group-subject-education-level th {
+.groups-home .group-education-levels-disciplines th {
 font-size: 13px; font-weight:bold;}
 
 .main .groups-curriculum #groupsearch #curriki-search-field-container #searchbtn {
@@ -4621,8 +4662,8 @@ font-size: 13px; font-weight:bold;}
 #end
 #set($debugging = "-debug")
 &lt;script type="text/javascript" src="$xwiki.getSkinFile("js/prototype/prototype.js")"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="$xwiki.getSkinFile("extjs/adapter/ext/ext-base.js")"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="$xwiki.getSkinFile("extjs/ext-all-debug.js")"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="$xwiki.getSkinFile("extjs-3.4.0/adapter/ext/ext-base.js")"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="$xwiki.getSkinFile("extjs-3.4.0/ext-all-debug.js")"&gt;&lt;/script&gt;
 #if($doc.fullName != "Main.JoinSankore" || $context.user != "XWiki.XWikiGuest")
   #if("$!request.lang" != "")
     #set($lang = $request.lang)
@@ -4641,10 +4682,12 @@ font-size: 13px; font-weight:bold;}
 &lt;script src="/xwiki/js/i18n-debug.js"&gt;&lt;/script&gt;
 ## and uncomment the next one out instead
 ##&lt;script src="/js/1/lang_${lang}.js"&gt;&lt;/script&gt;
+&lt;script src="/xwiki/js/curriki-layout${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-ui-tree${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-main${debugging}.js"&gt;&lt;/script&gt;
 ##&lt;script src="/xwiki/js/curriki-module-addpath${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/sankore-module-addpath${debugging}.js"&gt;&lt;/script&gt;
+&lt;script src="/xwiki/js/sankore-module-addpath-group${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-module-organize${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-module-nominate${debugging}.js"&gt;&lt;/script&gt;
 &lt;script src="/xwiki/js/curriki-module-review${debugging}.js"&gt;&lt;/script&gt;
@@ -6481,7 +6524,7 @@ td.x-grid3-hd-over .x-grid3-hd-contributions .x-grid3-hd-btn {background:none!im
   height:auto;
   color: #1963aa;
   font-size:10px;
-  padding:10px 0;
+  padding: 0;
 }
 
 #search-pager-resource table td table, #search-pager-external table td table, #search-pager-blog table td table, #search-pager-member table td table, #search-pager-curriki table td table, #search-pager-group table td table {margin:0;}
@@ -7285,7 +7328,7 @@ background: url("/xwiki/bin/download/Panels/SankoreSearchPanel/loupe.png") no-re
     display: inline;
     float: left;
     height: 34px;
-   margin: -3px 0 0 -14px;
+   margin: -3px 0 0 0;
     width: 34px;
    border: none !important;
     color: transparent;
@@ -7475,6 +7518,7 @@ textarea {
 
 #MetadataDialoguePanel1 #publishbutton button {
   font-size: 14px;  
+  height: auto;
 }
 
 .x-grid3-header-offset {
@@ -7487,6 +7531,53 @@ textarea {
 
 .results-no {
   font-size: 60%;
+}
+
+## CONTRIBUTIONS LIVETABLE
+tbody.xwiki-livetable-display-body td a.actionadd {
+    background-image: url("/xwiki/resources/icons/silk/page_white_add.gif");
+}
+
+tbody.xwiki-livetable-display-body td a.actioneditinfo {
+    background-image: url("/xwiki/resources/icons/silk/page_white_gear.gif");
+}
+
+tbody.xwiki-livetable-display-body td a.action {
+  line-height: 18px;
+  padding-bottom: 2px !important;
+}
+
+
+### EXTJS 3.4.0 override
+
+## Toolbar
+.x-toolbar div.xtb-text {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.x-toolbar-left {
+  width: 25%;
+}
+
+.x-toolbar-right {
+  width: 25%;
+}
+
+.ytb-progress {
+  text-align: center;
+}
+
+.x-toolbar td {
+  vertical-align: bottom;
+}
+
+.x-toolbar-right .button {
+  float: right;
+}
+
+.x-toolbar-left .button {
+  float: left;
 }</sankore.css>
 </property>
 <property>
@@ -8333,7 +8424,7 @@ body.hideright #footerglobal {
 }</style.css>
 </property>
 <property>
-<stylesheets.vm>&lt;link href="$xwiki.getSkinFile('extjs/resources/css/ext-all.css', true)" rel="stylesheet" type="text/css" media="all" /&gt;
+<stylesheets.vm>&lt;link href="$xwiki.getSkinFile('extjs-3.4.0/resources/css/ext-all.css', true)" rel="stylesheet" type="text/css" media="all" /&gt;
 #*
 &lt;script type="text/javascript"&gt;
 //&lt;![CDATA[
