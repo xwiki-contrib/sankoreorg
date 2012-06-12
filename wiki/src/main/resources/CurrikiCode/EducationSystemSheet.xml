@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CurrikiCode</web>
+<name>EducationSystemSheet</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1329219610000</creationDate>
+<date>1329219610000</date>
+<contentUpdateDate>1329219610000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.SheetClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<defaultEditMode>
+<disabled>0</disabled>
+<name>defaultEditMode</name>
+<number>1</number>
+<prettyName>Default Edit Mode</prettyName>
+<size>15</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</defaultEditMode>
+</class>
+<name>CurrikiCode.EducationSystemSheet</name>
+<number>0</number>
+<className>XWiki.SheetClass</className>
+<guid>b38808c3-e150-43f7-84d5-4c992a9b4211</guid>
+<property>
+<defaultEditMode>inline</defaultEditMode>
+</property>
+</object>
+<content>{{velocity}}
+{{html wiki=true}}
+## You can modify this page to customize the presentation of your object.
+## At first you should keep the default presentation and just save the document.
+
+#if($context.action=='inline')
+  ; $msg.get('core.editors.content.titleField.label')
+  : &lt;input type="text" name="title" value="$escapetool.xml($doc.title)" size="30" /&gt;
+#else
+= ${doc.displayTitle} =
+#end
+
+#set($class = $doc.getObject('CurrikiCode.EducationSystemClass').xWikiClass)
+#foreach($prop in $class.properties)
+  ; $prop.prettyName
+  : $doc.display($prop.getName())
+#end
+{{/html}}
+{{/velocity}}</content></xwikidoc>

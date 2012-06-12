@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CurrikiCode</web>
+<name>DisciplineSheet</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>CurrikiCode.DisciplineClass</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1339495332000</creationDate>
+<date>1339495332000</date>
+<contentUpdateDate>1339495332000</contentUpdateDate>
+<version>1.1</version>
+<title>DisciplineClass Sheet</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.SheetClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<defaultEditMode>
+<disabled>0</disabled>
+<name>defaultEditMode</name>
+<number>1</number>
+<prettyName>Default Edit Mode</prettyName>
+<size>15</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</defaultEditMode>
+</class>
+<name>CurrikiCode.DisciplineSheet</name>
+<number>0</number>
+<className>XWiki.SheetClass</className>
+<guid>7f079d07-79ba-4a27-ae29-4b6592a5e9d9</guid>
+<property>
+<defaultEditMode>inline</defaultEditMode>
+</property>
+</object>
+<content>{{velocity}}
+{{html wiki=true}}
+## You can modify this page to customize the presentation of your object.
+## At first you should keep the default presentation and just save the document.
+
+#set($n = 0)
+#macro(editEducationalLevels $edsystem $edlevelsValues){{html wiki=false}}
+  #set($query = ", BaseObject as obj, StringProperty as prop where doc.space in ('AssetMetadata') and doc.fullName=obj.name and obj.className='CurrikiCode.EducationalLevelClass' and doc.parent='${edsystem}' and prop.id.id=obj.id and prop.name='pivot' order by prop.value")
+  #set($edlevels = $xwiki.searchDocuments($query))
+  #foreach($edlevel in $edlevels)
+    #set($edlevelDoc = $xwiki.getDocument($edlevel))
+    &lt;label class="xwiki-form-listclass" for="xwiki-form-educational_levels-${n}"&gt;
+      &lt;input id="xwiki-form-educational_levels-${n}" type="checkbox" name="CurrikiCode.DisciplineClass_0_educational_levels" value="${edlevel}" #if($edlevelsValues.contains($edlevel)) checked="chedked" #end /&gt;$edlevelDoc.title
+    &lt;/label&gt;
+    #set($n = $n + 1)
+  #end
+{{/html}}#end
+
+#if($context.action == 'inline')
+  ; $msg.get('core.editors.content.titleField.label')
+  : &lt;input type="text" name="title" value="$escapetool.xml($doc.title)" size="30" /&gt;
+#else
+= ${doc.displayTitle} =
+#end
+
+#if($context.action == 'inline')
+  ; $msg.get('core.editors.content.parentField.label')
+  : &lt;input type="text" name="parent" value="$escapetool.xml($doc.parent)" size="30" class="suggestDocuments" /&gt;
+#else
+  ; $msg.get('core.editors.content.parentField.label')
+  : $doc.parent
+#end
+
+#set($query = ", BaseObject as obj where doc.fullName=obj.name and obj.className='CurrikiCode.EducationSystemClass' and doc.fullName&lt;&gt;'CurrikiCode.EducationSystemTemplate'")
+#set($edsystems = $util.arrayList)
+#set($discard = $edsystems.add("AssetMetadata.InternationalEducation"))
+#set($discard = $edsystems.addAll($xwiki.searchDocuments("$query"))) 
+#set($obj = $doc.getObject("CurrikiCode.DisciplineClass"))
+#set($edlevelsValues = $obj.getProperty("educational_levels").getValue())
+#if($context.action == 'inline')
+  #foreach($edsystem in $edsystems)
+  #set($edsystemDoc = $xwiki.getDocument($edsystem))
+  
+  ; $edsystemDoc.title
+  : #editEducationalLevels($edsystem $edlevelsValues)
+  #end
+#else
+  #set($edlevels = $util.hashMap)
+  #foreach($edsystem in $edsystems)
+    #set($discard = $edlevels.put("$edsystem", $util.arrayList))
+  #end
+  #foreach($edlevel in $edlevelsValues)
+    #set($edlevelDoc = $xwiki.getDocument($edlevel))
+    #set($edsystem = $edlevelDoc.getValue("education_system"))
+    #set($edsyslevels = $edlevels.get($edsystem))
+    #set($discard = $edsyslevels.add($edlevel))
+  #end
+  #foreach($edsystem in $edsystems)
+    #set($edsystemDoc = $xwiki.getDocument($edsystem))
+    #set($levels = $edlevels.get($edsystem))
+    
+    ; ** ${edsystemDoc.title} **
+    #foreach($level in $levels)
+    : $xwiki.getDocument($level).title
+    #end
+  #end
+#end
+
+#*
+#set($class = $doc.getObject('CurrikiCode.DisciplineClass').xWikiClass)
+#foreach($prop in $class.properties)
+  ; $prop.prettyName
+  : $doc.display($prop.getName())
+#end
+*#
+{{/html}}
+{{/velocity}}</content></xwikidoc>

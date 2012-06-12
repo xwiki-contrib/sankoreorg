@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CurrikiCode</web>
+<name>EducationalLevelClassSheet</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1334665800000</creationDate>
+<date>1334665800000</date>
+<contentUpdateDate>1334665800000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.SheetClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<defaultEditMode>
+<disabled>0</disabled>
+<name>defaultEditMode</name>
+<number>1</number>
+<prettyName>Default Edit Mode</prettyName>
+<size>15</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</defaultEditMode>
+</class>
+<name>CurrikiCode.EducationalLevelClassSheet</name>
+<number>0</number>
+<className>XWiki.SheetClass</className>
+<guid>a895215d-5ee7-4c57-ab6c-3966bcc49d33</guid>
+<property>
+<defaultEditMode></defaultEditMode>
+</property>
+</object>
+<content>{{velocity}}
+#if($doc.fullName == 'CurrikiCode.EducationalLevelClassSheet')
+  ## Viewing the sheet document itself
+  You can edit this document to change the default presentation of classes, or you can copy it to create a customized view just for one or several classes.
+#else
+  #if("$!request.docName" != '')
+    ## Request for creating a new instance
+    #set($targetDocName = "${request.spaceName}.${request.docName}")
+    #if(!$xwiki.exists($targetDocName) &amp;&amp; $xwiki.hasAccessLevel('edit', $context.user, $targetDocName))
+      $response.sendRedirect($xwiki.getURL($targetDocName, 'inline', "template=${request.template}&amp;parent=${request.parent}"))
+      ## Stop processing, since we already sent a redirect.
+      #stop
+    #end
+  #end
+  #if($doc.name.endsWith('Class'))
+    #set($className = $doc.name.substring(0, $doc.name.lastIndexOf('Class')))
+  #else
+    #set($className = $doc.name)
+  #end
+  #set($classSheetDoc = $xwiki.getDocument("${doc.space}.${className}Sheet"))
+  #set($classTemplateDoc = $xwiki.getDocument("${doc.space}.${className}Template"))
+  #set($classSheetExists = !($classSheetDoc.isNew()))
+  #set($classTemplateExists = !($classTemplateDoc.isNew()))
+  #if(!$defaultSpace)
+    #set($defaultSpace = 'AssetMetadata')
+  #end
+  #if(!$defaultParent)
+    #set($defaultParent = ${doc.fullName})
+  #end
+  = Class: $className =
+
+  #if($doc.getxWikiClass().properties.size() == 0)
+    {{warning}}The class does not have any properties yet. You can use the {{html}}&lt;a href="$doc.getURL('edit', 'editor=class')"&gt;class editor&lt;/a&gt;{{/html}} to define them.{{/warning}}
+  #else
+Class properties:
+    #foreach($property in $doc.getxWikiClass().properties)
+      * $property.prettyName (${property.name}: $xwiki.metaclass.get($property.classType).prettyName)
+    #end
+    * //You can use the class editor to {{html}}&lt;a href="$doc.getURL('edit', 'editor=class')"&gt;add or modify the class properties&lt;/a&gt;{{/html}}.//
+
+  #end
+  #if ($classSheetExists &amp;&amp; $classTemplateExists)
+    = Create a new document =
+
+    #if("$!targetDocName" != '' &amp;&amp; $xwiki.exists($targetDocName))
+      {{warning}}The target document already exists. Please choose a different name, or [[view the existing document&gt;&gt;$targetDocName]]{{/warning}}
+    #elseif("$!targetDocName" != '')
+      {{warning}}You don't have permission to create that document{{/warning}}
+    #end
+
+    {{html}}
+      &lt;form target="_blank" action="" id="newdoc" method="post"&gt;
+        &lt;div&gt;
+          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+          &lt;input type="hidden" name="spaceName" value="${defaultSpace}"/&gt;
+          &lt;input type="hidden" name="template" value="${classTemplateDoc}"/&gt;
+          &lt;input type="hidden" name="sheet" value="1"/&gt;         
+          &lt;label for="docName"&gt;Document: &lt;/label&gt;&lt;br /&gt;&lt;input type="text" id="docName" name="docName" value="Document name" class="withTip" size="30" /&gt;         
+          &lt;br /&gt;&lt;br /&gt;
+          &lt;label for="docName"&gt;Parent: &lt;/label&gt;&lt;br /&gt;&lt;input type="text" id="parent" name="parent" value="Parent" class="suggestDocuments" size="30" /&gt;
+          &lt;br /&gt;&lt;br /&gt;          
+          &lt;span class="buttonwrapper"&gt;&lt;input type="submit" value="Create this document" class="button"/&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    {{/html}}
+
+    = Existing documents =
+    
+    #set($collist = ['doc.title', 'doc.name', 'doc.parent', 'education_system'])
+    #set($colprops = {
+      'doc.title' : { 'type' : 'text' , 'size' : 30 , 'link' : 'view' },
+      'doc.name' : { 'type' : 'text' },
+      'doc.parent' : { 'type' : 'text', 'link' : 'field' },
+      'education_system' : { 'type' : 'text', 'link' : 'field' }
+    })
+    #set($options = { 
+      'translationPrefix' : 'xe.index.',
+      'className': 'CurrikiCode.EducationalLevelClass',
+      'rowCount' : 15,
+      'description' : 'This table lists all the documents of educational levels. The columns can be sorted and some can be filtered.' 
+    })
+    #livetable('alldocs' $collist $colprops $options)
+
+#*
+    #set($sql = ", BaseObject as obj where obj.name=doc.fullName and obj.className='${doc.fullName}' and obj.name&lt;&gt;'${classTemplateDoc.fullName}' order by doc.fullName")
+    #foreach ($item in $xwiki.searchDocuments($sql))
+      #set($itemDoc = $xwiki.getDocument($item))
+      * [[$item&gt;&gt;$item||rel="__blank"]] - $itemDoc.title - $itemDoc.getValue("pivot")
+    #end
+*#
+    = Trees =
+#set($discard = $xwiki.jsx.use("Sandbox.Tree", {'minify': false}))
+#set($discard = $xwiki.ssx.use("Sandbox.Tree", {'minify': false}))
+
+#foreach($sys in $xwiki.searchDocuments(", BaseObject as obj where doc.fullName=obj.name and obj.className='CurrikiCode.EducationSystemClass' and doc.fullName&lt;&gt;'CurrikiCode.EducationSystemTemplate'"))
+#set($sysDoc = $xwiki.getDocument($sys))
+== $sysDoc.title ==
+(% id="${sys}-tree" style="position:relative;" %)
+((()))
+
+{{html clean=false}}
+&lt;script type="text/javascript" defer="defer"&gt;
+Ext.onReady(function(){
+Curriki.data.EventManager.on('Curriki.data:ready', function(){
+  new Curriki.ui.tree.TreePanel({
+    renderTo: Ext.get("${sys}-tree"),
+    loader: new Curriki.ui.tree.TreeLoader({
+      preloadChildren: true
+      ,filters: "${sys}"
+    }),
+    id: 'el-tree-${sys}',
+    useArrows: true,
+    autoHeight: true,
+    border: false,
+    cls: 'el-tree',
+    animate: true,
+    enableDD: false,
+    containerScroll: true,
+    rootVisible: false,
+    root: new Curriki.ui.tree.AsyncTreeNode({
+      text: _('CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome'),
+      id: 'TREEROOTNODE-${sys}',
+      cls: 'el-item-top el-item-parent el-item',
+      leaf: false,
+      expanded: true,
+      children: Curriki.data.el.elChildren
+    })
+  });
+});
+});
+&lt;/script&gt;
+{{/html}}
+#end
+  #end ## class sheet and class template exist
+  = The class sheet =
+
+  #if (!$classSheetExists || !$classTemplateExists)
+    Before using this class you must first create the sheet and template for it. Follow the instructions below to do this.
+  #end
+
+  {{info}}The //Sheet// allows to control the presentation of documents of this data type. You can use the default presentation, which enumerates all the available fields, or you can design your own presentation. You can also choose different presentations for the viewing and for the editing modes.{{/info}}
+
+  #if(!$classSheetExists)
+    {{html}}
+      &lt;form action="$classSheetDoc.getURL('save', 'editor=wiki')" method="post"&gt;
+        &lt;div&gt;
+          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+          &lt;input type="hidden" name="parent" value="${doc.fullName}"/&gt;
+          &lt;input type="hidden" name="xredirect" value="${doc.URL}"/&gt;
+          &lt;input type="hidden" name="content" value="$escapetool.xml($xwiki.getDocument('XWiki.ObjectSheet').getContent().replace('XWiki.MyClass', $doc.fullName))"/&gt;
+          &lt;input type="hidden" name="title" value="$doc.name Sheet"/&gt;
+          &lt;span class="buttonwrapper"&gt;&lt;input type="submit" value="Create the document sheet" class="button"/&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    {{/html}}
+  #else
+    #if($classSheetExists &amp;&amp; !$classSheetDoc.getObject('XWiki.SheetClass'))
+      #set($xredirect = $request.getRequestURL())
+      #set($createUrl = $classSheetDoc.getURL('objectadd', "classname=XWiki.SheetClass&amp;xredirect=${xredirect}&amp;form_token=$!{services.csrf.getToken()}"))
+      {{warning}}
+        The sheet does not contain an object of type //XWiki.SheetClass//. To trigger the inline edit mode automatically, {{html}}&lt;a href="$createUrl"&gt;add a SheetClass object to the sheet »&lt;/a&gt;.{{/html}}
+      {{/warning}}
+
+    #end
+    [[View the sheet document (${classSheetDoc.fullName}) »&gt;&gt;${classSheetDoc.fullName}]]
+  #end
+
+  = The class template =
+
+    {{info}}The //Template// is the document used as the model for documents of this data type. It will automatically contain a reference to the //Sheet// and an instance of your //Class//.{{/info}}
+
+  #if (!$classTemplateExists)
+    {{html}}
+      &lt;form action="$classTemplateDoc.getURL('save', 'editor=wiki')" method="post"&gt;
+        &lt;div&gt;
+          &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+          &lt;input type="hidden" name="parent" value="${doc.fullName}"/&gt;
+          &lt;input type="hidden" name="xredirect" value="${doc.URL}"/&gt;
+          &lt;input type="hidden" name="content" value="$escapetool.xml($xwiki.getDocument('XWiki.ObjectTemplate').getContent().replace('XWiki.MySheet', $classSheetDoc.fullName))"/&gt;
+          &lt;input type="hidden" name="title" value="$doc.name Template"/&gt;
+          &lt;span class="buttonwrapper"&gt;&lt;input type="submit" value="Create the document template" class="button"/&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    {{/html}}
+  #else
+    #if($classTemplateExists &amp;&amp; !$classTemplateDoc.getObject(${doc.fullName}))
+      #set($xredirect = $request.getRequestURL())
+      #set($createUrl = $classTemplateDoc.getURL('objectadd', "classname=${doc.fullName}&amp;amp;xredirect=${xredirect}&amp;amp;form_token=$!{services.csrf.getToken()}"))
+      {{warning}}
+        The template does not contain an object of type //${className}Class//. {{html}}&lt;a href="$createUrl"&gt;Add a ${className} object to the template »&lt;/a&gt;.{{/html}}
+      {{/warning}}
+
+    #end
+    [[View the template document (${classTemplateDoc.fullName}) »&gt;&gt;${classTemplateDoc.fullName}]]
+  #end
+
+#end ## doc == CurrikiCode.EducationalLevelClassSheet
+{{/velocity}}</content></xwikidoc>

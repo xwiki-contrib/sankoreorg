@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334072306000</creationDate>
-<date>1334072306000</date>
-<contentUpdateDate>1334072306000</contentUpdateDate>
+<creationDate>1336929255000</creationDate>
+<date>1336929255000</date>
+<contentUpdateDate>1336929255000</contentUpdateDate>
 <version>1.1</version>
 <title>GlobalClassTranslations</title>
 <template></template>
@@ -24,14 +24,14 @@
 <hidden>false</hidden>
 <content>## English
 ## Education System 
-CurrikiCode.AssetClass_education_system_UNSPECIFIED=Educational system
+CurrikiCode.AssetClass_education_system_UNSPECIFIED=Any
 CurrikiCode.AssetClass_education_system_AssetMetadata.FranceEducation=France
 CurrikiCode.AssetClass_education_system_AssetMetadata.USAEducation=United States 
 CurrikiCode.AssetClass_education_system_AssetMetadata.SenegalEducation=Sénégal
 CurrikiCode.AssetClass_education_system_AssetMetadata.InternationalEducation=International
 
 ## Instructional Component (to translate in all language)
-
+CurrikiCode.AssetClass_instructional_component_UNSPECIFIED=Resource type: Any
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Activity=Activity
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Animation=Animation/Simulation
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Answer=Answer
@@ -75,14 +75,14 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.Webcast=Webcast/Pod
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Workbook=Workbook
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Worksheet=Graphic Organizer/Worksheet
 
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Activity.UNSPECIFIED=Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Asset.UNSPECIFIED=Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Book.UNSPECIFIED=Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Curriculum.UNSPECIFIED=Any
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Other.UNSPECIFIED=Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Activity.UNSPECIFIED=Resource type: Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Asset.UNSPECIFIED=Resource type: Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Book.UNSPECIFIED=Resource type: Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Curriculum.UNSPECIFIED=Resource type: Any
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Other.UNSPECIFIED=Resource type: Any
 
 ## Disciplines (Translation on demand)
-
+CurrikiCode.AssetClass_fw_items_UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.AncientLanguagesAndCulture=Langues et cultures de l'Antiquité (latin,grec ancien)
 CurrikiCode.AssetClass_fw_items_Disciplines.AppliedMathematics=Mathématiques appliquées
 CurrikiCode.AssetClass_fw_items_Disciplines.Arts=Arts
@@ -301,23 +301,20 @@ CurrikiCode.AssetClass_fw_items_Disciplines.WorldLangWriting=Writing
 CurrikiCode.AssetClass_fw_items_Disciplines.Writing=Découvrir l'écrit
 
 ## Search
-CurrikiCode.AssetClass_fw_items_AssetMetadata.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.Arts.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.CareerAndTechnicalEducation.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.EducationalTechnology.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.Education.UNSPECIFIED=Any
-CurrikiCode.AssetClass_fw_items_Disciplines.EducationalTechnology.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.Health.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.InformationAndMediaLiteracy.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.Mathematics.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.LanguageArts.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.SocialStudies.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.WorldLanguages.UNSPECIFIED=Any
-CurrikiCode.AssetClass_fw_items_Disciplines.SocialStudies.UNSPECIFIED=Any
 CurrikiCode.AssetClass_fw_items_Disciplines.Science.UNSPECIFIED=Any
 
 ## Educational levels (NOT TO translate)
-
+CurrikiCode.AssetClass_educational_level_UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.34=Age 3-4
 CurrikiCode.AssetClass_educational_level_AssetMetadata.45=Age 4-5
 CurrikiCode.AssetClass_educational_level_AssetMetadata.56=Age 5-6
@@ -352,28 +349,28 @@ CurrikiCode.AssetClass_educational_level_AssetMetadata.USElementary10=10th Grade
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USElementary11=11th Grade High School
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USElementary12=12th Grade High School
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USK2=K-2
-CurrikiCode.AssetClass_educational_level_AssetMetadata.USK2.UNSPECIFIED=All
+CurrikiCode.AssetClass_educational_level_AssetMetadata.USK2.UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.US35=3-5
-CurrikiCode.AssetClass_educational_level_AssetMetadata.US35.UNSPECIFIED=All
+CurrikiCode.AssetClass_educational_level_AssetMetadata.US35.UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.US68=6-8
-CurrikiCode.AssetClass_educational_level_AssetMetadata.US68.UNSPECIFIED=All
+CurrikiCode.AssetClass_educational_level_AssetMetadata.US68.UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.US910=9-10
-CurrikiCode.AssetClass_educational_level_AssetMetadata.US910.UNSPECIFIED=All
+CurrikiCode.AssetClass_educational_level_AssetMetadata.US910.UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.US1112=11-12
-CurrikiCode.AssetClass_educational_level_AssetMetadata.US1112.UNSPECIFIED=All
+CurrikiCode.AssetClass_educational_level_AssetMetadata.US1112.UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USCollege=College and Beyond
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USHigherEducation=Technical Superior Education
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USPreSchool=PreSchool
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USSpecialEducation=Special Education
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USLongLifeLearning=Long Life Learning
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRMaternelle=Maternelle
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FRMaternelle.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRMaternelle.UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRElementaire=Elémentaire
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FRElementaire.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRElementaire.UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRCollege=Collège
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FRCollege.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRCollege.UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRLycee=Lycée
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FRLycee.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRLycee.UNSPECIFIED=Any
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRProfessionnel=Bac+2 professionnel
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRUniversite=Classes Préparatoires, Université et Grandes Ecoles
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRFormationContinue=Formation continue Professionnelle
@@ -438,6 +435,16 @@ CurrikiCode.AssetClass_educational_level_AssetMetadata.I18NSpecialEducation=Spec
 
 ## Language (NOT TO Translate)
 
+CurrikiCode.AssetClass_language_UNSPECIFIED=Language: Any
 CurrikiCode.AssetClass_language_fr=Français
 CurrikiCode.AssetClass_language_en=English
+
+## Membership policy
+XWiki.SpaceClass_policy_open=Open Membership - Any Planète Sankoré member can join without approval or invitation.
+XWiki.SpaceClass_policy_closed=Closed Membership - Planète Sankoré members must be invited and accepted to join.
+
+## Access level
+XWiki.CurrikiSpaceClass_access_level_public=Public - Anyone can view group content; any Planète Sankoré member can edit it.
+XWiki.CurrikiSpaceClass_access_level_protected=Protected - Anyone can view group content; only group members can edit it.
+XWiki.CurrikiSpaceClass_access_level_private=Private - Only group members can view and edit content.
 </content></xwikidoc>

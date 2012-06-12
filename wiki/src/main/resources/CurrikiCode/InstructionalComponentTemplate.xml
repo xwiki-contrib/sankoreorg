@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xwikidoc>
 <web>CurrikiCode</web>
-<name>InstructionalComponentClass</name>
+<name>InstructionalComponentTemplate</name>
 <language></language>
-<defaultLanguage></defaultLanguage>
+<defaultLanguage>en</defaultLanguage>
 <translation>0</translation>
-<parent></parent>
+<parent>CurrikiCode.InstructionalComponentClass</parent>
 <creator>XWiki.Admin</creator>
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1329934466000</creationDate>
-<date>1329934466000</date>
-<contentUpdateDate>1329934466000</contentUpdateDate>
+<creationDate>1329934275000</creationDate>
+<date>1329934275000</date>
+<contentUpdateDate>1329934275000</contentUpdateDate>
 <version>1.1</version>
-<title></title>
+<title>InstructionalComponentClass Template</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -22,6 +22,7 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
+<object>
 <class>
 <name>CurrikiCode.InstructionalComponentClass</name>
 <customClass></customClass>
@@ -44,4 +45,9 @@
 <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
 </id>
 </class>
-<content>{{include document="CurrikiCode.InstructionalComponentClassSheet"/}}</content></xwikidoc>
+<name>CurrikiCode.InstructionalComponentTemplate</name>
+<number>0</number>
+<className>CurrikiCode.InstructionalComponentClass</className>
+<guid>caa83ede-3bea-4187-8bc0-8084e7752259</guid>
+</object>
+<content>{{include document="CurrikiCode.InstructionalComponentSheet"/}}</content></xwikidoc>

@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1323180053000</creationDate>
-<date>1323180053000</date>
-<contentUpdateDate>1323180053000</contentUpdateDate>
+<creationDate>1337009871000</creationDate>
+<date>1337009871000</date>
+<contentUpdateDate>1337009871000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -238,6 +238,7 @@ rve.information.header1=BASIC INFORMATION
 rve.information.title_title=Title:
 rve.information.description_title=Description:
 rve.information.subject_title=Subject(s):
+rve.information.education_system_title: Sorting
 rve.information.edlevel_title=Education Level(s):
 rve.information.ict_title=Instructional Component Type:
 rve.information.keywords_title=Key Words:

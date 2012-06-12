@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CurrikiCode</web>
+<name>EducationSystemTemplate</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>CurrikiCode.EducationSystemClass</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1329221126000</creationDate>
+<date>1329221126000</date>
+<contentUpdateDate>1329221126000</contentUpdateDate>
+<version>1.1</version>
+<title>EducationSystemClass Template</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<name>CurrikiCode.EducationSystemTemplate</name>
+<number>0</number>
+<className>CurrikiCode.EducationSystemClass</className>
+<guid>bb7e5a0f-2295-42a0-a6fa-ff130a9ee10b</guid>
+<property>
+<country></country>
+</property>
+<property>
+<language></language>
+</property>
+</object>
+<content>{{include document="CurrikiCode.EducationSystemSheet"/}}</content></xwikidoc>

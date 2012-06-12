@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xwikidoc>
 <web>CurrikiCode</web>
-<name>EducationalLevelClass</name>
+<name>EducationalLevelTemplate</name>
 <language></language>
-<defaultLanguage></defaultLanguage>
+<defaultLanguage>en</defaultLanguage>
 <translation>0</translation>
-<parent></parent>
+<parent>CurrikiCode.EducationalLevelClass</parent>
 <creator>XWiki.Admin</creator>
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334232604000</creationDate>
-<date>1334232604000</date>
-<contentUpdateDate>1334232604000</contentUpdateDate>
+<creationDate>1329220173000</creationDate>
+<date>1329220173000</date>
+<contentUpdateDate>1329220173000</contentUpdateDate>
 <version>1.1</version>
-<title></title>
+<title>EducationalLevelClass Template</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -22,6 +22,7 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
+<object>
 <class>
 <name>CurrikiCode.EducationalLevelClass</name>
 <customClass></customClass>
@@ -71,4 +72,9 @@
 <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
 </pivot>
 </class>
-<content>{{include document="CurrikiCode.EducationalLevelClassSheet"/}}</content></xwikidoc>
+<name>CurrikiCode.EducationalLevelTemplate</name>
+<number>0</number>
+<className>CurrikiCode.EducationalLevelClass</className>
+<guid>7f7d3ca0-2c14-495f-ad9b-766d3d254904</guid>
+</object>
+<content>{{include document="CurrikiCode.EducationalLevelSheet"/}}</content></xwikidoc>

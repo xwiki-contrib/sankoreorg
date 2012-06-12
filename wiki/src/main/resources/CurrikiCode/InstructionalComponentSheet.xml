@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CurrikiCode</web>
+<name>InstructionalComponentSheet</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>CurrikiCode.InstructionalComponentClass</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1329934639000</creationDate>
+<date>1329934639000</date>
+<contentUpdateDate>1329934639000</contentUpdateDate>
+<version>1.1</version>
+<title>InstructionalComponentClass Sheet</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.SheetClass</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<defaultEditMode>
+<disabled>0</disabled>
+<name>defaultEditMode</name>
+<number>1</number>
+<prettyName>Default Edit Mode</prettyName>
+<size>15</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</defaultEditMode>
+</class>
+<name>CurrikiCode.InstructionalComponentSheet</name>
+<number>0</number>
+<className>XWiki.SheetClass</className>
+<guid>767753c9-3901-4d1b-b3ea-1718580fe71c</guid>
+<property>
+<defaultEditMode>inline</defaultEditMode>
+</property>
+</object>
+<content>{{velocity}}
+{{html wiki=true}}
+## You can modify this page to customize the presentation of your object.
+## At first you should keep the default presentation and just save the document.
+
+#if($context.action == 'inline')
+  ; $msg.get('core.editors.content.titleField.label')
+  : &lt;input type="text" name="title" value="$escapetool.xml($doc.title)" size="30" /&gt;
+#else
+= ${doc.displayTitle} =
+#end
+
+#if($context.action == 'inline')
+  ; $msg.get('core.editors.content.parentField.label')
+  : &lt;input type="text" name="parent" value="$escapetool.xml($doc.parent)" size="30" class="suggestDocuments" /&gt;
+#else
+  ; $msg.get('core.editors.content.parentField.label')
+  : $doc.parent
+#end
+
+#set($class = $doc.getObject('CurrikiCode.EducationalLevelClass').xWikiClass)
+#foreach($prop in $class.properties)
+  ; $prop.prettyName
+  : $doc.display($prop.getName())
+#end
+{{/html}}
+{{/velocity}}</content></xwikidoc>

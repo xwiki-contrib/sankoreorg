@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xwikidoc>
 <web>CurrikiCode</web>
-<name>InstructionalComponentClass</name>
+<name>EducationSystemClass</name>
 <language></language>
 <defaultLanguage></defaultLanguage>
 <translation>0</translation>
@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1329934466000</creationDate>
-<date>1329934466000</date>
-<contentUpdateDate>1329934466000</contentUpdateDate>
+<creationDate>1334231720000</creationDate>
+<date>1334231720000</date>
+<contentUpdateDate>1334231720000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -23,7 +23,7 @@
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
 <class>
-<name>CurrikiCode.InstructionalComponentClass</name>
+<name>CurrikiCode.EducationSystemClass</name>
 <customClass></customClass>
 <customMapping></customMapping>
 <defaultViewSheet></defaultViewSheet>
@@ -31,17 +31,31 @@
 <defaultWeb></defaultWeb>
 <nameField></nameField>
 <validationScript></validationScript>
-<id>
+<country>
+<customDisplay></customDisplay>
 <disabled>0</disabled>
-<name>id</name>
+<name>country</name>
 <number>1</number>
 <picker>0</picker>
-<prettyName>id</prettyName>
+<prettyName>Country</prettyName>
 <size>30</size>
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
 <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
-</id>
+</country>
+<language>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>language</name>
+<number>2</number>
+<picker>0</picker>
+<prettyName>Language</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</language>
 </class>
-<content>{{include document="CurrikiCode.InstructionalComponentClassSheet"/}}</content></xwikidoc>
+<content>{{include document="XWiki.EducationSystemClassSheet"/}}</content></xwikidoc>
