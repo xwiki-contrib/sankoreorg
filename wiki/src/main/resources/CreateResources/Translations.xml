@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334932739000</creationDate>
-<date>1334932739000</date>
-<contentUpdateDate>1334932739000</contentUpdateDate>
+<creationDate>1338301383000</creationDate>
+<date>1338301383000</date>
+<contentUpdateDate>1338301383000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -1051,13 +1051,65 @@ add.servertimedout.message.title=Server Error
 add.servertimedout.message.text=There was a problem accessing the server. Please try again.
 add.servertimedout.message.button=OK
 
-## BOOKMARKLET
-add.setrequiredinfo.url.publish.button=Publish
-add.setrequiredinfo.url.next.button=Complete indexing of your resource
+## BOOKMARKLET (To translate in english)
+bookmarklet.add.setrequiredinfo.part1.publish.button=Partager
+bookmarklet.add.setrequiredinfo.part1.next.button=Suivant &gt;&gt;
 
-sri.rating_title=Rating
-sri.rating_tooltip=Rating
-sri.link_title=Address of the resource
-sri.link_tooltip=Address of the resource
-add.setrequiredinfo.url.next.text=Complete resource with additional metadata to make the Sankoré search more efficient 
+bookmarklet.add.setrequiredinfo.cancel.button=Annuler
+bookmarklet.add.setrequiredinfo.previous.button=&lt;&lt; Précédent
+bookmarklet.add.setrequiredinfo.next.button=Suivant &gt;&gt;
+bookmarklet.add.setrequiredinfo.publish.button=Valider
+
+bookmarklet.add.setrequiredinfo.switch.simple=Revenir à l'indexation simple
+bookmarklet.add.setrequiredinfo.switch.advanced=Utiliser l'indexation avancée
+
+## Step 1
+bookmarklet.add.setrequiredinfo.part1.title=Étape 1 - Description simple de la ressource
+bookmarklet.add.setrequiredinfo.part1.guidingquestion=Cette ressource va être ajoutée à planète Sankoré sous le nom d'utilisateur
+bookmarklet.sri.title_title=Nom de la ressource
+bookmarklet.sri.title_tooltip=Le nom de la ressource apparaît dans les résultats de recherche. Il aide les autres utilisateurs à identifier son utilité ou ses applications.
+bookmarklet.sri.title_content=
+bookmarklet.sri.rating_title=Rating
+bookmarklet.sri.rating_tooltip=Vous pouvez choisir un nombre d'étoiles proportionnel à la valeur que vous attribuez à ce signet.
+
+bookmarklet.sri.description_title=Description
+bookmarklet.sri.description_tooltip=Cette description permet aux utilisateurs d'identifier clairement ce que propose votre ressource. Plus il y a de détails, mieux c'est !
+bookmarklet.sri.description_txt=
+bookmarklet.sri.description.empty_msg=
+
+bookmarklet.sri.keywords_title=Mots-clés
+bookmarklet.sri.keywords_tooltip=Les mots-clés permettent aux utilisateurs de trouver votre ressource plus facilement lorsqu'ils recherchent dans Planète Sankoré ou par un moteur de recherche comme Google ou Bing.
+bookmarklet.sri.keywords_txt=Séparez les mots-clés par un ';' point virgule
+bookmarklet.sri.keywords.empty_msg=
+
+bookmarklet.sri.quickpublish.intro=*Ne pas compléter l'indexation et définir ce signet comme « publique » avec une licence par défaut « Planète Sankoré Creative Commons By »
+
+## Step 2
+bookmarklet.add.setrequiredinfo.part2.title=Étape 2 - Situer la ressource
+bookmarklet.sri.education_system_title=Système éducatif
+bookmarklet.sri.education_system_txt=Pour quel système éducatif votre ressource a t'elle été produite ?
+bookmarklet.sri.education_system_tooltip=Préciser le système éducatif du pays de référence pour lequel la ressource a été conçue.
+bookmarklet.sri.education_system_empty_msg=
+bookmarklet.sri.language_title=Langue
+bookmarklet.sri.language_tooltip=Indiquer la langue utilisée au sein de la ressource proposée
+bookmarklet.sri.language_txt=
+bookmarklet.sri.language_empty_msg=
+
+
+## Step 3
+bookmarklet.add.setrequiredinfo.part3.title=Étape 3 - Niveau éducatif
+bookmarklet.sri.educational_level_txt=Veuillez préciser le ou les niveaux éducatifs correspondant(s) à cette ressource
+
+## Step 4
+bookmarklet.add.setrequiredinfo.part4.title=Étape 4 - Discipline d'enseignement
+bookmarklet.sri.fw_items_txt=Veuillez préciser le ou les sujets traités par cette ressource
+
+## Step 5
+bookmarklet.add.setrequiredinfo.part5.title=Étape 5 - Type de la ressource
+bookmarklet.sri.instructional_component_txt=Définissez le ou les types de ressource proposée
+
+sri.rating_title=Rating:
+sri.link_title=Adresse de la ressource:
+add.setrequiredinfo.url.next.text=Complétez la ressource avec des métadonnées supplémentaires pour rendre le moteur de recherche Sankoré encore plus performant
+{/pre}
 {/pre}</content></xwikidoc>

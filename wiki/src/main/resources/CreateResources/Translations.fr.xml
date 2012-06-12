@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334932979000</creationDate>
-<date>1334932979000</date>
-<contentUpdateDate>1334932979000</contentUpdateDate>
+<creationDate>1338394978000</creationDate>
+<date>1338394978000</date>
+<contentUpdateDate>1338394978000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -912,6 +912,7 @@ sri.rights_title=Partage sur Planète Sankoré
 sri.rights_tooltip=Ce paramètre détermine quels utilisateurs pourront disposer des autorisations nécessaires pour visualiser ou modifier les ressources.
 CurrikiCode.AssetClass_rights_public=Public : visible et éditable par tous.
 CurrikiCode.AssetClass_rights_members=Protégé : visible par tous et éditable par les membres du groupe et vous-même
+CurrikiCode.AssetClass_rights_protected=Protégé : visible par tous et éditable par les membres du groupe et vous-même
 CurrikiCode.AssetClass_rights_private=Privé : non-visible, éditable par les membres du groupe et vous-même
 sri.hidden_from_search_title=Cacher lors des recherches
 sri.hidden_from_search_tooltip=Si vous cochez cette case, votre ressource ne pourra pas apparaître dans les résultats de recherche.

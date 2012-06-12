@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314280885000</creationDate>
-<date>1314280885000</date>
-<contentUpdateDate>1314280885000</contentUpdateDate>
+<creationDate>1318941244000</creationDate>
+<date>1318941244000</date>
+<contentUpdateDate>1318941244000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -147,9 +147,9 @@ if(xcontext.user != 'XWiki.XWikiGuest') {
         response.addCookie(statusCookie)
         println "UPLOADED"
         println debugMessage
-        //if(request.xpage != "plain") {
-        //  response.sendRedirect(xwiki.getURL('CreateResources.UniboardResource', 'view', 'template='+asset.fullName))
-        //}
+        if(request.xpage != "plain") {
+          response.sendRedirect(xwiki.getURL('CreateResources.UniboardResource', 'view', 'template='+asset.fullName))
+        }
       } else {
         Cookie statusCookie = new Cookie("assetStatus", 'FAIL')
         response.addCookie(statusCookie)
