@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334569792000</creationDate>
-<date>1334569792000</date>
-<contentUpdateDate>1334569792000</contentUpdateDate>
+<creationDate>1338560633000</creationDate>
+<date>1338560633000</date>
+<contentUpdateDate>1338560633000</contentUpdateDate>
 <version>1.1</version>
-<title>BookmarkletSetup</title>
+<title>Installer le bookmarklet</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -25,8 +25,8 @@
 <filename>bookmarkletscreen.png</filename>
 <filesize>71970</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.5</version>
+<date>1335363183000</date>
+<version>1.6</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAA8EAAAIKCAIAAACMctqUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA
 B3RJTUUH3AMVDgAEhLxCmgAAAAd0RVh0QXV0aG9yAKmuzEgAAAAMdEVYdERlc2NyaXB0aW9uABMJ
 ISMAAAAKdEVYdENvcHlyaWdodACsD8w6AAAADnRFWHRDcmVhdGlvbiB0aW1lADX3DwkAAAAJdEVY
@@ -1293,8 +1293,8 @@ MWL5lO11sH4oU39qs5D/H4vNJ4S1I6OmAAAAAElFTkSuQmCC</content></attachment><attachme
 <filename>bookmarkletex.png</filename>
 <filesize>5071</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.4</version>
+<date>1335363183000</date>
+<version>1.5</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAQsAAAA5CAIAAACu8pkXAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA
 B3RJTUUH3AMVCzg7I44RtwAAAAd0RVh0QXV0aG9yAKmuzEgAAAAMdEVYdERlc2NyaXB0aW9uABMJ
 ISMAAAAKdEVYdENvcHlyaWdodACsD8w6AAAADnRFWHRDcmVhdGlvbiB0aW1lADX3DwkAAAAJdEVY
@@ -1388,8 +1388,8 @@ dMpk2jSjYXdyeMhACDzdweghdg94yN8xZGEZF9ZDWFhc8f/qCIN0VpRH4wAAAABJRU5ErkJggg==
 <filename>bookmarkletadd.png</filename>
 <filesize>1203</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.4</version>
+<date>1335363183000</date>
+<version>1.5</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAJMAAAAnCAIAAACE3O0hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA
 B3RJTUUH3AMVCyciir+36QAAAAd0RVh0QXV0aG9yAKmuzEgAAAAMdEVYdERlc2NyaXB0aW9uABMJ
 ISMAAAAKdEVYdENvcHlyaWdodACsD8w6AAAADnRFWHRDcmVhdGlvbiB0aW1lADX3DwkAAAAJdEVY
@@ -1415,8 +1415,8 @@ TkSuQmCC</content></attachment><attachment>
 <filename>glissebook.jpg</filename>
 <filesize>63635</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -2538,8 +2538,8 @@ sncpm5P55/tuL0XzxToyGDqyf/C//9k=
 <filename>inscription.jpg</filename>
 <filesize>13437</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -2779,8 +2779,8 @@ P/AdWUhOQA9BqcXd5xd3lfHe84u7yrTjus6EtUPRa/8AT841IiB1dlJwd3nB3ecHd5wd3nB3ecHd
 <filename>commentlutiliser2.jpg</filename>
 <filesize>82134</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -4225,8 +4225,8 @@ iQlZC4XwX+GjRXpClW1Q6v7ShQoUKFChQoUKFChQoUKFCg/Ju64egnBSUS94H/n/AO7/AP/Z</conten
 <filename>commentlutiliser.jpg</filename>
 <filesize>128820</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -6491,8 +6491,8 @@ QZ4M91f6z3V/rPdX+s91f6z3V/rPdX+s91f6z3V/rPdX+s91f6z3V/rPdX+scemQIlSx3J/59//Z
 <filename>titre3.jpg</filename>
 <filesize>21714</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -6877,8 +6877,8 @@ dtQVJcrEfzOIJEFjDImqbQSuFlBa6loYOwoAq1aA4DCt+Fhy7xzcQBAqV2r/ADjdu3bt27du3bt2
 <filename>titre4.jpg</filename>
 <filesize>18545</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -7209,8 +7209,8 @@ ug1OvfSCMgU7ESzh3NPqf9K//9k=
 <filename>1b.jpg</filename>
 <filesize>147122</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -9797,8 +9797,8 @@ K0/X/9k=
 <filename>titre1.jpg</filename>
 <filesize>27966</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -10293,8 +10293,8 @@ Z2qmAsEqa6OlxcluGKUIAWiwdrr8taq1O61VHYAq3t/4J//Z</content></attachment><attachme
 <filename>1a.jpg</filename>
 <filesize>159372</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -13095,8 +13095,8 @@ oAfHPf3nv7ye85OzE7Pqydn1Z6MTs+rJ/g57u897eB7znjiuDImu4u00EHu4TA6t+uAi2X/7D//Z
 <filename>book.png</filename>
 <filesize>4565</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
 bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6
@@ -13182,8 +13182,8 @@ RK5CYII=
 <filename>bookmarklet.pdf</filename>
 <filesize>151185</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>JVBERi0xLjYNJeLjz9MNCjEyIDAgb2JqDTw8L0xpbmVhcml6ZWQgMS9MIDE1MTE4NS9PIDE0L0Ug
 MTQ1OTMxL04gMS9UIDE1MDg4MC9IIFsgNTk0IDIyNV0+Pg1lbmRvYmoNICAgICAgICAgICAgICAg
 DQo1NyAwIG9iag08PC9EZWNvZGVQYXJtczw8L0NvbHVtbnMgNS9QcmVkaWN0b3IgMTI+Pi9GaWx0
@@ -15840,8 +15840,8 @@ YXJ0eHJlZg0KMTE2DQolJUVPRg0K</content></attachment><attachment>
 <filename>titre2.jpg</filename>
 <filesize>17775</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -16157,8 +16157,8 @@ iVjV4AK31h+D3wrABVVMoRYAoOXmB8UakIAmJJVhD2T9YwVJ3tWcJyBtFFf8O//Z</content></atta
 <filename>titre5.jpg</filename>
 <filesize>18213</filesize>
 <author>XWiki.jcoury</author>
-<date>1333440425000</date>
-<version>1.2</version>
+<date>1335363183000</date>
+<version>1.3</version>
 <comment></comment><content>/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABkAAD/4QNvaHR0cDov
 L25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENl
 aGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4
@@ -16637,7 +16637,7 @@ H0Ts3+8fjLh5CS020O+OJ1+SVYkKNjS9ni/9K//Z</content></attachment>
                       &lt;table width="612" cellspacing="2" cellpadding="2" border="0"&gt;
                         &lt;tbody&gt;&lt;tr&gt;
                           &lt;td align="left" width="525" valign="top" class="texte"&gt;&lt;br&gt;
-                            Glissez l’image suivante et relâchez-la dans la barre de favoris de votre navigateur (nous  vous conseillons d’utiliser le navigateur open source Firefox, libre et  gratuit) comme l’indique l’illustration ci-dessous. &lt;/td&gt;
+                            Glissez l’image suivante et relâchez-la dans la barre de favoris de votre navigateur (nous  vous conseillons d’utiliser le navigateur open source Firefox, libre et  gratuit) comme l’indique l’illustration. &lt;/td&gt;
                           &lt;td align="left" width="73" valign="top" class="texte"&gt;&lt;p&gt;&lt;a href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='http://sankore.devxwiki.com/xwiki/bin/jsx/Main/AddResources?minify=true';})();"&gt;&lt;img width="72" height="72" src="/xwiki/bin/download/Main/BookmarkletSetup/book.png" alt="Bookmarklet Sankoré" /&gt;&lt;/a&gt;&lt;/p&gt;&lt;/td&gt;
                         &lt;/tr&gt;
                       &lt;/tbody&gt;&lt;/table&gt;
