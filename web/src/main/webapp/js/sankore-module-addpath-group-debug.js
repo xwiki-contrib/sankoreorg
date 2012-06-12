@@ -112,7 +112,10 @@ Curriki.module.addpath.group.init = function() {
             ,defaults:{
                labelSeparator:''
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.cancel.button')
               ,id:'cancelbutton'
               ,cls:'button button-cancel mgn-rt'
@@ -125,7 +128,7 @@ Curriki.module.addpath.group.init = function() {
                   ,scope:this
                 }
               }
-            },{
+            },'->',{
               xtype: 'tbprogress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-current', html:'1'}
@@ -134,7 +137,7 @@ Curriki.module.addpath.group.init = function() {
                 ,{tag:'a', cls:'addpath-page circle', html:'4'}
                 ,{tag:'a', cls:'addpath-page circle', html:'5'}                
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -157,6 +160,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             ,listeners:{
               render:function(fPanel){
@@ -291,7 +295,10 @@ Curriki.module.addpath.group.init = function() {
             ,defaults:{
                labelSeparator:''
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.previous.button')
               ,id:'previousbutton'
               ,cls:'button button-previous mgn-rt'
@@ -305,7 +312,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },{
+            },'->',{
               xtype: 'tbprogress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
@@ -323,7 +330,7 @@ Curriki.module.addpath.group.init = function() {
                 ,{tag:'a', cls:'addpath-page circle', html:'4'}
                 ,{tag:'a', cls:'addpath-page circle', html:'5'}                
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -343,6 +350,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             ,listeners:{
               render:function(fPanel){
@@ -501,7 +509,10 @@ Curriki.module.addpath.group.init = function() {
             ,defaults:{
                labelSeparator:''
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.previous.button')
               ,id:'previousbutton'
               ,cls:'button button-previous mgn-rt'
@@ -515,7 +526,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },{
+            },'->',{
               xtype: 'tbprogress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
@@ -542,7 +553,7 @@ Curriki.module.addpath.group.init = function() {
                 ,{tag:'a', cls:'addpath-page circle', html:'4'}
                 ,{tag:'a', cls:'addpath-page circle', html:'5'}                
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -563,6 +574,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             ,listeners:{
               render:function(fPanel){
@@ -702,7 +714,10 @@ Curriki.module.addpath.group.init = function() {
                 var cmp = ct.ownerCt;
                 }                     
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.previous.button')
               ,id:'previousbutton'
               ,cls:'button button-previous mgn-rt'
@@ -716,7 +731,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },{
+            },'->',{
               xtype: 'tbprogress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
@@ -752,7 +767,7 @@ Curriki.module.addpath.group.init = function() {
                 ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'4'}
                 ,{tag:'a', cls:'addpath-page circle', html:'5'}                
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -774,6 +789,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             /*
             ,listeners:{
@@ -890,7 +906,10 @@ Curriki.module.addpath.group.init = function() {
             ,defaults:{
                labelSeparator:''
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.previous.button')
               ,id:'previousbutton'
               ,cls:'button button-previous mgn-rt'
@@ -904,7 +923,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },{
+            },'->',{
               xtype: 'tbprogress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
@@ -949,7 +968,7 @@ Curriki.module.addpath.group.init = function() {
                 }}                
                 ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'5'}
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.publish.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -968,6 +987,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             ,listeners:{
               render:function(fPanel){
@@ -1201,7 +1221,10 @@ Curriki.module.addpath.group.init = function() {
             ,defaults:{
                labelSeparator:''
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -1215,7 +1238,7 @@ Curriki.module.addpath.group.init = function() {
                   ,scope:this
                 }
               }
-            },{
+            },'->',{
               xtype: 'tbprogress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-current', html:'1'}
@@ -1260,7 +1283,7 @@ Curriki.module.addpath.group.init = function() {
                   }
                 }}               
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.publish.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -1275,6 +1298,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             ,listeners:{
               render:function(fPanel){
@@ -1409,7 +1433,10 @@ Curriki.module.addpath.group.init = function() {
             ,defaults:{
                labelSeparator:''
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.previous.button')
               ,id:'previousbutton'
               ,cls:'button button-previous mgn-rt'
@@ -1437,7 +1464,7 @@ Curriki.module.addpath.group.init = function() {
                   ,scope:this
                 }
               }
-            },{
+            },'->',{
               xtype: 'tbprogress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
@@ -1482,9 +1509,9 @@ Curriki.module.addpath.group.init = function() {
                   }
                 }}               
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.publish.button')
-              ,id:'nextbutton'
+              ,id:'publishbutton'
               ,cls:'button button-confirm'
               ,listeners:{
                 click:{
@@ -1497,6 +1524,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             ,listeners:{
               render:function(fPanel){
@@ -1655,7 +1683,10 @@ Curriki.module.addpath.group.init = function() {
             ,defaults:{
                labelSeparator:''
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.previous.button')
               ,id:'previousbutton'
               ,cls:'button button-previous mgn-rt'
@@ -1683,7 +1714,7 @@ Curriki.module.addpath.group.init = function() {
                   ,scope:this
                 }
               }
-            },{
+            },'->',{
               xtype: 'tbprogress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
@@ -1728,9 +1759,9 @@ Curriki.module.addpath.group.init = function() {
                   }
                 }}              
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.publish.button')
-              ,id:'nextbutton'
+              ,id:'publishbutton'
               ,cls:'button button-confirm'
               ,listeners:{
                 click:{
@@ -1743,6 +1774,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             ,listeners:{
               render:function(fPanel){
@@ -1882,7 +1914,10 @@ Curriki.module.addpath.group.init = function() {
                 var cmp = ct.ownerCt;
                 }                     
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.previous.button')
               ,id:'previousbutton'
               ,cls:'button button-previous mgn-rt'
@@ -1896,7 +1931,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -1955,9 +1990,9 @@ Curriki.module.addpath.group.init = function() {
                   }
                 }}               
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.publish.button')
-              ,id:'nextbutton'
+              ,id:'publishbutton'
               ,cls:'button button-confirm'
               ,listeners:{
                 click:{
@@ -1970,6 +2005,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             /*
             ,listeners:{
@@ -2086,7 +2122,10 @@ Curriki.module.addpath.group.init = function() {
             ,defaults:{
                labelSeparator:''
             }
-            ,bbar:[{
+            ,bbar:{
+              xtype:'toolbar'
+              ,layout:'xtoolbar'
+              ,items:[{
                text:_('add.setrequiredinfo.previous.button')
               ,id:'previousbutton'
               ,cls:'button button-previous mgn-rt'
@@ -2100,7 +2139,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },{
+            },'->',{
               xtype: 'tbprogress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
@@ -2145,9 +2184,9 @@ Curriki.module.addpath.group.init = function() {
                 }}                
                 ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'5'}
                 ]                
-            },{
+            },'->',{
                text:_('add.setrequiredinfo.publish.button')
-              ,id:'nextbutton'
+              ,id:'publishbutton'
               ,cls:'button button-confirm'
               ,listeners:{
                 click:{
@@ -2160,6 +2199,7 @@ Curriki.module.addpath.group.init = function() {
                 }
               }
             }]
+            }
             ,monitorValid:true
             ,listeners:{
               render:function(fPanel){
