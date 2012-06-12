@@ -134,14 +134,14 @@
   </tr>
   <tr>
     #set($url = $xwiki.getURL("MySankore.EditProfile", "view", "user=${context.user}"))
-    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a></td><td class="profile-splitter" valign="top">�</td><td>$msg.get("sankore.profile.editprofile.description")</td>
-    <td class="profile-link"><a href="#">$msg.get("sankore.profile.downloadplugin.title")</a></td><td class="profile-splitter" valign="top">�</td><td>$msg.get("sankore.profile.downloadplugin.description")</td>
+    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.editprofile.description")</td>
+    <td class="profile-link"><a href="#">$msg.get("sankore.profile.downloadplugin.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.downloadplugin.description")</td>
   </tr>
   <tr>
     #set($url = $xwiki.getURL("Search.Groups", "view", "#o%3As%3Ds%253Agroup%5Ef%3Do%253Agroup%253Do%25253Aterms%25253Ds%2525253A%25255Eother%25253Ds%2525253A%25255Esubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%5Ep%3Do%253Ac%253Dn%25253A0%255Es%253Dn%25253A25%5Et%3Ds%253Agroup%5Ea%3Db%253A0"))
-    <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></td><td class="profile-splitter" valign="top">�</td><td>$msg.get("sankore.profile.joingroup.description")</td>
+    <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.joingroup.description")</td>
     #set($url = $xwiki.getURL("Invitation.WebHome", "view"))
-    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></td><td class="profile-splitter" valign="top">�</td><td>$msg.get("sankore.profile.inviteuser.description")</td>
+    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.inviteuser.description")</td>
   </tr>
   </table>
   </div>
@@ -686,7 +686,7 @@ $!desc
   <form id="inline" action="$userdoc.getURL("preview")" method="post">
     <input id="origemail" name="origemail" type="hidden" value="${userobj.getProperty('email').getValue()}" />
     #verbatim_start
-    <input id="XWiki.XWikiUsers_0_password" name="XWiki.XWikiUsers_0_password" type="hidden" />
+    <input id="origpassword" name="origpassword" type="hidden" value="${userobj.getProperty('password').getValue()}" />
     #verbatim_end
     <br />
     <table border="0" cellspacing="0" cellpadding="3">
@@ -743,11 +743,18 @@ function checkInlineForm() {
           alert("$msg.get("profile.field.password.tooShort")");
           isValid = false;
         } else {
-          document.forms.inline['XWiki.XWikiUsers_0_password'].value = document.forms.inline['password'].value          
+          var pwd=document.createElement('input');
+          pwd.setAttribute('id', "XWiki.XWikiUsers_0_password");
+          pwd.setAttribute('name', "XWiki.XWikiUsers_0_password");
+          pwd.setAttribute('type', "hidden");
+          pwd.setAttribute('value', document.forms.inline['password'].value);
+          $('inline').appendChild(pwd);
+          //document.forms.inline['XWiki.XWikiUsers_0_password'].value = document.forms.inline['password'].value          
         }           
     }
   }
 
+  /*
   if (document.forms.inline['origemail'].value != document.forms.inline['XWiki.XWikiUsers_0_email'].value) {
     isValid = checkEmail();
     document.forms.inline.action='$userdoc.getURL("save", "xredirect=$xredirectemail")';
@@ -771,6 +778,7 @@ function checkInlineForm() {
     document.forms.inline.submit();
     }
   }
+  */
   
   if (isValid) {
     return true;

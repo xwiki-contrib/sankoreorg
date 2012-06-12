@@ -11,45 +11,45 @@
 #macro(groups_members)
 #groupinit()
 #groupsheader("members")
-#if(!$isGroupMember && ($s.policy=="closed") && !$hasGlobalAdmin)
-$msg.get("groups_members_onlyaccessibletomembers")
+#if(!$isGroupMember && ($group.policy=="closed") && !$hasGlobalAdmin)
+  $msg.get("groups_members_onlyaccessibletomembers")
 #else
-#set($im = $xwiki.invitationmanager)
-#set($spacePolicy = $s.policy)
-#groupsdisplaywelcome($msg.get("groups_members_about_title") $spaceName $doc.name $isGroupAdmin)
-#groupsmembershipinfo($spaceName)
-#if(!$xwiki.exists("${spaceName}.ManageRoles")) ## {
-  #set($discard = $xwiki.copyDocument("Groups_TemplateSpace.ManageRoles", "${spaceName}.ManageRoles"))
-#end ## }
-#begingroupsection($msg.get("groups_members_list_title"),$msg.get("groups_members_manage_roles"), $xwiki.getURL("${spaceName}.ManageRoles", "view"), "blue", $isGroupAdmin)
-#if(!$request.type)
-#set($type = "0")
-#else
-#set($type = $request.type)
-#end
-#if(!$isGroupAdmin)
-<div id="groups-members-list-$type" class="groups-members-list">
-#groupsdisplaymembers($spaceName)
-</div>
-#else
-#groupsdisplaymembersfilters($type)
-<div id="groups-members-list-$type" class="groups-members-list">
-## show members
-#if($type=="0")
-#groupsdisplaymembers($spaceName)
-## show membershiprequests
-#elseif($type=="1")
-#groupsdisplayopenmembershiprequests($spaceName)
-## show denied membershiprequests
-#elseif($type=="2")
-#groupsdisplaydeniedmembershiprequests($spaceName)
-#elseif($type=="3")
-#groupsdisplayinvitations($spaceName)
-#end
-##
-</div>
-#end
-#endgroupsection()
+  #set($im = $xwiki.invitationmanager)
+  #set($spacePolicy = $group.policy)
+  #groupsdisplaywelcome($msg.get("groups_members_about_title") $spaceName $doc.name $isGroupAdmin)
+  #groupsmembershipinfo($spaceName)
+  #if(!$xwiki.exists("${spaceName}.ManageRoles"))
+    #set($discard = $xwiki.copyDocument("Groups_TemplateSpace.ManageRoles", "${spaceName}.ManageRoles"))
+  #end
+  #begingroupsection($msg.get("groups_members_list_title"),$msg.get("groups_members_manage_roles"), $xwiki.getURL("${spaceName}.ManageRoles", "view"), "blue", $isGroupAdmin)
+  #if(!$request.type)
+    #set($type = "0")
+  #else
+    #set($type = $request.type)
+  #end
+  #if(!$isGroupAdmin)
+    <div id="groups-members-list-$type" class="groups-members-list">
+    #groupsdisplaymembers($spaceName)
+    </div>
+  #else
+    #groupsdisplaymembersfilters($type)
+    <div id="groups-members-list-$type" class="groups-members-list">
+    ## show members
+    #if($type=="0")
+      #groupsdisplaymembers($spaceName)
+    ## show membershiprequests
+    #elseif($type=="1")
+      #groupsdisplayopenmembershiprequests($spaceName)
+    ## show denied membershiprequests
+    #elseif($type=="2")
+      #groupsdisplaydeniedmembershiprequests($spaceName)
+    #elseif($type=="3")
+      #groupsdisplayinvitations($spaceName)
+    #end
+    ##
+    </div>
+  #end
+  #endgroupsection()
 #end
 #groupsfooter()
 #end
@@ -358,7 +358,8 @@ $msg.get("groups.members.invitedby") $xwiki.getLocalUserName($invitation.inviter
 #macro(groupsdisplaymembers $spaceName)
 <script src="$xwiki.getSkinFile("Pork.Iframe.js")" type="text/javascript"></script>
 #groupsdisplayeditmemberjs()
-#set($members = $sm.getMembers($spaceName))
+##set($members = $sm.getMembers($spaceName))
+#set($members = $group.getMembers())
 ## pagination parameters
 #set($itemsPerPage=10)
 #if($request.ipp)

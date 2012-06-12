@@ -53,11 +53,6 @@ input.x-form-radio { margin-bottom: -2px }
 .x-tree-node a span { overflow: hidden; }
 form#MetadataDialogueForm { height: 420px !important; overflow-y: auto; overflow-x: hidden; }
 
-#MetadataDialoguePanel table#cancelbutton, #MetadataDialoguePanel table#nextbutton {
-	margin-top: 15px !important;
-	margin-bottom: 15px !important;
-}
-
 #MetadataDialogueForm img.x-tree-node-icon { display: none; }
 .x-tree-node .x-tree-selected { background-color: #fff; }
 .x-tree-node .x-tree-selected a span { color: #000; }
