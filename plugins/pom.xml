@@ -51,6 +51,7 @@
   </dependencies>
   <modules>
     <module>asset</module>
+    <module>sankore</module>
     <module>curriki</module>    
     <module>servlet</module>
     <module>lucene</module>
