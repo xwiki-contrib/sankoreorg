@@ -74,7 +74,7 @@ public class DefaultMembershipManager implements MembershipManager
         String templateName = DEFAULT_MAILTEMPLATE_NAME + type + action;
         EntityReference templateReference = new EntityReference(templateName, EntityType.DOCUMENT, new EntityReference(DEFAULT_RESOURCES_SPACE, EntityType.SPACE));
 
-        return currentReferenceDocumentReferenceResolver.resolve(templateReference);;
+        return currentReferenceDocumentReferenceResolver.resolve(templateReference);
     }
 
     private boolean isRegisteredUser(String usernameOrEmail) throws XWikiException
@@ -169,9 +169,9 @@ public class DefaultMembershipManager implements MembershipManager
         if (invitationXObjectDocument.getStatus().equals(InvitationClass.FIELD_STATUS_CREATED)) {
 
             String from = wikiPreferences.getProperty(ADMIN_EMAIL_PREFERENCE_KEY, String.class);
-            UserXObjectDocument invitee = XWikiUsersClass.getInstance(.newXObjectDocument(invitationXObjectDocument.getInvitee(), execution.getContext());
+            //UserXObjectDocument invitee = XWikiUsersClass.getInstance(.newXObjectDocument(invitationXObjectDocument.getInvitee(), execution.getContext());
 
-            mailSender.sendMailFromTemplate(getDefaultMailTemplate("Invitation", InvitationClass.FIELD_STATUS_SENT), from, invitee.getEmail(), )
+            //mailSender.sendMailFromTemplate(getDefaultMailTemplate("Invitation", InvitationClass.FIELD_STATUS_SENT), from, invitee.getEmail(), )
         }
 
         return false;
