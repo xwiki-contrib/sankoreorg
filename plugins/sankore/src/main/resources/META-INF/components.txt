@@ -2,3 +2,6 @@ org.xwiki.sankore.DefaultSpaceManager
 org.xwiki.sankore.SpaceManagerScriptService
 org.xwiki.sankore.DefaultGroupManager
 org.xwiki.sankore.GroupManagerScriptService
+org.xwiki.sankore.DefaultMailConfiguration
+org.xwiki.sankore.DefaultMailSender
+org.xwiki.sankore.MailSenderScriptService

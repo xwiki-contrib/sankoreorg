@@ -73,29 +73,39 @@ public class MembersGroup extends Api
         this.xWikiGroupService = xWikiContext.getWiki().getGroupService(xWikiContext);
     }
 
-    public void addUserOrGroup(String userOrGroup) throws XWikiException
+    public boolean addUserOrGroup(String userOrGroup) throws XWikiException
     {
-        this.xWikiGroupService.addUserToGroup(userOrGroup, this.context.getDatabase(), this.xWikiDocument.toString(), this.context);
+        List<BaseObject> xObjects = this.xWikiDocument.getXObjects(
+                currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE));
+
+        for (BaseObject xObject : xObjects) {
+            if (StringUtils.equals(xObject.getStringValue(XWIKIGROUPS_MEMBER), userOrGroup))
+                return false;
+        }
+
+        BaseObject member = this.xWikiDocument.newXObject(XWIKIGROUPS_CLASS_REFERENCE, this.context);
+        member.setStringValue(XWIKIGROUPS_MEMBER, userOrGroup);
+
+        this.context.getWiki().saveDocument(this.xWikiDocument, this.context);
+
+        return true;
     }
 
-    public boolean removeUserOrGroup(String userOrGroup)
+    public boolean removeUserOrGroup(String userOrGroup) throws XWikiException
     {
         boolean needUpdate = false;
 
         List<BaseObject> xObjects = xWikiDocument.getXObjects(
                 currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE));
 
-        if (xObjects != null) {
-            for (BaseObject baseObject : xObjects) {
-                if (baseObject != null) {
-                    String member = baseObject.getStringValue(XWIKIGROUPS_MEMBER);
-
-                    if (StringUtils.equals(userOrGroup, member)) {
-                        needUpdate = xWikiDocument.removeXObject(baseObject);
-                    }
-                }
+        for (BaseObject xObject : xObjects) {
+            if (StringUtils.equals(xObject.getStringValue(XWIKIGROUPS_MEMBER), userOrGroup)) {
+                needUpdate = this.xWikiDocument.removeXObject(xObject);
             }
         }
+
+        if (needUpdate)
+            this.context.getWiki().saveDocument(this.xWikiDocument, this.context);
 
         return needUpdate;
     }
@@ -106,14 +116,31 @@ public class MembersGroup extends Api
                 currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE)).size();
     }
 
-    public Collection<String> getAllMembers() throws XWikiException
+    public List<String> getAllMembers() throws XWikiException
     {
-        return this.xWikiGroupService.getAllMembersNamesForGroup(this.xWikiDocument.toString(), 0, 0, this.context);
+        List<BaseObject> xObjects = this.xWikiDocument.getXObjects(
+                currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE));
+
+        List<String> members = new ArrayList<String>();
+
+        for (BaseObject xObject : xObjects) {
+            members.add(xObject.getStringValue(XWIKIGROUPS_MEMBER));
+        }
+
+        return members;
     }
 
     public boolean isMember(String userOrGroup) throws XWikiException
     {
-        return this.getAllMembers().contains(userOrGroup);
+        List<BaseObject> xObjects = this.xWikiDocument.getXObjects(
+                currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE));
+
+        for (BaseObject xObject : xObjects) {
+            if (StringUtils.equals(xObject.getStringValue(XWIKIGROUPS_MEMBER), userOrGroup))
+                return true;
+        }
+
+        return false;
     }
 
     protected void  validateRights(SpaceReference spaceReference) throws XWikiException

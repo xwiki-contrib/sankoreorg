@@ -2,6 +2,7 @@ package org.xwiki.sankore;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -39,6 +40,10 @@ public class Group extends Api
     public static final String MEMBERGROUP_NAME = "MemberGroup";
     public static final String ROLE_AFFILIATEGROUP_NAME = "Role_AffiliateGroup";
     public static final String ROLE_CONTRIBUTORPARTICIPANTGROUP_NAME = "Role_ContributorParticipantGroup";
+
+    public static final String ADMIN_MEMBER_ROLE = "admin";
+    //public static final String[] MEMBER_ROLES = ["admin", "Affiliate", "ContributorParticipant"];
+
 
     public static final String XWIKI_SPACE = "XWiki";
 
@@ -405,46 +410,76 @@ public class Group extends Api
         return this.groupSpace;
     }
 
+    public Space getInvitationsSpace()
+    {
+        return this.invitationsSpace;
+    }
+
+    public SpaceReference getInvitationsSpaceReference()
+    {
+        return this.invitationsSpace.getSpaceReference();
+    }
+
     public void updateFromRequest() throws XWikiException
     {
         this.groupSpace.updateFromRequest();
         this.groupXObjectDocument.updateObjectFromRequest(this.groupXObjectDocument.getXClassManager().getClassFullName());
     }
 
-    public MembersGroup getAdminGroup() throws XWikiException
+    public List<String> getMembers() throws XWikiException
     {
-        return new MembersGroup(
-                this.context.getWiki().getDocument(
-                        new DocumentReference(ADMINGROUP_NAME, this.groupSpace.getSpaceReference()),
-                        this.context),
-                this.context);
+        return this.memberGroup.getAllMembers();
     }
 
-    public MembersGroup getMemberGroup() throws XWikiException
+    public boolean addMemberRole(String member, String role) throws XWikiException
     {
-        return new MembersGroup(
+        /*
+        if (!this.isAdmin())
+            return false;
+
+        if (!this.memberGroup.isMember(member))
+            return false;
+
+        if (!Arrays.asList(this.MEMBER_ROLES).contains(role))
+            return false;
+
+        MembersGroup roleMembersGroup = new MembersGroup(
                 this.context.getWiki().getDocument(
-                        new DocumentReference(MEMBERGROUP_NAME, this.groupSpace.getSpaceReference()),
-                        this.context),
-                this.context);
+                        new DocumentReference("Role_"+role+"Group", this.groupSpace.getSpaceReference()),
+                        this.context)
+                ,this.context);
+
+        roleMembersGroup.addUserOrGroup(member); */
+
+        return true;
     }
 
-    public MembersGroup getAffiliateGroup() throws XWikiException
+    public boolean removeMemberRole(String member, String role) throws XWikiException
     {
-        return new MembersGroup(
+        if (!this.isAdmin())
+            return false;
+
+        MembersGroup roleMembersGroup = new MembersGroup(
                 this.context.getWiki().getDocument(
-                        new DocumentReference(ROLE_AFFILIATEGROUP_NAME, this.groupSpace.getSpaceReference()),
+                        new DocumentReference("Role_"+role+"Group", this.groupSpace.getSpaceReference()),
                         this.context),
                 this.context);
+
+        return roleMembersGroup.removeUserOrGroup(member);
     }
 
-    public MembersGroup getContributorParticipantGroup() throws XWikiException
+    public boolean addMember(String member) throws XWikiException
     {
-        return new MembersGroup(
-                this.context.getWiki().getDocument(
-                        new DocumentReference(ROLE_CONTRIBUTORPARTICIPANTGROUP_NAME, this.groupSpace.getSpaceReference()),
-                        this.context),
-                this.context);
+        if (!this.isAdmin())
+            return false;
+
+        return this.memberGroup.addUserOrGroup(member);
+    }
+
+    public boolean inviteMember(String member)
+    {
+
+        return false;
     }
 
     private void updateRights() throws XWikiException

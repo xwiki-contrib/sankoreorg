@@ -18,7 +18,6 @@ public interface SpaceManager
 
     public Space createSpaceFromTemplate(SpaceReference spaceReference, SpaceReference templateReference) throws XWikiException;
 
-
     public Space createSpaceFromRequest();
 
     public Space updateSpaceFromRequest();

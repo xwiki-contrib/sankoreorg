@@ -51,8 +51,6 @@
   </dependencies>
   <modules>
     <module>asset</module>
-    <module>spacemanager</module>
-    <module>currikispacemanager</module>
     <module>curriki</module>    
     <module>servlet</module>
     <module>lucene</module>
