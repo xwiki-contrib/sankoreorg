@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316421697000</creationDate>
-<date>1316421697000</date>
-<contentUpdateDate>1316421697000</contentUpdateDate>
+<creationDate>1318237987000</creationDate>
+<date>1318237987000</date>
+<contentUpdateDate>1318237987000</contentUpdateDate>
 <version>1.1</version>
 <title>PanelsMacros</title>
 <template></template>
@@ -28,10 +28,10 @@
   #set($specialClassAttribute = $util.convertToAlphaNumeric($paneldoc.name))
 #end
 &lt;div #if("$!id" != "")id="$id"#end class="panel $specialClassAttribute $!css"&gt;
-#if("$!imgsrc" != "")
+#if("$!imgsrc" != "" &amp;&amp; $request.xpage != "panel")
 &lt;img width="81px" src="$imgsrc" typeof="foaf:Image" class="block-icon"&gt;
 #end
-#if("$!title" != "")
+#if("$!title" != "" &amp;&amp; $request.xpage != "panel")
 &lt;h2 class="xwikipaneltitle"&gt;$title&lt;/h2&gt;
 #end
 &lt;div class="xwikipanelcontents"&gt;

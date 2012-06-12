@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>SankoreCode</web>
+<name>GroupsMacros</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent>SankoreCode.WebHome</parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1316003114000</creationDate>
+<date>1316003114000</date>
+<contentUpdateDate>1316003114000</contentUpdateDate>
+<version>1.1</version>
+<title>GroupsMacros</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.JavaScriptExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>SankoreCode.GroupsMacros</name>
+<number>0</number>
+<className>XWiki.JavaScriptExtension</className>
+<guid>22834b09-b70c-4cb3-a7c6-79a55abbeaeb</guid>
+<property>
+<cache>default</cache>
+</property>
+<property>
+<code>Ajax.XWikiRequest = Class.create(Ajax.Request, {
+  initialize: function($super, space, docName, options, action) {
+    this.transport = Ajax.getTransport();
+    if(action)
+      this.action = action;
+    else
+      this.action = "view";
+    // TODO remove hardcoded url factory
+    this.baseUrl = "/xwiki/bin/" + this.action;
+
+    options = Object.clone(options);
+    var onComplete = options.onComplete || Prototype.emptyFunction;
+    options.onComplete = (function() {
+      this.returnValue(onComplete);
+    }).bind(this);
+
+    $super(this.generateUrl(space, docName), options);
+  },
+  generateUrl: function(space, docName){
+    return this.baseUrl + "/" + space + "/" + docName;
+  },
+  returnValue: function(callBack) {
+    if(callBack)
+      callBack(this);
+    else
+      console.error('Ajax.XWikiRequest callback error');
+  }
+});
+
+function refreshPage(ajaxreq) {
+  console.log(ajaxreq.transport.responseText);
+  window.location.href = window.location.href;
+}
+
+function editWelcomeBlock(spaceName,pageName,divid) {
+  var pars = "space=" + spaceName + "&amp;page=" + pageName + "&amp;divid=" + divid + "&amp;xpage=plain";
+  $(divid).innerHTML = "&lt;p&gt;${msg.groups_loadinginprogress}&lt;/p&gt;";
+  var myAjax = new Ajax.XWikiRequest( "Groups", "EditWelcomeBlockService", {method: 'get', parameters: pars, onComplete: editWelcomeBlockCallback, divid: divid });
+}
+function editWelcomeBlockCallback(ajaxreq) {
+ var divid = ajaxreq.options.divid;
+ $(divid).update(ajaxreq.transport.responseText);
+}</code>
+</property>
+<property>
+<name>GroupsJSX</name>
+</property>
+<property>
+<parse>0</parse>
+</property>
+<property>
+<use>onDemand</use>
+</property>
+</object>
+<content>## Groups Home Page
+
+#**
+  * Groups Home Page
+  * @programming
+  * @internalapi
+  *#
+#macro(sankore_groups_homepage)
+  #groupinit()
+  #sankore_groupsheader("home")
+  #groups_homepage_aftercreate()
+  #set($action = $request.get("action"))
+  #if($action=="editmasthead")
+    #if($isGroupAdmin)
+      #groups_homepage_editmasthead()
+    #else
+      #curriki_noaccess()
+    #end
+  #elseif($action=="editinfo")
+    ## this call requires programming rights
+    #if($isGroupAdmin)
+      #groups_homepage_editinfo()
+    #else
+      #curriki_noaccess()
+    #end
+  #else
+    #groups_homepage_viewinfo()
+    #sankore_groupsdisplaywelcome($msg.groups_home_welcome $spaceName $doc.name $isGroupAdmin)
+    #groups_homepage_activitystream()
+    #groups_homepage_details()
+    #groups_homepage_contributions()
+    #groupsmembershipinfo($spaceName)
+  #end
+  #groupsfooter()
+  &lt;br clear="all"/&gt;
+#end
+
+#macro(sankore_groupsheader $curtab)
+  &lt;div id="groups-$curtab" class="mycurriki groups groups-$curtab"&gt;
+    &lt;h2&gt;$s.getDisplayTitle()&lt;/h2&gt;
+    #groupstabs($curtab)
+    &lt;div id="groups-${curtab}-main" class="tab-container"&gt;
+#end
+
+#macro(sankore_groupsdisplaywelcome $title $spaceName $pageName $isGroupAdmin)
+  #if($isGroupAdmin)
+    #wysiwyg_import(false)
+    #set($discard = $xwiki.jsx.use("SankoreCode.GroupsMacros", {'minify': false}))    
+    #begingroupsection($title, "$msg.groups_home_welcome_link", "javascript:editWelcomeBlock('$spaceName','$pageName','groups-members-welcomeblock')", "blue", true)
+    &lt;div id="groups-members-welcomeblock"&gt;#groupsdisplaywelcomeblock($doc)&lt;/div&gt;
+    #endgroupsection()
+  #elseif($doc.name=="WebHome")
+    #set($ok = $doc.use("XWiki.CurrikiWelcomeBlockClass"))
+    ## Hack CURRIKI-3338 Fix paragraph carriage return issues in wiki rendered content
+    #set($welcomeContent = $!doc.display("content").replaceAll("&lt;br/&gt;&lt;p/&gt;","&lt;br/&gt;&amp;nbsp;&lt;p/&gt;"))
+    #if($welcomeContent!="")
+      #begingroupsection($title,"","", "blue", false)
+      &lt;div id="groups-members-welcomeblock"&gt;$welcomeContent&lt;/div&gt;
+      #endgroupsection()
+    #end
+  #else
+    #begingroupsection($title,"","", "blue", false)
+    &lt;div id="groups-members-welcomeblock"&gt;#groupsdisplaywelcomeblock($doc)&lt;/div&gt;
+    #endgroupsection()
+  #end
+#end</content></xwikidoc>
