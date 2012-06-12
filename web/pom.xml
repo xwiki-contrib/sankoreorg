@@ -45,8 +45,13 @@
       <version>${pom.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-application-manager-api</artifactId>
+      <version>3.1</version>
+    </dependency>
+    <dependency>
       <groupId>com.xwiki.projects</groupId>
-      <artifactId>xwiki-sankore-plugins-spacemanager</artifactId>
+      <artifactId>xwiki-sankore-plugins-sankore</artifactId>
       <version>${pom.version}</version>
     </dependency>
     <dependency>
@@ -151,7 +156,7 @@
                     org.curriki.xwiki.plugin.licence.LicenceManagerPlugin,\
                     org.curriki.xwiki.plugin.mimetype.MimeTypePlugin,\
                     org.curriki.xwiki.plugin.curriki.CurrikiPlugin,\
-                    org.curriki.plugin.spacemanager.impl.CurrikiSpaceManager,\
+                    com.xpn.xwiki.plugin.applicationmanager.ApplicationManager,\
                     org.curriki.plugin.activitystream.plugin.CurrikiActivityStreamPlugin
                 </xwikiCfgPlugins>
                 <xwikiCfgDefaultSkin>curriki20</xwikiCfgDefaultSkin>
