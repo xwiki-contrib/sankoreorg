@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1335537743000</creationDate>
-<date>1335537743000</date>
-<contentUpdateDate>1335537743000</contentUpdateDate>
+<creationDate>1338562805000</creationDate>
+<date>1338562805000</date>
+<contentUpdateDate>1338562805000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -348,7 +348,7 @@ table#search-criteria ul li {
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td colspan="3"&gt;
-        &lt;a href="${xwiki.getURL('Search.WebHome')}#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Aterms%25253Ds%2525253A%25255Eother%25253Ds%2525253A%25255Esystem%25253Ds%2525253A#{education_system}%25255Eext-comp-1007%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Esubict%25253Ds%2525253A%25255Elevel%25253Ds%2525253A#{educational_level}%25255Esublevel%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Esubject%25253Ds%2525253A#{subject}%25255Esubsubject%25253Ds%2525253A%25255Especial%25253Ds%2525253A%5Ep%3Do%253Ac%253Dn%25253A0%255Es%253Dn%25253A25%5Et%3Ds%253Aresource%5Ea%3Db%253A0" id="submit-link"&gt;$msg.get('SearchCriteria.findbutton') &amp;raquo;&lt;/a&gt;        
+        &lt;a href="${xwiki.getURL('Search.WebHome')}#o%3As%3Ds%3Aresource%5Ef%3Do%3Aresource%3Do%3Aterms%3Ds%3A%5Eother%3Ds%3A%5Esystem%3Ds%3AAssetMetadata.FranceEducation%5Eext-comp-1087%3Ds%3A%5Eict%3Ds%3A%5Esubict%3Ds%3A%5Elevel%3Ds%3AAssetMetadata.FRMaternelle%5Esublevel%3Ds%3A%5Elanguage%3Ds%3A%5Ereview%3Ds%3A%5Esubject%3Ds%3ADisciplines.Arts%5Esubsubject%3Ds%3A%5Especial%3Ds%3A%5Et%3Ds%3Aresource%5Ea%3Db%3A0" id="submit-link"&gt;$msg.get('SearchCriteria.findbutton') &amp;raquo;&lt;/a&gt;        
       &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;
