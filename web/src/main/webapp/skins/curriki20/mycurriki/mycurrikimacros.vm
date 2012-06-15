@@ -969,24 +969,7 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
     {pre}<input size='30' id='XWiki.XWikiUsers_0_password_repeat' value='$userdoc.display("password", "view", $userobj)' name='XWiki.XWikiUsers_0_password_repeat' type='password'/>{/pre}</td>
   </tr>
   #end
-  #end
-  <tr>
-    <td><strong>$msg.get("profile.field.topics")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-      #set($topics = "")
-      #set($titems = $userdoc.topics.split("<br />"))
-      #foreach($titem in $titems)
-        #if($titem.trim().startsWith("Subject Index &gt;"))
-          #set($titem = $titem.trim().substring(18))
-        #end
-        #set($topics = "${topics}, ${titem}")
-      #end
-      #if($topics.length() > 2)
-        #set($topics = $topics.substring(2))
-      #end
-      #mycurriki_dashifempty($topics)
-    </td>
-  </tr>
+  #end  
   <tr>
     <td><strong>$msg.get("profile.field.bio")</strong>
     #if ($context.action=="inline") </td></tr><tr><td> #end
