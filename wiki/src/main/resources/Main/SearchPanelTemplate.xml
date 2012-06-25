@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1315227779000</creationDate>
-<date>1315227779000</date>
-<contentUpdateDate>1315227779000</contentUpdateDate>
+<creationDate>1315294804000</creationDate>
+<date>1315294804000</date>
+<contentUpdateDate>1315294804000</contentUpdateDate>
 <version>1.1</version>
 <title>SearchPanelTemplate</title>
 <template></template>
@@ -29,9 +29,11 @@
 == The Sankoré search engine  ==
 (% class="block-contents-top" %)
 (((
+{{velocity}}
 {{html}}
 #template("advancedsearch.vm")
 {{/html}}
+{{/velocity}}
 
 Sankore is an intelligent search engine to find, evaluate and share best teaching free digital resources (RNEL) Sankore in the database and more than 600 selected sites.
 )))
