@@ -139,7 +139,7 @@
     <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.downloadplugin.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.downloadplugin.description")</td>
   </tr>
   <tr>
-    #set($url = $xwiki.getURL("Search.Groups", "view", "#o%3As%3Ds%253Agroup%5Ef%3Do%253Agroup%253Do%25253Aterms%25253Ds%2525253A%25255Eother%25253Ds%2525253A%25255Esubjectparent%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Elevelparent%25253Ds%2525253A%25255Elevel%25253Ds%2525253A%25255Epolicy%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%5Ep%3Do%253Ac%253Dn%25253A0%255Es%253Dn%25253A25%5Et%3Ds%253Agroup%5Ea%3Db%253A0"))
+    #set($url = $xwiki.getURL("Group.AboutGroups", "view"))
     <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.joingroup.description")</td>
     #set($url = $xwiki.getURL("Invitation.WebHome", "view"))
     <td class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.inviteuser.description")</td>
@@ -1465,14 +1465,14 @@ $msg.get("deleted")
   *
   * @param $asset Asset
   *#
-#macro(mycurriki_action_editinfo $asset) ##{
+#macro(mycurriki_action_editinfo $asset)
   ## ONLY for owner + admin
   #assets_userIsGroupAdmin($asset)
-  #if($ret_assetGroupAdmin || $hasGlobalAdmin) ##{
-    #set($editUrl = $asset.getURL('view', 'viewer=infoedit'))
+  #if($ret_assetGroupAdmin || $hasGlobalAdmin)    
+    #set($editUrl = "javascript:Curriki.module.addpath.startPath('Metadata', {assetName:'$asset.fullName'});")
     <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="$editUrl" ext:qtip="$msg.get('mycurriki.link.editinfo.tooltip')">$msg.get("mycurriki.link.editinfo")</a>
-  #end ##}
-#end ##}
+  #end
+#end
 
 #**
   * Displays the "Build Up" action if available
