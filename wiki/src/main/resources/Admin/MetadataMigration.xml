@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Admin</web>
+<name>MetadataMigration</name>
+<language></language>
+<defaultLanguage>fr</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1340709243000</creationDate>
+<date>1340709243000</date>
+<contentUpdateDate>1340709243000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>{{velocity}}
+#set($levelsMap = {
+'AssetMetadata.0306':['AssetMetadata.Maternelle','AssetMetadata.FR34','AssetMetadata.FR45']
+,'AssetMetadata.0306Primary':['AssetMetadata.Maternelle','AssetMetadata.FR34','AssetMetadata.FR45']
+,'AssetMetadata.0306PrimaryCycle1':['AssetMetadata.Maternelle','AssetMetadata.FR34','AssetMetadata.FR45']
+,'AssetMetadata.0608':['AssetMetadata.Maternelle', 'AssetMetadata.FR56', 'AssetMetadata.FRElementaire', 'AssetMetadata.FR67', 'AssetMetadata.FR78']
+,'AssetMetadata.0608Primary':['AssetMetadata.Maternelle', 'AssetMetadata.FR56', 'AssetMetadata.FRElementaire', 'AssetMetadata.FR67', 'AssetMetadata.FR78']
+,'AssetMetadata.0608PrimaryCycle2':['AssetMetadata.Maternelle', 'AssetMetadata.FR56', 'AssetMetadata.FRElementaire', 'AssetMetadata.FR67', 'AssetMetadata.FR78']
+,'AssetMetadata.0811':['AssetMetadata.FRElementaire', 'AssetMetadata.FR89', 'AssetMetadata.FR910','AssetMetadata.FR1011']
+,'AssetMetadata.0811Primary':['AssetMetadata.FRElementaire', 'AssetMetadata.FR89', 'AssetMetadata.FR910','AssetMetadata.FR1011']
+,'AssetMetadata.0811PrimaryCycle3':['AssetMetadata.FRElementaire', 'AssetMetadata.FR89', 'AssetMetadata.FR910','AssetMetadata.FR1011']
+,'AssetMetadata.1112':['AssetMetadata.FRCollege','AssetMetadata.FR1112']
+,'AssetMetadata.1112Secondary':['AssetMetadata.FRCollege','AssetMetadata.FR1112']
+,'AssetMetadata.1112SecondaryCollege':['AssetMetadata.FRCollege','AssetMetadata.FR1112']
+,'AssetMetadata.1112SecondaryCollegeAdaptationCycle':['AssetMetadata.FRCollege','AssetMetadata.FR1112']
+,'AssetMetadata.1214':['AssetMetadata.FRCollege','AssetMetadata.FR1213','AssetMetadata.FR1314']
+,'AssetMetadata.1214Secondary':['AssetMetadata.FRCollege','AssetMetadata.FR1213','AssetMetadata.FR1314']
+,'AssetMetadata.1214SecondaryCollege':['AssetMetadata.FRCollege','AssetMetadata.FR1213','AssetMetadata.FR1314']
+,'AssetMetadata.1214SecondaryCollegeMainCycle':['AssetMetadata.FRCollege','AssetMetadata.FR1213','AssetMetadata.FR1314']
+,'AssetMetadata.1415':['AssetMetadata.FRCollege','AssetMetadata.FR1415']
+,'AssetMetadata.1415Secondary':['AssetMetadata.FRCollege','AssetMetadata.FR1415']
+,'AssetMetadata.1415SecondaryCollege':['AssetMetadata.FRCollege','AssetMetadata.FR1415']
+,'AssetMetadata.1415SecondaryCollegeGuidanceCycle':['AssetMetadata.FRCollege','AssetMetadata.FR1415']
+,'AssetMetadata.1516':['AssetMetadata.FRLycee','AssetMetadata.FR1516']
+,'AssetMetadata.1516Secondary':['AssetMetadata.FRLycee','AssetMetadata.FR1516']
+,'AssetMetadata.1516SecondaryHighschool':['AssetMetadata.FRLycee','AssetMetadata.FR1516']
+,'AssetMetadata.1516SecondaryHighschool2de':['AssetMetadata.FRLycee','AssetMetadata.FR1516']
+,'AssetMetadata.1617':['AssetMetadata.FRLycee','AssetMetadata.FR1617']
+,'AssetMetadata.1617Secondary':['AssetMetadata.FRLycee','AssetMetadata.FR1617']
+,'AssetMetadata.1617SecondaryHighschool':['AssetMetadata.FRLycee','AssetMetadata.FR1617']
+,'AssetMetadata.1617SecondaryHighschool1re':['AssetMetadata.FRLycee','AssetMetadata.FR1617']
+,'AssetMetadata.1718':['AssetMetadata.FRLycee','AssetMetadata.FR1718']
+,'AssetMetadata.1718Secondary':['AssetMetadata.FRLycee','AssetMetadata.FR1718']
+,'AssetMetadata.1718SecondaryHighschool':['AssetMetadata.FRLycee','AssetMetadata.FR1718']
+,'AssetMetadata.1718SecondaryHighschoolSeniorYear':['AssetMetadata.FRLycee','AssetMetadata.FR1718']
+,'AssetMetadata.18':['AssetMetadata.FRProfessionnel','AssetMetadata.FRUniversite','AssetMetadata.FREducationSpecialisee','AssetMetadata.FRFormationContinue']
+,'AssetMetadata.18HigherEducation':['AssetMetadata.FRProfessionnel','AssetMetadata.FRUniversite']
+,'AssetMetadata.18HigherEducationTechnology':['AssetMetadata.FRProfessionnel']
+,'AssetMetadata.18HigherEducationBachelor':['AssetMetadata.FRUniversite']
+,'AssetMetadata.18HigherEducationMaster':['AssetMetadata.FRUniversite']
+,'AssetMetadata.18HigherEducationPhD':['AssetMetadata.FRUniversite']
+,'AssetMetadata.SpecialEducation':['AssetMetadata.FREducationSpecialisee']
+,'AssetMetadata.18SupplementaryEducation':['AssetMetadata.FRFormationContinue']})
+
+#set($ictMap = {
+'AssetMetadata.CaseStudy':['AssetMetadata.Activity','AssetMetadata.Exercise']
+,'AssetMetadata.Collection':['AssetMetadata.Activity','AssetMetadata.ProblemSet']
+,'AssetMetadata.CollectionAtlas':['AssetMetadata.Activity','AssetMetadata.ProblemSet']
+,'AssetMetadata.CollectionDocuments':['AssetMetadata.Activity','AssetMetadata.ProblemSet']
+,'AssetMetadata.CollectionImages':['AssetMetadata.Activity','AssetMetadata.ProblemSet']
+,'AssetMetadata.CollectionVideos':['AssetMetadata.Activity','AssetMetadata.ProblemSet']
+,'AssetMetadata.CollectionEBooks':['AssetMetadata.Activity','AssetMetadata.ProblemSet','AssetMetadata.Book','AssetMetadata.Fiction','AssetMetadata.NonFiction','AssetMetadata.Readings','AssetMetadata.Textbook']
+,'AssetMetadata.Course':['AssetMetadata.Curriculum','AssetMetadata.FullCourse']
+,'AssetMetadata.CourseComplete':['AssetMetadata.Curriculum','AssetMetadata.FullCourse','AssetMetadata.LessonPlan']
+,'AssetMetadata.Demonstration':['AssetMetadata.Curriculum','AssetMetadata.Answer','AssetMetadata.Sequence']
+,'AssetMetadata.Evaluation':['AssetMetadata.Activity','AssetMetadata.Assigment','AssetMetadata.Curriculum','AssetMetadata.Assessment']
+,'AssetMetadata.Exercise':['AssetMetadata.Activity','AssetMetadata.Exercise']
+,'AssetMetadata.Guide':['AssetMetadata.Asset','AssetMetadata.Reference','AssetMetadata.Curriculum','AssetMetadata.Tutorial']
+,'AssetMetadata.Interactive':['AssetMetadata.Activity','AssetMetadata.Experiment']
+,'AssetMetadata.Interactive3D':['AssetMetadata.Activity','AssetMetadata.Experiment','AssetMetadata.Asset','AssetMetadata.Diagram']
+,'AssetMetadata.InteractiveAnimation':['AssetMetadata.Activity','AssetMetadata.Experiment','AssetMetadata.Asset','AssetMetadata.Animation','AssetMetadata.Video']
+,'AssetMetadata.InteractiveSelfAssesment':['AssetMetadata.Activity','AssetMetadata.Assigment','AssetMetadata.Activity','AssetMetadata.Experiment','AssetMetadata.Curriculum','AssetMetadata.Assessment']
+,'AssetMetadata.InteractiveSimulation':['AssetMetadata.Activity','AssetMetadata.Experiment','AssetMetadata.Games','AssetMetadata.Asset','AssetMetadata.Animation']
+,'AssetMetadata.InteractiveSlideshow':['AssetMetadata.Activity','AssetMetadata.Experiment','AssetMetadata.Asset','AssetMetadata.Photograph','AssetMetadata.Video']
+,'AssetMetadata.InteractiveWebMedia':['AssetMetadata.Activity','AssetMetadata.Experiment','AssetMetadata.Asset','AssetMetadata.Audio','AssetMetadata.Video','AssetMetadata.Webcast']
+,'AssetMetadata.InteractiveWebsite':['AssetMetadata.Activity','AssetMetadata.Experiment','AssetMetadata.WebQuest']
+,'AssetMetadata.Lesson':['AssetMetadata.Asset','AssetMetadata.Transcript','AssetMetadata.Curriculum','AssetMetadata.LessonPlan','AssetMetadata.Syllabus','AssetMetadata.Unit']
+,'AssetMetadata.Quizz':['AssetMetadata.Activity','AssetMetadata.Assigment','AssetMetadata.WebQuest','AssetMetadata.Curriculum','AssetMetadata.Assessment','AssetMetadata.Workbook']
+,'AssetMetadata.Software':['AssetMetadata.Other']
+,'AssetMetadata.Sound':['AssetMetadata.Asset','AssetMetadata.Audio']
+,'AssetMetadata.SoundPodcast':['AssetMetadata.Asset','AssetMetadata.Audio']
+,'AssetMetadata.Text':['AssetMetadata.Asset','AssetMetadata.Article']
+,'AssetMetadata.TextTechnicalFile':['AssetMetadata.Asset','AssetMetadata.Article']
+,'AssetMetadata.TextTutorial':['AssetMetadata.Asset','AssetMetadata.Article']
+})
+
+#set($fwMap = {
+'FW_masterFramework.Arts_and_Culture':['Disciplines.Arts']
+,'FW_masterFramework.Architecture_Design':['Disciplines.Arts','Disciplines.InfantArts','Disciplines.ArtsPractices','Disciplines.ArtsArtsVisuels','Disciplines.ArtsHistory','Disciplines.ArtsEducation','Disciplines.CareerAndTechnicalEducation','Disciplines.proCivilEngineeringConstructionArchitecture']
+,'FW_masterFramework.Applied_Arts':['Disciplines.Arts','Disciplines.InfantArts','Disciplines.ArtsPractices','Disciplines.CareerAndTechnicalEducation','Disciplines.proArts']
+,'FW_masterFramework.Fine_Arts':['Disciplines.Arts','Disciplines.ArtsPractices','Disciplines.ArtsEducation','Disciplines.CareerAndTechnicalEducation','Disciplines.proInformationCommunication']
+,'FW_masterFramework.Visual_Arts':['Disciplines.Arts','Disciplines.ArtsArtsVisuels','Disciplines.ArtsArtsVisuels','Disciplines.CareerAndTechnicalEducation','Disciplines.proArts']
+,'FW_masterFramework.Cinema':['Disciplines.Arts']
+,'FW_masterFramework.Folklore':['Disciplines.Arts','Disciplines.ArtsHistory']
+,'FW_masterFramework.Dance':['Disciplines.Health','Disciplines.InfantHealth','Disciplines.Arts','Disciplines.ArtsArtsVisuels','Disciplines.ArtsArtsVisuels']
+,'FW_masterFramework.Music':['Disciplines.Arts','Disciplines.ArtsEducationMusicale','Disciplines.ArtsEducationMusicale','Disciplines.ArtsEducation']
+,'FW_masterFramework.Photography':['Disciplines.Arts','Disciplines.ArtsArtsVisuels','Disciplines.CareerAndTechnicalEducation','Disciplines.proArts']
+,'FW_masterFramework.Theatre':['Disciplines.Arts','Disciplines.ArtsArtsVisuels','Disciplines.CareerAndTechnicalEducation','Disciplines.proArts']
+,'FW_masterFramework.Media_Education':['Disciplines.EducationalTechnology','Disciplines.InformationAndMediaLiteracy','Disciplines.MediaEducation']
+,'FW_masterFramework.Media_Ethic':['Disciplines.EducationalTechnology','Disciplines.InformationAndMediaLiteracy','Disciplines.MediaEducation']
+,'FW_masterFramework.Source_Assessment':['Disciplines.EducationalTechnology','Disciplines.InformationAndMediaLiteracy','Disciplines.MediaEducation']
+,'FW_masterFramework.Research_Methods_and_Documentation':['Disciplines.EducationalTechnology','Disciplines.InformationAndMediaLiteracy','Disciplines.MediaEducation']
+,'FW_masterFramework.Digital_Education':['Disciplines.EducationalTechnology','Disciplines.InformationAndMediaLiteracy','Disciplines.MediaEducation']
+,'FW_masterFramework.Preparation':['Disciplines.EducationalTechnology','Disciplines.InformationAndMediaLiteracy','Disciplines.MediaEducation']
+,'FW_masterFramework.Security':['Disciplines.EducationalTechnology','Disciplines.InformationAndMediaLiteracy','Disciplines.MediaEducation']
+,'FW_masterFramework.Technology_Education':['Disciplines.CareerAndTechnicalEducation']
+,'FW_masterFramework.Agriculture_and_Aquaculture':['Disciplines.CareerAndTechnicalEducation','Disciplines.proAgriculture']
+,'FW_masterFramework.Automatism':['Disciplines.CareerAndTechnicalEducation','Disciplines.proEconomyLawPoliticalSciences','Disciplines.proElectricityElectronics','Disciplines.proInformatics','Disciplines.proMechanic','Disciplines.proTransformation','Disciplines.proElectricityElectronics']
+,'FW_masterFramework.Buildings_and_Public_Works':['Disciplines.CareerAndTechnicalEducation','Disciplines.proProductionFonctionTransport','Disciplines.proCivilEngineeringConstructionArchitecture']
+,'FW_masterFramework.Biotechnology':['Disciplines.CareerAndTechnicalEducation','Disciplines.proEnvironmentEnergyFacilitiesClean']
+,'FW_masterFramework.Commercial_Banks_Insurance':['Disciplines.CareerAndTechnicalEducation','Disciplines.proBankInsuranceEstate','Disciplines.proBankInsuranceEstate']
+,'FW_masterFramework.Domestic_Economy':['Disciplines.CareerAndTechnicalEducation','Disciplines.proEconomyLawPoliticalSciences']
+,'FW_masterFramework.Electronics':['Disciplines.CareerAndTechnicalEducation','Disciplines.proElectricityElectronics','Disciplines.proElectricityElectronics']
+,'FW_masterFramework.Forest':['Disciplines.CareerAndTechnicalEducation','Disciplines.proEnvironmentEnergyFacilitiesClean']
+,'FW_masterFramework.Career_Guidance':['Disciplines.CareerAndTechnicalEducation','Disciplines.proInformationCommunication']
+,'FW_masterFramework.Digital_Tools':['Disciplines.CareerAndTechnicalEducation','Disciplines.proInformatics']
+,'FW_masterFramework.Industrial_Science_and_Technology':['Disciplines.CareerAndTechnicalEducation','Disciplines.proProductionFonctionTransport','Disciplines.proMechanic','Disciplines.proScience','Disciplines.proTransformation']
+,'FW_masterFramework.Human_Services':['Disciplines.CareerAndTechnicalEducation','Disciplines.proHumanitiesSocialSciences']
+,'FW_masterFramework.Materials_Technology':['Disciplines.CareerAndTechnicalEducation','Disciplines.CareerAndTechnicalEducation','Disciplines.proScience','Disciplines.proInformatics']
+,'FW_masterFramework.Tourism_Hotellerie_and_Restaurants':['Disciplines.CareerAndTechnicalEducation','Disciplines.proHotelsRestaurantsTourism']
+,'FW_masterFramework.Health_Education':['Disciplines.Health']
+,'FW_masterFramework.Anatomy_and_Physiology':['Disciplines.CareerAndTechnicalEducation','Disciplines.proHealthSocialSports','Disciplines.Health']
+,'FW_masterFramework.Nutrition':['Disciplines.CareerAndTechnicalEducation','Disciplines.proHealthSocialSports','Disciplines.Health']
+,'FW_masterFramework.Physical_Education_and_Sports':['Disciplines.CareerAndTechnicalEducation','Disciplines.proHealthSocialSports','Disciplines.Health']
+,'FW_masterFramework.Health_Education':['Disciplines.CareerAndTechnicalEducation','Disciplines.proHealthSocialSports','Disciplines.Health']
+,'FW_masterFramework.Sexual_Education':['Disciplines.CareerAndTechnicalEducation','Disciplines.proHealthSocialSports','Disciplines.Health']
+,'FW_masterFramework.Environmental_Sustainability':['Disciplines.CareerAndTechnicalEducation','Disciplines.proHealthSocialSports','Disciplines.Health']
+,'FW_masterFramework.Safety_and_Risk_Prevention':['Disciplines.CareerAndTechnicalEducation','Disciplines.proHealthSocialSports','Disciplines.Health']
+,'FW_masterFramework.Foreign_Languages':['Disciplines.WorldLanguages','Disciplines.ModernForeignLanguages']
+,'FW_masterFramework.Oral_Comprehension_Foreign':['Disciplines.WorldLanguages','Disciplines.ModernForeignLanguages']
+,'FW_masterFramework.Written_Comprehension_Foreign':['Disciplines.WorldLanguages','Disciplines.ModernForeignLanguages']
+,'FW_masterFramework.Ancient_Languages':['Disciplines.WorldLanguages','Disciplines.ModernForeignLanguages','Disciplines.AncientLanguagesAndCulture']
+,'FW_masterFramework.LSF_and_Related_Languages':['Disciplines.WorldLanguages','Disciplines.ModernForeignLanguages']
+,'FW_masterFramework.Oral_Expression':['Disciplines.WorldLanguages','Disciplines.ModernForeignLanguages']
+,'FW_masterFramework.Written_Expression':['Disciplines.WorldLanguages','Disciplines.ModernForeignLanguages']
+,'FW_masterFramework.Mathematics':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Algebra':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Data_Analysis_Probability':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Arithmetic':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Computation':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Equations':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Geometry':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Applied_Mathematics':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Measurement':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Patterns':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Problem_Solving':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Statistics':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Trigonometry':['Disciplines.Mathematics','Disciplines.Informatics']
+,'FW_masterFramework.Language_Proficiency':['Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation','Disciplines.LanguageArts']
+,'FW_masterFramework.Literacy':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Written_Comprehension':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.FrenchLanguageWriting','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Grammar':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.FrenchLanguageGrammar','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Literature':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.FrenchLanguageReading','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Orthography':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.FrenchLanguageSpelling','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Phonetics':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.FrenchLanguageOral','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Oral_Expression':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.FrenchLanguageOral','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Written_Expression':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.FrenchLanguageWriting','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Research':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Vocabulary':['Disciplines.LanguageArts','Disciplines.Writing','Disciplines.Language','Disciplines.FrenchLanguage','Disciplines.FrenchLanguageVocabulary','Disciplines.CareerAndTechnicalEducation','Disciplines.proGeneralEducation']
+,'FW_masterFramework.Sciences':['Disciplines.Science']
+,'FW_masterFramework.Agriculture_and_Agrifood':['Disciplines.Science']
+,'FW_masterFramework.Astronomy':['Disciplines.Science']
+,'FW_masterFramework.Other_Sciences':['Disciplines.Science']
+,'FW_masterFramework.Biology':['Disciplines.Science']
+,'FW_masterFramework.Chemistry':['Disciplines.Science','Disciplines.PhysicsAndChemistry']
+,'FW_masterFramework.Botanical_Ecology':['Disciplines.Science']
+,'FW_masterFramework.Geography':['Disciplines.SocialStudies','Disciplines.HistoryAndGeography']
+,'FW_masterFramework.History_of_Science':['Disciplines.Science']
+,'FW_masterFramework.Computer_and_Telecom_Network':['Disciplines.Science','Disciplines.Technology']
+,'FW_masterFramework.Engineering':['Disciplines.Science','Disciplines.Technology']
+,'FW_masterFramework.Medicine_and_Health':['Disciplines.Science']
+,'FW_masterFramework.Meteorology':['Disciplines.Science']
+,'FW_masterFramework.Physics':['Disciplines.Science','Disciplines.PhysicsAndChemistry']
+,'FW_masterFramework.Earth_Sciences':['Disciplines.Science','Disciplines.DiscoverTheWorld','Disciplines.LifeAndEarthSciences']
+,'FW_masterFramework.Life_Sciences':['Disciplines.Science','Disciplines.DiscoverTheWorld','Disciplines.LifeAndEarthSciences']
+,'FW_masterFramework.Technology':['Disciplines.Science','Disciplines.Technology']
+,'FW_masterFramework.Humanities':['Disciplines.Education','Disciplines.SocialStudies']
+,'FW_masterFramework.Anthropology':['Disciplines.Education','Disciplines.SocialStudies']
+,'FW_masterFramework.Law':['Disciplines.CareerAndTechnicalEducation','Disciplines.proEconomyLawPoliticalSciences','Disciplines.SocialStudies','Disciplines.Law','Disciplines.Education']
+,'FW_masterFramework.Economics':['Disciplines.CareerAndTechnicalEducation','Disciplines.proEconomyLawPoliticalSciences','Disciplines.ProGestionEntreprises','Disciplines.SocialStudies','Disciplines.Economy','Disciplines.Education']
+,'FW_masterFramework.Civics':['Disciplines.SocialStudies','Disciplines.HistoryGeographyAndCivics','Disciplines.Education']
+,'FW_masterFramework.Religious_Facts':['Disciplines.Education','Disciplines.SocialStudies']
+,'FW_masterFramework.Politics':['Disciplines.SocialStudies','Disciplines.SocialAndEconomicSciences','Disciplines.Education']
+})
+
+#set($languageMap = {
+'fra':'fr'
+,'eng':'en'
+})
+
+#set($sz = "'AssetMetadata.FR1314','AssetMetadata.FREducationSpecialisee','AssetMetadata.FRFormationContinue','AssetMetadata.FR1718','AssetMetadata.FR910','AssetMetadata.FR1112','AssetMetadata.FR45','AssetMetadata.FR56','AssetMetadata.FRCollege','AssetMetadata.FRElementaire','AssetMetadata.FRUniversite','AssetMetadata.FR89','AssetMetadata.FR1011','AssetMetadata.FR34','AssetMetadata.FR1213','AssetMetadata.FR78','AssetMetadata.FR1415','AssetMetadata.FR1516','AssetMetadata.FR1617','AssetMetadata.FRProfessionnel','AssetMetadata.FRLycee','AssetMetadata.FR67','AssetMetadata.FRMaternelle'")
+
+#set($education_system_query = ", BaseObject as obj where doc.space&lt;&gt;'AssetTemp' and doc.name&lt;&gt;'Favorites' and obj.name=doc.fullName and obj.className='CurrikiCode.AssetClass'")
+
+#set($educational_level_query = ", BaseObject as obj, DBStringListProperty as prop join prop.list level where doc.space&lt;&gt;'AssetTemp' and doc.name&lt;&gt;'Favorites' and obj.name=doc.fullName and obj.className='CurrikiCode.AssetClass' and prop.id.id=obj.id and prop.name='educational_level' and level=''")
+
+#set($assets = $xwiki.searchDocuments($education_system_query, 10, 0))
+
+$xwiki.countDocuments($education_system_query)
+
+#foreach($asset in $assets)
+  #set($assetdoc = $xwiki.getDocument($asset))
+  #set($assetobj = $assetdoc.getObject("CurrikiCode.AssetClass"))
+  
+  
+  #set($educational_level = $assetobj.getProperty("educational_level").getProperty())
+  #set($levels = $educational_level.getList())
+  #set($newlevels = $util.arrayList)
+  #foreach($level in $levels)
+    #set($mlevels = $levelsMap.get($level))
+    #foreach($mlevel in $mlevels)
+      #if(!$newlevels.contains($mlevel))
+        #set($discard = $newlevels.add($mlevel))
+      #end
+    #end  
+  #end
+  #if($newlevels.size() &gt; 0)
+    $educational_level.setValue($newlevels)
+  #end
+  
+  #set($instructional_component = $assetobj.getProperty("instructional_component").getProperty())
+  #set($icts = $instructional_component.getList())
+  #set($newicts= $util.arrayList)
+  #foreach($ict in $icts)
+    #set($micts = $ictMap.get($ict))
+    #foreach($mict in $micts)
+      #if(!$newicts.contains($mict))
+        #set($discard = $newicts.add($mict))
+      #end
+    #end  
+  #end
+  #if($newicts.size() &gt; 0)
+    $instructional_component.setValue($newicts)
+  #end
+  
+  
+  #set($fw_items = $assetobj.getProperty("fw_items").getProperty())
+  #set($fwitems = $fw_items.getList())
+  #set($newfwitems = $util.arrayList)
+  #foreach($fwitem in $fwitems)
+    #set($mfwitems = $fwMap.get($fwitem))
+    #foreach($mfwitem in $mfwitems)
+      #if(!$newfwitems.contains($mfwitem))
+        #set($discard = $newfwitems.add($mfwitem))
+      #end
+    #end  
+  #end
+  #if($newfwitems.size() &gt; 0)
+    $fw_items.setValue($newfwitems)
+  #end
+  
+  
+  ##set($education_system = $assetobj.getProperty("education_system").getProperty())
+  ##set($education = $education_system.getValue())
+  #set($education = $assetobj.get("education_system"))
+  #if("$!education" != "AssetMetadata.FranceEducation") 
+    $assetobj.set("education_system", "AssetMetadata.FranceEducation")
+  #end
+
+  #set($language = $assetobj.getProperty("language").getProperty())
+  #set($lang = $language.getValue())
+  #if("$!lang" == "fra")
+    $language.setValue("fr")
+  #end
+  #if("$!lang" == "eng")
+    $language.setValue("en")
+  #end
+  #if("$!lang" != "fra" || "$!lang" != "fr" || "$!lang" != "eng" || "$!lang" != "en")
+    $language.setValue("fr")
+  #end
+
+  [[$asset]]
+  : language = $lang = $language.getValue()
+  : education_system = $education = $assetobj.get("education_system")
+  : instructional_component = $icts = $newicts
+  : educational_level = $levels = $newlevels
+  : fw_items = $fwitems = $newfwitems
+
+  ##$assetdoc.saveAsAuthor("New metadata", false)
+
+#end
+
+{{/velocity}}</content></xwikidoc>
