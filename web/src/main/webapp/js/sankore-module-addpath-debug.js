@@ -110,11 +110,12 @@ Curriki.module.addpath.init = function() {
               ,cls:'button button-confirm'
               ,listeners:{
                 click:{
-                   fn: function(){
+                  single:true
+                  ,fn: function(){
                     var form = this.findByType('form')[0].getForm();
                     var selected = (form.getValues(false))['assetSource'];
                     if (form.isValid()){
-                      AddPath.SourceSelected(selected, form.getValues(false));
+                      AddPath.SourceSelected(selected, form.getValues(false));                      
                     } else {
                       alert((_('add.contributemenu.required.fields.dialog_'+selected) !== 'add.contributemenu.required.fields.dialog_'+selected)?_('add.contributemenu.required.fields.dialog_'+selected):_('add.contributemenu.required.fields.dialog'));
                     }
