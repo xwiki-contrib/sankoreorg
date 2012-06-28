@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334936591000</creationDate>
-<date>1334936591000</date>
-<contentUpdateDate>1334936591000</contentUpdateDate>
+<creationDate>1340899064000</creationDate>
+<date>1340899064000</date>
+<contentUpdateDate>1340899064000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -54,18 +54,19 @@ curriki.crs.asof=en tant que
 curriki.crs.confirmsettopartner=Si vous voulez fixer l'état à Partenaire, cliquez sur Suivant.
 curriki.crs.confirmunsettopartner=Si vous voulez enlever l'état Partenaire, cliquez Suivant.
 curriki.crs.currikireview=Évaluation Planète Sankoré
-curriki.crs.generatedcomment=&lt;span class\="crs_reviewscontenttext"&gt;Cette ressource a été évaluée en utilisant la rubrique pour {0} et a reçu une notation CRS d''ensemble de  &lt;/span&gt;{1}&lt;br /&gt;&lt;br /&gt; Les notations pour ses composants sont\:&lt;br /&gt;&lt;br /&gt;&lt;table width\="100%" border\="0"&gt;&lt;tr&gt;&lt;td&gt;&lt;li&gt;Complétude Technique\: {2}&lt;/li&gt;&lt;/td&gt;&lt;td&gt;&lt;li&gt;Exactitude du Contenu\: {3}&lt;/li&gt;&lt;/td&gt;&lt;td&gt;&lt;li&gt;Pédagogie Appropriée\: {4}&lt;/li&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;{5}
-curriki.crs.generatedcommentunrated=Cette ressource a été évaluée en utilisant la rubrique pour {0} et elle n''a pas pu recevoir de note.&lt;br /&gt;&lt;br /&gt; Les notations pour ses composants étaient\:&lt;br /&gt;&lt;br /&gt;&lt;table width\="100%" border\="0"&gt;&lt;tr&gt;&lt;td&gt;&lt;li&gt;Complétude Technique\: {1}&lt;/li&gt;&lt;/td&gt;&lt;td&gt;&lt;li&gt;Exactitude du Contenu\: {2}&lt;/li&gt;&lt;/td&gt;&lt;td&gt;&lt;li&gt;Pédagogie Appropriée\: {3}&lt;/li&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;{4}
+curriki.crs.generatedcomment=&lt;span class\="crs_reviewscontenttext"&gt;Cette ressource a été évaluée par le CVS et a reçu une notation moyenne de &lt;/span&gt;{1}&lt;br /&gt; Le détail est le suivant\:&lt;br /&gt;&lt;br /&gt;&lt;li&gt;Complétude Technique\: {2}&lt;/li&gt;&lt;li&gt;Exactitude du Contenu\: {3}&lt;/li&gt;&lt;li&gt;Pédagogie Appropriée\: {4}&lt;/li&gt;&lt;br /&gt;
+curriki.crs.generatedcommentunrated=Cette ressource a été évaluée par le CVS et a reçu une notation moyenne de {0}&lt;br /&gt; Le détail est le suivant\:&lt;br /&gt;&lt;li&gt;Complétude Technique\: {1}&lt;/li&gt;&lt;li&gt;Exactitude du Contenu\: {2}&lt;/li&gt;&lt;li&gt;Pédagogie Appropriée\: {3}&lt;/li&gt;&lt;br /&gt;
 curriki.crs.nominate=Soumettre à Évaluation
 curriki.crs.nominate.cancel=Annuler
+curriki.crs.nominate.automatic_due_to_rating.note=
 curriki.crs.nominate.cannotnominatewithoutcomment=Merci d'ajouter un commentaire à votre proposition.
-curriki.crs.nominate.comments=Entrez un commentaire (optionnel)
-curriki.crs.nominate.commentsfootertext=Votre proposition ne sera complétée que lorsque vous cliquerez sur Soumettre.
-curriki.crs.nominate.commentstext=Écrivez une note à destination des évaluateurs de Planète Sankoré. Par exemple, à quel élément un évaluateur devra porter une attention particulière? Si vous proposez une ressource réévaluée, à quel niveau la ressource a été modifiée depuis la dernière évaluation?
-curriki.crs.nominate.nominatefollowingresourceforreview=Vous proposez la ressource suivante à la réévaluation\:
+curriki.crs.nominate.comments=&lt;span style="font-weight: bold;"&gt;Entrez un commentaire (optionnel):&lt;/span&gt;
+curriki.crs.nominate.commentsfootertext=Votre proposition ne sera envoyée que lorsque vous cliquerez sur le bouton 'Soumettre'.
+curriki.crs.nominate.commentstext=Par exemple, à quel élément un évaluateur devra porter une attention particulière?&lt;br /&gt;Si vous proposez une ressource réévaluée, à quel niveau la ressource a été modifiée depuis la dernière évaluation?
+curriki.crs.nominate.nominatefollowingresourceforreview=&lt;span style="font-weight: bold;"&gt;Vous êtes sur le point de soumettre à évaluation par le CVS la ressource suivante:&lt;/span&gt;
 curriki.crs.nominate.submit=Soumettre
 curriki.crs.nominate_alreadynominated=Cette ressource est déjà nominée.
-curriki.crs.nominate_thankyou=Merci d''avoir proposé cette ressource pour évaluation par le Système d''Évaluation de Planète Sankoré.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;La ressource a été ajoutée à la queue et sera examinée par les évaluateurs experts de Planète Sankoré sur la base des critères de l''ITC approprié.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;a href\="{0}"&amp;amp;gt;Retour à la ressource proposée&amp;amp;lt;/a&amp;amp;gt;.
+curriki.crs.nominate_thankyou=Merci d''avoir proposé cette ressource pour une évaluation par le Comité de Validation Planète Sankoré.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;La ressource a été ajoutée à la queue et sera examinée par les évaluateurs experts de Planète Sankoré.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;a href\="{0}"&amp;amp;gt;Retour à la ressource proposée&amp;amp;lt;/a&amp;amp;gt;.
 curriki.crs.nominate_thankyoufromgwt=Merci pour votre proposition &amp;amp;lt;a href\="javascript\:void()" onclick\="window.close();"&amp;amp;gt;Fermer cette fenêtre&amp;amp;lt;/a&amp;amp;gt;.
 curriki.crs.rating1=Basique
 curriki.crs.rating100=Non Évalué/Non Évaluable
@@ -80,14 +81,14 @@ curriki.crs.rating700=Partie d'une Ressource Exemplaire
 curriki.crs.rating800=Exemplaire
 curriki.crs.ratingP=Partenaire
 curriki.crs.review=Évaluation
-curriki.crs.review.CRSJumpPage.url=/xwiki/bin/view/Main/AboutCurrikiReviewSystem
+curriki.crs.review.CRSJumpPage.url=/xwiki/bin/view/Main/AboutCVS
 curriki.crs.review.ap=Pédagogie Appropriée
-curriki.crs.review.asterixReview.removedConfirm_300=Pour enlever le score CRS de cette ressource (actuellement de 1), cliquez OK.
-curriki.crs.review.asterixReview.removedConfirm_500=Pour enlever le score CRS de cette ressource (actuellement de 2), cliquez OK.
-curriki.crs.review.asterixReview.removedConfirm_700=Pour enlever le score CRS de cette ressource (actuellement de 3), cliquez OK.
-curriki.crs.review.asterixReview.selectedConfirm_300=Pour donner à cette ressource un score CRS de 1, cliquez OK.
-curriki.crs.review.asterixReview.selectedConfirm_500=Pour donner à cette ressource un score CRS de 2, cliquez OK.
-curriki.crs.review.asterixReview.selectedConfirm_700=Pour donner à cette ressource un score CRS de 3, cliquez OK.
+curriki.crs.review.asterixReview.removedConfirm_300=Pour enlever le score CVS de cette ressource (actuellement de 1), cliquez OK.
+curriki.crs.review.asterixReview.removedConfirm_500=Pour enlever le score CVS de cette ressource (actuellement de 2), cliquez OK.
+curriki.crs.review.asterixReview.removedConfirm_700=Pour enlever le score CVS de cette ressource (actuellement de 3), cliquez OK.
+curriki.crs.review.asterixReview.selectedConfirm_300=Pour donner à cette ressource un score CVS de 1, cliquez OK.
+curriki.crs.review.asterixReview.selectedConfirm_500=Pour donner à cette ressource un score CVS de 2, cliquez OK.
+curriki.crs.review.asterixReview.selectedConfirm_700=Pour donner à cette ressource un score CVS de 3, cliquez OK.
 curriki.crs.review.ca=Exactitude du Contenu
 curriki.crs.review.comments=Commentaires
 curriki.crs.review.comments.maxlengthexceeded=Les commentaires ne peuvent pas dépasser {0} caractères.
@@ -99,7 +100,7 @@ curriki.crs.review.incomplete=Cette évaluation est incomplète. Merci de compl�
 curriki.crs.review.information=SUPPRIMER DE LA QUEUE
 curriki.crs.review.isChild=Cette ressource est fille d'un parent évalué.
 curriki.crs.review.lastreviewed=Dernier évalué
-curriki.crs.review.mailsentto=Mail de notification envoyé à
+curriki.crs.review.mailsentto=&lt;br/&gt;Mail de notification envoyé à
 curriki.crs.review.managereviewstatus=MODIFIER LE STATUT D'ÉVALUATION
 curriki.crs.review.mustSelectAValueInAllCategories=Vous devez choisir une valeur dans toutes les catégories
 curriki.crs.review.nominatorsnotes=Notes du Nominateur
@@ -109,12 +110,12 @@ curriki.crs.review.or=ou
 curriki.crs.review.partner=Ceci est une ressource Partenaire.
 curriki.crs.review.partnerconfirmmessage=si vous voulez assigner ceci au Partenaire. cliquez OK
 curriki.crs.review.partnerconfirmtitle=PASSER CECI EN RESSOURCE PARTENAIRE
-curriki.crs.review.preview=Aperçu&amp;amp;lt;br /&amp;amp;gt;Le texte ci-dessous va être posté sur la partie Commentaires de la ressource. Vous pouvez soumettre cette évaluation comme elle est actuellement ou revenir à l'écran des évaluations pour la réviser.
+curriki.crs.review.preview=Le texte ci-dessous va être posté sur la partie 'commentaires' de la ressource.&lt;br/&gt;Vous pouvez soumettre cette évaluation comme elle est actuellement ou revenir à l'écran des évaluations pour la réviser. &lt;br/&gt;&lt;br/&gt;
 curriki.crs.review.returnto=Revenir à
 curriki.crs.review.reviewpage=la queue des évaluations
 curriki.crs.review.reviewthisresource=RÉÉVALUER CETTE RESSOURCE
 curriki.crs.review.revise=Réviser
-curriki.crs.review.saved=Votre évaluation a été postée.
+curriki.crs.review.saved=Votre évaluation a été postée.&lt;br /&gt;&lt;br /&gt;
 curriki.crs.review.setas*=Votre évaluation a été postée.
 curriki.crs.review.setas200=P
 curriki.crs.review.setas300=1
@@ -154,6 +155,6 @@ curriki.crs.reviews.viewnominated=Voir les ressources proposées pour le sujet
 curriki.crs.settopartner=Ceci est une ressource Partenaire.
 curriki.crs.unrated=Non Évalué/Non Évaluable
 curriki.crs.unsettopartner=Ceci N'EST PAS une ressource Partenaire.
-params.crs.nominateurl=/xwiki/bin/view/CRS/Nominate 
-params.crs.reviewurl=/xwiki/bin/view/CRS/Review
+params.crs.nominateurl=/xwiki/bin/view/CVS/Nominate 
+params.crs.reviewurl=/xwiki/bin/view/CVS/Review
 </content></xwikidoc>
