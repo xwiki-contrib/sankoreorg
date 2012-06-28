@@ -22,7 +22,7 @@ Curriki.module.nominate.init = function() {
 		Nominate.NominateResource = Ext.extend(Curriki.ui.dialog.Actions, {
 			initComponent : function() {
 				Ext.apply(this, {
-					title : _('curriki.crs.nominate'),
+					title : __('curriki.crs.nominate'),
 					cls : 'Caption', // cls: the css class to use
 					id : Nominate.NominateDialogueId,
 					items : [{// Begin Panel
@@ -36,7 +36,7 @@ Curriki.module.nominate.init = function() {
 							cls : 'crs_nominate_title',
 							autoEl : { // autoEl: for inserting html code
 								tag : 'div',
-								html : _('curriki.crs.nominate.nominatefollowingresourceforreview'),
+								html : __('curriki.crs.nominate.nominatefollowingresourceforreview'),
 								cls : 'crs_nominate_title'
 							}
 						}
@@ -63,7 +63,7 @@ Curriki.module.nominate.init = function() {
 							name : 'nominateResource'
 						},
 						bbar : ['->', {
-							text : _('curriki.crs.nominate.cancel'),
+							text : __('curriki.crs.nominate.cancel'),
 							id : 'cancelbutton',
 							cls : 'button button-cancel',
 							listeners : {
@@ -76,7 +76,7 @@ Curriki.module.nominate.init = function() {
 								}
 							}
 						}, {
-							text : _('curriki.crs.nominate.submit'),
+							text : __('curriki.crs.nominate.submit'),
 							id : 'submitbutton',
 							cls : 'submitbutton button button-confirm',
 							listeners : {
@@ -123,14 +123,14 @@ Curriki.module.nominate.init = function() {
 							xtype : 'box',
 							autoEl : {
 								tag : 'div',
-								html : _('curriki.crs.nominate.comments'),
+								html : __('curriki.crs.nominate.comments'),
 								cls : 'crs_nominate_title'
 							}
 						}, {
 							xtype : 'box',
 							autoEl : {
 								tag : 'div',
-								html : _('curriki.crs.nominate.commentstext'),
+								html : __('curriki.crs.nominate.commentstext'),
 								cls : 'crs_nominate_commentstext'
 							}
 						}, {
@@ -145,7 +145,7 @@ Curriki.module.nominate.init = function() {
 							xtype : 'box',
 							autoEl : {
 								tag : 'div',
-								html : _('curriki.crs.nominate.commentsfootertext'),
+								html : __('curriki.crs.nominate.commentsfootertext'),
 								cls : 'crs_nominate_commentstext'
 							}
 						}]
