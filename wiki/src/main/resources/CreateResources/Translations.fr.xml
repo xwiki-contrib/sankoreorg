@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1340891884000</creationDate>
-<date>1340891884000</date>
-<contentUpdateDate>1340891884000</contentUpdateDate>
+<creationDate>1340964806000</creationDate>
+<date>1340964806000</date>
+<contentUpdateDate>1340964806000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -119,8 +119,8 @@ form.title.description.link1.url=#
 form.title.description.link3=Aide
 form.title.description.link3.url=#
 form.title.description.link2=Comité de Validation Sankoré
-form.title.description.link2.url=/xwiki/bin/view/Main/AboutCES
-form.title.description.link2.thumbnail=/xwiki/skins/curriki8/icons/CRS.png
+form.title.description.link2.url=/xwiki/bin/view/Main/AboutCVS
+form.title.description.link2.thumbnail=/xwiki/resources/icons/silk/cog.gif
 
 ## SWR STEP 1
 form.scratch.step1.header=Étape 1. Saisir les informations de base

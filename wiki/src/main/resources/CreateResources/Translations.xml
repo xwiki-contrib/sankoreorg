@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1338301383000</creationDate>
-<date>1338301383000</date>
-<contentUpdateDate>1338301383000</contentUpdateDate>
+<creationDate>1340964913000</creationDate>
+<date>1340964913000</date>
+<contentUpdateDate>1340964913000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -156,8 +156,8 @@ form.html.title.description.link1.url=#
 form.html.title.description.link3=Help
 form.html.title.description.link3.url=#
 form.html.title.description.link2=Planète Sankoré Review System
-form.html.title.description.link2.url=http://www.curriki.org/xwiki/bin/view/Main/AboutCurrikiReviewSystem
-form.html.title.description.link2.thumbnail=/xwiki/skins/curriki8/crs/crs.png
+form.html.title.description.link2.url=/xwiki/bin/view/Main/AboutCVS
+form.html.title.description.link2.thumbnail=/xwiki/resources/icons/silk/cog.gif
 
 ## SHR STEP 1
 form.html.scratch.step1.header=Step 1. Enter Basic Information
