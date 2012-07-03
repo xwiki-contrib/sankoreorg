@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1340293607000</creationDate>
-<date>1340293607000</date>
-<contentUpdateDate>1340293607000</contentUpdateDate>
+<creationDate>1341241169000</creationDate>
+<date>1341241169000</date>
+<contentUpdateDate>1341241169000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -116,7 +116,7 @@ groups_members_page=Members
 groups_documentation_page=Documentation
 
 ## GROUP WELCOME BLOCK
-groups_welcomeblock_confirmcancel=Êtes-vous sûr que vous voulez annuler l'édition de la section de bienvenue? 
+groups_welcomeblock_confirmcancel=Êtes-vous sûr que vous voulez annuler les modifications de la section de bienvenue? 
 groups_welcomeblock_savedone=Votre section de bienvenue a été sauvegardée.
 
 ## GROUP HOME
@@ -221,18 +221,18 @@ groups_home_membership_open_visitor_infotxt=Si vous souhaitez devenir un membre 
 groups_home_membership_open_visitor_btt=Rejoindre ce Groupe
 groups_home_membership_closed_visitor_infotxt=Parce que ceci est un groupe privé, les membres potentiels doivent soumettre une requête d'inscription. Si vous désirez rejoindre ce groupe, cliquez "Requête d'Inscription" ci-dessous.
 groups_home_membership_closed_visitor_btt=Requête d'Inscription
-groups_home_membership_group_infotxt=Si vous connaissez un membre potentiel intéressant pour ce groupe, cliquez "Inviter un Nouveau Membre" ci-dessous pour envoyer une invitation.
-groups_home_membership_group_btt=Inviter un Nouveau Membre
-groups_home_membership_invite=Inviter des Membres
+groups_home_membership_group_infotxt=Si vous connaissez un membre potentiel intéressant pour ce groupe, cliquez "Inviter un nouveau membre" ci-dessous pour envoyer une invitation.
+groups_home_membership_group_btt=Inviter un nouveau membre
+groups_home_membership_invite=Inviter des membres
 
 
 ## MESSAGES TAB
 groups_messages_tabname=Messages
-groups_messages_about_title=Au sujet des Messages
+groups_messages_about_title=Au sujet des messages
 groups_messages_about_link_show=Montrer
 groups_messages_about_link_hide=Cacher
 groups_messages_about_link_edit=Éditer
-groups_messages_createmessage_title=Créer un Nouveau Message
+groups_messages_createmessage_title=Créer un nouveau message
 groups_messages_createmessage_infotxt=Cliquez sur le bouton à gauche pour créer un nouveau message pour le groupe entier, à des membres individuels, et/ou à des membres selon leur rôle. Gardez à l'esprit que les membres de groupe peuvent positionner leurs préférences individuelles pour recevoir des notifications de message par email. 
 groups_messages_createmessage_btt=Créer
 groups_messages_create_mandatory=Saisissez un sujet ou un titre pour votre message.
@@ -251,10 +251,10 @@ groups_messages_filter_tomyrole=Mon Rôle(s)
 groups_messages_filter_toall=Tous
 
 ## MESSAGES -- CREATE/EDIT
-groups_messages_create_about_title=Au sujet de la Création des Messages
+groups_messages_create_about_title=Au sujet de la création des messages
 groups_messages_create_about_edit_link=Éditer
 groups_messages_create_about_infotxt=
-groups_messages_create_title=Créer/Éditer Message
+groups_messages_create_title=Créer/Éditer message
 groups_messages_savedone=Le message a été sauvegardé.
 groups_messages_create_messagetitle_instruction=Saisissez le sujet ou le titre du message \:
 groups_messages_create_messagecontent_instruction=Saisissez le contenu du message \:
@@ -282,7 +282,7 @@ groups_messages_create_notify_label=Notifications \:
 groups_messages_create_notify_mail_label=Envoyer une notification par email de ce message à la liste "À".
 groups_messages_edit_cancel_btt=Annuler
 groups_messages_edit_submit_btt=Sauvegarder
-groups_messages_edit_submitsend_btt=Sauvegarder les Changements
+groups_messages_edit_submitsend_btt=Sauvegarder les changements
 
 
 ## MESSAGES -- VIEW
@@ -292,15 +292,15 @@ groups_messages_view_message_delete_link=Supprimer
 groups_messages_createdby=par
 groups_messages_view_comments_title=Commentaire(s)
 groups_messages_view_comments_delete_link=Supprimer
-groups_messages_view_addcomment_btt=Ajouter un Commentaire
-groups_messages_view_addcomment_post_btt=Poster Commentaire
+groups_messages_view_addcomment_btt=Ajouter un commentaire
+groups_messages_view_addcomment_post_btt=Poster commentaire
 groups_messages_view_addcomment_cancel_btt=Annuler
 groups_messages_view_attachments_title=Pièces jointes
 groups_messages_view_attachments_providedby=Fourni par
 groups_messages_view_attachments_on=Au sujet de
 groups_messages_view_attachments_delete_link=Supprimer
-groups_messages_view_attachments_btt=Attacher un Fichier
-attachthisfile=Attacher ce Fichier
+groups_messages_view_attachments_btt=Attacher un fichier
+attachthisfile=Attacher ce fichier
 addattachment=Ajouter une pièce jointe
 groups_messages_view_attachments_instruction=Choisir un fichier à uploader.
 groups_messages_view_attachments_browse_btt=Parcourir
@@ -310,22 +310,22 @@ groups_messages_view_message_delete_done=Ce message a été supprimé
 
 ## CURRICULUM TAB
 groups_curriculum_tabname=Parcours de Connaissance
-groups_curriculum_about_title=Au sujet du Parcours de Connaissances 
-groups.curriculum.collections.addButton=Ajouter une Collection de Groupe
+groups_curriculum_about_title=Au sujet du parcours de connaissances 
+groups.curriculum.collections.addButton=Ajouter une collection de groupe
 groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection de groupe pour organiser et présenter les ressources
 groups_curriculum_about_linkedit=Éditer
 groups_curriculum_contributions_title=Contributions par {0}
-groups_home_contributions_view_btt=Tout Visualiser
+groups_home_contributions_view_btt=Tout visualiser
 groups_home_contributions_view_or=OU
 groups_home_contributions_searchfieldtxt=saisir les termes de recherche
 groups_home_contributions_find_btt=Chercher
 groups_curriculum_collections_title=Collections de Parcours de Connaissances par {0}
-groups_curriculum_collections_show_link=Montrer les Descriptions
-groups_curriculum_collections_hide_link=Cacher Descriptions
+groups_curriculum_collections_show_link=Montrer les descriptions
+groups_curriculum_collections_hide_link=Cacher descriptions
 groups_curriculum_collections_infotxt=Cette section affiche un listing des collections créées par {0}. Les liens disponibles à droite de chaque collection dépendent de vos droits dans ce groupe.
-groups_curriculum_collections_btt=Ajouter une Collection de Groupe
+groups_curriculum_collections_btt=Ajouter une collection de groupe
 groups_curriculum_collections_paging diff=Collections
-groups.curriculum.contributions.addButton=Ajouter une Ressource
+groups.curriculum.contributions.addButton=Ajouter une ressource
 groups.curriculum.contributions.addButton_tooltip=Fournissez votre meilleure ressource d'apprentissage ou créez quelque chose de nouveau
 
 ##To create macros that work in both Groups and My Planète Sankoré, the translations have to be identical. Thus the following link translations can be found in the My Planète Sankoré Translation file. Todd Jan-20-2009
@@ -355,10 +355,10 @@ groups_curriculum_collections_reorder.link=Réordonner
 groups_curriculum_collections_reorder.checkfirst.dialog=Par défaut, vos collections de groupe sont affichées ici, les plus récemment modifiées en premier.&lt;br&gt;&lt;br&gt;Voulez-vous changer ça pour mettre en place un ordre spécifique?&lt;br&gt;&lt;br&gt;Cliquez OK pour continuer.
 groups_curriculum_collections_reorder.checkfirst.cancel.btt=OK
 groups_curriculum_collections_reorder.checkfirst.next.btt=Annuler
-groups_curriculum_collections_reorder.dialog_title=Réordonner les Collections de Groupe
+groups_curriculum_collections_reorder.dialog_title=Réordonner les collections de groupe
 groups_curriculum_collections_reorder.guidingquestion=Dans quel ordre souhaitez-vous présenter les collections de parcours de connaissances de votre groupe?
 groups_curriculum_collections_reorder.instruction=Glissez/Déposer vos collections de groupe dans l'ordre que vous préférez, puis cliquez sur Suivant.
-groups_curriculum_collections_reorder.listheader=Collections de Groupe
+groups_curriculum_collections_reorder.listheader=Collections de groupe
 groups_curriculum_collections_reorder.cancel.btt=Annuler
 groups_curriculum_collections_reorder.next.btt=Suivant
 groups_curriculum_collections_reorder.error=Pendant que vous réordonniez les collections de votre groupe, un autre membre a ajouté une nouvelle collection ou a réordonné les collections de votre groupe. Parce que cette action est survenue pendant que vous étiez en train de travailler et avant que vous n'ayez soumis votre ordre préféré, elle est prioritaire; le ré-ordonnancement que vous avez soumis ne sera pas appliqué (Vous pouvez toujours cliquer le lien Réordonnancer pour recommencer).
@@ -372,13 +372,13 @@ groups_curriculum_collections_reorder.checkafter.next.btt=Annuler
 
 ## CURRICULUM -- VIEW ALL CONTRIBUTIONS
 groups_curriculum_contributions_infotxt=Ici vous pouvez voir une liste de toutes les contributions du groupe [GroupName]. Vous pouvez classer les colonnes Titre, Derniere modification et Accès. Les liens "Action" disponibles dépendent de vos accès à chaque resource. 
-groups.curriculum.contributions.AddButton=Ajouter une Ressource
+groups.curriculum.contributions.AddButton=Ajouter une ressource
 groups.curriculum.contributions.AddButton_tooltip=Fournissez votre meilleure ressource d'apprentissage ou créez quelque chose de nouveau
 groups_curriculum_contributions_table_title=Titre
 groups_curriculum_contributions_table_ict=ICT
 groups_curriculum_contributions_table_lastupdated=Derniere modification
 groups_curriculum_contributions_table_access=Accès
-groups_curriculum_contributions_table_filetype=Type de Fichier
+groups_curriculum_contributions_table_filetype=Type de fichier
 groups_curriculum_contributions_table_action=Action
 groups_curriculum_contributions_viewall_paging_diff=Contributions
 
@@ -386,29 +386,29 @@ groups_curriculum_contributions_viewall_paging_diff=Contributions
 groups_members_tabname=Membres
 groups_members_about_title=A propos de l'adhésion
 groups_members_admin_about_edit_link=Éditer
-groups_members_membership_title=Information d'Appartenance
-groups_members_membership_open_visitor_infotxt=Si vous souhaitez devenir membre, cliquez sur "Rejoindre ce Groupe" ci-dessous.
-groups_members_membership_open_visitor_btt=Rejoindre ce Groupe
-groups_members_membership_group_infotxt=Si vous connaissez un ami ou collègue qui serait un membre potentiel intéressant pour ce groupe, cliquez "Inviter un Nouveau Membre" ci-dessous pour envoyer une invitation.
-groups_members_membership_group_btt=Inviter un Nouveau Membre
+groups_members_membership_title=Information d'appartenance
+groups_members_membership_open_visitor_infotxt=Si vous souhaitez devenir membre, cliquez sur "Rejoindre ce groupe" ci-dessous.
+groups_members_membership_open_visitor_btt=Rejoindre ce groupe
+groups_members_membership_group_infotxt=Si vous connaissez un ami ou collègue qui serait un membre potentiel intéressant pour ce groupe, cliquez "Inviter un nouveau membre" ci-dessous pour envoyer une invitation.
+groups_members_membership_group_btt=Inviter un nouveau membre
 groups_members_list_title=Membres
-groups_members_manage_roles=Gérer les Rôles
+groups_members_manage_roles=Gérer les rôles
 groups_members_admin_list_instruction=Filtrer pour montrer uniquement \:
-groups_members_admin_list_togglecurrent=Membres Actuels
+groups_members_admin_list_togglecurrent=Membres actuels
 groups_members_admin_current_members_infotxt=Les membres de ce groupe sont listés ci-dessous, 10 par page.
-groups_members_admin_current_members_editsettings_link=Éditer les Préférences
+groups_members_admin_current_members_editsettings_link=Éditer les préférences
 groups_members_admin_current_membersettings_email=Autoriser les membres du groupe à m'envoyer un email quand des messages sont créés.
 groups_members_admin_current_membersettings_changenotice=Me notifier quand mes contributions sont modifiées.
 groups_members_editsettings_loadinginprogress=Chargement...
 groups_members_membersettings_savedone=
 groups_members_admin_current_membersettings_save_link=Sauvegarde
 groups_members_admin_current_membersettings_cancel_link=Effacer
-groups_members_admin_current_membersettings_remove_link=Supprimer d'un Groupe
+groups_members_admin_current_membersettings_remove_link=Supprimer d'un groupe
 groups_members_admin_current_membersettings_remove_confirm=Êtes-vous sûr que vous voulez supprimer ce membre du groupe? (Si vous êtes le seul administrateur de groupe, vous ne pouvez pas vous supprimer vous-même).
 groups_members_admin_current_membersettings_removeadmin_confirm=Êtes-vous sûr que vous voulez supprimer le statut de leader de groupe à ce membre?
 groups_members_admin_current_membersettings_removeadmin_link=Supprimer le Statut de Leader
 groups_members_admin_current_membersettings_addadmin_confirm=Êtes-vous sûr de vouloir élever ce membre au statut de leader de groupe ?
-groups_members_admin_current_membersettings_addadmin_link=Assigner le Statut d'administrateur de groupe
+groups_members_admin_current_membersettings_addadmin_link=Assigner le statut d'administrateur de groupe
 groups_members_admin_list_togglepending=En attente ({0})
 groups_members_admin_pending_infotxt=Les membres suivants ont été invités à devenir membres ou ont demandé l'appartenance à votre groupe privé. Cliquez "Refuser" ou "Accepter" pour soumettre un statut de membre basé sur votre appréciation.
 groups_members_admin_pending_nomembershiprequests=Il n'y a actuellement pas de requêtes d'adhésion en attente.
@@ -427,7 +427,7 @@ groups_members_list_paging_diff=Membres
 groups_members_admin_list_toggleinvitations=Invitations
 groups_members_admin_invitations_infotxt=Ici vous pouvez voir toutes les invitations en attente pour ce groupe.
 groups_members_admin_invitations_infotxt_noinvitations=Il n'y a actuellement pas d'invitations en attente pour ce groupe.
-groups_members_admin_invitations_cancel_link=Annuler l'Invitation
+groups_members_admin_invitations_cancel_link=Annuler l'invitation
 groups_members_admin_invitations_cancel_confirm=Êtes-vous sûr de vouloir annuler cette invitation ?
 groups.members.invitedby=Invité par
 groups.members.on=au sujet de
@@ -465,7 +465,7 @@ groups_members_request_sent=Votre demande d''adhésion pour {0} a été envoyée
 groups_members_request_needaccount=Vous avez besoin d'un compte et devez être connecté pour demander l'adhésion à un groupe.
 
 ## INVITE NEW MEMBER
-groups_members_invite_title=Inviter un Nouveau Membre
+groups_members_invite_title=Invitation de nouveau(x) membre(s)
 groups_members_invite_list_instruction=Pour inviter un nouveau membre à rejoindre {0}, entrez l''adresse email de la personne dans le champ ci-dessous. Pour envoyer votre invitation à de multiples personnes, listez les adresses ici, séparées par des virgules.
 groups_members_invite_listfieldtxt=adresse email, nom de membre
 groups_members_invite_note_instruction=Vous pouvez mettre à jour le texte d'invitation ci-dessous si vous le désirez.
@@ -473,22 +473,22 @@ groups_members_invite_note_instruction_tooltip=L'invitation sera dirigée vers t
 groups_members_invite_invitefieldtxt=Je crois que {0} bénéficierait de votre adhésion. Faites-moi savoir si vous avez des questions SVP. Suivez les instructions ci-dessous pour rejoindre ce groupe maintenant. Merci\!
 groups_members_invite_btt=Inviter
 groups_members_cancel_btt=Annuler
-groups_members_invite_sent=Une invitation a été envoyée à *{0}*.
+groups_members_invite_sent=Une invitation a été envoyée à **{0}**.
 groups_members_invite_inviteemissing=Insérez une adresse email pour cette invitation SVP.
-groups_members_invite_emailinvalid=*{0}* n''est pas une adresse email valide.
-groups_members_invite_alreadyinvited=*{0}* a déjà été invité à rejoindre *{1}*.
-groups_members_invite_alreadymember=*{0}* est déjà membre de *{1}*.
+groups_members_invite_emailinvalid=**{0}** n''est pas une adresse email valide.
+groups_members_invite_alreadyinvited=**{0}** a déjà été invité à rejoindre **{1}**.
+groups_members_invite_alreadymember=**{0}** est déjà membre de **{1}**.
 groups_members_invite_failed=L''invitation de &lt;strong&gt;{0}&lt;/strong&gt; a échoué. Vérifiez les adresses email de vos invités. Si vous continuez à avoir des difficultés, contactez l'administrateur du site.
-groups_members_invite_report=**{0}** de **{1}** invitations envoyées.
-groups_members_invite_statuslink=Les administrateurs d'un groupe peuvent voir la liste des invitations en cours en cliquant ici : [[Liste des membres&gt;&gt;Members?type=3]].
-groups_members_invite_backlink=Si vous voulez inviter plus de personnes dans ce groupe,  [[cliquez ici&gt;&gt;InviteMembers]] pour retourner au formulaire d'invitation
+groups_members_invite_report=**{0}** de **{1}** invitations envoyées.&lt;br/&gt;&lt;br/&gt;
+groups_members_invite_statuslink=Les administrateurs d'un groupe peuvent voir la liste des invitations en cours : [[Liste des membres&gt;&gt;Members?type=3]].&lt;br/&gt;
+groups_members_invite_backlink=Si vous voulez inviter plus de personnes dans ce groupe : [[cliquez ici&gt;&gt;InviteMembers]].
 groups_members_invite_openinvitation=Ceci est une invitation ouverte à une mailing list. (En cochant cette boîte, vous rendez possible à de multiples parties d'utiliser le lien d'acceptation fourni dans l'invitation envoyée par email).
 groups_members_accept_request_error=Si vous continuez à rencontrer des erreurs, merci de &lt;a href="http://www.curriki.org/xwiki/bin/view/Coll_curriki/HowtoReportaProblem?bc=;Coll_curriki.CurrikiHelp;Coll_curriki.GettingStarted"&gt;nous prévenir de votre problème&lt;/a&gt;.
 
 ## JOIN THIS GROUP
 groups_members_join_title=Rejoindre ce Groupe
 groups_members_join_infotxt=Pour devenir un membre de ce groupe, fournissez l'information biographique sur vous-même dans le champ ci-dessous, ajustez ensuite les paramètres d'appartenance au groupe d'après vos préférences. Finalement, cliquez sur "Rejoindre" pour confirmer votre nouvelle appartenance. Vous serez ajouté à la liste sur le Panneau des membres de ce groupe; aussi, ce groupe sera ajouté à Mes Groupes dans votre profil
-groups_members_join_bio_tooltip=Vous pouvez changer vos paramètres de membre d'un groupe à n'importe quel moment en allant voir dans le Panneau des membres de ce groupe et en cliquant sur "Editer les Paramètres" à côté de votre nom.
+groups_members_join_bio_tooltip=Vous pouvez changer vos paramètres de membre d'un groupe à n'importe quel moment en allant voir dans le Panneau des membres de ce groupe et en cliquant sur "Editer les paramètres" à côté de votre nom.
 groups_members_create_membersettings_email=Autoriser les membres du groupe à m'envoyer un email quand les messages sont créés.
 groups_members_create_membersettings_email_tooltip=Sélectionner cette option si vous voulez être notifié par email quand vous recevez des messages pour ce groupe.
 groups_members_create_membersettings_changenotice=Me notifier quand mes contributions ou mes messages sont modifiés.
@@ -504,21 +504,21 @@ groups_members_join_invitationinvalid=Votre invitation n'est pas valide. Êtes-v
 ## old stuff
 download=Télécharger
 ## Invite
-groups.invite.invite=Envoyer Invitation
-groups.invite.title=Inviter de Nouveaux Membres pour {0}
+groups.invite.invite=Envoyer l''invitation
+groups.invite.title=Inviter de nouveaux membres pour {0}
 groups.invite.message=Saisissez l''adresse email de la personne que vous voulez inviter à rejoindre *{0}*. (Pour inviter plus d''une personne, mettre une virgule entre chaque addresse email.)
 groups.invite.personalize=Personnalisez l'invitation SVP (optionnel)\:
-groups.invite.defaultmessage=Je voudrais vous inviter à rejoindre {0} Sankore
+groups.invite.defaultmessage=Je voudrais vous inviter à rejoindre {0} Planète Sankoré
 groups.invite.openinvitation=Ceci est une invitation libre à une mailing list. (En cochant cette boîte, vous rendez possible à de multiples parties d'utiliser le lien d'acceptance fourni dans l'invitation emailée.)
 groups.invite.sending=Envoi de l''invitation à {0} en cours
-groups.invite.alreadyinvitedormember=*{0}* est déjà membre de *{1}* ou a une invitation en attente.
+groups.invite.alreadyinvitedormember=**{0}** est déjà membre de **{1}** ou a une invitation en attente.
 groups.invite.success=Toutes les invitations ont été envoyées. Les administrateurs de groupe peuvent voir l'état des invitations sur la page [Members list&gt;Members?type=3].
 ## How to create page
 ## Browse page
-browseGroups.pageTitle=Naviguer dans les Groupes par Sujet
-browseGroups.titlebar=Naviguer les Groupes par Sujet
+browseGroups.pageTitle=Naviguer dans les groupes par sujet
+browseGroups.titlebar=Naviguer les groupes par sujet
 browseGroups.info=Cliquer un sujet pour voir la liste de tous les groupes dans cette catégorie. Le nombre entre parenthèses précise le nombre de résultats
-browse.subject.title.All_Groups=Tous les Groupes
+browse.subject.title.All_Groups=Tous les groupes
 browseGroups.noGroups=Il n'y a pas de groupes pour ce sujet.
 browseGroups.groups=Groupes
 browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Soyez le premier à créer un groupe sur Planète Sankoré!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;En savoir plus sur la création de groupe&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
@@ -527,24 +527,24 @@ browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&l
 ## GROUPS DOCUMENTATION
 groups_documentation_tabname=Documentation
 groups_documentation_about_title=Au sujet de la documentation
-groups_documentation_create_wiki_page_title=Créer une Nouvelle Page
+groups_documentation_create_wiki_page_title=Créer une nouvelle page
 groups_documentation_wiki_page_save_confirm=
-groups_documentation_new_wiki_title=Entrer le Titre de la Page
+groups_documentation_new_wiki_title=Entrer le titre de la page
 groups_documentation_new_wiki_submit=Démarrage
 group_documentation_empty_title=Vous devez saisir un titre pour le document
-groups_documentation_add_document_title=Ajouter un Fichier
+groups_documentation_add_document_title=Ajouter un fichier
 groups_documentation_add_document_choose=Choisir un fichier à uploader \:
 groups_documentation_add_document_upload=Uploader
-groups_documentation_documents_title=Documents du Groupe
+groups_documentation_documents_title=Documents du groupe
 groups_documentation_documents_del_wiki_confirm=Êtes-vous sûr que vous voulez supprimer cette page?
 groups_documentation_documents_del_doc_confirm=Êtes-vous sûr que vous voulez supprimer ce fichier?
 groups_documentation_documents_del=Supprimer
 groups_documentation_documents_edit=Éditer
 groups_documentation_documents_history=Historique
-groups_documentation_documents_history_title=Historique des Pages Wiki
-groups_documentation_documents_history_compare_title=Comparer les Versions des Pages Wiki
-groups_documentation_history_title=Historique des Pages Wiki
-groups_documentation_compare_title=Comparer les Versions des Pages Wiki
+groups_documentation_documents_history_title=Historique des pages Wiki
+groups_documentation_documents_history_compare_title=Comparer les versions des pages Wiki
+groups_documentation_history_title=Historique des pages Wiki
+groups_documentation_compare_title=Comparer les versions des pages Wiki
 groups_documentation_documents_modified=Ajouté ou modifié par
 groups_documentation_documents_on=au sujet de
 groups_documentation_documents_nopage=Il n'y a pas de page correspondante
@@ -560,7 +560,7 @@ groups_documentation_edit_wiki_cancel_confirm=Êtes-vous sûr que vous voulez an
 
 ## History - Added from CB Translation by Todd 2/27/09
 history.errorgettinghistory=Erreur pendant la récupération de l'historique depuis le serveur
-history.to=To
+history.to=à
 history.from=De
 history.version=Version
 history.author=Auteur
@@ -577,20 +577,20 @@ history.compare=Comparer les changements
 ## Interstitial page
 
 ## Curriculum page
-groups.curriculum.about.title=Au sujet du Curriculum de Groupe
+groups.curriculum.about.title=Au sujet du curriculum de groupe
 groups.curriculum.about.edit=Éditer
-groups.curriculum.contributions.title=Contributions de Groupe
+groups.curriculum.contributions.title=Contributions de groupe
 groups.curriculum.contributions.about=Ici vous pouvez trouver les contributions du groupe.
 groups.curriculum.contributions.viewAll=Tout visualiser
 groups.curriculum.contributions.viewORsearch=ou
 groups.curriculum.contributions.go=Rechercher &amp;\#xBB;
 groups.curriculum.search.default=saisissez les termes de recherche
 groups.contributions.mouseover.contributed=&lt;strong&gt;Contribué / Fourni par \:&lt;/strong&gt;
-groups.curriculum.collections.titlebar=Collections de Groupe
+groups.curriculum.collections.titlebar=Collections de groupe
 groups.curriculum.collections.titlebarbutton=Cacher les descriptions
 groups.curriculum.collections.titlebarbuttonalt=Montrer les descriptions
 groups.curriculum.collections.about=Ici vous pouvez trouver les contributions du groupe.
-groups.curriculum.collections.addButton=Ajouter une Collection de Groupe
+groups.curriculum.collections.addButton=Ajouter une collection de groupe
 groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection de groupe pour organiser et présenter les ressources
 groups.curriculum.collections.actions.delete.confirm=Cette action est irréversible. Êtes-vous sûr que vous voulez supprime ?
 groups.curriculum.collections.view=Visualiser
@@ -619,8 +619,8 @@ groups.roles.comment.created=Rôle {0} créé
 groups.roles.comment.renamed=Rôle {0} renommé en {1}
 groups.roles.comment.addedUser=Ajouté {0}
 groups.roles.comment.removedUser=Supprimé {0}
-groups.roles.manage.titlebar=Manager les Rôles
-groups.roles.manage.intro=&lt;p&gt;En tant que Administrateur de groupe, vous pouvez créer et manager une liste de rôles pour les membres de votre groupe, dans laquelle ils peuvent choisir, soit quand ils rejoignent le groupe, ou plus tard quand ils éditent leurs paramètres de membre pour ce groupe.&lt;/p&gt;&lt;br&gt;&lt;p&gt;Au moyen de cette fonctionnalité, votre groupe peut envoyer des messages efficacement aux membres qui jouent un rôle spécifique dans le fonctionnement du groupe. Par exemple, si c'est un projet de développement de curriculum, vous pouvez avoir un rôle "Expert du Domaine" auquel les membres peuvent s'adresser pour des questions difficiles. Notez les options de filtrage en rapport sur le Panneau des messages.&lt;/p&gt;
+groups.roles.manage.titlebar=Manager les rôles
+groups.roles.manage.intro=&lt;p&gt;En tant qu''administrateur de groupe, vous pouvez créer et manager une liste de rôles pour les membres de votre groupe, dans laquelle ils peuvent choisir, soit quand ils rejoignent le groupe, ou plus tard quand ils éditent leurs paramètres de membre pour ce groupe.&lt;/p&gt;&lt;br&gt;&lt;p&gt;Au moyen de cette fonctionnalité, votre groupe peut envoyer des messages efficacement aux membres qui jouent un rôle spécifique dans le fonctionnement du groupe. Par exemple, si c'est un projet de développement de curriculum, vous pouvez avoir un rôle "Expert du Domaine" auquel les membres peuvent s'adresser pour des questions difficiles. Notez les options de filtrage en rapport sur le Panneau des messages.&lt;/p&gt;
 groups.roles.manage.returnlink=Retourner à la Liste des Membres
 groups.roles.manage.edit=Éditer
 groups.roles.manage.save=Sauvegarder
