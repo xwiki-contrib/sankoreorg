@@ -71,7 +71,7 @@ public interface Constants {
 
     String ASSET_CLASS_RIGHT = "rights";
     String ASSET_CLASS_RIGHT_PUBLIC = "public";
-    String ASSET_CLASS_RIGHT_MEMBERS = "members";
+    String ASSET_CLASS_RIGHT_MEMBERS = "protected";
     String ASSET_CLASS_RIGHT_PRIVATE = "private";
     String ASSET_CLASS_RIGHT_VALUES = "public=Public: Available to anyone and any member can edit.|members=Protected: Available to anyone but only you (or your group members) can edit this copy.|private=Private: Only you (or your group members) can view or edit.";
 
