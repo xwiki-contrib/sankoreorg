@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1336929255000</creationDate>
-<date>1336929255000</date>
-<contentUpdateDate>1336929255000</contentUpdateDate>
+<creationDate>1341498098000</creationDate>
+<date>1341498098000</date>
+<contentUpdateDate>1341498098000</contentUpdateDate>
 <version>1.1</version>
 <title>GlobalClassTranslations</title>
 <template></template>
@@ -72,6 +72,7 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.Unit=Unit
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Video=Video/Presentation/Slides
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.WebQuest=WebQuest
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Webcast=Webcast/Podcast
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Widget=Widget
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Workbook=Workbook
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Worksheet=Graphic Organizer/Worksheet
 
