@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1314619422000</creationDate>
-<date>1314619422000</date>
-<contentUpdateDate>1314619422000</contentUpdateDate>
+<creationDate>1341912870000</creationDate>
+<date>1341912870000</date>
+<contentUpdateDate>1341912870000</contentUpdateDate>
 <version>1.1</version>
 <title>UniboardResource</title>
 <template></template>
@@ -180,7 +180,7 @@ $newAsset.display("licenseType","edit")
 #curriki_formpart_end()
 #curriki_formpart_begin($msg.get("form.scratch.step4.header"))
 #curriki_forminstructions($msg.get("form.scratch.step4.instruction"))
-#curriki_forminstructions("Choose a collection to add this resource to!")
+#curriki_forminstructions("Dans quelle collection voulez-vous ajouter cette ressource?")
 #set($collections = $xwiki.curriki.fetchUserCollectionsList())
 #set($groups = $xwiki.curriki.fetchUserGroups())
 #foreach($groupName in $groups.keySet())
