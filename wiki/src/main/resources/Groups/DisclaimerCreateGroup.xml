@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1336755194000</creationDate>
-<date>1336755194000</date>
-<contentUpdateDate>1336755194000</contentUpdateDate>
+<creationDate>1341999574000</creationDate>
+<date>1341999574000</date>
+<contentUpdateDate>1341999574000</contentUpdateDate>
 <version>1.1</version>
 <title>Intro : créer un nouveau groupe</title>
 <template></template>
@@ -22,37 +22,9 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>{{velocity}}
-=== $msg.get("groups.disclaimer.create.group.first.title") ===
+<content>{{velocity}}{{html}}
+$msg.get("groups.disclaimer.create.group.content")
 
-$msg.get("groups.disclaimer.create.group.first.row")
-
-* $msg.get("groups.disclaimer.create.group.first.list.first.row")
-* $msg.get("groups.disclaimer.create.group.first.list.second.row")
-* $msg.get("groups.disclaimer.create.group.first.list.third.row")
-* $msg.get("groups.disclaimer.create.group.first.list.fourth.row")
-* $msg.get("groups.disclaimer.create.group.first.list.fifth.row")
-
-* $msg.get("groups.disclaimer.create.group.second.list.first.row")
-* $msg.get("groups.disclaimer.create.group.second.list.second.row")
-* $msg.get("groups.disclaimer.create.group.second.list.third.row")
-* $msg.get("groups.disclaimer.create.group.second.list.fourth.row")
-* $msg.get("groups.disclaimer.create.group.second.list.fifth.row")
-
-$msg.get("groups.disclaimer.create.group.third.row")
-
-=== $msg.get("groups.disclaimer.create.group.second.title") ===
-
-$msg.get("groups.disclaimer.create.group.fourth.row")
-
-$msg.get("groups.disclaimer.create.group.fifth.row")
-
-* $msg.get("groups.disclaimer.create.group.third.list.first.row")
-* $msg.get("groups.disclaimer.create.group.third.list.second.row")
-* $msg.get("groups.disclaimer.create.group.third.list.third.row")
-* $msg.get("groups.disclaimer.create.group.third.list.fourth.row")
-
-{{html}}
 &lt;button class="button button-confirm mgn-rt-5" onclick="javascript:Curriki.module.addpath.group.startPath('Add');"&gt;$msg.get("groups.disclaimer.create.group.button")&lt;/button&gt;
 {{/html}}
 
