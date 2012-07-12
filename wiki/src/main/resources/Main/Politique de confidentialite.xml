@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317994071000</creationDate>
-<date>1317994071000</date>
-<contentUpdateDate>1317994071000</contentUpdateDate>
+<creationDate>1342088531000</creationDate>
+<date>1342088531000</date>
+<contentUpdateDate>1342088531000</contentUpdateDate>
 <version>1.1</version>
 <title>Politique de confidentialite</title>
 <template></template>
@@ -22,97 +22,195 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>= Politique de confidentialité =
+<content>{{toc/}}
+== Politique de confidentialité ==
 
-**Introduction**
-Devant le développement des nouveaux outils de communication, il est nécessaire de porter une attention particulière à la protection de la vie privée. C'est pourquoi, nous nous engageons à respecter la confidentialité des renseignements personnels que nous collectons.
+(% style="margin-bottom: 0.25cm;" %)
+Devant le développement des nouveaux outils de communication, il est nécessaire de porter une attention particulière à la protection de la vie privée. C’est pourquoi, nous nous engageons à respecter la confidentialité des renseignements personnels que nous collectons.
 
-Voir aussi les [[conditions générales d’utilisation&gt;&gt;Conditions generales d utilisation||rel="__blank"]].
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Voir aussi les [[(% style="color: rgb(0, 0, 255); font-size: 0.8em;" %)__conditions générales d’utilisation__&gt;&gt;http://planete.sankore.org/xwiki/bin/view/Main/Conditions+generales+d+utilisation]](%%).
 
+
+(% style="margin-top: 0.3cm; margin-bottom: 0.07cm;" %)
 === Collecte des renseignements personnels ===
 
-Nous collectons les renseignements suivants :\\
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Nous collectons les renseignements suivants :
 
-* Nom
-* Prénom
-* Adresse électronique
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Nom
 
-Les renseignements personnels que nous collectons sont recueillis au travers de formulaires et grâce à l'interactivité établie entre vous et notre site Web. Nous utilisons également, comme indiqué dans la section suivante, des fichiers témoins et/ou journaux pour réunir des informations vous concernant.
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Prénom
 
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Adresse électronique
+
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Les renseignements personnels que nous collectons sont recueillis au travers de formulaires et grâce à l’interactivité établie entre vous et notre site Web. Nous utilisons également, comme indiqué dans la section suivante, des fichiers témoins et/ou journaux pour réunir des informations vous concernant.
+
+
+(% style="margin-top: 0.3cm; margin-bottom: 0.07cm;" %)
 === Formulaires et interactivité ===
 
-Vos renseignements personnels sont collectés par le biais de formulaire, à savoir :\\
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Vos renseignements personnels sont collectés par le biais de formulaire, à savoir :
 
-* Formulaire d'inscription au site Web
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Formulaire d’inscription au site Web
 
-Nous utilisons les renseignements ainsi collectés pour les finalités suivantes :\\
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Nous utilisons les renseignements ainsi collectés pour les finalités suivantes :
 
-* Contact
-* Gestion du site Web (présentation, organisation)
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Contact
 
-Vos renseignements sont également collectés par le biais de l'interactivité pouvant s'établir entre vous et notre site Web et ce, de la façon suivante:\\
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Gestion du site Web (présentation, organisation)
 
-* Contact
-* Gestion du site Web (présentation, organisation)
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Vos renseignements sont également collectés par le biais de l’interactivité pouvant s’établir entre vous et notre site Web et ce, de la façon suivante:
 
-Nous utilisons les renseignements ainsi collectés pour les finalités suivantes :\\
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Contact
 
-* Forum ou aire de discussion
-* Commentaires
-* Correspondance
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Gestion du site Web (présentation, organisation)
 
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Nous utilisons les renseignements ainsi collectés pour les finalités suivantes :
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Forum ou aire de discussion
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Commentaires
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Correspondance
+
+
+(% style="margin-top: 0.3cm; margin-bottom: 0.07cm;" %)
 === Fichiers journaux et témoins ===
 
-Nous recueillons certaines informations par le biais de fichiers journaux (log file) et de fichiers témoins (cookies). Il s'agit principalement des informations suivantes :\\
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Nous recueillons certaines informations par le biais de fichiers journaux (log file) et de fichiers témoins (cookies). Il s’agit principalement des informations suivantes :
 
-* Adresse IP
-* Système d'exploitation
-* Pages visitées et requêtes
-* Heure et jour de connexion
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Adresse IP
 
-Le recours à de tels fichiers nous permet :\\
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Système d’exploitation
 
-* Amélioration du service et accueil personnalisé
-* Profil personnalisé de consommation
-* Statistique
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Pages visitées et requêtes
 
-=== Droit d'opposition et de retrait ===
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Heure et jour de connexion
 
-Nous nous engageons à vous offrir un droit d'opposition et de retrait quant à vos renseignements personnels.
-\\Le droit d'opposition s'entend comme étant la possibilité offerte aux internautes de refuser que leurs renseignements personnels soient utilisées à certaines fins mentionnées lors de la collecte.
-Le droit de retrait s'entend comme étant la possibilité offerte aux internautes de demander à ce que leurs renseignements personnels ne figurent plus, par exemple, dans une liste de diffusion.
-\\Pour pouvoir exercer ces droits, vous pouvez nous contacter à ces coordonnées : 
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Le recours à de tels fichiers nous permet :
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Amélioration du service et accueil personnalisé
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Profil personnalisé de consommation
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Statistique
+
+
+(% style="margin-top: 0.3cm; margin-bottom: 0.07cm;" %)
+=== Droit d’opposition et de retrait ===
+
+(% style="margin-top: 0.25cm; margin-bottom: 0cm;" %)
+Nous nous engageons à vous offrir un droit d’opposition et de retrait quant à vos renseignements personnels.
+
+(% style="margin-bottom: 0cm;" %)
+Le droit d’opposition s’entend comme étant la possibilité offerte aux internautes de refuser que leurs renseignements personnels soient utilisées à certaines fins mentionnées lors de la collecte.
+
+(% style="margin-bottom: 0cm;" %)
+Le droit de retrait s’entend comme étant la possibilité offerte aux internautes de demander à ce que leurs renseignements personnels ne figurent plus, par exemple, dans une liste de diffusion.
+
+(% style="margin-bottom: 0cm;" %)
+Pour pouvoir exercer ces droits, vous pouvez nous contacter à ces coordonnées :
+
+(% style="margin-bottom: 0cm;" %)
 adresse postale : DIENA, 20 avenue de Ségur, 75007 Paris, FRANCE
+
+(% style="margin-bottom: 0cm;" %)
 Courrier électronique : secreteriat@diena.org
+
+(% style="margin-bottom: 0cm;" %)
 Téléphone : 00 33 (0)1 43 17 68 08
-Section du site web : http://planete.sankore.org/
 
-== Droit d'accès ==
+(% style="margin-bottom: 0cm;" %)
+Section du site web : [[(% style="color: rgb(0, 0, 255); font-size: 0.8em;" %)__http:~~/~~/planete.sankore.org/__&gt;&gt;http://planete.sankore.org/]]
 
-Nous nous engageons à reconnaître un droit d'accès et de rectification aux personnes concernées désireuses de consulter, modifier, voire radier les informations les concernant.
-\\L'exercice de ce droit se fera :\\
 
-* Adresse postale : DIENA, 20 avenue de Ségur, Paris 75007
-* Courriel : secreteriat@diena.org
-* Téléphone : 00 33 (0)1 43 17 68 08
-* Section du site web : http://planete.sankore.org/
+== Droit d’accès ==
 
+(% style="margin-top: 0.25cm; margin-bottom: 0cm;" %)
+Nous nous engageons à reconnaître un droit d’accès et de rectification aux personnes concernées désireuses de consulter, modifier, voire radier les informations les concernant.
+
+(% style="margin-bottom: 0.25cm;" %)
+L’exercice de ce droit se fera :
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Adresse postale : DIENA, 20 avenue de Ségur, Paris 75007
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Courriel : secreteriat@diena.org
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Téléphone : 00 33 (0)1 43 17 68 08
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Section du site web : [[(% style="color: rgb(0, 0, 255); font-size: 0.8em;" %)__http:~~/~~/planete.sankore.org/__&gt;&gt;http://planete.sankore.org/]]
+
+
+(% style="margin-top: 0.3cm; margin-bottom: 0.07cm;" %)
 === Sécurité ===
 
+(% style="margin-top: 0.25cm; margin-bottom: 0cm;" %)
 Les renseignements personnels que nous collectons sont conservés dans un environnement sécurisé. Les personnes travaillant pour nous sont tenues de respecter la confidentialité de vos informations.
-\\Pour assurer la sécurité de vos renseignements personnels, nous avons recours aux mesures suivantes :\\
 
-* Protocole SSL (Secure Sockets Layer)
-* Gestion des accès - personne autorisée
-* Gestion des accès - personne concernée
-* Logiciel de surveillance du réseau
-* Sauvegarde informatique
-* Développement de certificat numérique
-* Identifiant / mot de passe
-* Pare-feu (Firewalls)
+(% style="margin-bottom: 0.25cm;" %)
+Pour assurer la sécurité de vos renseignements personnels, nous avons recours aux mesures suivantes :
 
-Nous nous engageons à maintenir un haut degré de confidentialité en intégrant les dernières innovations technologiques permettant d'assurer la confidentialité de vos transactions. Toutefois, comme aucun mécanisme n'offre une sécurité maximale, une part de risque est toujours présente lorsque l'on utilise Internet pour transmettre des renseignements personnels.
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Protocole SSL (Secure Sockets Layer)
 
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Gestion des accès - personne autorisée
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Gestion des accès - personne concernée
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Logiciel de surveillance du réseau
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Sauvegarde informatique
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Développement de certificat numérique
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Identifiant / mot de passe
+
+(% style="margin-left: 0.85cm; text-indent: -0.64cm; margin-bottom: 0cm;" %)
+Pare-feu (Firewalls)
+
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Nous nous engageons à maintenir un haut degré de confidentialité en intégrant les dernières innovations technologiques permettant d’assurer la confidentialité de vos transactions. Toutefois, comme aucun mécanisme n’offre une sécurité maximale, une part de risque est toujours présente lorsque l’on utilise Internet pour transmettre des renseignements personnels.
+
+
+(% style="margin-top: 0.3cm; margin-bottom: 0.07cm;" %)
 === Législation ===
 
-Nous nous engageons à respecter les dispositions législatives énoncées par la CNIL</content></xwikidoc>
+(% style="margin-top: 0.25cm; margin-bottom: 0.25cm;" %)
+Vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent, 
+conformément aux dispositions législatives énoncées par la CNIL.</content></xwikidoc>
