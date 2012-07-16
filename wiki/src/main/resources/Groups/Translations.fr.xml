@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1342445916000</creationDate>
-<date>1342445916000</date>
-<contentUpdateDate>1342445916000</contentUpdateDate>
+<creationDate>1342446435000</creationDate>
+<date>1342446435000</date>
+<contentUpdateDate>1342446435000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -153,10 +153,10 @@ groups_home_activity_title=Activité Récente du Groupe
 groups_home_activity_feed=RSS
 groups_home_activity_mem_new=Un nouveau membre a rejoint - {0}
 groups_home_activity_mem_upd=Profil de membre mis à jour - {0}
-groups_home_activity_res_add=Ressource de curriculum ajoutée - "{0}" par {1}
-groups_home_activity_res_edit=Ressource de curriculum éditée - "{0}" par {1}
-groups_home_activity_res_del=Ressource de curriculum effacée - "{0}" par {1}
-groups_home_activity_res_rdr=Collections de Curriculum réordonnées par {1}
+groups_home_activity_res_add=Ressource ajoutée - "{0}" par {1}
+groups_home_activity_res_edit=Ressource éditée - "{0}" par {1}
+groups_home_activity_res_del=Ressource effacée - "{0}" par {1}
+groups_home_activity_res_rdr=Collections de ressources réordonnées par {1}
 groups_home_activity_mes_add=Message ajouté - "{0}" par {1}
 groups_home_activity_mes_edit=Message edité - "{0}" par {1}
 groups_home_activity_mes_del=Message effacé - "{0}" par {1}
@@ -323,7 +323,7 @@ groups_curriculum_collections_title=Collections de ressources partagées par {0}
 groups_curriculum_collections_show_link=Montrer les descriptions
 groups_curriculum_collections_hide_link=Cacher descriptions
 groups_curriculum_collections_infotxt=Cette section affiche un listing des collections créées par {0}. Les liens disponibles à droite de chaque collection dépendent de vos droits dans ce groupe.
-groups_curriculum_collections_btt=Ajouter une collection de groupe
+groups_curriculum_collections_btt=Ajouter une collection au groupe
 groups_curriculum_collections_paging diff=Collections
 groups.curriculum.contributions.addButton=Ajouter une ressource
 groups.curriculum.contributions.addButton_tooltip=Fournissez votre meilleure ressource d'apprentissage ou créez quelque chose de nouveau
@@ -352,16 +352,16 @@ groups.curriculum.contributions.addButton_tooltip=Fournissez votre meilleure res
 
 ##CURRICULUM -- REORDER COLLECTIONS
 groups_curriculum_collections_reorder.link=Réordonner
-groups_curriculum_collections_reorder.checkfirst.dialog=Par défaut, vos collections de groupe sont affichées ici, les plus récemment modifiées en premier.&lt;br&gt;&lt;br&gt;Voulez-vous changer ça pour mettre en place un ordre spécifique?&lt;br&gt;&lt;br&gt;Cliquez OK pour continuer.
+groups_curriculum_collections_reorder.checkfirst.dialog=Par défaut, les collections du groupe sont affichées ici, les plus récemment modifiées en premier.&lt;br&gt;&lt;br&gt;Voulez-vous changer ça pour mettre en place un ordre spécifique?&lt;br&gt;&lt;br&gt;Cliquez OK pour continuer.
 groups_curriculum_collections_reorder.checkfirst.cancel.btt=OK
 groups_curriculum_collections_reorder.checkfirst.next.btt=Annuler
-groups_curriculum_collections_reorder.dialog_title=Réordonner les collections de groupe
+groups_curriculum_collections_reorder.dialog_title=Réordonner les collections du groupe
 groups_curriculum_collections_reorder.guidingquestion=Dans quel ordre souhaitez-vous présenter les collections de ressources partagées de votre groupe?
-groups_curriculum_collections_reorder.instruction=Glissez/Déposer vos collections de groupe dans l'ordre que vous préférez, puis cliquez sur Suivant.
-groups_curriculum_collections_reorder.listheader=Collections de groupe
+groups_curriculum_collections_reorder.instruction=Glissez/Déposer vos collections dans l'ordre que vous préférez, puis cliquez sur Suivant.
+groups_curriculum_collections_reorder.listheader=Collections du groupe
 groups_curriculum_collections_reorder.cancel.btt=Annuler
 groups_curriculum_collections_reorder.next.btt=Suivant
-groups_curriculum_collections_reorder.error=Pendant que vous réordonniez les collections de votre groupe, un autre membre a ajouté une nouvelle collection ou a réordonné les collections de votre groupe. Parce que cette action est survenue pendant que vous étiez en train de travailler et avant que vous n'ayez soumis votre ordre préféré, elle est prioritaire; le ré-ordonnancement que vous avez soumis ne sera pas appliqué (Vous pouvez toujours cliquer le lien Réordonnancer pour recommencer).
+groups_curriculum_collections_reorder.error=Pendant que vous réordonniez les collections du groupe, un autre membre a ajouté une nouvelle collection ou a réordonné les collections de votre groupe. Parce que cette action est survenue pendant que vous étiez en train de travailler et avant que vous n'ayez soumis votre ordre préféré, elle est prioritaire; le ré-ordonnancement que vous avez soumis ne sera pas appliqué (Vous pouvez toujours recommencer cette opération).
 groups_curriculum_collections_reorder.error.ok.btt=OK
 groups_curriculum_collections_reorder.set.confirm=Le nouvel ordre a été sauvegardé.
 groups_curriculum_collections_reorder.set.confirm.btt=OK
@@ -577,9 +577,9 @@ history.compare=Comparer les changements
 ## Interstitial page
 
 ## Curriculum page
-groups.curriculum.about.title=Au sujet du curriculum de groupe
+groups.curriculum.about.title=Au sujet des ressources partagées de groupe
 groups.curriculum.about.edit=Éditer
-groups.curriculum.contributions.title=Contributions de groupe
+groups.curriculum.contributions.title=Contributions du groupe
 groups.curriculum.contributions.about=Ici vous pouvez trouver les contributions du groupe.
 groups.curriculum.contributions.viewAll=Tout visualiser
 groups.curriculum.contributions.viewORsearch=ou
@@ -590,8 +590,8 @@ groups.curriculum.collections.titlebar=Collections de groupe
 groups.curriculum.collections.titlebarbutton=Cacher les descriptions
 groups.curriculum.collections.titlebarbuttonalt=Montrer les descriptions
 groups.curriculum.collections.about=Ici vous pouvez trouver les contributions du groupe.
-groups.curriculum.collections.addButton=Ajouter une collection de groupe
-groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection de groupe pour organiser et présenter les ressources
+groups.curriculum.collections.addButton=Ajouter une collection au groupe
+groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection au groupe pour organiser et présenter les ressources
 groups.curriculum.collections.actions.delete.confirm=Cette action est irréversible. Êtes-vous sûr que vous voulez supprime ?
 groups.curriculum.collections.view=Visualiser
 groups.curriculum.collections.edit=Éditer
