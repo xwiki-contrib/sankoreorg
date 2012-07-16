@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1341999738000</creationDate>
-<date>1341999738000</date>
-<contentUpdateDate>1341999738000</contentUpdateDate>
+<creationDate>1342445916000</creationDate>
+<date>1342445916000</date>
+<contentUpdateDate>1342445916000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -196,7 +196,7 @@ groups_home_editinformation_level_tooltip=Choisissez le niveau scolaire pour vot
 groups_home_editinformation_language_title=Langage d'édition. 
 groups_home_editinformation_license_title=Éditer la Politique de Licence par Défaut
 groups_home_editinformation_access_title=Editer les Privilèges d'Accès par Défaut
-groups_home_editinformation_access_infotext=Ici vous pouvez modifier les réglages par défaut qui déterminent qui peut visualiser et/ou éditer les parcours de connaissances de votre groupe.
+groups_home_editinformation_access_infotext=Ici vous pouvez modifier les réglages par défaut qui déterminent qui peut visualiser et/ou éditer les ressources partagées de votre groupe.
 groups_home_editinformation_access_open=Ouvert - N'importe qui peut visualiser le contenu du groupe; tous les membres peuvent éditer.
 groups_home_editinformation_access_closed=Protégé - Tout le monde peut visualiser le contenu de groupe; seuls les membres du groupe peuvent éditer.
 groups_home_editinformation_access_private=Privé - Seuls les membres de groupe peuvent visualiser et éditer le contenu.
@@ -309,17 +309,17 @@ groups_messages_view_message_delete_confirm=Êtes-vous sûr que vous voulez supp
 groups_messages_view_message_delete_done=Ce message a été supprimé
 
 ## CURRICULUM TAB
-groups_curriculum_tabname=Parcours de Connaissance
-groups_curriculum_about_title=Au sujet du parcours de connaissances 
-groups.curriculum.collections.addButton=Ajouter une collection de groupe
-groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection de groupe pour organiser et présenter les ressources
+groups_curriculum_tabname=Ressources partagées
+groups_curriculum_about_title=Au sujet des ressources partagées
+groups.curriculum.collections.addButton=Ajouter une collection au groupe
+groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection au groupe pour organiser et présenter les ressources partagées
 groups_curriculum_about_linkedit=Éditer
 groups_curriculum_contributions_title=Contributions par {0}
 groups_home_contributions_view_btt=Tout visualiser
 groups_home_contributions_view_or=OU
 groups_home_contributions_searchfieldtxt=saisir les termes de recherche
 groups_home_contributions_find_btt=Chercher
-groups_curriculum_collections_title=Collections de Parcours de Connaissances par {0}
+groups_curriculum_collections_title=Collections de ressources partagées par {0}
 groups_curriculum_collections_show_link=Montrer les descriptions
 groups_curriculum_collections_hide_link=Cacher descriptions
 groups_curriculum_collections_infotxt=Cette section affiche un listing des collections créées par {0}. Les liens disponibles à droite de chaque collection dépendent de vos droits dans ce groupe.
@@ -356,7 +356,7 @@ groups_curriculum_collections_reorder.checkfirst.dialog=Par défaut, vos collect
 groups_curriculum_collections_reorder.checkfirst.cancel.btt=OK
 groups_curriculum_collections_reorder.checkfirst.next.btt=Annuler
 groups_curriculum_collections_reorder.dialog_title=Réordonner les collections de groupe
-groups_curriculum_collections_reorder.guidingquestion=Dans quel ordre souhaitez-vous présenter les collections de parcours de connaissances de votre groupe?
+groups_curriculum_collections_reorder.guidingquestion=Dans quel ordre souhaitez-vous présenter les collections de ressources partagées de votre groupe?
 groups_curriculum_collections_reorder.instruction=Glissez/Déposer vos collections de groupe dans l'ordre que vous préférez, puis cliquez sur Suivant.
 groups_curriculum_collections_reorder.listheader=Collections de groupe
 groups_curriculum_collections_reorder.cancel.btt=Annuler
@@ -476,7 +476,7 @@ groups_members_cancel_btt=Annuler
 groups_members_invite_sent=Une invitation a été envoyée à **{0}**.
 groups_members_invite_inviteemissing=Insérez une adresse email pour cette invitation SVP.
 groups_members_invite_emailinvalid=**{0}** n''est pas une adresse email valide.
-groups_members_invite_alreadyinvited=**{0}** a déjà été invité à rejoindre **{1}**.
+membership_manager.already_invited=**{0}** a déjà été invité à rejoindre **{1}**.
 groups_members_invite_alreadymember=**{0}** est déjà membre de **{1}**.
 groups_members_invite_failed=L''invitation de &lt;strong&gt;{0}&lt;/strong&gt; a échoué. Vérifiez les adresses email de vos invités. Si vous continuez à avoir des difficultés, contactez l'administrateur du site.
 groups_members_invite_report=**{0}** de **{1}** invitations envoyées.&lt;br/&gt;&lt;br/&gt;
@@ -522,7 +522,7 @@ browse.subject.title.All_Groups=Tous les groupes
 browseGroups.noGroups=Il n'y a pas de groupes pour ce sujet.
 browseGroups.groups=Groupes
 browseGroups.promo_card_1=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-image"&gt;&lt;img src="/xwiki/bin/download/Groups/WebHome/default_logo.png"&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class="subject-desc" style="font-size: 10px;"&gt;&lt;br /&gt;Soyez le premier à créer un groupe sur Planète Sankoré!&lt;br /&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;En savoir plus sur la création de groupe&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
-browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Les Groupes peuvent:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborer sur l'élaboration de parcours de connaissances&lt;/li&gt;&lt;li&gt;Partager des ressources&lt;/li&gt;&lt;li&gt;Communiquer avec un systeme de messagerie&lt;/li&gt;&lt;li&gt;Et plus encore...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Que pouvez-VOUS faire avec les groupes de Planète Sankoré?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
+browseGroups.promo_card_2=&lt;div class="subject-card custom-subject-card"&gt;&lt;div class="subject-desc" style="text-align: left; font-size: 10px;"&gt;&lt;strong&gt;Les Groupes peuvent:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;Collaborer sur l'élaboration de collections&lt;/li&gt;&lt;li&gt;Partager des ressources&lt;/li&gt;&lt;li&gt;Communiquer avec un systeme de messagerie&lt;/li&gt;&lt;li&gt;Et plus encore...&lt;/li&gt;&lt;/ul&gt;&lt;div style="text-align: center;"&gt;&lt;a href="/xwiki/bin/view/Groups/AboutCreatingGroups"&gt;Que pouvez-VOUS faire avec les groupes de Planète Sankoré?&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; 
 
 ## GROUPS DOCUMENTATION
 groups_documentation_tabname=Documentation
@@ -655,11 +655,11 @@ groups.disclaimer.create.group.button=Créer un groupe
 ##AboutGroups
 groups.about.title=À QUOI SERVENT LES GROUPES
 groups.about.first.row=* À partager des documents et des avis au sein d'un espace de groupe ouvert ou fermé ;
-groups.about.second.row=* À collaborer pour la création ou la modification de parcours de connaissance ou de collections d'objets pédagogiques ;
+groups.about.second.row=* À collaborer pour la création ou la modification de ressources partagées ou de collections d'objets pédagogiques ;
 groups.about.third.row=* À utiliser un forum pour échanger au sein du groupe à propos de sujets généraux ou de projets particuliers ;
 groups.about.fourth.row=* À inviter de nouveaux membres ;
 groups.about.fifth.row=* À partager des documents et à gérer leur évolution ;
-groups.about.sixth.row=* À mettre en valeur les parcours de connaissance, les ressources mutualisées, les collections constituées et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré ;
+groups.about.sixth.row=* À mettre en valeur les ressources partagées, les collections constituées et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré ;
 groups.about.seventh.row=* À inciter d'autres membres à rejoindre le groupe
 
 ##Create groups wizard
