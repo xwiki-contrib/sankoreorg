@@ -10,39 +10,40 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319618410000</creationDate>
-<date>1319618410000</date>
-<contentUpdateDate>1319618410000</contentUpdateDate>
+<creationDate>1342528182000</creationDate>
+<date>1342528182000</date>
+<contentUpdateDate>1342528182000</contentUpdateDate>
 <version>1.1</version>
-<title>Notification pour $s.displayTitle -- $msgdoc.get('title')</title>
+<title>Notification pour $groupTitle -- $msgdoc.get('title')</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/1.0</syntaxId>
+<syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#**
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
+#**
   * Message notification mail template on create message
   *
   * @type mailtemplate
   * @translate this page requires full translation
   * @refactored ludovic   
   *#
-{pre}
-Cher membre de $s.displayTitle,
-
-Vous avez reçu un message de $xwiki.getUserName($context.user, "$first_name $last_name", false) dans $s.displayTitle.
-
-Le titre de ce message est "$msgdoc.get('title')".
-
-Pour voir ce message, suivez le lien suivant ou copier dans la barre d'adresses de votre navigateur (Vous devez être connecté à Planète Sankoré pour voir ce message).
-
-$msgdoc.getExternalURL("view")
-
-Pour changer vos paramètres de notification pour $s.displayTitle, consultez votre profil à cette adresse :
-
-$xwiki.getDocument("${spaceName}.Members").getExternalURL("view")
-
+Cher membre de $groupTitle,&lt;br/&gt;
+&lt;br/&gt;
+Vous avez reçu un message de $xwiki.getUserName($context.user, "$first_name $last_name", false) dans $groupTitle.&lt;br/&gt;
+&lt;br/&gt;
+Le titre de ce message est "$msgdoc.get('title')".&lt;br/&gt;
+&lt;br/&gt;
+Pour voir ce message, suivez le lien suivant ou copier dans la barre d'adresses de votre navigateur (Vous devez être connecté à Planète Sankoré pour voir ce message).&lt;br/&gt;
+$msgdoc.getExternalURL("view")&lt;br/&gt;
+&lt;br/&gt;
+Pour changer vos paramètres de notification pour $s.displayTitle, consultez votre profil à cette adresse :&lt;br/&gt;
+$xwiki.getDocument("${groupName}.Members").getExternalURL("view")&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
 l'équipe Planète Sankoré
-{/pre}</content></xwikidoc>
+{{/html}}
+{{/velocity}}</content></xwikidoc>

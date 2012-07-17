@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316003112000</creationDate>
-<date>1316003112000</date>
-<contentUpdateDate>1316003112000</contentUpdateDate>
+<creationDate>1342520801000</creationDate>
+<date>1342520801000</date>
+<contentUpdateDate>1342520801000</contentUpdateDate>
 <version>1.1</version>
 <title>Message Notification for $s.displayTitle -- $msgdoc.get('title')</title>
 <template></template>
@@ -20,17 +20,18 @@
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/1.0</syntaxId>
+<syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#**
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
+#**
   * Message notification mail template on create message
   *
   * @type mailtemplate
   * @translate this page requires full translation
   * @refactored ludovic   
   *#
-{pre}
-Dear member of $s.displayTitle,
+{{{Dear member of $s.displayTitle,
 
 You have received a message from $xwiki.getUserName($context.user, "$first_name $last_name", false) in $s.displayTitle.
 
@@ -46,5 +47,6 @@ $xwiki.getDocument("${spaceName}.Members").getExternalURL("view")
 
 Sincerely,
 
-Curriki, for $s.displayTitle
-{/pre}</content></xwikidoc>
+Curriki, for $s.displayTitle}}}
+{{/html}}
+{{/velocity}}</content></xwikidoc>

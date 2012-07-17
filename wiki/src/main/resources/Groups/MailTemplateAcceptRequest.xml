@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316003112000</creationDate>
-<date>1316003112000</date>
-<contentUpdateDate>1316003112000</contentUpdateDate>
+<creationDate>1342518689000</creationDate>
+<date>1342518689000</date>
+<contentUpdateDate>1342518689000</contentUpdateDate>
 <version>1.1</version>
 <title>Welcome to $space.displayTitle on Curriki!</title>
 <template></template>
@@ -20,9 +20,11 @@
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/1.0</syntaxId>
+<syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#**
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
+#**
   * Membership Accept Request mail template 
   *
   * @type mailtemplate
@@ -39,22 +41,23 @@
 #if($membershiprequest)
 #set($memberName=$xwiki.getUserName($membershiprequest.requester,false))
 #end
-
+&lt;p/&gt;
 Dear $memberName,
-
+&lt;p/&gt;
 Congratulations on becoming a member of $groupName on Curriki!
-
+&lt;p/&gt;
 When you are logged in, you can access the group here:
-
+&lt;p/&gt;
 $groupURL
 
 You can also access this group from My Groups in My Curriki.
-
+&lt;p/&gt;
 If you wish to edit your settings for this group (such as email notification for group messages), or if you wish to remove yourself from this group, you can do both of these things by visiting the Members tab for $groupName. On that tab, find yourself in the list of members, then click Edit Settings to the right of your name.
-
+&lt;p/&gt;
 Here's to your productive collaboration on Curriki as part of $groupName!
+{{/html}}
+{{/velocity}}
 
 Sincerely,
 
-Curriki
-</content></xwikidoc>
+Curriki</content></xwikidoc>

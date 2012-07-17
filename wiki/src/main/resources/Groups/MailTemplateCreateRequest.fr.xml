@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319618353000</creationDate>
-<date>1319618353000</date>
-<contentUpdateDate>1319618353000</contentUpdateDate>
+<creationDate>1342456139000</creationDate>
+<date>1342456139000</date>
+<contentUpdateDate>1342456139000</contentUpdateDate>
 <version>1.1</version>
-<title>Confirmation de demande d'inscription à $space.displayTitle sur Planète Sankoré</title>
+<title>Confirmation de demande d'inscription à $groupTitle sur Planète Sankoré</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -26,13 +26,13 @@
  * Membership request confirmation mail template
  * @translate This page requires full translation
  * @type mailtemplate
- * @refactored ludovic 
+ * @refactored folaru
  *#
-#if($space)
-#set($groupName=$space.displayTitle)
+#if($group)
+  #set($groupName = $group.title)
 #end
-#if($membershiprequest)
-#set($memberName=$xwiki.getUserName($membershiprequest.requester,false))
+#if($membershipRequest)
+  #set($memberName = $xwiki.getUserName($membershipRequest.requester, false))
 #end
 
 Cher(e) $memberName,
