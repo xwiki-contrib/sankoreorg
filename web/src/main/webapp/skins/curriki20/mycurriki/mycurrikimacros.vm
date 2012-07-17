@@ -139,7 +139,7 @@
     <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.downloadplugin.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.downloadplugin.description")</td>
   </tr>
   <tr>
-    #set($url = $xwiki.getURL("Group.AboutGroups", "view"))
+    #set($url = $xwiki.getURL("Groups.AboutGroups", "view"))
     <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.joingroup.description")</td>
     #set($url = $xwiki.getURL("Invitation.WebHome", "view"))
     <td class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.inviteuser.description")</td>
