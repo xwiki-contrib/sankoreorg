@@ -3075,7 +3075,7 @@ Curriki.ui.component.asset.getIctTree = function() {
 Ext.ns('Curriki.groups');
 Curriki.groups = {
   json_prefix:'/xwiki/curriki/groups'
-  ,CreateGroup: function(spaceTitle, callback){
+  ,CreateGroup: function(groupTitle, callback){
     Ext.Ajax.request({
       url:this.json_prefix
       ,method:'POST'      
@@ -3084,8 +3084,9 @@ Curriki.groups = {
         'Content-type': 'application/json'
       }
       ,jsonData: {
-        'spaceTitle': spaceTitle || ''
-        //,'templateSpaceName': templateSpaceName || ''
+        'title': groupTitle || ''
+        ,'template': 'Groups_TemplateSpace'
+        //,'templateName': templateName || ''
       }
       ,scope: this
       ,success: function(response, options) {

@@ -40,7 +40,8 @@ Curriki.module.addpath.group.init = function() {
     Ext.reg('apDoneGroupMetadata', AddPath.group.DoneMetadata);
     
     AddPath.group.Link = function(linkMode) {            
-      var link = '/xwiki/bin/view/' + 'Group_' + Curriki.group.current.info.groupName + '/WebHome';
+      //var link = '/xwiki/bin/view/' + 'Group_' + Curriki.group.current.info.groupName + '/WebHome';
+      var link = '/xwiki/bin/view/' + Curriki.group.current.info.groupName + '/WebHome';
       return '<a href="http://sankore.devxwiki.com' + link + '" target="_blank">' + _('add.finalmessage.' + linkMode + '.link') +  '</a>';    
     }
     

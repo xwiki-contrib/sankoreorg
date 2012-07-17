@@ -52,26 +52,26 @@ module.init = function(){
 
         var tab = Ext.getCmp('search-results-'+modName);
         if (!Ext.isEmpty(tab)) {
-          var titleMsg = _('search.tab.title.results');
-          if (overmax && (_('search.tab.title.resultsmax_exceeds') !== 'search.tab.title.resultsmax_exceeds')) {
-            titleMsg = _('search.tab.title.resultsmax_exceeds');
+          var titleMsg = __('search.tab.title.results');
+          if (overmax && (__('search.tab.title.resultsmax_exceeds') !== 'search.tab.title.resultsmax_exceeds')) {
+            titleMsg = __('search.tab.title.resultsmax_exceeds');
           }
 
-          tab.setTitle(String.format(titleMsg, _('search.'+modName+'.tab.title'), resultCount, totalCount));
+          tab.setTitle(String.format(titleMsg, __('search.'+modName+'.tab.title'), resultCount, totalCount));
 
         }
 
         var pager = Ext.getCmp('search-pager-'+modName);
         if (!Ext.isEmpty(pager)) {
-          var afterPageText = _('search.pagination.afterpage');
-          if (overmax && (_('search.pagination.afterpage_resultsmax_exceeds') !== 'search.pagination.afterpage_resultsmax_exceeds')) {
-            afterPageText = _('search.pagination.afterpage_resultsmax_exceeds');
+          var afterPageText = __('search.pagination.afterpage');
+          if (overmax && (__('search.pagination.afterpage_resultsmax_exceeds') !== 'search.pagination.afterpage_resultsmax_exceeds')) {
+            afterPageText = __('search.pagination.afterpage_resultsmax_exceeds');
           }
           pager.afterPageText = String.format(afterPageText, '{0}', totalCount);
 
-          var displayMsg = _('search.pagination.displaying.'+modName);
-          if (overmax && (_('search.pagination.displaying.'+modName+'_resultsmax_exceeds') !== 'search.pagination.displaying.'+modName+'_resultsmax_exceeds')) {
-            displayMsg = _('search.pagination.displaying.'+modName+'_resultsmax_exceeds');
+          var displayMsg = __('search.pagination.displaying.'+modName);
+          if (overmax && (__('search.pagination.displaying.'+modName+'_resultsmax_exceeds') !== 'search.pagination.displaying.'+modName+'_resultsmax_exceeds')) {
+            displayMsg = __('search.pagination.displaying.'+modName+'_resultsmax_exceeds');
           }
           pager.displayMsg = String.format(displayMsg, '{0}', '{1}', '{2}', totalCount);
         }
@@ -176,8 +176,8 @@ module.init = function(){
         var grid = Ext.getCmp('search-results-'+modName);
         if (!Ext.isEmpty(grid)) {
 			    var titleMsg = __('search.grid.title.results');
-			    if (overmax && (_('search.grid.title.resultsmax_exceeds') !== 'search.grid.title.resultsmax_exceeds')) {
-				    titleMsg = _('search.grid.title.resultsmax_exceeds');
+			    if (overmax && (__('search.grid.title.resultsmax_exceeds') !== 'search.grid.title.resultsmax_exceeds')) {
+				    titleMsg = __('search.grid.title.resultsmax_exceeds');
 			    }
 			
 			    grid.setTitle(String.format(titleMsg, _('search.' + modName + '.grid.title'), resultCount, totalCount));
@@ -185,15 +185,15 @@ module.init = function(){
 			
 			    var pager = Ext.getCmp('search-pager-' + modName);
 			    if (!Ext.isEmpty(pager)) {
-				    var afterPageText = _('search.pagination.afterpage');
-				    if (overmax && (_('search.pagination.afterpage_resultsmax_exceeds') !== 'search.pagination.afterpage_resultsmax_exceeds')) {
-					    afterPageText = _('search.pagination.afterpage_resultsmax_exceeds');
+				    var afterPageText = __('search.pagination.afterpage');
+				    if (overmax && (__('search.pagination.afterpage_resultsmax_exceeds') !== 'search.pagination.afterpage_resultsmax_exceeds')) {
+					    afterPageText = __('search.pagination.afterpage_resultsmax_exceeds');
 				    }
 				    pager.afterPageText = String.format(afterPageText, '{0}', totalCount);
 				
-				    var displayMsg = _('search.pagination.displaying.' + modName);
-				    if (overmax && (_('search.pagination.displaying.' + modName + '_resultsmax_exceeds') !== 'search.pagination.displaying.' + modName + '_resultsmax_exceeds')) {
-					    displayMsg = _('search.pagination.displaying.' + modName + '_resultsmax_exceeds');
+				    var displayMsg = __('search.pagination.displaying.' + modName);
+				    if (overmax && (__('search.pagination.displaying.' + modName + '_resultsmax_exceeds') !== 'search.pagination.displaying.' + modName + '_resultsmax_exceeds')) {
+					    displayMsg = __('search.pagination.displaying.' + modName + '_resultsmax_exceeds');
 				    }
 				    pager.displayMsg = String.format(displayMsg, '{0}', '{1}', '{2}', totalCount);
 			    } else {
@@ -1508,7 +1508,7 @@ form.init = function(){
   form.resultsPanel = {
     xtype:'grid'
     ,id:'search-results-'+modName
-    ,title:_('search.'+modName+'.tab.title')
+    ,title:__('search.'+modName+'.tab.title')
     ,border:false
     ,autoHeight:true
     ,width:Search.settings.gridWidth
@@ -1559,7 +1559,7 @@ form.init = function(){
 	form.toolbar = new Ext.Toolbar({
       id:'search-results-statusbar-'+modName
       ,items:[{ 
-        text:Ext.htmlDecode(_('search.statusbar.text.'+modName))
+        text:__('search.statusbar.text.'+modName)
         ,handler: function() {
           
           var filters = Search.util.getFilters(modName);
@@ -2194,7 +2194,7 @@ form.init = function() {
   form.featuredGrid = {
     xtype:'grid'
     ,id:'search-results-featured-'+modName
-    ,title:_('search.'+modName+'.featured.grid.title')
+    ,title:__('search.'+modName+'.featured.grid.title')
     ,border:false
     ,autoHeight:true
     ,width:Search.settings.gridWidth
@@ -2273,7 +2273,7 @@ form.init = function() {
   form.resultsGrid = {
     xtype:'grid'
     ,id:'search-results-'+modName
-    ,title:_('search.'+modName+'.grid.title')
+    ,title:__('search.'+modName+'.grid.title')
     ,border:false
     ,autoHeight:true
     ,width:Search.settings.gridWidth
@@ -2389,34 +2389,115 @@ data.init = function(){
 
   f.data = {};
 
+  f.data.system = {
+    list: Curriki.data.education_system.list
+    ,data: [
+      ['AssetMetadata.InternationalEducation', _('CurrikiCode.AssetClass_education_system_AssetMetadata.InternationalEducation')]
+    ]
+  }  
+  f.data.system.list.each(function(item){
+    f.data.system.data.push([
+      item.id
+      ,_('CurrikiCode.AssetClass_education_system_'+item.id)
+    ]);
+  });
+
+  f.data.level =  {
+    mapping: Curriki.data.el.elMap['TREEROOTNODE']
+    ,list: []
+    ,toplist: []
+    ,data: [
+      //['', _('CurrikiCode.AssetClass_educational_level_UNSPECIFIED'),'']
+    ]
+  };
+  f.data.level.mapping.each(function(value){
+    f.data.level.list.push(value.id);
+    if(value.parent == '')
+      f.data.level.toplist.push(value.id);
+  });
+  f.data.system.list.each(function(value){
+    f.data.level.data.push([
+      ''
+      ,_('CurrikiCode.AssetClass_educational_level_UNSPECIFIED')
+      ,value.id
+    ]);
+  });
+
+  f.data.level.list.each(function(value){
+    var parent = '';
+    f.data.level.mapping.each(function(item){
+      if(value == item.id) {
+        if(item.parent == '')
+          parent = item.value
+        else
+          parent = item.parent;
+      }
+    });
+      
+    f.data.level.data.push([
+      value
+      ,_('CurrikiCode.AssetClass_educational_level_'+value)
+      ,parent
+    ]);
+  });
+  
+  
+  f.data.sublevel =  {
+    mapping: Curriki.data.el.elMap
+    ,data: [
+    ]
+  };
+  f.data.level.mapping.each(function(parentItem){
+    f.data.sublevel.data.push([
+      parentItem.id
+      ,_('CurrikiCode.AssetClass_educational_level_'+parentItem.id+'.UNSPECIFIED')
+      ,parentItem.id
+    ]);
+    if(f.data.sublevel.mapping[parentItem.id]) {
+      f.data.sublevel.mapping[parentItem.id].each(function(el){
+        f.data.sublevel.data.push([
+          el.id
+          ,_('CurrikiCode.AssetClass_educational_level_'+el.id)
+          ,parentItem.id
+        ]);
+      });
+    }
+  });
+  
   f.data.subject =  {
     mapping: Curriki.data.fw_item.fwMap['TREEROOTNODE']
     ,list: []
     ,data: [
-      ['', _('XWiki.CurrikiSpaceClass_topic_FW_masterFramework.UNSPECIFIED')]
+      ['', Ext.htmlDecode(_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED')),'-','-']
     ]
   };
+  f.data.level.toplist.each(function(value){
+    f.data.subject.data.push([
+      ''
+      ,Ext.htmlDecode(_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED'))
+      ,''
+      ,value
+    ]);
+  });
   f.data.subject.mapping.each(function(value){
     f.data.subject.list.push(value.id);
   });
+
   f.data.subject.list.each(function(value){
+    var parent = '-';
+    var level = '';
+    f.data.subject.mapping.each(function(item){
+      if(value == item.id) {
+        //parent = item.parent;
+        level = item.value;
+      }      
+    });
     f.data.subject.data.push([
       value
-      ,_('XWiki.CurrikiSpaceClass_topic_'+value)
+      ,Ext.htmlDecode(_('CurrikiCode.AssetClass_fw_items_'+value))
+      ,parent
+      ,level
     ]);
-  });
-  
-  // sort the list for the subject
-  f.data.subject.data.sort(function(a, b) { 
-    // if a or b are head, return as first
-    if(b[0] == "") return 1; 
-    if(a[0] == "") return -1;
-    // if a or b are uncategorized, return as last
-    if(b[0] == "UNCATEGORIZED") return -1; 
-    if(a[0] == "UNCATEGORIZED") return 1;
-    // compare alphabetically
-    if (a[1] <= b[1]) return -1; 
-      else return 1;
   });
 
   f.data.subsubject =  {
@@ -2427,67 +2508,18 @@ data.init = function(){
   f.data.subject.mapping.each(function(parentItem){
     f.data.subsubject.data.push([
       parentItem.id
-      ,_('XWiki.CurrikiSpaceClass_topic_'+parentItem.id+'.UNSPECIFIED')
+      ,Ext.htmlDecode(_('CurrikiCode.AssetClass_fw_items_'+parentItem.id+'.UNSPECIFIED'))
       ,parentItem.id
+      ,parentItem.value
     ]);
     f.data.subsubject.mapping[parentItem.id].each(function(subject){
       f.data.subsubject.data.push([
         subject.id
-        ,_('XWiki.CurrikiSpaceClass_topic_'+subject.id)
+        ,Ext.htmlDecode(_('CurrikiCode.AssetClass_fw_items_'+subject.id))
         ,parentItem.id
+        ,subject.value
       ]);
     });
-  });
-  
-  // sort the list for the subsubject
-  f.data.subsubject.data.sort(function(a, b) {
-    // b is the subject index, put first
-    if(b[0] == b[2]) return 1;
-    // a is the subject index, put first
-    if(a[0] == a[2]) return -1;
-    // compare alphabetically
-    if (a[1] <= b[1]) return -1;
-      else return 1;
-  });
-
-  f.data.level =  {
-    mapping: Curriki.data.el.elMap['TREEROOTNODE']
-    ,list: []
-    ,data: [
-      ['', _('XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED')]
-    ]
-  };
-  f.data.level.mapping.each(function(value){
-    f.data.level.list.push(value.id);
-  });
-
-  f.data.level.list.each(function(value){
-    f.data.level.data.push([
-      value
-      ,_('XWiki.CurrikiSpaceClass_educationLevel_'+value)
-    ]);
-  });
-
-  f.data.sublevel =  {
-    mapping: Curriki.data.el.elMap
-    ,data: [
-    ]
-  };
-  f.data.level.mapping.each(function(parentItem){
-    f.data.sublevel.data.push([
-      parentItem.id
-      ,_('XWiki.CurrikiSpaceClass_educationLevel_'+parentItem.id+'.UNSPECIFIED')
-      ,parentItem.id
-    ]);
-    if(f.data.sublevel.mapping[parentItem.id]) {
-      f.data.sublevel.mapping[parentItem.id].each(function(el){
-        f.data.sublevel.data.push([
-          el.id
-          ,_('XWiki.CurrikiSpaceClass_educationLevel_'+el.id)
-          ,parentItem.id
-        ]);
-      });
-    }
   });
 
   f.data.policy =  {
@@ -2530,20 +2562,25 @@ data.init = function(){
   });
 
   f.store = {
-    subject: new Ext.data.SimpleStore({
-      fields: ['id', 'subject']
+    system: new Ext.data.SimpleStore({
+      fields: ['id', 'education_system']
+      ,data: f.data.system.data
+      ,id: 0
+    })
+    ,subject: new Ext.data.SimpleStore({
+      fields: ['id', 'subject', 'parentItem', 'level']
       ,data: f.data.subject.data
       ,id: 0
     })
 
     ,subsubject: new Ext.data.SimpleStore({
-      fields: ['id', 'subject', 'parentItem']
+      fields: ['id', 'subject', 'parentItem', 'level']
       ,data: f.data.subsubject.data
       ,id: 0
     })
 
     ,level: new Ext.data.SimpleStore({
-      fields: ['id', 'level']
+      fields: ['id', 'level', 'parentItem']
       ,data: f.data.level.data
       ,id: 0
     })
@@ -2552,8 +2589,7 @@ data.init = function(){
       fields: ['id', 'level', 'parentItem']
       ,data: f.data.sublevel.data
       ,id: 0
-    }) 
-
+    })
     ,policy: new Ext.data.SimpleStore({
       fields: ['id', 'policy']
       ,data: f.data.policy.data
@@ -2719,69 +2755,61 @@ form.init = function(){
             ,defaults:{
               hideLabel:true
             }
-            ,items:[{
+            ,items: [{
+              xtype:'label'
+              ,text:__('search.combo-system.label')
+            },{
               xtype:'combo'
-              ,fieldLabel:'Subject'
-              ,id:'combo-subject-'+modName
-              ,hiddenName:'subjectparent'
+              ,id:'combo-system-'+modName
+              ,fieldLabel:'System'
+              ,hiddenName:'system'
               ,width:comboWidth
               ,listWidth:comboListWidth
               ,mode:'local'
-              ,store:data.filter.store.subject
-              ,displayField:'subject'
+              ,store:data.filter.store.system
+              ,displayField:'education_system'
               ,valueField:'id'
               ,typeAhead:true
               ,triggerAction:'all'
-              ,emptyText:_('XWiki.CurrikiSpaceClass_topic_TREEROOTNODE.UNSPECIFIED')
               ,selectOnFocus:true
               ,forceSelection:true
+              ,value:Curriki.data.education_system.international
+              ,validator:function(value){
+                if(this.store.find('education_system', value) == -1)
+                  this.setRawValue(Curriki.data.education_system.initial);
+                return true;
+              }
               ,listeners:{
                 select:{
                   fn:function(combo, value){
-                    var subSubject = Ext.getCmp('combo-subsubject-'+modName);
-                    if (combo.getValue() === '') {
-                      subSubject.clearValue();
-                      subSubject.hide();
-                    } else {
-                      subSubject.show();
-                      subSubject.clearValue();
-                      subSubject.store.filter('parentItem', combo.getValue());
-                      subSubject.setValue(combo.getValue());
-                    }
+                    var level = Ext.getCmp('combo-level-'+modName);                                      
+                    level.clearValue();
+                    var sublevel = Ext.getCmp('combo-sublevel-'+modName);                                  
+                    sublevel.clearValue();
+                    sublevel.hide();
+                    var subject = Ext.getCmp('combo-subject-'+modName);                                        
+                    subject.clearValue(); 
+                    var subsubject = Ext.getCmp('combo-subsubject-'+modName);                                        
+                    subsubject.clearValue();  
+                    subsubject.hide();                                                      
                   }
                 }
               }
-            },{
-              xtype:'combo'
-              ,fieldLabel:'Sub Subject'
-              ,id:'combo-subsubject-'+modName
-              ,hiddenName:'subject'
-              ,width:comboWidth
-              ,listWidth:comboListWidth
-              ,mode:'local'
-              ,store:data.filter.store.subsubject
-              ,displayField:'subject'
-              ,valueField:'id'
-              ,typeAhead:true
-              ,triggerAction:'all'
-  //            ,emptyText:'Select a Sub Subject...'
-              ,selectOnFocus:true
-              ,forceSelection:true
-              ,lastQuery:''
-              ,hidden:true
-              ,hideMode:'visibility'
             }]
-          },{
+            },{
             columnWidth:0.33
             ,layout:'form'
             ,defaults:{
               hideLabel:true
             }
             ,items:[{
+              xtype:'label'
+              ,text:__('search.combo-level.label')
+            },{
               xtype:'combo'
               ,id:'combo-level-'+modName
-              ,fieldLabel:'Level'              
-              ,hiddenName:'levelparent'
+              ,fieldLabel:'Level'
+              ,hiddenName:'level'
               ,width:comboWidth
               ,listWidth:comboListWidth
               ,mode:'local'
@@ -2790,30 +2818,46 @@ form.init = function(){
               ,valueField:'id'
               ,typeAhead:true
               ,triggerAction:'all'
-              ,emptyText:_('XWiki.CurrikiSpaceClass_educationLevel_AssetMetadata.UNSPECIFIED')
+              ,emptyText:_('CurrikiCode.AssetClass_educational_level_UNSPECIFIED')
               ,selectOnFocus:true
               ,forceSelection:true
-              ,listeners:{
-                select:{
+              ,validator:function(value){
+                var system = Ext.getCmp('combo-system-'+modName);                
+                this.store.filter('parentItem', system.getValue());
+                if(this.store.find('level', value) == -1)
+                  this.clearValue();                                                   
+                return true;
+              }
+              ,listeners:{                 
+                expand:{
+                 fn:function(combo){
+                   var system = Ext.getCmp('combo-system-'+modName);
+                   this.store.filter('parentItem', system.getValue());                   
+                 } 
+                }
+                ,select:{
                   fn:function(combo, value){
                     var sublevel = Ext.getCmp('combo-sublevel-'+modName);
-                    if (combo.getValue() === '') {
-                      sublevel.clearValue();
-                      sublevel.hide();
-                    } else {
-                      sublevel.show();
-                      sublevel.clearValue();
-                      sublevel.store.filter('parentItem', combo.getValue());
-                      sublevel.setValue(combo.getValue());
-                    }
+                    var subject = Ext.getCmp('combo-subject-'+modName);
+                    var subsubject = Ext.getCmp('combo-subsubject-'+modName);
+                    
+                    if(sublevel.getValue() === '')
+                      sublevel.setRawValue('UNSPECIFIED');
+                    sublevel.validate();
+                    if(subject.getValue() === '')
+                      subject.setRawValue('UNSPECIFIED');
+                    subject.validate();
+                    if(subsubject.getValue() === '')
+                      subsubject.setRawValue('UNSPECIFIED');
+                    subsubject.validate();                                       
                   }
                 }
               }
             },{
               xtype:'combo'
-              ,fieldLabel:'Level 2'
+              ,fieldLabel:'Sub Level'
               ,id:'combo-sublevel-'+modName
-              ,hiddenName:'level'
+              ,hiddenName:'sublevel'
               ,width:comboWidth
               ,listWidth:comboListWidth
               ,mode:'local'
@@ -2822,20 +2866,39 @@ form.init = function(){
               ,valueField:'id'
               ,typeAhead:true
               ,triggerAction:'all'
-  //            ,emptyText:'Select a Sub Subject...'
+              ,emptyText:_('CurrikiCode.AssetClass_educational_level_UNSPECIFIED')
               ,selectOnFocus:true
               ,forceSelection:true
               ,lastQuery:''
               ,hidden:true
               ,hideMode:'visibility'
-            }]
-          },{
-            columnWidth:0.34
-            ,layout:'form'
-            ,defaults:{
-              hideLabel:true
-            }
-            ,items:[{
+              ,validator:function(value){
+                var level = Ext.getCmp('combo-level-'+modName);    
+                if(level.getValue() === '') {
+                  this.clearValue();
+                  this.hide();
+                } else {                           
+                  this.store.filter('parentItem', level.getValue());
+                  if(this.store.find('level', value) == -1)
+                    this.clearValue();
+                  if(this.store.getCount() <= 1) {
+                    this.clearValue();
+                    this.hide();
+                  } else {
+                    this.show();
+                  }
+                }                
+                return true;          
+              }
+              ,listeners:{
+                expand:{
+                  fn:function(){
+                    var level = Ext.getCmp('combo-level-'+modName);
+                    this.store.filter('parentItem', level.getValue());
+                  }
+                }
+              }              
+            },{
               xtype:'combo'
               ,id:'combo-policy-'+modName
               ,fieldLabel:'Membership Policy'
@@ -2851,6 +2914,126 @@ form.init = function(){
               ,emptyText:_('search.XWiki.SpaceClass_policy_UNSPECIFIED')
               ,selectOnFocus:true
               ,forceSelection:true
+            }]
+            },{
+            columnWidth:0.34
+            ,layout:'form'
+            ,defaults:{
+              hideLabel:true
+            }
+            ,items:[{
+              xtype:'label'
+              ,text:__('search.combo-subject.label')
+            },{
+              xtype:'combo'
+              ,id:'combo-subject-'+modName
+              ,fieldLabel:'Subject'
+              ,hiddenName:'subject'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subject
+              ,displayField:'subject'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,validator:function(value){
+                var system = Ext.getCmp('combo-system-'+modName);
+                var level = Ext.getCmp('combo-level-'+modName);                                                      
+                if(level.getValue())
+                  this.store.filter('level', level.getValue(), true);
+                else
+                  this.store.filter('parentItem', '-');               
+                if(this.store.find('subject', value) == -1)
+                  this.clearValue();                                        
+                return true;
+              }
+              ,listeners:{
+                expand:{
+                 fn:function(){
+                   var system = Ext.getCmp('combo-system-'+modName);
+                   var level = Ext.getCmp('combo-level-'+modName);
+                   if(level.getValue())
+                     this.store.filter('level', level.getValue(), true);
+                   else
+                     this.store.filter('parentItem', '-');                            
+                 } 
+                }
+                ,select:{
+                  fn:function(combo, value){                                    
+                    var subsubject = Ext.getCmp('combo-subsubject-'+modName);     
+                    if(subsubject.getValue() === '')
+                      subsubject.setRawValue('UNSPECIFIED');                
+                    subsubject.validate();                    
+                  }
+                }
+              }
+            },{
+              xtype:'combo'
+              ,fieldLabel:'Sub subject'
+              ,id:'combo-subsubject-'+modName
+              ,hiddenName:'subsubject'
+              ,width:comboWidth
+              ,listWidth:comboListWidth
+              ,mode:'local'
+              ,store:data.filter.store.subsubject
+              ,displayField:'subject'
+              ,valueField:'id'
+              ,typeAhead:true
+              ,triggerAction:'all'
+              ,emptyText:_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED')
+              ,selectOnFocus:true
+              ,forceSelection:true
+              ,lastQuery:''
+              ,hidden:true
+              ,hideMode:'visibility'
+              ,validator:function(value){
+                var system = Ext.getCmp('combo-system-'+modName);
+                var level = Ext.getCmp('combo-level-'+modName);
+                var subject = Ext.getCmp('combo-subject-'+modName);
+                
+                if(subject.getValue() === '') {               
+                  this.clearValue();
+                  this.hide();
+                } else {                  
+                  this.store.filter('parentItem', subject.getValue());
+                  
+                  if(level.getValue())
+                    this.store.filterAdd('level', level.getValue(), true);
+                
+                  if(this.store.find('subject', value) == -1)
+                    this.clearValue();
+                  
+                  if(this.store.getCount() <= 1) {
+                    this.clearValue();
+                    this.hide();
+                  } else {
+                    this.show();
+                  }                                  
+                }
+                return true;                               
+              }
+              ,listeners:{
+                expand:{
+                  fn:function(){
+                    var system = Ext.getCmp('combo-system-'+modName);
+                    var level = Ext.getCmp('combo-level-'+modName);
+                    var subject = Ext.getCmp('combo-subject-'+modName);
+                    
+                    if(subject.getValue()) {
+                      this.store.filter('parentItem', subject.getValue());
+                      if(level.getValue())
+                        this.store.filterAdd('level', level.getValue(), true);
+                    } else {                      
+                      if (level.getValue())
+                        this.store.filter('level', level.getValue(), true);
+                    }                      
+                  }
+                }
+              }
             },{
               xtype:'combo'
               ,id:'combo-language-'+modName
@@ -2868,10 +3051,9 @@ form.init = function(){
               ,selectOnFocus:true
               ,forceSelection:true
             }]
-          }]
-        }]
-      }
-    ]
+         }]
+      }]
+    }]
   }
 
   form.columnModel = new Ext.grid.ColumnModel([{
@@ -2912,7 +3094,7 @@ form.init = function(){
   form.resultsPanel = {
     xtype:'grid'
     ,id:'search-results-'+modName
-    ,title:_('search.'+modName+'.tab.title')
+    ,title:__('search.'+modName+'.tab.title')
     ,border:false
     ,autoHeight:true
     ,width:Search.settings.gridWidth
@@ -2947,8 +3129,8 @@ form.init = function(){
       ,pageSize: 25
       ,store: data.store.results
       ,displayInfo: true
-      ,displayMsg: _('search.pagination.displaying.'+modName)
-      ,emptyMsg: _('search.find.no.results')
+      ,displayMsg: __('search.pagination.displaying.'+modName)
+      ,emptyMsg: __('search.find.no.results')
       ,beforePageText: _('search.pagination.beforepage')
       ,afterPageText: _('search.pagination.afterpage')
       ,firstText: _('search.pagination.first')
@@ -3452,7 +3634,7 @@ form.init = function(){
       // Remove the blank space on right of grid (reserved for scrollbar)
       ,scrollOffset:0
     }
-    ,columnsText:_('search.columns.menu.columns')
+    ,columnsText:__('search.columns.menu.columns')
     ,sortAscText:_('search.columns.menu.sort_ascending')
     ,sortDescText:_('search.columns.menu.sort_descending')
     ,store: data.store.results
@@ -3672,7 +3854,7 @@ form.init = function(){
       // Remove the blank space on right of grid (reserved for scrollbar)
       ,scrollOffset:0
     }
-    ,columnsText:_('search.columns.menu.columns')
+    ,columnsText:__('search.columns.menu.columns')
     ,sortAscText:_('search.columns.menu.sort_ascending')
     ,sortDescText:_('search.columns.menu.sort_descending')
     ,store: data.store.results
@@ -3866,7 +4048,7 @@ form.init = function(){
       // Remove the blank space on right of grid (reserved for scrollbar)
       ,scrollOffset:0
     }
-    ,columnsText:_('search.columns.menu.columns')
+    ,columnsText:__('search.columns.menu.columns')
     ,sortAscText:_('search.columns.menu.sort_ascending')
     ,sortDescText:_('search.columns.menu.sort_descending')
     ,store: data.store.results
