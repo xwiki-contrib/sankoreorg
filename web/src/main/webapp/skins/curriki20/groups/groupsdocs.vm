@@ -3,7 +3,7 @@
  * It adds the header and footer of the groups section to the pages
  *#
 #macro(groups_documentationview)
-  #groupinit()
+  #groupsinit()
   #groupsheaderdoc("documentation")
   #set($editURL = "")
   #set($editTxt = "")
@@ -43,7 +43,7 @@
   * Show Documentation Home page
   *#
 #macro(groups_documentation_home)
-#groupinit()
+#groupsinit()
 #groupsheader("documentation")
 #if(!$isGroupMember && ($s.policy=="closed") && !$hasadmin)
   $msg.get("groups_documentation_onlyaccessibletomembers")

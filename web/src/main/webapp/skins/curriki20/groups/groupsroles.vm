@@ -170,7 +170,7 @@ $role.title
   * Manage role interface
   *#
 #macro(groups_manageroles)
-#groupinit()
+#groupsinit()
 ##
 #if(!$isGroupAdmin && !$hasGlobalAdmin) ## {
 $msg.get("groups_admins_onlyaccessibletoadmins")

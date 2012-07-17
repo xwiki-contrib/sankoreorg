@@ -164,7 +164,7 @@ Curriki.module.search.start();
   * Displays the collections list for this group
   *#
 #macro(groups_curriculum)
-#groupinit()
+#groupsinit()
 #groupsheader("curriculum")
 #groupsdisplaywelcomecolour($msg.get("groups.curriculum.about.title") $spaceName $doc.name "red" $isGroupAdmin)
 <div id="groups-search" class="frame">

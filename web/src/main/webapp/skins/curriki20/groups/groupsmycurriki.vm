@@ -14,34 +14,36 @@
 ##
 #set($nbToDisplay = 5)
 ##
-#set($sm = $xwiki.csm)
-#set($spaceList = $sm.getSpaceNames($userdoc.fullName, $xwiki.null))
+#set($groupManager = $services.groupmgr)
+#set($groupsList = $groupManager.getGroupNamesFor($userdoc.fullName))
+##set($sm = $xwiki.csm)
+##set($spaceList = $sm.getSpaceNames($userdoc.fullName, $xwiki.null))
 #set($startIndex = 0)
 #set($Integer = 0)
 #if($request.startIndex)
- #set($startIndex = $Integer.parseInt($request.getParameter("startIndex")))
+  #set($startIndex = $Integer.parseInt($request.getParameter("startIndex")))
 #end
-#if($startIndex > ($spaceList.size() - 1))
- #set($startIndex = $spaceList.size() - 1)
+#if($startIndex > ($groupsList.size() - 1))
+  #set($startIndex = $groupsList.size() - 1)
 #end
 #set($endIndex = $startIndex - 1 + $nbToDisplay)
-#if($endIndex > ($spaceList.size() - 1))
- #set($endIndex = $spaceList.size() - 1)
+#if($endIndex > ($groupsList.size() - 1))
+  #set($endIndex = $groupsList.size() - 1)
 #end
 ##
 #set($first_frame_done = "yes")
 #set($showcount = 0)
-#foreach($space in $spaceList) ## {
-#set($showcount = 1 + $showcount)
-#if(($showcount > $startIndex) && ($showcount < ($endIndex + 2))) ## {
-#groups_groupinfomessages($space "")
-#end ## }
-#end ## }
-#if($showcount != 0) ## {
-#set($sortArgs = "")
+#foreach($groupName in $groupsList)
+  #set($showcount = 1 + $showcount)
+  #if(($showcount > $startIndex) && ($showcount < ($endIndex + 2))) ## {
+    #groups_groupinfomessages($groupName "")
+  #end
+#end
+#if($showcount != 0)
+  #set($sortArgs = "")
 <div class="frame">
-#curriki_paginatorargs($msg.get("mycurriki.tab.groups.label") $startIndex $nbToDisplay $spaceList.size() $sortArgs)
-#end ## }
+#curriki_paginatorargs($msg.get("mycurriki.tab.groups.label") $startIndex $nbToDisplay $groupsList.size() $sortArgs)
+#end
 #end ## macro ## }
 
 #**
@@ -135,25 +137,25 @@
   * @param displayType display in view or edit mode
   * @author dward@curriki.org
   *#
-#macro(groups_groupinfomessages $m_groupName $displayType) ## {
-#if(!$g_rowCount) ## {
-#set($g_rowCount = 0)
-#end ## }
+#macro(groups_groupinfomessages $m_groupName $displayType)
+#if(!$g_rowCount)
+  #set($g_rowCount = 0)
+#end
 #set($g_rowCount = $g_rowCount + 1)
 #set($group = $services.groupmgr.getGroup($m_groupName))
 #if("$!first_frame_done" == "")
-<div class="frame">
+  <div class="frame">
 #else
-#set($first_frame_done = "")
+  #set($first_frame_done = "")
 #end
 <div class="frame-inset-titlebar">
 #if($displayType == "edit")
-  #set($editmastheadurl = $s.getHomeURL()+"?action=editmasthead")
-  #curriki_titlebar("$escapetool.html($s.getDisplayTitle())" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
+  #set($editmastheadurl = $group.getHomeURL()+"?action=editmasthead")
+  #curriki_titlebar("$escapetool.html($group.getTitle())" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
 #elseif($displayType == "view")
-  #curriki_titlebar("$escapetool.html($s.getDisplayTitle())" "" "" "blue")
+  #curriki_titlebar("$escapetool.html($group.getTitle())" "" "" "blue")
 #else
-  #curriki_titlebar("$escapetool.html($s.getDisplayTitle())" $msg.get('mycurriki.groups.visit') $s.getHomeURL() "blue")
+  #curriki_titlebar("$escapetool.html($group.getTitle())" $msg.get('mycurriki.groups.visit') $group.getHomeURL()  "blue")
 #end
 </div>
 #groups_grouplogo($group)

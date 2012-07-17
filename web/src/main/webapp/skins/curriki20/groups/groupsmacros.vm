@@ -5,27 +5,26 @@
 ##
 ##
 ## groups shared macros
-#macro(groupinit)
-$xwiki.ssfx.use("curriki.css")
-$xwiki.ssfx.use("groups.css")
-#groupsinit()
+#macro(groupinit $groupName)
+  #set($groupManager = $services.groupmgr)
+  #set($membershipManager = $services.membershipmgr)
+  #set($group = $groupManager.getGroup($groupName))
+  #set($groupTitle = $group.title)
+  #set($groupURL = $group.homeURL)
+  #set($groupPolicy = $group.policy)
+  #set($groupDescription = $group.description)
+  #set($isGroupAdmin = $membershipManager.isAdmin($group))  
+  #set($isGroupMember = $membershipManager.isMember($group))
+  #set($hasAdmin = $isGroupAdmin || $hasAdmin || $hasGlobalAdmin)
 #end
 
 #macro(groupsinit)
-#set($groupManager = $services.groupmgr)
-#set($spaceName = $doc.space)
-#*
-#if(!$spaceName.startsWith("Group_"))
-  #set($pos = 1 + $spaceName.indexOf("_"))
-  #set($spaceName = $spaceName.substring($pos))
-#end
-*#
-#set($collSpaceName = "Coll_${spaceName}")
-#set($groupName = $spaceName.replaceFirst("Group_",""))
-#set($group = $groupManager.getGroup($groupName))
-#set($isGroupAdmin = $group.isAdmin())
-#set($isGroupMember = $group.isMember())
-#set($isGroupAdmin = $isGroupAdmin || $hasGlobalAdmin)
+  $xwiki.ssfx.use("curriki.css")
+  $xwiki.ssfx.use("groups.css")
+  #set($spaceName = $doc.space)
+  #set($collSpaceName = "Coll_${spaceName}")
+  #set($groupName = $spaceName.replaceFirst("Group_",""))
+  #groupinit($groupName)
 #end
 ##
 ## page: all pages in the groups space
@@ -522,7 +521,7 @@ $msg.get("browseGroups.promo_card_2")
   * @internalapi
   *#
 #macro(groups_homepage)
-  #groupinit()
+  #groupsinit()
   #groupsheader("home")
   ##groups_homepage_aftercreate()
   #set($action = $request.get("action"))

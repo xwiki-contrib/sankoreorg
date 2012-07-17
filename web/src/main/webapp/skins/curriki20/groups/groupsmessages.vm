@@ -9,7 +9,7 @@
   *
   *#
 #macro(groups_messages)
-#groupinit()
+#groupsinit()
 #groupsheader("messages")
 #if(!$isGroupMember && ($s.policy=="closed") && !$hasGlobalAdmin)
 $msg.get("groups_messages_onlyaccessibletomembers")
