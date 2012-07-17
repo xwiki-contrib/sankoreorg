@@ -1,18 +1,26 @@
 package org.xwiki.sankore;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.inject.Singleton;
 
-import com.xpn.xwiki.web.XWikiRequest;
-import org.apache.axis.utils.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
-import org.xwiki.component.manager.ComponentManager;
-import org.xwiki.container.Request;
 import org.xwiki.context.Execution;
+import org.xwiki.model.reference.DocumentReference;
+import org.xwiki.model.reference.DocumentReferenceResolver;
+import org.xwiki.model.reference.EntityReference;
+import org.xwiki.model.reference.EntityReferenceSerializer;
+import org.xwiki.model.reference.SpaceReference;
+import org.xwiki.model.reference.WikiReference;
+import org.xwiki.sankore.internal.ClassManager;
+import org.xwiki.sankore.internal.GroupObjectDocument;
+import org.xwiki.sankore.internal.UserObjectDocument;
 
 import com.xpn.xwiki.XWiki;
 import com.xpn.xwiki.XWikiContext;
@@ -22,8 +30,6 @@ import com.xpn.xwiki.XWikiException;
 @Singleton
 public class DefaultGroupManager implements GroupManager
 {
-    private static final String DEFAULT_RESOLVER_HINT = "currentmixed/reference";
-
     @Inject
     private Logger logger;
 
@@ -31,32 +37,66 @@ public class DefaultGroupManager implements GroupManager
     private Execution execution;
 
     @Inject
-    private SpaceManager spaceManager;
+    SpaceManager spaceManager;
 
     @Inject
-    private ComponentManager componentManager;
+    @Named("UsersClass")
+    ClassManager<UserObjectDocument> usersClass;
+
+    @Inject
+    @Named("GroupClass")
+    ClassManager<GroupObjectDocument> groupClass;
+
+    @Inject
+    MembershipManager membershipManager;
+
+    @Inject
+    private DocumentReferenceResolver<String> stringDocumentReferenceResolver;
+
+    @Inject
+    @Named("local")
+    private EntityReferenceSerializer<String> referenceSerializer;
+
+    @Inject
+    @Named("current/reference")
+    private DocumentReferenceResolver<EntityReference> currentReferenceDocumentReferenceResolver;
 
     public Group getGroup(String groupName) throws XWikiException
     {
-        if (groupName.startsWith("Group_"))
-            return new Group(groupName.replaceFirst("Group_", ""), execution.getContext());
+        if (groupName.startsWith("Group_")) {
+            return new Group(groupClass.getDocumentObject(
+                    stringDocumentReferenceResolver.resolve(groupName + ".WebPreferences")),
+                    execution.getContext());
+        }
 
-        return new Group(groupName, execution.getContext());
+        return new Group(groupClass.getDocumentObject(
+                stringDocumentReferenceResolver.resolve("Group_" + groupName + ".WebPreferences")),
+                execution.getContext());
     }
 
     public Group createGroup(String groupName) throws XWikiException
     {
-        Group group = new Group(groupName, execution.getContext());
-        if (!group.isNew() || this.spaceManager.countDocuments(group.getGroupSpace().getSpaceReference()) == 0) {
-            return null;
+        String groupSpaceName = groupName;
+        if (!groupName.startsWith("Group_")) {
+            groupSpaceName = "Group_" + groupName;
         }
 
-        group.save();
+        GroupObjectDocument groupObjectDocument = groupClass.newDocumentObject(
+                stringDocumentReferenceResolver.resolve(groupSpaceName));
+        Group group = new Group(groupObjectDocument, execution.getContext());
+
+        //if (!group.isNew() || this.spaceManager.countDocuments(group.getGroupSpace().getSpaceReference()) == 0) {
+        //    return null;
+        //}
+
+        groupClass.saveDocumentObject(groupObjectDocument);
+
         return group;
     }
 
     public Group createGroupFromRequest() throws XWikiException
     {
+        /*
         XWikiRequest xWikiRequest = ContextUtils.getXWikiRequest(execution.getContext());
         String groupName = xWikiRequest.get("groupName");
         String templateSpaceName = xWikiRequest.get("template");
@@ -73,12 +113,14 @@ public class DefaultGroupManager implements GroupManager
         }
 
         group.updateFromRequest();
+        */
 
-        return group;
+        return null;
     }
 
     public Group updateGroupFromRequest() throws XWikiException
     {
+        /*
         XWikiRequest xWikiRequest = ContextUtils.getXWikiRequest(execution.getContext());
         String groupName = xWikiRequest.get("groupName");
 
@@ -90,21 +132,41 @@ public class DefaultGroupManager implements GroupManager
             return null;
         }
         group.updateFromRequest();
-        return group;
+        */
+        return null;
     }
 
     public Group createGroupFromTemplate(String groupName, String templateName) throws XWikiException
     {
-        Group group = new Group(groupName, execution.getContext());
-        if (!group.isNew()) {
-            return null;
+        String groupSpaceName = StringUtils.EMPTY;
+
+        if (groupName.startsWith("Group_")) {
+            groupSpaceName = groupName;
+        } else {
+            groupSpaceName = "Group_" + groupName;
         }
 
-        Space groupSpace = group.getGroupSpace();
-        this.spaceManager.copySpace(this.spaceManager.createSpaceReference(groupSpace.getWiki(), templateName),
-                groupSpace.getSpaceReference(), true);
+        GroupObjectDocument groupObjectDocument = groupClass.newDocumentObject(
+                stringDocumentReferenceResolver.resolve(groupSpaceName + ".WebPreferences"));
+        Group group = new Group(groupObjectDocument, execution.getContext());
+        //if (!group.isNew()) {
+        //    return null;
+        //}
+
+        //Space groupSpace = group.getGroupSpace();
+        //this.spaceManager.copySpace(this.spaceManager.createSpaceReference(groupSpace.getWiki(), templateName),
+        //        groupSpace.getSpaceReference(), true);
+
+        this.spaceManager.copySpace(
+                new SpaceReference(templateName, new WikiReference(group.getGroupSpaceReference().getParent())),
+                group.getGroupSpaceReference(),
+                true);
 
         group.save();
+
+        this.membershipManager.addMember(group, this.membershipManager.getUser().getFullName());
+        this.membershipManager.addMemberRole(group, this.membershipManager.getUser().getFullName(), "admin");
+
         return group;
     }
 
@@ -123,5 +185,29 @@ public class DefaultGroupManager implements GroupManager
 
         Collection<String> memberNames = xwiki.getGroupService(xwikiContext).getAllMembersNamesForGroup(membergroupName, 0, 0, xwikiContext);
         return memberNames.contains(username);
+    }
+
+    public List<String> getGroupNamesFor(String userName)
+            throws XWikiException
+    {
+        List<DocumentReference> references = getContext().getWiki().getStore()
+                .searchDocumentReferences(
+                        ", BaseObject as obj, StringProperty as prop where doc.name='MemberGroup' and obj.name=doc.fullName and obj.className='XWiki.XWikiGroups' and prop.id.id=obj.id and prop.name='member' and prop.value='" +
+                                userName + "'", getContext());
+
+        List<String> groupNames = new ArrayList<String>();
+        if (references != null) {
+            for (DocumentReference reference : references) {
+                String spaceName = reference.getLastSpaceReference().getName();
+                groupNames.add(spaceName);
+            }
+        }
+
+        return groupNames;
+    }
+
+    private XWikiContext getContext()
+    {
+        return (XWikiContext) this.execution.getContext().getProperty("xwikicontext");
     }
 }

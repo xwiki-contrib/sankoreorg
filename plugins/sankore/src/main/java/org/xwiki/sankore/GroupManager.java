@@ -1,5 +1,7 @@
 package org.xwiki.sankore;
 
+import java.util.List;
+
 import org.xwiki.component.annotation.ComponentRole;
 
 import com.xpn.xwiki.XWikiException;
@@ -16,4 +18,6 @@ public interface GroupManager
     public Group createGroupFromRequest() throws XWikiException;
 
     public Group updateGroupFromRequest() throws XWikiException;
+
+    public List<String> getGroupNamesFor(String userName) throws XWikiException;
 }

@@ -4,23 +4,24 @@ import java.util.List;
 
 import org.xwiki.component.annotation.ComponentRole;
 import org.xwiki.model.reference.SpaceReference;
+import org.xwiki.sankore.internal.SpaceObjectDocument;
 
 import com.xpn.xwiki.XWikiException;
 
 @ComponentRole
 public interface SpaceManager
 {
-    public Space getSpace(SpaceReference reference) throws XWikiException;
+    public SpaceObjectDocument getSpace(SpaceReference reference) throws XWikiException;
 
-    public Space createSpace(SpaceReference reference) throws XWikiException;
+    public SpaceObjectDocument createSpace(SpaceReference reference) throws XWikiException;
 
     public void copySpace(SpaceReference spaceReference, SpaceReference newReference, boolean doUpdateParents) throws XWikiException;
 
-    public Space createSpaceFromTemplate(SpaceReference spaceReference, SpaceReference templateReference) throws XWikiException;
+    public SpaceObjectDocument createSpaceFromTemplate(SpaceReference spaceReference, SpaceReference templateReference) throws XWikiException;
 
-    public Space createSpaceFromRequest();
+    public SpaceObjectDocument createSpaceFromRequest();
 
-    public Space updateSpaceFromRequest();
+    public SpaceObjectDocument updateSpaceFromRequest();
 
     public SpaceReference createSpaceReference(String wikiName, String spaceName);
 

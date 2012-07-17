@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,17 +14,13 @@ import org.xwiki.model.reference.DocumentReferenceResolver;
 import org.xwiki.model.reference.EntityReference;
 import org.xwiki.model.reference.EntityReferenceSerializer;
 import org.xwiki.model.reference.SpaceReference;
-import org.xwiki.model.reference.WikiReference;
-import org.xwiki.query.QueryException;
-import org.xwiki.sankore.internal.SpaceClass;
-import org.xwiki.sankore.internal.SpaceXObjectDocument;
+import org.xwiki.sankore.internal.SpaceObjectDocument;
 
 import com.xpn.xwiki.XWikiContext;
 import com.xpn.xwiki.XWikiException;
 import com.xpn.xwiki.api.Api;
 import com.xpn.xwiki.api.Document;
 import com.xpn.xwiki.api.Property;
-import com.xpn.xwiki.doc.XWikiDocument;
 import com.xpn.xwiki.objects.BaseObject;
 import com.xpn.xwiki.web.Utils;
 
@@ -58,30 +52,24 @@ public class Space extends Api
     /**
      * The XWikiDocument object wrapped by this API.
      */
-    protected SpaceXObjectDocument spaceXObjectDocument;
+    protected SpaceObjectDocument spaceObjectDocument;
 
     protected SpaceReference spaceReference;
     protected boolean isDirty = false;
 
-    public Space(SpaceReference spaceReference, ExecutionContext executionContext) throws XWikiException
-    {
-        this(new SpaceXObjectDocument(spaceReference, executionContext),
-                ContextUtils.getXWikiContext(executionContext));
-    }
-
     /**
      * Create instance of space descriptor.
      *
-     * @param spaceXObjectDocument the encapsulated XWikiSpace.
+     * @param spaceObjectDocument the encapsulated XWikiSpace.
      * @param xwikiContext the XWiki context.
      * @throws XWikiException error when creating {@link Api}.
      */
-    public Space(SpaceXObjectDocument spaceXObjectDocument, XWikiContext xwikiContext) throws XWikiException
+    public Space(SpaceObjectDocument spaceObjectDocument, XWikiContext xwikiContext) throws XWikiException
     {
         super(xwikiContext);
-        this.spaceXObjectDocument = spaceXObjectDocument;
-        this.spaceReference = spaceXObjectDocument.getDocumentReference().getLastSpaceReference();
-        if (spaceXObjectDocument.isNew()) {
+        this.spaceObjectDocument = spaceObjectDocument;
+        this.spaceReference = spaceObjectDocument.getDocumentReference().getLastSpaceReference();
+        if (spaceObjectDocument.isNew()) {
             this.isDirty = true;
         }
         if (Utils.getComponent(SpaceManager.class).countDocuments(this.spaceReference) > 0) {
@@ -95,10 +83,10 @@ public class Space extends Api
      *
      * @return The XWikiDocument wrapped by this API.
      */
-    public SpaceXObjectDocument getSpaceXObjectDocument()
+    public SpaceObjectDocument getSpaceObjectDocument()
     {
         if (hasProgrammingRights()) {
-            return this.spaceXObjectDocument;
+            return this.spaceObjectDocument;
         } else {
             return null;
         }
@@ -107,7 +95,7 @@ public class Space extends Api
     public SpaceReference getSpaceReference()
     {
         // Clone the document reference since it can be modified
-        return new SpaceReference(this.spaceXObjectDocument.getDocumentReference().getLastSpaceReference());
+        return new SpaceReference(this.spaceObjectDocument.getDocumentReference().getLastSpaceReference());
     }
 
     /**
@@ -117,7 +105,7 @@ public class Space extends Api
      */
     public String getName()
     {
-        return this.spaceXObjectDocument.getSpace();
+        return this.spaceObjectDocument.getSpace();
     }
 
     /**
@@ -128,50 +116,50 @@ public class Space extends Api
      */
     public String getWiki()
     {
-        return this.spaceXObjectDocument.getWiki();
+        return this.spaceObjectDocument.getWiki();
     }
 
     public String getTitle()
     {
-        return this.spaceXObjectDocument.getTitle();
+        return this.spaceObjectDocument.getTitle();
     }
 
     public void setTitle(String title)
     {
-        this.spaceXObjectDocument.setTitle(title);
+        this.spaceObjectDocument.setTitle(title);
         this.isDirty = true;
     }
 
     public String getDescription()
     {
-        return this.spaceXObjectDocument.getDescription();
+        return this.spaceObjectDocument.getDescription();
     }
 
     public void setDescription(String description)
     {
-        this.spaceXObjectDocument.setDescription(description);
+        this.spaceObjectDocument.setDescription(description);
         this.isDirty = true;
     }
 
     public String getType()
     {
-        return this.spaceXObjectDocument.getType();
+        return this.spaceObjectDocument.getType();
     }
 
     public void setType(String type)
     {
-        this.spaceXObjectDocument.setType(type);
+        this.spaceObjectDocument.setType(type);
         this.isDirty = true;
     }
 
     public String getUrlShortcut()
     {
-        return this.spaceXObjectDocument.getUrlShortcut();
+        return this.spaceObjectDocument.getUrlShortcut();
     }
 
     public void setUrlShortcut(String urlShortcut)
     {
-        this.spaceXObjectDocument.setUrlShortcut(urlShortcut);
+        this.spaceObjectDocument.setUrlShortcut(urlShortcut);
         this.isDirty = true;
     }
 
@@ -188,18 +176,18 @@ public class Space extends Api
 
     public boolean isNew()
     {
-        return spaceXObjectDocument.isNew();
+        return this.spaceObjectDocument.isNew();
     }
 
     public boolean isDirty()
     {
         return this.isDirty
-                || this.spaceXObjectDocument.getDocument().isMetaDataDirty();
+                || this.spaceObjectDocument.getDocument().isMetaDataDirty();
     }
 
     public void save() throws XWikiException
     {
-        this.spaceXObjectDocument.save();
+        this.spaceObjectDocument.save();
         this.isDirty = false;
     }
 
@@ -212,7 +200,7 @@ public class Space extends Api
                 currentReferenceDocumentReferenceResolver.resolve(XWIKIGLOBALRIGHTS_CLASS_REFERENCE);
         String member = localEntityReferenceSerializer.serialize(memberReference);
 
-        List<BaseObject> rightsObjects = this.spaceXObjectDocument.getDocument().getXObjects(xWikiGlobalRightsClassReference);
+        List<BaseObject> rightsObjects = this.spaceObjectDocument.getDocument().getXObjects(xWikiGlobalRightsClassReference);
         if (rightsObjects != null) {
             for (BaseObject rightsObject : rightsObjects) {
                 String[] members = StringUtils.split(rightsObject.getLargeStringValue(FIELD_GROUPS), FIELD_SEPARATORS);
@@ -238,7 +226,7 @@ public class Space extends Api
             allowInt = 1;
 
         // add new global rights
-        BaseObject rightsObject = this.spaceXObjectDocument.getDocument()
+        BaseObject rightsObject = this.spaceObjectDocument.getDocument()
                 .newXObject(XWIKIGLOBALRIGHTS_CLASS_REFERENCE, this.context);
         rightsObject.setLargeStringValue(FIELD_GROUPS, member);
         rightsObject.setStringValue(FIELD_LEVELS, accessLevel);
@@ -247,17 +235,18 @@ public class Space extends Api
 
     public void updateFromRequest() throws XWikiException
     {
-        this.spaceXObjectDocument.updateObjectFromRequest(this.spaceXObjectDocument.getXClassManager().getClassFullName());
+        //this.spaceObjectDocument
+        //        .updateObjectFromRequest(this.spaceObjectDocument.getXClassManager().getClassFullName());
     }
 
     public String display(String fieldname)
     {
-        return this.spaceXObjectDocument.display(fieldname);
+        return this.spaceObjectDocument.display(fieldname);
     }
 
     public String display(String fieldname, String mode)
     {
-        return this.spaceXObjectDocument.display(fieldname, mode);
+        return this.spaceObjectDocument.display(fieldname, mode);
     }
 
     public String getHomeURL()
@@ -274,18 +263,18 @@ public class Space extends Api
 
     public Document getPreferencesDocument()
     {
-        return this.spaceXObjectDocument;
+        return this.spaceObjectDocument;
     }
 
     public List<Property> getMetadata()
     {
         List<Property> metadata = new ArrayList<Property>();
 
-        com.xpn.xwiki.api.Object spaceClassObject =
-                this.spaceXObjectDocument.getObject(this.spaceXObjectDocument.getXClassManager().getClassFullName());
-        for (java.lang.Object propName : spaceClassObject.getPropertyNames()) {
-            metadata.add(spaceClassObject.getProperty((String)propName));
-        }
+        //com.xpn.xwiki.api.Object spaceClassObject =
+        //        this.spaceObjectDocument.getObject(this.spaceObjectDocument.getXClassManager().getClassFullName());
+        //for (java.lang.Object propName : spaceClassObject.getPropertyNames()) {
+        //    metadata.add(spaceClassObject.getProperty((String)propName));
+        //}
 
         return metadata;
     }

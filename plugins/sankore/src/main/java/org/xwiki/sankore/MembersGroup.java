@@ -3,22 +3,21 @@ package org.xwiki.sankore;
 import java.util.*;
 
 import com.xpn.xwiki.web.Utils;
-import org.apache.commons.lang.ArrayUtils;
+
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.xwiki.context.ExecutionContext;
 import org.xwiki.model.EntityType;
 import org.xwiki.model.reference.DocumentReference;
 import org.xwiki.model.reference.DocumentReferenceResolver;
 import org.xwiki.model.reference.EntityReference;
 import org.xwiki.model.reference.SpaceReference;
-import org.xwiki.sankore.internal.SpaceClass;
 
 import com.xpn.xwiki.XWikiContext;
 import com.xpn.xwiki.XWikiException;
 import com.xpn.xwiki.api.Api;
 import com.xpn.xwiki.doc.XWikiDocument;
 import com.xpn.xwiki.objects.BaseObject;
-import com.xpn.xwiki.objects.classes.GroupsClass;
-import com.xpn.xwiki.user.api.XWikiGroupService;
 
 public class MembersGroup extends Api
 {
@@ -59,34 +58,36 @@ public class MembersGroup extends Api
     public static final String FIELD_ALLOW = "allow";
 
 
-    private XWikiDocument xWikiDocument;
-    private XWikiGroupService xWikiGroupService;
+    private XWikiDocument document;
 
     @SuppressWarnings("unchecked")
     private DocumentReferenceResolver<EntityReference> currentReferenceDocumentReferenceResolver = Utils.getComponent(
             DocumentReferenceResolver.class, "current/reference");
 
-    public MembersGroup(XWikiDocument xWikiDocument, XWikiContext xWikiContext) throws XWikiException
+    public MembersGroup(DocumentReference documentReference, ExecutionContext executionContext)
+            throws XWikiException
     {
-        super(xWikiContext);
-        this.xWikiDocument = xWikiDocument;
-        this.xWikiGroupService = xWikiContext.getWiki().getGroupService(xWikiContext);
+        super((XWikiContext) executionContext.getProperty("xwikicontext"));
+        this.document = getXWikiContext().getWiki().getDocument(documentReference, getXWikiContext());
     }
 
     public boolean addUserOrGroup(String userOrGroup) throws XWikiException
     {
-        List<BaseObject> xObjects = this.xWikiDocument.getXObjects(
+        List<BaseObject> xObjects = this.document.getXObjects(
                 currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE));
 
-        for (BaseObject xObject : xObjects) {
-            if (StringUtils.equals(xObject.getStringValue(XWIKIGROUPS_MEMBER), userOrGroup))
-                return false;
+        if (CollectionUtils.isNotEmpty(xObjects)) {
+            for (BaseObject xObject : xObjects) {
+                if (xObject != null && StringUtils.equals(xObject.getStringValue(XWIKIGROUPS_MEMBER), userOrGroup)) {
+                    return false;
+                }
+            }
         }
 
-        BaseObject member = this.xWikiDocument.newXObject(XWIKIGROUPS_CLASS_REFERENCE, this.context);
+        BaseObject member = this.document.newXObject(XWIKIGROUPS_CLASS_REFERENCE, this.context);
         member.setStringValue(XWIKIGROUPS_MEMBER, userOrGroup);
 
-        this.context.getWiki().saveDocument(this.xWikiDocument, this.context);
+        this.context.getWiki().saveDocument(this.document, this.context);
 
         return true;
     }
@@ -95,36 +96,44 @@ public class MembersGroup extends Api
     {
         boolean needUpdate = false;
 
-        List<BaseObject> xObjects = xWikiDocument.getXObjects(
+        List<BaseObject> xObjects = this.document.getXObjects(
                 currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE));
 
+        if (xObjects == null)
+            return false;
+
         for (BaseObject xObject : xObjects) {
-            if (StringUtils.equals(xObject.getStringValue(XWIKIGROUPS_MEMBER), userOrGroup)) {
-                needUpdate = this.xWikiDocument.removeXObject(xObject);
+            if (xObject != null && StringUtils.equals(xObject.getStringValue(XWIKIGROUPS_MEMBER), userOrGroup)) {
+                needUpdate = this.document.removeXObject(xObject);
             }
         }
 
-        if (needUpdate)
-            this.context.getWiki().saveDocument(this.xWikiDocument, this.context);
+        if (needUpdate) {
+            this.context.getWiki().saveDocument(this.document, this.context);
+        }
 
         return needUpdate;
     }
 
     public int countAllMembers()
     {
-        return this.xWikiDocument.getXObjects(
+        return this.document.getXObjects(
                 currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE)).size();
     }
 
     public List<String> getAllMembers() throws XWikiException
     {
-        List<BaseObject> xObjects = this.xWikiDocument.getXObjects(
+        List<BaseObject> xObjects = this.document.getXObjects(
                 currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE));
+
+        if (xObjects == null)
+            return new ArrayList<String>();
 
         List<String> members = new ArrayList<String>();
 
         for (BaseObject xObject : xObjects) {
-            members.add(xObject.getStringValue(XWIKIGROUPS_MEMBER));
+            if (xObject != null)
+                members.add(xObject.getStringValue(XWIKIGROUPS_MEMBER));
         }
 
         return members;
@@ -132,12 +141,16 @@ public class MembersGroup extends Api
 
     public boolean isMember(String userOrGroup) throws XWikiException
     {
-        List<BaseObject> xObjects = this.xWikiDocument.getXObjects(
+        List<BaseObject> xObjects = this.document.getXObjects(
                 currentReferenceDocumentReferenceResolver.resolve(XWIKIGROUPS_CLASS_REFERENCE));
 
+        if (xObjects == null)
+            return false;
+
         for (BaseObject xObject : xObjects) {
-            if (StringUtils.equals(xObject.getStringValue(XWIKIGROUPS_MEMBER), userOrGroup))
+            if (xObject != null && StringUtils.equals(xObject.getStringValue(XWIKIGROUPS_MEMBER), userOrGroup)) {
                 return true;
+            }
         }
 
         return false;
@@ -146,7 +159,7 @@ public class MembersGroup extends Api
     protected void  validateRights(SpaceReference spaceReference) throws XWikiException
     {
         XWikiDocument preferencesDocument = this.context.getWiki().getDocument(
-                new DocumentReference(SpaceClass.PREFERENCES_NAME, spaceReference),
+                new DocumentReference("WebPreferences", spaceReference),
                 this.context);
 
         Map<String, BaseObject> allowRightsMap = new HashMap<String, BaseObject>();
@@ -170,16 +183,20 @@ public class MembersGroup extends Api
                     for (String level : levels) {
                         List<String> allowMembers = allowMembersMap.get(level);
                         List<String> denyMembers = denyMembersMap.get(level);
-                        if (allowMembers == null)
+                        if (allowMembers == null) {
                             allowMembers = new ArrayList<String>();
-                        if (denyMembers == null)
+                        }
+                        if (denyMembers == null) {
                             denyMembers = new ArrayList<String>();
+                        }
 
                         for (String member : members) {
-                            if (!allowMembers.contains(member))
+                            if (!allowMembers.contains(member)) {
                                 allowMembers.add(member);
-                            if (denyMembers.contains(member))
+                            }
+                            if (denyMembers.contains(member)) {
                                 denyMembers.remove(member);
+                            }
                         }
 
                         allowMembersMap.put(level, allowMembers);
@@ -189,16 +206,20 @@ public class MembersGroup extends Api
                     for (String level : levels) {
                         List<String> allowMembers = allowMembersMap.get(level);
                         List<String> denyMembers = denyMembersMap.get(level);
-                        if (allowMembers == null)
+                        if (allowMembers == null) {
                             allowMembers = new ArrayList<String>();
-                        if (denyMembers == null)
+                        }
+                        if (denyMembers == null) {
                             denyMembers = new ArrayList<String>();
+                        }
 
                         for (String member : members) {
-                            if (allowMembers.contains(member))
+                            if (allowMembers.contains(member)) {
                                 allowMembers.remove(member);
-                            if (!denyMembers.contains(member))
+                            }
+                            if (!denyMembers.contains(member)) {
                                 denyMembers.add(member);
+                            }
                         }
 
                         allowMembersMap.put(level, allowMembers);
@@ -212,16 +233,20 @@ public class MembersGroup extends Api
                     BaseObject allowRights = allowRightsMap.get(level);
                     List<String> allowMembers = allowMembersMap.get(level);
                     List<String> denyMembers = denyMembersMap.get(level);
-                    if (allowMembers == null)
+                    if (allowMembers == null) {
                         allowMembers = new ArrayList<String>();
-                    if (denyMembers == null)
+                    }
+                    if (denyMembers == null) {
                         denyMembers = new ArrayList<String>();
+                    }
 
                     for (String member : members) {
-                        if (!allowMembers.contains(member))
+                        if (!allowMembers.contains(member)) {
                             allowMembers.add(member);
-                        if (denyMembers.contains(member))
+                        }
+                        if (denyMembers.contains(member)) {
                             denyMembers.remove(member);
+                        }
                     }
 
                     allowMembersMap.put(level, allowMembers);
@@ -236,16 +261,20 @@ public class MembersGroup extends Api
                     BaseObject denyRights = denyRightsMap.get(level);
                     List<String> allowMembers = allowMembersMap.get(level);
                     List<String> denyMembers = denyMembersMap.get(level);
-                    if (allowMembers == null)
+                    if (allowMembers == null) {
                         allowMembers = new ArrayList<String>();
-                    if (denyMembers == null)
+                    }
+                    if (denyMembers == null) {
                         denyMembers = new ArrayList<String>();
+                    }
 
                     for (String member : members) {
-                        if (allowMembers.contains(member))
+                        if (allowMembers.contains(member)) {
                             allowMembers.remove(member);
-                        if (!denyMembers.contains(member))
+                        }
+                        if (!denyMembers.contains(member)) {
                             denyMembers.add(member);
+                        }
                     }
 
                     allowMembersMap.put(level, allowMembers);
@@ -265,19 +294,23 @@ public class MembersGroup extends Api
         for (String level : allowRightsMap.keySet()) {
             BaseObject rightsObject = allowRightsMap.get(level);
             List<String> allowMembers = allowMembersMap.get(level);
-            if (allowMembers != null && allowMembers.size() > 0)
-                rightsObject.setLargeStringValue(FIELD_GROUPS, StringUtils.join(allowMembers.toArray(), DEFAULT_FIELD_SEPARATOR));
-            else
+            if (allowMembers != null && allowMembers.size() > 0) {
+                rightsObject.setLargeStringValue(FIELD_GROUPS,
+                        StringUtils.join(allowMembers.toArray(), DEFAULT_FIELD_SEPARATOR));
+            } else {
                 preferencesDocument.removeXObject(rightsObject);
+            }
         }
 
         for (String level : denyRightsMap.keySet()) {
             BaseObject rightsObject = denyRightsMap.get(level);
             List<String> denyMembers = denyMembersMap.get(level);
-            if (denyMembers != null && denyMembers.size() > 0)
-                rightsObject.setLargeStringValue(FIELD_GROUPS, StringUtils.join(denyMembers.toArray(), DEFAULT_FIELD_SEPARATOR));
-            else
+            if (denyMembers != null && denyMembers.size() > 0) {
+                rightsObject.setLargeStringValue(FIELD_GROUPS,
+                        StringUtils.join(denyMembers.toArray(), DEFAULT_FIELD_SEPARATOR));
+            } else {
                 preferencesDocument.removeXObject(rightsObject);
+            }
         }
     }
 
@@ -286,7 +319,7 @@ public class MembersGroup extends Api
         validateRights(spaceReference);
 
         XWikiDocument preferencesDocument = this.context.getWiki().getDocument(
-                new DocumentReference(SpaceClass.PREFERENCES_NAME, spaceReference),
+                new DocumentReference("WebPreferences", spaceReference),
                 this.context);
 
         BaseObject allowRights = null;
@@ -297,55 +330,64 @@ public class MembersGroup extends Api
         if (rightsObjects != null) {
         for (BaseObject rightsObject : rightsObjects) {
             if (StringUtils.equals(rightsObject.getStringValue(FIELD_LEVELS), rightsLevel)) {
-                if (rightsObject.getIntValue(FIELD_ALLOW, 0) == 0)
+                if (rightsObject.getIntValue(FIELD_ALLOW, 0) == 0) {
                     denyRights = rightsObject;
-                else
+                } else {
                     allowRights = rightsObject;
+                }
             }
         }
         }
 
         List<String> allowMembers = new ArrayList<String>();
         List<String> denyMembers = new ArrayList<String>();
-        if (allowRights != null)
-            allowMembers.addAll(Arrays.asList(StringUtils.split(allowRights.getLargeStringValue(FIELD_GROUPS), FIELD_SEPARATORS)));
-        if (denyRights != null)
-            denyMembers.addAll(Arrays.asList(StringUtils.split(denyRights.getLargeStringValue(FIELD_GROUPS), FIELD_SEPARATORS)));
+        if (allowRights != null) {
+            allowMembers.addAll(Arrays
+                    .asList(StringUtils.split(allowRights.getLargeStringValue(FIELD_GROUPS), FIELD_SEPARATORS)));
+        }
+        if (denyRights != null) {
+            denyMembers.addAll(Arrays
+                    .asList(StringUtils.split(denyRights.getLargeStringValue(FIELD_GROUPS), FIELD_SEPARATORS)));
+        }
 
-        if (allow && !allowMembers.contains(this.xWikiDocument.toString())) {
+        if (allow && !allowMembers.contains(this.document.toString())) {
             if (allowRights == null) {
                 allowRights = preferencesDocument.newXObject(XWIKIGLOBALRIGHTS_CLASS_REFERENCE, this.context);
-                allowRights.setLargeStringValue(FIELD_GROUPS, this.xWikiDocument.toString());
+                allowRights.setLargeStringValue(FIELD_GROUPS, this.document.toString());
                 allowRights.setStringValue(FIELD_LEVELS, rightsLevel);
                 allowRights.setIntValue(FIELD_ALLOW, 1);
             } else {
-                allowMembers.add(this.xWikiDocument.toString());
+                allowMembers.add(this.document.toString());
                 allowRights.setLargeStringValue(FIELD_GROUPS, StringUtils.join(allowMembers.toArray(), DEFAULT_FIELD_SEPARATOR));
             }
             // validate deny
             if (denyRights != null) {
-                if (denyMembers.contains(this.xWikiDocument.toString()))
-                    denyMembers.remove(this.xWikiDocument.toString());
-                if (denyMembers.size() == 0)
+                if (denyMembers.contains(this.document.toString())) {
+                    denyMembers.remove(this.document.toString());
+                }
+                if (denyMembers.size() == 0) {
                     preferencesDocument.removeXObject(denyRights);
+                }
             }
         }
-        if (!allow && !denyMembers.contains(this.xWikiDocument.toString())) {
+        if (!allow && !denyMembers.contains(this.document.toString())) {
             if (denyRights == null) {
                 denyRights = preferencesDocument.newXObject(XWIKIGLOBALRIGHTS_CLASS_REFERENCE, this.context);
-                denyRights.setLargeStringValue(FIELD_GROUPS, this.xWikiDocument.toString());
+                denyRights.setLargeStringValue(FIELD_GROUPS, this.document.toString());
                 denyRights.setStringValue(FIELD_LEVELS, rightsLevel);
                 denyRights.setIntValue(FIELD_ALLOW, 0);
             } else {
-                denyMembers.add(this.xWikiDocument.toString());
+                denyMembers.add(this.document.toString());
                 denyRights.setLargeStringValue(FIELD_GROUPS, StringUtils.join(denyMembers.toArray(), DEFAULT_FIELD_SEPARATOR));
             }
             // validate deny
             if (allowRights != null) {
-                if (allowMembers.contains(this.xWikiDocument.toString()))
-                    allowMembers.remove(this.xWikiDocument.toString());
-                if (allowMembers.size() == 0)
+                if (allowMembers.contains(this.document.toString())) {
+                    allowMembers.remove(this.document.toString());
+                }
+                if (allowMembers.size() == 0) {
                     preferencesDocument.removeXObject(allowRights);
+                }
             }
         }
     }
@@ -357,17 +399,17 @@ public class MembersGroup extends Api
 
     public boolean isNew()
     {
-        return this.xWikiDocument.isNew();
+        return this.document.isNew();
     }
 
     public boolean isDirty()
     {
-        return this.xWikiDocument.isContentDirty()
-                || this.xWikiDocument.isMetaDataDirty();
+        return this.document.isContentDirty()
+                || this.document.isMetaDataDirty();
     }
 
     public void save() throws XWikiException
     {
-        this.context.getWiki().saveDocument(this.xWikiDocument, this.context);
+        this.context.getWiki().saveDocument(this.document, this.context);
     }
 }

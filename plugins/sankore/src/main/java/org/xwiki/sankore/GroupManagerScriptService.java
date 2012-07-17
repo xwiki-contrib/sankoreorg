@@ -1,11 +1,12 @@
 package org.xwiki.sankore;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
 import org.xwiki.component.annotation.Component;
-import org.xwiki.component.manager.ComponentManager;
 import org.xwiki.script.service.ScriptService;
 
 import com.xpn.xwiki.XWikiException;
@@ -22,26 +23,21 @@ public class GroupManagerScriptService implements ScriptService
     @Inject
     private GroupManager groupManager;
 
-    /**
-     * Used to dynamically look up component implementations based on a given hint.
-     */
-    @Inject
-    private ComponentManager componentManager;
-
-    public Group getGroup(String groupName) throws XWikiException
+    public Group getGroup(String groupName)
+            throws XWikiException
     {
-        return groupManager.getGroup(groupName);
+        return this.groupManager.getGroup(groupName);
     }
 
     public Group createGroupFromTemplate(String groupName, String templateSpaceName)
+            throws XWikiException
     {
-        Group group = null;
-        try {
-            group = this.groupManager.createGroupFromTemplate(groupName, templateSpaceName);
-        } catch (XWikiException xe) {
+        return this.groupManager.createGroupFromTemplate(groupName, templateSpaceName);
+    }
 
-        }
-
-        return group;
+    public List<String> getGroupNamesFor(String userName)
+            throws XWikiException
+    {
+        return this.groupManager.getGroupNamesFor(userName);
     }
 }

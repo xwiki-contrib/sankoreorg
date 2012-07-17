@@ -89,4 +89,8 @@ public class MailSenderScriptService implements ScriptService
         }
         return sent;
     }
+
+    public MailConfiguration getMailConfiguration() {
+        return mailSender.getMailConfiguration();
+    }
 }

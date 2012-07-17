@@ -1,19 +1,35 @@
 package org.xwiki.sankore.internal;
 
-import org.xwiki.context.ExecutionContext;
-import org.xwiki.sankore.ContextUtils;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.xwiki.component.annotation.Component;
+import org.xwiki.context.Execution;
+import org.xwiki.model.EntityType;
+import org.xwiki.model.reference.DocumentReference;
+import org.xwiki.model.reference.DocumentReferenceResolver;
+import org.xwiki.model.reference.EntityReference;
+import org.xwiki.model.reference.EntityReferenceSerializer;
 
 import com.xpn.xwiki.XWikiContext;
 import com.xpn.xwiki.XWikiException;
 import com.xpn.xwiki.doc.XWikiDocument;
+import com.xpn.xwiki.objects.BaseObject;
 import com.xpn.xwiki.objects.classes.BaseClass;
-import com.xpn.xwiki.plugin.applicationmanager.core.doc.objects.classes.AbstractXClassManager;
+import com.xpn.xwiki.objects.classes.PropertyClass;
 
-/**
- * Created with IntelliJ IDEA. User: XWIKI Date: 6/1/12 Time: 2:26 PM To change this template use File | Settings | File
- * Templates.
- */
-public class MembershipRequestClass extends AbstractXClassManager<MembershipRequestXObjectDocument>
+@Component
+@Named("MembershipRequestClass")
+@Singleton
+public class MembershipRequestClass implements ClassManager<MembershipRequestObjectDocument>
 {
     public static final String DEFAULT_FIELDS_SEPARATOR = "|";
     /**
@@ -71,17 +87,19 @@ public class MembershipRequestClass extends AbstractXClassManager<MembershipRequ
      */
     public static final String FIELD_STATUS = "status";
 
+    public static final String FIELDT_STATUS = "StringListProperty";
+
     /**
      * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
     public static final String FIELDPN_STATUS = "Status";
 
-    public static final String FIELD_STATUS_NONE = "0";
-    public static final String FIELD_STATUS_CREATED = "1";
-    public static final String FIELD_STATUS_SENT = "2";
-    public static final String FIELD_STATUS_ACCEPTED = "3";
-    public static final String FIELD_STATUS_REFUSED = "4";
-    public static final String FIELD_STATUS_CANCELED = "5";
+    public static final String FIELD_STATUS_NONE = "none";
+    public static final String FIELD_STATUS_CREATED = "created";
+    public static final String FIELD_STATUS_SENT = "sent";
+    public static final String FIELD_STATUS_ACCEPTED = "accepted";
+    public static final String FIELD_STATUS_REFUSED = "refused";
+    public static final String FIELD_STATUS_CANCELED = "canceled";
 
     public static final String FIELDL_STATUS = FIELD_STATUS_NONE +
             DEFAULT_FIELDS_SEPARATOR + FIELD_STATUS_CREATED +
@@ -100,6 +118,8 @@ public class MembershipRequestClass extends AbstractXClassManager<MembershipRequ
      */
     public static final String FIELDPN_REQUESTER = "Requester";
 
+    public static final String FIELDT_REQUESTER = "StringProperty";
+
     /**
      * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
@@ -110,111 +130,175 @@ public class MembershipRequestClass extends AbstractXClassManager<MembershipRequ
      */
     public static final String FIELDPN_RESPONDER = "Responder";
 
-    /**
-     * Space of class document.
-     */
-    public static final String CLASS_SPACE = "XWiki";
+    @Inject
+    private Logger logger;
 
-    /**
-     * Prefix of class document.
-     */
-    public static final String CLASS_PREFIX = "MembershipRequest";
+    @Inject
+    Execution execution;
 
-    /**
-     * Unique instance of XWikiSpaceClass.
-     */
-    private static MembershipRequestClass instance;
+    @Inject
+    @Named("current/reference")
+    DocumentReferenceResolver<EntityReference> currentReferenceDocumentReferenceResolver;
 
-    /**
-     * Default constructor for XWikiSpaceClass.
-     */
-    protected MembershipRequestClass()
+    @Inject
+    @Named("local")
+    private EntityReferenceSerializer<String> referenceSerializer;
+
+    private EntityReference classReference = new EntityReference("MembershipRequestClass", EntityType.DOCUMENT,
+            new EntityReference("XWiki", EntityType.SPACE));
+
+    private EntityReference sheetReference = new EntityReference("MembershipRequestSheet", EntityType.DOCUMENT,
+            new EntityReference("XWiki", EntityType.SPACE));
+
+    private EntityReference templateReference = new EntityReference("MembershipRequestTemplate", EntityType.DOCUMENT,
+            new EntityReference("XWiki", EntityType.SPACE));
+
+    private XWikiContext getContext()
     {
-        super(CLASS_SPACE, CLASS_PREFIX, false);
+        return (XWikiContext) this.execution.getContext().getProperty("xwikicontext");
     }
 
-    public static MembershipRequestClass getInstance(ExecutionContext executionContext) throws XWikiException
+    public MembershipRequestObjectDocument getDocumentObject(DocumentReference documentReference, int objectId) throws XWikiException
     {
-        return MembershipRequestClass.getInstance(ContextUtils.getXWikiContext(executionContext));
+        XWikiContext context = getContext();
+        DefaultXObjectDocumentClass<MembershipRequestObjectDocument> cls =
+                new DefaultXObjectDocumentClass<MembershipRequestObjectDocument>(getClassDocumentReference(), context);
+        XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
+        BaseObject obj = doc.getXObject(getClassDocumentReference(), objectId);
+
+        if (obj == null) {
+            return null;
+        }
+
+        return new MembershipRequestObjectDocument(cls, doc, obj, context);
     }
 
-    /**
-     * Return unique instance of SpaceClass and update documents for this context.
-     *
-     * @param xwikiContext Context.
-     * @return SpaceClass instance.
-     * @throws XWikiException error when checking for class, class template and class sheet.
-     */
-    public static MembershipRequestClass getInstance(XWikiContext xwikiContext) throws XWikiException
+    public MembershipRequestObjectDocument getDocumentObject(DocumentReference documentReference) throws XWikiException
     {
-        synchronized (MembershipRequestClass.class) {
-            if (instance == null) {
-                instance = new MembershipRequestClass();
+        XWikiContext context = getContext();
+        DefaultXObjectDocumentClass<MembershipRequestObjectDocument> cls =
+                new DefaultXObjectDocumentClass<MembershipRequestObjectDocument>(getClassDocumentReference(), context);
+        XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
+        BaseObject obj = doc.getXObject(getClassDocumentReference());
+
+        if (obj == null) {
+            return null;
+        }
+
+        return new MembershipRequestObjectDocument(cls, doc, obj, context);
+    }
+
+    public MembershipRequestObjectDocument newDocumentObject(DocumentReference documentReference) throws XWikiException
+    {
+        XWikiContext context = getContext();
+        DefaultXObjectDocumentClass<MembershipRequestObjectDocument> cls =
+                new DefaultXObjectDocumentClass<MembershipRequestObjectDocument>(getClassDocumentReference(), context);
+        XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
+        BaseObject obj = doc.getXObject(getClassDocumentReference(), true, context);
+
+        if (obj == null)
+            return null;
+
+        return new MembershipRequestObjectDocument(cls, doc, obj, context);
+    }
+
+    public DocumentReference getClassDocumentReference() throws XWikiException
+    {
+        return currentReferenceDocumentReferenceResolver.resolve(classReference);
+    }
+
+    public DocumentReference getClassSheetDocumentReference() throws XWikiException
+    {
+        return currentReferenceDocumentReferenceResolver.resolve(sheetReference);
+    }
+
+    public DocumentReference getClassTemplateDocumentReference() throws XWikiException
+    {
+        return currentReferenceDocumentReferenceResolver.resolve(templateReference);
+    }
+
+    public List<MembershipRequestObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue)
+            throws XWikiException
+    {
+        Map<String, Object> fields = new HashMap<String, Object>();
+        fields.put(fieldName, fieldValue);
+
+        return searchDocumentObjectsByFields(fields);
+    }
+
+    public List<MembershipRequestObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
+    {
+        String from = "select distinct doc.space, doc.name, obj.number from XWikiDocument as doc, BaseObject as obj";
+        String where = " where obj.name=doc.fullName and obj.className='XWiki.MembershipRequestClass'";
+        BaseClass baseClass = getContext().getWiki().getXClass(getClassDocumentReference(), getContext());
+        List<PropertyClass> enabledProperties = baseClass.getEnabledProperties();
+
+        int i = 0;
+        String propName = StringUtils.EMPTY;
+        String propType = StringUtils.EMPTY;
+        String propValue = StringUtils.EMPTY;
+        for (PropertyClass propertyClass : enabledProperties) {
+            if (fields.keySet().contains(propertyClass.getName())) {
+                propName = "prop" + Integer.toString(i);
+                propType =  propertyClass.newProperty().getClass().getSimpleName();
+                propValue = fields.get(propertyClass.getName()).toString();
+                from = from.concat(", " + propType + " as " + propName);
+                where = where.concat(" and " + propName + ".id.id=obj.id and " + propName + ".name='" + propertyClass.getName() + "'");
+                if (StringUtils.equals(propType, "IntegerProperty")) {
+                    if (StringUtils.equals(propValue, "true"))
+                        where = where.concat(" and " + propName + ".value>0");
+                    else
+                        where = where.concat(" and " + propName + ".value=0");
+                } else if (StringUtils.equals(propType, "LongProperty")
+                        || StringUtils.equals(propType, "FloatProperty")
+                        || StringUtils.equals(propType, "DoubleProperty")) {
+                    where = where.concat(" and " + propName + ".value=" + fields.get(propertyClass.getName()).toString());
+                } else if (StringUtils.equals(propType, "StringProperty")
+                        || StringUtils.equals(propType, "LargeStringProperty")
+                        || StringUtils.equals(propType, "DateProperty")) {
+                    where = where.concat(" and " + propName + ".value='" + fields.get(propertyClass.getName()).toString() + "'");
+                } else if (StringUtils.equals(propType, "StringListProperty")) {
+                    where = where.concat(" and " + propName + ".textValue='" + fields.get(propertyClass.getName()).toString() + "'");
+                } else if (StringUtils.equals(propType, "DBStringListProperty")) {
+                    from = from.concat(" join " + propName + ".list " + propName + "list");
+                    where = where.concat(" and " + propName + "list='" + fields.get(propertyClass.getName()).toString() + "'");
+                }
+                i++;
             }
         }
 
-        instance.check(xwikiContext);
+        List<MembershipRequestObjectDocument>
+                membershipRequestObjectDocuments = new ArrayList<MembershipRequestObjectDocument>();
+        List<Object> results = getContext().getWiki().getStore().search(from + where, 0, 0, getContext());
 
-        return instance;
-    }
+        logger.info("MembershipRequestClass search: " + from + where + "; results: " + results.size());
 
-    @Override
-    public boolean forceValidDocumentName()
-    {
-        // All wiki descriptors are of the form <code>XWiki.XWikiServer%</code>
-        return true;
-    }
-
-    @Override
-    protected boolean updateBaseClass(BaseClass baseClass)
-    {
-        boolean needsUpdate = super.updateBaseClass(baseClass);
-
-        needsUpdate |= baseClass.addDateField(FIELD_REQUESTDATE, FIELDPN_REQUESTDATE);
-        needsUpdate |= baseClass.addDateField(FIELD_RESPONSEDATE, FIELDPN_RESPONSEDATE);
-        needsUpdate |= baseClass.addTextAreaField(FIELD_TEXT, FIELDPN_TEXT, 40, 5);
-        needsUpdate |= baseClass.addTextAreaField(FIELD_MAP, FIELDPN_MAP, 40, 5);
-        needsUpdate |= baseClass.addTextField(FIELD_GROUP, FIELDPN_GROUP, 30);
-        needsUpdate |= baseClass.addStaticListField(FIELD_STATUS, FIELDPN_STATUS, 1, false, FIELDL_STATUS);
-        needsUpdate |= baseClass.addTextField(FIELD_REQUESTER, FIELDPN_REQUESTER, 30);
-        needsUpdate |= baseClass.addTextField(FIELD_RESPONDER, FIELDPN_RESPONDER, 30);
-
-        return needsUpdate;
-    }
-
-    @Override
-    protected boolean updateClassTemplateDocument(XWikiDocument xdoc)
-    {
-        boolean needsUpdate = false;
-
-        /*
-        if (!DEFAULT_PAGE_PARENT.equals(doc.getParent())) {
-            doc.setParent(DEFAULT_PAGE_PARENT);
-            needsUpdate = true;
+        String docSpace = StringUtils.EMPTY;
+        String docName = StringUtils.EMPTY;
+        int objNumber = 0;
+        for (Object result : results) {
+            Object[] resultParams = (Object[]) result;
+            docSpace = resultParams[0].toString();
+            docName = resultParams[1].toString();
+            objNumber = Integer.parseInt(resultParams[2].toString());
+            DocumentReference documentReference = currentReferenceDocumentReferenceResolver.resolve(
+                    new EntityReference(docName, EntityType.DOCUMENT, new EntityReference(docSpace, EntityType.SPACE)));
+            membershipRequestObjectDocuments.add(getDocumentObject(documentReference, objNumber));
         }
 
-        needsUpdate |= updateDocStringValue(doc, FIELD_HOMEPAGE, DEFAULT_HOMEPAGE);
-
-        needsUpdate |= updateDocBooleanValue(doc, FIELD_SECURE, DEFAULT_SECURE);
-
-        needsUpdate |= updateDocBooleanValue(doc, FIELD_ISWIKITEMPLATE, DEFAULT_ISWIKITEMPLATE);
-        */
-
-        return needsUpdate;
+        return membershipRequestObjectDocuments;
     }
 
-    /**
-     * {@inheritDoc}
-     * <p>
-     * Override abstract method using XWikiApplication as
-     * {@link com.xpn.xwiki.plugin.applicationmanager.core.doc.objects.classes.XObjectDocument}.
-     *
-     * @see com.xpn.xwiki.plugin.applicationmanager.core.doc.objects.classes.AbstractXClassManager#newXObjectDocument(com.xpn.xwiki.doc.XWikiDocument,
-     *      int, com.xpn.xwiki.XWikiContext)
-     */
-    @Override
-    public MembershipRequestXObjectDocument newXObjectDocument(XWikiDocument xdoc, int objId, XWikiContext context) throws XWikiException
+    public void saveDocumentObject(MembershipRequestObjectDocument documentObject) throws XWikiException
     {
-        return new MembershipRequestXObjectDocument(xdoc, objId, context);
+        documentObject.saveDocument("MembershipRequestObjectDocument saved.", false);
+        //documentObject.save();
+        //getContext().getWiki().saveDocument(documentObject.getDocument(), getContext());
+    }
+
+    @Override
+    public String toString()
+    {
+        return referenceSerializer.serialize(this.classReference);
     }
 }

@@ -21,139 +21,55 @@ import org.xwiki.model.reference.EntityReferenceSerializer;
 
 import com.xpn.xwiki.XWikiContext;
 import com.xpn.xwiki.XWikiException;
-import com.xpn.xwiki.api.Document;
 import com.xpn.xwiki.doc.XWikiDocument;
 import com.xpn.xwiki.objects.BaseObject;
 import com.xpn.xwiki.objects.classes.BaseClass;
 import com.xpn.xwiki.objects.classes.PropertyClass;
 
 @Component
-@Named("InvitationClass")
+@Named("UsersClass")
 @Singleton
-public class InvitationClass implements ClassManager<InvitationObjectDocument>
+public class UserClass implements ClassManager<UserObjectDocument>
 {
-    public static final String DEFAULT_FIELDS_SEPARATOR = "|";
     /**
      * Name of field <code>prettyname</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
-    public static final String FIELD_REQUESTDATE = "requestDate";
+    public static final String FIELD_FIRST_NAME = "first_name";
 
     /**
      * Pretty name of field <code>title</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
-    public static final String FIELDPN_REQUESTDATE = "Invitation request date";
+    public static final String FIELDPN_FIRST_NAME = "First name";
 
     /**
      * Name of field <code>description</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
-    public static final String FIELD_RESPONSEDATE = "responseDate";
+    public static final String FIELD_LAST_NAME = "last_name";
 
     /**
      * Pretty name of field <code>description</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
-    public static final String FIELDPN_RESPONSEDATE = "Invitation response date";
+    public static final String FIELDPN_LAST_NAME = "Last name";
 
     /**
      * Name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
-    public static final String FIELD_TEXT = "text";
+    public static final String FIELD_MEMBER_TYPE = "member_type";
 
     /**
      * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
-    public static final String FIELDPN_TEXT = "Text";
+    public static final String FIELDPN_MEMBER_TYPE = "Member type";
 
     /**
      * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
-    public static final String FIELD_MAP = "map";
+    public static final String FIELD_EMAIL = "email";
 
     /**
      * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
      */
-    public static final String FIELDPN_MAP = "Map";
-
-    /**
-     * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_GROUP = "group";
-
-    /**
-     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_GROUP = "Group name";
-
-    /**
-     * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_STATUS = "status";
-
-    /**
-     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_STATUS = "Status";
-
-    public static final String FIELDT_STATUS = "StringProperty";
-
-    public static final String FIELD_STATUS_NONE = "none";
-    public static final String FIELD_STATUS_CREATED = "created";
-    public static final String FIELD_STATUS_SENT = "sent";
-    public static final String FIELD_STATUS_ACCEPTED = "accepted";
-    public static final String FIELD_STATUS_REFUSED = "refused";
-    public static final String FIELD_STATUS_CANCELED = "canceled";
-
-    public static final String FIELDL_STATUS = FIELD_STATUS_NONE +
-            DEFAULT_FIELDS_SEPARATOR + FIELD_STATUS_CREATED +
-            DEFAULT_FIELDS_SEPARATOR + FIELD_STATUS_SENT +
-            DEFAULT_FIELDS_SEPARATOR + FIELD_STATUS_ACCEPTED +
-            DEFAULT_FIELDS_SEPARATOR + FIELD_STATUS_REFUSED +
-            DEFAULT_FIELDS_SEPARATOR + FIELD_STATUS_CANCELED;
-
-    /**
-     * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_ROLES = "roles";
-
-    /**
-     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_ROLES = "Roles";
-
-    public static final String FIELDQ_ROLES = "";
-
-    /**
-     * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_INVITEE = "invitee";
-
-    /**
-     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_INVITEE = "Invitee";
-
-    public static final String FIELDT_INVITEE = "StringProperty";
-
-    /**
-     * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_INVITER = "inviter";
-
-    /**
-     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_INVITER = "Inviter";
-
-    /**
-     * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_KEY = "key";
-
-    /**
-     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_KEY = "Validation key";
-
-    public static final String FIELDT_KEY = "StringProperty";
+    public static final String FIELDPN_EMAIL = "Email";
 
     @Inject
     private Logger logger;
@@ -169,13 +85,13 @@ public class InvitationClass implements ClassManager<InvitationObjectDocument>
     @Named("local")
     private EntityReferenceSerializer<String> referenceSerializer;
 
-    private EntityReference classReference = new EntityReference("InvitationClass", EntityType.DOCUMENT,
+    private EntityReference classReference = new EntityReference("XWikiUsers", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
-    private EntityReference sheetReference = new EntityReference("InvitationSheet", EntityType.DOCUMENT,
+    private EntityReference sheetReference = new EntityReference("XWikiUserSheet", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
-    private EntityReference templateReference = new EntityReference("InvitationTemplate", EntityType.DOCUMENT,
+    private EntityReference templateReference = new EntityReference("XWikiUserTemplate", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
     private XWikiContext getContext()
@@ -183,26 +99,17 @@ public class InvitationClass implements ClassManager<InvitationObjectDocument>
         return (XWikiContext) this.execution.getContext().getProperty("xwikicontext");
     }
 
-    public InvitationObjectDocument getDocumentObject(DocumentReference documentReference, int objectId) throws XWikiException
+    public UserObjectDocument getDocumentObject(DocumentReference documentReference, int objectId) throws XWikiException
     {
-        XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<InvitationObjectDocument> cls =
-                new DefaultXObjectDocumentClass<InvitationObjectDocument>(getClassDocumentReference(), context);
-        XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
-        BaseObject obj = doc.getXObject(getClassDocumentReference(), objectId);
-
-        if (obj == null) {
-            return null;
-        }
-
-        return new InvitationObjectDocument(cls, doc, obj, context);
+        return getDocumentObject(documentReference);
     }
 
-    public InvitationObjectDocument getDocumentObject(DocumentReference documentReference) throws XWikiException
+    public UserObjectDocument getDocumentObject(DocumentReference documentReference)
+            throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<InvitationObjectDocument> cls =
-                new DefaultXObjectDocumentClass<InvitationObjectDocument>(getClassDocumentReference(), context);
+        DefaultXObjectDocumentClass<UserObjectDocument> cls =
+                new DefaultXObjectDocumentClass<UserObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference());
 
@@ -210,21 +117,22 @@ public class InvitationClass implements ClassManager<InvitationObjectDocument>
             return null;
         }
 
-        return new InvitationObjectDocument(cls, doc, obj, context);
+        return new UserObjectDocument(cls, doc, obj, context);
     }
 
-    public InvitationObjectDocument newDocumentObject(DocumentReference documentReference) throws XWikiException
+    public UserObjectDocument newDocumentObject(DocumentReference documentReference) throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<InvitationObjectDocument> cls =
-                new DefaultXObjectDocumentClass<InvitationObjectDocument>(getClassDocumentReference(), context);
+        DefaultXObjectDocumentClass<UserObjectDocument> cls =
+                new DefaultXObjectDocumentClass<UserObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
-        BaseObject obj = doc.newXObject(getClassDocumentReference(), context);
+        BaseObject obj = doc.getXObject(getClassDocumentReference(), true, context);
 
-        if (obj == null)
+        if (obj == null) {
             return null;
+        }
 
-        return new InvitationObjectDocument(cls, doc, obj, context);
+        return new UserObjectDocument(cls, doc, obj, context);
     }
 
     public DocumentReference getClassDocumentReference() throws XWikiException
@@ -242,7 +150,7 @@ public class InvitationClass implements ClassManager<InvitationObjectDocument>
         return currentReferenceDocumentReferenceResolver.resolve(templateReference);
     }
 
-    public List<InvitationObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue) throws XWikiException
+    public List<UserObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue) throws XWikiException
     {
         Map<String, Object> fields = new HashMap<String, Object>();
         fields.put(fieldName, fieldValue);
@@ -250,10 +158,10 @@ public class InvitationClass implements ClassManager<InvitationObjectDocument>
         return searchDocumentObjectsByFields(fields);
     }
 
-    public List<InvitationObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
+    public List<UserObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
     {
-        String from = "select distinct doc.space, doc.name, obj.number from XWikiDocument as doc, BaseObject as obj";
-        String where = " where obj.name=doc.fullName and obj.className='XWiki.InvitationClass'";
+        String from = "select distinct doc.space, doc.name from XWikiDocument as doc, BaseObject as obj";
+        String where = " where obj.name=doc.fullName and obj.className='XWiki.XWikiUsers'";
         BaseClass baseClass = getContext().getWiki().getXClass(getClassDocumentReference(), getContext());
         List<PropertyClass> enabledProperties = baseClass.getEnabledProperties();
 
@@ -291,31 +199,27 @@ public class InvitationClass implements ClassManager<InvitationObjectDocument>
             }
         }
 
-        List<InvitationObjectDocument> invitationObjectDocuments = new ArrayList<InvitationObjectDocument>();
+        List<UserObjectDocument> userObjectDocuments = new ArrayList<UserObjectDocument>();
         List<Object> results = getContext().getWiki().getStore().search(from + where, 0, 0, getContext());
-
-        logger.info("InvitationClass search: " + from + where + "; results: " + results.size());
-
+        logger.info("UserClass search: " + from + where + "; results: " + results.size());
         String docSpace = StringUtils.EMPTY;
         String docName = StringUtils.EMPTY;
-        int objNumber = 0;
         for (Object result : results) {
             Object[] resultParams = (Object[]) result;
             docSpace = resultParams[0].toString();
             docName = resultParams[1].toString();
-            objNumber = Integer.parseInt(resultParams[2].toString());
             DocumentReference documentReference = currentReferenceDocumentReferenceResolver.resolve(
                     new EntityReference(docName, EntityType.DOCUMENT, new EntityReference(docSpace, EntityType.SPACE)));
-            invitationObjectDocuments.add(getDocumentObject(documentReference, objNumber));
+            userObjectDocuments.add(getDocumentObject(documentReference));
         }
 
-        return invitationObjectDocuments;
+        return userObjectDocuments;
     }
 
-    public void saveDocumentObject(InvitationObjectDocument documentObject) throws XWikiException
+    public void saveDocumentObject(UserObjectDocument documentObject) throws XWikiException
     {
         //documentObject.save();
-        documentObject.saveDocument("InvitationObjectDocument saved.", false);
+        documentObject.saveDocument("UserObjectDocument saved", false);
         //getContext().getWiki().saveDocument(documentObject.getDocument(), getContext());
     }
 

@@ -1,8 +1,6 @@
 package org.xwiki.sankore;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -14,12 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.xwiki.context.ExecutionContext;
 import org.xwiki.model.EntityType;
 import org.xwiki.model.reference.*;
-import org.xwiki.sankore.internal.GroupClass;
-import org.xwiki.sankore.internal.GroupXObjectDocument;
-import org.xwiki.sankore.internal.SpaceClass;
-import org.xwiki.sankore.internal.SpaceXObjectDocument;
+import org.xwiki.sankore.internal.GroupObjectDocument;
 
-import com.xpn.xwiki.XWiki;
 import com.xpn.xwiki.XWikiContext;
 import com.xpn.xwiki.XWikiException;
 import com.xpn.xwiki.api.Api;
@@ -61,13 +55,14 @@ public class Group extends Api
     public static final String RIGHTS_LEVELS_DELETE = "delete";
     public static final String RIGHTS_LEVELS_ADMIN = "admin";
 
-    protected Space groupSpace;
-    protected Space collSpace;
-    protected Space documentationSpace;
-    protected Space invitationsSpace;
-    protected Space messagesSpace;
-    protected Space userProfilesSpace;
-    protected GroupXObjectDocument groupXObjectDocument;
+    //protected Space groupSpace;
+    //protected Space collSpace;
+    //protected Space documentationSpace;
+    //protected Space invitationsSpace;
+    //protected Space messagesSpace;
+    //protected Space userProfilesSpace;
+
+    protected GroupObjectDocument groupObjectDocument;
 
     @SuppressWarnings("unchecked")
     private DocumentReferenceResolver<EntityReference> currentReferenceDocumentReferenceResolver = Utils.getComponent(
@@ -80,87 +75,109 @@ public class Group extends Api
     protected MembersGroup adminGroup;
     protected MembersGroup memberGroup;
 
-    protected String groupName;
+    protected SpaceReference groupSpaceReference;
+    protected SpaceReference invitationsSpaceReference;
+    protected SpaceReference userProfilesSpaceReference;
+    protected SpaceReference collSpaceReference;
+    protected SpaceReference messagesSpaceReference;
+    protected SpaceReference documentationSpaceReference;
+
+    protected DocumentReference adminMembersGroupReference;
+    protected DocumentReference allMembersGroupReference;
 
     protected boolean isDirty;
     protected boolean isRightsDirty;
 
-    public Group(String groupName, ExecutionContext executionContext) throws XWikiException
+    public Group(GroupObjectDocument objectDocument, ExecutionContext executionContext) throws XWikiException
     {
-        this(new GroupXObjectDocument(new SpaceReference(GROUP_SPACE_PREFIX + groupName, new WikiReference(
-                ContextUtils.getXWikiContext(executionContext).getDatabase())), executionContext),
-                ContextUtils.getXWikiContext(executionContext));
+        super((XWikiContext) executionContext.getProperty("xwikicontext"));
+
+        this.groupObjectDocument = objectDocument;
+        this.groupSpaceReference = objectDocument.getDocumentReference().getLastSpaceReference();
+
+        String groupSpaceName = this.groupSpaceReference.getName();
+        WikiReference wikiReference = new WikiReference(this.groupSpaceReference.getParent());
+
+        this.invitationsSpaceReference = new SpaceReference("Invitations_" + groupSpaceName, wikiReference);
+        this.userProfilesSpaceReference = new SpaceReference("UserProfiles_" + groupSpaceName, wikiReference);
+        this.collSpaceReference = new SpaceReference("Coll_" + groupSpaceName, wikiReference);
+        this.messagesSpaceReference = new SpaceReference("Messages_" + groupSpaceName, wikiReference);
+        this.documentationSpaceReference = new SpaceReference("Documentation_" + groupSpaceName, wikiReference);
+
+        this.adminMembersGroupReference = new DocumentReference("AdminGroup", this.groupSpaceReference);
+        this.allMembersGroupReference = new DocumentReference("MemberGroup", this.groupSpaceReference);
     }
 
     /**
      * Create instance of space descriptor.
      *
-     * @param groupXObjectDocument
+     * @param XGroupObjectDocument
      * @param xWikiContext the XWiki context.
      * @throws com.xpn.xwiki.XWikiException error when creating {@link Api}.
      */
-    public Group(GroupXObjectDocument groupXObjectDocument, XWikiContext xWikiContext) throws XWikiException
+    /*
+    public Group(XGroupObjectDocument XGroupObjectDocument, XWikiContext xWikiContext) throws XWikiException
     {
         super(xWikiContext);
-        this.groupName = groupXObjectDocument.getSpace().replaceFirst(GROUP_SPACE_PREFIX, "");
-        this.groupXObjectDocument = groupXObjectDocument;
+        this.groupName = XGroupObjectDocument.getSpace().replaceFirst(GROUP_SPACE_PREFIX, "");
+        this.XGroupObjectDocument = XGroupObjectDocument;
         XWiki xWiki = xWikiContext.getWiki();
-        WikiReference wikiReference = groupXObjectDocument.getDocumentReference().getWikiReference();
+        WikiReference wikiReference = XGroupObjectDocument.getDocumentReference().getWikiReference();
         // groupXObjectDocument = groupSpace.spaceXObjectDocument
         this.groupSpace = new Space(
-                new SpaceXObjectDocument(
-                        this.groupXObjectDocument.getDocument(),
-                        SpaceClass.OBJECTID,
+                new XSpaceObjectDocument(
+                        this.XGroupObjectDocument.getDocument(),
+                        XSpaceClass.OBJECTID,
                         xWikiContext),
                 xWikiContext);
         this.collSpace = new Space(
-                new SpaceXObjectDocument(
+                new XSpaceObjectDocument(
                         xWiki.getDocument(
                                 new DocumentReference(
-                                        SpaceClass.PREFERENCES_NAME,
+                                        XSpaceClass.PREFERENCES_NAME,
                                         new SpaceReference(GROUP_COLL_SPACE_PREFIX + this.groupName, wikiReference)),
                                 xWikiContext),
-                        SpaceClass.OBJECTID,
+                        XSpaceClass.OBJECTID,
                         xWikiContext),
                 xWikiContext);
         this.documentationSpace = new Space(
-                new SpaceXObjectDocument(
+                new XSpaceObjectDocument(
                         xWiki.getDocument(
                                 new DocumentReference(
-                                        SpaceClass.PREFERENCES_NAME,
+                                        XSpaceClass.PREFERENCES_NAME,
                                         new SpaceReference(GROUP_DOCUMENTATION_SPACE_PREFIX + this.groupName, wikiReference)),
                                 xWikiContext),
-                        SpaceClass.OBJECTID,
+                        XSpaceClass.OBJECTID,
                         xWikiContext),
                 xWikiContext);
         this.invitationsSpace = new Space(
-                new SpaceXObjectDocument(
+                new XSpaceObjectDocument(
                         xWiki.getDocument(
                                 new DocumentReference(
-                                        SpaceClass.PREFERENCES_NAME,
+                                        XSpaceClass.PREFERENCES_NAME,
                                         new SpaceReference(GROUP_INVITATIONS_SPACE_PREFIX + this.groupName, wikiReference)),
                                 xWikiContext),
-                        SpaceClass.OBJECTID,
+                        XSpaceClass.OBJECTID,
                         xWikiContext),
                 xWikiContext);
         this.messagesSpace = new Space(
-                new SpaceXObjectDocument(
+                new XSpaceObjectDocument(
                         xWiki.getDocument(
                                 new DocumentReference(
-                                        SpaceClass.PREFERENCES_NAME,
+                                        XSpaceClass.PREFERENCES_NAME,
                                         new SpaceReference(GROUP_MESSAGES_SPACE_PREFIX + this.groupName, wikiReference)),
                                 xWikiContext),
-                        SpaceClass.OBJECTID,
+                        XSpaceClass.OBJECTID,
                         xWikiContext),
                 xWikiContext);
         this.userProfilesSpace = new Space(
-                new SpaceXObjectDocument(
+                new XSpaceObjectDocument(
                         xWiki.getDocument(
                                 new DocumentReference(
-                                        SpaceClass.PREFERENCES_NAME,
+                                        XSpaceClass.PREFERENCES_NAME,
                                         new SpaceReference(GROUP_USERPROFILES_SPACE_PREFIX + this.groupName, wikiReference)),
                                 xWikiContext),
-                        SpaceClass.OBJECTID,
+                        XSpaceClass.OBJECTID,
                         xWikiContext),
                 xWikiContext);
 
@@ -175,7 +192,7 @@ public class Group extends Api
                         this.context),
                 this.context);
 
-        if (this.groupXObjectDocument.isNew()) {
+        if (this.XGroupObjectDocument.isNew()) {
             // add current user to MemberGroup and AdminGroup
             this.memberGroup.addUserOrGroup(localEntityReferenceSerializer.serialize(this.context.getUserReference()));
             this.adminGroup.addUserOrGroup(localEntityReferenceSerializer.serialize(this.context.getUserReference()));
@@ -183,22 +200,7 @@ public class Group extends Api
             this.isDirty = true;
             this.isRightsDirty = true;
         }
-    }
-
-    /**
-     * Get the XWikiDocument wrapped by this API. This function is accessible only if you have the programming rights
-     * give access to the priviledged API of the Document.
-     *
-     * @return The XWikiDocument wrapped by this API.
-     */
-    public GroupXObjectDocument getGroupXObjectDocument()
-    {
-        if (hasProgrammingRights()) {
-            return this.groupXObjectDocument;
-        } else {
-            return null;
-        }
-    }
+    } */
 
     /**
      * return the name of a document. for exemple if the fullName of a document is "MySpace.Mydoc", the name is MyDoc.
@@ -207,139 +209,128 @@ public class Group extends Api
      */
     public String getName()
     {
-        return this.groupName;
-    }
-
-    /**
-     * Get the name wiki where the document is stored.
-     *
-     * @return The name of the wiki where this document is stored.
-     * @since XWiki Core 1.1.2, XWiki Core 1.2M2
-     */
-    public String getWiki()
-    {
-        return this.groupXObjectDocument.getWiki();
+        return this.groupSpaceReference.getName();
     }
 
     public String getTitle()
     {
-        return this.groupSpace.getTitle();
+        return this.groupObjectDocument.getTitle();
     }
 
     public void setTitle(String title)
     {
-        this.groupSpace.setTitle(title);
+        this.groupObjectDocument.setTitle(title);
     }
 
     public String getDescription()
     {
-        return this.groupSpace.getDescription();
+        return this.groupObjectDocument.getDescription();
     }
 
     public void setDescription(String description)
     {
-        this.groupSpace.setDescription(description);
+        this.groupObjectDocument.setDescription(description);
     }
 
     public String getUrlShortcut()
     {
-        return this.groupSpace.getUrlShortcut();
+        return this.groupObjectDocument.getUrlShortcut();
     }
 
     public void setUrlShortcut(String urlShortcut)
     {
-        this.groupSpace.setUrlShortcut(urlShortcut);
+        this.groupObjectDocument.setUrlShortcut(urlShortcut);
     }
 
     public String getLogo()
     {
-        return groupXObjectDocument.getLogo();
+        return this.groupObjectDocument.getLogo();
     }
 
     public void setLogo(String logo)
     {
-        this.groupXObjectDocument.setLogo(logo);
+        this.groupObjectDocument.setLogo(logo);
         this.isDirty = true;
     }
 
     public String getPolicy()
     {
-        return this.groupXObjectDocument.getPolicy();
+        return this.groupObjectDocument.getPolicy();
     }
 
     public void setPolicy(String policy)
     {
-        this.groupXObjectDocument.setPolicy(policy);
+        this.groupObjectDocument.setPolicy(policy);
         this.isDirty = true;
     }
 
     public String getAccessLevel()
     {
-        return this.groupXObjectDocument.getAccessLevel();
+        return this.groupObjectDocument.getAccessLevel();
     }
 
     public void setAccessLevel(String accessLevel)
     {
-        if (!StringUtils.equals(this.groupXObjectDocument.getAccessLevel(), accessLevel)) {
+        if (!StringUtils.equals(this.groupObjectDocument.getAccessLevel(), accessLevel)) {
             this.isRightsDirty = true;
         }
 
-        this.groupXObjectDocument.setAccessLevel(accessLevel);
+        this.groupObjectDocument.setAccessLevel(accessLevel);
         this.isDirty = true;
     }
 
     public String getLanguage()
     {
-        return this.groupXObjectDocument.getLanguage();
+        return this.groupObjectDocument.getLanguage();
     }
 
     public void setLanguage(String language)
     {
-        this.groupXObjectDocument.setLanguage(language);
+        this.groupObjectDocument.setLanguage(language);
         this.isDirty = true;
     }
 
     public String getEducationSystem()
     {
-        return this.groupXObjectDocument.getEducationSystem();
+        return this.groupObjectDocument.getEducationSystem();
     }
 
     public void setEducationSystem(String educationSystem)
     {
-        this.groupXObjectDocument.setEducationSystem(educationSystem);
+        this.groupObjectDocument.setEducationSystem(educationSystem);
         this.isDirty = true;
     }
 
     public List<String> getEducationalLevel()
     {
-        return this.groupXObjectDocument.getEducationalLevel();
+        return this.groupObjectDocument.getEducationalLevel();
     }
 
     public void setEducationalLevel(List<String> educationalLevel)
     {
-        this.groupXObjectDocument.setEducationalLevel(educationalLevel);
+        this.groupObjectDocument.setEducationalLevel(educationalLevel);
         this.isDirty = true;
     }
 
     public List<String> getDisciplines()
     {
-        return  this.groupXObjectDocument.getDisciplines();
+        return  this.groupObjectDocument.getDisciplines();
     }
 
     public void setDisciplines(List<String> disciplines)
     {
-        this.groupXObjectDocument.setDisciplines(disciplines);
+        this.groupObjectDocument.setDisciplines(disciplines);
         this.isDirty = true;
     }
 
     public String getLicense()
     {
-        return this.groupXObjectDocument.getLicense();
+        return this.groupObjectDocument.getLicense();
     }
 
     public void setLicense(String license)
     {
-        this.groupXObjectDocument.setLicense(license);
+        this.groupObjectDocument.setLicense(license);
         this.isDirty = true;
     }
 
@@ -356,25 +347,20 @@ public class Group extends Api
 
     public boolean isNew()
     {
-        return this.groupXObjectDocument.isNew();
+        return this.groupObjectDocument.getDocument().isNew();
     }
 
     public boolean isDirty()
     {
-        return this.isDirty
-                || this.groupXObjectDocument.getDocument().isMetaDataDirty()
-                || this.groupSpace.isDirty()
-                || this.documentationSpace.isDirty()
-                || this.invitationsSpace.isDirty()
-                || this.messagesSpace.isDirty()
-                || this.userProfilesSpace.isDirty();
+        return this.isDirty || this.groupObjectDocument.getDocument().isMetaDataDirty();
     }
 
+    /*
     public void save() throws XWikiException
     {
-        if (this.isRightsDirty) {
-            this.updateRights();
-        }
+        //if (this.isRightsDirty) {
+        //    this.updateRights();
+        //}
 
         // Save only dirty spaces
         if (this.groupSpace.isDirty()) {
@@ -401,35 +387,57 @@ public class Group extends Api
             this.memberGroup.save();
         }
 
-        //this.groupXObjectDocument.save();
+
         this.isDirty = false;
-    }
+    }*/
 
-    public Space getGroupSpace()
+    public SpaceReference getGroupSpaceReference()
     {
-        return this.groupSpace;
-    }
-
-    public Space getInvitationsSpace()
-    {
-        return this.invitationsSpace;
+        return this.groupSpaceReference;
     }
 
     public SpaceReference getInvitationsSpaceReference()
     {
-        return this.invitationsSpace.getSpaceReference();
+        return this.invitationsSpaceReference;
+    }
+
+    public SpaceReference getUserProfilesSpaceReference()
+    {
+        return this.userProfilesSpaceReference;
+    }
+
+    public DocumentReference getMembersGroupDocumentReference()
+    {
+        return new DocumentReference("MemberGroup", this.groupSpaceReference);
+    }
+
+    public DocumentReference getAdminMembersGroupReference()
+    {
+        return new DocumentReference("AdminGroup", this.groupSpaceReference);
     }
 
     public void updateFromRequest() throws XWikiException
     {
-        this.groupSpace.updateFromRequest();
-        this.groupXObjectDocument.updateObjectFromRequest(this.groupXObjectDocument.getXClassManager().getClassFullName());
+        //this.groupSpace.updateFromRequest();
+        //this.XGroupObjectDocument
+                //.updateObjectFromRequest(this.XGroupObjectDocument.getXClassManager().getClassFullName());
+    }
+
+    /*
+    public MembersGroup getMemberGroup()
+    {
+        return this.memberGroup;
+    }
+
+    public MembersGroup getAdminGroup()
+    {
+        return this.adminGroup;
     }
 
     public List<String> getMembers() throws XWikiException
     {
         return this.memberGroup.getAllMembers();
-    }
+    }*/
 
     public boolean addMemberRole(String member, String role) throws XWikiException
     {
@@ -456,6 +464,7 @@ public class Group extends Api
 
     public boolean removeMemberRole(String member, String role) throws XWikiException
     {
+        /*
         if (!this.isAdmin())
             return false;
 
@@ -465,25 +474,55 @@ public class Group extends Api
                         this.context),
                 this.context);
 
-        return roleMembersGroup.removeUserOrGroup(member);
+        return roleMembersGroup.removeUserOrGroup(member);    */
+
+        return true;
     }
 
     public boolean addMember(String member) throws XWikiException
     {
-        if (!this.isAdmin())
-            return false;
+        /*
+        this.memberGroup.addUserOrGroup(member);
+        // create user profile
+        XUserProfile XUserProfile = XUserProfileClass.getInstance(this.getXWikiContext())
+                .newXObjectDocument(new DocumentReference(member, this.userProfilesSpace.getSpaceReference()));
+        XUserProfile.setProfile("User profile description");
+        XUserProfile.setAllowNotifications(true);
+        XUserProfile.setAllowSelfNotifications(true);
+        XUserProfile.save();
 
-        return this.memberGroup.addUserOrGroup(member);
+        // notify admins
+        List<String> admins = this.adminGroup.getAllMembers(); */
+
+        return true;
+    }
+
+    public boolean removeMember(String member) throws XWikiException
+    {
+        boolean removed = true;
+        /*
+        if(this.adminGroup.isMember(member))
+            removed = this.adminGroup.removeUserOrGroup(member);
+
+        if(removed) {
+            removed = this.memberGroup.removeUserOrGroup(member);
+            // delete user profile
+            XUserProfile XUserProfile = XUserProfileClass.getInstance(this.getXWikiContext())
+                    .newXObjectDocument(new DocumentReference(member, this.userProfilesSpace.getSpaceReference()));
+            XUserProfile.delete();
+        }  */
+
+        return removed;
     }
 
     public boolean inviteMember(String member)
     {
-
         return false;
     }
 
     private void updateRights() throws XWikiException
     {
+        /*
         //DocumentReference xWikiAdminGroupReference =
         //        currentReferenceDocumentReferenceResolver.resolve(XWIKIADMINGROUP_REFERENCE);
         //DocumentReference xWikiAllGroupReference =
@@ -493,106 +532,93 @@ public class Group extends Api
 
         this.groupSpace.setAccessLevel(adminGroup, RIGHTS_LEVELS_EDIT, true);
 
-        if (this.groupXObjectDocument.getAccessLevel().equals(GroupClass.FIELD_ACCESS_LEVEL_PUBLIC)) {
+        if (StringUtils.equals(this.XGroupObjectDocument.getAccessLevel(), XGroupClass.FIELD_ACCESS_LEVEL_PUBLIC)) {
             this.groupSpace.setAccessLevel(adminGroup, RIGHTS_LEVELS_EDIT, true);
         }
 
-        if (this.groupXObjectDocument.getAccessLevel().equals(GroupClass.FIELD_ACCESS_LEVEL_PROTECTED)) {
+        if (StringUtils.equals(this.XGroupObjectDocument.getAccessLevel(), XGroupClass.FIELD_ACCESS_LEVEL_PROTECTED)) {
             this.groupSpace.setAccessLevel(adminGroup, RIGHTS_LEVELS_EDIT, true);
             this.collSpace.setAccessLevel(memberGroup, RIGHTS_LEVELS_EDIT, true);
         }
 
-        if (this.groupXObjectDocument.getAccessLevel().equals(GroupClass.FIELD_ACCESS_LEVEL_PRIVATE)) {
+        if (StringUtils.equals(this.XGroupObjectDocument.getAccessLevel(), XGroupClass.FIELD_ACCESS_LEVEL_PRIVATE)) {
             this.groupSpace.setAccessLevel(adminGroup, RIGHTS_LEVELS_EDIT, true);
             this.collSpace.setAccessLevel(memberGroup, RIGHTS_LEVELS_VIEW, true);
             this.collSpace.setAccessLevel(memberGroup, RIGHTS_LEVELS_EDIT, true);
         }
 
-        this.groupSpace.getSpaceXObjectDocument().getDocument().setMetaDataDirty(true);
-        this.collSpace.getSpaceXObjectDocument().getDocument().setMetaDataDirty(true);
-    }
-
-    public boolean joinGroup() throws XWikiException
-    {
-        // TODO
-        // exceptions for policy closed
-
-        // add user profile
-        this.memberGroup.addUserOrGroup(this.context.getUser());
-        // send mail
-
-        return true;
+        this.groupSpace.getXSpaceObjectDocument().getDocument().setMetaDataDirty(true);
+        this.collSpace.getXSpaceObjectDocument().getDocument().setMetaDataDirty(true); */
     }
 
     public boolean isAdmin() throws XWikiException
     {
-        return this.adminGroup.isMember(localEntityReferenceSerializer.serialize(this.context.getUserReference()));
+        //return this.adminGroup.isMember(localEntityReferenceSerializer.serialize(this.context.getUserReference()));
+        return false;
     }
 
     public boolean isAdmin(String user) throws XWikiException
     {
-        return this.adminGroup.isMember(user);
+        //return this.adminGroup.isMember(user);
+        return false;
     }
 
     public boolean isMember() throws XWikiException
     {
-        return this.memberGroup.isMember(localEntityReferenceSerializer.serialize(this.context.getUserReference()));
+        //return this.memberGroup.isMember(localEntityReferenceSerializer.serialize(this.context.getUserReference()));
+        return false;
     }
 
     public boolean isMember(String user) throws XWikiException
     {
-        return this.memberGroup.isMember(user);
+        //return this.memberGroup.isMember(user);
+        return false;
     }
 
     public String display(String fieldname)
     {
-        if (Arrays.asList(this.groupXObjectDocument.getXClassManager().getBaseClass().getPropertyNames()).contains(fieldname))
-            return this.groupXObjectDocument.display(fieldname);
-
-        return this.groupSpace.display(fieldname);
+        Document document = new Document(this.groupObjectDocument.getDocument(), getXWikiContext());
+        return document.display(fieldname);
     }
 
     public String display(String fieldname, String mode)
     {
-        if (Arrays.asList(this.groupXObjectDocument.getXClassManager().getBaseClass().getPropertyNames()).contains(fieldname))
-            return this.groupXObjectDocument.display(fieldname, mode);
-
-        return this.groupSpace.display(fieldname, mode);
+        Document document = new Document(this.groupObjectDocument.getDocument(), getXWikiContext());
+        return document.display(fieldname, mode);
     }
 
     public Date getCreationDate()
     {
-        return this.groupXObjectDocument.getCreationDate();
+        return this.groupObjectDocument.getDocument().getCreationDate();
     }
 
     public String getHomeURL()
     {
-        return this.groupSpace.getHomeURL();
+        return getXWikiContext().getWiki().getURL(
+                new DocumentReference("WebHome", groupSpaceReference), "view", getXWikiContext());
     }
 
     public Document getHomeDocument() throws XWikiException
     {
-        return this.groupSpace.getHomeDocument();
+        return new Document(getXWikiContext().getWiki().getDocument(
+                new DocumentReference("WebHome", groupSpaceReference), getXWikiContext()), getXWikiContext());
     }
 
-    public List<Property> getMetadata() {
+    public List<Property> getMetadata()
+            throws XWikiException
+    {
+        return this.groupObjectDocument.getProperties();
+    }
 
-        List<Property> metadata = new ArrayList<Property>();
-
-        metadata.addAll(this.groupSpace.getMetadata());
-
-        com.xpn.xwiki.api.Object groupClassObject =
-                this.groupXObjectDocument.getObject(this.groupXObjectDocument.getXClassManager().getClassFullName());
-        for (java.lang.Object propName : groupClassObject.getPropertyNames()) {
-            metadata.add(groupClassObject.getProperty((String)propName));
-        }
-
-        return metadata;
+    public void save()
+            throws XWikiException
+    {
+        this.groupObjectDocument.save();
     }
 
     @Override
     public String toString()
     {
-        return this.groupName;
+        return this.groupSpaceReference.getName();
     }
 }

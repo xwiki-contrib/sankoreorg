@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -39,22 +40,16 @@ import org.xwiki.bridge.DocumentAccessBridge;
 import org.xwiki.bridge.DocumentModelBridge;
 import org.xwiki.component.annotation.Component;
 import org.xwiki.context.Execution;
-import org.xwiki.context.ExecutionContext;
 import org.xwiki.model.reference.AttachmentReference;
 import org.xwiki.model.reference.DocumentReference;
-import org.xwiki.rendering.converter.ConversionException;
 import org.xwiki.rendering.converter.Converter;
 import org.xwiki.rendering.syntax.Syntax;
 import org.xwiki.velocity.VelocityManager;
 
-import com.xpn.xwiki.XWiki;
 import com.xpn.xwiki.XWikiContext;
 import com.xpn.xwiki.XWikiException;
-import com.xpn.xwiki.api.Document;
 import com.xpn.xwiki.doc.XWikiDocument;
-import com.xpn.xwiki.doc.XWikiDocumentCompatibilityAspect;
 import com.xpn.xwiki.web.ExternalServletURLFactory;
-import com.xpn.xwiki.web.Utils;
 
 @Component
 @Singleton
@@ -125,7 +120,7 @@ public class DefaultMailSender implements MailSender
     private VelocityManager velocityManager;
 
     @Inject
-    private org.xwiki.sankore.MailConfiguration mailConfiguration;
+    private MailConfiguration mailConfiguration;
 
     public boolean sendMail(Mail mail)
             throws MessagingException, Exception
@@ -182,9 +177,10 @@ public class DefaultMailSender implements MailSender
          return sent;
     }
 
-    private String getRenderedTemplateContent(DocumentReference documentReference, String from, String to, String cc, String bcc, Map<String, Object> parameters)
+    private Map<String, String> renderTemplate(DocumentReference documentReference, String from, String to, String cc, String bcc, Map<String, Object> parameters)
             throws XWikiException
     {
+        Map<String, String> rendered = new HashMap<String, String>();
         XWikiContext xWikiContext = ContextUtils.getXWikiContext(execution.getContext());
         VelocityContext velocityContext = ContextUtils.getVelocityContext(xWikiContext);
 
@@ -207,26 +203,24 @@ public class DefaultMailSender implements MailSender
         ExternalServletURLFactory externalServletURLFactory = new ExternalServletURLFactory(xWikiContext);
         xWikiContext.setURLFactory(externalServletURLFactory);
 
-        XWikiDocument xWikiDocument = xWikiContext.getWiki().getDocument(documentReference, xWikiContext);
+        XWikiDocument xWikiDocument = xWikiContext.getWiki().getDocument(documentReference, xWikiContext).getTranslatedDocument(xWikiContext);
         String content = xWikiDocument.getTranslatedContent(xWikiContext);
         String renderedContent = xWikiDocument.getRenderedContent(content, xWikiDocument.getSyntax().toIdString(), xWikiContext);
+        String renderedTitle = xWikiDocument.getRenderedTitle(Syntax.PLAIN_1_0, xWikiContext);
 
-        return  renderedContent;
+        rendered.put("subject", renderedTitle);
+        rendered.put("html", renderedContent);
+        rendered.put("text", Jsoup.parseBodyFragment(renderedContent).text());
+
+        return  rendered;
     }
 
     public boolean sendMailFromTemplate(DocumentReference templateReference, String from, String to, String cc, String bcc, Map<String, Object> parameters)
-            throws Exception, ConversionException
+            throws XWikiException
     {
-        DocumentModelBridge templateDocument = documentAccessBridge.getDocument(templateReference);
+        Map<String, String> mailTemplate = renderTemplate(templateReference, from, to, cc, bcc, parameters);
 
-        String subject = templateDocument.getTitle();
-
-        String renderedContent = getRenderedTemplateContent(templateReference, from, to, cc, bcc, parameters);
-
-        String text = Jsoup.parseBodyFragment(renderedContent).text();
-        String html = renderedContent;
-
-        Mail mail = new Mail(from, to, cc, bcc, subject, text, html);
+        Mail mail = new Mail(from, to, cc, bcc, mailTemplate.get("subject"), mailTemplate.get("text"), mailTemplate.get("html"));
         /*List<AttachmentReference> attachmentReferences = documentAccessBridge.getAttachmentReferences(templateReference);
         List<Attachment> attachments = new ArrayList<Attachment>(attachmentReferences.size());
         for (AttachmentReference attachmentReference : attachmentReferences) {
@@ -234,14 +228,14 @@ public class DefaultMailSender implements MailSender
         }
         mail.setAttachments();*/
 
+        boolean sent = false;
         try {
-            sendMail(mail);
+            sent = sendMail(mail);
         } catch (Exception e) {
             logger.error("sendEmailFromTemplate: " + templateReference, e);
-            return false;
         }
 
-        return true;
+        return sent;
     }
 
     private MimeMessage createMimeMessage(Mail mail, Session session)
@@ -488,5 +482,10 @@ public class DefaultMailSender implements MailSender
         } else {
             return (type);
         }
+    }
+
+    public MailConfiguration getMailConfiguration()
+    {
+        return mailConfiguration;
     }
 }

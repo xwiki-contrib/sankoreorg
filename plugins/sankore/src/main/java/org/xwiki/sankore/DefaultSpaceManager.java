@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
-import org.xwiki.component.manager.ComponentLookupException;
-import org.xwiki.component.manager.ComponentManager;
 import org.xwiki.context.Execution;
-import org.xwiki.context.ExecutionContext;
 import org.xwiki.model.EntityType;
 import org.xwiki.model.reference.DocumentReference;
 import org.xwiki.model.reference.DocumentReferenceResolver;
@@ -20,8 +18,9 @@ import org.xwiki.model.reference.EntityReference;
 import org.xwiki.model.reference.SpaceReference;
 import org.xwiki.query.QueryException;
 import org.xwiki.query.QueryManager;
+import org.xwiki.sankore.internal.ClassManager;
 import org.xwiki.sankore.internal.SpaceClass;
-import org.xwiki.sankore.internal.SpaceXObjectDocument;
+import org.xwiki.sankore.internal.SpaceObjectDocument;
 
 import com.xpn.xwiki.XWiki;
 import com.xpn.xwiki.XWikiContext;
@@ -41,80 +40,74 @@ public class DefaultSpaceManager implements SpaceManager
     private Execution execution;
 
     @Inject
-    private QueryManager queryManager;
+    @Named("SpaceClass")
+    ClassManager<SpaceObjectDocument> spaceClass;
 
     @Inject
-    private ComponentManager componentManager;
+    @Named("current/reference")
+    DocumentReferenceResolver<EntityReference> currentReferenceDocumentReferenceResolver;
 
-    public Space getSpace(SpaceReference spaceReference) throws XWikiException
+    @Inject
+    private QueryManager queryManager;
+
+    public SpaceObjectDocument getSpace(SpaceReference spaceReference) throws XWikiException
     {
-        return new Space(spaceReference, execution.getContext());
+        return this.spaceClass.getDocumentObject(new DocumentReference(SpaceClass.PREFERENCES_NAME, spaceReference));
     }
 
-    public Space createSpace(SpaceReference spaceReference) throws XWikiException
+    public SpaceObjectDocument createSpace(SpaceReference spaceReference) throws XWikiException
     {
-        Space space = new Space(spaceReference, execution.getContext());
-        if (space.isDirty()) {
-            return null;
-        }
-        return space;
+        return spaceClass.newDocumentObject(new DocumentReference(SpaceClass.PREFERENCES_NAME, spaceReference));
     }
 
-    public Space createSpaceFromRequest()
+    public SpaceObjectDocument createSpaceFromRequest()
     {
         return null;
     }
 
-    public Space updateSpaceFromRequest()
+    public SpaceObjectDocument updateSpaceFromRequest()
     {
         return null;
     }
 
-    public void copySpace(SpaceReference spaceReference, SpaceReference targetSpaceReference, boolean doUpdateParents) throws XWikiException
+    public void copySpace(SpaceReference spaceReference, SpaceReference targetSpaceReference, boolean doUpdateParents)
+            throws XWikiException
     {
-        List<String>  results = null;
-        try {
-            results =
-                    this.queryManager.createQuery("select distinct doc.name from XWikiDocument as doc where doc.space='" + spaceReference.getName() + "'", "xwql")
-                            .execute();
-        } catch (QueryException qe) {
+        XWikiContext context = ContextUtils.getXWikiContext(execution.getContext());
 
-        }
+        List<DocumentReference> references = context.getWiki().getStore()
+                .searchDocumentReferences("where doc.space='" + spaceReference.getName() + "'", context);
 
-        XWikiContext xwikiContext = ContextUtils.getXWikiContext(execution.getContext());
-        XWiki xwiki = ContextUtils.getXWiki(execution.getContext());
-        for(String docName : results)
-        {
-            XWikiDocument xwikiDocument = xwiki.getDocument(new DocumentReference(docName, spaceReference),
-                    xwikiContext);
-            XWikiDocument newDocument = xwikiDocument.copyDocument(new DocumentReference(xwikiDocument.getDocumentReference().getName(), targetSpaceReference), xwikiContext);
-            if(doUpdateParents && newDocument.getParentReference() != null && newDocument.getParentReference().getLastSpaceReference().getName().equals(spaceReference.getName()))
-            {
-                DocumentReference newParentReference = new DocumentReference(newDocument.getParentReference().getName(), targetSpaceReference);
-                newDocument.setParentReference(newParentReference);
+        if (references != null) {
+            for(DocumentReference reference : references) {
+                context.getWiki().copyDocument(reference,
+                        new DocumentReference(reference.getName(), targetSpaceReference),
+                        null,
+                        true,
+                        true,
+                        true,
+                        context);
             }
-            xwiki.saveDocument(newDocument, xwikiContext);
+        } else {
+            logger.info("copySpace() no documents found in space: " + spaceReference.getName());
         }
     }
 
-    public Space createSpaceFromTemplate(SpaceReference spaceReference, SpaceReference templateReference) throws XWikiException
+    public SpaceObjectDocument createSpaceFromTemplate(SpaceReference spaceReference, SpaceReference templateReference)
+            throws XWikiException
     {
-        if (this.countDocuments(spaceReference) > 0)
+        if (this.countDocuments(spaceReference) > 0) {
             return null;
+        }
 
         this.copySpace(templateReference, spaceReference, true);
-        Space space = new Space(spaceReference, execution.getContext());
-        if (space.isDirty()) {
-            space.save();
-        }
 
-        return space;
+        return this.spaceClass.newDocumentObject(new DocumentReference(SpaceClass.PREFERENCES_NAME, spaceReference));
     }
 
     @SuppressWarnings("unchecked")
     public SpaceReference createSpaceReference(String wikiName, String spaceName)
     {
-
         EntityReference reference = null;
         if (!StringUtils.isEmpty(wikiName)) {
             reference = new EntityReference(wikiName, EntityType.WIKI);
@@ -126,16 +119,9 @@ public class DefaultSpaceManager implements SpaceManager
 
         reference = new EntityReference(SpaceClass.PREFERENCES_NAME, EntityType.DOCUMENT, reference);
 
-        DocumentReference preferencesReference;
-        try {
-            preferencesReference =
-                    this.componentManager.lookup(DocumentReferenceResolver.class, this.DEFAULT_RESOLVER_HINT)
-                            .resolve(reference);
-        } catch (ComponentLookupException e) {
-            preferencesReference = null;
-        }
+        DocumentReference documentReference = currentReferenceDocumentReferenceResolver.resolve(reference);
 
-        return preferencesReference.getLastSpaceReference();
+        return documentReference.getLastSpaceReference();
     }
 
     public int countDocuments(SpaceReference spaceReference)

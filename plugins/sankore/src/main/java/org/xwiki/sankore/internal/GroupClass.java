@@ -1,20 +1,77 @@
 package org.xwiki.sankore.internal;
 
-import org.xwiki.context.ExecutionContext;
-import org.xwiki.sankore.ContextUtils;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.xwiki.component.annotation.Component;
+import org.xwiki.context.Execution;
+import org.xwiki.model.EntityType;
+import org.xwiki.model.reference.DocumentReference;
+import org.xwiki.model.reference.DocumentReferenceResolver;
+import org.xwiki.model.reference.EntityReference;
+import org.xwiki.model.reference.EntityReferenceSerializer;
 
 import com.xpn.xwiki.XWikiContext;
 import com.xpn.xwiki.XWikiException;
 import com.xpn.xwiki.doc.XWikiDocument;
+import com.xpn.xwiki.objects.BaseObject;
 import com.xpn.xwiki.objects.classes.BaseClass;
-import com.xpn.xwiki.plugin.applicationmanager.core.doc.objects.classes.AbstractXClassManager;
+import com.xpn.xwiki.objects.classes.PropertyClass;
 
-public class GroupClass  extends AbstractXClassManager<GroupXObjectDocument>
+@Component
+@Named("GroupClass")
+@Singleton
+public class GroupClass implements ClassManager<GroupObjectDocument>
 {
     public static final String DEFAULT_FIELDS_SEPARATOR = "|";
 
-    public static final String PREFERENCES_NAME = "WebPreferences";
-    public static final int OBJECTID = 0;
+    /**
+     * Name of field <code>prettyname</code> for the XWiki class XWiki.XWikiSpaceClass.
+     */
+    public static final String FIELD_TITLE = "title";
+
+    /**
+     * Pretty name of field <code>title</code> for the XWiki class XWiki.XWikiSpaceClass.
+     */
+    public static final String FIELDPN_TITLE = "Space title";
+
+    /**
+     * Name of field <code>description</code> for the XWiki class XWiki.XWikiSpaceClass.
+     */
+    public static final String FIELD_DESCRIPTION = "description";
+
+    /**
+     * Pretty name of field <code>description</code> for the XWiki class XWiki.XWikiSpaceClass.
+     */
+    public static final String FIELDPN_DESCRIPTION = "Space description";
+
+    /**
+     * Name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
+     */
+    public static final String FIELD_TYPE = "type";
+
+    /**
+     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
+     */
+    public static final String FIELDPN_TYPE = "Space type";
+
+    /**
+     * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
+     */
+    public static final String FIELD_URLSHORTCUT = "urlshortcut";
+
+    /**
+     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
+     */
+    public static final String FIELDPN_URLSHORTCUT = "Space URL shortcut";
 
     public static final String FIELD_LOGO = "logo";
     public static final String FIELDPN_LOGO = "Group logo";
@@ -51,111 +108,157 @@ public class GroupClass  extends AbstractXClassManager<GroupXObjectDocument>
     public static final String FIELDPN_LICENSE = "Group license";
     public static final String FIELDQ_LICENSE = "select obj.name, prop.value from BaseObject as obj, StringProperty as prop, IntegerProperty as oprop where  obj.className='XWiki.LicenceClass' and prop.id.id = obj.id  and prop.id.name = 'name' and prop.value not like 'DEPRECATED:%' and oprop.id.id = obj.id and oprop.id.name = 'order' order by oprop.value";
 
-    /**
-     * Space of class document.
-     */
-    private static final String CLASS_SPACE = "XWiki";
+    @Inject
+    private Logger logger;
 
-    /**
-     * Prefix of class document.
-     */
-    private static final String CLASS_PREFIX = "Group";
+    @Inject
+    Execution execution;
 
-    /**
-     * Unique instance of GroupClass.
-     */
-    private static GroupClass instance;
+    @Inject
+    @Named("current/reference")
+    DocumentReferenceResolver<EntityReference> currentReferenceDocumentReferenceResolver;
 
-    /**
-     * Default constructor for XWikiSpaceClass.
-     */
-    protected GroupClass()
+    @Inject
+    @Named("local")
+    private EntityReferenceSerializer<String> referenceSerializer;
+
+    private EntityReference classReference = new EntityReference("GroupClass", EntityType.DOCUMENT,
+            new EntityReference("XWiki", EntityType.SPACE));
+
+    private EntityReference sheetReference = new EntityReference("GroupSheet", EntityType.DOCUMENT,
+            new EntityReference("XWiki", EntityType.SPACE));
+
+    private EntityReference templateReference = new EntityReference("GroupTemplate", EntityType.DOCUMENT,
+            new EntityReference("XWiki", EntityType.SPACE));
+
+    private XWikiContext getContext()
     {
-        super(CLASS_SPACE, CLASS_PREFIX, false);
+        return (XWikiContext) this.execution.getContext().getProperty("xwikicontext");
     }
 
-    public static GroupClass getInstance(ExecutionContext executionContext) throws XWikiException
+    public GroupObjectDocument getDocumentObject(DocumentReference documentReference, int objectId) throws XWikiException
     {
-        return GroupClass.getInstance(ContextUtils.getXWikiContext(executionContext));
+        return getDocumentObject(documentReference);
     }
 
-    /**
-     * Return unique instance of SpaceClass and update documents for this context.
-     *
-     * @param xwikiContext Context.
-     * @return SpaceClass instance.
-     * @throws XWikiException error when checking for class, class template and class sheet.
-     */
-    public static GroupClass getInstance(XWikiContext xwikiContext) throws XWikiException
+    public GroupObjectDocument getDocumentObject(DocumentReference documentReference) throws XWikiException
     {
-        synchronized (GroupClass.class) {
-            if (instance == null) {
-                instance = new GroupClass();
+        XWikiContext context = getContext();
+        DefaultXObjectDocumentClass<GroupObjectDocument> cls =
+                new DefaultXObjectDocumentClass<GroupObjectDocument>(getClassDocumentReference(), context);
+        XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
+        BaseObject obj = doc.getXObject(getClassDocumentReference());
+
+        if (obj == null)
+            return null;
+
+        return new GroupObjectDocument(cls, doc, obj, context);
+    }
+
+    public GroupObjectDocument newDocumentObject(DocumentReference documentReference) throws XWikiException
+    {
+        XWikiContext context = getContext();
+        DefaultXObjectDocumentClass<GroupObjectDocument> cls =
+                new DefaultXObjectDocumentClass<GroupObjectDocument>(getClassDocumentReference(), context);
+        XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
+        BaseObject obj = doc.getXObject(getClassDocumentReference(), true, context);
+
+        if (obj == null)
+            return null;
+
+        return new GroupObjectDocument(cls, doc, obj, context);
+    }
+
+    public DocumentReference getClassDocumentReference() throws XWikiException
+    {
+        return currentReferenceDocumentReferenceResolver.resolve(classReference);
+    }
+
+    public DocumentReference getClassSheetDocumentReference() throws XWikiException
+    {
+        return currentReferenceDocumentReferenceResolver.resolve(sheetReference);
+    }
+
+    public DocumentReference getClassTemplateDocumentReference() throws XWikiException
+    {
+        return currentReferenceDocumentReferenceResolver.resolve(templateReference);
+    }
+
+    public List<GroupObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue) throws XWikiException
+    {
+        Map<String, Object> fields = new HashMap<String, Object>();
+        fields.put(fieldName, fieldValue);
+
+        return searchDocumentObjectsByFields(fields);
+    }
+
+    public List<GroupObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
+    {
+        String from = "select distinct doc.space, doc.name from XWikiDocument as doc, BaseObject as obj";
+        String where = " where obj.name=doc.fullName and obj.className='XWiki.GroupClass'";
+        BaseClass baseClass = getContext().getWiki().getXClass(getClassDocumentReference(), getContext());
+        List<PropertyClass> enabledProperties = baseClass.getEnabledProperties();
+
+        int i = 0;
+        String propName = StringUtils.EMPTY;
+        String propType = StringUtils.EMPTY;
+        String propValue = StringUtils.EMPTY;
+        for (PropertyClass propertyClass : enabledProperties) {
+            if (fields.keySet().contains(propertyClass.getName())) {
+                propName = "prop" + Integer.toString(i);
+                propType =  propertyClass.newProperty().getClass().getSimpleName();
+                propValue = fields.get(propertyClass.getName()).toString();
+                from = from.concat(", " + propType + " as " + propName);
+                where = where.concat(" and " + propName + ".id.id=obj.id and " + propName + ".name='" + propertyClass.getName() + "'");
+                if (StringUtils.equals(propType, "IntegerProperty")) {
+                    if (StringUtils.equals(propValue, "true"))
+                        where = where.concat(" and " + propName + ".value>0");
+                    else
+                        where = where.concat(" and " + propName + ".value=0");
+                } else if (StringUtils.equals(propType, "LongProperty")
+                        || StringUtils.equals(propType, "FloatProperty")
+                        || StringUtils.equals(propType, "DoubleProperty")) {
+                    where = where.concat(" and " + propName + ".value=" + fields.get(propertyClass.getName()).toString());
+                } else if (StringUtils.equals(propType, "StringProperty")
+                        || StringUtils.equals(propType, "LargeStringProperty")
+                        || StringUtils.equals(propType, "DateProperty")) {
+                    where = where.concat(" and " + propName + ".value='" + fields.get(propertyClass.getName()).toString() + "'");
+                } else if (StringUtils.equals(propType, "StringListProperty")) {
+                    where = where.concat(" and " + propName + ".textValue='" + fields.get(propertyClass.getName()).toString() + "'");
+                } else if (StringUtils.equals(propType, "DBStringListProperty")) {
+                    from = from.concat(" join " + propName + ".list " + propName + "list");
+                    where = where.concat(" and " + propName + "list='" + fields.get(propertyClass.getName()).toString() + "'");
+                }
+                i++;
             }
         }
 
-        instance.check(xwikiContext);
-
-        return instance;
-    }
-
-    @Override
-    public boolean forceValidDocumentName()
-    {
-        // All wiki descriptors are of the form <code>XWiki.XWikiServer%</code>
-        return true;
-    }
-
-    @Override
-    protected boolean updateBaseClass(BaseClass baseClass)
-    {
-        boolean needsUpdate = super.updateBaseClass(baseClass);
-
-        needsUpdate |= baseClass.addTextField(FIELD_LOGO, FIELDPN_LOGO, 30);
-        needsUpdate |= baseClass.addStaticListField(FIELD_POLICY, FIELDPN_POLICY, FIELDL_POLICY);
-        needsUpdate |= baseClass.addStaticListField(FIELD_ACCESS_LEVEL, FIELDPN_ACCESS_LEVEL, FIELDL_ACCESS_LEVEL);
-        needsUpdate |= baseClass.addTextField(FIELD_LANGUAGE, FIELDPN_LANGUAGE, 30);
-        needsUpdate |= baseClass.addDBListField(FIELD_EDUCATION_SYSTEM, FIELDPN_EDUCATION_SYSTEM, 1, false, true, FIELDQ_EDUCATION_SYSTEM);
-        needsUpdate |= baseClass.addDBTreeListField(FIELD_EDUCATIONAL_LEVEL, FIELDPN_EDUCATIONAL_LEVEL, 1, true, true, FIELDQ_EDUCATIONAL_LEVEL);
-        needsUpdate |= baseClass.addDBTreeListField(FIELD_DISCIPLINES, FIELDPN_DISCIPLINES, 1, true, true, FIELDQ_DISCIPLINES);
-        needsUpdate |= baseClass.addDBListField(FIELD_LICENSE, FIELDPN_LICENSE, 1, false, false, FIELDQ_LICENSE);
-
-        return needsUpdate;
-    }
-
-    @Override
-    protected boolean updateClassTemplateDocument(XWikiDocument xdoc)
-    {
-        boolean needsUpdate = false;
-
-        /*
-        if (!DEFAULT_PAGE_PARENT.equals(doc.getParent())) {
-            doc.setParent(DEFAULT_PAGE_PARENT);
-            needsUpdate = true;
+        List<GroupObjectDocument> groupObjectDocuments = new ArrayList<GroupObjectDocument>();
+        List<Object> results = getContext().getWiki().getStore().search(from + where, 0, 0, getContext());
+        String docSpace = StringUtils.EMPTY;
+        String docName = StringUtils.EMPTY;
+        for (Object result : results) {
+            Object[] resultParams = (Object[]) result;
+            docSpace = resultParams[0].toString();
+            docName = resultParams[1].toString();
+            DocumentReference documentReference = currentReferenceDocumentReferenceResolver.resolve(
+                    new EntityReference(docName, EntityType.DOCUMENT, new EntityReference(docSpace, EntityType.SPACE)));
+            groupObjectDocuments.add(getDocumentObject(documentReference));
         }
 
-        needsUpdate |= updateDocStringValue(doc, FIELD_HOMEPAGE, DEFAULT_HOMEPAGE);
-
-        needsUpdate |= updateDocBooleanValue(doc, FIELD_SECURE, DEFAULT_SECURE);
-
-        needsUpdate |= updateDocBooleanValue(doc, FIELD_ISWIKITEMPLATE, DEFAULT_ISWIKITEMPLATE);
-        */
-
-        return needsUpdate;
+        return groupObjectDocuments;
     }
 
-    /**
-     * {@inheritDoc}
-     * <p>
-     * Override abstract method using XWikiApplication as
-     * {@link com.xpn.xwiki.plugin.applicationmanager.core.doc.objects.classes.XObjectDocument}.
-     *
-     * @see com.xpn.xwiki.plugin.applicationmanager.core.doc.objects.classes.AbstractXClassManager#newXObjectDocument(com.xpn.xwiki.doc.XWikiDocument,
-     *      int, com.xpn.xwiki.XWikiContext)
-     */
-    @Override
-    public GroupXObjectDocument newXObjectDocument(XWikiDocument xwikiDocument, int objId, XWikiContext context) throws XWikiException
+    public void saveDocumentObject(GroupObjectDocument documentObject) throws XWikiException
     {
-        return new GroupXObjectDocument(xwikiDocument, objId, context);
+        //documentObject.save();
+        documentObject.saveDocument("GroupObjectDocument saved.", false);
+        //getContext().getWiki().saveDocument(documentObject.getDocument(), getContext());
+    }
+
+    @Override
+    public String toString()
+    {
+        return referenceSerializer.serialize(this.classReference);
     }
 }

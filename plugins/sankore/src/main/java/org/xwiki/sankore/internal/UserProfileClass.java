@@ -27,51 +27,18 @@ import com.xpn.xwiki.objects.classes.BaseClass;
 import com.xpn.xwiki.objects.classes.PropertyClass;
 
 @Component
-@Named("SpaceClass")
+@Named("UserProfileClass")
 @Singleton
-public class SpaceClass implements ClassManager<SpaceObjectDocument>
+public class UserProfileClass implements ClassManager<UserProfileObjectDocument>
 {
-    public static final String PREFERENCES_NAME = "WebPreferences";
+    public static final String FIELD_PROFILE = "profile";
+    public static final String FIELDPN_PROFILE = "User profile";
 
-    /**
-     * Name of field <code>prettyname</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_TITLE = "title";
+    public static final String FIELD_ALLOW_NOTIFICATIONS = "allowNotifications";
+    public static final String FIELDPN_ALLOW_NOTIFICATIONS = "Allow notifications";
 
-    /**
-     * Pretty name of field <code>title</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_TITLE = "Space title";
-
-    /**
-     * Name of field <code>description</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_DESCRIPTION = "description";
-
-    /**
-     * Pretty name of field <code>description</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_DESCRIPTION = "Space description";
-
-    /**
-     * Name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_TYPE = "type";
-
-    /**
-     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_TYPE = "Space type";
-
-    /**
-     * Name of field <code>urlshortcut</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELD_URLSHORTCUT = "urlshortcut";
-
-    /**
-     * Pretty name of field <code>type</code> for the XWiki class XWiki.XWikiSpaceClass.
-     */
-    public static final String FIELDPN_URLSHORTCUT = "Space URL shortcut";
+    public static final String FIELD_ALLOW_NOTIFICATIONS_FROM_SELF = "allowNotificationsFromSelf";
+    public static final String FIELDPN_ALLOW_NOTIFICATIONS_FROM_SELF = "Allow Notifications From Self";
 
     @Inject
     private Logger logger;
@@ -87,13 +54,13 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
     @Named("local")
     private EntityReferenceSerializer<String> referenceSerializer;
 
-    private EntityReference classReference = new EntityReference("SpaceClass", EntityType.DOCUMENT,
+    private EntityReference classReference = new EntityReference("UserProfileClass", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
-    private EntityReference sheetReference = new EntityReference("SpaceSheet", EntityType.DOCUMENT,
+    private EntityReference sheetReference = new EntityReference("UserProfileSheet", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
-    private EntityReference templateReference = new EntityReference("SpaceTemplate", EntityType.DOCUMENT,
+    private EntityReference templateReference = new EntityReference("UserProfileTemplate", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
     private XWikiContext getContext()
@@ -101,16 +68,18 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
         return (XWikiContext) this.execution.getContext().getProperty("xwikicontext");
     }
 
-    public SpaceObjectDocument getDocumentObject(DocumentReference documentReference, int objectId) throws XWikiException
+    public UserProfileObjectDocument getDocumentObject(DocumentReference documentReference, int objectId)
+            throws XWikiException
     {
         return getDocumentObject(documentReference);
     }
 
-    public SpaceObjectDocument getDocumentObject(DocumentReference documentReference) throws XWikiException
+    public UserProfileObjectDocument getDocumentObject(DocumentReference documentReference)
+            throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<SpaceObjectDocument> cls =
-                new DefaultXObjectDocumentClass<SpaceObjectDocument>(getClassDocumentReference(), context);
+        DefaultXObjectDocumentClass<UserProfileObjectDocument> cls =
+                new DefaultXObjectDocumentClass<UserProfileObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference());
 
@@ -118,39 +87,41 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
             return null;
         }
 
-        return new SpaceObjectDocument(cls, doc, obj, context);
+        return new UserProfileObjectDocument(cls, doc, obj, context);
     }
 
-    public SpaceObjectDocument newDocumentObject(DocumentReference documentReference) throws XWikiException
+    public UserProfileObjectDocument newDocumentObject(DocumentReference documentReference)
+            throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<SpaceObjectDocument> cls =
-                new DefaultXObjectDocumentClass<SpaceObjectDocument>(getClassDocumentReference(), context);
+        DefaultXObjectDocumentClass<UserProfileObjectDocument> cls =
+                new DefaultXObjectDocumentClass<UserProfileObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference(), true, context);
 
         if (obj == null)
             return null;
 
-        return new SpaceObjectDocument(cls, doc, obj, context);
+        return new UserProfileObjectDocument(cls, doc, obj, context);
     }
 
-    public DocumentReference getClassDocumentReference() throws XWikiException
+    public DocumentReference getClassDocumentReference()
     {
         return currentReferenceDocumentReferenceResolver.resolve(classReference);
     }
 
-    public DocumentReference getClassSheetDocumentReference() throws XWikiException
+    public DocumentReference getClassSheetDocumentReference()
     {
         return currentReferenceDocumentReferenceResolver.resolve(sheetReference);
     }
 
-    public DocumentReference getClassTemplateDocumentReference() throws XWikiException
+    public DocumentReference getClassTemplateDocumentReference()
     {
         return currentReferenceDocumentReferenceResolver.resolve(templateReference);
     }
 
-    public List<SpaceObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue) throws XWikiException
+    public List<UserProfileObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue)
+            throws XWikiException
     {
         Map<String, Object> fields = new HashMap<String, Object>();
         fields.put(fieldName, fieldValue);
@@ -158,10 +129,10 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
         return searchDocumentObjectsByFields(fields);
     }
 
-    public List<SpaceObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
+    public List<UserProfileObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
     {
-        String from = "select distinct doc.space, doc.name from XWikiDocument as doc, BaseObject as obj";
-        String where = " where obj.name=doc.fullName and obj.className='XWiki.SpaceClass'";
+        String from = "select distinct doc.space, doc.name, obj.number from XWikiDocument as doc, BaseObject as obj";
+        String where = " where obj.name=doc.fullName and obj.className='XWiki.UserProfileClass'";
         BaseClass baseClass = getContext().getWiki().getXClass(getClassDocumentReference(), getContext());
         List<PropertyClass> enabledProperties = baseClass.getEnabledProperties();
 
@@ -199,28 +170,28 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
             }
         }
 
-        List<SpaceObjectDocument> spaceObjectDocuments = new ArrayList<SpaceObjectDocument>();
+        List<UserProfileObjectDocument> userProfileObjectDocuments = new ArrayList<UserProfileObjectDocument>();
         List<Object> results = getContext().getWiki().getStore().search(from + where, 0, 0, getContext());
         String docSpace = StringUtils.EMPTY;
         String docName = StringUtils.EMPTY;
+        int objNumber = 0;
         for (Object result : results) {
             Object[] resultParams = (Object[]) result;
             docSpace = resultParams[0].toString();
             docName = resultParams[1].toString();
+            objNumber = Integer.parseInt(resultParams[2].toString());
             DocumentReference documentReference = currentReferenceDocumentReferenceResolver.resolve(
                     new EntityReference(docName, EntityType.DOCUMENT, new EntityReference(docSpace, EntityType.SPACE)));
-            spaceObjectDocuments.add(getDocumentObject(documentReference));
+            userProfileObjectDocuments.add(getDocumentObject(documentReference, objNumber));
         }
 
-        return spaceObjectDocuments;
+        return userProfileObjectDocuments;
     }
 
-    public void saveDocumentObject(SpaceObjectDocument documentObject) throws XWikiException
+    public void saveDocumentObject(UserProfileObjectDocument documentObject) throws XWikiException
     {
         //documentObject.save();
-        documentObject.saveDocument("SpaceObjectDocument saved.", false);
-        //
-        // getContext().getWiki().saveDocument(documentObject.getDocument(), getContext());
+        documentObject.saveDocument("UserProfileObjectDocument saved.", false);
     }
 
     @Override
