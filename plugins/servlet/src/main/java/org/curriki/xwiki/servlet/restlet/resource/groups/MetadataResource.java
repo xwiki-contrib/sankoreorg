@@ -39,15 +39,17 @@ public class MetadataResource extends BaseResource {
         Request request = getRequest();
         String groupName = (String) request.getAttributes().get("groupName");
 
-        List<Property> results = new ArrayList<Property>();
-        //try {
-            //results = plugin.fetchGroupMetadata(groupName);
-        //} catch (XWikiException e) {
-        //    throw error(Status.CLIENT_ERROR_NOT_FOUND, e.getMessage());
-        //}
+        GroupManager groupManager = Utils.getComponent(GroupManager.class);
+        List<Property> groupInfo = new ArrayList<Property>();
+        try {
+            Group group = groupManager.getGroup(groupName);
+            groupInfo.addAll(group.getMetadata());
+        } catch (XWikiException e) {
+            throw error(Status.CLIENT_ERROR_NOT_FOUND, e.getMessage());
+        }
 
         JSONObject json = new JSONObject();
-        for (Property prop : results) {
+        for (Property prop : groupInfo) {
             json.put(prop.getName(), prop.getValue());
         }
 
@@ -67,72 +69,69 @@ public class MetadataResource extends BaseResource {
         Group group = null;
         try {
             group = groupManager.getGroup(groupName);
-        } catch (XWikiException e) {
-            throw new ResourceException(e);
-        }
 
-        // title
-        if (json.has("title")) {
-            group.setTitle(json.getString("title"));
-        }
-
-        // description
-        if (json.has("description")) {
-            group.setDescription(json.getString("description"));
-        }
-
-        // description
-        if (json.has("urlshortcut")) {
-            group.setUrlShortcut(json.getString("urlshortcut"));
-        }
-
-        // language
-        if (json.has("language")) {
-            group.setLanguage(json.getString("language"));
-        }
-
-        // education system
-        if (json.has("education_system")) {
-            group.setEducationSystem(json.getString("education_system"));
-        }
-
-        // educational_level (array)
-        List<String> educational_level = new ArrayList<String>();
-        if (json.has("educational_level")) {
-            for (java.lang.Object level : json.getJSONArray("educational_level")) {
-                educational_level.add((String )level);
+            // title
+            if (json.has("title")) {
+                group.setTitle(json.getString("title"));
             }
-        }
-        group.setEducationalLevel(educational_level);
 
-        // fw_items (array)
-        List<String> disciplines = new ArrayList<String>();
-        if (json.has("fw_items")) {
-            for (java.lang.Object level : json.getJSONArray("fw_items")) {
-                disciplines.add((String )level);
+            // description
+            if (json.has("description")) {
+                group.setDescription(json.getString("description"));
             }
-        }
-        group.setDisciplines(disciplines);
 
-        // access level
-        if (json.has("access_level")) {
-            group.setAccessLevel(json.getString("access_level"));
-        }
+            // description
+            if (json.has("urlshortcut")) {
+                group.setUrlShortcut(json.getString("urlshortcut"));
+            }
 
-        // policy
-        if (json.has("policy")) {
-            group.setPolicy(json.getString("policy"));
-        }
+            // language
+            if (json.has("language")) {
+                group.setLanguage(json.getString("language"));
+            }
 
-        // license
-        if (json.has("license")) {
-            group.setLicense(json.getString("license"));
-        }
+            // education system
+            if (json.has("education_system")) {
+                group.setEducationSystem(json.getString("education_system"));
+            }
 
-        try {
+            // educational_level (array)
+            List<String> educational_level = new ArrayList<String>();
+            if (json.has("educational_level")) {
+                for (java.lang.Object level : json.getJSONArray("educational_level")) {
+                    educational_level.add((String )level);
+                }
+            }
+            group.setEducationalLevel(educational_level);
+
+            // fw_items (array)
+            List<String> disciplines = new ArrayList<String>();
+            if (json.has("fw_items")) {
+                for (java.lang.Object level : json.getJSONArray("fw_items")) {
+                    disciplines.add((String )level);
+                }
+            }
+            group.setDisciplines(disciplines);
+
+            // access level
+            if (json.has("access_level")) {
+                group.setAccessLevel(json.getString("access_level"));
+            }
+
+            // policy
+            if (json.has("policy")) {
+                group.setPolicy(json.getString("policy"));
+            }
+
+            // license
+            if (json.has("license")) {
+                group.setLicense(json.getString("license"));
+            }
+
             group.save();
+
         } catch (XWikiException e) {
-            throw error(Status.CLIENT_ERROR_BAD_REQUEST, e.getMessage());
+            throw error(Status.CLIENT_ERROR_NOT_FOUND, e.getMessage());
         }
 
         Map<String,java.lang.Object> groupInfo = new HashMap<String, java.lang.Object>(/*plugin.fetchGroupInfo(groupName)*/);

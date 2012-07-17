@@ -9,9 +9,13 @@ import org.restlet.data.Request;
 import org.restlet.data.Response;
 import org.restlet.data.Status;
 import org.curriki.xwiki.servlet.restlet.resource.BaseResource;
+import org.xwiki.sankore.Group;
+import org.xwiki.sankore.GroupManager;
+
 import net.sf.json.JSONObject;
 import net.sf.json.JSONException;
 import com.xpn.xwiki.XWikiException;
+import com.xpn.xwiki.web.Utils;
 
 /**
  */
@@ -27,33 +31,44 @@ public class GroupsResource extends BaseResource {
 
         JSONObject json = representationToJSONObject(representation);
 
-        String spaceTitle = null;
+        GroupManager groupManager = Utils.getComponent(GroupManager.class);
+
+        String title = null;
         try {
-            spaceTitle = json.getString("spaceTitle");
-            if (spaceTitle.length() < 1){
-                spaceTitle = null;
+            title = json.getString("title");
+            if (title.length() < 1){
+                title = null;
             }
         } catch (JSONException e) {
             // No parent key to get
+            throw error(Status.CLIENT_ERROR_NOT_FOUND, e.getMessage());
         }
 
-        String templateSpaceName = null;
+        String template = null;
         try {
-            templateSpaceName = json.getString("templateSpaceName");
-            if (templateSpaceName.length() < 1){
-                templateSpaceName = null;
+            template = json.getString("template");
+            if (template.length() < 1){
+                template = null;
             }
         } catch (JSONException e) {
             // No parent key to get
+            throw error(Status.CLIENT_ERROR_NOT_FOUND, e.getMessage());
         }
 
-        Map<String, Object> groupInfo = null;
+        Group group = null;
+        try {
+            group = groupManager.createGroupFromTemplate(title, template);
+        } catch (XWikiException e) {
+            throw error(Status.CLIENT_ERROR_NOT_FOUND, e.getMessage());
+        }
+
+        //Map<String, Object> groupInfo = null;
         //try {
-            //groupInfo = plugin.createGroup(spaceTitle);
+        //    groupInfo = plugin.createGroup(title);
         //} catch (XWikiException e) {
-
+        //
         //}
 
-        getResponse().redirectSeeOther(getChildReference(getRequest().getResourceRef(), groupInfo.get("groupName").toString()));
+        getResponse().redirectSeeOther(getChildReference(getRequest().getResourceRef(), group.getName()));
     }
 }
