@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Groups</web>
+<name>MailTemplateCancelInvitation</name>
+<language>fr</language>
+<defaultLanguage></defaultLanguage>
+<translation>1</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1342620595000</creationDate>
+<date>1342620595000</date>
+<contentUpdateDate>1342620595000</contentUpdateDate>
+<version>1.1</version>
+<title>Annulation de l'invitation au groupe $groupTitle sur Planète Sankoré</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>#* 
+* Membership request response mail template
+* @translate This page requires full translation
+* @type mailtemplate
+* @refactored folaru
+*#
+{{velocity filter="none"}}{{html clean="false" wiki="true"}}
+Cher(e) $memberName,&lt;br/&gt;
+&lt;br/&gt;
+Le groupe $group.title est désolé que vous n'ayez pas rejoins leur groupe sur Planète Sankoré.&lt;br/&gt;
+Vous pourrez toujours demander au leader du groupe d'être invité à nouveau.&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+Cordialement,&lt;br/&gt;
+&lt;br/&gt;
+L'équipe Planète Sankoré&lt;br/&gt;
+{{/html}}{{/velocity}}</content></xwikidoc>

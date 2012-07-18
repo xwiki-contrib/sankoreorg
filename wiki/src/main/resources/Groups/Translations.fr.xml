@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1342459984000</creationDate>
-<date>1342459984000</date>
-<contentUpdateDate>1342459984000</contentUpdateDate>
+<creationDate>1342608676000</creationDate>
+<date>1342608676000</date>
+<contentUpdateDate>1342608676000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -477,7 +477,7 @@ groups_members_invite_sent=Une invitation a été envoyée à **{0}**.
 groups_members_invite_inviteemissing=Insérez une adresse email pour cette invitation SVP.
 groups_members_invite_emailinvalid=**{0}** n''est pas une adresse email valide.
 membership_manager.already_invited=**{0}** a déjà été invité à rejoindre **{1}**.
-groups_members_invite_alreadymember=**{0}** est déjà membre de **{1}**.
+membership_manager.already_member=**{0}** est déjà membre de **{1}**.
 groups_members_invite_failed=L''invitation de &lt;strong&gt;{0}&lt;/strong&gt; a échoué. Vérifiez les adresses email de vos invités. Si vous continuez à avoir des difficultés, contactez l'administrateur du site.
 groups_members_invite_report=**{0}** de **{1}** invitations envoyées.&lt;br/&gt;&lt;br/&gt;
 groups_members_invite_statuslink=Les administrateurs d'un groupe peuvent voir la liste des invitations en cours : [[Liste des membres&gt;&gt;Members?type=3]].&lt;br/&gt;
