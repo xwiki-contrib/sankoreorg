@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316003112000</creationDate>
-<date>1316003112000</date>
-<contentUpdateDate>1316003112000</contentUpdateDate>
+<creationDate>1342650917000</creationDate>
+<date>1342650917000</date>
+<contentUpdateDate>1342650917000</contentUpdateDate>
 <version>1.1</version>
 <title>Membership Request Response for $space.displayTitle on Curriki</title>
 <template></template>
@@ -20,9 +20,11 @@
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/1.0</syntaxId>
+<syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#**
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
+#**
  * Membership request response mail template
  * @translate This page requires full translation
  * @type mailtemplate
@@ -35,15 +37,17 @@
 #set($groupName=$space.displayTitle)
 #end
 #set($reason=$context.request.get("reason"))
-
+&lt;p/&gt;
 Dear $memberName,
-
+&lt;p/&gt;
 Thank you for your interest in joining $groupName on Curriki.
-
+&lt;p/&gt;
 Your request for membership has been denied at this time.
-
+&lt;p/&gt;
 $!reason
 
 Sincerely,
-
-Curriki, for $groupName</content></xwikidoc>
+&lt;p/&gt;
+Curriki, for $groupName
+{{/html}}
+{{/velocity}}</content></xwikidoc>

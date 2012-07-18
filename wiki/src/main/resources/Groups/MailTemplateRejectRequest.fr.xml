@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1342456125000</creationDate>
-<date>1342456125000</date>
-<contentUpdateDate>1342456125000</contentUpdateDate>
+<creationDate>1342650975000</creationDate>
+<date>1342650975000</date>
+<contentUpdateDate>1342650975000</contentUpdateDate>
 <version>1.1</version>
 <title>Réponse à une demande d'adhésion au groupe $groupTitle sur Planète Sankoré</title>
 <template></template>
@@ -20,9 +20,11 @@
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/1.0</syntaxId>
+<syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#**
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
+#*
  * Membership request response mail template
  * @translate This page requires full translation
  * @type mailtemplate
@@ -36,14 +38,15 @@
 #end
 #set($reason = $context.request.get("reason"))
 
-Cher(e) $memberName,
-
-Merci de l’intérêt que vous portez au groupe $groupName sur Planète Sankoré.
-
-Malheureusement, votre demande d'adhésion a été refusée.
-
-$!reason
-
-Cordialement,
-
-L'équipe Planète Sankoré</content></xwikidoc>
+Cher(e) $memberName,&lt;br/&gt;
+&lt;br/&gt;
+Merci de l’intérêt que vous portez au groupe $groupName sur Planète Sankoré.&lt;br/&gt;
+Malheureusement, votre demande d'adhésion a été refusée.&lt;br/&gt;
+&lt;br/&gt;
+$!reason&lt;br/&gt;
+&lt;br/&gt;
+Cordialement,&lt;br/&gt;
+&lt;br/&gt;
+L'équipe Planète Sankoré&lt;br/&gt;
+{{/html}}
+{{/velocity}}</content></xwikidoc>
