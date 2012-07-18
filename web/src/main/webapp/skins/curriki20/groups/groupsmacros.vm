@@ -246,6 +246,7 @@
 ## Tools
 ## login box
 #macro(loginbox $logredir)
+#*
 <div class="main layoutsubsection">
 <form id="loginForm" action="$xwiki.getURL("XWiki.XWikiLogin","loginsubmit")" method="post">
 <div class="hidden">
@@ -273,6 +274,7 @@
 </div>
 <br />
 <br />
+*#
 <div id="whyjoin">
 $xwiki.getDocument("Main.WhyJoin").getTranslatedDocument().getRenderedContent()
 </div>

@@ -1,0 +1,90 @@
+<!-- LOGIN BOX -->
+<!-- member area -->
+<div id="header-member">
+#if($isGuest)
+  #if($request.xredirect)
+    #set($logredir = $request.xredirect)
+  #elseif($doc.space == "Registration")
+    #set($logredir = $xwiki.getURL("MySankore.Profile"))
+  #elseif($doc.fullName == "Main.WebHome")
+    #set($logredir = $xwiki.getURL("MySankore.Profile"))
+  #elseif($doc.fullName == "Main.JoinSankore")
+    #set($logredir = $xwiki.getURL("MySankore.Profile"))
+  #elseif($logredir.contains("/login") || $request.xpage == "panel")
+    #set($logredir = "")
+  #end
+  #if($request.xpage == "panel")
+    #set($logredir = $xwiki.getURL($doc.fullName, "view", "xpage=panel"))
+  #end
+  <script type="text/javascript"> 
+  function showLoginPasswordInput() {
+    // Hide the place holder.
+    this.style.display = 'none';
+    // Show the password input.
+    var pwd = document.getElementById('j_loginpwd');
+    pwd.style.display = '';
+    pwd.focus();
+  }
+  function hideLoginPasswordInput() {
+    // Hide the password input if it's empty.
+    if (this.value == '') {
+      this.style.display = 'none';
+      // Show the place holder.
+      var placeHolder = document.getElementById('j_loginpwd_placeholder');
+      placeHolder.style.display = '';
+    }
+  }
+  function clearLoginUsername(input) {
+    if(input.value == "$msg.get('header.login_username')"){input.value=''} else {input.select()};
+  }
+  </script>
+  <form action="$xwiki.getURL("XWiki.XWikiLogin", "loginsubmit", "")" method="post">
+    <input type="hidden" name="xredirect" value="$logredir"/>
+    <input type="hidden" name="srid" value="$!request.srid" />
+    <input type="hidden" name="form_token" value="$!services.csrf.getToken()" />
+#if($request.xredirect.indexOf() != -1 && $context.action == "login")
+  #set($messageTemplate = $xwiki.getDocument("MySankore.LoginMessageTemplate"))
+  #if($messageTemplate)
+    $!messageTemplate.getRenderedContent()
+  #end
+#end
+#set($message = $msg.get($xwiki.parseMessage()))
+#if("$!message" == "")
+  #set($message = $msg.get($request.message))
+#end
+#if($message)
+  <!-- previous login errors -->
+  #error($message)
+#end
+    <input class="input" id="j_loginname" tabindex="1" type="text" name="j_username" value="#if("$!request.j_username" != "")$request.j_username#else${msg.get("header.login_username")}#end" onfocus="clearLoginUsername(this);" onblur='if (this.value==""){this.value="$escapetool.javascript($msg.get('header.login_username'))";}' />
+    <input class="input password" id="j_loginpwd_placeholder" tabindex="2" type="text" value="$msg.get("header.login_password")" onfocus="showLoginPasswordInput.apply(this)"/>
+    <input class="input password" id="j_loginpwd" tabindex="2" type="password" name="j_password" onfocus="this.select()" onblur="hideLoginPasswordInput.apply(this)" style="display:none;"/>
+    <div id="remember-forgot">
+      <label for="j_rememberme">$msg.get("header.login_rememberme")</label>
+      <input tabindex="3" type="checkbox" class="checkbox" name="j_rememberme" value="true"/><br />
+      <a href="$xwiki.getURL("XWiki.ForgotUsername")" title="" target="_top">$msg.get('login.forgotusername')</a><br />
+      <a href="$xwiki.getURL("XWiki.ResetPassword")" title="" target="_top">$msg.get('login.forgotpassword')</a>
+    </div>
+    <input id="signin" class="login-button" type="submit" id="loginbtn" value="$msg.get('login.signin')" />
+    <div class="clearfloats"></div>
+  </form>
+#else
+  ## is logged in
+  ## crtUserDoc is set in fudocs.vm
+  #set($fname = $crtUserDoc.display("first_name","view"))
+  #set($lname = $crtUserDoc.display("last_name", "view"))
+  <span class="welcome-message">$msg.get("welcome") <strong>$fname $lname</strong></span>
+  <ul class="login-links">
+  #if($hasGlobalAdmin)
+    <li><a class="administration-link" href="$xwiki.getURL('XWiki.XWikiPreferences', 'admin')" target="_top">$msg.get("core.menu.admin")</a></li>
+  #end
+    <li><a class="profile-link" href="$xwiki.getURL('MySankore.Profile', 'view')" target="_top">$msg.get("core.menu.profile")</a></li>
+    <li>
+      #set($logoutUrl = $xwiki.getURL("XWiki.XWikiLogout","logout", "xredirect=$logredir"))
+      <a class="button button-confirm" href="$logoutUrl" class="logout">$msg.get("logout")</a>
+    </li> 
+  </ul>
+  <div class="clearfloats"></div>
+#end
+</div>
+<!-- end of member area -->
