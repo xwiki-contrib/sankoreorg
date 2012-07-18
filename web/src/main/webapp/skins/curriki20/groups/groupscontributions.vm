@@ -217,10 +217,10 @@ function toggle_desc(){
   return false;
 }
 </script>
-#if($sm.isMember($spaceName, $context.user) || $hasGlobalAdmin) ##{
+#if($isGroupMember || $hasGlobalAdmin)
 #set($cnt = $xwiki.search("select count(*) from XWikiDocument as doc, BaseObject as obj, StringProperty as props where obj.id=props.id.id and doc.fullName=obj.name and obj.className='CurrikiCode.CompositeAssetClass' and doc.web='Coll_${spaceName}' and doc.name != 'WebHome' and props.id.name='type' and props.value='collection'").get(0))
 #set($multiple = ($cnt > 1))
-#if($multiple) ##{
+#if($multiple)
 #set($reorder = $xwiki.search("select count(*) from XWikiDocument as doc, BaseObject as obj, IntegerProperty as props where obj.id=props.id.id and doc.fullName=obj.name and obj.className='XWiki.CollectionReorderedClass' and doc.fullName='Coll_${spaceName}.WebHome' and props.id.name='reordered' and props.value=1").get(0))
 #set($reordered = ($reorder > 0))
 <script type="text/javascript">
@@ -233,14 +233,14 @@ Curriki.data.reorder = {
 /* ]]> */
 </script>
 <script type="text/javascript" src="/xwiki/js/curriki-module-reorder.js"></script>
-#end ##}
-#end ##}
+#end
+#end
 #curriki_fulltitlebar($msg.get("groups.curriculum.collections.titlebar") $msg.get("groups.curriculum.collections.titlebarbutton") "" "return toggle_desc();" "red" "hider")
 <div class="frame-content">
 <div id="groups-collections-instructional">
 ## TODO: We need to know who can add to the collection here
 #if($context.action == "view")
-#if($sm.isMember($spaceName, $context.user))
+#if($isGroupMember)
 <a class="button button-confirm" onclick="Curriki.module.addpath.startPath('M', {publishSpace:'Coll_${spaceName}'});" alt="$msg.get("groups.curriculum.collections.addButton")" title="$msg.get("groups.curriculum.collections.addButton_tooltip")">$msg.get("groups.curriculum.collections.addButton")</a>
 #end
 #end
