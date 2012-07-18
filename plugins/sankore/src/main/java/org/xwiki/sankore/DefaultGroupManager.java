@@ -67,6 +67,10 @@ public class DefaultGroupManager implements GroupManager
             return new Group(groupClass.getDocumentObject(
                     stringDocumentReferenceResolver.resolve(groupName + ".WebPreferences")),
                     execution.getContext());
+        } else if (groupName.startsWith("Messages_Group_")) {
+            return new Group(groupClass.getDocumentObject(
+                    stringDocumentReferenceResolver.resolve(groupName.replaceFirst("Messages_", "") + ".WebPreferences")),
+                    execution.getContext());
         }
 
         return new Group(groupClass.getDocumentObject(
