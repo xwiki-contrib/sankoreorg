@@ -48,6 +48,11 @@ public class DefaultMembershipManager implements MembershipManager
     private static final String ERROR_ALREADY_MEMBER = "membership_manager.already_member";
     private static final String ERROR_RIGHTS_REQUIRED = "membership_manager.rights_required";
 
+    private static final String ERROR_INVALID_STATUS = "membership_manager.invalid_status";
+
+    private static final String ERROR_MAILSENDER_EXCEPTION = "membership_manager.mailsender_exception";
+    private static final String ERROR_NULLPOINTER_EXCEPTION = "membership_manager.nullpointer_exception";
+
     @Inject
     private Logger logger;
 
@@ -105,51 +110,19 @@ public class DefaultMembershipManager implements MembershipManager
     private DocumentReference getDefaultMailTemplate(String type, String action)
     {
         String templateName = DEFAULT_MAILTEMPLATE_NAME + StringUtils.capitalize(action) + StringUtils.capitalize(type);
-        EntityReference templateReference = new EntityReference(templateName, EntityType.DOCUMENT, new EntityReference(DEFAULT_RESOURCES_SPACE, EntityType.SPACE));
+        EntityReference templateReference = new EntityReference(templateName, EntityType.DOCUMENT,
+                new EntityReference(DEFAULT_RESOURCES_SPACE, EntityType.SPACE));
 
         return currentReferenceDocumentReferenceResolver.resolve(templateReference);
     }
 
-    private boolean isRegisteredUser(String usernameOrEmail) throws XWikiException
-    {
-        /*
-        usernameOrEmail = usernameOrEmail.trim();
-        if (!isEmailAddress(usernameOrEmail)) {
-            if (StringUtils.isEmpty(usernameOrEmail))
-                return false;
-
-            XWikiContext xWikiContext = ContextUtils.getXWikiContext(this.execution.getContext());
-
-            UserXObjectDocument UserXObjectDocument = XWikiUsersClass.getInstance(xWikiContext)
-                    .newXObjectDocument(usernameOrEmail, xWikiContext);
-
-            if (UserXObjectDocument.isNew()) {
-                    return false;
-            }
-
-            return true;
-        }
-
-        XWikiUsersClass.getInstance(execution.getContext()).searchXObjectDocumentsByField("email", usernameOrEmail, "String", )
-
-        // email address
-        List<String> results = new ArrayList<String>();
-
-        try {
-            results = this.queryManager.createQuery("select distinct doc.fullName from XWikiDocument as doc, BaseObject as obj, StringProperty as prop where doc.space='" + UserXObjectDocument.DEFAULT_USERS_SPACE + "'" + " and obj.name=doc.fullName and obj.className='" + XWikiUsersClass.getInstance(this.execution).getClassFullName() + "' and prop.id.id=obj.id and prop.name='" + XWikiUsersClass.FIELD_EMAIL + "' and prop.value='" + usernameOrEmail + "'", "xwql")
-                    .setLimit(1).setOffset(0).execute();
-        } catch (QueryException qe) {
-        }
-
-        if (!results.isEmpty()) {
-             return true;
-        }  */
-
-        return false;
-    }
-
     public boolean invite(Group group, String usernameOrEmail, String message) throws XWikiException
     {
+        if (group == null) {
+            setError(ERROR_NULLPOINTER_EXCEPTION);
+            return false;
+        }
+
         if (StringUtils.isEmpty(usernameOrEmail)) {
             // invitee missing
             setError(ERROR_INVITEE_MISSING);
@@ -236,11 +209,13 @@ public class DefaultMembershipManager implements MembershipManager
     public boolean sendInvitation(InvitationObjectDocument invitation)
         throws XWikiException
     {
-        boolean sent = false;
-        logger.info("sendInvitation() status: " + invitation.getStatus());
-        if (invitation.getStatus().equals(InvitationClass.FIELD_STATUS_CREATED)) {
+        if (invitation == null) {
+            setError(ERROR_NULLPOINTER_EXCEPTION);
+            return false;
+        }
 
-            String from = wikiPreferences.getProperty(ADMIN_EMAIL_PREFERENCE_KEY, String.class);
+        String status = invitation.getStatus();
+        if (StringUtils.equals(status, InvitationClass.FIELD_STATUS_CREATED)) {
 
             String emailTo = invitation.getInvitee();
             if (!StringUtils.contains(emailTo, "@")) {
@@ -251,51 +226,20 @@ public class DefaultMembershipManager implements MembershipManager
 
             Map<String, Object> params = new HashMap<String, Object>();
             params.put("invitation", invitation);
-            sent = mailSender.sendMailFromTemplate(
-                    getDefaultMailTemplate("Invitation", "Send"),
-                    from,
-                    emailTo,
-                    null,
-                    null,
-                    params);
-
-            logger.info("Mail send from:" + from + " to:" + emailTo + " template:" +
-                    getDefaultMailTemplate("Invitation", "Send"));
-            logger.info("LOGGER: " + invitation.getStatus());
-            if (sent) {
+            if (notifyByTemplate(getDefaultMailTemplate("Invitation", "Send"), emailTo, params)) {
                 invitation.setStatus(InvitationClass.FIELD_STATUS_SENT);
                 invitationClass.saveDocumentObject(invitation);
-                logger.info("LOGGER: " + invitation.getStatus());
-                logger.info("Mail sent from:" + from + " to:" + emailTo + " template:" +
-                        getDefaultMailTemplate("Invitation", "Send"));
+
+                return true;
+            } else {
+                setError(ERROR_NULLPOINTER_EXCEPTION);
+                return false;
             }
+        } else {
+            setError(ERROR_INVALID_STATUS);
+            return false;
         }
-
-
-        return sent;
     }
-
-    /*
-    public boolean verifyInvitation(String usernameOrEmail, String code)
-            throws XWikiException
-    {
-        Object[][] filters = new Object[][]{
-                {InvitationClass.FIELD_INVITEE, InvitationClass.FIELDT_INVITEE, usernameOrEmail},
-                {InvitationClass.FIELD_KEY, InvitationClass.FIELDT_KEY, code},
-                {InvitationClass.FIELD_STATUS, InvitationClass.FIELDT_STATUS, InvitationClass.FIELD_STATUS_SENT}};
-        List<Invitation> list = InvitationClass.getInstance(execution.getContext()).searchXObjectDocumentsByFields(
-                filters);
-        if (!list.isEmpty()) {
-
-            for (Invitation invitation : list) {
-                acceptInvitation(invitation);
-            }
-
-            return true;
-        }
-
-        return false;
-    }*/
 
     public List<InvitationObjectDocument> getInvitations(Group group, String usernameOrEmail, String status)
             throws XWikiException
@@ -477,8 +421,10 @@ public class DefaultMembershipManager implements MembershipManager
     public boolean cancelInvitation(Group group, InvitationObjectDocument invitation)
             throws XWikiException
     {
-        //if (XInvitation.isNew())
-        //    return false;
+        if (group == null || invitation == null) {
+            setError(ERROR_NULLPOINTER_EXCEPTION);
+            return false;
+        }
 
         String status = invitation.getStatus();
         if (StringUtils.equals(status, InvitationClass.FIELD_STATUS_CREATED)
@@ -488,17 +434,21 @@ public class DefaultMembershipManager implements MembershipManager
             invitation.setResponseDate(new Date());
             invitationClass.saveDocumentObject(invitation);
 
-            UserObjectDocument invitee = getUser(invitation.getInvitee());
+            String invitee = invitation.getInvitee();
+            if (!StringUtils.contains(invitee, "@")) {
+                invitee = getUser(invitee).getEmail();
+            }
 
             // notify user by email
             Map<String, Object> params = new HashMap<String, Object>();
             params.put("invitation", invitation);
-            notifyByTemplate(getDefaultMailTemplate("Invitation", "Cancel"), invitee.getEmail(), params);
+            notifyByTemplate(getDefaultMailTemplate("Invitation", "Cancel"), invitee, params);
 
             return true;
+        } else {
+            setError(ERROR_INVALID_STATUS);
+            return false;
         }
-
-        return false;
     }
 
     public boolean join(Group group)

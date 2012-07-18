@@ -23,6 +23,11 @@ public class Group extends Api
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(Group.class);
 
+    public static final String WEBHOME_PAGENAME = "WebHome";
+    public static final String JOINGROUP_PAGENAME = "JoinGroup";
+
+    public static final String ACTION_VIEW = "view";
+
     public static final String GROUP_SPACE_PREFIX = "Group_";
     public static final String GROUP_COLL_SPACE_PREFIX = "Coll_Group_";
     public static final String GROUP_DOCUMENTATION_SPACE_PREFIX = "Documentation_Group_";
@@ -595,13 +600,39 @@ public class Group extends Api
     public String getHomeURL()
     {
         return getXWikiContext().getWiki().getURL(
-                new DocumentReference("WebHome", groupSpaceReference), "view", getXWikiContext());
+                new DocumentReference(WEBHOME_PAGENAME, groupSpaceReference), ACTION_VIEW, getXWikiContext());
+    }
+
+    public String getHomeURL(String queryString, String anchor)
+    {
+        return getXWikiContext().getWiki().getURL(
+                new DocumentReference(WEBHOME_PAGENAME, groupSpaceReference),
+                ACTION_VIEW,
+                queryString,
+                anchor,
+                getXWikiContext());
+    }
+
+    public String getJoinURL(String queryString, String anchor)
+    {
+        return getXWikiContext().getWiki().getURL(
+                new DocumentReference(JOINGROUP_PAGENAME, groupSpaceReference),
+                ACTION_VIEW,
+                queryString,
+                anchor,
+                getXWikiContext());
+    }
+
+    public String getJoinURL()
+    {
+        return getXWikiContext().getWiki().getURL(
+                new DocumentReference(JOINGROUP_PAGENAME, groupSpaceReference), ACTION_VIEW, getXWikiContext());
     }
 
     public Document getHomeDocument() throws XWikiException
     {
         return new Document(getXWikiContext().getWiki().getDocument(
-                new DocumentReference("WebHome", groupSpaceReference), getXWikiContext()), getXWikiContext());
+                new DocumentReference(WEBHOME_PAGENAME, groupSpaceReference), getXWikiContext()), getXWikiContext());
     }
 
     public List<Property> getMetadata()
