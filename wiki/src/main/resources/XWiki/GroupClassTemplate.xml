@@ -53,6 +53,21 @@
 <values>public|protected|private</values>
 <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
 </access_level>
+<description>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<editor>---</editor>
+<name>description</name>
+<number>10</number>
+<picker>0</picker>
+<prettyName>Group description</prettyName>
+<rows>5</rows>
+<size>40</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</description>
 <disciplines>
 <cache>0</cache>
 <classname></classname>
@@ -198,6 +213,32 @@
 <values>open|closed</values>
 <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
 </policy>
+<title>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>title</name>
+<number>9</number>
+<picker>0</picker>
+<prettyName>Group title</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</title>
+<urlshortcut>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<name>urlshortcut</name>
+<number>11</number>
+<picker>0</picker>
+<prettyName>Group urlshortcut</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</urlshortcut>
 </class>
 <name>XWiki.GroupClassTemplate</name>
 <number>0</number>
