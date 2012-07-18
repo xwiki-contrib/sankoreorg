@@ -114,7 +114,7 @@
 #end
 <div class="frame-inset-titlebar">
 #if($displayType == "edit")
-  #set($homeUrl = $xwiki.getURL("Group_${m_group.getName()}.WebHome"))
+  #set($homeUrl = $xwiki.getURL("${m_group.getName()}.WebHome"))
   #set($editmastheadurl = $homeUrl + "?action=editmasthead")
   #curriki_titlebar("$escapetool.html($group.getTitle())" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
 #elseif($displayType == "view")
