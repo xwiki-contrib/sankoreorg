@@ -207,7 +207,6 @@ $msgcontent
 </p>
 #end
 #end
-
 ##
 ## PAGE: Groups.CreateMessageSheet
 ## Macro to update from request the rights of the given message document
@@ -254,56 +253,60 @@ $msgdoc.save()
 ##
 #macro(messageSendNotificationMail $msg_doc)
 #if($request.notify && $xwiki.mailsender)
-#set($mailTo = "")
-#if($request.toGroup)
-## add all group members
-#foreach($member in $sm.getMembers($spaceName))
-#set($profile = $sm.getSpaceUserProfile($spaceName, $member))
-#if($profile && $profile.allowNotifications)
-#set($mailTo = $mailTo + $xwiki.getUser($member).email + ",")
-#end
-#end
-#else
-#set($mailToList = $xwiki.arrayList)
-#if($request.toMember && $request.selectedMembersList.trim().length() > 0)
-## add selected members
-#foreach($member in $request.selectedMembersList.split(","))
-#set($profile = $sm.getSpaceUserProfile($spaceName, $member))
-#if($profile && $profile.allowNotifications)
-#set($memberEmail = $xwiki.getUser($member).email)
-#if(!$mailToList.contains($memberEmail))
-#set($ok = $mailToList.add($memberEmail))
-#set($mailTo = $mailTo + $memberEmail + ",")
-#end
-#end
-#end
-#end
-#if($request.toRole && $request.selectedRolesList.trim().length() > 0)
-## add members having selected roles
-#foreach($role in $request.selectedRolesList.split(","))
-#foreach($member in $sm.getUsersForRole($spaceName, $role))
-#set($profile = $sm.getSpaceUserProfile($spaceName, $member))
-#if($profile && $profile.allowNotifications)
-#set($memberEmail = $xwiki.getUser($member).email)
-#if(!$mailToList.contains($memberEmail))
-#set($ok = $mailToList.add($memberEmail))
-#set($mailTo = $mailTo + $memberEmail + ",")
-#end
-#end
-#end
-#end
-#end
-#end
-#if($!mailTo != "")
-#set($mailFrom = $xwiki.getXWikiPreference("admin_email"))
-#set($mailDoc = $xwiki.getDocument("Groups.MailTemplateCreateMessage"))
-## $msgdoc has to be in the current context because it is used in the mail template
-#set($msgdoc = $msg_doc)
-$msgdoc.use("XWiki.ArticleClass")
-#set($mailSubject = $doc.getRenderedContent($mailDoc.title))
-#set($mailContent = $doc.getRenderedContent($mailDoc.content))
-#set($ok = $xwiki.mailsender.sendTextMessage($mailFrom, null, null, $mailTo, $mailSubject, $mailContent, null))
-#end
+  #set($mailTo = "")
+  #if($request.toGroup)
+    ## add all group members
+    #foreach($memberName in $membershipManager.getMemberNames($group))
+      #set($member = $membershipManager.getUser($memberName))
+      #set($profile = $membershipManager.getUserProfile($group, $member))
+      #if($profile && $profile.allowNotifications)
+        #set($mailTo = $mailTo + $member.email + ",")
+      #end
+    #end
+  #else
+    #set($mailToList = $xwiki.arrayList)
+    #if($request.toMember && $request.selectedMembersList.trim().length() > 0)
+      ## add selected members
+      #foreach($memberName in $request.selectedMembersList.split(","))
+        #set($member = $membershipManager.getUser($memberName))
+        #set($profile = $membershipManager.getUserProfile($group, $member))
+        #if($profile && $profile.allowNotifications)
+          #set($memberEmail = $member.email)
+          #if(!$mailToList.contains($memberEmail))
+            #set($ok = $mailToList.add($memberEmail))
+            #set($mailTo = $mailTo + $memberEmail + ",")
+          #end
+        #end
+      #end
+    #end
+    #*
+    #if($request.toRole && $request.selectedRolesList.trim().length() > 0)
+      ## add members having selected roles
+      #foreach($role in $request.selectedRolesList.split(","))
+        #foreach($member in $sm.getUsersForRole($spaceName, $role))
+          #set($profile = $sm.getSpaceUserProfile($spaceName, $member))
+          #if($profile && $profile.allowNotifications)
+            #set($memberEmail = $xwiki.getUser($member).email)
+            #if(!$mailToList.contains($memberEmail))
+              #set($ok = $mailToList.add($memberEmail))
+              #set($mailTo = $mailTo + $memberEmail + ",")
+            #end
+          #end
+        #end
+      #end
+    #end
+    *#
+  #end
+  #if($!mailTo != "")
+    #set($mailFrom = $xwiki.getXWikiPreference("admin_email"))
+    #set($mailDoc = $xwiki.getDocument("Groups.MailTemplateCreateMessage"))
+    ## $msgdoc has to be in the current context because it is used in the mail template
+    #set($msgdoc = $msg_doc)
+    $msgdoc.use("XWiki.ArticleClass")
+    #set($mailSubject = $doc.getRenderedContent($mailDoc.title))
+    #set($mailContent = $doc.getRenderedContent($mailDoc.content))
+    #set($ok = $xwiki.mailsender.sendTextMessage($mailFrom, null, null, $mailTo, $mailSubject, $mailContent, null))
+  #end
 #end
 #end
 ##
@@ -479,6 +482,7 @@ function inArray(item, items){
 <input id="toGroup" name="toGroup" type="checkbox" #if($toGroup)checked="checked"#end style="width:auto;" /><label for="toGroup">$msg.get('groups_messages_create_to_group_label')</label>
 </td>
 </tr>
+#*
 <tr class="selectedRoles">
 <td>
 <input id="toRole" name="toRole" type="checkbox" #if($selectedRoles.size()>0)checked="checked"#end style="width:auto;" onclick="enableSelect(this, 'rolesList')" /><label for="toRole">$msg.get('groups_messages_create_to_role_label')</label>
@@ -498,6 +502,7 @@ function inArray(item, items){
 <a id="addRoleLink" href="javascript:void()" title="${msg.get('groups_messages_create_to_role_add_tooltip')}" onclick="addToList(this, 'rolesList', 'selectedRoles'); return false;" style="display:none;">$msg.get('groups_messages_create_to_role_add_label')</a>
 </td>
 </tr>
+*#
 <tr class="selectedMembers">
 <td>
 <input id="toMember" name="toMember" type="checkbox" #if($selectedMembers.size()>0)checked="checked"#end style="width:auto;" onclick="enableSelect(this, 'membersList')" /><label for="toMember">$msg.get('groups_messages_create_to_member_label')</label>
@@ -506,7 +511,7 @@ function inArray(item, items){
 <input id="selectedMembersList" name="selectedMembersList" type="hidden" value="" />
 <select id="membersList" onchange="displayAddLink(this, 'addMemberLink');" disabled="true">
 <option value="" selected="selected">$msg.get('groups_messages_create_to_member_default')</option>
-#foreach($memberName in $sm.getMembers($spaceName))
+#foreach($memberName in $membershipManager.getMemberNames($group))
 <option value="${memberName}">$xwiki.getUserName($memberName, false)</option>
 #end
 </select>
@@ -524,11 +529,13 @@ function inArray(item, items){
 </div>
 #if($selectedRoles.size()>0 || $selectedMembers.size()>0)
 <script type="text/javascript">
+#*
 #if($selectedRoles.size()>0)
 enableSelect(document.getElementById('toRole'), 'rolesList');
 var selectedRoles = [#foreach($role in $selectedRoles)'${role}',#end];
 preFillList('addRoleLink', 'rolesList', 'selectedRoles', selectedRoles);
 #end
+*#
 #if($selectedMembers.size()>0)
 enableSelect(document.getElementById('toMember'), 'membersList');
 var selectedMembers = [#foreach($member in $selectedMembers)'${member}',#end];
@@ -893,58 +900,56 @@ return returnValue;
 #groupsinit()
 #groupsheader("messages")
 #if(!$isGroupMember)
-$msg.get("groups_documentation_onlyaccessibletomembers")
+  $msg.get("groups_documentation_onlyaccessibletomembers")
 #else
-#groupsdisplaywelcome($msg.get("groups_messages_create_about_title") $spaceName $doc.name $isGroupAdmin)
-#if($request.page)
-## saving article
-#set($space = "Messages_${spaceName}")
-#set($mytitle = $request.get("XWiki.ArticleClass_0_title"))
-#set($pagename= $xwiki.getUniquePageName($space, $xwiki.clearName($mytitle)))
-#set($pagefullname = "$space.${pagename}")
-#set($tdoc = $xwiki.getDocument($request.page))
-#set($ok = $xwiki.renamePage($tdoc, $pagefullname))
-#set($newdoc = $xwiki.getDocument($pagefullname))
-#set($ok = $newdoc.addObjectFromRequest("XWiki.ArticleClass"))
-#if($newdoc.syntaxId == "xwiki/2.0")
-$newdoc.setContent('{{velocity}}{{html}}#includeForm("Groups.MessageTemplate"){{/html}}{{/velocity}}')
-#else
-$newdoc.setContent($xwiki.getDocument("Groups.MessageTemplate").getContent())
-#end
-$newdoc.setParent("${spaceName}.Messages")
-## Update rights
-#messageUpdateRightsFromRequest($newdoc)
-## Send notification mail
-#messageSendNotificationMail($newdoc)
-## Redirect to message
-$response.sendRedirect($newdoc.getURL())
-#else
-#begingroupsection($msg.get("groups_messages_create_title"), "", "", "blue",false)
-<div class="groups-edit-message">
-$msg.get("groups_messages_create_about_infotxt")
-#set($bentrydoc = $xwiki.getDocument("Temp", $xwiki.getUniquePageName("Temp","Article")))
-#if("$!request.xwiki2" == "true")
-$bentrydoc.setSyntaxId("xwiki/2.0")
-#end
-#set($ok = $bentrydoc.save())
-#set($bentryobj = $bentrydoc.newObject("XWiki.ArticleClass"))
-#set($junk = $bentrydoc.use($bentryobj))
-#set($cancelAction = $xwiki.getURL("${doc.space}.Messages", "view"))
-#set($saveAction = "")
-<form action="$saveAction" id="inline" method="post">
-<input type="hidden" name="page" value="$bentrydoc.fullName" />
-<div class="fields">
-*$msg.get("groups_messages_create_messagetitle_instruction")*
-<br />
-<span class="tmargin full-width">
-$bentrydoc.display("title", "edit", $bentryobj)
-</span>
-*$msg.get("groups_messages_create_messagecontent_instruction")*
-<br />
-$bentrydoc.display("content", "edit", $bentryobj)
-</div>
-#set($editors = $context.getEditorWysiwyg())
-#if($editors)
+  #groupsdisplaywelcome($msg.get("groups_messages_create_about_title") $spaceName $doc.name $isGroupAdmin)
+  #if($request.page)
+    ## saving article
+    #set($space = "Messages_${spaceName}")
+    #set($mytitle = $request.get("XWiki.ArticleClass_0_title"))
+    #set($pagename= $xwiki.getUniquePageName($space, $xwiki.clearName($mytitle)))
+    #set($pagefullname = "$space.${pagename}")
+    #set($tdoc = $xwiki.getDocument($request.page))
+    #set($ok = $xwiki.renamePage($tdoc, $pagefullname))
+    #set($newdoc = $xwiki.getDocument($pagefullname))
+    #set($ok = $newdoc.addObjectFromRequest("XWiki.ArticleClass"))
+    #if($newdoc.syntaxId == "xwiki/2.0")
+      $newdoc.setContent('{{velocity}}{{html}}#includeForm("Groups.MessageTemplate"){{/html}}{{/velocity}}')
+    #else
+      $newdoc.setContent($xwiki.getDocument("Groups.MessageTemplate").getContent())
+    #end
+    $newdoc.setParent("${spaceName}.Messages")
+    ## Update rights
+    #messageUpdateRightsFromRequest($newdoc)
+    ## Send notification mail
+    #messageSendNotificationMail($newdoc)
+    ## Redirect to message
+    $response.sendRedirect($newdoc.getURL())
+  #else
+    #begingroupsection($msg.get("groups_messages_create_title"), "", "", "blue",false)
+    <div class="groups-edit-message">
+    $msg.get("groups_messages_create_about_infotxt")
+    #set($bentrydoc = $xwiki.getDocument("Temp", $xwiki.getUniquePageName("Temp","Article")))
+    #if("$!request.xwiki2" == "true")
+      $bentrydoc.setSyntaxId("xwiki/2.0")
+    #end
+    #set($ok = $bentrydoc.save())
+    #set($bentryobj = $bentrydoc.newObject("XWiki.ArticleClass"))
+    #set($junk = $bentrydoc.use($bentryobj))
+    #set($cancelAction = $xwiki.getURL("${doc.space}.Messages", "view"))
+    #set($saveAction = "")
+    <form action="$saveAction" id="inline" method="post">
+      <input type="hidden" name="page" value="$bentrydoc.fullName" />
+      <div class="fields">
+      *$msg.get("groups_messages_create_messagetitle_instruction")*
+      <br />
+      <span class="tmargin full-width">$bentrydoc.display("title", "edit", $bentryobj)</span>
+      *$msg.get("groups_messages_create_messagecontent_instruction")*
+      <br />
+      $bentrydoc.display("content", "edit", $bentryobj)
+      </div>
+      #set($editors = $context.getEditorWysiwyg())
+      #if($editors)
 #if($bentrydoc.syntaxId == "xwiki/1.0")
 <script language="javascript" type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/tiny_mce/tiny_mce.js")"></script>
 <script language="javascript" type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/wysiwyg/tinymce/wiki_editor/wiki_editor.js")"></script>

@@ -5,10 +5,11 @@
 ##
 ##
 ## groups shared macros
-#macro(groupinit $groupName)
+#macro(groupinit $spaceName)
   #set($groupManager = $services.groupmgr)
   #set($membershipManager = $services.membershipmgr)
-  #set($group = $groupManager.getGroup($groupName))
+  #set($group = $groupManager.getGroup($spaceName))
+  #set($groupName = $group.name)
   #set($groupTitle = $group.title)
   #set($groupURL = $group.homeURL)
   #set($groupPolicy = $group.policy)
@@ -21,10 +22,9 @@
 #macro(groupsinit)
   $xwiki.ssfx.use("curriki.css")
   $xwiki.ssfx.use("groups.css")
-  #set($spaceName = $doc.space)
+  #set($spaceName = $doc.space)  
   #set($collSpaceName = "Coll_${spaceName}")
-  #set($groupName = $spaceName.replaceFirst("Group_",""))
-  #groupinit($groupName)
+  #groupinit($spaceName)
 #end
 ##
 ## page: all pages in the groups space
@@ -34,7 +34,7 @@
 <ul id="groups-tabs" class="tabs">
 #foreach($tab in $tabs)
   #set($tabpage = $msg.get("groups_${tab}_page"))
-  #set($url = $xwiki.getURL("${spaceName}.${tabpage}", "view"))
+  #set($url = $xwiki.getURL("${groupName}.${tabpage}", "view"))
   #if(!$hasGlobalAdmin && !$isGroupMember && ($group.policy=="closed") && ($tab == "messages" || $tab == "members" || $tab == "documentation"))
     <li class="tabgreyed#if($curtab==$tab) current#end"><a href="javascript:void()" onclick="alert('$msg.get("groups_onlyaccessibletomembers")'); return false;">$msg.get("groups_${tab}_tabname")</a></li>
   #else
