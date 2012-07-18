@@ -492,8 +492,10 @@ $msreq.text
       #if($sent == false)
         #if($membershipManager.lastError == "membership_manager.already_invited")        
           #error($msg.get($membershipManager.lastError, [$invitee, $groupTitle]))
-        #elseif ($membershipManager.lastError == "membership_manager.invalid_email")
-          #error($msg.get($membershipManager.lastError, [$invitee]))
+        #elseif($membershipManager.lastError == "membership_manager.already_member")
+          #error($msg.get($membershipManager.lastError, [$membershipManager.getUser($invitee), $groupTitle]))
+        #elseif($membershipManager.lastError == "membership_manager.invalid_email")
+          #error($msg.get($membershipManager.lastError, [$invitee]))        
         #else
           #error($msg.get("groups_members_invite_inviteemissing"))
         #end
@@ -531,8 +533,8 @@ $msreq.text
       <textarea name="text" rows="7">
       $msg.get("groups_members_invite_invitefieldtxt", [$group.title, $group.urlShortcut, $xwiki.getUserName($context.user, false)])
       </textarea>
-      <input id="openInvitationCheckbox" type="checkbox" name="open" value="open" />
-      <label for="openInvitationCheckbox">$msg.get("groups_members_invite_openinvitation")</label>
+      ##<input id="openInvitationCheckbox" type="checkbox" name="open" value="open" />
+      ##<label for="openInvitationCheckbox">$msg.get("groups_members_invite_openinvitation")</label>
       <p class="paragraph button-right"><input type="submit" class="button button-confirm" value="$msg.get("groups_members_invite_btt")" /></p>
     </form>
     #endgroupsection()
