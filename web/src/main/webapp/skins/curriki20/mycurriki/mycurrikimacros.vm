@@ -131,13 +131,13 @@
   <h2>$msg.get('profile.welcome', ["$userdoc.display('first_name', 'view', $userobj) $userdoc.display('last_name', 'view', $userobj)"])</h2></th>
   <ul>
     #set($url = $xwiki.getURL("MySankore.EditProfile", "view", "user=${context.user}"))
-    <li class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a>&raquo; $msg.get("sankore.profile.editprofile.description")</li>
+    <li class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a></li>
     #set($url = $xwiki.getURL("Main.BookmarkletSetup", "view"))
-    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.downloadplugin.title")</a>&raquo; $msg.get("sankore.profile.downloadplugin.description")</li>  
+    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.downloadplugin.title")</a></li>  
     #set($url = $xwiki.getURL("Groups.AboutGroups", "view"))
-    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a>&raquo; $msg.get("sankore.profile.joingroup.description")</li>
+    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></li>
     #set($url = $xwiki.getURL("Invitation.WebHome", "view"))
-    <li class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a>&raquo; $msg.get("sankore.profile.inviteuser.description")</li>
+    <li class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></li>
   </ul>  
 </div>
 #end
