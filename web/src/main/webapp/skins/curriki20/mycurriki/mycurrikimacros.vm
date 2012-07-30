@@ -126,27 +126,21 @@
   * @author flavius.olaru@xwiki.com
   *#
 #macro(sankore_profilelinks $userdoc $userobj)
-  #if("$context.user" == "$userdoc.fullName")
-  <div class="profile-links">
-  <table border="0">
-  <tr>
-    <th colspan="6"><h2>$msg.get('profile.welcome', ["$userdoc.display('first_name', 'view', $userobj) $userdoc.display('last_name', 'view', $userobj)"])</h2></th>
-  </tr>
-  <tr>
+#if("$context.user" == "$userdoc.fullName")
+<div class="profile-links">    
+  <h2>$msg.get('profile.welcome', ["$userdoc.display('first_name', 'view', $userobj) $userdoc.display('last_name', 'view', $userobj)"])</h2></th>
+  <ul>
     #set($url = $xwiki.getURL("MySankore.EditProfile", "view", "user=${context.user}"))
-    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.editprofile.description")</td>
+    <li class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a>&raquo; $msg.get("sankore.profile.editprofile.description")</li>
     #set($url = $xwiki.getURL("Main.BookmarkletSetup", "view"))
-    <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.downloadplugin.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.downloadplugin.description")</td>
-  </tr>
-  <tr>
+    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.downloadplugin.title")</a>&raquo; $msg.get("sankore.profile.downloadplugin.description")</li>  
     #set($url = $xwiki.getURL("Groups.AboutGroups", "view"))
-    <td class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.joingroup.description")</td>
+    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a>&raquo; $msg.get("sankore.profile.joingroup.description")</li>
     #set($url = $xwiki.getURL("Invitation.WebHome", "view"))
-    <td class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></td><td class="profile-splitter" valign="top">&raquo;</td><td>$msg.get("sankore.profile.inviteuser.description")</td>
-  </tr>
-  </table>
-  </div>
-  #end
+    <li class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a>&raquo; $msg.get("sankore.profile.inviteuser.description")</li>
+  </ul>  
+</div>
+#end
 #end
 
 #**
@@ -547,106 +541,89 @@ $!desc
   * @author dward@curriki.org
   *#
 #macro(mycurriki_editprofile $userdoc $userobj)
-  <table border="0" cellspacing="2" cellpadding="2">
-  <tbody> 
-  <tr>
-    <td><strong>${msg.get("profile.field.firstName")}</strong></td>
-  </tr>
-  <tr>
-    <td>$userdoc.display("first_name", "edit", $userobj)</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.lastName")</strong></td>
-  </tr>
-  <tr>
-    <td>$userdoc.display("last_name", "edit", $userobj)</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.memberType")</strong></td>
-  </tr>
-  <tr>
-    <td>$userdoc.display("member_type", "edit", $userobj)</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.affiliation")</strong></td>
-  </tr>
-  <tr>
-    <td> $userdoc.display("affiliation", "edit", $userobj)</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.city")</strong></td>
-  </tr>
-  <tr>
-   <td>$userdoc.display("city", "edit", $userobj)</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.state")</strong></td>
-  </tr>
-  <tr>
-    <td>$userdoc.display("state", "edit", $userobj)</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.country")</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <select id="XWiki.XWikiUsers_0_country" size="1" name="XWiki.XWikiUsers_0_country">
-      #set($xwikiusers_xclass = $xwiki.getClass("XWiki.XWikiUsers"))
-      #set($field_xclass = $xwikiusers_xclass.get('country'))
-      #set($hashmap = $util.hashMap)
-      #set($keys = $field_xclass.listValues)
-      #set($values = $util.arrayList)
-      #foreach($key in $keys)
-        #set($value = $msg.get("XWiki.XWikiUsers_country_${key}"))
-        #set($discard = $values.add($value))
-        #set($discard = $hashmap.put($value, $key))
-      #end
-      #set($sorted = $sorttool.sort($values))
-      #set($currentCountry = $userobj.getProperty('country').value)
-      #foreach($value in $sorted)
-        #set($currentKey = $hashmap.get($value))
-        <option label="$value" value="$currentKey" #if($currentCountry == $currentKey) selected="selected" #end >$value</option>
-      #end
-      </select>
-    </td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.showContact")</strong> $userdoc.display("show_contact", "edit", $userobj)</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.email")</strong></td>
-  </tr>
-  <tr>
-    <td>$userdoc.display("email", "edit", $userobj)</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.opt_out")</strong></td>
-  </tr>
-  <tr>
-    <td>$userdoc.display("opt_out", "edit", $userobj) $msg.get("profile.field.opt_out.checkbox_text")</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.password")</strong></td>
-  </tr>
-  <tr>
-    <td><input size='30' id='password' name='password' type='password'/></td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.passwordConfirm")</strong></td>
-  </tr>
-  <tr>
-    <td>
-      <input size='30' id='password_repeat' name='password_repeat' type='password'/>
-    </td>
-  </tr> 
-  <tr>
-    <td><strong>$msg.get("profile.field.bio")</strong></td>
-  </tr>
-  <tr>
-    <td>$userdoc.display("comment", "edit", $userobj) </td>
-  </tr>
-  </tbody>
-  </table>
+<div class="userInfo">
+<h2>$msg.get("profile.section.userInfo")</h2>
+<ul>
+<li id="first_name">  
+  <span class="label"><strong>$msg.get("profile.field.display.firstName")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("first_name", $userobj))</span>
+</li>
+<li id="last_name">
+  <span class="label"><strong>$msg.get("profile.field.display.lastName")</strong></span>
+  <span class="value">#mycurriki_dashifempty($userdoc.display("last_name", $userobj))</span>
+</li>
+<li id="city">  
+  <span class="label"><strong>$msg.get("profile.field.city")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("city", $userobj))</span>
+</li>
+##<li id="state">
+  ##<span class="label"><strong>$msg.get("profile.field.state")</strong></span>    
+  ##<span class="value">#mycurriki_dashifempty($userdoc.display("state", $userobj))</span>
+##</li>
+<li id="country">
+  <span class="label"><strong>$msg.get("profile.field.country")</strong></span>    
+  <span id="value">
+    <select id="XWiki.XWikiUsers_0_country" size="1" name="XWiki.XWikiUsers_0_country">
+    #set($xwikiusers_xclass = $xwiki.getClass("XWiki.XWikiUsers"))
+    #set($field_xclass = $xwikiusers_xclass.get('country'))
+    #set($hashmap = $util.hashMap)
+    #set($keys = $field_xclass.listValues)
+    #set($values = $util.arrayList)
+    #foreach($key in $keys)
+      #set($value = $msg.get("XWiki.XWikiUsers_country_${key}"))
+      #set($discard = $values.add($value))
+      #set($discard = $hashmap.put($value, $key))
+    #end
+    #set($sorted = $sorttool.sort($values))
+    #set($currentCountry = $userobj.getProperty('country').value)
+    #foreach($value in $sorted)
+      #set($currentKey = $hashmap.get($value))
+      <option label="$value" value="$currentKey" #if($currentCountry == $currentKey) selected="selected" #end >$value</option>
+    #end
+    </select>
+  </span>
+</li>
+<li id="email">
+  <span class="label"><strong>$msg.get("profile.field.email")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("email", $userobj))</span>
+</li>
+<li id="member_type">  
+  <span class="label"><strong>$msg.get("profile.field.memberType")</strong></span>
+  <span class="value">#mycurriki_dashifempty($userdoc.display("member_type", $userobj))</span>
+</li>
+<li id="affiliation">
+  <span class="label"><strong>$msg.get("profile.field.affiliation")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("affiliation", $userobj))</span>
+</li>      
+  #if($context.action=="inline" && ($context.user == $userdoc.fullName || $hasGlobalAdmin))
+<li id="password">        
+  <span class="label"><strong>$msg.get("profile.field.password")</strong></span>
+  <span class="value"><input size='30' id='password' name='password' type='password'/></span>
+</li>
+<li id="password_repead">    
+  <span class="label"><strong>$msg.get("profile.field.passwordConfirm")</strong></span>
+  <span class="value"><input size='30' id='password_repeat' name='password_repeat' type='password'/></span>
+</li>    
+  #end
+<li id="bio">  
+  <span class="label"><strong>$msg.get("profile.field.bio")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("bio", $userobj))</span>
+</li>
+</ul>
+</div>
+<div class="userPrivacy">
+<h2>$msg.get("profile.section.userPrivacy")</h2>
+<ul>
+<li id="show_contact">
+  <span class="label"><strong>$msg.get("profile.field.showContact")</strong></span>
+  <span class="value">#mycurriki_dashifempty($userdoc.display("show_contact", $userobj))</span>
+</li>
+<li id="opt_out">
+  <span class="label"><strong>$msg.get("profile.field.opt_out")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("opt_out", $userobj))</span>
+</li>
+</ul>
+</div>
 #end
 
 
@@ -904,79 +881,92 @@ $response.sendRedirect($xwiki.getURL("XWiki.XWikiLogout", "logout", "xredirect=$
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_viewprofile $userdoc $userobj)
-  <table border="0" cellspacing="2" cellpadding="2">
-  <tbody>
-  <tr>
-    <td><strong>$msg.get("profile.field.display.firstName")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("first_name", $userobj)) </td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.display.lastName")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("last_name", $userobj))</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.memberType")</strong>
-    #mycurriki_dashifempty($userdoc.display("member_type", $userobj))</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.affiliation")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("affiliation", $userobj))</td>
-  </tr>
-  </tr>
-    <td><strong>$msg.get("profile.field.city")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("city", $userobj))</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.state")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("state", $userobj))</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.country")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("country", $userobj))</td>
-  </tr>
-  #if ($context.action=="inline")
-  <tr>
-    <td><strong>$msg.get("profile.field.showContact")</strong>
-    #mycurriki_dashifempty($userdoc.display("show_contact", $userobj))</td>
-  </tr>
+<div class="userInfo">
+<h2>$msg.get("profile.section.userInfo")</h2>
+<ul>
+<li id="first_name">  
+  <span class="label"><strong>$msg.get("profile.field.display.firstName")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("first_name", $userobj))</span>
+</li>
+<li id="last_name">
+  <span class="label"><strong>$msg.get("profile.field.display.lastName")</strong></span>
+  <span class="value">#mycurriki_dashifempty($userdoc.display("last_name", $userobj))</span>
+</li>
+<li id="city">  
+  <span class="label"><strong>$msg.get("profile.field.city")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("city", $userobj))</span>
+</li>
+##<li id="state">
+  ##<span class="label"><strong>$msg.get("profile.field.state")</strong></span>    
+  ##<span class="value">#mycurriki_dashifempty($userdoc.display("state", $userobj))</span>
+##</li>
+<li id="country">
+  <span class="label"><strong>$msg.get("profile.field.country")</strong></span>    
+  <span id="value">
+  #*
+    <select id="XWiki.XWikiUsers_0_country" size="1" name="XWiki.XWikiUsers_0_country">
+    #set($xwikiusers_xclass = $xwiki.getClass("XWiki.XWikiUsers"))
+    #set($field_xclass = $xwikiusers_xclass.get('country'))
+    #set($hashmap = $util.hashMap)
+    #set($keys = $field_xclass.listValues)
+    #set($values = $util.arrayList)
+    #foreach($key in $keys)
+      #set($value = $msg.get("XWiki.XWikiUsers_country_${key}"))
+      #set($discard = $values.add($value))
+      #set($discard = $hashmap.put($value, $key))
+    #end
+    #set($sorted = $sorttool.sort($values))
+    #set($currentCountry = $userobj.getProperty('country').value)
+    #foreach($value in $sorted)
+      #set($currentKey = $hashmap.get($value))
+      <option label="$value" value="$currentKey" #if($currentCountry == $currentKey) selected="selected" #end >$value</option>
+    #end
+    </select>
+  *#
+  #mycurriki_dashifempty($userdoc.display("country", $userobj))
+  </span>
+</li>
+<li id="email">
+  <span class="label"><strong>$msg.get("profile.field.email")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("email", $userobj))</span>
+</li>
+<li id="member_type">  
+  <span class="label"><strong>$msg.get("profile.field.memberType")</strong></span>
+  <span class="value">#mycurriki_dashifempty($userdoc.display("member_type", $userobj))</span>
+</li>
+<li id="affiliation">
+  <span class="label"><strong>$msg.get("profile.field.affiliation")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("affiliation", $userobj))</span>
+</li>      
+  #if($context.action=="inline" && ($context.user == $userdoc.fullName || $hasGlobalAdmin))
+<li id="password">        
+  <span class="label"><strong>$msg.get("profile.field.password")</strong></span>
+  <span class="value"><input size='30' id='password' name='password' type='password'/></span>
+</li>
+<li id="password_repead">    
+  <span class="label"><strong>$msg.get("profile.field.passwordConfirm")</strong></span>
+  <span class="value"><input size='30' id='password_repeat' name='password_repeat' type='password'/></span>
+</li>    
   #end
-  #if(($context.user==$userdoc.fullName)||($xwiki.hasAdminRights()))
-  <tr>
-    <td><strong>$msg.get("profile.field.email")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("email", $userobj))</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.showContact")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("show_contact", $userobj))</td>
-  </tr>
-  <tr>
-    <td><strong>$msg.get("profile.field.opt_out")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("opt_out", $userobj))</td>
-  </tr>
-  #if ($context.action=="inline")
-  <tr>
-    <td><strong>$msg.get("profile.field.passwordConfirm")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    {pre}<input size='30' id='XWiki.XWikiUsers_0_password_repeat' value='$userdoc.display("password", "view", $userobj)' name='XWiki.XWikiUsers_0_password_repeat' type='password'/>{/pre}</td>
-  </tr>
-  #end
-  #end  
-  <tr>
-    <td><strong>$msg.get("profile.field.bio")</strong>
-    #if ($context.action=="inline") </td></tr><tr><td> #end
-    #mycurriki_dashifempty($userdoc.display("comment", $userobj)) </td>
-  </tr>
-  </tbody>
-  </table>
+<li id="bio">  
+  <span class="label"><strong>$msg.get("profile.field.bio")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("bio", $userobj))</span>
+</li>
+</ul>
+</div>
+<div class="userPrivacy">
+<h2>$msg.get("profile.section.userPrivacy")</h2>
+<ul>
+<li id="show_contact">
+  <span class="label"><strong>$msg.get("profile.field.showContact")</strong></span>
+  <span class="value">#mycurriki_dashifempty($userdoc.display("show_contact", $userobj))</span>
+</li>
+<li id="opt_out">
+  <span class="label"><strong>$msg.get("profile.field.opt_out")</strong></span>    
+  <span class="value">#mycurriki_dashifempty($userdoc.display("opt_out", $userobj))</span>
+</li>
+</ul>
+</div>
 #end ## end macro
 
 
