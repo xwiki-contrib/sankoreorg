@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1342537379000</creationDate>
-<date>1342537379000</date>
-<contentUpdateDate>1342537379000</contentUpdateDate>
+<creationDate>1343745468000</creationDate>
+<date>1343745468000</date>
+<contentUpdateDate>1343745468000</contentUpdateDate>
 <version>1.1</version>
-<title></title>
+<title>Resource Open-Sankoré en ligne</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -170,4 +170,11 @@ Pour ce faire, suivez le lien suivant:
 $url</text>
 </property>
 </object>
-<content></content></xwikidoc>
+<content>{{velocity}}
+= Cher $userName =
+
+Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collection disponible sur la plateforme Planète Sankoré.
+
+Pour ce faire, suivez le lien suivant:
+$assetURL
+{{/velocity}}</content></xwikidoc>
