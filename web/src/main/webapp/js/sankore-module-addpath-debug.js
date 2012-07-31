@@ -1808,7 +1808,7 @@ Curriki.module.addpath.init = function() {
               ,preventMark:true
               ,hideLabel:true
               ,width:'80%'
-              ,value:Curriki.current.sri?Curriki.current.sri.title:''
+              ,value:Curriki.current.sri?Curriki.current.sri.title:Curriki.current.asset.title?Curriki.current.asset.title:''
 
     // Description
             },{
@@ -1839,7 +1839,7 @@ Curriki.module.addpath.init = function() {
               ,preventMark:true
               ,hideLabel:true
               ,width:'80%'
-              ,value:Curriki.current.sri?Curriki.current.sri.description:''
+              ,value:Curriki.current.sri?Curriki.current.sri.description:Curriki.current.asset.description?Curriki.current.asset.description:''
               
     // Keywords
               },{
@@ -1877,7 +1877,7 @@ Curriki.module.addpath.init = function() {
                   ,emptyText:_('sri.keywords.empty_msg')
                   ,hideLabel:true
                   ,width:'60%'
-                  ,value:Curriki.current.sri?Curriki.current.sri.keywords:''
+                  ,value:Curriki.current.sri?Curriki.current.sri.keywords:Curriki.current.asset.keywords?Curriki.current.asset.keywords:''
                   ,listeners:{
                     render:function(comp){
                       comp.findParentByType('apSRI1').on('show', function() {
@@ -4853,15 +4853,15 @@ Curriki.module.addpath.init = function() {
           break;
 
         case 'contributions':
-          link = '/xwiki/bin/view/MyCurriki/Contributions';
+          link = '/xwiki/bin/view/MySankore/Contributions';
           break;
 
         case 'collections':
-          link = '/xwiki/bin/view/MyCurriki/Collections';
+          link = '/xwiki/bin/view/MySankore/Collections';
           break;
 
         case 'favorites':
-          link = '/xwiki/bin/view/MyCurriki/Favorites';
+          link = '/xwiki/bin/view/MySankore/Favorites';
           break;
 
         case 'close':
@@ -5200,6 +5200,9 @@ Curriki.module.addpath.init = function() {
       if (Ext.isEmpty(Curriki.current.flow)) {
         return;
       }
+      
+      // set status to DONE
+      Ext.util.Cookies.set("assetStatus", "DONE")
 
       var pageCreated = (Curriki.current.asset&&Curriki.current.asset.assetPage)||Curriki.current.assetName;
       Curriki.logView('/features/resources/add/'+Curriki.current.flow+Curriki.current.flowFolder+'/'+((Curriki.current.asset&&Curriki.current.asset.assetType)||Curriki.current.assetType||'UNKNOWN')+'/'+pageCreated.replace('.', '/'));
@@ -5746,7 +5749,7 @@ console.log("Created Collection CB: ", assetInfo);
             Curriki.current.copyOf,
             Curriki.current.publishSpace,
             function(asset){
-console.log("CopyAsset CB: ", asset);
+                console.log("CopyAsset CB: ", asset);
                 Curriki.current.asset = asset;
                 callback = function(){AddPath.ShowNextDialogue(next);};
                 Curriki.assets.GetMetadata(asset.assetPage, function(metadata){
@@ -5769,6 +5772,8 @@ console.log("CopyAsset CB: ", asset);
           })          
           return;
           break;
+
+          
 
 
         default:
