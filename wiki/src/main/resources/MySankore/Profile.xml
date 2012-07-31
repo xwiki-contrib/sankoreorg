@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1343662339000</creationDate>
-<date>1343662339000</date>
-<contentUpdateDate>1343662339000</contentUpdateDate>
+<creationDate>1343748396000</creationDate>
+<date>1343748396000</date>
+<contentUpdateDate>1343748396000</contentUpdateDate>
 <version>1.1</version>
 <title>Profil</title>
 <template></template>
@@ -31,9 +31,7 @@
 #mycurriki_pagefooter("")
 &lt;div id="myprofile-activity"&gt;
 &lt;h2&gt;$msg.get("profile.activity")&lt;/h2&gt;
-{{/velocity}}
-{{include document="MySankore.ActivityStream"/}}
-{{velocity}}
+{{/velocity}}{{include document="MySankore.ActivityStream"/}}{{velocity}}
 {{html clean="false"}}
 &lt;/div&gt;
 {{/html}}
