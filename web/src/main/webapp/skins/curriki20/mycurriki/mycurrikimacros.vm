@@ -659,7 +659,7 @@ $!desc
 #set($xeditredirect = $xwiki.getURL("MySankore.Profile", "edit", "$userarg"))
 #set($xredirectemail = $xwiki.getURL("MySankore.EditProfileEmail", "view", "$userarg"))
 #set($xredirectemail2 = $xwiki.getURL("Registration.EmailVerification", "view", "username=${userdoc.name}"))
-#curriki_titlebar($msg.get("mycurriki.editprofile.titlebar") "" "" "blue")
+##curriki_titlebar($msg.get("mycurriki.editprofile.titlebar") "" "" "blue")
 <div class="edit-profile">
 #mycurriki_jsx()
 <form id="inline" action="$userdoc.getURL("preview")" method="post" onsubmit="return Curriki.mycurriki.validateInlineForm();">
@@ -883,23 +883,23 @@ $!desc
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_viewprofilebox $userdoc $userobj)
-  #curriki_titlebar($msg.get("mycurriki.profile.titlebar") "" "" "blue")
-  #if($context.user=="XWiki.XWikiGuest")
-    #set($logredir = $doc.getURL("view"))
-    #set($loginurl = $xwiki.getURL("XWiki.XWikiLogin", "login", "xredirect=$logredir"))
-    #if("$!request.user" == "")
-      $response.sendRedirect($loginurl)
-    #else
-      $msg.get("profile.accessDenied", [$loginurl])
-    #end
-  #else ## if XWiki.XWikiGuest
-    #set($showcontact=$userobj.getProperty("show_contact").getValue())
-    #if(($showcontact=="0")&&($context.user!=$userdoc.fullName)&&(!$xwiki.hasAdminRights()))
-      $msg.get("profile.userNotVisible")
-    #else ## if showcontact == No
-      #mycurriki_viewprofiletable($userdoc $userobj)
-    #end ## if showcontact == No
-  #end ## if XWikiGuest
+##curriki_titlebar($msg.get("mycurriki.profile.titlebar") "" "" "blue")
+#if($isGuest)
+  #set($logredir = $doc.getURL("view"))
+  #set($loginurl = $xwiki.getURL("XWiki.XWikiLogin", "login", "xredirect=$logredir"))
+  #if("$!request.user" == "")
+    $response.sendRedirect($loginurl)
+  #else
+    $msg.get("profile.accessDenied", [$loginurl])
+  #end
+#else ## if XWiki.XWikiGuest
+  #set($showcontact = $userobj.getProperty("show_contact").getValue())
+  #if(($showcontact=="0")&&($context.user!=$userdoc.fullName)&&(!$xwiki.hasAdminRights()))
+    $msg.get("profile.userNotVisible")
+  #else ## if showcontact == No
+    #mycurriki_viewprofiletable($userdoc $userobj)
+  #end ## if showcontact == No
+#end ## if XWikiGuest
 #end ## end macro
 
 ##
