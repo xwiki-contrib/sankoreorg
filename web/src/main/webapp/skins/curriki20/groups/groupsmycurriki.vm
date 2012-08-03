@@ -43,6 +43,7 @@
   #set($sortArgs = "")
 <div class="frame">
 #curriki_paginatorargs($msg.get("mycurriki.tab.groups.label") $startIndex $nbToDisplay $groupsList.size() $sortArgs)
+</div>
 #end
 #end ## macro ## }
 
@@ -202,4 +203,102 @@ $msg.get("mycurriki.groups.message.by") <a href="$xwiki.getURL("${message.creato
 #end
 #end
 </div>
+#end
+
+#macro(mycurriki_grouplist $userdoc $userobj)
+#set($nbToDisplay = 5)
+#set($startIndex = 0)
+#set($Integer = 0)
+#if($request.startIndex)
+  #set($startIndex = $Integer.parseInt($request.getParameter("startIndex")))
+#end
+#if($startIndex > ($groupsList.size() - 1))
+  #set($startIndex = $groupsList.size() - 1)
+#end
+#set($endIndex = $startIndex - 1 + $nbToDisplay)
+#if($endIndex > ($groupsList.size() - 1))
+  #set($endIndex = $groupsList.size() - 1)
+#end
+#set($groupManager = $services.groupmgr)
+#set($groupsList = $groupManager.getGroupNamesFor($userdoc.fullName))
+#set($showcount = 0)
+#foreach($groupName in $groupsList)
+  #set($showcount = 1 + $showcount)
+  #if(($showcount > $startIndex) && ($showcount < ($endIndex + 2)))
+    #set($group = $groupManager.getGroup($groupName))  
+    #mycurriki_groupinfo($groupName "")
+  #end
+#end
+#if($showcount != 0)
+  #set($sortArgs = "")
+<div class="frame">
+#curriki_paginatorargs($msg.get("mycurriki.tab.groups.label") $startIndex $nbToDisplay $groupsList.size() $sortArgs)
+</div>
+#end
+#end
+
+#macro(mycurriki_groupinfo $m_group $dmode)
+#set($m_groupName = "$m_group")
+#if(!$g_rowCount)
+  #set($g_rowCount = 0)
+#end
+#set($g_rowCount = $g_rowCount + 1)
+<div class="frame">
+<div class="frame-inset-titlebar">
+#if($dmode == "edit")
+  #set($editmastheadurl = $m_group.getHomeURL()+"?action=editmasthead")
+  #curriki_titlebar("$escapetool.html($group.getTitle())" $msg.get('groups_home_masthead_link') $editmastheadurl "blue")
+#elseif($dmode == "view")
+  #curriki_titlebar("$escapetool.html($group.getTitle())" "" "" "blue")
+#else
+  #curriki_titlebar("$escapetool.html($group.getTitle())" $msg.get('mycurriki.groups.visit') $group.getHomeURL()  "blue")
+#end
+</div>
+#groups_grouplogo($m_group)
+<div class="frame-inset-description">
+  <p>$group.getDescription()</p>
+</div>
+#if("$context.user" == "$!userdoc.fullName" )
+  #mycurriki_groupmessages($m_group)
+#end
+</div>
+#end
+
+#macro(mycurriki_groupmessages $m_group)
+#set($m_groupName = "$m_group")
+## Get last 5 messages
+#set($sql = ", BaseObject as obj where obj.name=doc.fullName and obj.className='XWiki.ArticleClass' and doc.web='Messages_${m_groupName}' order by doc.creationDate desc")
+#set($messages = $xwiki.searchDocuments($sql, 100, 0))
+#if($messages.size() > 0)
+<div id="mycurriki-groups-message-container">
+  ## Show messages
+  <div id="mycurriki-group-mymessages-${m_groupName}" class="lefttext xwikicomment">
+    <div class="righttext floatright">
+      <a href="$xwiki.getURL("${m_groupName}.Messages", "view")">$msg.get("mycurriki.groups.viewmessages")</a>
+    </div>
+    <strong>$msg.get("mycurriki.groups.mymessages")</strong>
+  </div>
+  #set($showCount = 0)
+  #foreach($messageName in $messages)
+    #if($showCount < 3)
+      #if($xwiki.hasAccessLevel("view", $context.user, $messageName))
+        #set($showCount = 1 + $showCount)
+        #set($message = $xwiki.getDocument($messageName))
+        #set($msgContent = $message.getObject("XWiki.ArticleClass"))
+  <div id="mycurriki-group-mymessages-${message.fullName}" class="lefttext xwikicomment">
+    <div class="righttext floatright">
+      $xwiki.formatDate($message.creationDate, $msg.get("mycurriki.datetimeFormat"))
+      $msg.get("mycurriki.groups.message.by") <a href="$xwiki.getURL("${message.creator}", "view")">$xwiki.getUserName($message.creator)</a>
+    </div>
+        #set($showTitle = $msgContent.title)
+        #if($showTitle.length() > 32)
+          #set($showTitle = $showTitle.substring(0, 32)+"...")
+        #end
+    <a href="$xwiki.getURL($message.fullName, "view")">$showTitle</a>
+  </div>
+      #end
+    #end
+  #end
+</div>
+#end
 #end
