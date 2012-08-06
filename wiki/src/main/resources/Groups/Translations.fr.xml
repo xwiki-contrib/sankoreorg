@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1342608676000</creationDate>
-<date>1342608676000</date>
-<contentUpdateDate>1342608676000</contentUpdateDate>
+<creationDate>1344268503000</creationDate>
+<date>1344268503000</date>
+<contentUpdateDate>1344268503000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -124,7 +124,7 @@ groups_home_tabname=Accueil
 
 ## GROUP HOME -- MASTHEAD
 groups_home_masthead_title=Titre du Groupe
-groups_home_masthead_link=Éditer
+groups_home_masthead_link=Modifier
 
 ## GROUP HOME -- EDIT MASTHEAD
 groups_home_editmasthead_title=Éditer la fiche de présentation du groupe
@@ -132,17 +132,17 @@ groups_home_editmasthead_bc=Éditer la présentation du groupe
 groups_home_editmasthead_groupname_tooltip=Ce nom apparaît a beaucoup d'endroits à dans l'espace de votre groupe et sur le site. gardez à l'esprit que des contraintes de place mémoire rendent préférable le choix d'un nom de groupe court.
 groups_home_editmasthead_groupdescription_tooltip=Quand les gens consultent des listes de groupes, ils voient en premier la "fiche de présentation "  de votre groupe, qui inclut cette description accompagnée de votre nom de groupe et d'une image de groupe. (Vous ajouterez votre image à l'étape suivante.) 
 groups_home_editmasthead_logo_infotxt_withoutlogo=La fiche de présentation de votre groupe utilise actuellement l'image située à gauche. Si vous souhaitez montrer une autre imagbe, cliquez sur "Parcourir" pour aller chercher la nouvelle image dans votre ordinateur. Une fois que vous avez trouvé l'image, cliquez sur "Mettre à jour" pour la faire apparaître dans la fiche de présentation de votre groupe. La meilleure taille pour cette image est 120x82 pixels.
-groups_home_editmasthead_logo_infotxt_withlogo=Votre groupe est actuellement représenté par l'image sur la gauche. Si vous voulez la changer, cliquez sur "Parcourir" afin de sélèctionner une image sur votre ordinateur. Une fois la bonne image choisie, cliquez sur "Uploader" pour la faire apparaitre. La taille recommandée est de 120x82 pixels. Si vous voulez revenir à l'image de groupe par défaut de Planète Sankoré, &lt;a href={0} onclick="return confirm(''Êtes-vous sûre?'')"&gt;cliquez ici&lt;/a&gt;.
+groups_home_editmasthead_logo_infotxt_withlogo=Votre groupe est actuellement représenté par l'image sur la gauche. Si vous voulez la changer, cliquez sur "Parcourir" afin de sélèctionner une image sur votre ordinateur. Une fois la bonne image choisie, cliquez sur "Uploader" pour la faire apparaitre. La taille recommandée est de 120x82 pixels.
 groups_home_editmasthead_logo_direction=Choisissez et Uploadez votre Image
 groups_home_editmasthead_logo_bro_btt=Parcourir
 groups_home_editmasthead_logo_upl_btt=Uploader
-groups_home_editmasthead_submit_btt=Soumettre les Mises à jour
+groups_home_editmasthead_submit_btt=Valider
 groups_home_editmasthead_cancel_btt=Annuler
 groups_home_editmasthead_cancel_confirm=Êtes-vous sûr de vouloir annuler vos changements ?
 
 ## GROUP HOME -- WELCOME
 groups_home_welcome=Bienvenue
-groups_home_welcome_link=Éditer
+groups_home_welcome_link=Modifier
 groups_home_editwelcome_title=Éditer le message de Bienvenue du Groupe
 groups_home_editwelcome_direction=Saisissez le Contenu de Bienvenue \:
 groups_home_editwelcome_submit_btt=Soumettre les Mises à Jour
@@ -170,7 +170,7 @@ groups_home_activity_doc_del=Fichier effacé - "{0}" par {1}
 
 ## GROUP HOME -- INFORMATION
 groups_home_information_title=Réglages de l'Information
-groups_home_information_link=Edition
+groups_home_information_link=Modifier
 groups_home_information_member_policy=Politique d'Appartenance \:
 groups_home_information_license=Politique de Licence par Défaut \:
 groups_home_information_language=Langage \:
@@ -208,20 +208,20 @@ groups_home_editinformation_cancel_confirm=Êtes-vous sûr que vous voulez annul
 
 
 ## GROUP HOME -- CONTRIBUTIONS
-groups_home_contributions_title=Contributions de Groupe
+groups_home_contributions_title=Contributions du groupe
 groups_home_contributions_infotxt=Ici vous pouvez trouver toutes les contributions du groupe.
-groups_home_contributions_view_btt=Tout Visualiser
+groups_home_contributions_view_btt=Tout visualiser
 groups_home_contributions_or=OU
 groups_home_contributions_searchfieldtxt=saisir les termes de recherche
 groups_home_contributions_find_btt=Chercher
 
 ## GROUP HOME -- MEMBERSHIP
 groups_home_membership_title=Informations sur l'adhésion
-groups_home_membership_open_visitor_infotxt=Si vous souhaitez devenir un membre de ce groupe, cliquez "Rejoindre ce Groupe" ci-dessous pour soumettre vos informations.
-groups_home_membership_open_visitor_btt=Rejoindre ce Groupe
-groups_home_membership_closed_visitor_infotxt=Parce que ceci est un groupe privé, les membres potentiels doivent soumettre une requête d'inscription. Si vous désirez rejoindre ce groupe, cliquez "Requête d'Inscription" ci-dessous.
-groups_home_membership_closed_visitor_btt=Requête d'Inscription
-groups_home_membership_group_infotxt=Si vous connaissez un membre potentiel intéressant pour ce groupe, cliquez "Inviter un nouveau membre" ci-dessous pour envoyer une invitation.
+groups_home_membership_open_visitor_infotxt=Ce groupe est ouvert, vous pouvez participer en cliquant sur "Rejoindre ce groupe".
+groups_home_membership_open_visitor_btt=Rejoindre ce groupe
+groups_home_membership_closed_visitor_infotxt=Parce que ce groupe est privé, les membres potentiels doivent soumettre une demande d'inscription.
+groups_home_membership_closed_visitor_btt=Demande d'inscription
+groups_home_membership_group_infotxt=Si vous connaissez un membre potentiel intéressant pour ce groupe, vous pouvez l'inviter à vous rejoindre.
 groups_home_membership_group_btt=Inviter un nouveau membre
 groups_home_membership_invite=Inviter des membres
 
@@ -231,20 +231,20 @@ groups_messages_tabname=Messages
 groups_messages_about_title=Au sujet des messages
 groups_messages_about_link_show=Montrer
 groups_messages_about_link_hide=Cacher
-groups_messages_about_link_edit=Éditer
+groups_messages_about_link_edit=Modifier
 groups_messages_createmessage_title=Créer un nouveau message
 groups_messages_createmessage_infotxt=Cliquez sur le bouton à gauche pour créer un nouveau message pour le groupe entier, à des membres individuels, et/ou à des membres selon leur rôle. Gardez à l'esprit que les membres de groupe peuvent positionner leurs préférences individuelles pour recevoir des notifications de message par email. 
 groups_messages_createmessage_btt=Créer
 groups_messages_create_mandatory=Saisissez un sujet ou un titre pour votre message.
-groups_messages_allmessages_title={0} Messages
+groups_messages_allmessages_title=Messages
 groups_messages_createdby=par
 groups_messages_message_linkshow=Montrer
 groups_messages_message_linkhide=Cacher
 groups_messages_message_optionsview_link=Visualiser
-groups_messages_message_optionsedit_link=Éditer
+groups_messages_message_optionsedit_link=Modifier
 groups_messages_message_attachments={0} Pièces jointes
 groups_messages_message_comments={0} Commentaires(s)
-groups_messages_filter_title=Filtre pour montrer les messages envoyés à \:
+groups_messages_filter_title=Filtrer pour montrer les messages envoyés à \:
 groups_messages_filter_toentiregroup=Groupe
 groups_messages_filter_tome=Moi
 groups_messages_filter_tomyrole=Mon Rôle(s)
@@ -252,7 +252,7 @@ groups_messages_filter_toall=Tous
 
 ## MESSAGES -- CREATE/EDIT
 groups_messages_create_about_title=Au sujet de la création des messages
-groups_messages_create_about_edit_link=Éditer
+groups_messages_create_about_edit_link=Modifier
 groups_messages_create_about_infotxt=
 groups_messages_create_title=Créer/Éditer message
 groups_messages_savedone=Le message a été sauvegardé.
@@ -287,7 +287,7 @@ groups_messages_edit_submitsend_btt=Sauvegarder les changements
 
 ## MESSAGES -- VIEW
 groups_messages_view_message_title={0}
-groups_messages_view_message_edit_link=Éditer
+groups_messages_view_message_edit_link=Modifier
 groups_messages_view_message_delete_link=Supprimer
 groups_messages_createdby=par
 groups_messages_view_comments_title=Commentaire(s)
@@ -313,7 +313,7 @@ groups_curriculum_tabname=Ressources partagées
 groups_curriculum_about_title=Au sujet des ressources partagées
 groups.curriculum.collections.addButton=Ajouter une collection au groupe
 groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection au groupe pour organiser et présenter les ressources partagées
-groups_curriculum_about_linkedit=Éditer
+groups_curriculum_about_linkedit=Modifier
 groups_curriculum_contributions_title=Contributions par {0}
 groups_home_contributions_view_btt=Tout visualiser
 groups_home_contributions_view_or=OU
@@ -352,7 +352,7 @@ groups.curriculum.contributions.addButton_tooltip=Fournissez votre meilleure res
 
 ##CURRICULUM -- REORDER COLLECTIONS
 groups_curriculum_collections_reorder.link=Réordonner
-groups_curriculum_collections_reorder.checkfirst.dialog=Par défaut, les collections du groupe sont affichées ici, les plus récemment modifiées en premier.&lt;br&gt;&lt;br&gt;Voulez-vous changer ça pour mettre en place un ordre spécifique?&lt;br&gt;&lt;br&gt;Cliquez OK pour continuer.
+groups_curriculum_collections_reorder.checkfirst.dialog=Par défaut, les collections du groupe sont affichées ici, les plus récemment modifiées en premier.&lt;br/&gt;&lt;br/&gt;Voulez-vous changer ça pour mettre en place un ordre spécifique?&lt;br/&gt;&lt;br/&gt;Cliquez OK pour continuer.
 groups_curriculum_collections_reorder.checkfirst.cancel.btt=OK
 groups_curriculum_collections_reorder.checkfirst.next.btt=Annuler
 groups_curriculum_collections_reorder.dialog_title=Réordonner les collections du groupe
@@ -365,7 +365,7 @@ groups_curriculum_collections_reorder.error=Pendant que vous réordonniez les co
 groups_curriculum_collections_reorder.error.ok.btt=OK
 groups_curriculum_collections_reorder.set.confirm=Le nouvel ordre a été sauvegardé.
 groups_curriculum_collections_reorder.set.confirm.btt=OK
-groups_curriculum_collections_reorder.checkafter.dialog=Votre groupe a déjà mis en place un ordre spécial pour vos collections de groupe.&lt;br&gt;&lt;br&gt;Voulez-vous changer cet ordre?&lt;br&gt;&lt;br&gt;Cliquez OK pour continuer.
+groups_curriculum_collections_reorder.checkafter.dialog=Votre groupe a déjà mis en place un ordre spécial pour vos collections de groupe.&lt;br/&gt;&lt;br/&gt;Voulez-vous changer cet ordre?&lt;br/&gt;&lt;br/&gt;Cliquez OK pour continuer.
 groups_curriculum_collections_reorder.checkafter.cancel.btt=OK
 groups_curriculum_collections_reorder.checkafter.next.btt=Annuler
 
@@ -385,7 +385,7 @@ groups_curriculum_contributions_viewall_paging_diff=Contributions
 ## MEMBERS TAB
 groups_members_tabname=Membres
 groups_members_about_title=A propos de l'adhésion
-groups_members_admin_about_edit_link=Éditer
+groups_members_admin_about_edit_link=Modifier
 groups_members_membership_title=Information d'appartenance
 groups_members_membership_open_visitor_infotxt=Si vous souhaitez devenir membre, cliquez sur "Rejoindre ce groupe" ci-dessous.
 groups_members_membership_open_visitor_btt=Rejoindre ce groupe
@@ -396,7 +396,7 @@ groups_members_manage_roles=Gérer les rôles
 groups_members_admin_list_instruction=Filtrer pour montrer uniquement \:
 groups_members_admin_list_togglecurrent=Membres actuels
 groups_members_admin_current_members_infotxt=Les membres de ce groupe sont listés ci-dessous, 10 par page.
-groups_members_admin_current_members_editsettings_link=Éditer les préférences
+groups_members_admin_current_members_editsettings_link=Modifier les préférences
 groups_members_admin_current_membersettings_email=Autoriser les membres du groupe à m'envoyer un email quand des messages sont créés.
 groups_members_admin_current_membersettings_changenotice=Me notifier quand mes contributions sont modifiées.
 groups_members_editsettings_loadinginprogress=Chargement...
@@ -442,7 +442,7 @@ groups_members_request_status_4=Refusé
 groups_members_request_title=Demander l'adhésion
 groups_members_request_infotxt=Pour demander l''adhésion à {0}, complétez ce qui suit SVP. Votre requête sera transmise aux leaders du groupe pour revue, et vous serez informés des étapes suivantes par email.
 groups_members_request_bio_instruction=Fournissez des informations sur vous-même, telles que votre bio ou votre background \:
-groups_members_request_bio_tooltip=Vous pourrez éditer cette description de vous-même en tant que membre de groupe après avoir été accepté dans ce groupe.
+groups_members_request_bio_tooltip=Vous pourrez modifier cette description de vous-même en tant que membre de groupe après avoir été accepté dans ce groupe.
 groups_members_request_reasons_instruction=Pour quelles raisons voulez-vous rejoindre ce groupe ?
 groups_members_request_reasons_tooltip=Ces raisons peuvent aider l'administrateur du groupe à comprendre pourquoi vous souhaitez contribuer à ce groupe.
 groups_members_request_alreadymember=Vous êtes déjà membre de ce groupe.
@@ -539,7 +539,7 @@ groups_documentation_documents_title=Documents du groupe
 groups_documentation_documents_del_wiki_confirm=Êtes-vous sûr que vous voulez supprimer cette page?
 groups_documentation_documents_del_doc_confirm=Êtes-vous sûr que vous voulez supprimer ce fichier?
 groups_documentation_documents_del=Supprimer
-groups_documentation_documents_edit=Éditer
+groups_documentation_documents_edit=Modifier
 groups_documentation_documents_history=Historique
 groups_documentation_documents_history_title=Historique des pages Wiki
 groups_documentation_documents_history_compare_title=Comparer les versions des pages Wiki
@@ -577,8 +577,8 @@ history.compare=Comparer les changements
 ## Interstitial page
 
 ## Curriculum page
-groups.curriculum.about.title=Au sujet des ressources partagées de groupe
-groups.curriculum.about.edit=Éditer
+groups.curriculum.about.title=Au sujet des ressources partagées du groupe
+groups.curriculum.about.edit=Modifier
 groups.curriculum.contributions.title=Contributions du groupe
 groups.curriculum.contributions.about=Ici vous pouvez trouver les contributions du groupe.
 groups.curriculum.contributions.viewAll=Tout visualiser
@@ -586,7 +586,7 @@ groups.curriculum.contributions.viewORsearch=ou
 groups.curriculum.contributions.go=Rechercher &amp;\#xBB;
 groups.curriculum.search.default=saisissez les termes de recherche
 groups.contributions.mouseover.contributed=&lt;strong&gt;Contribué / Fourni par \:&lt;/strong&gt;
-groups.curriculum.collections.titlebar=Collections de groupe
+groups.curriculum.collections.titlebar=Collections du groupe
 groups.curriculum.collections.titlebarbutton=Cacher les descriptions
 groups.curriculum.collections.titlebarbuttonalt=Montrer les descriptions
 groups.curriculum.collections.about=Ici vous pouvez trouver les contributions du groupe.
@@ -594,7 +594,7 @@ groups.curriculum.collections.addButton=Ajouter une collection au groupe
 groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection au groupe pour organiser et présenter les ressources
 groups.curriculum.collections.actions.delete.confirm=Cette action est irréversible. Êtes-vous sûr que vous voulez supprime ?
 groups.curriculum.collections.view=Visualiser
-groups.curriculum.collections.edit=Éditer
+groups.curriculum.collections.edit=Modifier
 groups.curriculum.collections.add=Ajouter
 groups.curriculum.collections.delete=Supprimer
 groups.curriculum.collections.noresults=
@@ -620,9 +620,9 @@ groups.roles.comment.renamed=Rôle {0} renommé en {1}
 groups.roles.comment.addedUser=Ajouté {0}
 groups.roles.comment.removedUser=Supprimé {0}
 groups.roles.manage.titlebar=Manager les rôles
-groups.roles.manage.intro=&lt;p&gt;En tant qu''administrateur de groupe, vous pouvez créer et manager une liste de rôles pour les membres de votre groupe, dans laquelle ils peuvent choisir, soit quand ils rejoignent le groupe, ou plus tard quand ils éditent leurs paramètres de membre pour ce groupe.&lt;/p&gt;&lt;br&gt;&lt;p&gt;Au moyen de cette fonctionnalité, votre groupe peut envoyer des messages efficacement aux membres qui jouent un rôle spécifique dans le fonctionnement du groupe. Par exemple, si c'est un projet de développement de curriculum, vous pouvez avoir un rôle "Expert du Domaine" auquel les membres peuvent s'adresser pour des questions difficiles. Notez les options de filtrage en rapport sur le Panneau des messages.&lt;/p&gt;
+groups.roles.manage.intro=&lt;p&gt;En tant qu''administrateur de groupe, vous pouvez créer et manager une liste de rôles pour les membres de votre groupe, dans laquelle ils peuvent choisir, soit quand ils rejoignent le groupe, ou plus tard quand ils éditent leurs paramètres de membre pour ce groupe.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Au moyen de cette fonctionnalité, votre groupe peut envoyer des messages efficacement aux membres qui jouent un rôle spécifique dans le fonctionnement du groupe. Par exemple, si c'est un projet de développement de curriculum, vous pouvez avoir un rôle "Expert du Domaine" auquel les membres peuvent s'adresser pour des questions difficiles. Notez les options de filtrage en rapport sur le Panneau des messages.&lt;/p&gt;
 groups.roles.manage.returnlink=Retourner à la Liste des Membres
-groups.roles.manage.edit=Éditer
+groups.roles.manage.edit=Modifier
 groups.roles.manage.save=Sauvegarder
 groups.roles.manage.cancel=Annuler
 groups.roles.manage.delete=Supprimer

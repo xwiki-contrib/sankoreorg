@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1343662301000</creationDate>
-<date>1343662301000</date>
-<contentUpdateDate>1343662301000</contentUpdateDate>
+<creationDate>1344259758000</creationDate>
+<date>1344259758000</date>
+<contentUpdateDate>1344259758000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -22,27 +22,22 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
-<content>#{pre}
-mycurriki.datetimeFormat=MMM-dd-yyyy - hh:mm a z
-mycurriki.dateFormat=MMM-dd-yyyy
+<content>##{pre}
+mycurriki.datetimeFormat=dd-MMM-yyyy - hh:mm a z
+mycurriki.dateFormat=dd-MMM-yyyy
 mycurriki.timeFormat=hh:mm a z
 
 mycurriki.tab.blog.label=Blog
-
 mycurriki.tab.blog.subtitle=Vous trouverez ici tous les articles du blog créés par {0}. Les membres du site peuvent ajouter des entrées sur tous les articles de blog.
 mycurriki.tab.blog.noblog.subtitle=Vous trouverez ici tous les articles du blog créés par {0}. Les membres du site peuvent ajouter des entrées sur tous les articles de blog.
 mycurriki.tab.collections.label=Collections
-
-mycurriki.tab.collections.subtitle=Vous trouverez toutes les collections dans la liste ci-dessous : 
+mycurriki.tab.collections.subtitle=Ci-dessous, la liste de vos collections :
 mycurriki.tab.contributions.label=Contributions
-
-mycurriki.tab.contributions.subtitle=Vous trouverez toutes vos contributions dans la liste ci-dessous. Vous pouvez filtrer les colonnes Titre, Date de modification, et Accès.
+mycurriki.tab.contributions.subtitle=Ci-dessous, la liste de vos contributions :
 mycurriki.tab.favorites.label=Favoris
-
-mycurriki.tab.favorites.subtitle=Vous trouverez tous vos favoris dans cette liste :
+mycurriki.tab.favorites.subtitle=Ci-dessous, la liste de vos favoris :
 mycurriki.tab.groups.label=Groupes
-
-mycurriki.tab.groups.subtitle=Vous trouverez tous les groupes auxquels vous appartenez dans cette liste :
+mycurriki.tab.groups.subtitle=Ci-dessous, la liste des groupes auxquels vous appartenez :
 mycurriki.tab.profile.label=Profil
 
 
@@ -65,11 +60,11 @@ mycurriki.link.add.tooltip=Classer cette ressource dans une nouvelle collection 
 mycurriki.link.copy=Copier
 mycurriki.link.copy.tooltip=Créer une nouvelle ressource basée sur celle-ci
 
-mycurriki.link.editcontent=Editer
-mycurriki.link.editcontent.tooltip=Editer le contenu ou l'affichage de cette ressource
+mycurriki.link.editcontent=Modifier le fichier
+mycurriki.link.editcontent.tooltip=Modifier le contenu ou l'affichage de cette ressource
 
-mycurriki.link.editinfo=Editer les Infos
-mycurriki.link.editinfo.tooltip=Editer les informations concernant cette ressource
+mycurriki.link.editinfo=Modifier les Infos
+mycurriki.link.editinfo.tooltip=Modifier les informations concernant cette ressource
 
 mycurriki.link.buildup=Contribuer
 mycurriki.link.buildup.tooltip=Ajouter une ressource à ce dossier ou cette collection
@@ -85,10 +80,10 @@ mycurriki.link.delete.confirm=Etes-vous sûrs de vouloir supprimer définitiveme
 ##PROFILE TAB
 
 mycurriki.profile.titlebar=Informations sur le membre
-mycurriki.profile.editButton=Editer le Profil
+mycurriki.profile.editButton=Modifier votre profil
 mycurriki.profile.needPicture=Choisissez une image SVP.
 
-mycurriki.editprofile.titlebar=Editer les informations du membre
+mycurriki.editprofile.titlebar=Modifier les informations du membre
 mycurriki.editprofile.saveButton=Sauvegarder
 mycurriki.editprofile.confirmLeave=Vous allez quitter le formulaire d'édition du profil et allez perdre tous vos changements. Etes-vous sûr de vouloir quitter ?
 
@@ -100,8 +95,8 @@ mycurriki.favorites.collection.description=Favoris
 mycurriki.favorites.viewButton=Voir tous
 mycurriki.favorites.table.title=Titre
 mycurriki.favorites.table.contributor=Contributeur
-mycurriki.favorites.table.ict=ICT
-mycurriki.favorites.table.filetype=Type de ressource
+mycurriki.favorites.table.ict=Type de ressource
+mycurriki.favorites.table.filetype=Type de fichier
 mycurriki.favorites.table.action=Action
 
 mycurriki.favorites.table.action.remove=Supprimer
@@ -119,10 +114,10 @@ mycurriki.favorites.mouseover.level=&lt;strong&gt;Niveaux éducatifs :&lt;/stron
 mycurriki.contributions.addButton=Ajouter une ressource
 mycurriki.contributions.addButton_tooltip=Ajouter vos meilleurs ressources ou créer quelque-chose de nouveau
 mycurriki.contributions.table.title=Titre
-mycurriki.contributions.table.ict=ICT
+mycurriki.contributions.table.ict=Type de ressource
 mycurriki.contributions.table.lastupdated=Date de modification
 mycurriki.contributions.table.access=Accès
-mycurriki.contributions.table.filetype=Type de ressource
+mycurriki.contributions.table.filetype=Type de fichier
 mycurriki.contributions.table.action=Action
 mycurriki.contributions.noresults=
 
@@ -132,8 +127,10 @@ mycurriki.contributions.noresults=
 mycurriki.collections.titlebar=Collections
 mycurriki.collections.titlebarbutton=Cacher les descriptions
 mycurriki.collections.titlebarbuttonalt=Montrer les descriptions
-mycurriki.collections.addButton=Ajouter une collection
-mycurriki.collections.addButton_tooltip=Ajouter une nouvelle collection pour organiser et présenter les ressources
+mycurriki.collections.add=Ajouter une collection
+mycurriki.collections.add_tooltip=Ajouter une nouvelle collection pour organiser et présenter les ressources
+mycurriki.collections.reorder=Organiser les collections
+mycurriki.collections.reorder_tooltip=Organiser les collections
 mycurriki.collections.noresults=
 
 
@@ -198,7 +195,7 @@ mycurriki.macro.paginate.previous=Précédent
 mycurriki.macro.paginate.next=Suivant
 
 
-sankore.profile.editprofile.title=METTRE A JOUR VOTRE PROFIL
+sankore.profile.editprofile.title=Mettre à jour son profil
 sankore.profile.editprofile.description=Aidez nos membres à mieux vous connaitre. Ajoutez votre photo et quelques informations à votre sujet.
 sankore.profile.joingroup.title=REJOIGNEZ UN GROUPE THEMATIQUE
 sankore.profile.joingroup.description=Discutez et partagez vos idées avec d'autres professionnels de l'éducation.
@@ -211,5 +208,5 @@ profile.welcome=Bienvenue sur Planète Sankoré, {0} !
 profile.section.userInfo=Mes Informations
 profile.section.userPrivacy=Mes notifications et ma confidentialité
 profile.activity=Mon Activité
-#{/pre}
+##{/pre}
 </content></xwikidoc>

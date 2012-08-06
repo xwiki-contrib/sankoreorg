@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1342536668000</creationDate>
-<date>1342536668000</date>
-<contentUpdateDate>1342536668000</contentUpdateDate>
+<creationDate>1344265797000</creationDate>
+<date>1344265797000</date>
+<contentUpdateDate>1344265797000</contentUpdateDate>
 <version>1.1</version>
 <title>Bienvenue dans le groupe $groupTitle sur Planète Sankoré</title>
 <template></template>
@@ -45,7 +45,7 @@ $groupURL
 
 Vous pouvez aussi accéder à ce groupe à partir de votre profil dans l'onglet "Mes groupes".
 
-Si vous désirez modifier vos préférences (comme les alertes email), ou si vous désirez quitter le groupe, consultez l'onglet "Membres" du groupe $groupName. Sur cet onglet, trouvez votre nom dans la liste de membres et cliquez sur "Éditer les préférences" à droite de votre nom.
+Si vous désirez modifier vos préférences (comme les alertes email), ou si vous désirez quitter le groupe, consultez l'onglet "Membres" du groupe $groupName. Sur cet onglet, trouvez votre nom dans la liste de membres et cliquez sur "Modifier les préférences" à droite de votre nom.
 
 Cordialement,
 

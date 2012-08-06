@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1319618613000</creationDate>
-<date>1319618613000</date>
-<contentUpdateDate>1319618613000</contentUpdateDate>
+<creationDate>1344265711000</creationDate>
+<date>1344265711000</date>
+<contentUpdateDate>1344265711000</contentUpdateDate>
 <version>1.1</version>
 <title>Vous avez créé un groupe sur Planète Sankoré</title>
 <template></template>
@@ -48,15 +48,15 @@ Une fois sur la page d'accueil de votre groupe, depuis l'onglet "Membres", cliqu
 
 *Télécharger un logo personnalisé*
 
-Le logo de votre groupe apparaît à de nombreux endroits. Pour l'instant, votre groupe a le logo par défaut Planète Sankoré. Cliquez sur éditer dans la première section de l'onglet "Accueil" de votre Groupe pour télécharger votre propre logo.
+Le logo de votre groupe apparaît à de nombreux endroits. Pour l'instant, votre groupe a le logo par défaut Planète Sankoré. Cliquez sur "modifier" dans la première section de l'onglet "Accueil" de votre Groupe pour télécharger votre propre logo.
 
 *Ajouter un message d'accueil*
 
-Rédiger un message d'accueil pour les membres de votre groupe ou pour les visiteurs en cliquant sur "éditer" dans la deuxième section de l'onglet "Accueil" de votre groupe. Cette zone vous permet d'expliquer le projet ou les objectifs de votre groupe ou de mettre en avant l'actualité du groupe. 
+Rédiger un message d'accueil pour les membres de votre groupe ou pour les visiteurs en cliquant sur "Modifier" dans la deuxième section de l'onglet "Accueil" de votre groupe. Cette zone vous permet d'expliquer le projet ou les objectifs de votre groupe ou de mettre en avant l'actualité du groupe. 
 
 *Ajouter des explications à propos de chaque onglet*
 
-Les différents onglets de votre page de groupe (Messages, Parcours de Connaissances, Membres et Documentation) contiennent une section "A propos" vous permettant d'ajouter de l'information. Si vous n'éditez pas ces sections "A propos", les informations par défaut de Planète Sankoré seront affichées.
+Les différents onglets de votre page de groupe (Messages, Parcours de Connaissances, Membres et Documentation) contiennent une section "A propos" vous permettant d'ajouter de l'information. Si vous ne modifiez pas ces sections "A propos", les informations par défaut seront affichées.
 
 *Créer une collection de Groupe*
 
