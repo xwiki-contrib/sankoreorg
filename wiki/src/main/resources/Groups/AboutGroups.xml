@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1341998398000</creationDate>
-<date>1341998398000</date>
-<contentUpdateDate>1341998398000</contentUpdateDate>
+<creationDate>1344861527000</creationDate>
+<date>1344861527000</date>
+<contentUpdateDate>1344861527000</contentUpdateDate>
 <version>1.1</version>
 <title>A quoi servent les groupes</title>
 <template></template>
@@ -30,5 +30,5 @@
 * $msg.get("groups.about.fourth.row")
 * $msg.get("groups.about.fifth.row")
 * $msg.get("groups.about.sixth.row")
-* $msg.get("groups.about.seventh.row")
+##* $msg.get("groups.about.seventh.row")
 {{/velocity}}</content></xwikidoc>

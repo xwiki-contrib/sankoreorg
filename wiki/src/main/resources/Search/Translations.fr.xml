@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1335196347000</creationDate>
-<date>1335196347000</date>
-<contentUpdateDate>1335196347000</contentUpdateDate>
+<creationDate>1344960518000</creationDate>
+<date>1344960518000</date>
+<contentUpdateDate>1344960518000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -35,7 +35,7 @@ search.text.entry.findbutton=Trouver &amp;raquo;
 
 ## SEARCH ENTRY BOX AND OVERALL ITEMS
 search.text.entry.label=Rechercher
-search.text.entry.button=Recherche &amp;raquo;
+search.text.entry.button=Ok
 search.text.entry.help.link=Aide à la recherche
 search.text.entry.help.title=Aide à la recherche
 
@@ -50,7 +50,7 @@ search.grid.title.resultsmax_exceeds={0} {2} résultats
 
 ## Search URL
 search.internal.tab.title.sankore=Bibliothèque de ressources éducatives Sankoré
-search.external.tab.title.sankore=URL sélectionnées par la communauté Sankoré
+search.external.tab.title.sankore=URL sélectionnées par la communauté Sankoré1
 search.external.tab.title.google=Résultats Google parmi les sites sélectionnés par Sankoré
 
 ## Search Tips Page
@@ -59,31 +59,31 @@ search.text.entry.help.text=
 search.text.entry.help.button=Aide à la recherche
 search.find.no.results=Il n'y a pas de résultats pour votre recherche. Essayez encore SVP.
 search.find.no.results.button=OK
-search.advanced.search.button=Recherche Avancée
+search.advanced.search.button=Recherche avancée
 
 search.columns.menu.columns=Colonnes
-search.columns.menu.sort_ascending=Tri Ascendant
-search.columns.menu.sort_descending=Tri Descendant
+search.columns.menu.sort_ascending=Tri ascendant
+search.columns.menu.sort_descending=Tri descendant
 
 search.pagination.pagesize.addbefore=-
 search.pagination.pagesize.before=Montrer
 search.pagination.pagesize.after=
 search.pagination.pagesize.addafter=
 
-search.pagination.displaying.resource=Affichage des Ressources {0} - {1} de {2}
-search.pagination.displaying.resource_resultsmax_exceeds=Affichage des Ressources {0} - {1} du Top {2}
+search.pagination.displaying.resource=Affichage des ressources {0} - {1} de {2}
+search.pagination.displaying.resource_resultsmax_exceeds=Affichage des ressources {0} - {1} du Top {2}
 
-search.pagination.displaying.group=Affichage des Groupes {0} - {1} de {2}
-search.pagination.displaying.group_resultsmax_exceeds=Affichage des Groupes {0} - {1} du Top {2}
+search.pagination.displaying.group=Affichage des groupes {0} - {1} de {2}
+search.pagination.displaying.group_resultsmax_exceeds=Affichage des groupes {0} - {1} du Top {2}
 
-search.pagination.displaying.member=Affichage des Membres {0} - {1} de {2}
-search.pagination.displaying.member_resultsmax_exceeds=Affichage des Membres {0} - {1} du Top {2}
+search.pagination.displaying.member=Affichage des membres {0} - {1} de {2}
+search.pagination.displaying.member_resultsmax_exceeds=Affichage des membres {0} - {1} du Top {2}
 
-search.pagination.displaying.blog=Affichage des Blogs {0} - {1} de {2}
-search.pagination.displaying.blog_resultsmax_exceeds=Affichage des Blogs {0} - {1} du Top {2}
+search.pagination.displaying.blog=Affichage des blogs {0} - {1} de {2}
+search.pagination.displaying.blog_resultsmax_exceeds=Affichage des blogs {0} - {1} du Top {2}
 
 search.pagination.displaying.curriki=Affichage des pages {0} - {1} de {2}
-search.pagination.displaying.curriki_resultsmax_exceeds=Affichage des Pages {0} - {1} du Top {2}
+search.pagination.displaying.curriki_resultsmax_exceeds=Affichage des pages {0} - {1} du Top {2}
 
 ## Pagination Buttons
 search.pagination.first.button=&lt;&lt; Première
@@ -95,14 +95,15 @@ search.pagination.last.button=Dernière &gt;
 search.pagination.beforepage=Page
 search.pagination.afterpage=de {0}
 search.pagination.afterpage_resultsmax_exceeds=de {0}
-search.pagination.first=Première Page
-search.pagination.prev=Page Précédente
-search.pagination.next=Page Suivante
-search.pagination.last=Dernière Page
+search.pagination.first=Première page
+search.pagination.prev=Page précédente
+search.pagination.next=Page suivante
+search.pagination.last=Dernière page
 search.pagination.refresh=Actualiser
 
 ##RESOURCES TAB
-search.resource.tab.title=Bibliothèque de ressources éducatives Sankoré
+##search.resource.tab.title=Bibliothèque de ressources éducatives Sankoré
+search.resource.tab.title=SUPPORTS DE COURS SANKORÉ
 
 ##REVIEW
 search.resource.review.selector.UNSPECIFIED=Avis: Tous
@@ -113,14 +114,14 @@ search.resource.review.selector.not_reviewed=Ressources non examiné
 
 ##For Review column
 search.resource.review.800=Exemplaire
-search.resource.review.700=Part d'une Ressource Exemplaire
+search.resource.review.700=Part d'une ressource exemplaire
 search.resource.review.600=Bon
-search.resource.review.500=Part d'une Bonne Ressource
+search.resource.review.500=Part d'une bonne ressource
 search.resource.review.400=Basique
-search.resource.review.300=Part d'une Ressource Basique
+search.resource.review.300=Part d'une ressource basique
 search.resource.review.200=Partenaire
-search.resource.review.100=Non Évalué / Non Évaluable
-search.resource.review.0=Review À Venir
+search.resource.review.100=Non évalué / Non évaluable
+search.resource.review.0=Revue à venir
 
 ##For Rating column
 search.resource.rating.0=Pas de note
@@ -132,29 +133,29 @@ search.resource.rating.5=Exceptionnelle
 
 ##SPECIAL FILTERS
 ## I don't think there is a Class I can model after here.
-search.resource.special.selector.UNSPECIFIED=Filtres Spéciaux: Aucun
-search.resource.special.selector.contributions=Uniquement Mes Contributions
-search.resource.special.selector.collections=Uniquement les Collections
-search.resource.special.selector.resources=Uniquement des Fichiers Ressource
-search.resource.special.selector.updated=Uniquement les Récemment Updatés
+search.resource.special.selector.UNSPECIFIED=Filtres spéciaux: Aucun
+search.resource.special.selector.contributions=Uniquement mes Contributions
+search.resource.special.selector.collections=Uniquement les collections
+search.resource.special.selector.resources=Uniquement des fichiers ressource
+search.resource.special.selector.updated=Uniquement les récemment mis à jour
 search.resource.special.selector.updated.days=30
-search.resource.special.selector.sankore=Uniquement les Ressources Sankoré
+search.resource.special.selector.sankore=Uniquement les ressources Sankoré
 
 ##COLUMNS
-search.resource.column.header.assetType=Type de Ressource
+search.resource.column.header.assetType=Type de ressource
 search.resource.column.header.title=Titre
 search.resource.column.title.tooltip.title=Description
 search.resource.column.header.ict=Type de ressource
 search.resource.column.header.contributor=Contributeur
 search.resource.column.header.rating=Note
-search.resource.column.header.updated=Updaté
+search.resource.column.header.updated=Mis à jour
 search.resource.column.header.member.rating=Note membres
 
-search.resource.icon.plus.rollover=Cette ressource fait partie d'une collection ou d'un dossier. Cliquez pour voir plus.
-search.resource.icon.minus.rollover=Cliquez pour collapser
+search.resource.icon.plus.rollover=Cette ressource fait partie d'une collection ou d'un dossier. Cliquez pour étendre.
+search.resource.icon.minus.rollover=Cliquez pour réduire
 
 ##search.resource.icon.CollectionComposite.rollover=Collection
-##search.resource.icon.FolderComposite.rollover=Folder
+##search.resource.icon.FolderComposite.rollover=Dossier
 
 ##search.resource.icon.Text.rollover=File
 ##search.resource.icon.Image.rollover=File
@@ -183,8 +184,8 @@ search.XWiki.SpaceClass_policy_closed=Groupe fermé
 ##COLUMNS
 search.group.icon.open=Ouvert
 search.group.icon.closed=Fermé
-search.group.icon.open.rollover=Groupe Ouvert
-search.group.icon.closed.rollover=Groupe Fermé
+search.group.icon.open.rollover=Groupe ouvert
+search.group.icon.closed.rollover=Groupe fermé
 search.group.column.header.policy=Politique
 search.group.column.header.name=Nom
 search.group.column.header.description=Description
@@ -210,7 +211,7 @@ search.blog.tab.title=Blogs
 search.blog.column.header.name=Membres
 search.blog.column.header.text=Texte
 search.blog.column.header.comments=Commentaires
-search.blog.column.header.updated=Updaté
+search.blog.column.header.updated=Mis à jour
 
 
 ##CURRIKI PAGE
@@ -228,13 +229,15 @@ search.curriki.column.header.text=Texte
 search.curriki.column.header.updated=Updaté
 
 ##SEARCH EXTERNAL
-search.featured-external.grid.title=Bibliothèque de ressources éducatives Sankoré
-search.external.grid.title=URL sélectionnées par la communauté Sankoré
-search.preview.statusbar.text.external=&lt;a href="/xwiki/bin/view/Main/"&gt;&lt;img src="/xwiki/bin/download/XWiki/Skin/green%2Darrow%2Dright.gif" alt=""&gt;Tous les résultats de la bibliothèque Sankoré&lt;/a&gt;
-search.statusbar.text.resource=&lt;a href="/xwiki/bin/view/Search/URL"&gt;&lt;img src="/xwiki/bin/download/XWiki/Skin/green%2Darrow%2Dright.gif" alt=""&gt;Voir les résultats du Bookmarklet Sankoré et de la Base des sites pédagogiques sélectionnés&lt;/a&gt;
-&lt;/pre&gt;
+search.featured-external.grid.title=SUPPORTS DE COURS SANKORÉ
+search.external.grid.title=PAGE WEB SIGNALÉES PAR LA COMMUNAUTÉ PLANÈTE SANKORÉ
+search.preview.statusbar.text.external=&lt;a href="/xwiki/bin/view/Main/"&gt;Tous les résultats des supports de cours&lt;/a&gt;
+search.statusbar.text.resource=&lt;a href="/xwiki/bin/view/Search/URL"&gt;Voir les résultats du bookmarklet Sankoré et de la base des sites pédagogiques sélectionnés&lt;/a&gt;
 
 
-search.combo-system.label=Systèmes éducatifs
-search.combo-level.label=Niveaux éducatifs
-search.combo-subject.label=Thèmes</content></xwikidoc>
+search.combo-system.label=Système éducatif
+search.combo-level.label=Niveau scolaire
+search.combo-subject.label=Discipline
+search.fieldset-type.label=Type de ressource
+search.fieldset-other.label=Autres
+&lt;/pre&gt;</content></xwikidoc>

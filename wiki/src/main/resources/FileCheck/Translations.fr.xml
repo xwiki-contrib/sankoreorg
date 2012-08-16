@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334928725000</creationDate>
-<date>1334928725000</date>
-<contentUpdateDate>1334928725000</contentUpdateDate>
+<creationDate>1344869027000</creationDate>
+<date>1344869027000</date>
+<contentUpdateDate>1344869027000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -64,13 +64,13 @@ fc_or=ou
 fc_previous=Précédent
 fc_queueFilterChooseFCStatus=Ressources seulement\:
 fc_queueFilterChooseSubjectArea=Choisir un sujet\:
-fc_queueTableColheaderIct=Type Instructionnel
+fc_queueTableColheaderIct=Type de ressource
 fc_queueTableICTMultiple=Multiple
-fc_resourcetitle=Titre de Ressource
+fc_resourcetitle=Titre
 fc_returnto=Retourner à
 fc_seeCounts=Voir le Compte
 fc_select=Sélectionner
-fc_showresourcesfrom=Montrer les ressources créées et ajoutées au repository
+fc_showresourcesfrom=Montrer les ressources créées et ajoutées à la collection
 fc_status=Statut de la Vérification du Fichier
 fc_statusFilter_1=Avec statut "OK"
 fc_statusFilter_2=Avec statut "Vérification Spéciale"
@@ -102,30 +102,32 @@ flag.dialog.error.note_max=Votre note ne peut excéder 300 caractères.
 flag.dialog.error.note_min=Votre note doit au moins contenir 4 caractères.
 flag.dialog.error.note_req=Si vous avez votre raison de signaler cette ressource comme inappropriée, vous devez entrer une note.
 flag.dialog.error.reason_req=Vous devez choisir une raison depuis le menu afin de pouvoir signaler cette ressource comme inappropriée
-flag.dialog.guidingquestion1.txt=Que se passe-t-il quand vous signalez une ressource comme inappropriée?
-flag.dialog.guidingquestion2.txt=Pourquoi signalez-vous cette ressource comme inappropriée?
+flag.dialog.guidingquestion1.txt=Cette ressource vous semble inappropriée?
+flag.dialog.guidingquestion2.txt=Merci de qualifier la raison de votre signalement
 flag.dialog.header=SIGNALER CETTE RESSOURCE
-flag.dialog.instruction1.txt=Vous soumettez immédiatement cette ressources à l'évaluation par Planète Sankoré.
-flag.dialog.instruction2.txt=Je signale cette ressource parce que cette ressource
+flag.dialog.instruction1.txt=Vous souhaittez la signaler au comité d'évaluation du portail Planète Sankoré.
+flag.dialog.instruction2.txt= 
 flag.dialog.instruction3.txt=.
 flag.dialog.instruction4.txt=Entrez une note (au maximum 300 caractères) décrivant ce qui, selon vous, rend cette ressource inconvenante.
 flag.dialog.instruction5.txt=
 flag.dialog.reason.unselected=Choisissez une raison
-flag.dialog.reason.1=incitation à la haine
-flag.dialog.reason.1.filecheck=amène de la haine\:
-flag.dialog.reason.2=à caractère pornographique
-flag.dialog.reason.2.filecheck=à caractère pornographique
-flag.dialog.reason.3=est vide
-flag.dialog.reason.3.filecheck=est vide\:
-flag.dialog.reason.4=est clairement de nature commerciale, sans intérêt éducatif
-flag.dialog.reason.4.filecheck=est clairement de nature commerciale, sans intérêt éducatif\:
-flag.dialog.reason.5=est cassé ou infecté par un virus
-flag.dialog.reason.5.filecheck=est cassé ou infecté par un virus\:
-flag.dialog.reason.6=est sujet à un copyright et donc non-libre
-flag.dialog.reason.6.filecheck=est sujet à un copyright et donc non-libre\:
-flag.dialog.reason.alt=est inconvenant pour une autre raison que je vais décrire ci-après
-flag.dialog.reason.alt.filecheck=est inconvenant pour une autre raison que je vais décrire ci-après\:
-flag.dialog.required.field.icon=/!\ 
+flag.dialog.reason.1=Incitation à la haine raciale
+flag.dialog.reason.1.filecheck=Incitation à la haine raciale
+flag.dialog.reason.2=Caractère pornographique
+flag.dialog.reason.2.filecheck=Caractère pornographique
+flag.dialog.reason.3=Sans interêt éducatif
+flag.dialog.reason.3.filecheck=Sans interêt éducatif
+flag.dialog.reason.4=Promotion commercial
+flag.dialog.reason.4.filecheck=Promotion commercial
+flag.dialog.reason.5=Ressource sous copyright
+flag.dialog.reason.5.filecheck=Ressource sous copyright
+flag.dialog.reason.6=Lien cassé
+flag.dialog.reason.6.filecheck=Lien cassé
+flag.dialog.reason.7=Virus
+flag.dialog.reason.7.filecheck=Virus
+flag.dialog.reason.alt=Autre
+flag.dialog.reason.alt.filecheck=Autre
+flag.dialog.required.field.icon= 
 flag.dialog.submit.btt=Soumettre
 flag.success.dialog.button=Fermer
 flag.success.dialog.heading=RESSOURCE SIGNALÉE

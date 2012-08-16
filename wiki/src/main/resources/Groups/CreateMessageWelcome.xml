@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1316003112000</creationDate>
-<date>1316003112000</date>
-<contentUpdateDate>1316003112000</contentUpdateDate>
+<creationDate>1344528287000</creationDate>
+<date>1344528287000</date>
+<contentUpdateDate>1344528287000</contentUpdateDate>
 <version>1.1</version>
 <title>CreateMessageWelcome</title>
 <template></template>
@@ -28,7 +28,7 @@
  * @type content
  * @refactored ludovic 
  *#
-When you create a message, you give it a title, write or paste in text content, style or format it using the editing toolbar, and click "Submit" to send your message.
+Vous pouvez communiquer avec votre groupe entier ou une personne spécifique grâce à cette fonctionnalité.
 
-
-Currently, group messaging on Curriki allows you to send messages to your whole group. Starting in February, you will also be able to send messages only to specific members within your group.</content></xwikidoc>
+Une fois le message créé et envoyé vous pourrez ajouter pièces jointes et commentaires à celui-ci.
+</content></xwikidoc>

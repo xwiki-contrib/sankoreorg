@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344268503000</creationDate>
-<date>1344268503000</date>
-<contentUpdateDate>1344268503000</contentUpdateDate>
+<creationDate>1344861644000</creationDate>
+<date>1344861644000</date>
+<contentUpdateDate>1344861644000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -649,18 +649,18 @@ groups.search.top_title=CHERCHER DES RESSOURCES DE CE GROUPE DANS LE REPOSITORY
 groups_admins_onlyaccessibletoadmins=Cette page est seulement disponible pour les administrateurs.
 
 ##DisclaimerCreateGroup
-groups.disclaimer.create.group.content=&lt;h3 class="wikigeneratedheader" id="HQUELLEESTLUTILITEDUNGROUPE"&gt;&lt;span&gt;QUELLE EST L'UTILITÉ D’UN GROUPE&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Vous pouvez créer un espace pour les échanges et les travaux au sein d’un groupe de projet.&lt;br/&gt;Cet espace pour votre groupe comprend les pages suivantes, qui sont organisées sous forme d'onglets :&lt;/p&gt;&lt;p&gt;&lt;ul&gt;&lt;li&gt;* Accueil&lt;/li&gt;&lt;li&gt;* Messages&lt;/li&gt;&lt;li&gt;* Collection&lt;/li&gt;&lt;li&gt;* Membres&lt;/li&gt;&lt;li&gt;* Documentation&lt;/li&gt;&lt;li&gt;* Modifier les informations du groupe,&lt;/li&gt;&lt;li&gt;* Accepter des nouveaux membres dans votre groupe,&lt;/li&gt;&lt;li&gt;* Contrôler la façon dont les contenus s’affichent sur les pages de votre groupe,&lt;/li&gt;&lt;li&gt;* Documenter les bonnes pratiques pour le groupe,&lt;/li&gt;&lt;li&gt;* Participer au groupe des administrateurs de groupe sur Planète Sankoré.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Votre espace de groupe bénéficie de sa propre adresse web pour en faciliter l’accès et le partage.&lt;/p&gt;&lt;h3 class="wikigeneratedheader" id="HPOURCOMMENCER"&gt;&lt;span&gt;POUR COMMENCER&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Pour de plus amples informations sur la création des groupes sur Planète Sankoré, vous pouvez visitez la section concernant les groupes dans les pages d'assistance de Planète Sankoré.&lt;/p&gt;&lt;p&gt;Si vous souhaitez créer un groupe sur Planète Sankoré :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;* il est important de savoir que les groupes Planète Sankoré peuvent être trouvés et présentés sous forme de liens à partir de divers page du site, tels que la page d’accueil ou la page “trouver des groupes”,&lt;/li&gt;&lt;li&gt;* il est important de vous engager en tant que responsable du groupe et de veiller à la bonne qualité des échanges et de la mutualisation entre les membres du groupe&lt;/li&gt;&lt;li&gt;* il est important que votre groupe devienne une zone active et utile pour ses membres et pour toute la communauté Planète Sankoré,&lt;/li&gt;&lt;li&gt;* il est enfin nécessaire de vous tenir prêt à consacrer environ deux heures par mois à la maintenance de votre espace de groupe et d'y contribuer de manière active.&lt;/li&gt;&lt;/ul&gt;
+groups.disclaimer.create.group.content=&lt;h3 class="wikigeneratedheader" id="HQUELLEESTLUTILITEDUNGROUPE"&gt;&lt;span&gt;QUELLE EST L'UTILITÉ D’UN GROUPE&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Vous pouvez créer un espace pour les échanges et les travaux au sein d’un groupe de projet.&lt;br/&gt;Cet espace pour votre groupe comprend les onglets suivants:&lt;/p&gt;&lt;p&gt;&lt;ul&gt;&lt;li&gt;Accueil : Voir et Modifier les informations du groupe&lt;/li&gt;&lt;li&gt;Messages : Échanger avec les membres du groupes&lt;/li&gt;&lt;li&gt;Ressources partagées : Chercher et contribuer des ressources liées au groupe&lt;/li&gt;&lt;li&gt;Membres : Gérer les invitation et les status des membres du groupe&lt;/li&gt;&lt;/ul&gt;&lt;h3 class="wikigeneratedheader" id="HPOURCOMMENCER"&gt;&lt;span&gt;POUR COMMENCER&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Si vous souhaitez créer un groupe sur Planète Sankoré :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;il est important de savoir que les groupes Planète Sankoré peuvent être trouvés et présentés sous forme de liens à partir de divers page du site, tels que la page d’accueil ou la page “trouver des groupes”,&lt;/li&gt;&lt;li&gt;il est important de vous engager en tant que responsable du groupe et de veiller à la bonne qualité des échanges et de la mutualisation entre les membres du groupe&lt;/li&gt;&lt;li&gt;il est important que votre groupe devienne une zone active et utile pour ses membres et pour toute la communauté Planète Sankoré,&lt;/li&gt;&lt;li&gt;il est enfin nécessaire de vous tenir prêt à consacrer environ deux heures par mois à la maintenance de votre espace de groupe et d'y contribuer de manière active.&lt;/li&gt;&lt;/ul&gt;
 groups.disclaimer.create.group.button=Créer un groupe
 
 ##AboutGroups
 groups.about.title=À QUOI SERVENT LES GROUPES
-groups.about.first.row=* À partager des documents et des avis au sein d'un espace de groupe ouvert ou fermé ;
-groups.about.second.row=* À collaborer pour la création ou la modification de ressources partagées ou de collections d'objets pédagogiques ;
-groups.about.third.row=* À utiliser un forum pour échanger au sein du groupe à propos de sujets généraux ou de projets particuliers ;
-groups.about.fourth.row=* À inviter de nouveaux membres ;
-groups.about.fifth.row=* À partager des documents et à gérer leur évolution ;
-groups.about.sixth.row=* À mettre en valeur les ressources partagées, les collections constituées et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré ;
-groups.about.seventh.row=* À inciter d'autres membres à rejoindre le groupe
+groups.about.first.row=À partager des documents et des avis au sein d'un espace de groupe ouvert ou fermé ;
+groups.about.second.row=À collaborer pour la création ou la modification de ressources partagées ou de collections d'objets pédagogiques ;
+groups.about.third.row=À inviter de nouveaux membres ;
+groups.about.fourth.row=À partager des documents et à gérer leur évolution ;
+groups.about.fifth.row=À mettre en valeur les ressources partagées, les collections constituées et les activités du groupe pour leur utilisation par le reste de la communauté Planète Sankoré ;
+groups.about.sixth.row=À inciter d'autres membres à rejoindre le groupe.
+groups.about.seventh.row= 
 
 ##Create groups wizard
 ##First pannel
