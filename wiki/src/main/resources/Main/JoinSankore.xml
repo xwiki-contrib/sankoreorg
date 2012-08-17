@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344421541000</creationDate>
-<date>1344421541000</date>
-<contentUpdateDate>1344421541000</contentUpdateDate>
+<creationDate>1345202077000</creationDate>
+<date>1345202077000</date>
+<contentUpdateDate>1345202077000</contentUpdateDate>
 <version>1.1</version>
 <title>$msg.get("joincurriki.registerToJoinCurriki")</title>
 <template></template>
@@ -885,11 +885,11 @@ Registration.validateRegisterForm = function() {
 
 #register {
   background:#EAEAEA;
-  margin-top:30px;
+  margin: 36px 30px 0 30px;
 }
 
 #register fieldset {
-  padding:20px 30px;
+  padding:10px 30px;
 }
 
 .register_title {
@@ -905,18 +905,18 @@ Registration.validateRegisterForm = function() {
 }
 
 #register_block_first_name input {
-  width:228px;
+  width:220px;
 }
 
 #register_block_last_name input {
-  width:228px;
+  width:200px;
 }
 #register_block_last_name {
   margin-right:0;
 }
 
 #register_block_email input {
-  width:232px;
+  width:189px;
 }
 #register_block_country {
   margin-right:0;
@@ -924,7 +924,7 @@ Registration.validateRegisterForm = function() {
 
 .register_field select {
   width: auto;
-  padding: 6px;
+  padding: 5px;
 }
 
 .register_field {
@@ -952,10 +952,10 @@ Registration.validateRegisterForm = function() {
 
 
 #register_block_xwikiname input {
-  width:300px;
+  width:286px;
 }
 #register_block_password {
-  float:right;
+  //float:right;
 }
 
 .registration-button button {
@@ -965,7 +965,7 @@ Registration.validateRegisterForm = function() {
   padding-bottom:30px;
 }
 #register_block_password2 .register_title {
-  display:none;
+  //display:none;
 }
 #register_block_password2 {
   float:right;
@@ -988,13 +988,25 @@ button.button.button-red {
   height: 56px;
   text-indent: -2000px;
 }
-
+#headerglobal {
+  margin-bottom: 0;
+}
+#contentmenu.actionmenu {
+  display: none;
+}
+#header &gt; .container {
+  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp2.png") no-repeat 660px  93px;
+}
 #contentcontainer {
-  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/inscription.png") no-repeat 700px  0px;
-}</code>
-</property>
-<property>
-<name>JoinCurrikiSSX</name>
+  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp1.png") no-repeat 670px  0px;
+}
+
+h1#HEnregistrez-vouspourrejoindrePlanE8teSankorE9 {
+  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/rejoindre-title.png") no-repeat center left;
+  height: 30px; width: 291px;
+  text-indent: -2000px;
+}
+</code></property><property><name>JoinCurrikiSSX</name>
 </property>
 <property>
 <parse>0</parse>
@@ -1048,7 +1060,7 @@ button.button.button-red {
 #end ## macro formfield
 ##
 #macro(formfield_sortedlist $fieldname $text $mandatory)
-&lt;div class="register_block" id="register_block_$fieldname"&gt; &lt;div class="register_title"&gt; #if($mandatory == true)#asterix()#end $msg.get("joincurriki.fields.$fieldname") &lt;/div&gt; 
+&lt;div class="register_block" id="register_block_$fieldname"&gt; &lt;div class="register_title"&gt;$msg.get("joincurriki.fields.$fieldname") #if($mandatory == true)#asterix()#end&lt;/div&gt; 
 #if($text!="") &lt;div class="register_help"&gt;$text&lt;/div&gt; #end
  &lt;div class="register_field"&gt; #if($mandatory == true)
  &lt;script type="text/javascript"&gt; Ext.onReady(function(){ Curriki.registration.addMandatoryValueField("register_block_$fieldname", "XWiki.XWikiUsers_0_$fieldname");}); &lt;/script&gt; #end
@@ -1112,7 +1124,7 @@ $userdoc.use("XWiki.XWikiUsers")
   &lt;input type="hidden" name="XWiki.XWikiUsers_0_validated" value="0" /&gt;
   &lt;input type="hidden" name="XWiki.XWikiUsers_0_notminor" id="XWiki.XWikiUsers_0_notminor" value="1" /&gt;
   &lt;fieldset class="user-info"&gt;
-  &lt;h2&gt;Mes Informations&lt;/h2&gt;
+  &lt;h2&gt;$msg.get('joincurriki.text.titre1')&lt;/h2&gt;
   #formfield('civility' $msg.get('joincurriki.civility.text') true)
   #formfield('first_name' $msg.get('joincurriki.first_name.text') true)
   #formfield('last_name' $msg.get('joincurriki.last_name.text') true)
@@ -1120,17 +1132,24 @@ $userdoc.use("XWiki.XWikiUsers")
   #formfield_sortedlist('country' $msg.get('joincurriki.country.text') true)
   &lt;/fieldset&gt;
   &lt;fieldset class="user-account"&gt;
-  &lt;h2&gt;Mon Compte&lt;/h2&gt;
-  &lt;p&gt;Choisissez un nom d'utilisateur et un mot de passe qui vous permettront de vous connecter a la communaute Sankore.&lt;/p&gt;
+  &lt;h2&gt;$msg.get('joincurriki.text.titre2')&lt;/h2&gt;
+  &lt;p&gt;$msg.get('joincurriki.text.info2')&lt;/p&gt;
   #formfield('xwikiname' $msg.get('joincurriki.chooseYourCommunityName') true)  
   #formfield('password' $msg.get('joincurriki.enterPassword') true)
-  #formfield('password2' $msg.get('joincurriki.enterPasswordConfirm') true)  
+  #formfield('password2' $msg.get('joincurriki.fields.password2') true)  
   #set($ppurl = $xwiki.getURL("Main.Politique+de+confidentialite"))
   #set($TOS = $xwiki.getURL("Main.Conditions+generales+d+utilisation"))
   ## FIXME: fix the actual terms of use and privacy and uncomment this when done. FTM these are commented because they link to bad things 
   ## and a hidden field is added so that registration is successful  
-  &lt;p class="register_block"&gt;* Ce champ est obligatoire&lt;/p&gt;
-  &lt;/fieldset&gt;  
+  &lt;p class="register_block"&gt;$msg.get('joincurriki.text.mandatory')&lt;/p&gt;
+  &lt;/fieldset&gt;
+  &lt;fieldset class="user-account-check"&gt;
+    &lt;div id="user-account-registration-checkbox"&gt;
+      &lt;span class='user-account-check'&gt;
+         $msg.get("joincurriki.text.disclaimer")
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
   &lt;div class="registration-button"&gt;
     #button($msg.get("joincurriki.saveMyInfoAndRegister") "red" "submit" "" "")
   &lt;/div&gt;
