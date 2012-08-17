@@ -297,7 +297,6 @@ $msg.get("groups.members.invitedby") $xwiki.getLocalUserName($invitation.inviter
   #if($members.size()==0)
     $msg.get("groups_members_admin_current_members_nomembers")
   #else
-    $msg.get("groups_members_admin_current_members_infotxt")
     #set($endIndex = $startIndex + $itemsPerPage - 1)
     #if($endIndex >= $totalCount)
       #set($endIndex = $totalCount - 1)
@@ -361,7 +360,7 @@ $msg.get("groups.members.invitedby") $xwiki.getLocalUserName($invitation.inviter
 #if($minvites.size() == 0)
   $msg.get("groups_members_admin_invitations_infotxt_noinvitations")
 #else
-  $msg.get("groups_members_admin_invitations_infotxt")
+  ##$msg.get("groups_members_admin_invitations_infotxt")
   #foreach($minvite in $minvites)
     #groups_display_invitation($minvite)
   #end
