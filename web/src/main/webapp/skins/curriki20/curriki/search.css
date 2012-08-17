@@ -253,9 +253,3 @@ input#search-termPanel-resource-terms, input#search-termPanel-group-terms, input
         height:13px;
         padding-bottom:1px;
 }
-
-#search-advanced-resource input#combo-subject-resource, #search-advanced-resource input#combo-level-resource,  #search-advanced-resource input#combo-language-resource, #search-advanced-resource input#combo-review-resource, #search-advanced-resource input#combo-special-resource  {width: 127px !important}
-
-
-#search-advanced-resource input#combo-subICT-resource, #search-advanced-resource input#combo-subsubject-resource {width: 127px !important;}
-

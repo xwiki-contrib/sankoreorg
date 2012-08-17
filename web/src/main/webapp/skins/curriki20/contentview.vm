@@ -8,28 +8,29 @@
 #groups_documentationview()
 </div>
 #else
-#if($doc.getObject("CurrikiCode.AssetClass"))
- #if($doc.getObject("CurrikiCode.CompositeAssetClass"))
-  #if($doc.isRootCollection())
+  #if($doc.getObject("CurrikiCode.AssetClass"))
+    #if($doc.getObject("CurrikiCode.CompositeAssetClass"))
+      #if($doc.isRootCollection())
 <div id="xcontent">
-   #compositeasset_display($doc)
+        #compositeasset_display($doc)
 </div>
+      #else
+        #asset_display($doc "view")
+      #end
+    #else
+      #asset_display($doc "view")
+    #end
+    #asset_comments($doc)
   #else
-   #asset_display($doc "view")
-  #end
- #else
-   #asset_display($doc "view")
- #end
-#else
-#if(!$doc.web.startsWith("Coll_") && !$doc.web.startsWith("Group_") && !$doc.web.startsWith("Messages_Group_") && !$doc.web.startsWith("Documentation_Group_") && !$doc.web.startsWith("Members_Group_") && $doc.web != "MySankore" && !$doc.web.startsWith("Blog_")  && $doc.web != "CurrikiBlog"  && $doc.web != "News")
-#set($wikicontent = true)
-#else
-#set($wikicontent = false)
-#end
+    #if(!$doc.web.startsWith("Coll_") && !$doc.web.startsWith("Group_") && !$doc.web.startsWith("Messages_Group_") && !$doc.web.startsWith("Documentation_Group_") && !$doc.web.startsWith("Members_Group_") && $doc.web != "MySankore" && !$doc.web.startsWith("Blog_")  && $doc.web != "CurrikiBlog"  && $doc.web != "News")
+      #set($wikicontent = true)
+    #else
+      #set($wikicontent = false)
+    #end
 <div id="xcontent">
 #if($wikicontent)<div class="xwikicontent">#end
- $cdoc.getRenderedContent()
+$cdoc.getRenderedContent()
 #if($wikicontent)</div>#end
 </div>
-#end
+  #end
 #end

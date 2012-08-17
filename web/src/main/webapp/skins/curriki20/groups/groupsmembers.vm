@@ -19,7 +19,8 @@
   #if(!$xwiki.exists("${spaceName}.ManageRoles"))
     #set($discard = $xwiki.copyDocument("Groups_TemplateSpace.ManageRoles", "${spaceName}.ManageRoles"))
   #end
-  #begingroupsection($msg.get("groups_members_list_title"),$msg.get("groups_members_manage_roles"), $xwiki.getURL("${spaceName}.ManageRoles", "view"), "blue", $isGroupAdmin)
+  ##begingroupsection($msg.get("groups_members_list_title"), $msg.get("groups_members_manage_roles"), $xwiki.getURL("${spaceName}.ManageRoles", "view"), "blue", $isGroupAdmin)
+  #begingroupsection($msg.get("groups_members_list_title"), "", "", "blue", $isGroupAdmin)
   #if(!$request.type)
     #set($type = "0")
   #else
@@ -60,23 +61,19 @@
 #macro(groups_membershipinfo)
 #begingroupsection($msg.get("groups_home_membership_title"),"","", "blue", false)
 #if($membershipManager.isMember($group))
-$msg.get("groups_home_membership_group_infotxt")
-<div id="groups-members-invite-button" class="center groups-members-button mgn-vrt">
-<a href="$xwiki.getURL("${spaceName}.InviteMembers")" class="button button-confirm">
-$msg.get("groups_home_membership_group_btt")
-</a>
-</div>
+  <p>$msg.get("groups_home_membership_group_infotxt")</p>
+  <div id="groups-members-invite-button" class="center groups-members-button mgn-vrt">
+    <a href="$xwiki.getURL("${spaceName}.InviteMembers")" class="button button-confirm">$msg.get("groups_home_membership_group_btt")</a>
+  </div>
 #else
-#set($gpolicy = $group.policy)
-#if($gpolicy=="open")
-$msg.get("groups_home_membership_open_visitor_infotxt")
-<div class="right mgn-vrt-15">
-<a href="$xwiki.getURL("${spaceName}.JoinGroup")" class="button button-confirm">
-$msg.get("groups_home_membership_open_visitor_btt")
-</a>
-</div>
+  #set($gpolicy = $group.policy)
+  #if($gpolicy=="open")
+  <p>$msg.get("groups_home_membership_open_visitor_infotxt")</p>
+  <div class="right mgn-vrt-15">
+    <a href="$xwiki.getURL("${spaceName}.JoinGroup")" class="button button-confirm">$msg.get("groups_home_membership_open_visitor_btt")</a>
+  </div>
 #else
-$msg.get("groups_home_membership_closed_visitor_infotxt")
+  <p>$msg.get("groups_home_membership_closed_visitor_infotxt")</p>
 <div id="groups-members-request-button" class="groups-members-button">
 <a href="$xwiki.getURL("${spaceName}.RequestMembership")" class="button button-confirm">
 $msg.get("groups_home_membership_closed_visitor_btt")
@@ -140,6 +137,7 @@ $msg.get("groups_home_membership_closed_visitor_btt")
   #end
   #set($memberIsAdmin = $membershipManager.isAdmin($group, $memberName))
   #if($isGroupAdmin)
+  #if("$memberName" != "$context.user")
   #if($memberIsAdmin)
   <div class="groups-members-addadmin">
     <a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_removeadmin_confirm'])) {removeAdmin('$memberName','$groupName');};return false;">$msg.get("groups_members_admin_current_membersettings_removeadmin_link")</a>
@@ -148,6 +146,7 @@ $msg.get("groups_home_membership_closed_visitor_btt")
   <div class="groups-members-addadmin">
     <a href="javascript:void()" onclick="if (window.confirm(i18nDict['groups_members_admin_current_membersettings_addadmin_confirm'])) {addAdmin('$memberName','$groupName');};return false;">$msg.get("groups_members_admin_current_membersettings_addadmin_link")</a>
   </div>
+  #end
   #end  
   #if("$!memberName" != "$context.user")
   <div class="groups-members-remove">
@@ -340,7 +339,6 @@ $msg.get("groups.members.invitedby") $xwiki.getLocalUserName($invitation.inviter
 #set($gdsrid = 0)
 ##set($mreqs = $im.getMembershipRequests($groupName, 4))
 #set($mreqs = $membershipManager.getMembershipRequestsByStatus($group, "refused"))
-$mreqs
 #if($mreqs.size() == 0)
   $msg.get("groups_members_admin_denied_nodeniedmembershiprequests")
 #else

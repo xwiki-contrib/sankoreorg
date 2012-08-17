@@ -14,23 +14,22 @@
   #set($groupURL = $group.homeURL)
   #set($groupPolicy = $group.policy)
   #set($groupDescription = $group.description)
+  #set($collSpaceName = "Coll_${spaceName}")
   #set($isGroupAdmin = $membershipManager.isAdmin($group))  
-  #set($isGroupMember = $membershipManager.isMember($group))
-  #set($hasAdmin = $isGroupAdmin || $hasAdmin || $hasGlobalAdmin)
+  #set($isGroupMember = $membershipManager.isMember($group))  
 #end
 
 #macro(groupsinit)
   $xwiki.ssfx.use("curriki.css")
   $xwiki.ssfx.use("groups.css")
   #set($spaceName = $doc.space)  
-  #set($collSpaceName = "Coll_${spaceName}")
   #groupinit($spaceName)
 #end
 ##
 ## page: all pages in the groups space
 ## Groups tab macro
 #macro(groupstabs $curtab)
-#set($tabs = ["home", "curriculum", "members"])
+#set($tabs = ["home", "messages", "curriculum", "members", "documentation"])
 <ul id="groups-tabs" class="tabs">
 #foreach($tab in $tabs)
   #set($tabpage = $msg.get("groups_${tab}_page"))
@@ -668,38 +667,47 @@ $msg.get("browseGroups.promo_card_2")
   #begingroupsection($msg.groups_home_information_title, $msg.groups_home_information_link, "$editlink", "blue" $isGroupAdmin)
 #end
 <div id="group-info">
-  <div class="group-membership-policy">
-    <strong class="caption">$msg.get("groups_home_information_member_policy")</strong> $group.display("policy","view")
-  </div>
-  <div class="group-licence">
-    <strong class="caption">$msg.get("groups_home_information_license")</strong> $group.display("license","view")
-  </div>
-  <div class="group-language">
-    <strong class="caption">$msg.get("groups_home_information_language")</strong> $group.display("language","view")
-  </div>
-  <div class="group-access-policy">
-    <strong class="caption">$msg.get("groups_home_information_access")</strong> $group.display("access_level","view")
-  </div>
-  <div class="group-creation-date">
-    <strong class="caption">$msg.get("groups_home_information_creationdate")</strong> $group.getCreationDate()
-  </div>
-  <div class="group-url">
-    <strong class="caption">$msg.get("groups_home_information_webaddress")</strong> $escapetool.html("http://")$group.display("urlshortcut","view")
-  </div>
-  <div class="group-education-levels-disciplines">
+<ul>
+  <li id="group-policy">
+    <span class="label">$msg.get("groups_home_information_member_policy")</span>
+    <span class="value">$group.display("policy","view")</span>
+  </li>
+  <li id="group-licence">
+    <span class="label">$msg.get("groups_home_information_license")</span>
+    <span class="value">$group.display("license","view")</span>
+  </li>
+  <li id="group-language">
+    <span class="label">$msg.get("groups_home_information_language")</span>
+    <span class="value">$group.display("language","view")</span>
+  </li>
+  <li id="group-access-level">
+    <span class="label">$msg.get("groups_home_information_access")</span>
+    <span class="value">$group.display("access_level","view")</span>
+  </li>
+  <li id="group-creation-date">
+    <span class="label">$msg.get("groups_home_information_creationdate")</span>
+    </span class="value">$group.getCreationDate()</span>
+  </li>
+  <li id="group-urlshortcut">    
+    <span class="label">$msg.get("groups_home_information_webaddress")</span>
+    ##<span class="value">$escapetool.html("http://")$group.display("urlshortcut","view")</span>
+    <span class="value">$group.getHomeDocument().getExternalURL()</span>
+  </li>
+  <li id="group-system-levels-disciplines">
     <table width="100%" border="0">
     <tr>
-      <th width="50%" class="caption">$msg.get("groups_home_information_education")</th>
-      <th width="50%" class="caption">$msg.get("groups_home_information_levels")</th>
-      <th width="50%" class="caption">$msg.get("groups_home_information_disciplines")</th>
+      <th width="33%" class="label">$msg.get("groups_home_information_education")</th>
+      <th width="33%" class="label">$msg.get("groups_home_information_levels")</th>
+      <th width="33%" class="label">$msg.get("groups_home_information_disciplines")</th>
     </tr>
     <tr>
-      <td>$group.display("education_system","view")</td>
-      <td>$group.display("educational_level","view")</td>
-      <td>$group.display("disciplines","view")</td>
+      <td class="value">$group.display("education_system","view")</td>
+      <td class="value">$group.display("educational_level","view")</td>
+      <td class="value">$group.display("disciplines","view")</td>
     </tr>
     </table>
-  </div>
+  </li>
+</ul>
 </div>
 #endgroupsection()
 #end
@@ -709,17 +717,17 @@ $msg.get("browseGroups.promo_card_2")
   *#
 #macro(groups_homepage_contributions)
 <div class="groups-curriculum">
-<div id="groups-search" class="frame">
-#curriki_titlebar($msg.get("groups_home_contributions_title") "" "" "red")
-<div class="frame-content">
-$msg.get("groups_home_contributions_infotxt")
-<div>
-<form id="groupsearch"
+  <div id="groups-search" class="frame">
+  #curriki_titlebar($msg.get("groups_home_contributions_title") "" "" "red")
+  <div class="frame-content">
+  <p>$msg.get("groups_home_contributions_infotxt")</p>
+  <div>
+  <form id="groupsearch"
       onsubmit="if (document.groupsearch.brsqry.value!='' && document.groupsearch.brsqry.value!='${msg.groups_home_contributions_searchfieldtxt}') {document.groupsearch.action=document.groupsearch.action+'#o%3As%3Ds%253Aresource%5Ef%3Do%253Aresource%253Do%25253Aterms%25253Ds%2525253A'+escape(escape(escape(escape(document.groupsearch.brsqry.value))));}; document.location.href=document.groupsearch.action; return false;"
       action="/xwiki/bin/view/${spaceName}/ContributionsSearch"
       name="groupsearch">
-<div class="groupcontribution-leftbutton">
-<a class="button button-confirm" href="/xwiki/bin/view/${spaceName}/Contributions" alt="$msg.get("groups.curriculum.contributions.viewAll")" title="$msg.get("groups.curriculum.contributions.viewAll")">$msg.get("groups.curriculum.contributions.viewAll")</a>
+  <div class="groupcontribution-leftbutton">
+    <a class="button button-confirm" href="/xwiki/bin/view/${spaceName}/Contributions" alt="$msg.get("groups.curriculum.contributions.viewAll")" title="$msg.get("groups.curriculum.contributions.viewAll")">$msg.get("groups.curriculum.contributions.viewAll")</a>
 $msg.get('groups.curriculum.contributions.viewORsearch')
 </div>
 ##

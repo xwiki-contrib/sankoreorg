@@ -2,39 +2,39 @@
 ##
 ## Core Group Role macros
 ##
-#macro(groupGetRoles $spaceName $withAdmin) ## {
+#macro(groupGetRoles $spaceName $withAdmin)
 ## Sets ret_groupRoles
 #set($ret_groupRoles = $xwiki.arrayList)
 #set($ret_groupRoleNames = $sm.getRoles($spaceName))
-#foreach($role in $ret_groupRoleNames) ## {
+#foreach($role in $ret_groupRoleNames)
   #set($discard = $ret_groupRoles.add($xwiki.getDocument($role)))
 #end ## }
-#if($withAdmin) ## {
+#if($withAdmin)
   #set($adminGroup = $xwiki.getDocument($sm.getAdminGroupName($spaceName)))
   #set($discard = $adminGroup.setTitle($msg.get("groups.roles.admin.title")))
   #set($discard = $ret_groupRoleNames.add(0, $sm.getAdminGroupName($spaceName)))
   #set($discard = $ret_groupRoles.add(0, $adminGroup))
-#end ## }
-#end ## }
+#end
+#end
 ##
 ##
-#macro(checkForUniqueRole $spaceName $roleName) ## {
+#macro(checkForUniqueRole $spaceName $roleName)
 #set($ret_isRoleUnique = true)
 #groupGetRoles($spaceName true)
 #foreach($role in $ret_groupRoles)
-  #if($roleName.equalsIgnoreCase($role.title)) ## {
+  #if($roleName.equalsIgnoreCase($role.title))
     #set($ret_isRoleUnique = false)
-  #end ## }
-#end ## }
-#end ## }
+  #end
+#end
+#end
 ##
 ##
-#macro(checkForValidSizeRole $spaceName $roleName) ## {
+#macro(checkForValidSizeRole $spaceName $roleName)
 #set($ret_isRoleValidSize = true)
-#if($roleName.length() > 32 || $roleName.length() == 0) ## {
+#if($roleName.length() > 32 || $roleName.length() == 0)
   #set($ret_isRoleValidSize = false)
-#end ## }
-#end ## }
+#end
+#end
 ##
 ##
 #macro(findUniquePageWithExtra $spaceName $prefix $suffix $extra) ## {
@@ -75,21 +75,21 @@
 #end ## }
 ##
 ##
-#macro(renameGroupRole $groupDoc $newRoleName $oldRoleName) ## {
+#macro(renameGroupRole $groupDoc $newRoleName $oldRoleName)
 #set($ret_err = false)
 #set($newRoleName = $newRoleName.trim())
 #checkForUniqueRole($groupDoc.space $newRoleName)
 #checkForValidSizeRole($groupDoc.space $newRoleName)
-#if(!$ret_isRoleUnique) ## {
+#if(!$ret_isRoleUnique)
   #set($ret_err = $msg.get("groups.roles.rename.notunique"))
 #elseif(!$ret_isRoleValidSize) ## } {
   #set($ret_err = $msg.get("groups.roles.rename.invalidsize"))
-#else ## } {
+#else
   #set($discard = $groupDoc.setTitle($newRoleName))
   #set($discard = $groupDoc.saveWithProgrammingRights($msg.get("groups.roles.comment.renamed", [$oldRoleName,$newRoleName])))
   #set($ret_success = $msg.get("groups.roles.rename.renamed", [$oldRoleName, $newRoleName]))
-#end ## }
-#end ## }
+#end
+#end
 ##
 ##
 #macro(deleteGroupRole $groupDoc) ## {
@@ -144,27 +144,32 @@
 #**
   * Displays one role line
   *#
-#macro(groups_managerole_editroleline $role) ## {
-  <div id="groups-manage-role-line-${role.name}">
-<div class="lefttext">
-<div class="righttext floatright hidebuttons">
-<a href="javascript:void()" onclick="$('groups-manage-role-line-${role.name}').hide(); $('groups-manage-roles-edit-${role.name}').show(); $$('.hidebuttons').invoke('hide'); return false;">$msg.get("groups.roles.manage.edit")</a>
-#sep()
-<a href="$xwiki.getURL("${spaceName}.ManageRoles", "view", "delete=${role.name}")" onclick="return confirm('$msg.get("groups.roles.manage.delete.confirm")');">$msg.get("groups.roles.manage.delete")</a>
+#macro(groups_managerole_editroleline $memberGroup)
+#set($roleName = $memberGroup.role)
+#set($roleTitle = $memberGroup.title)
+#set($groupManageRolesURL = $xwiki.getURL("${spaceName}.ManageRoles", "view"))
+#set($deleteURL = $xwiki.getURL("${spaceName}.ManageRoles", "view", "delete=${roleName}"))
+<div id="groups-manage-role-line-${roleName}">
+  <div class="lefttext">
+  <div class="righttext floatright hidebuttons">
+    <a href="javascript:void()" onclick="$('groups-manage-role-line-${roleName}').hide(); $('groups-manage-roles-edit-${roleName}').show(); $$('.hidebuttons').invoke('hide'); return false;">$msg.get("groups.roles.manage.edit")</a>
+    #sep()
+    <a href="javascript:void()" onclick="if (confirm('$msg.get("groups.roles.manage.delete.confirm")')) { document.location.href='${deleteURL}'; } return false;">$msg.get("groups.roles.manage.delete")</a>
+  </div>
+  $roleTitle
+  </div>
 </div>
-$role.title
-</div>
-</div>
-<div id="groups-manage-roles-edit-${role.name}" style="display:none;" class="frame-inset">
+<div id="groups-manage-roles-edit-${roleName}" style="display:none;" class="frame-inset">
 <form method="post">
-<input name="rename" type="hidden" value="${role.name}" />
-<input name="from" type="hidden" value="${role.title}" />
-<input name="to" type="text" size=32 maxlength=32 value="${role.title.replace('"', '\"')}" />
-<input class="button button-cancel" type="submit" value="$msg.get("groups.roles.manage.cancel")" onclick="document.location.href='$xwiki.getURL("${spaceName}.ManageRoles", "view")'; return false;" />
-<input type="submit" class="button button-confirm" value="$msg.get("groups.roles.manage.save")" />
+  <input name="rename" type="hidden" value="${roleName}" />
+  <input name="from" type="hidden" value="${roleTitle}" />
+  <input name="to" type="text" size=32 maxlength=32 value="${roleTitle}" />
+  <br />
+  <input class="button button-cancel" type="submit" value="$msg.get('groups.roles.manage.cancel')" onclick="$('groups-manage-roles-edit-${roleName}').hide(); $('groups-manage-role-line-${roleName}').show(); $$('.hidebuttons').invoke('show'); return false;" />
+  <input type="submit" class="button button-confirm" value="$msg.get('groups.roles.manage.save')" />
 </form>
 </div>
-#end ## }
+#end
 
 #**
   * Manage role interface
@@ -172,25 +177,27 @@ $role.title
 #macro(groups_manageroles)
 #groupsinit()
 ##
-#if(!$isGroupAdmin && !$hasGlobalAdmin) ## {
+#if(!$isGroupAdmin && !$hasGlobalAdmin)
 $msg.get("groups_admins_onlyaccessibletoadmins")
-#else ## }{
+#else
 ##
 ## Create, Rename, Delete roles
 ##
-#if($!request.create) ## {
+#if($!request.create)
   #createGroupRole($spaceName $request.create)
-#elseif($!request.rename && $!request.to) ## } {
-  #set($roleDoc = $xwiki.getDocument("${spaceName}.${request.rename}"))
-  #if($roleDoc.name.startsWith("Role_") && $roleDoc.name.endsWith("Group")) ## {
-    #renameGroupRole($roleDoc $request.to $request.from)
-  #end ## }
-#elseif($!request.delete) ## } {
-  #set($roleDoc = $xwiki.getDocument("${spaceName}.${request.delete}"))
-  #if($roleDoc.name.startsWith("Role_") && $roleDoc.name.endsWith("Group")) ## {
-    #deleteGroupRole($roleDoc)
-  #end ## }
-#end ## }
+#elseif($!request.rename && $!request.to)
+  #set($memberGroup = $membershipManager.getMemberGroupForRole($group, $request.rename))
+  ##set($roleDoc = $xwiki.getDocument("${spaceName}.${request.rename}"))
+  #if($memberGroup.name.startsWith("Role_") && $memberGroup.name.endsWith("Group"))
+    #renameGroupRole($memberGroup $request.to $request.from)
+  #end
+#elseif($!request.delete)
+  #set($memberGroup = $membershipManager.getMemberGroupForRole($group, $request.delete))
+  ##set($roleDoc = $xwiki.getDocument("${spaceName}.${request.delete}"))
+  #if($memberGroup.name.startsWith("Role_") && $memberGroup.name.endsWith("Group"))
+    #deleteGroupRole($memberGroup)
+  #end
+#end
 ##
 ## Main page
 ##
@@ -201,16 +208,22 @@ $msg.get("groups_admins_onlyaccessibletoadmins")
 <div id="groups-main-content-frame" class="frame-content">
 $msg.get("groups.roles.manage.intro")
 <br />
-#if($!ret_err) ## {
+#if($!ret_err)
 <div id="groups-manage-roles-error" class="errormessage">$ret_err <br /></div>
-#end ## }
-#if($!ret_success) ## {
+#end
+#if($!ret_success)
 <div id="groups-manage-roles-error" class="infomessage">$ret_success <br /></div>
-#end ## }
-#groupGetRoles($spaceName false)
-#foreach($role in $ret_groupRoles) ## {
-  #groups_managerole_editroleline($role)
-#end ## }
+#end
+##groupGetRoles($spaceName false)
+##foreach($role in $ret_groupRoles)
+  ##groups_managerole_editroleline($role)
+##end
+#set($memberGroups = $membershipManager.getMemberGroups($group))
+#foreach($memberGroup in $memberGroups)
+  #if($memberGroup.role != "member" && $memberGroup.role != "admin")
+    #groups_managerole_editroleline($memberGroup)
+  #end
+#end
 ## Add role Button
 <div id="groups-manage-roles-add-button" class="lefttext">
 <div class="righttext floatright hidebuttons"><button type="button" class="button button-confirm" onclick="$('groups-manage-roles-add-form').show(); $$('.hidebuttons').invoke('hide');">$msg.get("groups.roles.manage.add")</button></div>
@@ -227,5 +240,5 @@ $msg.get("groups.roles.manage.intro")
 ## Back to Members
 <div id="groups-manage-roles-return" class="centertext"><a href="/xwiki/bin/view/${spaceName}/Members">$msg.get("groups.roles.manage.returnlink")</a></div>
 #groupsfooter()
-#end ## }
+#end
 #end
