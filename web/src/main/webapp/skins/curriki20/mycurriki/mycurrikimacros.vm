@@ -156,24 +156,23 @@
   * @author dward@curriki.org
   *#
 #macro(mycurriki_pagecontentheader $pageref $whofor)
-  #if("$!pageref" == "blog")
-    #set($hasBlog=$xwiki.exists("Blog_${shortname}.WebHome"))
-    #if(!$hasBlog)
-      #set($subtitle = $msg.get("mycurriki.tab.${pageref}.noblog.subtitle", ["$userobj.first_name $userobj.last_name"]))
-    #else
-      #set($subtitle = $msg.get("mycurriki.tab.${pageref}.subtitle", ["$userobj.first_name $userobj.last_name"]))
-    #end
+#if("$!pageref" == "blog")
+  #set($hasBlog=$xwiki.exists("Blog_${shortname}.WebHome"))
+  #if(!$hasBlog)
+    #set($subtitle = $msg.get("mycurriki.tab.${pageref}.noblog.subtitle", ["$userobj.first_name $userobj.last_name"]))
   #else
-    #set($subtitle = $msg.get("mycurriki.tab.${pageref}.subtitle"))
+    #set($subtitle = $msg.get("mycurriki.tab.${pageref}.subtitle", ["$userobj.first_name $userobj.last_name"]))
   #end
-  <div id="mycurriki-main-header-left">
-  #if($subtitle != "" && $subtitle != "mycurriki.tab.${pageref}.subtitle")
-    <div id="mycurriki-main-header-subtitle" class="tab-deck">$subtitle</div>
-  #end
-  </div>
-  <div class="clearfloats"></div>
+#else
+  #set($subtitle = $msg.get("mycurriki.tab.${pageref}.subtitle"))
+#end
+<div id="mycurriki-main-header-left">
+#if($subtitle != "" && $subtitle != "mycurriki.tab.${pageref}.subtitle")
+  <div id="mycurriki-main-header-subtitle" class="tab-deck">$subtitle</div>
+#end
 </div>
-<div id="mycurriki-main-content" class="frame pad-btm">
+<div class="clearfloats"></div>
+<div id="mycurriki-main-content">
 #end
 ##
 #**
@@ -419,29 +418,15 @@ $msg.get("mycurriki.macro.access.${access}")
   * @param $asset Asset
   * @author dward@curriki.org
   *#
-#macro(mycurriki_ict $asset) ## {
-#set($ict = "")
+#macro(mycurriki_ict $asset)
 #set($ict = $!asset.getObject("CurrikiCode.AssetClass").getProperty("instructional_component").getValue())
-#if($ict == "" || $ict.size() == 0) ## {
-## No ICT set -- nothing to do
-#set($icon = "ict-null")
-#set($text = "")
-#else ## } {
-#if($ict.size() > 1) ## {
-##Multiple
-#set($icon = "ict-multiple")
-#set($text = $msg.get('CurrikiCode.AssetClass_instructional_component_multiple'))
-#else ## } {
-##Single
-#set($ict = $ict.get(0))
-#set($icon = $ict.replaceFirst("_.*", ""))
-#set($icon = "ict-${icon}")
-#set($text = "CurrikiCode.AssetClass_instructional_component_${ict}")
-#set($text = $msg.get($text))
-#end ## if not multiple ## }
-#end ## if not empty ## }
+#if($ict == "" || $ict.size() == 0) 
+  #set($text = "")
+#else
+  #set($text = $asset.display("instructional_component"))
+#end ## if not empty
 <span>${text}</span>
-#end ## Macro ## }
+#end ## Macro
 
 
 #**
@@ -450,27 +435,27 @@ $msg.get("mycurriki.macro.access.${access}")
   * @param $asset Asset
   * @author dward@curriki.org
   *#
-#macro(mycurriki_filetype $asset) ## {
+#macro(mycurriki_filetype $asset)
 $xwiki.ssfx.use("curriki/filetypes.css")
-#if("$!ftnb" == "") ##{
-#set($ftnb = 0)
-#end ##}
+#if("$!ftnb" == "")
+  #set($ftnb = 0)
+#end
 #set($ftnb = $ftnb + 1)
 #set($assetType = $!asset.getAssetType())
 #set($category = $!asset.getCategory())
-#if("$!category" == "") ##{
+#if("$!category" == "")
   #set($category = "unknown")
-#end ##}
+#end
 #set($subcategory = $!asset.getCategorySubtype())
-#if("$!subcategory" == "") ##{
+#if("$!subcategory" == "")
   #set($subcategory = "unknown")
-#end ##}
+#end
 #set($rollover = $msg.get("${category}.${subcategory}"))
-#if($!rollover == "${category}.${subcategory}") ##{
-#set($rollover = $msg.get('search.resource.icon.Unknown.rollover'))
-#end ##}
+#if($!rollover == "${category}.${subcategory}")
+  #set($rollover = $msg.get('search.resource.icon.Unknown.rollover'))
+#end
 {pre}<img id="favorites-filetype-${ftnb}" class="resource-${assetType} category-${category} subcategory-${category}_${subcategory}" src="/xwiki/skins/curriki8/extjs/resources/images/default/s.gif" ext:qtip="${rollover}"/>{/pre}
-#end ## Macro ## }
+#end ## Macro
 
 #**
   * Display the last update date of an Asset
@@ -919,11 +904,11 @@ $!desc
   <th class="table-header table-col-contributor">$msg.get('mycurriki.favorites.table.contributor')</th>
   <th class="table-header table-col-ict">$msg.get('mycurriki.favorites.table.ict')</th>
   <th class="table-header table-col-filetype">$msg.get('mycurriki.favorites.table.filetype')</th>
-  #if($allcols) ## {
+  #if($allcols)
     <th class="table-header table-header-fixed table-col-action">$msg.get('mycurriki.favorites.table.action')</th>
-  #end ## if allcols ## }
+  #end ## if allcols
 </tr>
-#end ##} end macro mycurrikifavoritesheader
+#end ## end macro
 
 
 #**
@@ -933,28 +918,26 @@ $!desc
   * @param $allcols True if we show the action column of the favorites
   *#
 #macro(mycurriki_favoritesasset $asset $allcols)
-  <!-- MySankore Favorites Asset -->
-  #if(!$g_rowCount) ## {
-    #set($g_rowCount = 0)
-  #end ## }
-  #set($g_rowCount = $g_rowCount + 1)
-  <tr class="table-row#if(($g_rowCount % 2) == 0) table-odds#end">
-    <td class="table-col-title">#mycurriki_assettitlewithmodesc($asset)</td>
-    <td class="table-col-contributor">#mycurriki_contributor($asset)</td>
-    <td class="table-col-ict">#mycurriki_ict($asset false)</td>
-    <td class="table-col-filetype">#mycurriki_filetype($asset)</td>
-    #if($allcols) ## {
-      <td class="table-col-action">
-        <div class="button-links">
-          #set($g_actionFirst = true)
-          #mycurriki_action_add($asset 'H')
-          #mycurriki_action_remove($asset)
-        </div>
-      </td>
-    #end ## if allcols ## }
-  </tr>
-  <!-- End MySankore Favorites Asset -->
-#end ##end macro mycurriki_favoritesasset
+#if(!$g_rowCount)
+  #set($g_rowCount = 0)
+#end
+#set($g_rowCount = $g_rowCount + 1)
+<tr class="table-row#if(($g_rowCount % 2) == 0) table-odds#end">
+  <td class="table-col-title">#mycurriki_assettitlewithmodesc($asset)</td>
+  <td class="table-col-contributor">#mycurriki_contributor($asset)</td>
+  <td class="table-col-ict">#mycurriki_ict($asset false)</td>
+  <td class="table-col-filetype">#mycurriki_filetype($asset)</td>
+  #if($allcols)
+    <td class="table-col-action">
+      <div class="button-links">
+        #set($g_actionFirst = true)
+        #mycurriki_action_add($asset 'H')
+        #mycurriki_action_remove($asset)
+      </div>
+    </td>
+  #end ## if allcols
+</tr>
+#end ##end macro
 
 #**
   * Displays the pagination footer for the favorites section
@@ -976,8 +959,7 @@ $!desc
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_favoritesbutton $userobj)
-  <!-- MySankore Favorites Button -->
-  #if($context.user==$userdoc.fullName) ## {
+  #if($context.user==$userdoc.fullName)
     #set($shortname = $userdoc.fullName)
     #set($breadcrumb="MySankore.WebHome")
     #if($shortname.startsWith("XWiki.")) ## {
@@ -995,7 +977,6 @@ $!desc
       #end ## }
     #end ## }
   #end ## }
-  <!-- End MySankore Favorites Button -->
 #end
 
 #**
@@ -1422,19 +1403,18 @@ $msg.get("deleted")
   * @param $userdoc Document of the user
   * @param $userobj Object of the user
   *#
-#macro(mycurriki_contributionsbox $userdoc $userobj) ##{
-  <!-- MySankore Contributions Box -->
+#macro(mycurriki_contributionsbox $userdoc $userobj)
   #set($headerArgs="user=${userdoc.fullName}&")
   #set($allcols = false)
   #if($context.user=="XWiki.XWikiGuest")
     ## Settings for guests here
   #end
-  #if($hasGlobalAdmin) ##{
+  #if($hasGlobalAdmin)
     ## Settings for admins here
     #set($allcols = true)
-  #end ##}
+  #end
   #if($context.user==$userdoc.fullName)
-## Settings for owner here
+  ## Settings for owner here
     #set($allcols = true)
     #set($headerArgs="")
   #end
@@ -1444,46 +1424,44 @@ $msg.get("deleted")
   #end
   #set($descnb = 0)
   ## Do query for contributions
-  #if("$!request.sortBy"=="") ## {
+  #if("$!request.sortBy"=="")
     #set($sortBy = "date")
     #set($sortDir = 'desc')
-  #elseif($request.sortBy=="date") ## } {
+  #elseif($request.sortBy=="date")
     #set($sortBy = "date")
     #set($sortDir = 'desc')
-  #elseif($request.sortBy=="title") ## } {
+  #elseif($request.sortBy=="title")
     #set($sortBy = "title")
     #set($sortDir = 'asc')
-  #elseif($request.sortBy=="access" && $allcols) ## } {
+  #elseif($request.sortBy=="access" && $allcols)
     #set($sortBy = "access")
     #set($sortDir = 'asc')
-  #else ## } {
+  #else
     #set($sortBy = "date")
     #set($sortDir = 'desc')
-  #end ## }
-  ##
-  #if("$!request.sortDir"=="") ## {
-  #elseif($request.sortDir=="asc") ## } {
+  #end  
+  #if("$!request.sortDir"=="")
+  #elseif($request.sortDir=="asc")
     #set($sortDir = 'asc')
-  #elseif($request.sortDir=="desc") ## } {
+  #elseif($request.sortDir=="desc")
     #set($sortDir = 'desc')
-  #end ## }
-  ##
+  #end  
   #set($sortArgs = "")
-  #if($sortBy == "date") ## {
-    #if($sortDir == "asc") ## {
+  #if($sortBy == "date")
+    #if($sortDir == "asc")
       #set($sortArgs = "sortDir=asc")
-    #end ## }
-  #elseif ($sortBy == "title") ## } {
+    #end
+  #elseif ($sortBy == "title")
     #set($sortArgs = "sortBy=title")
-    #if($sortDir == "desc") ## {
+    #if($sortDir == "desc")
       #set($sortArgs = "${sortArgs}&sortDir=desc")
-    #end ## }
-  #elseif ($sortBy == "access") ## } {
+    #end
+  #elseif ($sortBy == "access")
     #set($sortArgs = "sortBy=access")
-    #if($sortDir == "desc") ## {
+    #if($sortDir == "desc")
       #set($sortArgs = "${sortArgs}&sortDir=desc")
-    #end ## }
-  #end ## }
+    #end
+  #end
   ##
   ## Order by reverse last updated
   #set($baseWhere = "where doc.fullName=obj.name AND obj.className='CurrikiCode.AssetClass' AND doc.creator='${userdoc.fullName}' AND doc.web != 'AssetTemp' AND doc.name != 'Favorites' AND doc.name != 'WebHome' AND doc.fullName NOT IN (SELECT cbobj.name FROM BaseObject as cbobj, IntegerProperty as cbprop WHERE cbobj.className='CurrikiCode.TextAssetClass' AND cbobj.name = doc.fullName AND cbobj.id=cbprop.id.id AND cbprop.id.name='type' AND cbprop.value=2)")
@@ -1493,13 +1471,13 @@ $msg.get("deleted")
   #end
   #set($rightsWhere = " AND (${globalView} OR '${userdoc.fullName}'='${context.user}' OR doc.fullName NOT IN (SELECT robj.name FROM BaseObject as robj, StringProperty as rprop WHERE robj.className='CurrikiCode.AssetClass' AND robj.name = doc.fullName AND robj.id=rprop.id.id AND rprop.id.name='rights' AND rprop.value = 'private')) ")
   #set($baseWhere = "${baseWhere} ${rightsWhere}")
-  #if($sortBy=="title") ## {
-    #set($sql = ", BaseObject as obj ${baseWhere} order by doc.title $sortDir")
-  #elseif($sortBy=="access") ## Default sort by rights ## } {
-    #set($sql = ", BaseObject as obj, StringProperty as prop1 ${baseWhere} and obj.id=prop1.id.id and prop1.id.name='rights' order by prop1.value $sortDir, doc.title asc")
-  #else ## Default sort by date ## } {
-    #set($sql = ", BaseObject as obj ${baseWhere} order by doc.date $sortDir")
-  #end ## }
+  #if($sortBy=="title")
+    #set($sql = ", BaseObject as obj, StringProperty as category ${baseWhere} and category.id.id=obj.id and category.name='category' and category.value!='collection' order by doc.title $sortDir")
+  #elseif($sortBy=="access") ## Default sort by rights
+    #set($sql = ", BaseObject as obj, StringProperty as category, StringProperty as rights ${baseWhere} and category.id.id=obj.id and category.name='category' and category.value!='collection' and obj.id=rights.id.id and rights.id.name='rights' order by rights.value $sortDir, doc.title asc")
+  #else ## Default sort by date
+    #set($sql = ", BaseObject as obj, StringProperty as category ${baseWhere} and category.id.id=obj.id and category.name='category' and category.value!='collection' order by doc.date $sortDir")
+  #end
   ## Order by property ascending
   ## How can we sort by
   ## filetype (determined in a macro)
@@ -1538,8 +1516,7 @@ $msg.get("deleted")
     #end
   </table>
   ## Pagination here
-  #mycurriki_contributionspagination( $startIndex $nbToDisplay $showcount $sortArgs )
-  <!-- End MySankore Contributions Box -->
+  #mycurriki_contributionspagination($startIndex $nbToDisplay $showcount $sortArgs)  
 #end ##} end macro
 
 
@@ -1570,9 +1547,9 @@ $msg.get("deleted")
   *  @param $asset Asset to display
   *#
 #macro(mycurriki_collection $asset)
-#if(!$g_rowCount) ## {
+#if(!$g_rowCount)
 #set($g_rowCount = 0)
-#end ## }
+#end
 #set($g_rowCount = $g_rowCount + 1)
 <div class="frame-inset#if(($g_rowCount % 2) == 0) table-odds#end">
 <div>
@@ -1606,14 +1583,14 @@ $msg.get("deleted")
 #end
 #set($shortname = $userdoc.fullName)
 #if($shortname.startsWith("XWiki."))
- #set($shortname = $shortname.substring(6))
+  #set($shortname = $shortname.substring(6))
 #end
-#if(($userdoc.fullName == $context.user || $hasGlobalAdmin)) ##{
-#set($cnt = $xwiki.search("select count(*) from XWikiDocument as doc, BaseObject as obj, StringProperty as props where obj.id=props.id.id and doc.fullName=obj.name and obj.className='CurrikiCode.CompositeAssetClass' and doc.web='Coll_${shortname}' and doc.name != 'WebHome' and doc.name != 'Favorites' and props.id.name='type' and props.value='collection'").get(0))
-#set($multiple = ($cnt > 1))
-#if($multiple) ##{
-#set($reorder = $xwiki.search("select count(*) from XWikiDocument as doc, BaseObject as obj, IntegerProperty as props where obj.id=props.id.id and doc.fullName=obj.name and obj.className='CurrikiCode.CollectionReorderedClass' and doc.fullName='Coll_${shortname}.WebHome' and props.id.name='reordered' and props.value=1").get(0))
-#set($reordered = ($reorder > 0))
+#if(($userdoc.fullName == $context.user || $hasGlobalAdmin))
+  #set($cnt = $xwiki.search("select count(*) from XWikiDocument as doc, BaseObject as obj, StringProperty as props where obj.id=props.id.id and doc.fullName=obj.name and obj.className='CurrikiCode.CompositeAssetClass' and doc.web='Coll_${shortname}' and doc.name != 'WebHome' and doc.name != 'Favorites' and props.id.name='type' and props.value='collection'").get(0))
+  #set($multiple = ($cnt > 1))
+  #if($multiple)
+    #set($reorder = $xwiki.search("select count(*) from XWikiDocument as doc, BaseObject as obj, IntegerProperty as props where obj.id=props.id.id and doc.fullName=obj.name and obj.className='CurrikiCode.CollectionReorderedClass' and doc.fullName='Coll_${shortname}.WebHome' and props.id.name='reordered' and props.value=1").get(0))
+    #set($reordered = ($reorder > 0))
 {pre}
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -1626,22 +1603,22 @@ Curriki.data.reorder = {
 </script>
 <script type="text/javascript" src="/xwiki/js/curriki-module-reorder.js"></script>
 {/pre}
-#end ##}
-#end ##}
+  #end
+#end
 ## Get collections
-#set($assetList = $xwiki.getPlugin("curriki").fetchCollectionsList($shortname))
+#set($assetList = $xwiki.curriki.fetchCollectionsList($shortname))
 #set($nbToDisplay = 20)
 #set($startIndex = 0)
 #set($Integer = 0)
 #if($request.startIndex)
- #set($startIndex = $Integer.parseInt($request.getParameter("startIndex")))
+  #set($startIndex = $Integer.parseInt($request.getParameter("startIndex")))
 #end
 #if($startIndex > ($assetList.size() - 1))
- #set($startIndex = $assetList.size() - 1)
+  #set($startIndex = $assetList.size() - 1)
 #end
 #set($endIndex = $startIndex - 1 + $nbToDisplay)
 #if($endIndex > ($assetList.size() - 1))
- #set($endIndex = $assetList.size() - 1)
+  #set($endIndex = $assetList.size() - 1)
 #end
 ##
 {pre}
@@ -1666,17 +1643,16 @@ function toggle_desc(){
 }
 </script>
 {/pre}
-#curriki_fulltitlebar($msg.get("mycurriki.collections.titlebar") $msg.get("mycurriki.collections.titlebarbutton") "" "return toggle_desc();" "red" "hider")
 ## row per item -- number of rows configurable
 #set($showcount = 0)
 #foreach($assetPage in $assetList)
-#if($xwiki.hasAccessLevel("view", $context.user, $assetPage))
-#set($showcount = 1 + $showcount)
-#if(($showcount > $startIndex) && ($showcount < ($endIndex + 2)))
-#set($asset = $xwiki.getDocument($assetPage))
-#mycurriki_collection($asset)
-#end ## showcount > startIndex && showcount < endIndex
-#end  ## if has view access
+  #if($xwiki.hasAccessLevel("view", $context.user, $assetPage))
+    #set($showcount = 1 + $showcount)
+    #if(($showcount > $startIndex) && ($showcount < ($endIndex + 2)))
+      #set($asset = $xwiki.getDocument($assetPage))
+      #mycurriki_collection($asset)
+    #end ## showcount > startIndex && showcount < endIndex
+  #end  ## if has view access
 #end ## foreach assetPage in list
 #if($showcount == 0)
 <div class="centertext">$msg.get("mycurriki.collections.noresults")</div>
@@ -1688,10 +1664,11 @@ function toggle_desc(){
   * MySankore Collections Page Button Call Back function
   * @param $userobj Object of the user
   *#
-#macro(mycurriki_collectionbutton $userobj)
+#macro(mycurriki_collections_buttons $userobj)
 #if($context.action == "view" && ($context.user==$userdoc.fullName || $hasGlobalAdmin))
 {pre}
-<a class="button button-confirm" onclick="Curriki.module.addpath.startPath('K', {});" alt="$msg.get("mycurriki.collections.addButton")" title="$msg.get("mycurriki.collections.addButton_tooltip")">$msg.get("mycurriki.collections.addButton")</a>
+<a class="button button-confirm" onclick="Curriki.module.reorder.start(); return false;" alt="$msg.get('mycurriki.collections.reorder')" title="$msg.get('mycurriki.collections.reorder_tooltip')">$msg.get("mycurriki.collections.reorder")</a>
+<a class="button button-confirm" onclick="Curriki.module.addpath.startPath('K', {});" alt="$msg.get('mycurriki.collections.add')" title="$msg.get('mycurriki.collections.add_tooltip')">$msg.get("mycurriki.collections.add")</a>
 {/pre}
 #end
 #end ## buttonmacro
