@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344334477000</creationDate>
-<date>1344334477000</date>
-<contentUpdateDate>1344334477000</contentUpdateDate>
+<creationDate>1345198360000</creationDate>
+<date>1345198360000</date>
+<contentUpdateDate>1345198360000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -27,6 +27,7 @@
 ## To view the different classes, go here.  http://next.dev.curriki.org/xwiki/bin/edit/XWiki/CurrikiSpaceClass?editor=class
 ## I am also adding to this trans file elements that are used globally but not in class. Media Type roll over text for example.
 ## FROM GWT or XWIKI CORE
+#&lt;pre&gt;
 
 loading.loading_msg=Chargement, veuillez patienter
 problemoccured=Un problème est survenu lors du traitement de votre requête. Envoyez un mail au webmaster si ceci se produit encore.
@@ -582,7 +583,7 @@ XWiki.XWikiUsers_member_type_parent=Parent
 
 ##COUNTRY
 
-XWiki.XWikiUsers_country_---=---
+XWiki.XWikiUsers_country_---= -
 XWiki.XWikiUsers_country_AD=Andorre
 XWiki.XWikiUsers_country_AE=Emirats Arabes Unis
 XWiki.XWikiUsers_country_AF=Afghanistan
@@ -613,7 +614,7 @@ XWiki.XWikiUsers_country_BW=Botswana
 XWiki.XWikiUsers_country_BY=Biélorussie
 XWiki.XWikiUsers_country_BZ=Belize
 XWiki.XWikiUsers_country_CA=Canada
-XWiki.XWikiUsers_country_CD=Congo (République démocratique du)=Congo
+XWiki.XWikiUsers_country_CD=Congo (République démocratique)
 XWiki.XWikiUsers_country_CF=République centrafricaine
 XWiki.XWikiUsers_country_CG=Congo
 XWiki.XWikiUsers_country_CH=Suisse
@@ -676,11 +677,11 @@ XWiki.XWikiUsers_country_KE=Kenya
 XWiki.XWikiUsers_country_KG=Kirghizistan
 XWiki.XWikiUsers_country_KH=Cambodge
 XWiki.XWikiUsers_country_KM=Comores
-XWiki.XWikiUsers_country_KP=Corée (République populaire démocratique de)
+XWiki.XWikiUsers_country_KP=Corée (République pop. démocratique)
 XWiki.XWikiUsers_country_KR=Corée (République de)
 XWiki.XWikiUsers_country_KW=Koweït
 XWiki.XWikiUsers_country_KZ=Kazakhstan
-XWiki.XWikiUsers_country_LA=Laos (République démocratique populaire Lao)
+XWiki.XWikiUsers_country_LA=Laos (République démocratique pop.)
 XWiki.XWikiUsers_country_LB=Liban
 XWiki.XWikiUsers_country_LI=Liechtenstein
 XWiki.XWikiUsers_country_LK=Sri Lanka
@@ -756,7 +757,7 @@ XWiki.XWikiUsers_country_TN=Tunisie
 XWiki.XWikiUsers_country_TR=Turquie
 XWiki.XWikiUsers_country_TT=Trinité-et-Tobago
 XWiki.XWikiUsers_country_TW=Taïwan
-XWiki.XWikiUsers_country_TZ=Tanzanie (République Unie de)
+XWiki.XWikiUsers_country_TZ=Tanzanie (République Unie)
 XWiki.XWikiUsers_country_UA=Ukraine
 XWiki.XWikiUsers_country_UG=Ouganda
 XWiki.XWikiUsers_country_US=Etats-Unis
@@ -764,7 +765,7 @@ XWiki.XWikiUsers_country_UY=Uruguay
 XWiki.XWikiUsers_country_UZ=Ouzbékistan
 XWiki.XWikiUsers_country_VA=Vatican (Etat de la Cité du)
 XWiki.XWikiUsers_country_VE=Venezuela
-XWiki.XWikiUsers_country_VN=Vietnam (République Socialiste du Viêt Nam)
+XWiki.XWikiUsers_country_VN=Vietnam (République Socialiste)
 XWiki.XWikiUsers_country_YE=Yémen
 XWiki.XWikiUsers_country_YU=Yougoslavie
 XWiki.XWikiUsers_country_ZA=Afrique du Sud
@@ -1146,4 +1147,4 @@ preview.errorgettingpreview=Erreur lors de la prévisualisation
 ##Todd added the below strings. Currently the old ones are hard coded. Nov-5-2008 - I have no recollection added this. Todd
 
 UNSPECIFIED=Tous
-</content></xwikidoc>
+#&lt;/pre&gt;</content></xwikidoc>
