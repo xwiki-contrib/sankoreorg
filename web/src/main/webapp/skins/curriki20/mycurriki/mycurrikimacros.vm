@@ -136,11 +136,11 @@
   <ul>
     #set($url = $xwiki.getURL("MySankore.EditProfile", "view", "user=${context.user}"))
     <li class="profile-link"><a href="$url">$msg.get("sankore.profile.editprofile.title")</a></li>
-    #set($url = $xwiki.getURL("Main.BookmarkletSetup", "view"))
-    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.downloadplugin.title")</a></li>  
     #set($url = $xwiki.getURL("Groups.AboutGroups", "view"))
-    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></li>
+    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.downloadplugin.title")</a></li>  
     #set($url = $xwiki.getURL("Invitation.WebHome", "view"))
+    <li class="profile-link"><a href="$!url">$msg.get("sankore.profile.joingroup.title")</a></li>
+    #set($url = $xwiki.getURL("Main.BookmarkletSetup", "view"))
     <li class="profile-link"><a href="$url">$msg.get("sankore.profile.inviteuser.title")</a></li>
   </ul>  
 </div>
@@ -779,7 +779,7 @@ $!desc
 ##</li>
 <li id="country">
   <span class="label"><strong>$msg.get("profile.field.country")</strong></span>    
-  <span id="value">  
+  <span class="value">  
   #mycurriki_dashifempty($userdoc.display("country", "view", $userobj))
   </span>
 </li>
