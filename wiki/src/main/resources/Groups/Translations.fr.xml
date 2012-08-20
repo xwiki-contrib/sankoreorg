@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344861644000</creationDate>
-<date>1344861644000</date>
-<contentUpdateDate>1344861644000</contentUpdateDate>
+<creationDate>1345461159000</creationDate>
+<date>1345461159000</date>
+<contentUpdateDate>1345461159000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -589,7 +589,7 @@ groups.contributions.mouseover.contributed=&lt;strong&gt;Contribué / Fourni par
 groups.curriculum.collections.titlebar=Collections du groupe
 groups.curriculum.collections.titlebarbutton=Cacher les descriptions
 groups.curriculum.collections.titlebarbuttonalt=Montrer les descriptions
-groups.curriculum.collections.about=Ici vous pouvez trouver les contributions du groupe.
+groups.curriculum.collections.about=Ici vous pouvez trouver les collections du groupe.
 groups.curriculum.collections.addButton=Ajouter une collection au groupe
 groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection au groupe pour organiser et présenter les ressources
 groups.curriculum.collections.actions.delete.confirm=Cette action est irréversible. Êtes-vous sûr que vous voulez supprime ?
@@ -649,7 +649,7 @@ groups.search.top_title=CHERCHER DES RESSOURCES DE CE GROUPE DANS LE REPOSITORY
 groups_admins_onlyaccessibletoadmins=Cette page est seulement disponible pour les administrateurs.
 
 ##DisclaimerCreateGroup
-groups.disclaimer.create.group.content=&lt;h3 class="wikigeneratedheader" id="HQUELLEESTLUTILITEDUNGROUPE"&gt;&lt;span&gt;QUELLE EST L'UTILITÉ D’UN GROUPE&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Vous pouvez créer un espace pour les échanges et les travaux au sein d’un groupe de projet.&lt;br/&gt;Cet espace pour votre groupe comprend les onglets suivants:&lt;/p&gt;&lt;p&gt;&lt;ul&gt;&lt;li&gt;Accueil : Voir et Modifier les informations du groupe&lt;/li&gt;&lt;li&gt;Messages : Échanger avec les membres du groupes&lt;/li&gt;&lt;li&gt;Ressources partagées : Chercher et contribuer des ressources liées au groupe&lt;/li&gt;&lt;li&gt;Membres : Gérer les invitation et les status des membres du groupe&lt;/li&gt;&lt;/ul&gt;&lt;h3 class="wikigeneratedheader" id="HPOURCOMMENCER"&gt;&lt;span&gt;POUR COMMENCER&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Si vous souhaitez créer un groupe sur Planète Sankoré :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;il est important de savoir que les groupes Planète Sankoré peuvent être trouvés et présentés sous forme de liens à partir de divers page du site, tels que la page d’accueil ou la page “trouver des groupes”,&lt;/li&gt;&lt;li&gt;il est important de vous engager en tant que responsable du groupe et de veiller à la bonne qualité des échanges et de la mutualisation entre les membres du groupe&lt;/li&gt;&lt;li&gt;il est important que votre groupe devienne une zone active et utile pour ses membres et pour toute la communauté Planète Sankoré,&lt;/li&gt;&lt;li&gt;il est enfin nécessaire de vous tenir prêt à consacrer environ deux heures par mois à la maintenance de votre espace de groupe et d'y contribuer de manière active.&lt;/li&gt;&lt;/ul&gt;
+groups.disclaimer.create.group.content=&lt;h3 class="wikigeneratedheader" id="HQUELLEESTLUTILITEDUNGROUPE"&gt;&lt;span&gt;QUELLE EST L'UTILITÉ D’UN GROUPE ?&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Vous pouvez créer un espace de travail collaboratif qui comprendra les onglets suivants :&lt;/p&gt;&lt;p&gt;&lt;ul&gt;&lt;li&gt;Accueil : pour visualiser et/ou modifier les informations du groupe&lt;/li&gt;&lt;li&gt;Messages : pour échanger avec les membres de votre groupe&lt;/li&gt;&lt;li&gt;Ressources partagées du groupe : pour trouver et/ou implémenter la base de ressources du groupe&lt;/li&gt;&lt;li&gt;Membres : pour gérer les invitations et les statuts des membres du groupe (membre, administrateur, autre)&lt;/li&gt;&lt;/ul&gt;&lt;h3 class="wikigeneratedheader" id="HPOURCOMMENCER"&gt;&lt;span&gt;LES PRÉREQUIS&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Si vous souhaitez créer un groupe sur Planète Sankoré il est important de :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;vous engager en tant que responsable du groupe&lt;/li&gt;&lt;li&gt;veiller à la bonne qualité des échanges entre les membres de votre groupe&lt;/li&gt;&lt;li&gt;faire connaitre votre groupe à toute la communauté Planète Sankoré&lt;/li&gt;&lt;li&gt;maintenir l'activité de votre groupe en y contribuant régulièrement&lt;/li&gt;&lt;/ul&gt;
 groups.disclaimer.create.group.button=Créer un groupe
 
 ##AboutGroups
