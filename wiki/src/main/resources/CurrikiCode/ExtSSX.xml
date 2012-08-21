@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CurrikiCode</web>
+<name>ExtSSX</name>
+<language></language>
+<defaultLanguage></defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1345559121000</creationDate>
+<date>1345559121000</date>
+<contentUpdateDate>1345559121000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>CurrikiCode.ExtSSX</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>3a9c0423-04d8-4855-8c7f-2c4ec868c386</guid>
+<property>
+<cache>default</cache>
+</property>
+<property>
+<code>/*
+ addpath.css
+*/
+
+/* Add Path */
+.x-panel, .x-window { text-align: left; }
+.x-panel-ghost ul, .x-panel-ghost .x-window-tl { border: none; }
+.x-panel-noborder .x-panel-bbar-noborder .x-toolbar { border: none;  }
+.x-window, .x-panel-ghost, .ext-el-mask-msg {  border: 1px solid #dcdcdc; font-size: 13px; padding: 0; }
+.x-window div, .x-panel-ghost * { background-color: transparent; background-image: none; }
+.x-window .x-window-tl, .x-panel-ghost .x-window-tl { padding: 0em 0.5em; text-transform: uppercase; }
+
+#SelectTemplateDialogueWindow {
+  border: 10px solid #AAA;
+  width: auto;
+}
+
+
+
+/* Form Elements */
+
+.x-form-radio {
+  width: 20px;
+}
+.x-form-cb-label {
+  display: inline;
+}
+
+button.x-btn-text {
+  font-family: 'Open Sans Condensed',​sans-serif;
+  background: #F0720E;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  height: 37px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.75);
+}
+
+
+
+.x-window-tl .x-window-header { color: #fff; font: 12px arial;  font-weight: bold; padding: 3px 0; }
+.x-window .x-panel-body { padding: 6px 6px 0; }
+.x-window #resource-drop .x-panel-body { padding-top: 0; }
+ 
+.x-toolbar .x-btn-over .x-btn-right, .x-toolbar .x-btn-over .x-btn-left { background-image: none; } 
+.x-window .guidingquestion { font-size: 1.2em; font-weight: bold; padding: 0.5em 0; }
+.x-window .subtitle { font-size: 1em; font-weight: bold; padding: 0.5em 0; }
+.ext-el-mask-msg * { border: none !important; background-image: none; font: 13px Arial; }
+.x-window .listheader {font-weight: bold;}
+
+.ext-gecko .x-btn button { 
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.ctv-groups a, .ctv-top a { font: 12px Arial; font-weight: bold; text-transform: uppercase; }
+.x-tree-node-anchor { font: 12px Arial; } 
+#resource-pickup { background: transparent url($xwiki.getSkinFile("images/ctv/drag_area.jpg")) no-repeat; height: 85px; margin-top: 1em; padding: 0.7em; width: 360px; }
+#resource-pickup * { background-color: transparent; }
+#resource-pickup .x-panel-body { padding-top: 0.1em; }
+#resource-pickup .x-tree-node-el { border: 1px dashed #93c53c; }
+#resource-pickup .x-tree-ec-icon { background-image: none; width: 5px; }
+
+.x-dd-drag-proxy, .x-tree-node .x-tree-drag-append a span, .addpath-ctv .ctv-target .x-tree-node-anchor { background-color: #93c53c; border: none; }
+##.x-tree-node .x-tree-selected a span { color: #fff; }
+##.x-tree-node .x-tree-node-over { background-color: transparent; }
+.x-panel-bwrap, .x-panel-bwrap .x-panel-body, .x-column-inner .x-panel { overflow: visible; height: auto; }
+#resource-drop-box .x-panel-body { padding: 0; }
+.x-tree-node a span { overflow: hidden; }
+form#MetadataDialogueForm { overflow-y: auto; overflow-x: hidden; }
+
+#MetadataDialogueForm img.x-tree-node-icon { display: none; }
+ul.x-tree-root-ct, #educational_level2-set .x-form-item { margin: 0; }
+.x-combo-list { border-color:#b2b2b2 #e5e5e5 #e5e5e5 #b2b2b2; text-align: left; }
+.x-combo-list-item { text-align: left; }
+##.x-panel-body #metadata-language-entry, .x-panel-body #metadata-license_type-entry { width: 98% !important; }
+.ux-mselect-item { font: 12px Arial; padding: 0 2px; }
+.x-panel .instruction { font-size: 13px; }
+#fw_items-tree .x-panel-body { padding-top: 0; }
+#educational_level2-set { padding: 0; }
+.information-header { font-weight: bold; }
+.information-header img { margin: 0 0 -4px 3px; }
+#ext-comp-1022  .x-panel-body { padding: 0; }
+.x-dd-drag-ghost { padding-left: 5px; text-align: left; width: 300px; }
+.x-dd-drop-icon { background-image: none; width: 0; }
+.x-shadow * { background-image: none; visibility: hidden; }
+.x-dd-drag-proxy { opacity: 0.80;}
+.x-dd-drag-proxy * { background-color: transparent; }
+  
+.ict-icon-combo-item {
+	background-repeat: no-repeat ! important;
+	background-position: 3px 50% ! important;
+}
+
+.crs-icon { width:15px; height:15px; background-repeat:no-repeat; }
+.ctv-groups .x-tree-node-icon, .ctv-top .x-tree-node-icon { display: none; } 
+.x-tree-node div.x-tree-drag-insert-above  { border-top: 1px dashed #93c53c; }
+.x-tree-node div.x-tree-drag-insert-below  { border-bottom: 1px dashed #93c53c; }
+.done-message { font: 13px Arial; padding: 1em 0; }
+.x-window-bbar .x-toolbar { border: none; }
+.x-toolbar .ytb-sep { background-image: none; border-left: 1px solid #999; }
+#header-search button:hover {text-decoration: underline !important;}
+.x-toolbar .x-btn-over td.x-btn-center { background-image: none !important; text-decoration: none; }
+.x-window .ux-mselect-selected, .x-combo-list .x-combo-list-inner .x-combo-selected { background-color: #3399ff; color: #fff; }
+.required-indicator {
+	color: #fb0f0c;
+	font-size: 15px;
+	font-style:normal;
+	font-weight:bold;
+	margin-right: 3px;
+}
+.x-toolbar .ytb-sep { margin: 0; padding: 0; width: 1px; }
+.x-fieldset legend { display: none; }
+#link-entry-box { width: 80%; }
+.ext-gecko .x-window-body .x-form-item { overflow: hidden; }
+
+
+/* Add Path - CURRIKI-2431 */
+.x-window div.description { display:block; padding:5px 0; }
+.x-btn-left { background-image: none; }
+
+/** EXTJS INVALID **/
+
+.metadata-title-field-invalid {color: #fb0f0c; text-transform: uppercase;}
+.x-form-invalid, textarea.x-form-invalid {background: none;}
+.x-form-invalid, textarea.x-form-invalid {border: 0;}
+
+.ext-safari .x-form-invalid {
+	background: none;
+	border: 0;
+}
+
+.x-tree-root-node * {
+  line-height: 24px !important;
+}
+
+.x-tree-node {
+  position: relative;
+}
+
+.x-tree-node-cb { 
+  position: absolute;
+  top: 4px;
+}
+
+.x-tree-node-anchor {
+  margin-left: 24px !important;
+}
+
+.x-tree-node-ct .x-tree-node {
+  position: relative;
+}
+
+.x-tree-node-el {
+  padding-left:4px !important;
+  overflow: auto; /*force hasLayout in IE7 */
+}
+
+.x-tree-node-el + .x-tree-node-ct {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  background-color: #fff;
+  z-index: 999;
+}
+
+.x-tree-node-cb {
+  cursor: pointer;
+}
+
+.x-tree-node-root {
+  display: none;
+}
+
+.x-panel-bwrap .x-panel-body {
+  overflow: visible;
+}
+
+.x-panel-body #metadata-license_type-entry {
+  width: 85% !important;
+}
+
+.x-tree-node .x-tree-selected {
+  background-color: transparent;
+}
+
+.circle {
+  display: inline-block;
+  padding: 3px 7px;
+  background: #DDDDDD;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  font-family: Arial !important;
+  font-size: 12px !important;
+  font-weight: bold !important;
+  margin-right:3px;
+}
+
+.addpath-page {
+  cursor: default;
+  text-decoration: none;
+}
+
+.addpath-page:hover {
+  text-decoration: none;
+}
+
+.addpath-page-current {
+  background: #A73906;
+  color:#fff;
+}
+
+.addpath-page-previous {
+  cursor: pointer;
+  background: #BF9256;
+  color:#fff;
+}
+
+.x-toolbar .ytb-text {
+ white-space: normal;
+}
+
+.x-tool-close {
+  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Main/AddResources/close.png") no-repeat scroll 0 0 transparent !important;
+    cursor: pointer;
+    height: 32px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 32px;
+    z-index: 9004;
+}
+
+#dialog-actions {
+   border-color: #666666;
+    border-style: solid;
+    border-width: 10px;
+}
+
+#resource-source-dialogue {
+     border-color: #AAA;
+    border-style: solid;
+    border-width: 10px;
+}
+
+.x-tree-node a {
+  background-color: #FFFFFF !important;
+}
+
+.x-tree-node-over a {
+  background-color: #FFFFFF !important;
+}
+
+.x-tree-node-leaf {
+  background: none !important;
+}
+
+#switchbutton .x-btn-left {
+  background: none;
+}
+
+#switchbutton .x-btn-right {
+  background: none;
+}
+
+#switchbutton .x-btn-center {
+  background: none;
+}
+
+.x-window-tl .x-window-header {
+  padding: 0;
+}
+
+.x-window-header-text {
+  display: block;
+  margin: 3px 0;
+}
+
+#MetadataDialogue {
+  border: none;
+}
+
+
+## SANKORE EXTJS extensions
+
+.x-form textarea {
+  resize: none;
+  color: #000000;
+}
+
+.x-form input[type="text"], input[type="password"] {
+  color: #000000;
+  background-color: #FFFFFF;
+  border-color: 1px solid #B5B8C8;
+}
+
+.x-tree-node {
+  color: #000000;
+  font: 11px tahoma,arial,helvetica,sans-serif;
+}
+
+.x-btn-tl, .x-btn-tr, .x-btn-tc, .x-btn-ml, .x-btn-mr, .x-btn-mc, .x-btn-bl, .x-btn-br, .x-btn-bc {
+  background-image: none;
+}
+
+## ADDPATH
+
+.directions { font-size: 11px; padding-bottom: 5px; }
+
+.x-btn-noicon .x-btn-small .x-btn-text {
+  height: auto;
+  font: 12px tahoma,arial,helvetica,sans-serif;
+}
+
+
+### ATTRIBUTER
+
+#ctv-to-tree-cmp .x-tree-node-el + .x-tree-node-ct {
+  position: static;  
+}
+
+#organize-tree-cmp .x-tree-node-el + .x-tree-node-ct {
+  position: static;  
+}
+
+.x-toolbar-ct .x-btn {
+  float: left;
+}
+
+## Curriki paging toolbar
+.curriki-paging-toolbar .x-toolbar-extras table {
+  width: 100%;
+}
+
+/*
+··········································································
+710 | FEATURE: Bookmarklet
+··········································································
+*/
+
+#bookmarklet {}
+
+body#body.xpage-bookmarklet #xwikimaincontainerinner {
+  background: none;
+}
+body#body.xpage-bookmarklet .x-form-text, 
+body#body.xpage-bookmarklet textarea.x-form-field {box-shadow: none;}
+
+body#body.xpage-bookmarklet .x-panel.x-panel-noborder.x-form-label-left 
+
+body#body.xpage-bookmarklet .x-panel-bwrap {
+  padding: 20px;
+}
+
+/*TEMP STUFF*/
+div#ext-comp-1009 {display: none;}
+/*
+Buttons
+··········································································
+*/
+#switchbutton button.btn.x-btn-text {
+  background: red;
+  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/buttonbg.jpg") repeat-x center center;
+}
+
+#nextbutton button.btn.x-btn-text, 
+#previousbutton button.btn.x-btn-text, #publishbutton button.btn.x-btn-text {
+  background: orange;
+  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/buttonconfirmbg.jpg") repeat-x center center;
+}
+
+#nextbutton button.btn.x-btn-text {
+  background: url(/xwiki/bin/download/Sandbox/SankoreSkin/button-orange-white-arrow.png) repeat-x right top;
+  padding-right:30px;
+}
+
+#previousbutton button.btn.x-btn-text {
+  background: url(/xwiki/bin/download/Sandbox/SankoreSkin/button-orange-white-arrow.png) repeat-x left bottom;
+  padding-left:30px;
+}
+/*
+Forms
+··········································································
+*/
+
+/* Labels */
+
+body#body.xpage-bookmarklet .information-header,
+body#body.xpage-bookmarklet .x-form-item {
+  float: left;
+  display: inline;
+  margin: 0 !important;
+  margin-bottom: 10px;
+}
+body#body.xpage-bookmarklet .information-header {
+  clear: both;
+  font-weight: normal;
+  margin-top: 0 !important;
+  font-size: 1.2em;
+  height: 16px;
+  padding: 10px 0;
+}
+body#body.xpage-bookmarklet #metadata-rating-title,
+body#body.xpage-bookmarklet #metadata-title-title,
+body#body.xpage-bookmarklet #metadata-description-title,
+body#body.xpage-bookmarklet #metadata-keywords-title {
+  padding: 10px;
+  background: #CFD1D3;
+  border-radius: 4px;
+}
+
+body#body.xpage-bookmarklet #x-form-el-metadata-description-entry {
+  display: block;
+  clear: both;
+  width: 100%;
+}
+
+body#body.xpage-bookmarklet .x-panel.x-panel-noborder {
+  clear: both;
+}
+
+input.x-form-text.x-form-field {
+  padding: 9px 4px !important;
+  margin-left:5px;
+}
+body#body.xpage-bookmarklet textarea.x-form-textarea.x-form-field {
+  height: 93px !important;
+  padding: 4px !important;
+}
+body#body.xpage-bookmarklet #x-form-el-metadata-description-entry {
+  display: block;
+}
+
+body#body.xpage-bookmarklet #metadata-rating-title, body#body.xpage-bookmarklet #metadata-title-title, body#body.xpage-bookmarklet #metadata-description-title, body#body.xpage-bookmarklet #metadata-keywords-title {
+  background: none !important;
+  border-radius: 0 0 0 0;
+}
+
+.information-header {
+  background: none repeat scroll 0 0 #CFD1D3 !important;
+  border-radius: 4px 4px 4px 4px;
+  width: 180px;
+}
+
+.information-header img {
+  float:right;
+  margin: 0 10px 0 0;
+}
+
+.x-form-item {
+  margin: 0 0 10px 5px !important;
+}
+
+input.x-form-text {
+  margin-bottom:0;
+}
+
+/*
+··········································································
+720 | FEATURE: Wizards
+··········································································
+*/
+/*  Add Resource
+ *----------------------------------------*/
+/* The Window / Modal Container */
+.x-window  {
+  border: none !important;
+  padding: 20px !important;
+  background: #EEE;    
+  box-shadow: 0 0 20px #AAA;
+}
+.x-window  .x-panel-body {
+  background: transparent;
+}
+/* Window Title */
+.x-window .x-window-tl .x-window-header {
+  color: #555 !important;
+  font-family: 'Open Sans Condensed', sans-serif !important;
+  font-size: 1.35em;
+}
+/* Buttons */
+.x-window  button.x-btn-text {
+  background: red;
+  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/buttonbg.jpg") repeat-x center center;
+  color:white;
+}
+
+## addpath.css
+.x-window-tl .x-window-header {
+  color: #424242;
+  font-size: 24px;
+  font-family: 'Open Sans Condensed',​sans-serif;
+  background-color: transparent !important;
+}
+
+.x-window .x-panel-body {
+  padding:0;
+}
+
+html {
+  height: auto;
+}
+body#body.xpage-bookmarklet {
+  overflow:hidden;
+  min-width: 0px;
+}
+#body {
+  width: auto !important;
+}
+#xwikimaincontainer {
+  width: auto !important;
+  height: 0;
+}
+#xwikimaincontainerinner {
+  width: auto !important;
+}
+.x-window {
+  top: 0 !important;
+  left: 0 !important;
+  position: static !important;
+  width: auto !important;
+}
+.ext-el-mask {
+  display:none !important;
+}
+
+.metadata-entry {
+  margin-top:20px;
+}
+
+/** USER RATING **/
+
+.ux-form-rater-wrap .ux-form-rater-stars {
+  margin:0;
+  padding:0;
+  display:block;
+  background:transparent url($xwiki.getSkinFile("images/sprite_star_medium.gif")) repeat-x 0 -25px;
+}
+.ux-form-rater-wrap ul.ux-form-rater-stars  {
+  margin: 7px 0 0 5px;
+  padding:0;
+  display:block;
+  list-style:none;
+  float:left;
+  
+}
+.ux-form-rater-wrap ul.ux-form-rater-stars  li {
+  margin: 7px 0 0 5px;
+  padding:0;
+  display:block;
+  list-style:none;
+  left:0;
+  position:absolute;
+}
+.ux-form-rater-wrap ul.ux-form-rater-stars  li.rating {
+}
+.ux-form-rater-wrap ul.ux-form-rater-stars  li.star {
+}
+.ux-form-rater-wrap ul.ux-form-rater-stars  li.ux-form-rater-vote {
+  background:transparent url($xwiki.getSkinFile("images/sprite_star_medium.gif")) repeat-x 0 0;
+}
+.ux-form-rater-wrap ul.ux-form-rater-stars  li.ux-form-rater-voted {
+  background:transparent url($xwiki.getSkinFile("images/sprite_star_medium.gif")) repeat-x 0 0;
+}
+.ux-form-rater-wrap ul.ux-form-rater-stars  li.ux-form-rater-hover {
+  background:transparent url($xwiki.getSkinFile("images/sprite_star_medium.gif")) repeat-x 0 0;
+}
+.ux-form-rater-wrap .ux-form-rater-text-top {
+  clear: both;
+}
+.ux-form-rater-wrap .ux-form-rater-text-bottom {
+  clear: both;
+}
+.mode-comments li.comment ul.ux-form-rater-stars {
+  border: 0;
+  margin: 0;
+}
+img.rating-icon {
+  background-image: url($xwiki.getSkinFile("images/sprite_stars.gif"));
+  background-repeat: no-repeat;
+}
+
+#addpath-progress {
+  display:none;
+}
+
+.ux-form-rater-stars {
+  margin-left:5px;
+}
+
+/** TREENODE **/
+
+.x-tree-root-node {
+  padding:10px;
+  background-color:#FFFFFF !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+  border-radius:4px;
+}
+ul.x-tree-root-ct {
+  list-style:none;
+}
+
+ul.x-tree-node-ct {
+  padding:10px;
+  background-color:#FFFFFF !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+  border-radius:4px;
+  list-style:none;
+}
+
+.x-tree-node-el + .x-tree-node-ct {
+  top: 0;
+  left: 0;
+}
+
+.x-tree-node-el {
+  padding-left:0 !important;
+}
+
+.x-tree-node-ct {
+  position:relative;
+}
+
+.x-tree-node-ct:after, .x-tree-node-ct:before {
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  left: -18px;
+  position: absolute;
+  width: 0;
+}
+
+.x-tree-node-ct:after {
+  border-width: 9px;
+	border-right-color: #FFF;
+	top: 15px;
+}
+
+.x-tree-node-ct:before {
+  border-width: 11px;
+	border-right-color: #DDD;
+	top: 13px;
+  left:-22px;
+}
+
+.x-tree-node .el-item-parent + .x-tree-node-ct {
+  border-left:none;
+  padding-left: 10px;
+  margin-left: 15px;
+}
+
+.x-tree-node {
+  position:static;
+}
+
+.x-tree-root-node {
+  position:relative;
+}
+
+.x-tree-node-el input[type="radio"], input[type="checkbox"] {
+  margin:0;
+}
+
+.x-tree-node-el {
+  background-image: url(/xwiki/bin/download/Sandbox/SankoreSkin/arrow-right-black.gif) !important;
+  background-position: right 5px;
+  background-repeat: no-repeat;
+  position:relative;
+  padding-right:15px;
+}
+
+.x-tree-node-leaf {
+  background-image: none !important;
+}
+
+.x-tree-node .fw-item-parent + .x-tree-node-ct {
+    border-left: medium none;
+    margin-left: 15px;
+    padding-left: 10px;
+}
+
+.x-tree-node .ict-item-parent + .x-tree-node-ct {
+    border-left: medium none;
+    margin-left: 15px;
+    padding-left: 10px;
+}
+
+.x-form-field-wrap .x-form-trigger {
+  background-image: url("/xwiki/bin/download/Sandbox/SankoreSkin/arrow-down-black.gif");
+    border: medium none;
+  right: 15px;
+    top: 15px;
+}
+.x-form-field-wrap .x-form-trigger-over {
+  background-position: 0 0;
+}
+
+.x-trigger-wrap-focus .x-form-trigger {
+  background-position: 0 0;
+}</code>
+</property>
+<property>
+<name>SSX</name>
+</property>
+<property>
+<parse>1</parse>
+</property>
+<property>
+<use>always</use>
+</property>
+</object>
+<content></content></xwikidoc>
