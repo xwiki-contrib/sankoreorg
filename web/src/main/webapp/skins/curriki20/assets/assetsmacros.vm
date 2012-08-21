@@ -1007,7 +1007,7 @@ $asset.use($comment)
 #set($cclass = $xwiki.getDocument("XWiki.XWikiComments").getxWikiClass())
 #set($comment = $cclass.newObject())
 #set($qs = $!request.queryString)
-#set($xredirect= $escapetool.url($asset.getURL('view', $qs)))
+#set($xredirect= $asset.getURL('view', $qs))
 <form name="comment-add" action="$xwiki.getURL("CurrikiCode.CreateCommentService")" method="post" onsubmit="return checkComment(this['XWiki.XWikiComments_comment'], this['XWiki.XWikiComments_rating']);">
   <input type="hidden" name="page" value="${asset.fullName}" />
   <input type="hidden" name="xredirect" value="${xredirect}" />
