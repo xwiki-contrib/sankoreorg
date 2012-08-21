@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344260381000</creationDate>
-<date>1344260381000</date>
-<contentUpdateDate>1344260381000</contentUpdateDate>
+<creationDate>1345539881000</creationDate>
+<date>1345539881000</date>
+<contentUpdateDate>1345539881000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -40,6 +40,8 @@ rve.toc.title=Table des matières
 
 ## RESOURCE TITLE AREA*******************************************
 
+rve.title.function.share=Partager
+rve.title.function.share.icon.rollover=Partager
 rve.title.function.favorite=Favoris
 rve.title.function.favorite.icon.rollover=Ajouter cette ressource aux favoris
 rve.title.function.flag=Signaler
@@ -91,6 +93,9 @@ rve.tab.3.heading=Commentaires
 ## CONTENT TAB*******************************************
 
 ## CONTENT TAB FUNCTION SECTION*******************************************
+
+rve.content.download_link=Telecharger
+rve.content.edit_rollover=Telecharger
 
 rve.content.edit_link=Modifier
 rve.content.edit_rollover=Revoir le contenu ou mettre à jour cette ressource
@@ -467,8 +472,8 @@ organize.error.concurrency_text=Pendant que vous organisiez cette ressource, un 
 
 ## NO ACCESS PRIVILEGES PAGE
 
-rve.noaccess.header=ACCESS PRIVILEGES REQUIRED
-rve.noaccess.message=Vous ne pouvez pas consulter cette ressource car vous n'avez pas les droits requis
+rve.noaccess.header=Niveau d'accès supérieur requis
+rve.noaccess.message=Vous n'avez pas les droits requis pour effectuer l'action demandée.
 rve.noaccess.goback_link=Retour
 rve.noaccess.goback_url=javascript:history.go(-1)
 rve.noaccess.login_link=Se connecter
@@ -563,5 +568,4 @@ rve.comments.commentrating.rating.display_header=Note:
 rve.comments.commentrating.display.edit_link=Modifier
 rve.comments.commentrating.display.edit_comment_link=Modifier &amp; Commenter
 rve.comments.commentrating.display.edit_rate_link=Modifier &amp; Noter
-rve.comments.commentrating.display.delete_link=Supprimer
-</content></xwikidoc>
+rve.comments.commentrating.display.delete_link=Supprimer</content></xwikidoc>
