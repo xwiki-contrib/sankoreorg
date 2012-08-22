@@ -12,6 +12,8 @@ import javax.inject.Singleton;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
+import org.xwiki.component.phase.Initializable;
+import org.xwiki.component.phase.InitializationException;
 import org.xwiki.context.Execution;
 import org.xwiki.model.EntityType;
 import org.xwiki.model.reference.DocumentReference;
@@ -29,7 +31,7 @@ import com.xpn.xwiki.objects.classes.PropertyClass;
 @Component
 @Named("SpaceClass")
 @Singleton
-public class SpaceClass implements ClassManager<SpaceObjectDocument>
+public class SpaceClass implements ClassManager<SpaceObjectDocument>, Initializable
 {
     public static final String PREFERENCES_NAME = "WebPreferences";
 
@@ -96,9 +98,20 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
     private EntityReference templateReference = new EntityReference("SpaceTemplate", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
+    private XObjectDocumentClass<SpaceObjectDocument> xClass;
+
     private XWikiContext getContext()
     {
         return (XWikiContext) this.execution.getContext().getProperty("xwikicontext");
+    }
+
+    public void initialize() throws InitializationException
+    {
+        try {
+            xClass = new DefaultXObjectDocumentClass<SpaceObjectDocument>(getClassDocumentReference(), getContext());
+        } catch (XWikiException e) {
+            throw new InitializationException("Could not initialize object document class.", e);
+        }
     }
 
     public SpaceObjectDocument getDocumentObject(DocumentReference documentReference, int objectId) throws XWikiException
@@ -109,8 +122,6 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
     public SpaceObjectDocument getDocumentObject(DocumentReference documentReference) throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<SpaceObjectDocument> cls =
-                new DefaultXObjectDocumentClass<SpaceObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference());
 
@@ -118,21 +129,19 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
             return null;
         }
 
-        return new SpaceObjectDocument(cls, doc, obj, context);
+        return new SpaceObjectDocument(xClass, doc, obj, context);
     }
 
     public SpaceObjectDocument newDocumentObject(DocumentReference documentReference) throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<SpaceObjectDocument> cls =
-                new DefaultXObjectDocumentClass<SpaceObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference(), true, context);
 
         if (obj == null)
             return null;
 
-        return new SpaceObjectDocument(cls, doc, obj, context);
+        return new SpaceObjectDocument(xClass, doc, obj, context);
     }
 
     public DocumentReference getClassDocumentReference() throws XWikiException
@@ -150,15 +159,15 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
         return currentReferenceDocumentReferenceResolver.resolve(templateReference);
     }
 
-    public List<SpaceObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue) throws XWikiException
+    public List<SpaceObjectDocument> searchByField(String fieldName, Object fieldValue) throws XWikiException
     {
         Map<String, Object> fields = new HashMap<String, Object>();
         fields.put(fieldName, fieldValue);
 
-        return searchDocumentObjectsByFields(fields);
+        return searchByFields(fields);
     }
 
-    public List<SpaceObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
+    public List<SpaceObjectDocument> searchByFields(Map<String, Object> fields) throws XWikiException
     {
         String from = "select distinct doc.space, doc.name from XWikiDocument as doc, BaseObject as obj";
         String where = " where obj.name=doc.fullName and obj.className='XWiki.SpaceClass'";
@@ -217,10 +226,12 @@ public class SpaceClass implements ClassManager<SpaceObjectDocument>
 
     public void saveDocumentObject(SpaceObjectDocument documentObject) throws XWikiException
     {
-        //documentObject.save();
         documentObject.saveDocument("SpaceObjectDocument saved.", false);
-        //
-        // getContext().getWiki().saveDocument(documentObject.getDocument(), getContext());
+    }
+
+    public void deleteDocumentObject(SpaceObjectDocument documentObject) throws XWikiException
+    {
+        documentObject.delete();
     }
 
     @Override

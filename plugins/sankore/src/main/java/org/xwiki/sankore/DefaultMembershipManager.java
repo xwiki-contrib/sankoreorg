@@ -22,11 +22,13 @@ import org.xwiki.model.reference.DocumentReference;
 import org.xwiki.model.reference.DocumentReferenceResolver;
 import org.xwiki.model.reference.EntityReference;
 import org.xwiki.model.reference.EntityReferenceSerializer;
+import org.xwiki.query.QueryException;
 import org.xwiki.query.QueryManager;
 import org.xwiki.sankore.internal.ClassManager;
 import org.xwiki.sankore.internal.GroupClass;
 import org.xwiki.sankore.internal.InvitationClass;
 import org.xwiki.sankore.internal.InvitationObjectDocument;
+import org.xwiki.sankore.internal.MemberGroupObjectDocument;
 import org.xwiki.sankore.internal.MembershipRequestClass;
 import org.xwiki.sankore.internal.MembershipRequestObjectDocument;
 import org.xwiki.sankore.internal.UserClass;
@@ -50,8 +52,11 @@ public class DefaultMembershipManager implements MembershipManager
 
     private static final String ERROR_INVALID_STATUS = "membership_manager.invalid_status";
 
+    private static final String ERROR_DOCUMENTOBJECT_NOT_FOUND = "membership_manager.documentobject_not_found";
+
     private static final String ERROR_MAILSENDER_EXCEPTION = "membership_manager.mailsender_exception";
     private static final String ERROR_NULLPOINTER_EXCEPTION = "membership_manager.nullpointer_exception";
+    private static final String ERROR_QUERY_EXCEPTION = "membership_manager.query_exception";
 
     @Inject
     private Logger logger;
@@ -82,6 +87,10 @@ public class DefaultMembershipManager implements MembershipManager
     ClassManager<MembershipRequestObjectDocument> membershipRequestClass;
 
     @Inject
+    @Named("MemberGroupClass")
+    ClassManager<MemberGroupObjectDocument> memberGroupClass;
+
+    @Inject
     @Named("wiki")
     ConfigurationSource wikiPreferences;
 
@@ -99,8 +108,8 @@ public class DefaultMembershipManager implements MembershipManager
 
     private static final String ADMIN_EMAIL_PREFERENCE_KEY = "admin_email";
 
-    public static final String DEFAULT_RESOURCES_SPACE = "Groups";
-    public static final String DEFAULT_MAILTEMPLATE_NAME = "MailTemplate";
+    public static final String DEFAULT_RESOURCES_SPACENAME = "Groups";
+    public static final String DEFAULT_MAILTEMPLATE_PAGENAME = "MailTemplate";
 
     private XWikiContext getContext()
     {
@@ -109,14 +118,15 @@ public class DefaultMembershipManager implements MembershipManager
 
     private DocumentReference getDefaultMailTemplate(String type, String action)
     {
-        String templateName = DEFAULT_MAILTEMPLATE_NAME + StringUtils.capitalize(action) + StringUtils.capitalize(type);
+        String templateName = DEFAULT_MAILTEMPLATE_PAGENAME + StringUtils.capitalize(action) + StringUtils.capitalize(type);
         EntityReference templateReference = new EntityReference(templateName, EntityType.DOCUMENT,
-                new EntityReference(DEFAULT_RESOURCES_SPACE, EntityType.SPACE));
+                new EntityReference(DEFAULT_RESOURCES_SPACENAME, EntityType.SPACE));
 
         return currentReferenceDocumentReferenceResolver.resolve(templateReference);
     }
 
-    public boolean invite(Group group, String usernameOrEmail, String message) throws XWikiException
+    public boolean invite(Group group, String usernameOrEmail, String message)
+            throws XWikiException
     {
         if (group == null) {
             setError(ERROR_NULLPOINTER_EXCEPTION);
@@ -141,9 +151,15 @@ public class DefaultMembershipManager implements MembershipManager
 
         // email address
         if (usernameOrEmail.contains("@")) {
-            List<UserObjectDocument> users = usersClass.searchDocumentObjectsByField(
-                    UserClass.FIELD_EMAIL,
-                    usernameOrEmail);
+            List<UserObjectDocument> users;
+            try {
+                users = usersClass.searchByField(
+                        UserClass.FIELD_EMAIL,
+                        usernameOrEmail);
+            } catch (QueryException qe) {
+                setError(ERROR_QUERY_EXCEPTION);
+                return false;
+            }
 
             if (users.size() == 1) {
                 invitee = users.get(0);
@@ -257,7 +273,15 @@ public class DefaultMembershipManager implements MembershipManager
             filters.put(InvitationClass.FIELD_STATUS, status);
         }
 
-        return invitationClass.searchDocumentObjectsByFields(filters);
+        List<InvitationObjectDocument> invitations;
+        try {
+            invitations = invitationClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        return invitations;
     }
 
     public InvitationObjectDocument getInvitation(Group group, String usernameOrEmail, String key)
@@ -273,7 +297,14 @@ public class DefaultMembershipManager implements MembershipManager
         filters.put(InvitationClass.FIELD_KEY, key);
         filters.put(InvitationClass.FIELD_STATUS, InvitationClass.FIELD_STATUS_SENT);
 
-        List<InvitationObjectDocument> invitations =  invitationClass.searchDocumentObjectsByFields(filters);
+        List<InvitationObjectDocument> invitations;
+        try {
+            invitations =  invitationClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
         if (CollectionUtils.isEmpty(invitations)) {
             return null;
         }
@@ -288,7 +319,14 @@ public class DefaultMembershipManager implements MembershipManager
         filters.put(InvitationClass.FIELD_GROUP, group.getName());
         filters.put(InvitationClass.FIELD_INVITEE, usernameOrEmail);
 
-        return invitationClass.searchDocumentObjectsByFields(filters);
+        List<InvitationObjectDocument> invitations;
+        try {
+            invitations = invitationClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+        return invitations;
     }
 
     public List<InvitationObjectDocument> getInvitationsByStatus(Group group, String status)
@@ -298,7 +336,15 @@ public class DefaultMembershipManager implements MembershipManager
         filters.put(InvitationClass.FIELD_GROUP, group.getName());
         filters.put(InvitationClass.FIELD_STATUS, status);
 
-        return invitationClass.searchDocumentObjectsByFields(filters);
+        List<InvitationObjectDocument> invitations;
+        try {
+            invitations = invitationClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        return invitations;
     }
 
     public List<InvitationObjectDocument> getInvitationsSent(Group group)
@@ -308,7 +354,15 @@ public class DefaultMembershipManager implements MembershipManager
         filters.put(InvitationClass.FIELD_GROUP, group.getName());
         filters.put(InvitationClass.FIELD_STATUS, InvitationClass.FIELD_STATUS_SENT);
 
-        return invitationClass.searchDocumentObjectsByFields(filters);
+        List<InvitationObjectDocument> invitations;
+        try {
+            invitations = invitationClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        return invitations;
     }
 
     public List<InvitationObjectDocument> getInvitationsSent(Group group, String usernameOrEmail)
@@ -319,7 +373,15 @@ public class DefaultMembershipManager implements MembershipManager
         filters.put(InvitationClass.FIELD_INVITEE, usernameOrEmail);
         filters.put(InvitationClass.FIELD_STATUS, InvitationClass.FIELD_STATUS_SENT);
 
-        return invitationClass.searchDocumentObjectsByFields(filters);
+        List<InvitationObjectDocument> invitations;
+        try {
+            invitations = invitationClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        return invitations;
     }
 
     public List<InvitationObjectDocument> getInvitationsRejected(Group group, String usernameOrEmail)
@@ -330,7 +392,15 @@ public class DefaultMembershipManager implements MembershipManager
         filters.put(InvitationClass.FIELD_INVITEE, usernameOrEmail);
         filters.put(InvitationClass.FIELD_STATUS, InvitationClass.FIELD_STATUS_REFUSED);
 
-        return invitationClass.searchDocumentObjectsByFields(filters);
+        List<InvitationObjectDocument> invitations;
+        try {
+            invitations = invitationClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        return invitations;
     }
 
     public boolean acceptInvitations(Group group, String usernameOrEmail)
@@ -489,6 +559,7 @@ public class DefaultMembershipManager implements MembershipManager
             // has a membership request
             List<MembershipRequestObjectDocument> membershipRequests =
                     getMembershipRequests(group, userFullName, MembershipRequestClass.FIELD_STATUS_CREATED);
+
             if (!membershipRequests.isEmpty()) {
                 // TODO revise this error
                 setError(ERROR_ALREADY_INVITED);
@@ -656,7 +727,15 @@ public class DefaultMembershipManager implements MembershipManager
         filters.put(MembershipRequestClass.FIELD_GROUP, group.getName());
         filters.put(MembershipRequestClass.FIELD_STATUS, MembershipRequestClass.FIELD_STATUS_CREATED);
 
-        return membershipRequestClass.searchDocumentObjectsByFields(filters);
+        List<MembershipRequestObjectDocument> membershipRequests;
+        try {
+            membershipRequests = membershipRequestClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        return membershipRequests;
     }
 
     public List<MembershipRequestObjectDocument> getMembershipRequestsByStatus(Group group, String status)
@@ -666,7 +745,15 @@ public class DefaultMembershipManager implements MembershipManager
         filters.put(MembershipRequestClass.FIELD_GROUP, group.getName());
         filters.put(MembershipRequestClass.FIELD_STATUS, status);
 
-        return membershipRequestClass.searchDocumentObjectsByFields(filters);
+        List<MembershipRequestObjectDocument> membershipRequests;
+        try {
+            membershipRequests = membershipRequestClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        return membershipRequests;
     }
 
     public List<MembershipRequestObjectDocument> getMembershipRequests(Group group, String requester, String status)
@@ -678,7 +765,15 @@ public class DefaultMembershipManager implements MembershipManager
         filters.put(MembershipRequestClass.FIELD_REQUESTER, requester);
         filters.put(MembershipRequestClass.FIELD_STATUS, MembershipRequestClass.FIELD_STATUS_CREATED);
 
-        return membershipRequestClass.searchDocumentObjectsByFields(filters);
+        List<MembershipRequestObjectDocument> membershipRequests;
+        try {
+            membershipRequests = membershipRequestClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        return membershipRequests;
     }
 
     public UserObjectDocument getUser() throws XWikiException
@@ -686,10 +781,17 @@ public class DefaultMembershipManager implements MembershipManager
         return this.usersClass.getDocumentObject(getContext().getUserReference());
     }
 
-    public UserObjectDocument getUser(String userNameOrEmail) throws XWikiException
+    public UserObjectDocument getUser(String userNameOrEmail)
+            throws XWikiException
     {
         if (StringUtils.contains(userNameOrEmail, "@")) {
-            List<UserObjectDocument> users = usersClass.searchDocumentObjectsByField(UserClass.FIELD_EMAIL, userNameOrEmail);
+            List<UserObjectDocument> users;
+            try {
+                users = usersClass.searchByField(UserClass.FIELD_EMAIL, userNameOrEmail);
+            } catch (QueryException qe) {
+                setError(ERROR_QUERY_EXCEPTION);
+                return null;
+            }
             if (CollectionUtils.isNotEmpty(users)) {
                 return users.get(0);
             } else {
@@ -704,9 +806,17 @@ public class DefaultMembershipManager implements MembershipManager
     public UserProfileObjectDocument createUserProfile(Group group, UserObjectDocument user, String profile, boolean allowNotifications, boolean allowNotificationsFromSelf)
             throws XWikiException
     {
-        String userFullName = user.getFullName();
+        if (group == null || user == null) {
+            // TODO setError
+            return null;
+        }
+
         UserProfileObjectDocument userProfile = userProfileClass.newDocumentObject(
-                new DocumentReference(userFullName, group.getUserProfilesSpaceReference()));
+                new DocumentReference(user.getFullName(), group.getUserProfilesSpaceReference()));
+        if (userProfile == null) {
+            // TODO setError
+            return null;
+        }
         userProfile.setProfile(profile);
         userProfile.setAllowNotifications(allowNotifications);
         userProfile.setAllowNotificationsFromSelf(allowNotificationsFromSelf);
@@ -715,16 +825,16 @@ public class DefaultMembershipManager implements MembershipManager
         return userProfile;
     }
 
-    public UserProfileObjectDocument getUserProfile(Group group, UserObjectDocument user) throws XWikiException
+    public UserProfileObjectDocument getUserProfile(Group group, UserObjectDocument user)
+            throws XWikiException
     {
-        String userFullName = user.getFullName();
-        logger.info("getUserProfile: " + userFullName);
-        UserProfileObjectDocument userProfile = this.userProfileClass.getDocumentObject(
-                new DocumentReference(userFullName, group.getUserProfilesSpaceReference()));
-        if (userProfile == null) {
-            userProfile = this.userProfileClass.newDocumentObject(
-                    new DocumentReference(userFullName, group.getUserProfilesSpaceReference()));
+        if (group == null || user == null) {
+            // TODO setError
+            return null;
         }
+
+        UserProfileObjectDocument userProfile = userProfileClass.getDocumentObject(
+                new DocumentReference(user.getFullName(), group.getUserProfilesSpaceReference()));
 
         return userProfile;
     }
@@ -785,6 +895,60 @@ public class DefaultMembershipManager implements MembershipManager
         return false;
     }
 
+    public List<MemberGroupObjectDocument> getMemberGroups(Group group)
+            throws XWikiException
+    {
+        List<MemberGroupObjectDocument> memberGroups;
+        try {
+            memberGroups = memberGroupClass.searchByField("_space", group.getGroupSpaceReference().getName());
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        return memberGroups;
+    }
+
+    public List<MemberGroupObjectDocument> getMemberGroups(Group group, String userName)
+            throws XWikiException
+    {
+        Map<String, Object> filters = new HashMap<String, Object>();
+        filters.put("_space", group.getGroupSpaceReference().getName());
+        filters.put("XWiki.XWikiGroups_member", userName);
+
+        List<MemberGroupObjectDocument> memberGroups;
+        try {
+            memberGroups = memberGroupClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+        return memberGroups;
+    }
+
+    public MemberGroupObjectDocument getMemberGroupForRole(Group group, String role)
+            throws XWikiException
+    {
+        Map<String, Object> filters = new HashMap<String, Object>();
+        filters.put("_space", group.getGroupSpaceReference().getName());
+        filters.put("role", role);
+
+        List<MemberGroupObjectDocument> memberGroups;
+        try {
+            memberGroups = memberGroupClass.searchByFields(filters);
+        } catch (QueryException qe) {
+            setError(ERROR_QUERY_EXCEPTION);
+            return null;
+        }
+
+        if (CollectionUtils.isEmpty(memberGroups)) {
+            setError(ERROR_DOCUMENTOBJECT_NOT_FOUND);
+            return null;
+        }
+
+        return memberGroups.get(0);
+    }
+
     public boolean addMemberRole(Group group, String userName, String role) throws XWikiException
     {
         if (!StringUtils.equals(role, "admin")) {
@@ -808,12 +972,22 @@ public class DefaultMembershipManager implements MembershipManager
         return true;
     }
 
+    private MembersGroup getMemberGroup(Group group)
+            throws XWikiException
+    {
+        return new MembersGroup(group.getMembersGroupDocumentReference(), execution.getContext());
+    }
+
+    private MembersGroup getAdminsGroup(Group group)
+            throws XWikiException
+    {
+        return new MembersGroup(group.getAdminMembersGroupReference(), execution.getContext());
+    }
+
     public boolean removeMember(Group group, String userName) throws XWikiException
     {
-        MembersGroup membersGroup = new MembersGroup(
-                new DocumentReference("MemberGroup", group.getGroupSpaceReference()), execution.getContext());
-        MembersGroup adminsGroup = new MembersGroup(
-                new DocumentReference("AdminGroup", group.getGroupSpaceReference()), execution.getContext());
+        MembersGroup membersGroup = getMemberGroup(group);
+        MembersGroup adminsGroup = getAdminsGroup(group);
 
         if (adminsGroup.isMember(userName)) {
             adminsGroup.removeUserOrGroup(userName);
@@ -824,17 +998,14 @@ public class DefaultMembershipManager implements MembershipManager
             membersGroup.removeUserOrGroup(userName);
             membersGroup.save();
 
-            // delete user profile
-            UserProfileObjectDocument userProfile = this.userProfileClass.getDocumentObject(
-                    new DocumentReference(userName, group.getUserProfilesSpaceReference()));
-            if (userProfile == null) {
-                logger.info("USER PROFILE: null");
-            } else {
-                logger.info("USER PROFILE: " + userProfile.getDocumentReference().toString());
+            // delete user profile if present
+            UserProfileObjectDocument userProfile = getUserProfile(group, getUser(userName));
+            if (userProfile != null) {
                 userProfile.delete();
             }
         }
 
+        // TODO return false in case the user doesn't exists or wasn't a member
         return true;
     }
 

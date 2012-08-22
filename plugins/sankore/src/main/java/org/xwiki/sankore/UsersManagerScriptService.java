@@ -10,6 +10,7 @@ import javax.inject.Singleton;
 import org.xwiki.component.annotation.Component;
 import org.xwiki.model.reference.DocumentReferenceResolver;
 import org.xwiki.model.reference.EntityReference;
+import org.xwiki.query.QueryException;
 import org.xwiki.sankore.internal.ClassManager;
 import org.xwiki.sankore.internal.UserObjectDocument;
 import org.xwiki.script.service.ScriptService;
@@ -45,15 +46,15 @@ public class UsersManagerScriptService implements ScriptService
     }
 
     public List<UserObjectDocument> searchUserProfilesByField(String fieldName, String fieldValue)
-            throws XWikiException
+            throws XWikiException, QueryException
     {
-        return usersClass.searchDocumentObjectsByField(fieldName, fieldValue);
+        return usersClass.searchByField(fieldName, fieldValue);
     }
 
     public List<UserObjectDocument> searchUserProfilesByFields(Map<String, Object> fields)
-            throws XWikiException
+            throws XWikiException, QueryException
     {
-        return usersClass.searchDocumentObjectsByFields(fields);
+        return usersClass.searchByFields(fields);
     }
 
     public void saveUser(UserObjectDocument userObjectDocument)

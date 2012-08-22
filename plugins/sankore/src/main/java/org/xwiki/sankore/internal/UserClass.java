@@ -12,6 +12,8 @@ import javax.inject.Singleton;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
+import org.xwiki.component.phase.Initializable;
+import org.xwiki.component.phase.InitializationException;
 import org.xwiki.context.Execution;
 import org.xwiki.model.EntityType;
 import org.xwiki.model.reference.DocumentReference;
@@ -29,7 +31,7 @@ import com.xpn.xwiki.objects.classes.PropertyClass;
 @Component
 @Named("UsersClass")
 @Singleton
-public class UserClass implements ClassManager<UserObjectDocument>
+public class UserClass implements ClassManager<UserObjectDocument>, Initializable
 {
     /**
      * Name of field <code>prettyname</code> for the XWiki class XWiki.XWikiSpaceClass.
@@ -94,9 +96,20 @@ public class UserClass implements ClassManager<UserObjectDocument>
     private EntityReference templateReference = new EntityReference("XWikiUserTemplate", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
+    private XObjectDocumentClass<UserObjectDocument> xClass;
+
     private XWikiContext getContext()
     {
         return (XWikiContext) this.execution.getContext().getProperty("xwikicontext");
+    }
+
+    public void initialize() throws InitializationException
+    {
+        try {
+            xClass = new DefaultXObjectDocumentClass<UserObjectDocument>(getClassDocumentReference(), getContext());
+        } catch (XWikiException e) {
+            throw new InitializationException("Could not initialize object document class.", e);
+        }
     }
 
     public UserObjectDocument getDocumentObject(DocumentReference documentReference, int objectId) throws XWikiException
@@ -108,8 +121,6 @@ public class UserClass implements ClassManager<UserObjectDocument>
             throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<UserObjectDocument> cls =
-                new DefaultXObjectDocumentClass<UserObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference());
 
@@ -117,14 +128,12 @@ public class UserClass implements ClassManager<UserObjectDocument>
             return null;
         }
 
-        return new UserObjectDocument(cls, doc, obj, context);
+        return new UserObjectDocument(xClass, doc, obj, context);
     }
 
     public UserObjectDocument newDocumentObject(DocumentReference documentReference) throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<UserObjectDocument> cls =
-                new DefaultXObjectDocumentClass<UserObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference(), true, context);
 
@@ -132,7 +141,7 @@ public class UserClass implements ClassManager<UserObjectDocument>
             return null;
         }
 
-        return new UserObjectDocument(cls, doc, obj, context);
+        return new UserObjectDocument(xClass, doc, obj, context);
     }
 
     public DocumentReference getClassDocumentReference() throws XWikiException
@@ -150,15 +159,15 @@ public class UserClass implements ClassManager<UserObjectDocument>
         return currentReferenceDocumentReferenceResolver.resolve(templateReference);
     }
 
-    public List<UserObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue) throws XWikiException
+    public List<UserObjectDocument> searchByField(String fieldName, Object fieldValue) throws XWikiException
     {
         Map<String, Object> fields = new HashMap<String, Object>();
         fields.put(fieldName, fieldValue);
 
-        return searchDocumentObjectsByFields(fields);
+        return searchByFields(fields);
     }
 
-    public List<UserObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
+    public List<UserObjectDocument> searchByFields(Map<String, Object> fields) throws XWikiException
     {
         String from = "select distinct doc.space, doc.name from XWikiDocument as doc, BaseObject as obj";
         String where = " where obj.name=doc.fullName and obj.className='XWiki.XWikiUsers'";
@@ -218,9 +227,12 @@ public class UserClass implements ClassManager<UserObjectDocument>
 
     public void saveDocumentObject(UserObjectDocument documentObject) throws XWikiException
     {
-        //documentObject.save();
         documentObject.saveDocument("UserObjectDocument saved", false);
-        //getContext().getWiki().saveDocument(documentObject.getDocument(), getContext());
+    }
+
+    public void deleteDocumentObject(UserObjectDocument documentObject) throws XWikiException
+    {
+        documentObject.delete();
     }
 
     @Override

@@ -3,7 +3,9 @@ package org.xwiki.sankore;
 import java.util.List;
 
 import org.xwiki.component.annotation.ComponentRole;
+import org.xwiki.query.QueryException;
 import org.xwiki.sankore.internal.InvitationObjectDocument;
+import org.xwiki.sankore.internal.MemberGroupObjectDocument;
 import org.xwiki.sankore.internal.MembershipRequestObjectDocument;
 import org.xwiki.sankore.internal.UserObjectDocument;
 import org.xwiki.sankore.internal.UserProfileObjectDocument;
@@ -48,6 +50,9 @@ public interface MembershipManager
     public List<String> getMemberNames(Group group) throws XWikiException;
 
     public boolean addMember(Group group,String userName) throws XWikiException;
+    public List<MemberGroupObjectDocument> getMemberGroups(Group group) throws XWikiException;
+    public List<MemberGroupObjectDocument> getMemberGroups(Group group, String userName) throws XWikiException;
+    public MemberGroupObjectDocument getMemberGroupForRole(Group group, String role) throws XWikiException;
     public boolean addMemberRole(Group group, String userName, String role) throws XWikiException;
     public boolean removeMember(Group group, String userName) throws XWikiException;
     public boolean removeMemberRole(Group group, String userName, String role) throws XWikiException;

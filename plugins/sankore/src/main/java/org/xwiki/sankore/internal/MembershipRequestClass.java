@@ -12,6 +12,8 @@ import javax.inject.Singleton;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
+import org.xwiki.component.phase.Initializable;
+import org.xwiki.component.phase.InitializationException;
 import org.xwiki.context.Execution;
 import org.xwiki.model.EntityType;
 import org.xwiki.model.reference.DocumentReference;
@@ -29,7 +31,7 @@ import com.xpn.xwiki.objects.classes.PropertyClass;
 @Component
 @Named("MembershipRequestClass")
 @Singleton
-public class MembershipRequestClass implements ClassManager<MembershipRequestObjectDocument>
+public class MembershipRequestClass implements ClassManager<MembershipRequestObjectDocument>, Initializable
 {
     public static final String DEFAULT_FIELDS_SEPARATOR = "|";
     /**
@@ -153,16 +155,25 @@ public class MembershipRequestClass implements ClassManager<MembershipRequestObj
     private EntityReference templateReference = new EntityReference("MembershipRequestTemplate", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
+    private XObjectDocumentClass<MembershipRequestObjectDocument> xClass;
+
     private XWikiContext getContext()
     {
         return (XWikiContext) this.execution.getContext().getProperty("xwikicontext");
     }
 
+    public void initialize() throws InitializationException
+    {
+        try {
+            xClass = new DefaultXObjectDocumentClass<MembershipRequestObjectDocument>(getClassDocumentReference(), getContext());
+        } catch (XWikiException e) {
+            throw new InitializationException("Could not initialize object document class.", e);
+        }
+    }
+
     public MembershipRequestObjectDocument getDocumentObject(DocumentReference documentReference, int objectId) throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<MembershipRequestObjectDocument> cls =
-                new DefaultXObjectDocumentClass<MembershipRequestObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference(), objectId);
 
@@ -170,14 +181,12 @@ public class MembershipRequestClass implements ClassManager<MembershipRequestObj
             return null;
         }
 
-        return new MembershipRequestObjectDocument(cls, doc, obj, context);
+        return new MembershipRequestObjectDocument(xClass, doc, obj, context);
     }
 
     public MembershipRequestObjectDocument getDocumentObject(DocumentReference documentReference) throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<MembershipRequestObjectDocument> cls =
-                new DefaultXObjectDocumentClass<MembershipRequestObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference());
 
@@ -185,21 +194,19 @@ public class MembershipRequestClass implements ClassManager<MembershipRequestObj
             return null;
         }
 
-        return new MembershipRequestObjectDocument(cls, doc, obj, context);
+        return new MembershipRequestObjectDocument(xClass, doc, obj, context);
     }
 
     public MembershipRequestObjectDocument newDocumentObject(DocumentReference documentReference) throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<MembershipRequestObjectDocument> cls =
-                new DefaultXObjectDocumentClass<MembershipRequestObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference(), true, context);
 
         if (obj == null)
             return null;
 
-        return new MembershipRequestObjectDocument(cls, doc, obj, context);
+        return new MembershipRequestObjectDocument(xClass, doc, obj, context);
     }
 
     public DocumentReference getClassDocumentReference() throws XWikiException
@@ -217,16 +224,16 @@ public class MembershipRequestClass implements ClassManager<MembershipRequestObj
         return currentReferenceDocumentReferenceResolver.resolve(templateReference);
     }
 
-    public List<MembershipRequestObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue)
+    public List<MembershipRequestObjectDocument> searchByField(String fieldName, Object fieldValue)
             throws XWikiException
     {
         Map<String, Object> fields = new HashMap<String, Object>();
         fields.put(fieldName, fieldValue);
 
-        return searchDocumentObjectsByFields(fields);
+        return searchByFields(fields);
     }
 
-    public List<MembershipRequestObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
+    public List<MembershipRequestObjectDocument> searchByFields(Map<String, Object> fields) throws XWikiException
     {
         String from = "select distinct doc.space, doc.name, obj.number from XWikiDocument as doc, BaseObject as obj";
         String where = " where obj.name=doc.fullName and obj.className='XWiki.MembershipRequestClass'";
@@ -291,9 +298,13 @@ public class MembershipRequestClass implements ClassManager<MembershipRequestObj
 
     public void saveDocumentObject(MembershipRequestObjectDocument documentObject) throws XWikiException
     {
-        documentObject.saveDocument("MembershipRequestObjectDocument saved.", false);
-        //documentObject.save();
-        //getContext().getWiki().saveDocument(documentObject.getDocument(), getContext());
+        documentObject.saveDocument("MembershipRequestObjectDocument saved.", false); 
+
+    }
+
+    public void deleteDocumentObject(MembershipRequestObjectDocument documentObject) throws XWikiException
+    {
+        documentObject.delete();
     }
 
     @Override

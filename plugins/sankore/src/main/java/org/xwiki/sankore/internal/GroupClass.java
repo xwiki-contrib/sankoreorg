@@ -12,6 +12,8 @@ import javax.inject.Singleton;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
+import org.xwiki.component.phase.Initializable;
+import org.xwiki.component.phase.InitializationException;
 import org.xwiki.context.Execution;
 import org.xwiki.model.EntityType;
 import org.xwiki.model.reference.DocumentReference;
@@ -29,7 +31,7 @@ import com.xpn.xwiki.objects.classes.PropertyClass;
 @Component
 @Named("GroupClass")
 @Singleton
-public class GroupClass implements ClassManager<GroupObjectDocument>
+public class GroupClass implements ClassManager<GroupObjectDocument>, Initializable
 {
     public static final String DEFAULT_FIELDS_SEPARATOR = "|";
 
@@ -131,9 +133,20 @@ public class GroupClass implements ClassManager<GroupObjectDocument>
     private EntityReference templateReference = new EntityReference("GroupTemplate", EntityType.DOCUMENT,
             new EntityReference("XWiki", EntityType.SPACE));
 
+    private XObjectDocumentClass<GroupObjectDocument> xClass;
+
     private XWikiContext getContext()
     {
         return (XWikiContext) this.execution.getContext().getProperty("xwikicontext");
+    }
+
+    public void initialize() throws InitializationException
+    {
+        try {
+            xClass = new DefaultXObjectDocumentClass<GroupObjectDocument>(getClassDocumentReference(), getContext());
+        } catch (XWikiException e) {
+            throw new InitializationException("Could not initialize object document class.", e);
+        }
     }
 
     public GroupObjectDocument getDocumentObject(DocumentReference documentReference, int objectId) throws XWikiException
@@ -144,29 +157,25 @@ public class GroupClass implements ClassManager<GroupObjectDocument>
     public GroupObjectDocument getDocumentObject(DocumentReference documentReference) throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<GroupObjectDocument> cls =
-                new DefaultXObjectDocumentClass<GroupObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference());
 
         if (obj == null)
             return null;
 
-        return new GroupObjectDocument(cls, doc, obj, context);
+        return new GroupObjectDocument(xClass, doc, obj, context);
     }
 
     public GroupObjectDocument newDocumentObject(DocumentReference documentReference) throws XWikiException
     {
         XWikiContext context = getContext();
-        DefaultXObjectDocumentClass<GroupObjectDocument> cls =
-                new DefaultXObjectDocumentClass<GroupObjectDocument>(getClassDocumentReference(), context);
         XWikiDocument doc = context.getWiki().getDocument(documentReference, context);
         BaseObject obj = doc.getXObject(getClassDocumentReference(), true, context);
 
         if (obj == null)
             return null;
 
-        return new GroupObjectDocument(cls, doc, obj, context);
+        return new GroupObjectDocument(xClass, doc, obj, context);
     }
 
     public DocumentReference getClassDocumentReference() throws XWikiException
@@ -184,15 +193,15 @@ public class GroupClass implements ClassManager<GroupObjectDocument>
         return currentReferenceDocumentReferenceResolver.resolve(templateReference);
     }
 
-    public List<GroupObjectDocument> searchDocumentObjectsByField(String fieldName, Object fieldValue) throws XWikiException
+    public List<GroupObjectDocument> searchByField(String fieldName, Object fieldValue) throws XWikiException
     {
         Map<String, Object> fields = new HashMap<String, Object>();
         fields.put(fieldName, fieldValue);
 
-        return searchDocumentObjectsByFields(fields);
+        return searchByFields(fields);
     }
 
-    public List<GroupObjectDocument> searchDocumentObjectsByFields(Map<String, Object> fields) throws XWikiException
+    public List<GroupObjectDocument> searchByFields(Map<String, Object> fields) throws XWikiException
     {
         String from = "select distinct doc.space, doc.name from XWikiDocument as doc, BaseObject as obj";
         String where = " where obj.name=doc.fullName and obj.className='XWiki.GroupClass'";
@@ -251,9 +260,12 @@ public class GroupClass implements ClassManager<GroupObjectDocument>
 
     public void saveDocumentObject(GroupObjectDocument documentObject) throws XWikiException
     {
-        //documentObject.save();
         documentObject.saveDocument("GroupObjectDocument saved.", false);
-        //getContext().getWiki().saveDocument(documentObject.getDocument(), getContext());
+    }
+
+    public void deleteDocumentObject(GroupObjectDocument documentObject) throws XWikiException
+    {
+        documentObject.delete();
     }
 
     @Override

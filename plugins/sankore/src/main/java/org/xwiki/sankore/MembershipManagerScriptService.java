@@ -8,7 +8,9 @@ import javax.inject.Singleton;
 
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
+import org.xwiki.query.QueryException;
 import org.xwiki.sankore.internal.InvitationObjectDocument;
+import org.xwiki.sankore.internal.MemberGroupObjectDocument;
 import org.xwiki.sankore.internal.MembershipRequestObjectDocument;
 import org.xwiki.sankore.internal.UserObjectDocument;
 import org.xwiki.sankore.internal.UserProfileObjectDocument;
@@ -192,5 +194,23 @@ public class MembershipManagerScriptService implements ScriptService
     public String getLastError()
     {
         return this.membershipManager.getLastError();
+    }
+
+    public List<MemberGroupObjectDocument> getMemberGroups(Group group)
+            throws XWikiException
+    {
+        return membershipManager.getMemberGroups(group);
+    }
+
+    public List<MemberGroupObjectDocument> getMemberGroups(Group group, String userName)
+            throws XWikiException
+    {
+        return membershipManager.getMemberGroups(group, userName);
+    }
+
+    public MemberGroupObjectDocument getMemberGroupForRole(Group group, String role)
+            throws XWikiException
+    {
+        return membershipManager.getMemberGroupForRole(group, role);
     }
 }

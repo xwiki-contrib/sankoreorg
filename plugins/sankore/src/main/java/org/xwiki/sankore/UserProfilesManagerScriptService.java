@@ -11,6 +11,7 @@ import org.xwiki.component.annotation.Component;
 import org.xwiki.model.EntityType;
 import org.xwiki.model.reference.DocumentReferenceResolver;
 import org.xwiki.model.reference.EntityReference;
+import org.xwiki.query.QueryException;
 import org.xwiki.sankore.internal.ClassManager;
 import org.xwiki.sankore.internal.UserProfileObjectDocument;
 import org.xwiki.script.service.ScriptService;
@@ -50,15 +51,15 @@ public class UserProfilesManagerScriptService implements ScriptService
     }
 
     public List<UserProfileObjectDocument> searchUserProfilesByField(String fieldName, String fieldValue)
-            throws XWikiException
+            throws XWikiException, QueryException
     {
-        return userProfileClass.searchDocumentObjectsByField(fieldName, fieldValue);
+        return userProfileClass.searchByField(fieldName, fieldValue);
     }
 
     public List<UserProfileObjectDocument> searchUserProfilesByFields(Map<String, Object> fields)
-            throws XWikiException
+            throws XWikiException, QueryException
     {
-        return userProfileClass.searchDocumentObjectsByFields(fields);
+        return userProfileClass.searchByFields(fields);
     }
 
     public void saveUserProfile(UserProfileObjectDocument userProfileObjectDocument)

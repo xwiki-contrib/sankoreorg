@@ -163,11 +163,11 @@ public class DefaultXObjectDocument extends Document implements XObjectDocument
 
         if (this.doc.getXObjectSize(this.xClass.getClassDocumentReference()) == 1) {
             LOGGER.info("delete() with 1 object: " + this.getDocumentReference().toString());
-            super.delete();
+            super.deleteDocument();
         } else {
             LOGGER.info("delete() more than 1 object: " + this.xObject + " : " + this.xClass.getClassDocumentReference().toString());
             this.doc.removeXObject(this.xObject);
-            save();
+            saveDocument("ObjectDocument deleted.", false);
         }
 
         this.isNew = true;

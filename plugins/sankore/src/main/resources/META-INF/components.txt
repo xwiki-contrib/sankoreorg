@@ -12,6 +12,7 @@ org.xwiki.sankore.internal.UserProfileClass
 org.xwiki.sankore.internal.SpaceClass
 org.xwiki.sankore.internal.GroupClass
 org.xwiki.sankore.internal.InvitationClass
+org.xwiki.sankore.internal.MemberGroupClass
 org.xwiki.sankore.internal.MembershipRequestClass
 org.xwiki.sankore.UserProfilesManagerScriptService
 org.xwiki.sankore.UsersManagerScriptService
