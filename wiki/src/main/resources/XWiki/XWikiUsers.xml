@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344334539000</creationDate>
-<date>1344334539000</date>
-<contentUpdateDate>1344334539000</contentUpdateDate>
+<creationDate>1344421105000</creationDate>
+<date>1344421105000</date>
+<contentUpdateDate>1344421105000</contentUpdateDate>
 <version>1.1</version>
 <title>XWiki User Class</title>
 <template></template>
@@ -163,7 +163,7 @@
 <unmodifiable>0</unmodifiable>
 <validationMessage></validationMessage>
 <validationRegExp></validationRegExp>
-<values>mr|ms|mrs</values>
+<values>-=-|mr|mrs</values>
 <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
 </civility>
 <comment>
