@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334938693000</creationDate>
-<date>1334938693000</date>
-<contentUpdateDate>1334938693000</contentUpdateDate>
+<creationDate>1344948313000</creationDate>
+<date>1344948313000</date>
+<contentUpdateDate>1344948313000</contentUpdateDate>
 <version>1.1</version>
 <title>GoogleSearch</title>
 <template></template>
@@ -99,20 +99,21 @@
 <className>XWiki.JavaScriptExtension</className>
 <guid>e341b663-410b-497f-a85f-441adf1f3631</guid>
 <property>
-<cache>long</cache>
+<cache>default</cache>
 </property>
 <property>
-<code>google.setOnLoadCallback(function(){
-  customSearchControl = new google.search.CustomSearchControl('012940815912449519308:-jyetlpxnyi');
-  customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+<code>var googleSearch = {};
+google.setOnLoadCallback(function(){
+  googleSearch = new google.search.CustomSearchControl('012940815912449519308:-jyetlpxnyi');
+  googleSearch.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
 }, true);
 function googleDoSearch(modName) {
   if($('search-termPanel-'+modName+'-terms').value != _('search.text.entry.label')) {
     var drawOptions = new google.search.DrawOptions();
     drawOptions.setInput($('search-termPanel-'+modName+'-terms'));
     
-    customSearchControl.draw('cse', drawOptions);
-    customSearchControl.execute($('search-termPanel-'+modName+'-terms').value);
+    googleSearch.draw('cse', drawOptions);
+    googleSearch.execute($('search-termPanel-'+modName+'-terms').value);
     $('googleSearch').show();
   } else {
     $('googleSearch').hide();
