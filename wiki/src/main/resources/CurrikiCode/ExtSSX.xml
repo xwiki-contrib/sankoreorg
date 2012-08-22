@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345559121000</creationDate>
-<date>1345559121000</date>
-<contentUpdateDate>1345559121000</contentUpdateDate>
+<creationDate>1345636040000</creationDate>
+<date>1345636040000</date>
+<contentUpdateDate>1345636040000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -186,7 +186,6 @@ ul.x-tree-root-ct, #educational_level2-set .x-form-item { margin: 0; }
 #educational_level2-set { padding: 0; }
 .information-header { font-weight: bold; }
 .information-header img { margin: 0 0 -4px 3px; }
-#ext-comp-1022  .x-panel-body { padding: 0; }
 .x-dd-drag-ghost { padding-left: 5px; text-align: left; width: 300px; }
 .x-dd-drop-icon { background-image: none; width: 0; }
 .x-shadow * { background-image: none; visibility: hidden; }
@@ -458,8 +457,6 @@ body#body.xpage-bookmarklet .x-panel-bwrap {
   padding: 20px;
 }
 
-/*TEMP STUFF*/
-div#ext-comp-1009 {display: none;}
 /*
 Buttons
 ··········································································
@@ -513,6 +510,10 @@ body#body.xpage-bookmarklet #metadata-keywords-title {
   padding: 10px;
   background: #CFD1D3;
   border-radius: 4px;
+}
+
+body#body.xpage-bookmarklet .information-header span {
+  padding: 10px;
 }
 
 body#body.xpage-bookmarklet #x-form-el-metadata-description-entry {
@@ -803,6 +804,24 @@ ul.x-tree-node-ct {
 
 .x-trigger-wrap-focus .x-form-trigger {
   background-position: 0 0;
+}
+
+/* QuickTips */
+
+.x-tip .x-tip-tc, .x-tip .x-tip-tl, .x-tip .x-tip-tr, .x-tip .x-tip-bc, .x-tip .x-tip-bl, .x-tip .x-tip-br, .x-tip .x-tip-ml, .x-tip .x-tip-mr {
+  background-image: none;
+}
+
+.x-tip .x-tip-ml {
+  background-color:transparent;
+}
+
+.x-tip {
+  background-image: none;
+  background-color: #FFF;
+  border:solid 1px #CCC;
+  border-radius:4px;
+  ##box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 }</code>
 </property>
 <property>
