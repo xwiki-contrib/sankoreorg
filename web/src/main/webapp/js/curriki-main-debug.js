@@ -1844,20 +1844,40 @@ if (!('console' in window)) {
 }
 console.log('initing Curriki');
 
+
 Ext.onReady(function() {
   Ext.QuickTips.init();
+  
   if (Ext.isIE) {
     Ext.apply(Ext.QuickTips.getQuickTip(), {
       showDelay: 1000,
       hideDelay: 0,
-      interceptTitles: false
+      interceptTitles: false,
+      tagConfig:{namespace : "",
+        attribute : "qtip",
+        width : "qwidth",
+        target : "target",
+        title : "qtitle",
+        hide : "hide",
+        cls : "qclass",
+        align : "qalign",
+        anchor : "anchor"}
     });
   }
   else {
     Ext.apply(Ext.QuickTips.getQuickTip(), {
       showDelay: 1000,
       hideDelay: 0,
-      interceptTitles: false
+      interceptTitles: false,
+      tagConfig:{namespace : "",
+        attribute : "qtip",
+        width : "qwidth",
+        target : "target",
+        title : "qtitle",
+        hide : "hide",
+        cls : "qclass",
+        align : "qalign",
+        anchor : "anchor"}
     });
   }
 });
@@ -2349,14 +2369,15 @@ Curriki.data.el.elCheckListener = function(node, checked) {
   if (validator) {
     validator.setValue(validator.getValue() + (checked ? 1 : -1));
   }
-  if (checked) {
+    /*
+  //if (checked) {
     if ("undefined" !== typeof node.parentNode) {
       if (!node.parentNode.ui.isChecked()) {
         node.parentNode.ui.toggleCheck();
       }
     }
-  }
-  else {
+  //}
+  //else {
     if (Ext.isArray(node.childNodes)) {
       node.childNodes.each(function(node) {
         if (node.ui.isChecked()) {
@@ -2364,7 +2385,8 @@ Curriki.data.el.elCheckListener = function(node, checked) {
         }
       });
     }
-  }
+  //}
+  */
 };
 
 Curriki.data.el.elAddNode = function(elMap, nodeName) {
@@ -3019,28 +3041,28 @@ Curriki.ui.component.asset.getFwTree = function(filters) {
 
 Curriki.ui.component.asset.getElTree = function(filters) {
   return {
-    xtype: 'curriki-treepanel',
-    loader: new Curriki.ui.tree.TreeLoader({
-      preloadChildren: true,
-      filters: filters
-    }),
-    id: 'el-tree',
-    useArrows: true,
-    autoHeight: false,
-    border: false,
-    cls: 'el-tree',
-    animate: true,
-    enableDD: false,
-    containerScroll: true,
-    rootVisible: false,
-    root: new Curriki.ui.tree.AsyncTreeNode({
-      text: _('CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome'),
-      id: 'TREEROOTNODE',
-      cls: 'el-item-top el-item-parent el-item',
-      leaf: false,
-      expanded: true,
-      children: Curriki.data.el.elChildren
-    })    
+    xtype: 'curriki-treepanel'
+    ,id: 'el-tree'
+    ,useArrows: true
+    ,autoHeight: false
+    ,border: false
+    ,cls: 'el-tree'
+    ,animate: true
+    ,enableDD: false
+    ,containerScroll: true
+    ,loader: new Curriki.ui.tree.TreeLoader({
+      preloadChildren: true
+      ,filters: filters
+    })
+    ,root: new Curriki.ui.tree.AsyncTreeNode({
+      text: _('CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome')
+      ,id: 'TREEROOTNODE'
+      ,cls: 'el-item-top el-item-parent el-item'
+      ,leaf: false
+      ,expanded: true
+      ,children: Curriki.data.el.elChildren
+    })
+    ,rootVisible: false
   };
 };
 
@@ -3819,7 +3841,8 @@ Curriki.assets = {
 }
 
 Ext.ns('Curriki.ui');
-Curriki.ui.InfoImg = '/xwiki/skins/curriki8/icons/exclamation.png';
+//Curriki.ui.InfoImg = '/xwiki/skins/curriki8/icons/exclamation.png';
+Curriki.ui.InfoImg = '/xwiki/bin/download/Sandbox/SankoreSkin/question-mark.png';
 
 Ext.ns('Curriki.ui.dialog');
 Curriki.ui.dialog.Base = Ext.extend(Ext.Window, {
@@ -3853,10 +3876,14 @@ Curriki.ui.dialog.Actions = Ext.extend(Curriki.ui.dialog.Base, {
 Ext.reg('dialogueactions', Curriki.ui.dialog.Actions);
 
 Curriki.ui.dialog.Bookmarklet = Ext.extend(Curriki.ui.dialog.Base, {
-  closable: false
+  headerAsText:true
+  ,header:true
+  ,closable:true
   ,id: 'dialog-bookmarklet'
   ,lastWidth:0
   ,lastHeight:0
+  ,autoHeight:true
+  ,draggable:false
   ,initComponent: function() {
     Curriki.ui.dialog.Bookmarklet.superclass.initComponent.call(this);
   }
@@ -4606,6 +4633,21 @@ Ext.override(Ext.data.Store, {
   }
 });
 
+/*
+Ext.override(Ext.QuickTip, {
+	tagConfig: {
+		namespace : "",
+        attribute : "qtip",
+        width : "qwidth",
+        target : "target",
+        title : "qtitle",
+        hide : "hide",
+        cls : "qclass",
+        align : "qalign",
+        anchor : "anchor"
+	}
+});*/
+
 // Initialize "current" information
 Ext.ns('Curriki.current');
 Curriki.current = {
@@ -4706,5 +4748,16 @@ Curriki.redirectToSearch = function(pathname, modName, filters) {
     Curriki.module.search.history.historyChange(Curriki.encodeFilters(modName, filters));
 }
 
-//Ext.Button.buttonTemplate = new Ext.Template('<div id="{4}" class="x-btn {3} {1}"><em class="{2}" unselectable="on"><button type="{0}"></button></em>');
+Ext.Button.buttonTemplate = new Ext.Template('<div id="{4}" class="x-btn {3} {1}"><em class="{2}" unselectable="on"><button class="btn" type="{0}"></button></em>');
+Ext.override(Ext.Button, {
+  setIconClass : function(cls){
+    this.iconCls = cls;
+    if(this.el){
+      //this.btnEl.dom.className = '';
+      this.btnEl.addClass(['x-btn-text', cls || '']);
+      this.setButtonClass();
+    }
+    return this;
+  }
+});
 //Ext.Button.buttonTemplate.compile();

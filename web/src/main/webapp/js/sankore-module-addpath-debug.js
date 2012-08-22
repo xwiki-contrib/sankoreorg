@@ -569,13 +569,11 @@ Curriki.module.addpath.init = function() {
     AddPath.UrlMetadata1 = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
       initComponent:function(){
         Ext.apply(this, {
-           title:_('bookmarklet.add.setrequiredinfo.part1.title')
+          title:_('bookmarklet.add.setrequiredinfo.part1.title')          
           ,cls:'addpath addpath-metadata resource resource-add'
-          ,id:'MetadataDialogue'
-          ,autoHeight:true
-          ,draggable:false
+          ,id:'MetadataDialogue'          
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel1'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -584,307 +582,266 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false                       
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-                    xtype: 'tbtext'
-                    ,width:200
-                    ,height:30
-                    ,text: _('bookmarklet.add.setrequiredinfo.part1.guidingquestion')+' '+Curriki.data.user.me.fullname                                      
-                  },{
-                    xtype: 'tbbutton' 
-                    ,text: Ext.htmlDecode(_('bookmarklet.add.setrequiredinfo.switch.advanced'))
-                    ,id:'switchbutton'
-                    ,cls: 'button button-switch'
-                    ,align: 'left'
-                    ,enableToggle:true
-                    ,listeners: {
-                      toggle: {
-                        fn: function(btn, pressed) {
-                          if (pressed) {
-                            btn.setText(Ext.htmlDecode(_('bookmarklet.add.setrequiredinfo.switch.simple')));
-                            var publishbtn = Ext.getCmp('publishbutton');
-                            publishbtn.hide();
-                            var nextbtn = Ext.getCmp('nextbutton');
-                            nextbtn.show();
-                            var progress = Ext.getCmp('addpath-progress');
-                            progress.show();
-                            var dialog = Ext.getCmp('MetadataDialogue');
-                            dialog.header.show();
-                            dialog.syncSize();
-                          } else {
-                            btn.setText(Ext.htmlDecode(_('bookmarklet.add.setrequiredinfo.switch.advanced')));
-                            var publishbtn = Ext.getCmp('publishbutton');
-                            publishbtn.show();
-                            var nextbtn = Ext.getCmp('nextbutton');
-                            nextbtn.hide();
-                            var progress = Ext.getCmp('addpath-progress');
-                            progress.hide();
-                            var dialog = Ext.getCmp('MetadataDialogue');
-                            dialog.header.hide();
-                            dialog.syncSize();
-                          }                     
-                        }
-                      }
-                    }
-                  },'->',{
-                    xtype: 'tbprogress'
-                    ,hidden:true
-                    ,align:'center'
-                    ,id: 'addpath-progress'
-                    ,items: [
-                      {tag:'a', cls:'addpath-page circle addpath-page-current', html:'1'}
-                      ,{tag:'a', cls:'addpath-page circle', html:'2'}
-                      ,{tag:'a', cls:'addpath-page circle', html:'3'}
-                      ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                      ,{tag:'a', cls:'addpath-page circle', html:'5'}                
-                    ]
-                  },'->',{
-                    xtype: 'tbbutton'                    
-                    ,text:_('bookmarklet.add.setrequiredinfo.part1.publish.button')
-                    ,id:'publishbutton'
-                    ,cls:'button button-publish mgn-rt'                    
-                    ,listeners:{
-                      click:{
-                        fn: function(){                                        
-                          var form = this.findByType('form')[0].getForm();
-                          Curriki.current.sri1 = form.getValues(false);  
-                          if(!Curriki.current.sri)
-                            Curriki.current.sri = form.getValues(false);
-                          else
-                            Ext.apply(Curriki.current.sri, form.getValues(false));                   
-
-                          this.close();
-
-                          AddPath.MetadataFinished();                                                      
-                        }
-                        ,scope:this
-                      }
-                    }
-                  },{
-                    xtype: 'tbbutton'                     
-                    ,text:_('bookmarklet.add.setrequiredinfo.part1.next.button')
-                    ,id:'nextbutton'
-                    ,cls:'button button-confirm'
-                    ,hidden:true                    
-                    ,listeners:{
-                      click:{
-                        fn: function(){
-                          var form = this.findByType('form')[0].getForm();
-                          Curriki.current.sri1 = form.getValues(false);  
-                          if(!Curriki.current.sri)
-                            Curriki.current.sri = form.getValues(false);
-                          else
-                            Ext.apply(Curriki.current.sri, form.getValues(false));      
-
-                          this.close();
-
-                          var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
-                          p.show();
-                          Ext.ComponentMgr.register(p);                        
-                        }
-                        ,scope:this
-                      }
+                xtype: 'tbbutton' 
+                ,text: __('bookmarklet.add.setrequiredinfo.switch.advanced')
+                ,id:'switchbutton'
+                ,cls: 'button button-switch'
+                ,align: 'left'
+                ,enableToggle:true
+                ,listeners: {
+                  toggle: {
+                    fn: function(btn, pressed) {
+                      if (pressed) {
+                        btn.setText(__('bookmarklet.add.setrequiredinfo.switch.simple'));
+                        var publishbtn = Ext.getCmp('publishbutton');
+                        publishbtn.hide();
+                        var nextbtn = Ext.getCmp('nextbutton');
+                        nextbtn.show();
+                        var progress = Ext.getCmp('addpath-progress');
+                        progress.show();
+                        var dialog = Ext.getCmp('MetadataDialogue');
+                        //dialog.header.show();
+                        dialog.syncSize();
+                      } else {
+                        btn.setText(__('bookmarklet.add.setrequiredinfo.switch.advanced'));
+                        var publishbtn = Ext.getCmp('publishbutton');
+                        publishbtn.show();
+                        var nextbtn = Ext.getCmp('nextbutton');
+                        nextbtn.hide();
+                        var progress = Ext.getCmp('addpath-progress');
+                        progress.hide();
+                        var dialog = Ext.getCmp('MetadataDialogue');
+                        //dialog.header.hide();
+                        dialog.syncSize();
+                      }                     
                     }
                   }
-              ]
-            }            
-              ,monitorValid:true
-              ,listeners:{
-                render:function(fPanel){
-                  //TODO: Try to generalize this (for different # of panels)
-                  fPanel.ownerCt.on('bodyresize'
-                    ,function(wPanel, width, height){
-                     if (height === 'auto') {
-                        fPanel.setHeight('auto');
-                      } else {
-                        fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
-                      }
+                }
+              },'->','->',{
+                xtype: 'tbbutton'                    
+                ,text:_('bookmarklet.add.setrequiredinfo.part1.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-publish mgn-rt'                    
+                ,listeners:{
+                  click:{
+                    fn: function(){                                        
+                      var form = this.findByType('form')[0].getForm();
+                      Curriki.current.sri1 = form.getValues(false);  
+                      if(!Curriki.current.sri)
+                        Curriki.current.sri = form.getValues(false);
+                      else
+                        Ext.apply(Curriki.current.sri, form.getValues(false));                   
+                      this.close();
+                      AddPath.MetadataFinished();                                                      
                     }
-                  );
+                    ,scope:this
+                  }
+                }
+              },{
+                xtype: 'tbbutton'                     
+                ,text:_('bookmarklet.add.setrequiredinfo.part1.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,hidden:true                    
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();
+                      Curriki.current.sri1 = form.getValues(false);  
+                      if(!Curriki.current.sri)
+                        Curriki.current.sri = form.getValues(false);
+                      else
+                        Ext.apply(Curriki.current.sri, form.getValues(false));      
+                      this.close();
+                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
+                      p.show();
+                      Ext.ComponentMgr.register(p);                        
+                    }
+                    ,scope:this
+                  }
                 }
               }
+              ]
+            }            
+            ,monitorValid:true
+            ,listeners:{
+              render:function(fPanel){
+                //TODO: Try to generalize this (for different # of panels)
+                fPanel.ownerCt.on('bodyresize' ,function(wPanel, width, height){
+                  if (height === 'auto') {
+                    fPanel.setHeight('auto');
+                  } else {
+                    fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
+                  }
+                });
+              }
+            }
+            ,items:[{                
+              xtype:'textfield'
+              ,id:'metadata-link-entry'
+              ,name:'link'
+              ,emptyText:_('bookmarklet.sri.link_content')
+              ,allowBlank:false
+              ,preventMark:true
+              ,hideLabel:true
+              ,value: Ext.parseURIQuery(window.location.href)['url']
+              ,width:'80%'
+              ,hidden:true
+            },{
+    // Title
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
               ,items:[{
-                 xtype:'textfield'
-                ,id:'metadata-link-entry'
-                ,name:'link'
-                ,emptyText:_('bookmarklet.sri.link_content')
+                xtype:'box'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-title'
+                  ,cls:'information-header information-header-required'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-title-title'
+                    ,cls:'metadata-title'
+                    ,html:_('bookmarklet.sri.title_title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-title-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('bookmarklet.sri.title_tooltip')
+                  }]
+                }
+              },{
+                xtype:'textfield'
+                ,id:'metadata-title-entry'
+                ,name:'title'
+                ,emptyText:_('bookmarklet.sri.title_content')
                 ,allowBlank:false
                 ,preventMark:true
                 ,hideLabel:true
-                ,value: Ext.parseURIQuery(window.location.href)['url']
-                ,width:'80%'
-                ,hidden:true
+                ,width:'72%'
+                ,value: Ext.parseURIQuery(window.location.href)['title']
+              }]            
+            },{
+    // Rating
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                xtype:'box'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-rating'
+                  ,cls:'information-header information-header-required'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-rating-title'
+                    ,cls:'metadata-title'
+                    ,html:_('bookmarklet.sri.rating_title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-rating-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('bookmarklet.sri.rating_tooltip')
+                  }]
+                }
               },{
-    // Title
-               xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,id:'metadata-title'
-                ,cls:'information-header information-header-required'
-                ,children:[{
-                   tag:'span'
-                  ,id:'metadata-title-title'
-                  ,cls:'metadata-title'
-                  ,html:_('bookmarklet.sri.title_title')
-                },{
-                   tag:'img'
-                  ,id:'metadata-title-info'
-                  ,cls:'metadata-tooltip'
-                  ,src:Curriki.ui.InfoImg
-                  ,qtip:_('bookmarklet.sri.title_tooltip')
-                }]
-              }
+                xtype: 'rating'
+                ,id: 'metadata-rating-entry'
+                ,hideLabel:true
+                ,name:'rating'
+                ,minValue:1
+                ,maxValue:5
+                ,value:Curriki.current.sri?Curriki.current.sri.rating:0              
+              }]
             },{
-               xtype:'textfield'
-              ,id:'metadata-title-entry'
-              ,name:'title'
-              ,emptyText:_('bookmarklet.sri.title_content')
-              ,allowBlank:false
-              ,preventMark:true
-              ,hideLabel:true
-              ,width:'80%'
-              ,value: Ext.parseURIQuery(window.location.href)['title']
+    // Description
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,items:[{
+                xtype:'textarea'
+                ,id:'metadata-description-entry'
+                ,name:'description'
+                ,emptyText:_('bookmarklet.sri.description.empty_msg')
+                ,allowBlank:false
+                ,preventMark:true
+                ,hideLabel:true
+                ,value:Curriki.current.sri?Curriki.current.sri.description:''
+                ,width:'98%'
+              }]
             },{
-            // Rating
-              xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,id:'metadata-rating'
-                ,cls:'information-header information-header-required'
-                ,children:[{
-                   tag:'span'
-                  ,id:'metadata-rating-title'
-                  ,cls:'metadata-title'
-                  ,html:_('bookmarklet.sri.rating_title')
-                },{
-                   tag:'img'
-                  ,id:'metadata-rating-info'
-                  ,cls:'metadata-tooltip'
-                  ,src:Curriki.ui.InfoImg
-                  ,qtip:_('bookmarklet.sri.rating_tooltip')
-                }]
-              }
-            }, {
-              xtype: 'rating'
-              ,id: 'metadata-rating-entry'
-              ,hideLabel:true
-              ,name:'rating'
-              ,minValue:1
-              ,maxValue:5
-              ,value:Curriki.current.sri?Curriki.current.sri.rating:0              
-            }
-            // Description
-            ,{
-               xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,id:'metadata-description'
-                ,cls:'information-header information-header-required'
-                ,children:[{
-                   tag:'span'
-                  ,id:'metadata-description-title'
-                  ,cls:'metadata-title'
-                  ,html:_('bookmarklet.sri.description_title')
-                },{
-                   tag:'img'
-                  ,id:'metadata-description-info'
-                  ,cls:'metadata-tooltip'
-                  ,src:Curriki.ui.InfoImg
-                  ,qtip:_('bookmarklet.sri.description_tooltip')
-                }]
-              }
-            },{
-               xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,html:Ext.htmlDecode(_('bookmarklet.sri.description_txt'))
-                ,cls:'directions'
-              }
-            },{
-               xtype:'textarea'
-              ,id:'metadata-description-entry'
-              ,name:'description'
-              ,emptyText:_('bookmarklet.sri.description.empty_msg')
-              ,allowBlank:false
-              ,preventMark:true
-              ,hideLabel:true
-              ,value:Curriki.current.sri?Curriki.current.sri.description:''
-              ,width:'80%'
-              // Keywords
+    // Keywords
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                xtype: 'box',
+                autoEl: {
+                  tag: 'div',
+                  id: 'metadata-keywords',
+                  cls: 'information-header',
+                  children: [{
+                    tag: 'span',
+                    id: 'metadata-keywords-title',
+                    cls: 'metadata-title',
+                    html: _('bookmarklet.sri.keywords_title')
+                  }, {
+                    tag: 'img',
+                    id: 'metadata-keywords-info',
+                    cls: 'metadata-tooltip',
+                    src: Curriki.ui.InfoImg,
+                    qtip: _('bookmarklet.sri.keywords_tooltip')
+                  }]
+                }
               },{
-                border: false,
-                items: [{
-                  xtype: 'box',
-                  autoEl: {
-                    tag: 'div',
-                    id: 'metadata-keywords',
-                    cls: 'information-header',
-                    children: [{
-                      tag: 'span',
-                      id: 'metadata-keywords-title',
-                      cls: 'metadata-title',
-                      html: _('bookmarklet.sri.keywords_title')
-                    }, {
-                      tag: 'img',
-                      id: 'metadata-keywords-info',
-                      cls: 'metadata-tooltip',
-                      src: Curriki.ui.InfoImg,
-                      qtip: _('bookmarklet.sri.keywords_tooltip')
-                    }]
-                  }
-                }, {
-                  xtype: 'box',
-                  autoEl: {
-                    tag: 'div',
-                    html:Ext.htmlDecode(_('bookmarklet.sri.keywords_txt')),
-                    cls: 'directions'
-                  }
-                },{
-                  xtype: 'textfield',
-                  id: 'metadata-keywords-entry',
-                  name: 'keywords',
-                  emptyText: _('bookmarklet.sri.keywords.empty_msg'),
-                  hideLabel: true,
-                  width: '60%',
-                  value:Curriki.current.sri?Curriki.current.sri.keywords:'',
-                  listeners: {
-                    render: function(comp){
-                      comp.findParentByType('apUrlM1').on('show', function(){
-                        if (!Ext.isEmpty(Curriki.current.metadata)) {
-                          var md = Curriki.current.metadata;
+                xtype: 'textfield',
+                id: 'metadata-keywords-entry',
+                name: 'keywords',
+                emptyText: _('bookmarklet.sri.keywords.empty_msg'),
+                hideLabel: true,
+                width: '72%',
+                value:Curriki.current.sri?Curriki.current.sri.keywords:'',
+                listeners: {
+                  render: function(comp){
+                    comp.findParentByType('apUrlM1').on('show', function(){
+                      if (!Ext.isEmpty(Curriki.current.metadata)) {
+                        var md = Curriki.current.metadata;
                           
-                          if (!Ext.isEmpty(md.keywords)) {
-                            if (Ext.isArray(md.keywords)) {
-                              md.keywords = md.keywords.join(' ');
-                            }
-                            Ext.getCmp('metadata-keywords-entry').setValue(md.keywords);
+                        if (!Ext.isEmpty(md.keywords)) {
+                          if (Ext.isArray(md.keywords)) {
+                            md.keywords = md.keywords.join(' ');
                           }
+                          Ext.getCmp('metadata-keywords-entry').setValue(md.keywords);
                         }
-                      })
-                    }
+                      }
+                    })
                   }
-                }]
+                }
               }]
             }]
+          }]
         });
 
         AddPath.UrlMetadata1.superclass.initComponent.call(this);
       }
       ,afterShow : function() {
         AddPath.UrlMetadata1.superclass.afterShow.apply(this, arguments);
-        this.header.setVisibilityMode(Ext.Element.DISPLAY);
-        this.header.hide();
+        //this.header.setVisibilityMode(Ext.Element.DISPLAY);
+        //this.header.hide();
         this.updateTopLocation();
       }
     });
     Ext.reg('apUrlM1', AddPath.UrlMetadata1);
     
     AddPath.UrlMetadata2 = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('bookmarklet.add.setrequiredinfo.part2.title')
           ,cls:'addpath addpath-metadata resource resource-add'
@@ -917,6 +874,7 @@ Curriki.module.addpath.init = function() {
               }
             },'->',{
               xtype: 'tbprogress'
+              ,id:'addpath-progress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
                   click: {
@@ -973,216 +931,199 @@ Curriki.module.addpath.init = function() {
             }
             ,items:[{
     // Education System
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                xtype:'box'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-education_system'
+                  ,cls:'information-header'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-education_system-title'
+                    ,cls:'metadata-title'
+                    ,html:_('bookmarklet.sri.education_system_title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-education_system-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('bookmarklet.sri.education_system_tooltip')
+                  }]
+                }
               },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,id:'metadata-education_system'
-                    ,cls:'information-header'
-                    ,children:[{
-                       tag:'span'
-                      ,id:'metadata-education_system-title'
-                      ,cls:'metadata-title'
-                      ,html:_('bookmarklet.sri.education_system_title')
-                    },{
-                       tag:'img'
-                      ,id:'metadata-education_system-info'
-                      ,cls:'metadata-tooltip'
-                      ,src:Curriki.ui.InfoImg
-                      ,qtip:_('bookmarklet.sri.education_system_tooltip')
-                    }]
-                  }
-                },{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:Ext.htmlDecode(_('bookmarklet.sri.education_system_txt'))
-                    ,cls:'directions'
-                  }
-                },{
-                   xtype:'combo'
-                  ,id:'metadata-education_system-entry'
-                  ,hiddenName:'education_system'
-                  ,hideLabel:true
-                  ,width:'60%'
-                  ,mode:'local'
-                  ,store:Curriki.data.education_system.store
-                  ,displayField:'education_system'
-                  ,valueField:'id'
-                  ,typeAhead:true
-                  ,triggerAction:'all'
-                  ,emptyText:_('bookmarklet.sri.education_system_empty_msg')
-                  ,selectOnFocus:true
-                  ,forceSelection:true
-                  ,value:Curriki.current.sri.education_system?Curriki.current.sri.education_system
-                    :Curriki.data.education_system.initial?Curriki.data.education_system.initial:undefined
-                  ,listeners:{
-                    render:function(comp){
-                      comp.findParentByType('apUrlM2').on('show', function() {
-                        if (!Ext.isEmpty(Curriki.current.metadata)) {
-                          var md = Curriki.current.metadata;
-
-                          if (!Ext.isEmpty(md.education_system)){
-                            Ext.getCmp('metadata-education_system-entry').setValue(md.education_system);
-                          }
+                xtype:'combo'
+                ,id:'metadata-education_system-entry'
+                ,hiddenName:'education_system'
+                ,hideLabel:true
+                ,width:'60%'
+                ,mode:'local'
+                ,store:Curriki.data.education_system.store
+                ,displayField:'education_system'
+                ,valueField:'id'
+                ,typeAhead:true
+                ,triggerAction:'all'
+                ,emptyText:_('bookmarklet.sri.education_system_empty_msg')
+                ,selectOnFocus:true
+                ,forceSelection:true
+                ,value:Curriki.current.sri.education_system?Curriki.current.sri.education_system:Curriki.data.education_system.initial?Curriki.data.education_system.initial:undefined
+                ,listeners:{
+                  render:function(comp){
+                    comp.findParentByType('apUrlM2').on('show', function() {
+                      if (!Ext.isEmpty(Curriki.current.metadata)) {
+                        var md = Curriki.current.metadata;
+                        if (!Ext.isEmpty(md.education_system)){
+                          Ext.getCmp('metadata-education_system-entry').setValue(md.education_system);
                         }
-                      })
-                    }
+                      }
+                    })
                   }
-                }]
-
+                }
+              }]
+            },{
     // Language
+               xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                xtype:'box'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-language'
+                  ,cls:'information-header'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-language-title'
+                    ,cls:'metadata-title'
+                    ,html:_('bookmarklet.sri.language_title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-language-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('bookmarklet.sri.language_tooltip')
+                  }]
+                }
               },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,id:'metadata-language'
-                    ,cls:'information-header'
-                    ,children:[{
-                       tag:'span'
-                      ,id:'metadata-language-title'
-                      ,cls:'metadata-title'
-                      ,html:_('bookmarklet.sri.language_title')
-                    },{
-                       tag:'img'
-                      ,id:'metadata-language-info'
-                      ,cls:'metadata-tooltip'
-                      ,src:Curriki.ui.InfoImg
-                      ,qtip:_('bookmarklet.sri.language_tooltip')
-                    }]
-                  }
-                },{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:Ext.htmlDecode(_('bookmarklet.sri.language_txt'))
-                    ,cls:'directions'
-                  }
-                },{
-                   xtype:'combo'
-                  ,id:'metadata-language-entry'
-                  ,hiddenName:'language'
-                  ,hideLabel:true
-                  ,width:'60%'
-                  ,mode:'local'
-                  ,store:Curriki.data.language.store
-                  ,displayField:'language'
-                  ,valueField:'id'
-                  ,typeAhead:true
-                  ,triggerAction:'all'
-                  ,emptyText:_('bookmarklet.sri.language_empty_msg')
-                  ,selectOnFocus:true
-                  ,forceSelection:true
-                  ,value:Curriki.current.sri.language?Curriki.current.sri.language
-                    :Curriki.data.language.initial?Curriki.data.language.initial:undefined
-                  ,listeners:{
-                    render:function(comp){
-                      comp.findParentByType('apUrlM2').on('show', function() {
-                        if (!Ext.isEmpty(Curriki.current.metadata)) {
-                          var md = Curriki.current.metadata;
-
-                          if (!Ext.isEmpty(md.language)){
-                            Ext.getCmp('metadata-language-entry').setValue(md.language);
-                          }
+                xtype:'combo'
+                ,id:'metadata-language-entry'
+                ,hiddenName:'language'
+                ,hideLabel:true
+                ,width:'60%'
+                ,mode:'local'
+                ,store:Curriki.data.language.store
+                ,displayField:'language'
+                ,valueField:'id'
+                ,typeAhead:true
+                ,triggerAction:'all'
+                ,emptyText:_('bookmarklet.sri.language_empty_msg')
+                ,selectOnFocus:true
+                ,forceSelection:true
+                ,value:Curriki.current.sri.language?Curriki.current.sri.language:Curriki.data.language.initial?Curriki.data.language.initial:undefined
+                ,listeners:{
+                  render:function(comp){
+                    comp.findParentByType('apUrlM2').on('show', function() {
+                      if (!Ext.isEmpty(Curriki.current.metadata)) {
+                        var md = Curriki.current.metadata;
+                        if (!Ext.isEmpty(md.language)){
+                          Ext.getCmp('metadata-language-entry').setValue(md.language);
                         }
-                      })
-                    }
+                      }
+                    })
                   }
-                }]
+                }
               }]
             }]
+          }]
         });
-
         AddPath.UrlMetadata2.superclass.initComponent.call(this);
       }
     });
     Ext.reg('apUrlM2', AddPath.UrlMetadata2);
     
     AddPath.UrlMetadata3 = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('bookmarklet.add.setrequiredinfo.part3.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,autoHeight:true
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
             ,autoScroll:true
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               text:_('bookmarklet.add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+                text:_('bookmarklet.add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
                       this.close();
                       var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
                       p.show();
                     }
                     ,scope:this
+                  }                  
+                }
+              },'->',{
+                xtype: 'tbprogress'
+                ,id:'addpath-progress'
+                ,items: [{
+                  tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
+                    click: {
+                      fn: function(e, ev) {
+                        this.close();
+                        var p = Ext.ComponentMgr.create({'xtype':'apUrlM1'});
+                        p.show();
+                      }
+                      ,scope:this
+                    }
                   }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'3'}
+                },{
+                  tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
+                    click: {
+                      fn: function(e, ev) {
+                        this.close();
+                        var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
+                        p.show();
+                      }
+                      ,scope:this
+                    }
+                  }
+                },{tag:'a', cls:'addpath-page circle addpath-page-current', html:'3'}
                 ,{tag:'a', cls:'addpath-page circle', html:'4'}
                 ,{tag:'a', cls:'addpath-page circle', html:'5'}
                 ]                
-            },'->',{
-               text:_('bookmarklet.add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();                      
+              },'->',{
+                text:_('bookmarklet.add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();                      
                       Ext.apply(Curriki.current.sri, form.getValues(false));
                       Curriki.current.sri.educational_level = this.findByType('curriki-treepanel')[0].getChecked('id');                     
-
                       this.close();
-
                       var p = Ext.ComponentMgr.create({'xtype':'apUrlM4'});
                       p.show();
                       Ext.ComponentMgr.register(p);                    
+                    }
+                    ,scope:this
                   }
-                  ,scope:this
                 }
-              }
-            }]
+              }]
             }
             ,monitorValid:true
             ,listeners:{
@@ -1202,85 +1143,78 @@ Curriki.module.addpath.init = function() {
             }
             ,items:[{
     // Educational Level
-              },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:Ext.htmlDecode(_('bookmarklet.sri.educational_level_txt'))
-                    ,cls:'directions'
-                  }
-                },{
-                  // A "TreeCheckBoxGroup" would be nice here
-                   xtype:'numberfield'
-                  ,id:'educational_level-validation'
-                  ,allowBlank:false
-                  ,preventMark:true
-                  ,minValue:1
-                  ,hidden:true
-                  ,listeners:{
-                     valid:function(field){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('el-tree');
-                      fieldset.removeClass('x-form-invalid');
-                      fieldset.el.dom.qtip = '';
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                // A "TreeCheckBoxGroup" would be nice here
+                xtype:'numberfield'
+                ,id:'educational_level-validation'
+                ,allowBlank:false
+                ,preventMark:true
+                ,minValue:1
+                ,hidden:true
+                ,listeners:{
+                  valid:function(field){
+                    if (!this.rendered || this.preventMark) {
+                      return;
                     }
-                    ,invalid:function(field, msg){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('el-tree');
-                      fieldset.addClass('x-form-invalid');
-                      var iMsg = field.invalidText;
-                      fieldset.el.dom.qtip = iMsg;
-                      fieldset.el.dom.qclass = 'x-form-invalid-tip';
-                      if(Ext.QuickTips){ // fix for floating editors interacting with DND
-                        Ext.QuickTips.enable();
-                      }
-
+                    var fieldset = Ext.getCmp('el-tree');
+                    fieldset.removeClass('x-form-invalid');
+                    fieldset.el.dom.qtip = '';
+                  }
+                  ,invalid:function(field, msg){
+                    if (!this.rendered || this.preventMark) {
+                      return;
+                    }
+                    var fieldset = Ext.getCmp('el-tree');
+                    fieldset.addClass('x-form-invalid');
+                    var iMsg = field.invalidText;
+                    fieldset.el.dom.qtip = iMsg;
+                    fieldset.el.dom.qclass = 'x-form-invalid-tip';
+                    if(Ext.QuickTips){ // fix for floating editors interacting with DND
+                      Ext.QuickTips.enable();
                     }
                   }
                 }
-                ,(function(){
-                  var checkedCount = 0;
-                  var md = Curriki.current.metadata;
-                  if (md) {
-                    var el = md.educational_level;
-                    Ext.isArray(el) && (function(ca){
-                      var childrenFn = arguments.callee;
-                      Ext.each(ca, function(c){
-                        if (c.id) {
-                          if (c.checked = (el.indexOf(c.id) !== -1)) {
-                            checkedCount++;
-                          }
-                          if (c.children) {
-                            childrenFn(c.children);
-                          }
+              }
+              ,(function(){
+                var checkedCount = 0;
+                var md = Curriki.current.metadata;
+                if (md) {
+                  var el = md.educational_level;
+                  Ext.isArray(el) && (function(ca){
+                    var childrenFn = arguments.callee;
+                    Ext.each(ca, function(c){
+                      if (c.id) {
+                        c.checked = (el.indexOf(c.id) !== -1);
+                        if (c.checked) {
+                          checkedCount++;
                         }
+                        if (c.children) {
+                          childrenFn(c.children);
+                        }
+                      }
+                    });
+                  })(Curriki.data.el.elChildren);
+                }
+                return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(Curriki.current.sri.education_system), {
+                  listeners: {
+                    render:function(comp){
+                      comp.findParentByType('apUrlM3').on('show', function() {
+                        Ext.getCmp('educational_level-validation').setValue(checkedCount)
                       });
-                    })(Curriki.data.el.elChildren);
-                  }
-                  return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(Curriki.current.sri.education_system), {
-                    listeners: {
-                      render:function(comp){
-                        comp.findParentByType('apUrlM3').on('show', function() {
-                          Ext.getCmp('educational_level-validation').setValue(checkedCount)
-                        });
-                      }
-                      ,resize: function(comp) {
-                        var ct = comp.findParentByType('apUrlM3');
-                        ct.syncSize();
-                      }
                     }
-                  })
-                })()] 
-              }]
-            }]   
+                    ,resize: function(comp) {
+                      var ct = comp.findParentByType('apUrlM3');
+                      ct.syncSize();
+                    }
+                  }
+                })
+              })()] 
+            }]
+          }]   
         });
-
         AddPath.UrlMetadata3.superclass.initComponent.call(this);
       }
     });
@@ -1321,6 +1255,7 @@ Curriki.module.addpath.init = function() {
               }
             },'->',{
               xtype: 'tbprogress'
+              ,id:'addpath-progress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
                   click: {
@@ -1394,15 +1329,11 @@ Curriki.module.addpath.init = function() {
               }
             }
             ,items:[{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:Ext.htmlDecode(_('bookmarklet.sri.fw_items_txt'))
-                    ,cls:'directions'
-                  }
-                },{
+    // Subjects
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
                   // A "TreeCheckBoxGroup" would be nice here
                    xtype:'numberfield'
                   ,id:'fw_items-validation'
@@ -1514,6 +1445,7 @@ Curriki.module.addpath.init = function() {
               }
             },'->',{
               xtype: 'tbprogress'
+              ,id:'addpath-progress'
               ,items: [
                 {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
                   click: {
@@ -1596,15 +1528,10 @@ Curriki.module.addpath.init = function() {
             }
             ,items:[{
     // Instructional Component Type
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:Ext.htmlDecode(_('bookmarklet.sri.instructional_component_txt'))
-                    ,cls:'directions'
-                  }
-                },{
+                 xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
                   // A "TreeCheckBoxGroup" would be nice here
                    xtype:'numberfield'
                   ,id:'instructional_component-validation'
@@ -2227,18 +2154,11 @@ Curriki.module.addpath.init = function() {
                 );
               }
             }
-            ,items:[{
+            ,items:[
     // Educational Level
-              },{
+              {
                  border:false
                 ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:Ext.htmlDecode(_('sri.educational_level_txt'))
-                    ,cls:'directions'
-                  }
-                },{
                   // A "TreeCheckBoxGroup" would be nice here
                    xtype:'numberfield'
                   ,id:'educational_level-validation'
@@ -5134,11 +5054,13 @@ Curriki.module.addpath.init = function() {
     AddPath.AssetLink = function(linkMode) {
       var pageName = (Curriki.current.asset&&Curriki.current.asset.assetPage)||Curriki.current.assetName;
       var link = '/xwiki/bin/view/'+pageName.replace('.', '/');
-      return '<a href="http://sankore.devxwiki.com'+link+'" target="_blank">' + _('add.finalmessage.'+linkMode+'.link') +  '</a>';    
+      //return '<a href="http://sankore.devxwiki.com'+link+'" target="_blank">' + _('add.finalmessage.'+linkMode+'.link') +  '</a>';
+      return '<a href="http://sankore.devxwiki.com'+link+'" target="_blank" id="closebutton" style="width: auto;"><em unselectable="on" class=""><button type="button" class="btn x-btn-text ">'+ _('add.finalmessage.'+linkMode+'.link') +'</button></em></a>';    
     }
     AddPath.CloseLink = function() {
       return '<a href="" onclick="console.log(window.document);return false;">'+_('add.finalmessage.close.button')+'</a>';
     }
+    
     AddPath.DoneBookmarklet = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
         initComponent:function(){
         Ext.apply(this, {
