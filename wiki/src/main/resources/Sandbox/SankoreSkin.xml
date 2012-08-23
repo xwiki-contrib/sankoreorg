@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345644083000</creationDate>
-<date>1345644083000</date>
-<contentUpdateDate>1345644083000</contentUpdateDate>
+<creationDate>1345713149000</creationDate>
+<date>1345713149000</date>
+<contentUpdateDate>1345713149000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreSkin</title>
 <template></template>
@@ -8092,7 +8092,7 @@ $context.unsetLinksQueryString()
 &lt;div class="container"&gt;
   &lt;div class="row"&gt;
     &lt;div class="span3"&gt;
-      &lt;h1 class="logo"&gt;&lt;/h1&gt;
+      &lt;h1 class="logo"&gt;&lt;a href="http://sankore.org/fr" title="Sankore.org | Accueil"&gt;&lt;/a&gt;&lt;/h1&gt;
     &lt;/div&gt;
     &lt;div class="span9"&gt;
       &lt;ul class="nav main-nav nav-horizontal"&gt;
@@ -9016,6 +9016,7 @@ h1.logo {
   background: url("http://dev.sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/logo.png") no-repeat scroll 0 0 transparent;
   border-bottom: none;
 }
+h1.logo a {display: block; padding: 50px;}
 /*
 Header
 -·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·-·
@@ -9322,7 +9323,7 @@ Footer
  *----------------------------------------*/
 
 
-
+#footerglobal,
 #body.hideleft #footerglobal,
 #body.hideright #footerglobal,
 #body.hidelefthideright #footerglobal {
@@ -9399,6 +9400,10 @@ Footer
 }
 .bottom-content .social &gt; li a.icon-rss {
   background: url('http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/rsswhite.png') no-repeat 10px 15px;
+}
+
+#section_2 {
+  display: none;
 }
 
 #footer {
@@ -10732,7 +10737,15 @@ La Communaute Menu - http://sankore.devxwiki.com/xwiki/bin/edit/Panels/Communaut
 
 
 
+/*
+EXTJS
+*/
 
+
+.btn {box-shadow: none; background: none;}
+.btn:hover {background: no-repeat transparent center center ;}
+
+.curriki-paging-toolbar .x-toolbar-right input.x-form-text.x-form-field {width: 34px;}
 
 /*
 TEMP STUFF
