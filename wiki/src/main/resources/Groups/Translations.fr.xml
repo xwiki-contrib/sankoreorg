@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345461159000</creationDate>
-<date>1345461159000</date>
-<contentUpdateDate>1345461159000</contentUpdateDate>
+<creationDate>1345794502000</creationDate>
+<date>1345794502000</date>
+<contentUpdateDate>1345794502000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -169,7 +169,7 @@ groups_home_activity_doc_wiki_del=Document wiki effacé - "{0}" par {1}
 groups_home_activity_doc_del=Fichier effacé - "{0}" par {1}
 
 ## GROUP HOME -- INFORMATION
-groups_home_information_title=Réglages de l'Information
+groups_home_information_title=Typologie des ressources du groupe par défaut
 groups_home_information_link=Modifier
 groups_home_information_member_policy=Politique d'Appartenance \:
 groups_home_information_license=Politique de Licence par Défaut \:
@@ -196,7 +196,7 @@ groups_home_editinformation_level_tooltip=Choisissez le niveau scolaire pour vot
 groups_home_editinformation_language_title=Langage d'édition. 
 groups_home_editinformation_license_title=Éditer la Politique de Licence par Défaut
 groups_home_editinformation_access_title=Editer les Privilèges d'Accès par Défaut
-groups_home_editinformation_access_infotext=Ici vous pouvez modifier les réglages par défaut qui déterminent qui peut visualiser et/ou éditer les ressources partagées de votre groupe.
+groups_home_editinformation_access_infotext=Ici vous pouvez modifier les réglages par défaut qui déterminent qui peut visualiser et/ou éditer les contributions de votre groupe.
 groups_home_editinformation_access_open=Ouvert - N'importe qui peut visualiser le contenu du groupe; tous les membres peuvent éditer.
 groups_home_editinformation_access_closed=Protégé - Tout le monde peut visualiser le contenu de groupe; seuls les membres du groupe peuvent éditer.
 groups_home_editinformation_access_private=Privé - Seuls les membres de groupe peuvent visualiser et éditer le contenu.
@@ -309,10 +309,10 @@ groups_messages_view_message_delete_confirm=Êtes-vous sûr que vous voulez supp
 groups_messages_view_message_delete_done=Ce message a été supprimé
 
 ## CURRICULUM TAB
-groups_curriculum_tabname=Ressources partagées
-groups_curriculum_about_title=Au sujet des ressources partagées
+groups_curriculum_tabname=Contributions
+groups_curriculum_about_title=Au sujet des contributions
 groups.curriculum.collections.addButton=Ajouter une collection au groupe
-groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection au groupe pour organiser et présenter les ressources partagées
+groups.curriculum.collections.addButton_tooltip=Ajouter une nouvelle collection au groupe pour organiser et présenter ses contributions
 groups_curriculum_about_linkedit=Modifier
 groups_curriculum_contributions_title=Contributions par {0}
 groups_home_contributions_view_btt=Tout visualiser
@@ -356,7 +356,7 @@ groups_curriculum_collections_reorder.checkfirst.dialog=Par défaut, les collect
 groups_curriculum_collections_reorder.checkfirst.cancel.btt=OK
 groups_curriculum_collections_reorder.checkfirst.next.btt=Annuler
 groups_curriculum_collections_reorder.dialog_title=Réordonner les collections du groupe
-groups_curriculum_collections_reorder.guidingquestion=Dans quel ordre souhaitez-vous présenter les collections de ressources partagées de votre groupe?
+groups_curriculum_collections_reorder.guidingquestion=Dans quel ordre souhaitez-vous présenter les collections de ressources partagées par votre groupe?
 groups_curriculum_collections_reorder.instruction=Glissez/Déposer vos collections dans l'ordre que vous préférez, puis cliquez sur Suivant.
 groups_curriculum_collections_reorder.listheader=Collections du groupe
 groups_curriculum_collections_reorder.cancel.btt=Annuler
@@ -577,7 +577,7 @@ history.compare=Comparer les changements
 ## Interstitial page
 
 ## Curriculum page
-groups.curriculum.about.title=Au sujet des ressources partagées du groupe
+groups.curriculum.about.title=Au sujet des contributions du groupe
 groups.curriculum.about.edit=Modifier
 groups.curriculum.contributions.title=Contributions du groupe
 groups.curriculum.contributions.about=Ici vous pouvez trouver les contributions du groupe.
@@ -649,10 +649,11 @@ groups.search.top_title=CHERCHER DES RESSOURCES DE CE GROUPE DANS LE REPOSITORY
 groups_admins_onlyaccessibletoadmins=Cette page est seulement disponible pour les administrateurs.
 
 ##DisclaimerCreateGroup
-groups.disclaimer.create.group.content=&lt;h3 class="wikigeneratedheader" id="HQUELLEESTLUTILITEDUNGROUPE"&gt;&lt;span&gt;QUELLE EST L'UTILITÉ D’UN GROUPE ?&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Vous pouvez créer un espace de travail collaboratif qui comprendra les onglets suivants :&lt;/p&gt;&lt;p&gt;&lt;ul&gt;&lt;li&gt;Accueil : pour visualiser et/ou modifier les informations du groupe&lt;/li&gt;&lt;li&gt;Messages : pour échanger avec les membres de votre groupe&lt;/li&gt;&lt;li&gt;Ressources partagées du groupe : pour trouver et/ou implémenter la base de ressources du groupe&lt;/li&gt;&lt;li&gt;Membres : pour gérer les invitations et les statuts des membres du groupe (membre, administrateur, autre)&lt;/li&gt;&lt;/ul&gt;&lt;h3 class="wikigeneratedheader" id="HPOURCOMMENCER"&gt;&lt;span&gt;LES PRÉREQUIS&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Si vous souhaitez créer un groupe sur Planète Sankoré il est important de :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;vous engager en tant que responsable du groupe&lt;/li&gt;&lt;li&gt;veiller à la bonne qualité des échanges entre les membres de votre groupe&lt;/li&gt;&lt;li&gt;faire connaitre votre groupe à toute la communauté Planète Sankoré&lt;/li&gt;&lt;li&gt;maintenir l'activité de votre groupe en y contribuant régulièrement&lt;/li&gt;&lt;/ul&gt;
+groups.disclaimer.create.group.content=&lt;h3 class="wikigeneratedheader" id="HQUELLEESTLUTILITEDUNGROUPE"&gt;&lt;span&gt;QUELLE EST L'UTILITÉ D’UN GROUPE ?&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Vous pouvez créer un espace de travail collaboratif qui comprendra les onglets suivants :&lt;/p&gt;&lt;p style="display: inline;"&gt;&lt;img src="/xwiki/skins/curriki20/curriki/images/groups_default_logo.gif" style="float: left; clear: left; padding: 10px;" /&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Accueil : pour visualiser et/ou modifier les informations du groupe&lt;/li&gt;&lt;li&gt;Messages : pour échanger avec les membres de votre groupe&lt;/li&gt;&lt;li&gt;Contributions du groupe : pour trouver et/ou implémenter la base de ressources du groupe&lt;/li&gt;&lt;li&gt;Membres : pour gérer les invitations et les statuts des membres du groupe (membre, administrateur, autre)&lt;/li&gt;&lt;/ul&gt;&lt;h3 class="wikigeneratedheader" id="HPOURCOMMENCER"&gt;&lt;span&gt;LES PRÉREQUIS&lt;/span&gt;&lt;/h3&gt;&lt;p&gt;Si vous souhaitez créer un groupe sur Planète Sankoré il est important de :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;vous engager en tant que responsable du groupe&lt;/li&gt;&lt;li&gt;veiller à la bonne qualité des échanges entre les membres de votre groupe&lt;/li&gt;&lt;li&gt;faire connaitre votre groupe à toute la communauté Planète Sankoré&lt;/li&gt;&lt;li&gt;maintenir l'activité de votre groupe en y contribuant régulièrement&lt;/li&gt;&lt;/ul&gt;
 groups.disclaimer.create.group.button=Créer un groupe
 
 ##AboutGroups
+##THIS PAGE HAVE BEEN DELETED
 groups.about.title=À QUOI SERVENT LES GROUPES
 groups.about.first.row=À partager des documents et des avis au sein d'un espace de groupe ouvert ou fermé ;
 groups.about.second.row=À collaborer pour la création ou la modification de ressources partagées ou de collections d'objets pédagogiques ;

@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345566069000</creationDate>
-<date>1345566069000</date>
-<contentUpdateDate>1345566069000</contentUpdateDate>
+<creationDate>1345803516000</creationDate>
+<date>1345803516000</date>
+<contentUpdateDate>1345803516000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -105,64 +105,30 @@
 </property>
 <property>
 <content>#panelheader('La Communaute')
-&lt;div id='sidebarnav' class=''&gt;
-  &lt;ul class='nav' id="lacommunaute"&gt;
-    &lt;li class="category"&gt;
-      &lt;a href="$xwiki.getDocument('Groups.DisclaimerCreateGroup').getExternalURL()"&gt;Les groupes&lt;/a&gt;
-      &lt;ul class='sub-category'&gt;
-        &lt;li class="documents"&gt;
+&lt;div id='sidebarnav' class='sidebar'&gt;
+  &lt;ul class='nav nav-list' id="lacommunaute"&gt;
+    &lt;li class="current"&gt;
+      &lt;a href="$xwiki.getDocument('LaCommunaute.CreerGroupe').getExternalURL()"&gt;Les groupes&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;
           &lt;a href="$xwiki.getDocument('Search.Groups').getExternalURL()"&gt;Rechercher un groupe&lt;/a&gt;
         &lt;/li&gt;
-        &lt;li class="documents"&gt;
-          &lt;a href="$xwiki.getDocument('Groups.DisclaimerCreateGroup').getExternalURL()"&gt;Creer un groupe&lt;/a&gt;
+        &lt;li&gt;
+          &lt;a href="$xwiki.getDocument('LaCommunaute.CreerGroupe').getExternalURL()"&gt;Créer un groupe&lt;/a&gt;
         &lt;/li&gt;
       &lt;/ul&gt;
     &lt;/li&gt;
-    &lt;li class="category"&gt;
-      &lt;a href="$xwiki.getDocument('Pedagogique.WebHome').getExternalURL()"&gt;Les espaces de travail&lt;/a&gt;
-	  &lt;ul class='sub-category'&gt;
-	    &lt;li class="documents"&gt;
-          &lt;a href="$xwiki.getDocument('Pedagogique.WebHome').getExternalURL()"&gt;Introduction&lt;/a&gt;
-        &lt;/li&gt;
-	    &lt;li class="documents"&gt;
-          &lt;a href="$xwiki.getDocument('Pedagogique.Le+manuel+qui+manquait').getExternalURL()"&gt;Le manuel qui manquait&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="documents"&gt;
-          &lt;a href="$xwiki.getDocument('Pedagogique.Tutoriels').getExternalURL()"&gt;Les tutoriels&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="documents"&gt;
-          &lt;a href="$xwiki.getDocument('Pedagogique.Les+supports+de+formation').getExternalURL()"&gt;Les supports de formation&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="documents"&gt;
-          &lt;a href="$xwiki.getDocument('Pedagogique.Les+suggestions+fonctionnelles').getExternalURL()"&gt;Les suggestions fonctionnelles&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="documents"&gt;
-          &lt;a href="$xwiki.getDocument('Pedagogique.Les+conventions').getExternalURL()"&gt;Les conventions&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="documents"&gt;
-          &lt;a href="$xwiki.getDocument('Pedagogique.La+nature+des+documents').getExternalURL()"&gt;La nature de documents&lt;/a&gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
+    &lt;li&gt;
+          &lt;a href="$xwiki.getDocument('LaCommunaute.BookmarkletSetup').getExternalURL()"&gt;Le bookmarklet&lt;/a&gt;
     &lt;/li&gt;
-    &lt;li class="category"&gt;
-      &lt;a href=""&gt;Aide&lt;/a&gt;
-      &lt;ul class='sub-category'&gt;
-        &lt;li class="documents"&gt;
-          &lt;a href=""&gt;Le moteur de recherche&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="documents"&gt;
-          &lt;a href="#"&gt;La communauté&lt;/a&gt;
-        &lt;/li&gt;
-        &lt;li class="documents"&gt;
-          &lt;a href="#"&gt;Les ressources&lt;/a&gt;
-        &lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/li
-    &lt;li class="category"&gt;
-          &lt;a href="$xwiki.getDocument('Main.BookmarkletSetup').getExternalURL()"&gt;Le bookmarklet&lt;/a&gt;
+    &lt;li&gt;
+          &lt;a href="http://sankore.org/fr/logiciel/all"&gt;La logithèque&lt;/a&gt;
     &lt;/li&gt;
-    &lt;li class="category"&gt;
-          &lt;a href="#"&gt;La logithèque&lt;/a&gt;
+    &lt;li&gt;
+          &lt;a href="https://sankore.zendesk.com/home"&gt;Le forum d'échange&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+          &lt;a href="$xwiki.getDocument('Pedagogique.WebHome').getExternalURL()"&gt;Les aides&lt;/a&gt;
     &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;

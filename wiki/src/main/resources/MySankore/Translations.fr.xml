@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345106268000</creationDate>
-<date>1345106268000</date>
-<contentUpdateDate>1345106268000</contentUpdateDate>
+<creationDate>1345724714000</creationDate>
+<date>1345724714000</date>
+<contentUpdateDate>1345724714000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -22,7 +22,8 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
-<content>##{pre}
+<content>#
+
 mycurriki.datetimeFormat=dd-MMM-yyyy - hh:mm a z
 mycurriki.dateFormat=dd-MMM-yyyy
 mycurriki.timeFormat=hh:mm a z
@@ -40,7 +41,6 @@ mycurriki.tab.groups.label=Mes groupes
 mycurriki.tab.groups.subtitle=Ci-dessous, la liste des groupes auxquels vous appartenez :
 mycurriki.tab.profile.label=Mon profil
 
-
 ##Do not translate these as they are page links and need to use the english names. Todd Nov 17, 2008
 
 mycurriki.tab.blog.page=MySankore.Blog
@@ -49,7 +49,6 @@ mycurriki.tab.contributions.page=MySankore.Contributions
 mycurriki.tab.favorites.page=MySankore.Favorites
 mycurriki.tab.groups.page=MySankore.Groups
 mycurriki.tab.profile.page=MySankore.Profile
-
 
 ## GLOBAL TAB LINKS 
 ## The following links are used globally in My Planète Sankoré Tabs and Groups, Curriculum. This allows the macros to be the same in both My Curiiki and Groups. Todd Jan-20-2009
@@ -76,7 +75,6 @@ mycurriki.link.delete=Supprimer
 mycurriki.link.delete.tooltip=Supprimer définitivement cette ressource
 mycurriki.link.delete.confirm=Etes-vous sûrs de vouloir supprimer définitivement cette ressource?
 
-
 ##PROFILE TAB
 
 mycurriki.profile.titlebar=Informations sur le membre
@@ -86,7 +84,6 @@ mycurriki.profile.needPicture=Choisissez une image SVP.
 mycurriki.editprofile.titlebar=Modifier les informations du membre
 mycurriki.editprofile.saveButton=Sauvegarder
 mycurriki.editprofile.confirmLeave=Vous allez quitter le formulaire d'édition du profil et allez perdre tous vos changements. Etes-vous sûr de vouloir quitter ?
-
 
 ##FAVORITES TAB
 
@@ -100,19 +97,19 @@ mycurriki.favorites.table.filetype=Type de fichier
 mycurriki.favorites.table.action=Action
 
 mycurriki.favorites.table.action.remove=Supprimer
-mycurriki.favorites.table.action.remove_tooltip=Supprimer cette ressource des favoris
+mycurriki.favorites.table.action.remove&amp;#95;tooltip=Supprimer cette ressource des favoris
 mycurriki.favorites.table.action.remove.confirm=Etes-vous sûr de vouloir supprimer ?
 mycurriki.favorites.removed.comment= La ressource {0} a été supprimée des favoris
 
 mycurriki.favorites.noresults=
-mycurriki.favorites.mouseover.description=&lt;strong&gt;Description:&lt;/strong&gt;
-mycurriki.favorites.mouseover.subject=&lt;strong&gt;Sujet(s):&lt;/strong&gt;
-mycurriki.favorites.mouseover.level=&lt;strong&gt;Niveaux éducatifs :&lt;/strong&gt;
 
+mycurriki.favorites.mouseover.description=*Description:*
+mycurriki.favorites.mouseover.subject=*Sujet(s):*
+mycurriki.favorites.mouseover.level=*Niveaux éducatifs :*
 ##CONTRIBUTIONS TAB
 
 mycurriki.contributions.addButton=Ajouter une ressource
-mycurriki.contributions.addButton_tooltip=Ajouter vos meilleurs ressources ou créer quelque-chose de nouveau
+mycurriki.contributions.addButton&amp;#95;tooltip=Ajouter vos meilleurs ressources ou créer quelque-chose de nouveau
 mycurriki.contributions.table.title=Titre
 mycurriki.contributions.table.ict=Type de ressource
 mycurriki.contributions.table.lastupdated=Date de modification
@@ -121,19 +118,16 @@ mycurriki.contributions.table.filetype=Type de fichier
 mycurriki.contributions.table.action=Action
 mycurriki.contributions.noresults=
 
-
 ##COLLECTIONS TAB
 
 mycurriki.collections.titlebar=Collections
 mycurriki.collections.titlebarbutton=Cacher les descriptions
 mycurriki.collections.titlebarbuttonalt=Montrer les descriptions
 mycurriki.collections.add=Ajouter une collection
-mycurriki.collections.add_tooltip=Ajouter une nouvelle collection pour organiser et présenter les ressources
+mycurriki.collections.add&amp;#95;tooltip=Ajouter une nouvelle collection pour organiser et présenter les ressources
 mycurriki.collections.reorder=Organiser les collections
-mycurriki.collections.reorder_tooltip=Organiser les collections
+mycurriki.collections.reorder&amp;#95;tooltip=Organiser les collections
 mycurriki.collections.noresults=
-
-
 
 ##REORDER FEATURE
 
@@ -143,7 +137,7 @@ mycurriki.collections.reorder.checkfirst.dialog=Par défaut, vos collections les
 mycurriki.collections.reorder.checkfirst.cancel.btt=OK
 mycurriki.collections.reorder.checkfirst.next.btt=Annuler
 
-mycurriki.collections.reorder.dialog_title=Organiser vos collections
+mycurriki.collections.reorder.dialog&amp;#95;title=Organiser vos collections
 mycurriki.collections.reorder.guidingquestion=Dans quel ordre souhaitez-vous présenter vos collections
 mycurriki.collections.reorder.instruction=Glissez-déposez vos collections dans l'ordre souhaité, puis cliquez sur Suivant.
 mycurriki.collections.reorder.listheader=
@@ -176,7 +170,7 @@ mycurriki.blog.actions.delete.confirm=Etes-vous sûr de vouloir supprimer cette 
 
 mycurriki.groups.visit=Visiter ce groupe
 mycurriki.groups.mymessages=Mes derniers messages
-mycurriki.groups.viewmessages=Voir les messages du groupe &amp;raquo;
+mycurriki.groups.viewmessages=Voir les messages du groupe »
 mycurriki.groups.message.by=par
 
 mycurriki.macro.filetype.URL=URL
@@ -194,13 +188,13 @@ mycurriki.macro.paginate.of=sur
 mycurriki.macro.paginate.previous=Précédent
 mycurriki.macro.paginate.next=Suivant
 
-
+&lt;p&gt;
 sankore.profile.editprofile.title=Mettre à jour son profil
 sankore.profile.editprofile.description=Aidez nos membres à mieux vous connaitre. Ajoutez votre photo et quelques informations à votre sujet.
 sankore.profile.joingroup.title=REJOIGNEZ UN GROUPE THEMATIQUE
 sankore.profile.joingroup.description=Discutez et partagez vos idées avec d'autres professionnels de l'éducation.
 sankore.profile.downloadplugin.title=INSTALLER LE BOOKMARKLET
-sankore.profile.downloadplugin.link=/xwiki/bin/view/Main/BookmarkletSetup
+sankore.profile.downloadplugin.link=/xwiki/bin/view/LaCommunaute/BookmarkletSetup
 sankore.profile.downloadplugin.description=Proposez des ressources sur Planète Sankoré en parcourant le web. C'est simple comme un clic!
 sankore.profile.inviteuser.title=INVITEZ UN AMI OU COLLEGUE
 sankore.profile.inviteuser.description=Aidez la communaute Sankore à s'élargir!
@@ -208,5 +202,5 @@ profile.welcome=Bienvenue sur Planète Sankoré, {0} !
 profile.section.userInfo=Mes Informations
 profile.section.userPrivacy=Mes notifications et ma confidentialité
 profile.activity=Mon Activité
-##{/pre}
-</content></xwikidoc>
+
+#&lt;/pre&gt;</content></xwikidoc>
