@@ -532,8 +532,8 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
 #macro(asset_attachment $asset $attachment)
 #set($assetAttachmentFilename = $asset.attachmentList.get(0).filename)
 #set($assetAttachmentURL = $asset.getAttachmentURL("$assetAttachmentFilename"))
- <a class="icon-link" href="$assetAttachmentURL">$msg.get("rve.content.view.download.download_button")</a>
- <p class="text-link">
+ <a class="icon-link downloadbutton" href="$assetAttachmentURL">$msg.get("rve.content.view.download.download_button")</a>
+ <p class="text-link downloadbutton">
      #if($attachment.filesize)
      #set($filesize = $attachment.filesize / 1024)
      ##set($filesize = $attachment.filesize)
@@ -542,7 +542,7 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
      #end
      <a href="$assetAttachmentURL">$assetAttachmentFilename</a> (${filesize}kb)
  </p>
- <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}'); location = '${assetAttachmentURL}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.download_button")</button>
+ <button class="button button-confirm downloadbutton" ext:qtip="$msg.get("rve.content.view.download.download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}'); location = '${assetAttachmentURL}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.download_button")</button>
 #end
 
 
