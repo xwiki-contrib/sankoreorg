@@ -536,7 +536,8 @@ $msg.get("browseGroups.promo_card_2")
   #else
     #groups_homepage_viewinfo()
     #groupsdisplaywelcome($msg.groups_home_welcome $spaceName $doc.name $isGroupAdmin)
-    #groups_homepage_activitystream()
+    ##Hide the RSS feed in Groups homepage
+    ##groups_homepage_activitystream()
     #groups_homepage_details()
     #groups_homepage_contributions()
     #groups_membershipinfo()
