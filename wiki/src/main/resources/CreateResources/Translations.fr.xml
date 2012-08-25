@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344263351000</creationDate>
-<date>1344263351000</date>
-<contentUpdateDate>1344263351000</contentUpdateDate>
+<creationDate>1345881783000</creationDate>
+<date>1345881783000</date>
+<contentUpdateDate>1345881783000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -851,8 +851,8 @@ sri.license_type_content=
 
 add.setrequiredinfo.cancel.button=Annuler
 add.setrequiredinfo.part1.next.button=Compléter l'indexation
-add.setrequiredinfo.next.button=Suivant &gt;&gt;
-add.setrequiredinfo.previous.button=&lt;&lt; Précédent
+add.setrequiredinfo.next.button=Suivant
+add.setrequiredinfo.previous.button=Précédent
 add.setrequiredinfo.publish.button=Valider
 
 
@@ -860,7 +860,7 @@ add.setrequiredinfo.publish.button=Valider
 add.setrequiredinfo.part1.title=Étape 1 - Description simple de la ressource
 add.setrequiredinfo.part1.guidingquestion=Cette ressource va être ajoutée à planète Sankoré sous le nom d'utilisateur
 add.setrequiredinfo.part1.cancel.button=Annuler
-add.setrequiredinfo.part1.next.button=Compléter l'indexation &gt;&gt;
+add.setrequiredinfo.part1.next.button=Compléter l'indexation
 add.setrequiredinfo.part1.name=Nom de la ressource
 add.setrequiredinfo.part1.name.Tip=Le nom de la ressource apparaît dans les résultats de recherche. Il aide les autres utilisateurs à identifier son utilité ou ses applications.
 sri.description_title=Description
@@ -874,8 +874,8 @@ sri.keywords.empty_msg=
 ## Step 2
 add.setrequiredinfo.part2.title=Étape 2 - Situer la ressource
 add.setrequiredinfo.part2.guidingquestion=
-add.setrequiredinfo.part2.previous.button=&lt;&lt; Précédent
-add.setrequiredinfo.part2.next.button=Suivant &gt;&gt;
+add.setrequiredinfo.part2.previous.button=Précédent
+add.setrequiredinfo.part2.next.button=Suivant
 sri.education_system_title=Système éducatif
 sri.education_system_txt=Pour quel système éducatif votre ressource a t'elle été produite ?
 sri.education_system_tooltip=Préciser le système éducatif du pays de référence pour lequel la ressource a été conçue.
@@ -992,7 +992,7 @@ add.contributemenu.required.fields.dialog_link=Saisissez un URL pour la ressourc
 add.contributemenu.required.fields.dialog_video_capture=Capturez une video avec votre webcam. Une fois qu'elle est enregistrée, choisissez Continue pour terminer le processus.
 
 add.contributemenu.cancel.button=Annuler
-add.contributemenu.next.button=Suivant &gt;&gt;
+add.contributemenu.next.button=Suivant
 
 ## SELECT A TEMPLATE DIALOG
 
@@ -1021,7 +1021,7 @@ add.selecttemplate.list4.thumbnail=/xwiki/bin/download/CreateResources/TemplateT
 add.selecttemplate.list4.url=/xwiki/bin/view/CreateResources/WebQuest
 
 add.selecttemplate.cancel.button=Annuler
-add.selecttemplate.next.button=Suivant &gt;&gt;
+add.selecttemplate.next.button=Suivant
 
 ## SELECT A FORMAT DIALOG
 
@@ -1041,7 +1041,7 @@ add.selectformat.list2.thumbnail=/xwiki/bin/download/CreateResources/TemplateThu
 add.selectformat.list2.url=/xwiki/bin/view/CreateResources/SimpleHTMLResource
 
 add.selectformat.cancel.button=Annuler
-add.selectformat.next.button=Suivant&gt;&gt;
+add.selectformat.next.button=Suivant
 
 ##CHOOSE A LOCATION DIALOG
 add.chooselocation.title=Choisissez une destination
@@ -1050,7 +1050,7 @@ add.chooselocation.instruction=Tirez la ressource et lâchez-la à l'emplacement
 add.chooselocation.instruction_short=Effectuez un glisser déposer pour classer la ressource:
 add.chooselocation.resource_unavailable=-- ressource non disponible --
 add.chooselocation.cancel.button=Annuler
-add.chooselocation.next.button=Suivant &gt;&gt;
+add.chooselocation.next.button=Suivant
 
 
 
@@ -1091,13 +1091,13 @@ add.finalmessage.text_favorites_success=Vous avez ajouté ceci à vos favoris.
 
 add.finalmessage.text_collection_success=Vous avez contribué une nouvelle collection avec succès.
 
-add.finalmessage.text_collection_tip1=Cliquez sur "Classer" sur le listing de "Mes collections" pour ajouter des ressources à la collection.
+add.finalmessage.text_collection_tip1=Cliquez sur "Contribuer" dans "Mes collections" pour ajouter une nouvelle ressource à la collection. Vous pouvez aussi cliquez sur "Classer" dans "Mes contributions" pour classer une ressource dans une collection.
 
 add.finalmessage.text_collection_tip2=
 
 add.finalmessage.text_groupcollection_success=Vous avez ajouté une nouvelle collection avec succès.
 
-add.finalmessage.text_groupcollection_tip1=Cliquez sur "Classer" sur le listing en dessous des collections du groupe pour ajouter des ressources dans cette collection.
+add.finalmessage.text_groupcollection_tip1=Cliquez sur "Contribuer" sur le listing des collections du groupe pour ajouter des ressources dans cette collection.
 
 add.finalmessage.text_groupcollection_tip2=
 
@@ -1117,7 +1117,7 @@ add.finalmessage.view.link=Visualiser
 
 
 add.finalmessage.viewtarget.link=Visualiser {0}
-add.finalmessage.continue.link=Suivant &gt;&gt;
+add.finalmessage.continue.link=Suivant
 add.finalmessage.openbuilder.link=
 add.finalmessage.close.button=Fermer
 
@@ -1128,11 +1128,11 @@ add.servertimedout.message.button=OK
 
 ## BOOKMARKLET
 bookmarklet.add.setrequiredinfo.part1.publish.button=Partager
-bookmarklet.add.setrequiredinfo.part1.next.button=Suivant &gt;&gt;
+bookmarklet.add.setrequiredinfo.part1.next.button=Suivant 
 
 bookmarklet.add.setrequiredinfo.cancel.button=Annuler
-bookmarklet.add.setrequiredinfo.previous.button=&lt;&lt; Précédent
-bookmarklet.add.setrequiredinfo.next.button=Suivant &gt;&gt;
+bookmarklet.add.setrequiredinfo.previous.button=Précédent
+bookmarklet.add.setrequiredinfo.next.button=Suivant
 bookmarklet.add.setrequiredinfo.publish.button=Valider
 
 bookmarklet.add.setrequiredinfo.switch.simple=Revenir à l'indexation simple
