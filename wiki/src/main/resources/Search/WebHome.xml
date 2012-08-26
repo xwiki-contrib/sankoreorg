@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345817160000</creationDate>
-<date>1345817160000</date>
-<contentUpdateDate>1345817160000</contentUpdateDate>
+<creationDate>1345991685000</creationDate>
+<date>1345991685000</date>
+<contentUpdateDate>1345991685000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources</title>
 <template></template>
@@ -2431,12 +2431,18 @@ background-image: url($xwiki.getSkinFile("/images/sprite_crs_ict_group.gif"));
 
 #search-results-resource .rating {
   float:right;
+  clear:right;
 }
 
 img.rating-icon {
   background-image: url($xwiki.getSkinFile("images/spritestars.png"));
   background-repeat: no-repeat;
 }
+
+.crs-text{
+  margin-right: 5px;
+}
+
 /** small stars **/
 #search-results-resource img.rating-icon {
   background-position: 100px 100px;
@@ -2616,7 +2622,8 @@ fieldset#search-advanced-resource {
     font-weight: normal;
     height: 47px;
     margin-bottom: 3px;
-    margin-top: 20px;
+    margin-top: 24px;
+    margin-left: 15px;
     text-shadow: 0.1em 0.1em 0.05em rgba(0, 0, 0, 0.2);
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   border-radius: 5px 5px 5px 5px;
@@ -2662,9 +2669,11 @@ fieldset#search-advanced-resource {
   margin: 17px 0 0 30px;
 }
 
+#*
 #search-termPanel-button-resource {
   margin-left:20px;
 }
+*#
 
 #search-termPanel-resource-form .right {
   text-align:right;
