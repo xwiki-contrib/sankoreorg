@@ -129,16 +129,7 @@ Curriki.module.addpath.group.init = function() {
                   ,scope:this
                 }
               }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-current', html:'1'}
-                ,{tag:'a', cls:'addpath-page circle', html:'2'}
-                ,{tag:'a', cls:'addpath-page circle', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}                
-                ]                
-            },'->',{
+            },'->','->',{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -180,96 +171,93 @@ Curriki.module.addpath.group.init = function() {
             }
             ,items:[{
     // Title
-               xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,id:'metadata-title'
-                ,cls:'information-header information-header-required'
-                ,children:[{
-                   tag:'span'
-                  ,id:'metadata-title-title'
-                  ,cls:'metadata-title'
-                  ,html:_('group.sri.title.title')
-                },{
-                   tag:'img'
-                  ,id:'metadata-title-info'
-                  ,cls:'metadata-tooltip'
-                  ,src:Curriki.ui.InfoImg
-                  ,qtip:_('group.sri.title.tooltip')
-                }]
-              }
-            },{
-               xtype:'textfield'
-              ,id:'metadata-title-entry'
-              ,name:'title'
-              ,emptyText:_('group.sri.title.empty')
-              ,allowBlank:false
-              ,preventMark:true
-              ,hideLabel:true
-              ,width:'80%'
-              ,value:Curriki.group.current.sri?Curriki.group.current.sri.title:''
-
-    // Description
-            },{
-               xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,id:'metadata-description'
-                ,cls:'information-header information-header-required'
-                ,children:[{
-                   tag:'span'
-                  ,id:'metadata-description-title'
-                  ,cls:'metadata-title'
-                  ,html:_('group.sri.description.title')
-                },{
-                   tag:'img'
-                  ,id:'metadata-description-info'
-                  ,cls:'metadata-tooltip'
-                  ,src:Curriki.ui.InfoImg
-                  ,qtip:_('group.sri.description.tooltip')
-                }]
-              }
-            },{
-               xtype:'textarea'
-              ,id:'metadata-description-entry'
-              ,name:'description'
-              ,emptyText:_('group.sri.description.empty')
-              ,allowBlank:false
-              ,preventMark:true
-              ,hideLabel:true
-              ,width:'80%'
-              ,value:Curriki.group.current.sri?Curriki.group.current.sri.description:''              
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                xtype:'box'
+                ,width:'25%'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-title'
+                  ,cls:'information-header information-header-required'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-title-title'
+                    ,cls:'metadata-title'
+                    ,html:_('group.sri.title.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-title-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.title.tooltip')
+                  }]
+                }
               },{
-    // Url shortcut
-               xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,id:'metadata-urlshortcut'
-                ,cls:'information-header information-header-required'
-                ,children:[{
-                   tag:'span'
-                  ,id:'metadata-urlshortcut-title'
-                  ,cls:'metadata-urlshortcut'
-                  ,html:_('group.sri.urlshortcut.title')
-                },{
-                   tag:'img'
-                  ,id:'metadata-urlshortcut-info'
-                  ,cls:'metadata-tooltip'
-                  ,src:Curriki.ui.InfoImg
-                  ,qtip:_('group.sri.urlshortcut.tooltip')
-                }]
-              }
+                xtype:'textfield'
+                ,id:'metadata-title-entry'
+                ,name:'title'
+                ,emptyText:_('group.sri.title.empty')
+                ,allowBlank:false
+                ,preventMark:true
+                ,hideLabel:true
+                ,width:'72%'
+                ,value:Curriki.group.current.sri?Curriki.group.current.sri.title:''
+              }]
             },{
-               xtype:'textfield'
-              ,id:'metadata-urlshortcut-entry'
-              ,name:'urlshortcut'
-              ,emptyText:_('group.sri.urlshortcut.empty')
-              ,allowBlank:true
-              ,preventMark:true
-              ,hideLabel:true
-              ,width:'80%'
-              ,value:Curriki.group.current.sri?Curriki.group.current.sri.urlshortcut:''}]
+    // Description
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,items:[{
+                xtype:'textarea'
+                ,id:'metadata-description-entry'
+                ,name:'description'
+                ,emptyText:_('bookmarklet.sri.description.empty_msg')
+                ,allowBlank:false
+                ,preventMark:true
+                ,hideLabel:true
+                ,value:Curriki.current.sri?Curriki.current.sri.description:''
+                ,width:'98%'
+              }]
+            },{
+    // Url shortcut
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                xtype:'box'
+                ,width:'37%'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-urlshortcut'
+                  ,cls:'information-header information-header-required'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-urlshortcut-title'
+                    ,cls:'metadata-urlshortcut'
+                    ,html:_('group.sri.urlshortcut.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-urlshortcut-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.urlshortcut.tooltip')
+                  }]
+                }              
+              },{
+                xtype:'textfield'
+                ,id:'metadata-urlshortcut-entry'
+                ,name:'urlshortcut'
+                ,emptyText:_('group.sri.urlshortcut.empty')
+                ,allowBlank:true
+                ,preventMark:true
+                ,hideLabel:true
+                ,width:'60%'
+                ,value:Curriki.group.current.sri?Curriki.group.current.sri.urlshortcut:''
+              }]
             }]
+          }]
         });
 
         AddPath.GroupMetadata1.superclass.initComponent.call(this);
@@ -313,25 +301,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'2'}
-                ,{tag:'a', cls:'addpath-page circle', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}                
-                ]                
-            },'->',{
+            },'->','->',{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -370,43 +340,38 @@ Curriki.module.addpath.group.init = function() {
             }
             ,items:[{
     // Education System
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{                 
+                xtype:'box'
+                ,width:'25%'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-education_system'
+                  ,cls:'information-header'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-education_system-title'
+                    ,cls:'metadata-title'
+                    ,html:_('group.sri.education_system.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-education_system-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.education_system.tooltip')
+                  }]
+                }
               },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,id:'metadata-education_system'
-                    ,cls:'information-header'
-                    ,children:[{
-                       tag:'span'
-                      ,id:'metadata-education_system-title'
-                      ,cls:'metadata-title'
-                      ,html:_('group.sri.education_system.title')
-                    },{
-                       tag:'img'
-                      ,id:'metadata-education_system-info'
-                      ,cls:'metadata-tooltip'
-                      ,src:Curriki.ui.InfoImg
-                      ,qtip:_('group.sri.education_system.tooltip')
-                    }]
-                  }
-                },{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:__('group.sri.education_system.txt')
-                    ,cls:'directions'
-                  }
-                },{
-                   xtype:'combo'
-                  ,id:'metadata-education_system-entry'
-                  ,hiddenName:'education_system'
-                  ,hideLabel:true
-                  ,width:'60%'
-                  ,mode:'local'
-                  ,store:Curriki.data.education_system.store
-                  ,displayField:'education_system'
+                xtype:'combo'
+                ,id:'metadata-education_system-entry'
+                ,hiddenName:'education_system'
+                ,hideLabel:true
+                ,width:'72%'
+                ,mode:'local'
+                ,store:Curriki.data.education_system.store
+                ,displayField:'education_system'
                   ,valueField:'id'
                   ,typeAhead:true
                   ,triggerAction:'all'
@@ -428,13 +393,15 @@ Curriki.module.addpath.group.init = function() {
                       })
                     }
                   }
-                }]
-
-    // Language
+                }]    
               },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
+    // Language
+                xtype:'container'
+                ,cls:'metadata-entry'
+                ,layout:'column'
+                ,items:[{                  
+                  xtype:'box'
+                  ,width:'25%'
                   ,autoEl:{
                      tag:'div'
                     ,id:'metadata-language'
@@ -453,35 +420,39 @@ Curriki.module.addpath.group.init = function() {
                     }]
                   }
                 },{
-                   xtype:'combo'
-                  ,id:'metadata-language-entry'
-                  ,hiddenName:'language'
-                  ,hideLabel:true
-                  ,width:'60%'
-                  ,mode:'local'
-                  ,store:Curriki.data.language.store
-                  ,displayField:'language'
-                  ,valueField:'id'
-                  ,typeAhead:true
-                  ,triggerAction:'all'
-                  ,emptyText:_('group.sri.language.empty')
-                  ,selectOnFocus:true
-                  ,forceSelection:true
-                  ,value:Curriki.group.current.sri.language?Curriki.group.current.sri.language
+                  xtype:'container'
+                  ,width:'75%'
+                  ,cls:'entry-body'
+                  ,items:[{
+                    xtype:'combo'
+                    ,id:'metadata-language-entry'
+                    ,hiddenName:'language'
+                    ,hideLabel:true                  
+                    ,mode:'local'
+                    ,store:Curriki.data.language.store
+                    ,displayField:'language'
+                    ,valueField:'id'
+                    ,typeAhead:true
+                    ,triggerAction:'all'
+                    ,emptyText:_('group.sri.language.empty')
+                    ,selectOnFocus:true
+                    ,forceSelection:true
+                    ,value:Curriki.group.current.sri.language?Curriki.group.current.sri.language
                     :Curriki.data.language.initial?Curriki.data.language.initial:undefined
-                  ,listeners:{
-                    render:function(comp){
-                      comp.findParentByType('apGM2').on('show', function() {
-                        if (!Ext.isEmpty(Curriki.group.current.metadata)) {
-                          var md = Curriki.group.current.metadata;
+                    ,listeners:{
+                      render:function(comp){
+                        comp.findParentByType('apGM2').on('show', function() {
+                          if (!Ext.isEmpty(Curriki.group.current.metadata)) {
+                            var md = Curriki.group.current.metadata;
 
-                          if (!Ext.isEmpty(md.language)){
-                            Ext.getCmp('metadata-language-entry').setValue(md.language);
+                            if (!Ext.isEmpty(md.language)){
+                              Ext.getCmp('metadata-language-entry').setValue(md.language);
+                            }
                           }
-                        }
-                      })
+                        })
+                      }
                     }
-                  }
+                  }]
                 }]
               }]
             }]
@@ -527,34 +498,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}                
-                ]                
-            },'->',{
+            },'->','->',{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -594,16 +538,10 @@ Curriki.module.addpath.group.init = function() {
             }
             ,items:[{
     // Educational Level
-              },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:__('group.sri.educational_level.txt')
-                    ,cls:'directions'
-                  }
-                },{
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
                   // A "TreeCheckBoxGroup" would be nice here
                    xtype:'numberfield'
                   ,id:'educational_level-validation'
@@ -732,43 +670,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM3'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}                
-                ]                
-            },'->',{
+            },'->','->',{
                text:_('add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -809,13 +711,11 @@ Curriki.module.addpath.group.init = function() {
               }              
             }*/
                 ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:__('group.sri.fw_items_txt')
-                    ,cls:'directions'
-                  }
-                },{
+                  // Subjects
+                   xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
                   // A "TreeCheckBoxGroup" would be nice here
                    xtype:'numberfield'
                   ,id:'fw_items-validation'
@@ -881,6 +781,7 @@ Curriki.module.addpath.group.init = function() {
                     }
                   })
                 })()]
+              }]                
             }]   
         });
 
@@ -924,52 +825,7 @@ Curriki.module.addpath.group.init = function() {
                 ,scope:this
                 }                  
               }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM3'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apGM4'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}                
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'5'}
-                ]                
-            },'->',{
+            },'->','->',{
                text:_('add.setrequiredinfo.publish.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -1006,10 +862,69 @@ Curriki.module.addpath.group.init = function() {
               }
             }
             ,items:[{
-// Access level              
-                 border:false
-                ,items:[{
+              // License Deed
+                 xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{ 
                    xtype:'box'
+                  ,autoEl:{
+                     tag:'div'
+                    ,id:'metadata-license'
+                    ,cls:'information-header'
+                    ,children:[{
+                       tag:'span'
+                      ,id:'metadata-license-title'
+                      ,cls:'metadata-title'
+                      ,html:_('group.sri.license.title')
+                    },{
+                       tag:'img'
+                      ,id:'metadata-license-info'
+                      ,cls:'metadata-tooltip'
+                      ,src:Curriki.ui.InfoImg
+                      ,qtip:_('group.sri.license.tooltip')
+                    }]
+                  }
+                },{
+                   xtype:'combo'
+                  ,id:'metadata-license-entry'
+                  ,hiddenName:'license'
+                  ,hideLabel:true
+                  ,width:460
+                  ,mode:'local'
+                  ,store:Curriki.data.license.store
+                  ,displayField:'license'
+                  ,valueField:'id'
+                  ,typeAhead:true
+                  ,triggerAction:'all'
+                  ,emptyText:_('group.sri.license.empty')
+                  ,selectOnFocus:true
+                  ,forceSelection:true
+                  ,value:Curriki.data.license.initial
+                    ?Curriki.data.license.initial
+                    :undefined
+                  ,listeners:{
+                    render:function(comp){
+                      comp.findParentByType('apGM5').on('show', function() {
+                        if (!Ext.isEmpty(Curriki.group.current.metadata)) {
+                          var md = Curriki.group.current.metadata;
+
+                          if (!Ext.isEmpty(md.licenseType)){
+                            Ext.getCmp('metadata-license-entry').setValue(md.licenseType);
+                          }
+                        }
+                      })
+                    }
+                  }
+                }]                
+            },{
+// Access level              
+                 xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{ 
+                   xtype:'box'
+                   ,width:'40%'
                   ,autoEl:{
                      tag:'div'
                     ,id:'metadata-access_level'
@@ -1053,8 +968,10 @@ Curriki.module.addpath.group.init = function() {
                 }]
 // Policy                
               },{
-                 border:false
-                ,items:[{
+                 xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{ 
                    xtype:'box'
                   ,autoEl:{
                      tag:'div'
@@ -1096,75 +1013,8 @@ Curriki.module.addpath.group.init = function() {
                       })
                     }
                   }
-                }]                           
-    // License Deed
-              },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,id:'metadata-license'
-                    ,cls:'information-header'
-                    ,children:[{
-                       tag:'span'
-                      ,id:'metadata-license-title'
-                      ,cls:'metadata-title'
-                      ,html:_('group.sri.license.title')
-                    },{
-                       tag:'img'
-                      ,id:'metadata-license-info'
-                      ,cls:'metadata-tooltip'
-                      ,src:Curriki.ui.InfoImg
-                      ,qtip:_('group.sri.license.tooltip')
-                    }]
-                  }
-                },{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:__('group.sri.license.txt')
-                    ,cls:'directions'
-                  }
-                },{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:_('groul.sri.license.heading')
-                  }
-                },{
-                   xtype:'combo'
-                  ,id:'metadata-license-entry'
-                  ,hiddenName:'license'
-                  ,hideLabel:true
-                  ,width:460
-                  ,mode:'local'
-                  ,store:Curriki.data.license.store
-                  ,displayField:'license'
-                  ,valueField:'id'
-                  ,typeAhead:true
-                  ,triggerAction:'all'
-                  ,emptyText:_('group.sri.license.empty')
-                  ,selectOnFocus:true
-                  ,forceSelection:true
-                  ,value:Curriki.data.license.initial
-                    ?Curriki.data.license.initial
-                    :undefined
-                  ,listeners:{
-                    render:function(comp){
-                      comp.findParentByType('apGM5').on('show', function() {
-                        if (!Ext.isEmpty(Curriki.group.current.metadata)) {
-                          var md = Curriki.group.current.metadata;
-
-                          if (!Ext.isEmpty(md.licenseType)){
-                            Ext.getCmp('metadata-license-entry').setValue(md.licenseType);
-                          }
-                        }
-                      })
-                    }
-                  }
-                }]                
-            }]
+                }]                              
+              }]
           }]
         });
 
@@ -1194,24 +1044,24 @@ Curriki.module.addpath.group.init = function() {
     }
    
     AddPath.GroupMetadataEdit1 = Ext.extend(Curriki.ui.dialog.Actions, {
-      initComponent:function(){
+      initComponent: function(){
         Ext.apply(this, {
-           title:_('group.add.setrequiredinfo.part1.title')
+          title:_('group.add.setrequiredinfo.part1.title')
           ,cls:'addpath addpath-metadata resource resource-add'          
           ,width:800
           ,items:[{
-             xtype:'panel'
+            xtype:'panel'
             ,cls:'guidingquestion-container'
             ,items:[{
-               xtype:'box'
+              xtype:'box'
               ,autoEl:{
-                 tag:'div'
+                tag:'div'
                 ,html:_('group.add.setrequiredinfo.part1.guidingquestion')
                 ,cls:'guidingquestion'
               }
             }]
           },{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -1220,92 +1070,46 @@ Curriki.module.addpath.group.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadata.Show('apGME2');                                       
+                text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.GroupMetadata.SetMetadata(this);
+                      this.close();
+                      AddPath.GroupMetadata.Show('apGME2');                                       
+                    }
+                    ,scope:this
                   }
-                  ,scope:this
                 }
-              }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-current', html:'1'}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+              },'->','->',{
+                text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
                       AddPath.GroupMetadata.SetMetadata(this);
                       this.close();
-                      AddPath.GroupMetadata.Show('apGME2');
+                      AddPath.GroupMetadataEditFinished();                    
                     }
                     ,scope:this
                   }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME3');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME4');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'5', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME5');
-                    }
-                    ,scope:this
-                  }
-                }}               
-                ]                
-            },'->',{
-               text:_('add.setrequiredinfo.publish.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadataEditFinished();                    
-                  }
-                  ,scope:this
                 }
-              }
-            }]
+              }]
             }
             ,monitorValid:true
             ,listeners:{
               render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
+    //TODO: Try to generalize this (for different # of panels)
+                fPanel.ownerCt.on('bodyresize'
                   ,function(wPanel, width, height){
                     if (height === 'auto') {
                       fPanel.setHeight('auto');
@@ -1318,96 +1122,93 @@ Curriki.module.addpath.group.init = function() {
             }
             ,items:[{
     // Title
-               xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,id:'metadata-title'
-                ,cls:'information-header information-header-required'
-                ,children:[{
-                   tag:'span'
-                  ,id:'metadata-title-title'
-                  ,cls:'metadata-title'
-                  ,html:_('group.sri.title.title')
-                },{
-                   tag:'img'
-                  ,id:'metadata-title-info'
-                  ,cls:'metadata-tooltip'
-                  ,src:Curriki.ui.InfoImg
-                  ,qtip:_('group.sri.title.tooltip')
-                }]
-              }
-            },{
-               xtype:'textfield'
-              ,id:'metadata-title-entry'
-              ,name:'title'
-              ,emptyText:_('group.sri.title.empty')
-              ,allowBlank:false
-              ,preventMark:true
-              ,hideLabel:true
-              ,width:'80%'
-              ,value:Curriki.group.current.sri?Curriki.group.current.sri.title:''
-
-    // Description
-            },{
-               xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,id:'metadata-description'
-                ,cls:'information-header information-header-required'
-                ,children:[{
-                   tag:'span'
-                  ,id:'metadata-description-title'
-                  ,cls:'metadata-title'
-                  ,html:_('group.sri.description.title')
-                },{
-                   tag:'img'
-                  ,id:'metadata-description-info'
-                  ,cls:'metadata-tooltip'
-                  ,src:Curriki.ui.InfoImg
-                  ,qtip:_('group.sri.description.tooltip')
-                }]
-              }
-            },{
-               xtype:'textarea'
-              ,id:'metadata-description-entry'
-              ,name:'description'
-              ,emptyText:_('group.sri.description.empty')
-              ,allowBlank:false
-              ,preventMark:true
-              ,hideLabel:true
-              ,width:'80%'
-              ,value:Curriki.group.current.sri?Curriki.group.current.sri.description:''              
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                xtype:'box'
+                ,width:'25%'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-title'
+                  ,cls:'information-header information-header-required'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-title-title'
+                    ,cls:'metadata-title'
+                    ,html:_('group.sri.title.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-title-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.title.tooltip')
+                  }]
+                }
               },{
-    // Url shortcut
-               xtype:'box'
-              ,autoEl:{
-                 tag:'div'
-                ,id:'metadata-urlshortcut'
-                ,cls:'information-header information-header-required'
-                ,children:[{
-                   tag:'span'
-                  ,id:'metadata-urlshortcut-title'
-                  ,cls:'metadata-urlshortcut'
-                  ,html:_('group.sri.urlshortcut.title')
-                },{
-                   tag:'img'
-                  ,id:'metadata-urlshortcut-info'
-                  ,cls:'metadata-tooltip'
-                  ,src:Curriki.ui.InfoImg
-                  ,qtip:_('group.sri.urlshortcut.tooltip')
-                }]
-              }
+                xtype:'textfield'
+                ,id:'metadata-title-entry'
+                ,name:'title'
+                ,emptyText:_('group.sri.title.empty')
+                ,allowBlank:false
+                ,preventMark:true
+                ,hideLabel:true
+                ,width:'72%'
+                ,value:Curriki.group.current.sri?Curriki.group.current.sri.title:''
+              }]    
             },{
-               xtype:'textfield'
-              ,id:'metadata-urlshortcut-entry'
-              ,name:'urlshortcut'
-              ,emptyText:_('group.sri.urlshortcut.empty')
-              ,allowBlank:true
-              ,preventMark:true
-              ,hideLabel:true
-              ,width:'80%'
-              ,value:Curriki.group.current.sri?Curriki.group.current.sri.urlshortcut:''}]
+    // Description
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,items:[{
+                xtype:'textarea'
+                ,id:'metadata-description-entry'
+                ,name:'description'
+                ,emptyText:_('bookmarklet.sri.description.empty_msg')
+                ,allowBlank:false
+                ,preventMark:true
+                ,hideLabel:true
+                ,value:Curriki.current.sri?Curriki.current.sri.description:''
+                ,width:'98%'
+              }]
+            },{
+    // Url shortcut
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                xtype:'box'
+                ,width:'37%'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-urlshortcut'
+                  ,cls:'information-header information-header-required'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-urlshortcut-title'
+                    ,cls:'metadata-urlshortcut'
+                    ,html:_('group.sri.urlshortcut.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-urlshortcut-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.urlshortcut.tooltip')
+                  }]
+                }
+              },{
+                xtype:'textfield'
+                ,id:'metadata-urlshortcut-entry'
+                ,name:'urlshortcut'
+                ,emptyText:_('group.sri.urlshortcut.empty')
+                ,allowBlank:true
+                ,preventMark:true
+                ,hideLabel:true
+                ,width:'60%'
+                ,value:Curriki.group.current.sri?Curriki.group.current.sri.urlshortcut:''
+              }]
             }]
+          }]
         });
 
         AddPath.GroupMetadataEdit1.superclass.initComponent.call(this);
@@ -1417,13 +1218,13 @@ Curriki.module.addpath.group.init = function() {
 
 
     AddPath.GroupMetadataEdit2 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('group.add.setrequiredinfo.part2.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -1432,99 +1233,54 @@ Curriki.module.addpath.group.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadata.Show('apGME1');                  
-                  }
-                  ,scope:this
-                }                  
-              }
-            },{
-               text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadata.Show('apGME3');                    
-                  }
-                  ,scope:this
+                text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev) {
+                      AddPath.GroupMetadata.SetMetadata(this);
+                      this.close();
+                      AddPath.GroupMetadata.Show('apGME1');                  
+                    }
+                    ,scope:this
+                  }                  
                 }
-              }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+              },{
+                text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
                       AddPath.GroupMetadata.SetMetadata(this);
                       this.close();
-                      AddPath.GroupMetadata.Show('apGME1');
+                      AddPath.GroupMetadata.Show('apGME3');                    
                     }
                     ,scope:this
                   }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'2'}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME3');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME4');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'5', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME5');
-                    }
-                    ,scope:this
-                  }
-                }}               
-                ]                
-            },'->',{
-               text:_('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadataEditFinished();                    
-                  }
-                  ,scope:this
                 }
-              }
-            }]
+              },'->','->',{
+                text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.GroupMetadata.SetMetadata(this);
+                      this.close();
+                      AddPath.GroupMetadataEditFinished();                    
+                    }
+                    ,scope:this
+                  }
+                }
+              }]
             }
             ,monitorValid:true
             ,listeners:{
@@ -1543,122 +1299,119 @@ Curriki.module.addpath.group.init = function() {
               }
             }
             ,items:[{
-    // Education System
-              },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,id:'metadata-education_system'
-                    ,cls:'information-header'
-                    ,children:[{
-                       tag:'span'
-                      ,id:'metadata-education_system-title'
-                      ,cls:'metadata-title'
-                      ,html:_('group.sri.education_system.title')
-                    },{
-                       tag:'img'
-                      ,id:'metadata-education_system-info'
-                      ,cls:'metadata-tooltip'
-                      ,src:Curriki.ui.InfoImg
-                      ,qtip:_('group.sri.education_system.tooltip')
-                    }]
-                  }
-                },{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:__('group.sri.education_system.txt')
-                    ,cls:'directions'
-                  }
-                },{
-                   xtype:'combo'
-                  ,id:'metadata-education_system-entry'
-                  ,hiddenName:'education_system'
-                  ,hideLabel:true
-                  ,width:'60%'
-                  ,mode:'local'
-                  ,store:Curriki.data.education_system.store
-                  ,displayField:'education_system'
-                  ,valueField:'id'
-                  ,typeAhead:true
-                  ,triggerAction:'all'
-                  ,emptyText:_('group.sri.education_system.empty')
-                  ,selectOnFocus:true
-                  ,forceSelection:true
-                  ,value:Curriki.group.current.sri.education_system?Curriki.group.current.sri.education_system
-                    :Curriki.data.education_system.initial?Curriki.data.education_system.initial:undefined
-                  ,listeners:{
-                    render:function(comp){
-                      comp.findParentByType('apGME2').on('show', function() {
-                        if (!Ext.isEmpty(Curriki.group.current.metadata)) {
-                          var md = Curriki.group.current.metadata;
+  // Education System
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{                   
+                xtype:'box'
+                ,width:'25%'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-education_system'
+                  ,cls:'information-header'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-education_system-title'
+                    ,cls:'metadata-title'
+                    ,html:_('group.sri.education_system.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-education_system-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.education_system.tooltip')
+                  }]
+                }              
+              },{                
+                xtype:'combo'
+                ,id:'metadata-education_system-entry'
+                ,hiddenName:'education_system'
+                ,hideLabel:true
+                ,width:'60%'
+                ,mode:'local'
+                ,store:Curriki.data.education_system.store
+                ,displayField:'education_system'
+                ,valueField:'id'
+                ,typeAhead:true
+                ,triggerAction:'all'
+                ,emptyText:_('group.sri.education_system.empty')
+                ,selectOnFocus:true
+                ,forceSelection:true
+                ,value:Curriki.group.current.sri.education_system?Curriki.group.current.sri.education_system
+                  :Curriki.data.education_system.initial?Curriki.data.education_system.initial:undefined
+                ,listeners:{
+                  render:function(comp){
+                    comp.findParentByType('apGME2').on('show', function() {
+                      if (!Ext.isEmpty(Curriki.group.current.metadata)) {
+                        var md = Curriki.group.current.metadata;
 
-                          if (!Ext.isEmpty(md.education_system)){
-                            Ext.getCmp('metadata-education_system-entry').setValue(md.education_system);
-                          }
+                        if (!Ext.isEmpty(md.education_system)){
+                          Ext.getCmp('metadata-education_system-entry').setValue(md.education_system);
                         }
-                      })
-                    }
+                      }
+                    })
                   }
-                }]
-
-    // Language
+                }
+              }]
+            },{
+  // Language              
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                xtype:'box'
+                ,width:'25%'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-language'
+                  ,cls:'information-header'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-language-title'
+                    ,cls:'metadata-title'
+                    ,html:_('group.sri.language.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-language-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.language.tooltip')
+                  }]
+                }
               },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,id:'metadata-language'
-                    ,cls:'information-header'
-                    ,children:[{
-                       tag:'span'
-                      ,id:'metadata-language-title'
-                      ,cls:'metadata-title'
-                      ,html:_('group.sri.language.title')
-                    },{
-                       tag:'img'
-                      ,id:'metadata-language-info'
-                      ,cls:'metadata-tooltip'
-                      ,src:Curriki.ui.InfoImg
-                      ,qtip:_('group.sri.language.tooltip')
-                    }]
-                  }
-                },{
-                   xtype:'combo'
-                  ,id:'metadata-language-entry'
-                  ,hiddenName:'language'
-                  ,hideLabel:true
-                  ,width:'60%'
-                  ,mode:'local'
-                  ,store:Curriki.data.language.store
-                  ,displayField:'language'
-                  ,valueField:'id'
-                  ,typeAhead:true
-                  ,triggerAction:'all'
-                  ,emptyText:_('group.sri.language.empty')
-                  ,selectOnFocus:true
-                  ,forceSelection:true
-                  ,value:Curriki.group.current.sri.language?Curriki.group.current.sri.language
-                    :Curriki.data.language.initial?Curriki.data.language.initial:undefined
-                  ,listeners:{
-                    render:function(comp){
-                      comp.findParentByType('apGME2').on('show', function() {
-                        if (!Ext.isEmpty(Curriki.group.current.metadata)) {
-                          var md = Curriki.group.current.metadata;
+                xtype:'combo'
+                ,id:'metadata-language-entry'
+                ,hiddenName:'language'
+                ,hideLabel:true
+                ,width:'72%'
+                ,mode:'local'
+                ,store:Curriki.data.language.store
+                ,displayField:'language'
+                ,valueField:'id'
+                ,typeAhead:true
+                ,triggerAction:'all'
+                ,emptyText:_('group.sri.language.empty')
+                ,selectOnFocus:true
+                ,forceSelection:true
+                ,value:Curriki.group.current.sri.language?Curriki.group.current.sri.language
+                  :Curriki.data.language.initial?Curriki.data.language.initial:undefined
+                ,listeners:{
+                  render:function(comp){
+                    comp.findParentByType('apGME2').on('show', function() {
+                      if (!Ext.isEmpty(Curriki.group.current.metadata)) {
+                        var md = Curriki.group.current.metadata;
 
-                          if (!Ext.isEmpty(md.language)){
-                            Ext.getCmp('metadata-language-entry').setValue(md.language);
-                          }
+                        if (!Ext.isEmpty(md.language)){
+                          Ext.getCmp('metadata-language-entry').setValue(md.language);
                         }
-                      })
-                    }
+                      }
+                    })
                   }
-                }]
+                }
               }]
             }]
+          }]
         });
 
         AddPath.GroupMetadataEdit2.superclass.initComponent.call(this);
@@ -1667,13 +1420,13 @@ Curriki.module.addpath.group.init = function() {
     Ext.reg('apGME2', AddPath.GroupMetadataEdit2);
     
     AddPath.GroupMetadataEdit3 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('group.add.setrequiredinfo.part3.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -1682,99 +1435,54 @@ Curriki.module.addpath.group.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadata.Show('apGME2'); 
+                text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      AddPath.GroupMetadata.SetMetadata(this);
+                      this.close();
+                      AddPath.GroupMetadata.Show('apGME2'); 
+                    }
+                    ,scope:this
+                  }                  
                 }
-                ,scope:this
-                }                  
-              }
-            },{
-               text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadata.Show('apGME4');                    
+              },{
+                text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.GroupMetadata.SetMetadata(this);
+                      this.close();
+                      AddPath.GroupMetadata.Show('apGME4');                    
+                    }
+                    ,scope:this
                   }
-                  ,scope:this
                 }
-              }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+              },'->','->',{
+                text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
                       AddPath.GroupMetadata.SetMetadata(this);
                       this.close();
-                      AddPath.GroupMetadata.Show('apGME1'); 
+                      AddPath.GroupMetadataEditFinished();                    
                     }
                     ,scope:this
                   }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME2');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME4');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'5', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME5');
-                    }
-                    ,scope:this
-                  }
-                }}              
-                ]                
-            },'->',{
-               text:_('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadataEditFinished();                    
-                  }
-                  ,scope:this
                 }
-              }
-            }]
+              }]
             }
             ,monitorValid:true
             ,listeners:{
@@ -1793,84 +1501,77 @@ Curriki.module.addpath.group.init = function() {
               }
             }
             ,items:[{
-    // Educational Level
-              },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:__('group.sri.educational_level.txt')
-                    ,cls:'directions'
-                  }
-                },{
-                  // A "TreeCheckBoxGroup" would be nice here
-                   xtype:'numberfield'
-                  ,id:'educational_level-validation'
-                  ,allowBlank:false
-                  ,preventMark:true
-                  ,minValue:1
-                  ,hidden:true
-                  ,listeners:{
-                     valid:function(field){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('el-tree');
-                      fieldset.removeClass('x-form-invalid');
-                      fieldset.el.dom.qtip = '';
+  // Educational Level
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                // A "TreeCheckBoxGroup" would be nice here
+                xtype:'numberfield'
+                ,id:'educational_level-validation'
+                ,allowBlank:false
+                ,preventMark:true
+                ,minValue:1
+                ,hidden:true
+                ,listeners:{
+                  valid:function(field){
+                    if (!this.rendered || this.preventMark) {
+                      return;
                     }
-                    ,invalid:function(field, msg){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('el-tree');
-                      fieldset.addClass('x-form-invalid');
-                      var iMsg = field.invalidText;
-                      fieldset.el.dom.qtip = iMsg;
-                      fieldset.el.dom.qclass = 'x-form-invalid-tip';
-                      if(Ext.QuickTips){ // fix for floating editors interacting with DND
-                        Ext.QuickTips.enable();
-                      }
-
+                    var fieldset = Ext.getCmp('el-tree');
+                    fieldset.removeClass('x-form-invalid');
+                    fieldset.el.dom.qtip = '';
+                  }
+                  ,invalid:function(field, msg){
+                    if (!this.rendered || this.preventMark) {
+                      return;
+                    }
+                    var fieldset = Ext.getCmp('el-tree');
+                    fieldset.addClass('x-form-invalid');
+                    var iMsg = field.invalidText;
+                    fieldset.el.dom.qtip = iMsg;
+                    fieldset.el.dom.qclass = 'x-form-invalid-tip';
+                    if(Ext.QuickTips){ // fix for floating editors interacting with DND
+                      Ext.QuickTips.enable();
                     }
                   }
                 }
-                ,(function(){
-                  var checkedCount = 0;
-                  var md = Curriki.group.current.metadata;
-                  if (md) {
-                    var el = md.educational_level;
-                    Ext.isArray(el) && (function(ca){
-                      var childrenFn = arguments.callee;
-                      Ext.each(ca, function(c){
-                        if (c.id) {
-                          if (c.checked = (el.indexOf(c.id) !== -1)) {
-                            checkedCount++;
-                          }
-                          if (c.children) {
-                            childrenFn(c.children);
-                          }
+              }
+              ,(function(){
+                var checkedCount = 0;
+                var md = Curriki.group.current.metadata;
+                if (md) {
+                  var el = md.educational_level;
+                  Ext.isArray(el) && (function(ca){
+                    var childrenFn = arguments.callee;
+                    Ext.each(ca, function(c){
+                      if (c.id) {
+                        if (c.checked = (el.indexOf(c.id) !== -1)) {
+                          checkedCount++;
                         }
-                      });
-                    })(Curriki.data.el.elChildren);
-                  }
-                  return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(Curriki.group.current.sri.education_system), {
-                    listeners: {
-                      render:function(comp){
-                        comp.findParentByType('apGME3').on('show', function() {
-                          Ext.getCmp('educational_level-validation').setValue(checkedCount)
-                        });                       
+                        if (c.children) {
+                          childrenFn(c.children);
+                        }
                       }
-                      ,resize: function(comp) {
-                        var ct = comp.findParentByType('apGME3');
-                        ct.syncSize();
-                      }
+                    });
+                  })(Curriki.data.el.elChildren);
+                }
+                return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(Curriki.group.current.sri.education_system), {
+                  listeners: {
+                    render:function(comp){
+                      comp.findParentByType('apGME3').on('show', function() {
+                        Ext.getCmp('educational_level-validation').setValue(checkedCount)
+                      });                       
                     }
-                  })
-                })()] 
-              }]
-            }]   
+                    ,resize: function(comp) {
+                      var ct = comp.findParentByType('apGME3');
+                      ct.syncSize();
+                    }
+                  }
+                })
+              })()] 
+            }]
+          }]   
         });
 
         AddPath.GroupMetadataEdit3.superclass.initComponent.call(this);
@@ -1879,7 +1580,7 @@ Curriki.module.addpath.group.init = function() {
     Ext.reg('apGME3', AddPath.GroupMetadataEdit3);
     
     AddPath.GroupMetadataEdit4 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('group.add.setrequiredinfo.part4.title')
           ,cls:'addpath addpath-metadata resource resource-add'
@@ -1891,14 +1592,14 @@ Curriki.module.addpath.group.init = function() {
             resize: function(ct) {
               console.log('window resize');
               var cmp = ct;
-              }
+            }
             ,bodyresize: function(ct) {
               console.log('window bodyresize');
               var cmp = ct;
-              }
+            }
           }
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -1907,105 +1608,60 @@ Curriki.module.addpath.group.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,listeners: {
               resize: function(ct) {
                 console.log("form resize");
                 var cmp = ct.ownerCt;
-                }                     
+              }                     
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadata.Show('apGME3'); 
+                text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      AddPath.GroupMetadata.SetMetadata(this);
+                      this.close();
+                      AddPath.GroupMetadata.Show('apGME3'); 
+                    }
+                    ,scope:this
+                  }                  
                 }
-                ,scope:this
-                }                  
-              }
-            },'->',{
-               text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadata.Show('apGME5');                    
+              },{
+                text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.GroupMetadata.SetMetadata(this);
+                      this.close();
+                      AddPath.GroupMetadata.Show('apGME5');                    
+                    }
+                    ,scope:this
                   }
-                  ,scope:this
                 }
-              }
-            },{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+              },'->','->',{
+                text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
                       AddPath.GroupMetadata.SetMetadata(this);
                       this.close();
-                      AddPath.GroupMetadata.Show('apGME1');
+                      AddPath.GroupMetadataEditFinished();                    
                     }
                     ,scope:this
                   }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME2');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME3');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'5', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME5');
-                    }
-                    ,scope:this
-                  }
-                }}               
-                ]                
-            },'->',{
-               text:_('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadataEditFinished();                    
-                  }
-                  ,scope:this
                 }
-              }
-            }]
+              }]
             }
             ,monitorValid:true
             /*
@@ -2024,80 +1680,78 @@ Curriki.module.addpath.group.init = function() {
                 );
               }              
             }*/
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:__('group.sri.fw_items_txt')
-                    ,cls:'directions'
-                  }
-                },{
-                  // A "TreeCheckBoxGroup" would be nice here
-                   xtype:'numberfield'
-                  ,id:'fw_items-validation'
-                  ,allowBlank:false
-                  ,preventMark:true
-                  ,minValue:1
-                  ,hidden:true
-                  ,listeners:{
-                     valid:function(field){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('fw_items-tree');
-                      fieldset.removeClass('x-form-invalid');
-                      fieldset.el.dom.qtip = '';
+            ,items:[{
+  // Subjects              
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{
+                // A "TreeCheckBoxGroup" would be nice here
+                xtype:'numberfield'
+                ,id:'fw_items-validation'
+                ,allowBlank:false
+                ,preventMark:true
+                ,minValue:1
+                ,hidden:true
+                ,listeners:{
+                  valid:function(field){
+                    if (!this.rendered || this.preventMark) {
+                      return;
                     }
-                    ,invalid:function(field, msg){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('fw_items-tree');
-                      fieldset.addClass('x-form-invalid');
-                      var iMsg = field.invalidText;
-                      fieldset.el.dom.qtip = iMsg;
-                      fieldset.el.dom.qclass = 'x-form-invalid-tip';
-                      if(Ext.QuickTips){ // fix for floating editors interacting with DND
-                        Ext.QuickTips.enable();
-                      }
-
+                    var fieldset = Ext.getCmp('fw_items-tree');
+                    fieldset.removeClass('x-form-invalid');
+                    fieldset.el.dom.qtip = '';
+                  }
+                  ,invalid:function(field, msg){
+                    if (!this.rendered || this.preventMark) {
+                      return;
+                    }
+                    var fieldset = Ext.getCmp('fw_items-tree');
+                    fieldset.addClass('x-form-invalid');
+                    var iMsg = field.invalidText;
+                    fieldset.el.dom.qtip = iMsg;
+                    fieldset.el.dom.qclass = 'x-form-invalid-tip';
+                    if(Ext.QuickTips){ // fix for floating editors interacting with DND
+                      Ext.QuickTips.enable();
                     }
                   }
                 }
-                ,(function(){
-                  var checkedCount = 0;
-                  var md = Curriki.group.current.metadata;
-                  if (md) {
-                    var fw = md.disciplines;
-                    Ext.isArray(fw) && (function(ca){
-                      var childrenFn = arguments.callee;
-                      Ext.each(ca, function(c){
-                        if (c.id) {
-                          if (c.checked = (fw.indexOf(c.id) !== -1)) {
-                            checkedCount++;
-                          }
-                          if (c.children) {
-                            childrenFn(c.children);
-                          }
+              }
+              ,(function(){
+                var checkedCount = 0;
+                var md = Curriki.group.current.metadata;
+                if (md) {
+                  var fw = md.disciplines;
+                  Ext.isArray(fw) && (function(ca){
+                    var childrenFn = arguments.callee;
+                    Ext.each(ca, function(c){
+                      if (c.id) {
+                        if (c.checked = (fw.indexOf(c.id) !== -1)) {
+                          checkedCount++;
                         }
+                        if (c.children) {
+                          childrenFn(c.children);
+                        }
+                      }
+                    });
+                  })(Curriki.data.fw_item.fwChildren);
+                }
+                return Ext.apply(AddPath.fwTree = Curriki.ui.component.asset.getFwTree(Curriki.group.current.sri.educational_level), {
+                  listeners: {
+                    render:function(comp){
+                      comp.findParentByType('apGME4').on('show', function() {
+                        Ext.getCmp('fw_items-validation').setValue(checkedCount)
                       });
-                    })(Curriki.data.fw_item.fwChildren);
-                  }
-                  return Ext.apply(AddPath.fwTree = Curriki.ui.component.asset.getFwTree(Curriki.group.current.sri.educational_level), {
-                    listeners: {
-                      render:function(comp){
-                        comp.findParentByType('apGME4').on('show', function() {
-                          Ext.getCmp('fw_items-validation').setValue(checkedCount)
-                        });
-                      }
-                      ,resize: function(comp) {
-                        var ct = comp.findParentByType('apGME4');
-                        ct.syncSize();
-                      }
                     }
-                  })
-                })()]
-            }]   
+                    ,resize: function(comp) {
+                      var ct = comp.findParentByType('apGME4');
+                      ct.syncSize();
+                    }
+                  }
+                })
+              })()]
+            }]
+          }]   
         });
 
         AddPath.GroupMetadataEdit4.superclass.initComponent.call(this);
@@ -2106,13 +1760,13 @@ Curriki.module.addpath.group.init = function() {
     Ext.reg('apGME4', AddPath.GroupMetadataEdit4);               
         
     AddPath.GroupMetadataEdit5 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('group.add.setrequiredinfo.part5.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -2121,7 +1775,7 @@ Curriki.module.addpath.group.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
@@ -2136,70 +1790,25 @@ Curriki.module.addpath.group.init = function() {
                     AddPath.GroupMetadata.SetMetadata(this);
                     this.close();
                     AddPath.GroupMetadata.Show('apGME4'); 
-                }
-                ,scope:this
-                }                  
-              }
-            },'->',{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME1');                      
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME2');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME3');
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.GroupMetadata.SetMetadata(this);
-                      this.close();
-                      AddPath.GroupMetadata.Show('apGME4');
-                    }
-                    ,scope:this
-                  }
-                }}                
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'5'}
-                ]                
-            },'->',{
-               text:_('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.GroupMetadata.SetMetadata(this);
-                    this.close();
-                    AddPath.GroupMetadataEditFinished();                    
                   }
                   ,scope:this
+                  }                  
                 }
-              }
-            }]
+              },'->','->',{
+                text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.GroupMetadata.SetMetadata(this);
+                      this.close();
+                      AddPath.GroupMetadataEditFinished();                    
+                    }
+                    ,scope:this
+                  }
+                }
+              }]
             }
             ,monitorValid:true
             ,listeners:{
@@ -2218,164 +1827,155 @@ Curriki.module.addpath.group.init = function() {
               }
             }
             ,items:[{
+  // License Deed
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{ 
+                xtype:'box'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-license'
+                  ,cls:'information-header'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-license-title'
+                    ,cls:'metadata-title'
+                    ,html:_('group.sri.license.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-license-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.license.tooltip')
+                  }]
+                }
+              },{
+                xtype:'combo'
+                ,id:'metadata-license-entry'
+                ,hiddenName:'license'
+                ,hideLabel:true
+                ,width:460
+                ,mode:'local'
+                ,store:Curriki.data.license.store
+                ,displayField:'license'
+                ,valueField:'id'
+                ,typeAhead:true
+                ,triggerAction:'all'
+                ,emptyText:_('group.sri.license.empty')
+                ,selectOnFocus:true
+                ,forceSelection:true
+                ,value:Curriki.data.license.initial
+                  ?Curriki.data.license.initial
+                  :undefined
+                ,listeners:{
+                  render:function(comp){
+                    comp.findParentByType('apGME5').on('show', function() {
+                      if (!Ext.isEmpty(Curriki.group.current.metadata)) {
+                        var md = Curriki.group.current.metadata;
+                        if (!Ext.isEmpty(md.licenseType)){
+                          Ext.getCmp('metadata-license-entry').setValue(md.licenseType);
+                        }
+                      }
+                    })
+                  }
+                }
+              }]                
+            },{
 // Access level              
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,id:'metadata-access_level'
-                    ,cls:'information-header'
-                    ,children:[{
-                       tag:'span'
-                      ,id:'metadata-access_level-title'
-                      ,cls:'metadata-title'
-                      ,html:_('group.sri.access_level.title')
-                    },{
-                       tag:'img'
-                      ,id:'metadata-access_level-info'
-                      ,cls:'metadata-tooltip'
-                      ,src:Curriki.ui.InfoImg
-                      ,qtip:_('group.sri.access_level.tooltip')
-                    }]
-                  }
-                },{
-                   border:false
-                  ,xtype:'radiogroup'
-                  ,width:588
-                  ,columns:[.95]
-                  ,vertical:true
-                  ,defaults:{
-                    name:'access_level'
-                  }
-                  ,items:Curriki.data.access_level.radios
-                  ,listeners:{
-                    render:function(comp){
-                      comp.findParentByType('apGME5').on('show', function() {
-                        if (!Ext.isEmpty(Curriki.group.current.metadata)) {
-                          var md = Curriki.group.current.metadata;
-
-                          if (!Ext.isEmpty(md.access_level)){
-                            Ext.getCmp(Ext.select('input[type="radio"][name="access_level"][value="'+md.access_level+'"]').first().dom.id).setValue(md.access_level);
-                          }
-                        }
-                      })
-                    }
-                  }
-                }]
-// Policy                
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{ 
+                xtype:'box'
+                ,width:'40%'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-access_level'
+                  ,cls:'information-header'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-access_level-title'
+                    ,cls:'metadata-title'
+                    ,html:_('group.sri.access_level.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-access_level-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.access_level.tooltip')
+                  }]
+                }
               },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,id:'metadata-policy'
-                    ,cls:'information-header'
-                    ,children:[{
-                       tag:'span'
-                      ,id:'metadata-policy-title'
-                      ,cls:'metadata-title'
-                      ,html:_('group.sri.policy.title')
-                    },{
-                       tag:'img'
-                      ,id:'metadata-policy-info'
-                      ,cls:'metadata-tooltip'
-                      ,src:Curriki.ui.InfoImg
-                      ,qtip:_('group.sri.policy.tooltip')
-                    }]
-                  }
-                },{
-                   border:false
-                  ,xtype:'radiogroup'
-                  ,width:588
-                  ,columns:[.95]
-                  ,vertical:true
-                  ,defaults:{
-                    name:'policy'
-                  }
-                  ,items:Curriki.data.policy.radios
-                  ,listeners:{
-                    render:function(comp){
-                      comp.findParentByType('apGME5').on('show', function() {
-                        if (!Ext.isEmpty(Curriki.group.current.metadata)) {
-                          var md = Curriki.group.current.metadata;
-
-                          if (!Ext.isEmpty(md.access_level)){
-                            Ext.getCmp(Ext.select('input[type="radio"][name="policy"][value="'+md.policy+'"]').first().dom.id).setValue(md.policy);
-                          }
+                border:false
+                ,xtype:'radiogroup'
+                ,width:588
+                ,columns:[.95]
+                ,vertical:true
+                ,defaults:{
+                  name:'access_level'
+                }
+                ,items:Curriki.data.access_level.radios
+                ,listeners:{
+                  render:function(comp){
+                    comp.findParentByType('apGME5').on('show', function() {
+                      if (!Ext.isEmpty(Curriki.group.current.metadata)) {
+                        var md = Curriki.group.current.metadata;
+                        if (!Ext.isEmpty(md.access_level)){
+                          Ext.getCmp(Ext.select('input[type="radio"][name="access_level"][value="'+md.access_level+'"]').first().dom.id).setValue(md.access_level);
                         }
-                      })
-                    }
+                      }
+                    })
                   }
-                }]                           
-    // License Deed
+                }
+              }]
+            },{
+  // Policy                
+              xtype:'container'
+              ,cls:'metadata-entry'
+              ,layout:'column'
+              ,items:[{ 
+                xtype:'box'
+                ,autoEl:{
+                  tag:'div'
+                  ,id:'metadata-policy'
+                  ,cls:'information-header'
+                  ,children:[{
+                    tag:'span'
+                    ,id:'metadata-policy-title'
+                    ,cls:'metadata-title'
+                    ,html:_('group.sri.policy.title')
+                  },{
+                    tag:'img'
+                    ,id:'metadata-policy-info'
+                    ,cls:'metadata-tooltip'
+                    ,src:Curriki.ui.InfoImg
+                    ,qtip:_('group.sri.policy.tooltip')
+                  }]
+                }
               },{
-                 border:false
-                ,items:[{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,id:'metadata-license'
-                    ,cls:'information-header'
-                    ,children:[{
-                       tag:'span'
-                      ,id:'metadata-license-title'
-                      ,cls:'metadata-title'
-                      ,html:_('group.sri.license.title')
-                    },{
-                       tag:'img'
-                      ,id:'metadata-license-info'
-                      ,cls:'metadata-tooltip'
-                      ,src:Curriki.ui.InfoImg
-                      ,qtip:_('group.sri.license.tooltip')
-                    }]
-                  }
-                },{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:__('group.sri.license.txt')
-                    ,cls:'directions'
-                  }
-                },{
-                   xtype:'box'
-                  ,autoEl:{
-                     tag:'div'
-                    ,html:_('groul.sri.license.heading')
-                  }
-                },{
-                   xtype:'combo'
-                  ,id:'metadata-license-entry'
-                  ,hiddenName:'license'
-                  ,hideLabel:true
-                  ,width:460
-                  ,mode:'local'
-                  ,store:Curriki.data.license.store
-                  ,displayField:'license'
-                  ,valueField:'id'
-                  ,typeAhead:true
-                  ,triggerAction:'all'
-                  ,emptyText:_('group.sri.license.empty')
-                  ,selectOnFocus:true
-                  ,forceSelection:true
-                  ,value:Curriki.data.license.initial
-                    ?Curriki.data.license.initial
-                    :undefined
-                  ,listeners:{
-                    render:function(comp){
-                      comp.findParentByType('apGME5').on('show', function() {
-                        if (!Ext.isEmpty(Curriki.group.current.metadata)) {
-                          var md = Curriki.group.current.metadata;
-
-                          if (!Ext.isEmpty(md.licenseType)){
-                            Ext.getCmp('metadata-license-entry').setValue(md.licenseType);
-                          }
+                border:false
+                ,xtype:'radiogroup'
+                ,width:588
+                ,columns:[.95]
+                ,vertical:true
+                ,defaults:{
+                  name:'policy'
+                }
+                ,items:Curriki.data.policy.radios
+                ,listeners:{
+                  render:function(comp){
+                    comp.findParentByType('apGME5').on('show', function() {
+                      if (!Ext.isEmpty(Curriki.group.current.metadata)) {
+                        var md = Curriki.group.current.metadata;
+                        if (!Ext.isEmpty(md.access_level)){
+                          Ext.getCmp(Ext.select('input[type="radio"][name="policy"][value="'+md.policy+'"]').first().dom.id).setValue(md.policy);
                         }
-                      })
-                    }
+                      }
+                    })
                   }
-                }]                
+                }
+              }]                               
             }]
           }]
         });

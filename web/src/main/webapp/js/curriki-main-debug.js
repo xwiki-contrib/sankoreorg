@@ -3023,7 +3023,7 @@ Curriki.ui.component.asset.getFwTree = function(filters) {
     useArrows: true,
     autoHeight: false,
     border: false,
-    cls: 'fw-tree',
+    cls: 'addpath-tree',
     animate: true,
     enableDD: false,
     containerScroll: true,
@@ -3046,7 +3046,7 @@ Curriki.ui.component.asset.getElTree = function(filters) {
     ,useArrows: true
     ,autoHeight: false
     ,border: false
-    ,cls: 'el-tree'
+    ,cls: 'addpath-tree'
     ,animate: true
     ,enableDD: false
     ,containerScroll: true
@@ -3076,7 +3076,7 @@ Curriki.ui.component.asset.getIctTree = function() {
     useArrows: true,
     autoHeight: false,
     border: false,
-    cls: 'ict-tree',
+    cls: 'addpath-tree',
     animate: true,
     enableDD: false,
     containerScroll: true,

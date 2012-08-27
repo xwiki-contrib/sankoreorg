@@ -27,7 +27,7 @@ module.init = function(){
 
   module.logFilterList = {
     'resource':['subject', 'level', 'language', 'ict', 'review', 'special', 'other', 'sort', 'dir']
-		,'external':['subject', 'level', 'language', 'ict', 'review', 'special', 'other', 'sort', 'dir']
+    ,'external':['subject', 'level', 'language', 'ict', 'review', 'special', 'other', 'sort', 'dir']
     ,'group':['subject', 'level', 'language', 'policy', 'other', 'sort', 'dir']
     ,'member':['subject', 'member_type', 'country', 'other', 'sort', 'dir']
     ,'blog':['other', 'sort', 'dir']
@@ -128,7 +128,7 @@ module.init = function(){
     //Ext.apply(filters, {module: modName});
 
     // Module panel
-    filterPanel = Ext.getCmp('search-filters-'+modName);
+    filterPanel = Ext.getCmp('search-filterPanel-'+modName);
     if (!Ext.isEmpty(filterPanel)) {
       var filterForm = filterPanel.getForm();
       if (!Ext.isEmpty(filterForm)) {
@@ -336,7 +336,12 @@ module.init = function(){
             ,listeners:{
               click:{
                 fn: function(){
-                  Search.doSearch(modName, true);
+                  if (modName == 'global') {
+                    terms = Ext.getCmp("search-termPanel-global-terms").getValue(); 
+                    window.location.href = '/xwiki/bin/view/Search/URL#o%3As%3Ds%253Aexternal%5Ef%3Do%253Aexternal%253Do%25253Aterms%25253Ds%2525253A'+terms+'%25255Eother%25253Ds%2525253A%25255Esystem%25253Ds%2525253AAssetMetadata.FranceEducation%25255Elevel%25253Ds%2525253A%25255Esublevel%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Esubsubject%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Esubict%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Especial%25253Ds%2525253A%5Ep%3Do%253Ac%253Dn%25253A0%255Es%253Dn%25253A25%5Et%3Ds%253Aexternal%5Ea%3Db%253A0';
+                  } else{
+                    Search.doSearch(modName, true);
+                  }
                 }
               }
             }
@@ -433,7 +438,7 @@ data.init = function(){
   data.filter = {};
   var f = data.filter; // Alias
   
-	f.list = ['terms', 'system', 'subject', 'subsubject', 'category', 'level', 'sublevel', 'language', 'review', 'ict', 'subict', 'special'];
+	f.list = ['terms', 'system', 'level', 'sublevel', 'subject', 'subsubject', 'ict', 'subict', 'category', 'language', 'review', 'special'];
 
   f.data = {};	
   
@@ -609,26 +614,14 @@ data.init = function(){
       });
     }
   });
-
-  f.data.language =  {
-    list: Curriki.data.language.list
-    ,data: [
-      ['', _('CurrikiCode.AssetClass_language_UNSPECIFIED')]
-    ]
-  };
-  f.data.language.list.each(function(value){
-    f.data.language.data.push([
-      value
-      ,_('CurrikiCode.AssetClass_language_'+value)
-    ]);
-  });
-
+  
   f.data.category =  {
     list: Curriki.data.category.list
     ,data: [
       ['', _('CurrikiCode.AssetClass_category_UNSPECIFIED'), '   ']
     ]
   };
+  
   f.data.category.list.each(function(value){
     var sort = _('CurrikiCode.AssetClass_category_'+value);
     if (value === 'unknown') {
@@ -642,8 +635,20 @@ data.init = function(){
       ]);
     }
   });
-
   // category doesn't need to be sorted because it is sorted somewhere further
+
+  f.data.language =  {
+    list: Curriki.data.language.list
+    ,data: [
+      ['', _('CurrikiCode.AssetClass_language_UNSPECIFIED')]
+    ]
+  };
+  f.data.language.list.each(function(value){
+    f.data.language.data.push([
+      value
+      ,_('CurrikiCode.AssetClass_language_'+value)
+    ]);
+  });
 
   f.data.review = {
     list: [
@@ -716,17 +721,17 @@ data.init = function(){
       ,data: f.data.subict.data
       ,id: 0
     })
-
-    ,language: new Ext.data.SimpleStore({
-      fields: ['id', 'language']
-      ,data: f.data.language.data
-      ,id: 0
-    })
-
+    
     ,category: new Ext.data.SimpleStore({
       fields: ['id', 'category', 'sortValue']
       ,sortInfo: {field:'sortValue', direction:'ASC'}
       ,data: f.data.category.data
+      ,id: 0
+    })
+
+    ,language: new Ext.data.SimpleStore({
+      fields: ['id', 'language']
+      ,data: f.data.language.data
       ,id: 0
     })
 
@@ -876,13 +881,22 @@ data.init = function(){
         imgsrc = imgsrc + "archive_large.gif";
       }
       var link = String.format('<a class="preview" href="{0}"><img src="{1}" /></a>', page, imgsrc);
-      var rating = String.format('');
-      if (record.data.memberRating != "") {
-        rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}">{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a></span>', record.data.memberRating, record.data.ratingCount, page, _('search.resource.rating.'+record.data.memberRating), Ext.BLANK_IMAGE_URL);
-      }
+      
+      var memberRating = record.data.memberRating;
+      if (memberRating == "")
+        memberRating = "0";
+      var ratingCount = record.data.ratingCount;
+      if (ratingCount == "")
+        ratingCount = "0";        
+      var rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" qtip="{3}">{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" qtip="{3}" /></a></span>', memberRating, ratingCount, page, _('search.resource.rating.'+memberRating), Ext.BLANK_IMAGE_URL);
+      
+      var review = String.format('');
+      if (record.data.rating != "") {
+        review = String.format('<a class="rating review crs-{0}" title="{1}" href="/xwiki/bin/view/{3}?viewer=comments"><span class="crs-text">{1}</span><img class="crs-icon" alt="" src="{2}" /></a>', record.data.rating, _('search.resource.review.'+record.data.rating), Ext.BLANK_IMAGE_URL, page)
+      }    
       var contributor = String.format('<a class="contributor" href="{0}">{1}</a>', record.data.contributor, record.data.contributorName);
       
-      return String.format('{0}{1}<h4 class="title">{2}</h4>{3}<p class="description">{4}</p>', link, rating, title, contributor, desc);
+      return String.format('{0}{2}{1}<h4 class="title">{3}</h4>{4}<p class="description">{5}</p>', link, rating, review, title, contributor, desc);
     }
   };
 };
@@ -947,7 +961,7 @@ form.init = function(){
             ,triggerAction:'all'
             ,selectOnFocus:true
             ,forceSelection:true
-            ,value:Curriki.data.education_system.international
+            ,value:Curriki.data.education_system.initial
             ,validator:function(value){
               if(this.store.find('education_system', value) == -1)
                 this.setRawValue(Curriki.data.education_system.initial);
@@ -1606,12 +1620,21 @@ data.init = function(){
       
       var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(value, 80));
       var link = String.format('<a class="link" href="{0}">{1}</a>', record.data.link, Ext.util.Format.ellipsis(record.data.link, 80));
-      var rating = String.format('');
-      if (record.data.memberRating != "") {
-        rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}">{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a></span>', record.data.memberRating, record.data.ratingCount, page, _('search.resource.rating.'+record.data.memberRating), Ext.BLANK_IMAGE_URL);
+      
+      var memberRating = record.data.memberRating;
+      if (memberRating == "")
+        memberRating = "0";
+      var ratingCount = record.data.ratingCount;
+      if (ratingCount == "")
+        ratingCount = "0";        
+      var rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" qtip="{3}">{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" qtip="{3}" /></a></span>', memberRating, ratingCount, page, _('search.resource.rating.'+memberRating), Ext.BLANK_IMAGE_URL);
+      
+      var review = String.format('');
+      if (record.data.rating != "") {
+        review = String.format('<a class="rating review crs-{0}" title="{1}" href="/xwiki/bin/view/{3}?viewer=comments"><span class="crs-text">{1}</span><img class="crs-icon" alt="" src="{2}" /></a>', record.data.rating, _('search.resource.review.'+record.data.rating), Ext.BLANK_IMAGE_URL, page)
       }
 
-      return String.format('{0}<h4 class="title">{1}</h4>{2}<p class="description">{3}</p>', rating, title, link, desc);
+      return String.format('{0}{1}<h4 class="title">{2}</h4>{3}<p class="description">{4}</p>', review, rating, title, link, desc);
     }
   };
 
@@ -1732,7 +1755,7 @@ form.init = function() {
         ,triggerAction:'all'
         ,selectOnFocus:true
         ,forceSelection:true
-        ,value:Curriki.data.education_system.international
+        ,value:Curriki.data.education_system.initial
         ,validator:function(value){
           if(this.store.find('education_system', value) == -1)
             this.setRawValue(Curriki.data.education_system.initial);
@@ -4228,7 +4251,7 @@ Search.init = function(){
     };
 
     History.updateFromHistory = function(token){
-      var provider = new Ext.state.Provider();
+      var provider =  new Ext.state.Provider();
       var values = provider.decodeValue(token);
       console.log('Got History', {token: token, values: values});
 
