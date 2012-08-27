@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345539881000</creationDate>
-<date>1345539881000</date>
-<contentUpdateDate>1345539881000</contentUpdateDate>
+<creationDate>1346002121000</creationDate>
+<date>1346002121000</date>
+<contentUpdateDate>1346002121000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -241,13 +241,15 @@ rve.information.back_to_information_rollover=Revenir à la vue par défaut des i
 
 rve.information.header1=INFORMATIONS GENERALES
 rve.information.title_title=Titre:
-rve.information.description_title=Description:
-rve.information.education_system_title: Classement
-rve.information.subject_title=Sujet(s):
-rve.information.edlevel_title=Niveau(x) scolaire(s)
-rve.information.ict_title=Type de composant éducatif:
+rve.information.description_title=Descriptif:
+rve.information.taxonomy_title=Classement
+rve.information.rights_title=Information sur les droits d'acces
+rve.information.education_title: Système éducatif :
+rve.information.subject_title=Sujet(s)
+rve.information.level_title=Niveau(x) scolaire(s)
+rve.information.ict_title=Type de composant éducatif
 rve.information.keywords_title=Mots clés:
-rve.information.language_title=langue:
+rve.information.language_title=Langue:
 rve.information.bfcs_title=Vérification basique du fichier:
 
 ## PLEASE NOTE: The BFCS values displayed in this page location will be pulled from the page at /xwiki/bin/view/FileCheck/Translations
