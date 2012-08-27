@@ -12,8 +12,9 @@
   #if("$!caption" == "")
     #set($caption = $asset.getObject('CurrikiCode.AssetClass').getProperty("description").value)
   #end
-  $!caption <span class="asset-ubw-clickhint">($msg.get('rve.content.view.preview.previewubwattachment'))</span>
+  $!caption
   #if("$!asset.fileType" == "ubw" || "$!asset.fileType" == "ubz")
+    <span class="asset-ubw-clickhint">($msg.get('rve.content.view.preview.previewubwattachment'))</span>
     #foreach($attachment in $asset.getAttachmentList())
       $asset.getRenderedContent("{{sankore file=${escapetool.q}$!{attachment.filename}${escapetool.q} type=${escapetool.q}$!{asset.fileType}${escapetool.q} width='562' /}}", "xwiki/2.0")
     #end
