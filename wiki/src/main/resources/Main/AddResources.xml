@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345560088000</creationDate>
-<date>1345560088000</date>
-<contentUpdateDate>1345560088000</contentUpdateDate>
+<creationDate>1346066012000</creationDate>
+<date>1346066012000</date>
+<contentUpdateDate>1346066012000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -307,7 +307,7 @@ function runthis() {
   
   var url = window.location.href;
   var title = ((document.title) ? document.title : document.location.host);
-  var iframeSrc = 'http://sankore.devxwiki.com/xwiki/bin/view/Main/AddResources?xpage=bookmarklet&amp;url='+escape(url)+'&amp;title='+escape(title);
+  var iframeSrc = 'http://planete.sankore.org/xwiki/bin/view/Main/AddResources?xpage=bookmarklet&amp;url='+escape(url)+'&amp;title='+escape(title);
   var error = false;
     
   if (jQuery("#frame").length === 0) {
@@ -316,7 +316,7 @@ function runthis() {
       error = true;
     }
     if (!error) {
-      jQuery("body").append("&lt;div id='bookmarklet' style='display:none;'&gt;&lt;div id='bookmarklet-overlay' style='position: fixed; width: 100%; height: 100%; top: 0; left: 0; filter: alpha(opacity=30); filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30); -moz-opacity: .30; -khtml-opacity: 0.3; opacity: 0.3; background-color:#000000; cursor: pointer; z-index: 9997;'&gt;&lt;/div&gt;&lt;div  style='color: #666; font: bold 20px/20px Helvetica, sans-serif; position: absolute; top: 50px; left: 50%; width: 10em; margin: -10px auto 0 -5em; text-align: center;'&gt;&lt;p&gt;Loading...&lt;/p&gt;&lt;/div&gt;&lt;div id='bookmarklet-inner' style='display: block; position: absolute; top: 50px; left: 50%;  width: 760px; z-index: 9998; border-color: #666666; border-style: solid; border-width:10px; margin:0 auto;margin-left:-380px;height:100px;'&gt;&lt;div id='bookmarklet-icon' style='background: url(http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/miniplanetesankore.png); position: absolute; width: 69px; height: 69px; top: -35px; left: -35px; cursor: pointer; z-index:9999;'&gt;&lt;/div&gt;&lt;div id='bookmarklet-close' style='background: transparent; position: absolute; width: 32px; height: 32px; top: 14px; right: 24px; cursor: pointer; z-index:9999;'&gt;&lt;/div&gt;&lt;div id='bookmarklet-loading' style='position:absolute;top:0;left:0;height:100px;background: url(http://sankore.devxwiki.com/xwiki/resources/icons/xwiki/ajax-loader-large.gif) no-repeat scroll center center #FFF;width:760px;'&gt;&lt;/div&gt;&lt;iframe id='bookmarklet-iframe' style='width: 760px; height:1000px;margin-top:5000px;' src='" + iframeSrc + "' onload=\"\" frameBorder='0'&gt;Enable iFrames.&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;");                    
+      jQuery("body").append("&lt;div id='bookmarklet' style='display:none;'&gt;&lt;div id='bookmarklet-overlay' style='position: fixed; width: 100%; height: 100%; top: 0; left: 0; filter: alpha(opacity=30); filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30); -moz-opacity: .30; -khtml-opacity: 0.3; opacity: 0.3; background-color:#000000; cursor: pointer; z-index: 9997;'&gt;&lt;/div&gt;&lt;div  style='color: #666; font: bold 20px/20px Helvetica, sans-serif; position: absolute; top: 50px; left: 50%; width: 10em; margin: -10px auto 0 -5em; text-align: center;'&gt;&lt;p&gt;Loading...&lt;/p&gt;&lt;/div&gt;&lt;div id='bookmarklet-inner' style='display: block; position: absolute; top: 50px; left: 50%;  width: 760px; z-index: 9998; border-color: #666666; border-style: solid; border-width:10px; margin:0 auto;margin-left:-380px;height:100px;'&gt;&lt;div id='bookmarklet-icon' style='background: url(http://planete.sankore.org/xwiki/bin/download/Sandbox/SankoreSkin/miniplanetesankore.png); position: absolute; width: 69px; height: 69px; top: -35px; left: -35px; cursor: pointer; z-index:9999;'&gt;&lt;/div&gt;&lt;div id='bookmarklet-close' style='background: transparent; position: absolute; width: 32px; height: 32px; top: 14px; right: 24px; cursor: pointer; z-index:9999;'&gt;&lt;/div&gt;&lt;div id='bookmarklet-loading' style='position:absolute;top:0;left:0;height:100px;background: url(http://planete.sankore.org/xwiki/resources/icons/xwiki/ajax-loader-large.gif) no-repeat scroll center center #FFF;width:760px;'&gt;&lt;/div&gt;&lt;iframe id='bookmarklet-iframe' style='width: 760px; height:1000px;margin-top:5000px;' src='" + iframeSrc + "' onload=\"\" frameBorder='0'&gt;Enable iFrames.&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;");                    
       window.setInterval("resizethis()",400);            
       jQuery('#bookmarklet').fadeIn(500);
     }
@@ -334,7 +334,7 @@ if (typeof jQuery == 'undefined') {
   jQ.type = 'text/javascript';
   // IE8 doesn't run onload
   //jQ.onload = runthis;
-  jQ.src = 'http://sankore.devxwiki.com/xwiki/resources/js/jquery/jquery.js';
+  jQ.src = 'http://planete.sankore.org/xwiki/resources/js/jquery/jquery.js';
   document.body.appendChild(jQ);
   // IE8 fix for onload
   setTimeout("runthis()", 1000);
