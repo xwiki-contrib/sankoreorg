@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345802918000</creationDate>
-<date>1345802918000</date>
-<contentUpdateDate>1345802918000</contentUpdateDate>
+<creationDate>1346063054000</creationDate>
+<date>1346063054000</date>
+<contentUpdateDate>1346063054000</contentUpdateDate>
 <version>1.1</version>
 <title>La communauté</title>
 <template></template>
@@ -4912,22 +4912,23 @@ a.button.button-red {
   &lt;/ul&gt;
   &lt;button&gt;Rejoignez la communaute Planete Sankore&lt;/button&gt;
 --&gt;
-  &lt;a href="#"&gt;&lt;/a&gt;
+  &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;&lt;/a&gt;
 &lt;/div&gt;&lt;!-- / #intro--&gt;
 &lt;br /&gt;
 &lt;br /&gt;
 &lt;div class="col col50 first"&gt;
   &lt;h3&gt;Partager vos ressources créées&lt;/h3&gt;
   &lt;span&gt;avec Open-Sankoré&lt;/span&gt;
-  &lt;img src="http://sankore.devxwiki.com/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunaute1.jpg" /&gt;
+  &lt;img src="/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunaute1.jpg" /&gt;
   &lt;p&gt;Le logiciel Open Sankoré est un logiciel d’enseignement numérique interactif, gratuit, et open source à haute valeur ajoutée. Il permet de créer, d’éditer et de partager des ressources numériques éducatives libres et gratuites.&lt;/p&gt;
-  &lt;a href="http://sankore.org/fr/logiciel-open-sankore"&gt;Découvrir et télécharger le logiciel &lt;span&gt;▶&lt;/span&gt;&lt;/a&gt;
+ &lt;!-- &lt;a href="http://sankore.org/fr/logiciel-open-sankore"&gt;Découvrir et télécharger le logiciel &lt;span&gt;▶&lt;/span&gt;&lt;/a&gt; --&gt;
+ &lt;a href="http://open-sankore.org/fr/"&gt;Découvrir et télécharger le logiciel &lt;span&gt;▶&lt;/span&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div class="col col50 last"&gt;
   &lt;h3&gt;Evaluer et partager &lt;/h3&gt;
   &lt;span&gt;avec le Bookmarklet&lt;/span&gt;
-  &lt;img src="http://sankore.devxwiki.com/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunaute2.jpg" /&gt;
+  &lt;img src="/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunaute2.jpg" /&gt;
   &lt;p&gt;Le Bookmarklet Sankoré vous permet de soumettre d’un seul clic à la communauté Planète Sankoré le lien Internet d’une ressource éducative numérique que vous trouvez intéressante.&lt;/p&gt;
   &lt;a href="/xwiki/bin/view/LaCommunaute/BookmarkletSetup"&gt;Tout savoir et télécharger le bookmarklet &lt;span&gt;▶&lt;/span&gt;&lt;/a&gt;
 &lt;/div&gt;
@@ -4938,23 +4939,20 @@ a.button.button-red {
   &lt;h3&gt;PARTICIPER A DES GROUPES 
 DE TRAVAIL&lt;/h3&gt;
   &lt;span&gt;avec Open-Sankoré&lt;/span&gt;
-  &lt;img src="http://sankore.devxwiki.com/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunaute3.jpg" /&gt;
-  &lt;a href=/xwiki/bin/view/Search/Groups/"&gt;Accéder aux groupes de travail &lt;span&gt;▶&lt;/span&gt;&lt;/a&gt;
+  &lt;img src="/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunaute3.jpg" /&gt;
+  &lt;a href="/xwiki/bin/view/Search/Groups/"&gt;Accéder aux groupes de travail &lt;span&gt;▶&lt;/span&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div class="col col50 last"&gt;
   &lt;h3&gt;PARTICIPER AU FORUM D’ECHANGE&lt;/h3&gt;
   &lt;span&gt;avec Open-Sankoré&lt;/span&gt;
-  &lt;img src="http://sankore.devxwiki.com/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunaute4.jpg" /&gt;
+  &lt;img src="/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunaute4.jpg" /&gt;
   &lt;a href="https://sankore.zendesk.com/home"&gt;Accéder aux discussions du forum &lt;span&gt;▶&lt;/span&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;hr /&gt;
 
-&lt;a class="button button-red" href="http://sankore.devxwiki.com/xwiki/bin/edit/Main/JoinSankore"&gt;Rejoignez la communaute Planete Sankore&lt;/a&gt;
+&lt;a class="button button-red" href="/xwiki/bin/edit/Main/JoinSankore"&gt;Rejoignez la communaute Planete Sankore&lt;/a&gt;
 
 {{/html}}
-
-{{velocity}}
-{{/velocity}}
 {{/velocity}}</content></xwikidoc>
