@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345991685000</creationDate>
-<date>1345991685000</date>
-<contentUpdateDate>1345991685000</contentUpdateDate>
+<creationDate>1346064332000</creationDate>
+<date>1346064332000</date>
+<contentUpdateDate>1346064332000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources</title>
 <template></template>
@@ -2603,7 +2603,7 @@ fieldset#search-advanced-resource {
 }
 
 #search-termPanel-resource .x-form-item label.x-form-item-label {
-      background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/search.png") no-repeat scroll 0 0 transparent;
+      background: url("/xwiki/bin/download/Sandbox/SankoreSkin/search.png") no-repeat scroll 0 0 transparent;
     height: 64px;
     margin: 17px 0 0 30px;
     overflow: hidden;

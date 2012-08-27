@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1342095199000</creationDate>
-<date>1342095199000</date>
-<contentUpdateDate>1342095199000</contentUpdateDate>
+<creationDate>1344867904000</creationDate>
+<date>1344867904000</date>
+<contentUpdateDate>1344867904000</contentUpdateDate>
 <version>1.1</version>
 <title>External</title>
 <template></template>
@@ -396,6 +396,12 @@ $ict:
   #set($ret_rightsHolderName = $ret_rightsHolderName.replaceAll("[\n|\r]+", "&lt;br /&gt;"))
 #end
 
+#macro(searchResourceLink $resource)
+  #set($ret_link = $resource.getObject("CurrikiCode.ExternalAssetClass").getProperty("link").value)
+  ##set($ret_rightsHolderName = $ret_rightsHolder)
+  ##set($ret_rightsHolderName = $ret_rightsHolderName.replaceAll("[\n|\r]+", "&lt;br /&gt;"))
+#end
+
 #**
   * Main macro to get the resource information
   *
@@ -417,6 +423,7 @@ $ict:
 #searchResourceEL($resource)
 #searchResourceContributorName($resource)
 #searchResourceRightsHolder($resource)
+#searchResourceLink($resource)
 #set($date = $datetool.format($resource.date))
 #if($resource.getObject("CurrikiCode.AttachmentAssetClass"))
  #foreach($attach in $resource.getAttachmentList())
@@ -694,7 +701,8 @@ Results: $searchResults
     ,"creation":"$escapetool.javascript($d.creationDate)"
     ,"author":"$escapetool.javascript($escapetool.xml($ret_rightsHolder))"
     ,"authorName": "$escapetool.javascript($escapetool.xml($ret_rightsHolderName))"
-    ,"file": "$escapetool.javascript($escapetool.url($ret_file))"
+    ##,"link": "$escapetool.javascript($escapetool.url($ret_link))"
+    ,'link': "$ret_link"
 #if($ret_width!="")
     ,"width": "$escapetool.javascript($ret_width)"
     ,"height": "$escapetool.javascript($ret_height)"
