@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1342620595000</creationDate>
-<date>1342620595000</date>
-<contentUpdateDate>1342620595000</contentUpdateDate>
+<creationDate>1342650898000</creationDate>
+<date>1342650898000</date>
+<contentUpdateDate>1342650898000</contentUpdateDate>
 <version>1.1</version>
 <title>Annulation de l'invitation au groupe $groupTitle sur Planète Sankoré</title>
 <template></template>
@@ -22,13 +22,13 @@
 <minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#* 
-* Membership request response mail template
-* @translate This page requires full translation
-* @type mailtemplate
-* @refactored folaru
+<content>{{velocity filter="none"}}{{html clean="false" wiki="true"}}
+#*
+Membership request response mail template
+@translate This page requires full translation
+@type mailtemplate
+@refactored folaru
 *#
-{{velocity filter="none"}}{{html clean="false" wiki="true"}}
 Cher(e) $memberName,&lt;br/&gt;
 &lt;br/&gt;
 Le groupe $group.title est désolé que vous n'ayez pas rejoins leur groupe sur Planète Sankoré.&lt;br/&gt;

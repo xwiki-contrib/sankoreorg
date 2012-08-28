@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xwikidoc>
 <web>Groups</web>
-<name>MailTemplateJoinSpace</name>
+<name>MessageDeleteCommentService</name>
 <language></language>
 <defaultLanguage></defaultLanguage>
 <translation>0</translation>
@@ -10,16 +10,29 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346151049000</creationDate>
-<date>1346151049000</date>
-<contentUpdateDate>1346151049000</contentUpdateDate>
+<creationDate>1316003112000</creationDate>
+<date>1316003112000</date>
+<contentUpdateDate>1316003112000</contentUpdateDate>
 <version>1.1</version>
-<title></title>
+<title>MessageDeleteCommentService</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/2.0</syntaxId>
+<syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
-<content></content></xwikidoc>
+<content>#**
+  * Delete Comment Service
+  * @type ajaxservice
+  * @programming
+  * @refactored ludovic
+  *#
+#**
+ * Delete Comment Service
+ *#
+#groups_messages_deletecomment_service()
+
+
+
+</content></xwikidoc>
