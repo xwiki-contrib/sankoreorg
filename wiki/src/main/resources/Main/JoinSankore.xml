@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345202077000</creationDate>
-<date>1345202077000</date>
-<contentUpdateDate>1345202077000</contentUpdateDate>
+<creationDate>1346066547000</creationDate>
+<date>1346066547000</date>
+<contentUpdateDate>1346066547000</contentUpdateDate>
 <version>1.1</version>
 <title>$msg.get("joincurriki.registerToJoinCurriki")</title>
 <template></template>
@@ -983,7 +983,7 @@ Registration.validateRegisterForm = function() {
 }
 
 button.button.button-red {
-  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/rejoignez.jpg") no-repeat center center;
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/rejoignez.jpg") no-repeat center center;
   width: 543px;
   height: 56px;
   text-indent: -2000px;
@@ -995,14 +995,14 @@ button.button.button-red {
   display: none;
 }
 #header &gt; .container {
-  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp2.png") no-repeat 660px  93px;
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp2.png") no-repeat 660px  93px;
 }
 #contentcontainer {
-  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp1.png") no-repeat 670px  0px;
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp1.png") no-repeat 670px  0px;
 }
 
 h1#HEnregistrez-vouspourrejoindrePlanE8teSankorE9 {
-  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/rejoindre-title.png") no-repeat center left;
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/rejoindre-title.png") no-repeat center left;
   height: 30px; width: 291px;
   text-indent: -2000px;
 }

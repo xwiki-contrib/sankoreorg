@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345790090000</creationDate>
-<date>1345790090000</date>
-<contentUpdateDate>1345790090000</contentUpdateDate>
+<creationDate>1346140600000</creationDate>
+<date>1346140600000</date>
+<contentUpdateDate>1346140600000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -106,10 +106,10 @@ search.pagination.refresh=Actualiser
 
 ##RESOURCES TAB
 ##search.resource.tab.title=Bibliothèque de ressources éducatives Sankoré
-search.resource.tab.title=SUPPORTS DE COURS SANKORÉ
+search.resource.tab.title=FICHIERS DE COURS SANKORÉ
 
 ##REVIEW
-search.resource.review.selector.UNSPECIFIED=Avis: Tous
+search.resource.review.selector.UNSPECIFIED=Avis: tous
 search.resource.review.selector.partners=Examiné par les partenaires
 search.resource.review.selector.curriki=Examiné par Sankoré
 search.resource.review.selector.members=Examiné par les membres
@@ -142,12 +142,12 @@ search.resource.rating.5=Exceptionnelle
 ## I don't think there is a Class I can model after here.
 search.resource.special.selector.UNSPECIFIED=Filtres spéciaux: Aucun
 search.resource.special.selector.notreviewed=Sans note
-search.resource.special.selector.contributions=Uniquement mes Contributions
-search.resource.special.selector.collections=Uniquement les collections
-search.resource.special.selector.resources=Uniquement des fichiers ressource
-search.resource.special.selector.updated=Uniquement les récemment mis à jour
+search.resource.special.selector.contributions=Mes contributions
+search.resource.special.selector.collections=Les collections
+search.resource.special.selector.resources=Des fichiers ressource
+search.resource.special.selector.updated=Récemment mis à jour
 search.resource.special.selector.updated.days=30
-search.resource.special.selector.sankore=Uniquement les ressources Sankoré
+search.resource.special.selector.sankore=Les ressources Sankoré
 
 
 ##COLUMNS
@@ -186,7 +186,7 @@ search.resource.resource.expanded.title=Cette ressource fait partie de:
 
 ##GROUPS TAB
 search.group.tab.title=Groupes communautaires Sankoré
-search.XWiki.SpaceClass_policy_UNSPECIFIED=Politique: Tous
+search.XWiki.SpaceClass_policy_UNSPECIFIED=Politique: tous
 search.XWiki.SpaceClass_policy_open=Groupe ouvert
 search.XWiki.SpaceClass_policy_closed=Groupe fermé
 
@@ -238,9 +238,9 @@ search.curriki.column.header.text=Texte
 search.curriki.column.header.updated=Updaté
 
 ##SEARCH EXTERNAL
-search.featured-external.grid.title=SUPPORTS DE COURS SANKORÉ
+search.featured-external.grid.title=FICHIERS DE COURS SANKORÉ
 search.external.grid.title=PAGES WEB SIGNALÉES PAR LA COMMUNAUTÉ PLANÈTE SANKORÉ
-search.preview.statusbar.text.external=&lt;a href="/xwiki/bin/view/Main/"&gt;&amp;raquo; Tous les résultats des supports de cours&lt;/a&gt;
+search.preview.statusbar.text.external=&lt;a href="#"&gt;&amp;raquo; Tous les résultats des fichiers de cours&lt;/a&gt;
 search.statusbar.text.resource=&lt;a href="/xwiki/bin/view/Search/URL"&gt;Voir les résultats du bookmarklet Sankoré et de la base des sites pédagogiques sélectionnés&lt;/a&gt;
 
 

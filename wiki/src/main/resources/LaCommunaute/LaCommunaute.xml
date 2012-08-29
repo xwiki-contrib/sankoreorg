@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346063054000</creationDate>
-<date>1346063054000</date>
-<contentUpdateDate>1346063054000</contentUpdateDate>
+<creationDate>1346067315000</creationDate>
+<date>1346067315000</date>
+<contentUpdateDate>1346067315000</contentUpdateDate>
 <version>1.1</version>
 <title>La communauté</title>
 <template></template>
@@ -4836,7 +4836,7 @@ Jvp2/wDSP1te4eTOZlOFJu+KnETfTt/6R+tr3DyZzMpwpN3xU4ib61gOu/SnaZGuvSp/YBRkhvso
 </property>
 <property>
 <code>#intro {
-  background: #FFF url("http://sankore.devxwiki.com/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunauteintro.jpg") no-repeat 10px 10px; 
+  background: #FFF url("/xwiki/bin/download/LaCommunaute/LaCommunaute/lacommunauteintro.jpg") no-repeat 10px 10px; 
   padding: 10px;
   width: 680px;
   height: 236px;
@@ -4870,7 +4870,7 @@ hr {
   padding: 10px 0;
 }
 a.button.button-red {
-  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/rejoignez.jpg") no-repeat scroll center center transparent;
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/rejoignez.jpg") no-repeat scroll center center transparent;
   height: 56px;
   text-indent: -2000px;
   width: 543px;
@@ -4952,7 +4952,7 @@ DE TRAVAIL&lt;/h3&gt;
 
 &lt;hr /&gt;
 
-&lt;a class="button button-red" href="/xwiki/bin/edit/Main/JoinSankore"&gt;Rejoignez la communaute Planete Sankore&lt;/a&gt;
+&lt;a class="button button-red" href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoignez la communaute Planete Sankore&lt;/a&gt;
 
 {{/html}}
 {{/velocity}}</content></xwikidoc>
