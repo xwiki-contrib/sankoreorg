@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344938323000</creationDate>
-<date>1344938323000</date>
-<contentUpdateDate>1344938323000</contentUpdateDate>
+<creationDate>1346066894000</creationDate>
+<date>1346066894000</date>
+<contentUpdateDate>1346066894000</contentUpdateDate>
 <version>1.1</version>
 <title>Email Sent</title>
 <template></template>
@@ -113,20 +113,20 @@
   display: none;
 }
 #header &gt; .container {
-  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp2.png") no-repeat 660px  93px;
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp2.png") no-repeat 660px  93px;
 }
 #contentcontainer {
-  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp1.png") no-repeat 670px  0px;
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/inscriptionp1.png") no-repeat 670px  0px;
 }
 
 .confirmInscription {
   padding: 10px 20px; 
   background: #E8E9E8;
-  /*background: #E8E9E8 url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/inscription.png") no-repeat top right;*/
+  /*background: #E8E9E8 url("/xwiki/bin/download/Sandbox/SankoreSkin/inscription.png") no-repeat top right;*/
   margin: 36px 30px 0 30px; 
 }
 h1#HEnregistrez-vouspourrejoindrePlanE8teSankorE9 {
-  background: url("http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/rejoindre-title.png") no-repeat center left;
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/rejoindre-title.png") no-repeat center left;
   height: 30px; width: 291px;
   text-indent: -2000px;
 }

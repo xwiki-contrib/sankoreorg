@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345710000000</creationDate>
-<date>1345710000000</date>
-<contentUpdateDate>1345710000000</contentUpdateDate>
+<creationDate>1346066716000</creationDate>
+<date>1346066716000</date>
+<contentUpdateDate>1346066716000</contentUpdateDate>
 <version>1.1</version>
 <title>Email envoyé</title>
 <template></template>
@@ -42,5 +42,5 @@ Vous allez recevoir un email dans quelques minutes. Il ne vous restera plus qu�
 
 N'oubliez pas de télécharger le " Bookmarklet Sankoré". Il vous permettra de partager avec la communautė Sankorė vos ressources numériques d'enseignement favorites, que vous avez découvertes sur le web.
 
-&lt;p class="center"&gt;&lt;a href="http://sankore.devxwiki.com/xwiki/bin/view/Main/BookmarkletSetup" title=""&gt;&lt;img class="center" src="http://sankore.devxwiki.com/xwiki/bin/download/Sandbox/SankoreSkin/installbookmarklet.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p class="center"&gt;&lt;a href="/xwiki/bin/view/Main/BookmarkletSetup" title=""&gt;&lt;img class="center" src="/xwiki/bin/download/Sandbox/SankoreSkin/installbookmarklet.png" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</content></xwikidoc>
