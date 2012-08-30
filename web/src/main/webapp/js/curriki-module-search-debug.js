@@ -1709,12 +1709,14 @@ data.init = function(){
       } else {
         imgsrc = imgsrc + "archive_large.gif";
       }
-      var link = String.format('<a class="preview" href="{0}"><img src="{1}" /></a>', page, imgsrc);
+      var link = String.format('<a class="preview" href="/xwiki/bin/view/{0}"><img src="{1}" /></a>', page, imgsrc);
       var rating = String.format('');
       if (record.data.memberRating != "") {
         rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}">{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a></span>', record.data.memberRating, record.data.ratingCount, page, _('search.resource.rating.'+record.data.memberRating), Ext.BLANK_IMAGE_URL);
       }
-      var contributor = String.format('<a class="contributor" href="{0}">{1}</a>', record.data.contributor, record.data.contributorName);
+
+      var contributorsCleanName = '/xwiki/bin/view/' +record.data.contributor.trim().replace('.', '/');
+      var contributor = String.format('<a class="contributor" href="{0}">{1}</a>', contributorsCleanName, record.data.contributorName);
       
       return String.format('{0}{1}<h4 class="title">{2}</h4>{3}<p class="description">{4}</p>', link, rating, title, contributor, desc);
     }
