@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346002121000</creationDate>
-<date>1346002121000</date>
-<contentUpdateDate>1346002121000</contentUpdateDate>
+<creationDate>1346326292000</creationDate>
+<date>1346326292000</date>
+<contentUpdateDate>1346326292000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -243,7 +243,7 @@ rve.information.header1=INFORMATIONS GENERALES
 rve.information.title_title=Titre:
 rve.information.description_title=Descriptif:
 rve.information.taxonomy_title=Classement
-rve.information.rights_title=Information sur les droits d'acces
+rve.information.rights_title=Information sur les droits d'accès
 rve.information.education_title: Système éducatif :
 rve.information.subject_title=Sujet(s)
 rve.information.level_title=Niveau(x) scolaire(s)
@@ -408,9 +408,9 @@ rve.comments.comment.delete_link=Supprimer
 
 rve.comments.comment.empty.loggedin_message=&lt;strong&gt;Aucun commentaire pour cette ressource.&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Cliquez sur &amp;#34;Ajoutez un commentaire&amp;#34; pour donner votre avis sur cette resource.
 
-rve.comments.comment.empty.notloggedin_message=&lt;strong&gt;Personne n'a encore commenté cette ressource.&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Les membres peuvent commenter les ressources. &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoignez Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; et vous pourez vous aussi ajouter un commentaire.
+rve.comments.comment.empty.notloggedin_message=&lt;strong&gt;Personne n'a encore commenté cette ressource.&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Les membres de la communauté Sankoré peuvent introduire des commentaire.&lt;br/&gt;&lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoignez Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; et vous pourez ajouter un commentaire.
 
-rve.comments.comment.notloggedin_message=Les membres peuvent commenter les ressources. &lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoignez Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; et vous pourez vous aussi ajouter un commentaire.
+rve.comments.comment.notloggedin_message=Les membres de la communauté Sankoré peuvent introduire des commentaire.&lt;br/&gt;&lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoignez Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; et vous pourez ajouter un commentaire.
 
 rve.comments.comment.add_title=Ajouter un commentaire
 rve.comments.comment.add.submit_button=Soumettre un commentaire

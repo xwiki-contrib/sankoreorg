@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344869027000</creationDate>
-<date>1344869027000</date>
-<contentUpdateDate>1344869027000</contentUpdateDate>
+<creationDate>1346325447000</creationDate>
+<date>1346325447000</date>
+<contentUpdateDate>1346325447000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -102,10 +102,10 @@ flag.dialog.error.note_max=Votre note ne peut excéder 300 caractères.
 flag.dialog.error.note_min=Votre note doit au moins contenir 4 caractères.
 flag.dialog.error.note_req=Si vous avez votre raison de signaler cette ressource comme inappropriée, vous devez entrer une note.
 flag.dialog.error.reason_req=Vous devez choisir une raison depuis le menu afin de pouvoir signaler cette ressource comme inappropriée
-flag.dialog.guidingquestion1.txt=Cette ressource vous semble inappropriée?
+flag.dialog.guidingquestion1.txt=Cette ressource vous semble inappropriée
 flag.dialog.guidingquestion2.txt=Merci de qualifier la raison de votre signalement
 flag.dialog.header=SIGNALER CETTE RESSOURCE
-flag.dialog.instruction1.txt=Vous souhaittez la signaler au comité d'évaluation du portail Planète Sankoré.
+flag.dialog.instruction1.txt=Vous souhaitez la signaler au comité d'évaluation du portail Planète Sankoré.
 flag.dialog.instruction2.txt= 
 flag.dialog.instruction3.txt=.
 flag.dialog.instruction4.txt=Entrez une note (au maximum 300 caractères) décrivant ce qui, selon vous, rend cette ressource inconvenante.
@@ -115,10 +115,10 @@ flag.dialog.reason.1=Incitation à la haine raciale
 flag.dialog.reason.1.filecheck=Incitation à la haine raciale
 flag.dialog.reason.2=Caractère pornographique
 flag.dialog.reason.2.filecheck=Caractère pornographique
-flag.dialog.reason.3=Sans interêt éducatif
-flag.dialog.reason.3.filecheck=Sans interêt éducatif
-flag.dialog.reason.4=Promotion commercial
-flag.dialog.reason.4.filecheck=Promotion commercial
+flag.dialog.reason.3=Sans intérêt éducatif
+flag.dialog.reason.3.filecheck=Sans intérêt éducatif
+flag.dialog.reason.4=Promotion commerciale
+flag.dialog.reason.4.filecheck=Promotion commerciale
 flag.dialog.reason.5=Ressource sous copyright
 flag.dialog.reason.5.filecheck=Ressource sous copyright
 flag.dialog.reason.6=Lien cassé
