@@ -59,7 +59,7 @@ Ext.onReady(function(){
 ##----------------------------------------------------------------------------------------------
   <div class="clear-right"></div>
     #crs_display_reviews($asset)
-    #asset_comments($asset)
   </div> ##asset-wrapper-inner
 </div> ##asset-wrapper
+  #asset_comments($asset)
 #end
