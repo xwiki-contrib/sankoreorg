@@ -1673,4 +1673,12 @@ function toggle_desc(){
 #end
 #end ## buttonmacro
 
+#macro(mycurriki_groups_join_button $userobj)
+  #if($context.action == "view" && ($context.user==$userdoc.fullName || $hasGlobalAdmin))
+    {pre}
+      <a class="button button-confirm" href="$xwiki.getDocument('Search.Groups').getURL()" alt="$msg.get('mycurriki.groups.rejoindre')" title="$msg.get('mycurriki.groups.rejoindre')">$msg.get("mycurriki.groups.rejoindre")</a>
+    {/pre}
+  #end
+#end
+
 ## End of MySankore Macros 
