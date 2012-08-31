@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1335363059000</creationDate>
-<date>1335363059000</date>
-<contentUpdateDate>1335363059000</contentUpdateDate>
+<creationDate>1346407079000</creationDate>
+<date>1346407079000</date>
+<contentUpdateDate>1346407079000</contentUpdateDate>
 <version>1.1</version>
 <title>Groupes</title>
 <template></template>
@@ -27,6 +27,7 @@
   *
   *#
 #mycurriki_pageheader("groups" "")
+#mycurriki_groups_join_button($userobj)
 #mycurriki_pagecontentheader("groups" "")
-#groups_mycurriki_grouplist($userdoc $userobj)
+#mycurriki_grouplist($userdoc $userobj)
 #mycurriki_pagefooter("")</content></xwikidoc>
