@@ -34,25 +34,23 @@
 
 #macro(asset_function_links $asset)
 <ul id="asset-function-links">
-#if(!$isGuest)
-  #set($collSpace = "Coll_${context.user.replace('XWiki.', '')}")
-  #set($favoritesAsset = $xwiki.curriki.fetchAssetOrNull("${collSpace}.Favorites"))
-  #if(!$favoritesAsset)
-    ## Ensure that Coll_{username} is created for the current user
-    ## this also ensures that Favorites asset is created
-    #set($groovyObj = $xwiki.parseGroovyFromPage("INPSCode.CollectionSpaceGroovy"))
-    #set($discard = $groovyObj.ensureExists($collSpace, $context))
-    ## Reiterate Favorites Asset
-    #set($favoritesAsset = $xwiki.getPlugin("curriki").fetchAssetOrNull("${collSpace}.Favorites"))
-  #end
-  #set($g_enable_ADDTHIS = true)
-  <li id="asset-share"><a href="http://www.addthis.com/bookmark.php" style="text-decoration:none;" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_sendto()">$msg.get("rve.title.function.share")</a></li>
-  ## Check if the current asset is in Favorites folder
-  #if(!$favoritesAsset.subassetList.contains($doc.fullName))
-  <li id="asset-favorite"><a href="javascript:void(0)" onclick="Curriki.module.addpath.startPath('G', {assetName:'${asset.getJSFullName()}', assetTitle:'${asset.getJSTitle()}'}); return false;" title="$msg.get("rve.title.function.favorite.icon.rollover")">$msg.get("rve.title.function.favorite")</a></li>
-  #end
+#set($collSpace = "Coll_${context.user.replace('XWiki.', '')}")
+#set($favoritesAsset = $xwiki.curriki.fetchAssetOrNull("${collSpace}.Favorites"))
+#if(!$favoritesAsset)
+  ## Ensure that Coll_{username} is created for the current user
+  ## this also ensures that Favorites asset is created
+  #set($groovyObj = $xwiki.parseGroovyFromPage("INPSCode.CollectionSpaceGroovy"))
+  #set($discard = $groovyObj.ensureExists($collSpace, $context))
+  ## Reiterate Favorites Asset
+  #set($favoritesAsset = $xwiki.getPlugin("curriki").fetchAssetOrNull("${collSpace}.Favorites"))
 #end
-  <li id="asset-print"><a href="$asset.getURL("view","viewer=print")" target="_blank" title="$msg.get("rve.title.function.print.icon.rollover")">$msg.get("rve.title.function.print")</a></li>
+#set($g_enable_ADDTHIS = true)
+<li id="asset-share"><a href="http://www.addthis.com/bookmark.php" style="text-decoration:none;" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_sendto()">$msg.get("rve.title.function.share")</a></li>
+## Check if the current asset is in Favorites folder
+#if(!$favoritesAsset.subassetList.contains($doc.fullName))
+<li id="asset-favorite"><a href="javascript:void(0)" onclick="Curriki.module.addpath.startPath('G', {assetName:'${asset.getJSFullName()}', assetTitle:'${asset.getJSTitle()}'}); return false;" title="$msg.get("rve.title.function.favorite.icon.rollover")">$msg.get("rve.title.function.favorite")</a></li>
+#end
+<li id="asset-print"><a href="$asset.getURL("view","viewer=print")" target="_blank" title="$msg.get("rve.title.function.print.icon.rollover")">$msg.get("rve.title.function.print")</a></li>
 </ul>
 #end
 
@@ -196,7 +194,6 @@ Ext.select('div#asset-header h2 a').hover(function(){Ext.select('ul#asset-tabs l
 #macro(asset_links $asset)
 #checkForCollections()
 <ul id="asset-links">
-#if(!$isguest)
   ## Download
   #if($asset.getObject('CurrikiCode.AttachmentAssetClass'))
     #set($assetAttachmentFilename = $asset.attachmentList.get(0).filename)
@@ -205,6 +202,7 @@ Ext.select('div#asset-header h2 a').hover(function(){Ext.select('ul#asset-tabs l
       <a href="javascript:void(0)" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}'); location = '${assetAttachmentURL}?force%2Ddownload=1'; return false;">$msg.get('rve.content.download_link')</a>
     </li>
   #end
+#if(!$isguest)
   #if($asset.hasAccessLevel("edit")&&($asset.category!="collection"))
     #asset_edit_isoriginalauthorjs($asset true)
   ## Edit
