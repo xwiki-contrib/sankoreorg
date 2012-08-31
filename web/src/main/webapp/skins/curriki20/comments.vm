@@ -8,14 +8,20 @@
 #else
   #set($ok = $asset.use("CurrikiCode.AssetClass"))
   <div id="asset-wrapper" class="view-${asset.categoryClass} mode-$!viewer">
-  #asset_resourcefunctions($asset)
+  ##asset_resourcefunctions($asset)
   #asset_icontitle($asset)
   #asset_attribution($asset)
   #asset_rating($asset)
   #asset_tabs($asset "comments")
   <div id="asset-wrapper-inner">
     #set($addedItems = false)
-    <ul id="asset-links">
+## Start action bar customisation for ?viewer=comments
+##----------------------------------------------------------------------------------------------
+    #asset_links($asset)
+    #asset_function_links($asset)
+##----------------------------------------------------------------------------------------------
+#*
+    <ul id="asset-links-comment">
     #if($asset.hasAccessLevel("comment"))
       #set($addedItems = true)
       <li class="last-item"><a href="javascript:void(0)" onclick="showCommentBlock(); return false;" title="$msg.get("rve.comments.comment.addcomment_rollover")">$msg.get("rve.comments.comment.addcomment_link")</a></li>
@@ -48,6 +54,9 @@ Ext.onReady(function(){
     <li class="last-item"></li>
     #end
   </ul>
+*#
+## Stop action bar customisation for ?viewer=comments
+##----------------------------------------------------------------------------------------------
   <div class="clear-right"></div>
     #crs_display_reviews($asset)
     #asset_comments($asset)
