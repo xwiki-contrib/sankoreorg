@@ -172,7 +172,13 @@
 #end
 </div>
 <div class="clearfloats"></div>
-<div id="mycurriki-main-content">
+#*
+the footer (#footerglobal)  is being injected in the wrong container on this page: http://sankore.devxwiki.com/xwiki/bin/view/MySankore/Profile as opposed to the normal behaviour on other pages such as http://sankore.devxwiki.com/xwiki/bin/view/Main/JoinSankore for example.
+The footer is good looking: inside #xwikimaincontainerinner
+The footer is bad looking: inside #contentcontainer
+Solution: Commenting the div element
+*#
+##<div id="mycurriki-main-content">
 #end
 ##
 #**
