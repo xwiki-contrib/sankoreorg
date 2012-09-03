@@ -1,0 +1,52 @@
+
+#thumbnails-slider {
+ display: none;
+}
+
+#thumbnail-previous, #thumbnail-next {
+ top: 15px;
+}
+
+.board {
+ padding-bottom: 185px;
+}
+
+body {
+ overflow: show;
+}
+
+#thumbnails {
+ height: 32px;
+}
+
+.thumbnail{
+  width: none;
+  height: 80px;
+}
+
+.thumb-img {
+  width: none;
+  height: none;
+}
+
+#current-page {
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#page-img {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+#boards {
+  display: table;
+  height: 100%;
+}
+
+.board {
+  display: table-cell;
+}
+

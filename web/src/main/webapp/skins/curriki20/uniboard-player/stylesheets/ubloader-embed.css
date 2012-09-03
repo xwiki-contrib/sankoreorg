@@ -1,0 +1,12 @@
+
+#sankoreplayer-header {
+ display: none;
+}
+
+#sankoreplayer {
+ position: relative;
+ bottom: none;
+ top: none;
+ left: none;
+ right: none;
+}
