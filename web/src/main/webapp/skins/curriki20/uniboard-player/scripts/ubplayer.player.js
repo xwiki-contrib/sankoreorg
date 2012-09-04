@@ -20,23 +20,42 @@ UbPlayer.Player = function(args) {
     thumbsToHide:[],
     firstVisibleThumb:null,
     next:function(){
+      // var yToCheck = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").position().top;
       var yToCheck = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").position().top;
+      var foundFirstVisibleThumb = false;
+      console.log("Thumbnails yToCheck: " + yToCheck);
+      if (that.thumbnails.firstVisibleThumb!=null) {
+        console.log("Thumbnails yToCheck using first visibleThumb position");
+        yToCheck = that.thumbnails.firstVisibleThumb.position().top;
+      }
+      console.log("Thumbnails yToCheck: " + yToCheck);
+      var counter = 0;
       jQuery("#thumbnails>#thumbnails-canvas>.thumbnail").each(function(){
-        if(jQuery(this).position().top === yToCheck){
+        counter++;
+        console.log("Thumbnails checking: " + counter + " " + jQuery(this).attr("page") + " " + jQuery(this).position().top + " " + jQuery(this).is(":visible"));
+        if(jQuery(this).is(":visible")) {
+         if(jQuery(this).position().top === yToCheck){
+          console.log("Thumbnail position is first line " + jQuery(this).index());
           if(jQuery(this).index() === that.documentData.numberOfPages-1){
-            jQuery("#thumbnail-next").addClass("disabled");
+            console.log("In Last page");
+            // jQuery("#thumbnail-next").addClass("disabled");
             that.thumbnails.thumbsToHide = [];
             return false;
           }
+          console.log("Thumbnail should be hidden");
           jQuery("#thumbnail-previous").removeClass("disabled");
           that.thumbnails.thumbsToHide.push(jQuery(this));
-        }else{
+         } else {
+          console.log("Thumbnail is not first line. Found new first visible thumb");
           that.thumbnails.firstVisibleThumb = jQuery(this);
           return false;
+         }
         }
       });
+      console.log("Hiding thumbs to hide");
       for(var i=0; i<that.thumbnails.thumbsToHide.length; i++){
-        that.thumbnails.thumbsToHide[i].hide();
+          console.log("Thumbnails hiding " + i);
+          that.thumbnails.thumbsToHide[i].hide();
       }
       that.thumbnails.thumbsToHide = [];
     },
@@ -77,7 +96,7 @@ UbPlayer.Player = function(args) {
   jQuery("#boards")
     .bind("mouseenter", this.boardButtonOutHandler);
 
-  jQuery("#thumbnail-next").click(function(){that.thumbnails.next()});
+  jQuery("#thumbnail-next").click(function(){ console.log("calling next"); that.thumbnails.next()});
   jQuery("#thumbnail-previous").click(function(){that.thumbnails.previous()});
   
   jQuery("#menu-share-email").click(function(){that.showSharing()});
@@ -155,7 +174,7 @@ UbPlayer.Player = function(args) {
   var newThumbnail = null;
   var formattedThumbNumber = null;
   for(var i=0; i<this.documentData.numberOfPages; i++){
-    newThumbnail = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").clone();
+    newThumbnail = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").clone().attr("page", "" + i);
     formattedThumbNumber = this.formatPageNumber(i+1);
     newThumbnail
       .find("img").attr("src", this.documentData.pagesBaseUrl + "/page" + formattedThumbNumber + ".thumbnail.jpg")
