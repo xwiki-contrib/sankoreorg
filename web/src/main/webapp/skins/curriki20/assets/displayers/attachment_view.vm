@@ -13,14 +13,19 @@
     #set($caption = $asset.getObject('CurrikiCode.AssetClass').getProperty("description").value)
   #end
   $!caption
+  </div>
+</div>
   #if("$!asset.fileType" == "ubw" || "$!asset.fileType" == "ubz")
-    <span class="asset-ubw-clickhint">($msg.get('rve.content.view.preview.previewubwattachment'))</span>
+<div class="asset-display-opensankore">
+    ## HACK: Thisis how we detect being in a collection view, where we should display the click to view
+    #if($subAssetList)
+     <span class="asset-ubw-clickhint">($msg.get('rve.content.view.preview.previewubwattachment'))</span>
+    #end
     #foreach($attachment in $asset.getAttachmentList())
       $asset.getRenderedContent("{{sankore file=${escapetool.q}$!{attachment.filename}${escapetool.q} type=${escapetool.q}$!{asset.fileType}${escapetool.q} width='562' /}}", "xwiki/2.0")
     #end
-  #end  
-  </div>
 </div>
+  #end  
 #if("$!asset.fileType" == "ubw")
   #sankore_attachments($asset)
 #else
