@@ -2696,6 +2696,8 @@ Curriki.data.ict.ictCheckListener = function(node, checked) {
 };
 
 Curriki.data.ict.ictAddNode = function(ictMap, nodeName) {
+  var theIctMap = ictMap[nodeName];
+
   var nodeInfo = {
     id: nodeName,
     text: _('CurrikiCode.AssetClass_instructional_component_' + nodeName),
@@ -2704,18 +2706,32 @@ Curriki.data.ict.ictAddNode = function(ictMap, nodeName) {
       checkchange: Curriki.data.ict.ictCheckListener
     }
   };
-  if ("undefined" !== typeof ictMap[nodeName]) {
+  if ("undefined" !== typeof theIctMap) {
     var children = [];
-    ictMap[nodeName].sort(function(a, b) {
+    var autresElement;
+
+    theIctMap.each(function(item){
+      if(item.id === 'AssetMetadata.Other'){
+        autresElement = theIctMap.splice(theIctMap.indexOf(item), 1);
+      }
+    });
+
+    theIctMap.sort(function(a, b) {
       if (_('CurrikiCode.AssetClass_instructional_component_' + a.id) < _('CurrikiCode.AssetClass_instructional_component_' + b.id)) 
         return -1;
       if (_('CurrikiCode.AssetClass_instructional_component_' + a.id) > _('CurrikiCode.AssetClass_instructional_component_' + b.id)) 
         return 1;
       return 0;
     });
-    ictMap[nodeName].each(function(childNode) {
+
+    if(autresElement !== undefined){
+      theIctMap.push(autresElement[0]);
+    }
+
+    theIctMap.each(function(childNode) {
       children.push(Curriki.data.ict.ictAddNode(ictMap, childNode.id));
     });
+
     nodeInfo.children = children;
     nodeInfo.cls = 'ict-item ict-item-parent';
   }
