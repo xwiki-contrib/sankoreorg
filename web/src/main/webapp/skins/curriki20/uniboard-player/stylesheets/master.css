@@ -246,8 +246,8 @@ label{ display:block; margin-top:15px; }
   display:inline-block;
   position:relative;
   border:1px solid rgb(210, 211, 212);
-  margin-left:6px;
-  margin-right:6px;
+  margin-left:4px;
+  margin-right:4px;
   margin-top: 12px;
   margin-bottom: 12px;
   box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
@@ -415,12 +415,12 @@ label{ display:block; margin-top:15px; }
 }
 
 #thumbnail-previous {
-  left: 0px;
+  left: -8px;
 }
 
 #thumbnail-next {
   left:100%;
-  margin-left:-41px;
+  margin-left:-33px;
 }
 
 #head-list-back { 
