@@ -10,3 +10,7 @@
  left: none;
  right: none;
 }
+
+body {
+ overflow: visible;
+}
