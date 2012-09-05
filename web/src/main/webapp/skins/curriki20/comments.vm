@@ -11,7 +11,7 @@
   ##asset_resourcefunctions($asset)
   #asset_icontitle($asset)
   #asset_attribution($asset)
-  #asset_rating($asset)
+  ##asset_rating($asset)
   #asset_tabs($asset "comments")
   <div id="asset-wrapper-inner">
     #set($addedItems = false)

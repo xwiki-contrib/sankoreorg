@@ -134,34 +134,34 @@
 #if("$!rateCount" == "" || "$!rateCount" == "0" || "$!rating" == "" || "$!rating" == "0") ##{
 #if($context.user != "XWiki.XWikiGuest") ##{ No rating and member
 <div class="rating-0">
+<a href="$asset.getURL("view", "viewer=comments&addcomment=true")" ext:qtip="${msg.get("rve.title.member.rating.function.add_rating")}">
+0<span>
+$msg.get('rve.title.member.rating.avis')</span>
+</a>
 <a href="$asset.getURL("view", "viewer=comments&addcomment=true")">
 <img class="rating-icon" src="/xwiki/skins/curriki8/extjs/resources/images/default/s.gif" ext:qtip="${msg.get("rve.title.member.rating.function.add_rating")}" />
-</a>
-<a href="$asset.getURL("view", "viewer=comments&addcomment=true")" ext:qtip="${msg.get("rve.title.member.rating.function.add_rating")}">
-(0)<span>
-$msg.get("rve.title.member.rating.function.add_rating")</span>
 </a>
 </div>
 #else ##}{ No rating and guest
 <div class="rating-0">
+<a href="${msg.get("rve.title.member.rating.info.url")}" ext:qtip="${msg.get("rve.title.member.rating.info")}">
+0<span>
+$msg.get('rve.title.member.rating.avis')
+</span>
+</a>
 <a href="${msg.get("rve.title.member.rating.info.url")}">
 <img class="rating-icon" src="/xwiki/skins/curriki8/extjs/resources/images/default/s.gif" ext:qtip="${msg.get("rve.title.member.rating.info")}" />
-</a>
-<a href="${msg.get("rve.title.member.rating.info.url")}" ext:qtip="${msg.get("rve.title.member.rating.info")}">
-(0)<span>
-$msg.get("rve.title.member.rating.info")
-</span>
 </a>
 </div>
 #end ##}
 ##
 #else ##}{ Has rating
 <div class="rating-${rating}">
+<a href="$asset.getURL("view", "viewer=comments")" class='avis-rating' ext:qtip="${msg.get("rve.title.member.rating.${rating}.rollover")}">
+${rateCount} $msg.get('rve.title.member.rating.avis')
+</a>
 <a href="$asset.getURL("view", "viewer=comments")">
 <img class="rating-icon" src="/xwiki/skins/curriki8/extjs/resources/images/default/s.gif" ext:qtip="${msg.get("rve.title.member.rating.${rating}.rollover")}" />
-</a>
-<a href="$asset.getURL("view", "viewer=comments")" ext:qtip="${msg.get("rve.title.member.rating.${rating}.rollover")}">
-(${rateCount})
 </a>
 </div>
 #end ##}
