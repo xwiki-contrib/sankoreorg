@@ -116,16 +116,15 @@ module.init = function(){
 	module.getFilters = function(modName) {
 		
 		var filters = {};
-		//filters['all'] = {};
 
     // Global panel (if exists)
-    //var filterPanel = Ext.getCmp('search-termPanel');
-    //if (!Ext.isEmpty(filterPanel)) {
-    //  var filterForm = filterPanel.getForm();
-    //  if (!Ext.isEmpty(filterForm)) {
-    //    Ext.apply(filters['all'], filterForm.getValues(false));
-    //  }
-   // }
+    var filterPanel = Ext.getCmp('search-termPanel-'+modName);
+    if (!Ext.isEmpty(filterPanel)) {
+      var filterForm = filterPanel.getForm();
+      if (!Ext.isEmpty(filterForm)) {
+        Ext.apply(filters, filterForm.getValues(false));
+      }
+    }
     //Ext.apply(filters, {module: modName});
 
     // Module panel
@@ -138,28 +137,12 @@ module.init = function(){
     }
 
     // Check for emptyText value in terms field
-    //if (filters.terms && filters.terms === _('search.text.entry.label')){
-    //  filters.terms = '';
-    //}
+    if (filters.terms && filters.terms === _('search.text.entry.label')){
+      filters.terms = '';
+    }
 		
 		return filters;
 	}
-	
-	module.getTerms = function() {
-	  
-	  var terms = {};
-	  
-	  // Global panel (if exists)
-    var termPanel = Ext.getCmp('search-termPanel');
-    if (!Ext.isEmpty(termPanel)) {
-      var termForm = termPanel.getForm();
-      if (!Ext.isEmpty(termForm)) {
-        Ext.apply(terms, termForm.getValues(false));
-      }
-    }
-    
-    return terms;
-	}	
 	
 	module.applyFiltersFor = function(filterValues, modName) {
 		
@@ -172,12 +155,6 @@ module.init = function(){
 			  filters[filter] = '';
 		});
 		return filters;
-	}
-	
-	module.applyTermsFor = function(filters, terms, modName) {	  
-	  filters['all'] = terms;
-	  
-	  return filters;
 	}
 	
 	module.registerStoreListeners = function(modName) {
@@ -255,10 +232,10 @@ module.init = function(){
 				's': modName
 				,'f': {
 				}
-				//,'p': {
-				//	'c': 0
-				//	,'s': 25
-				//}
+				,'p': {
+					'c': 0
+					,'s': 25
+				}
 				,'t': modName
 				,'a': false
 			};
@@ -286,8 +263,8 @@ module.init = function(){
     return {
       xtype:'form'      
       ,labelAlign:'left'
-      ,id:'search-termPanel'
-      ,formId:'search-termForm'
+      ,id:'search-termPanel-'+modName
+      ,formId:'search-termForm-'+modName
       ,renderTo:'search-term'
       ,cls:'term-panel'
       ,border:false
@@ -301,16 +278,16 @@ module.init = function(){
             xtype:'box'
             ,autoEl: {
               tag:'img'
-              ,src: '/xwiki/bin/skin/curriki20/search_grey.png'
+              ,src: 'http://sankore.devxwiki.com/xwiki/bin/skin/curriki20/search_grey.png'
             }
           }]
         },{
           layout:'form'
-          ,id:'search-termPanel-form'
+          ,id:'search-termPanel-'+modName+'-form'
           ,cls:'search-termPanel-form'
           ,items:[{
             xtype:'textfield'
-            ,id:'search-termPanel-terms'
+            ,id:'search-termPanel-'+modName+'-terms'
             ,cls:'search-termPanel-terms'
             ,fieldLabel:_('search.text.entry.label')
             ,name:'terms'
@@ -349,18 +326,18 @@ module.init = function(){
           }]
         },{
           layout:'form'
-          ,id:'search-termPanel-buttonColumn'
+          ,id:'search-termPanel-buttonColumn-'+modName
           ,cls:'search-termPanel-buttonColumn'
           ,items:[{
             xtype:'button'
-            ,id:'search-termPanel-button'
+            ,id:'search-termPanel-button-'+modName
             //,cls:'btn btn-large'
             ,text:_('search.text.entry.button')
             ,listeners:{
               click:{
                 fn: function(){
                   if (modName == 'global') {
-                    terms = Ext.getCmp("search-termPanel-terms").getValue(); 
+                    terms = Ext.getCmp("search-termPanel-global-terms").getValue(); 
                     window.location.href = '/xwiki/bin/view/Search/URL#o%3As%3Ds%253Aexternal%5Ef%3Do%253Aexternal%253Do%25253Aterms%25253Ds%2525253A'+terms+'%25255Eother%25253Ds%2525253A%25255Esystem%25253Ds%2525253AAssetMetadata.FranceEducation%25255Elevel%25253Ds%2525253A%25255Esublevel%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Esubsubject%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Esubict%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Especial%25253Ds%2525253A%5Ep%3Do%253Ac%253Dn%25253A0%255Es%253Dn%25253A25%5Et%3Ds%253Aexternal%5Ea%3Db%253A0';
                   } else{
                     Search.doSearch(modName, true);
@@ -373,7 +350,7 @@ module.init = function(){
       },{
         xtype:'hidden'
         ,name:'other'
-        ,id:'search-termPanel-other'
+        ,id:'search-termPanel-other-'+modName
         ,value:(!Ext.isEmpty(Search.restrictions)?Search.restrictions:'')
       }]
     };
@@ -916,9 +893,8 @@ data.init = function(){
       var review = String.format('');
       if (record.data.rating != "") {
         review = String.format('<a class="rating review crs-{0}" title="{1}" href="/xwiki/bin/view/{3}?viewer=comments"><span class="crs-text">{1}</span><img class="crs-icon" alt="" src="{2}" /></a>', record.data.rating, _('search.resource.review.'+record.data.rating), Ext.BLANK_IMAGE_URL, page)
-      }   
-
-      var cleanContributorName = '/xwiki/bin/view/' +record.data.contributor.trim().replace('.', '/'); 
+      }  
+      var cleanContributorName = '/xwiki/bin/view/' +record.data.contributor.trim().replace('.', '/');  
       var contributor = String.format('<a class="contributor" href="{0}">{1}</a>', cleanContributorName, record.data.contributorName);
       
       return String.format('{0}{2}{1}<h4 class="title">{3}</h4>{4}<p class="description">{5}</p>', link, rating, review, title, contributor, desc);
@@ -1466,7 +1442,7 @@ form.init = function(){
 
 Ext.onReady(function(){
   Curriki.data.EventManager.on('Curriki.data:ready', function(){
-    form.init();    
+    form.init();
   });
 });
 
@@ -1714,9 +1690,8 @@ data.init = function(){
       if (record.data.memberRating != "") {
         rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}">{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a></span>', record.data.memberRating, record.data.ratingCount, page, _('search.resource.rating.'+record.data.memberRating), Ext.BLANK_IMAGE_URL);
       }
-
-      var contributorsCleanName = '/xwiki/bin/view/' +record.data.contributor.trim().replace('.', '/');
-      var contributor = String.format('<a class="contributor" href="{0}">{1}</a>', contributorsCleanName, record.data.contributorName);
+      var cleanContributorName = '/xwiki/bin/view/' +record.data.contributor.trim().replace('.', '/'); 
+      var contributor = String.format('<a class="contributor" href="{0}">{1}</a>', cleanContributorName, record.data.contributorName);
       
       return String.format('{0}{1}<h4 class="title">{2}</h4>{3}<p class="description">{4}</p>', link, rating, title, contributor, desc);
     }
@@ -2246,15 +2221,14 @@ form.init = function() {
           var filters = Search.util.getFilters(modName);
 					var resourceFilters = {};
 					resourceFilters['resource'] = Search.util.applyFiltersFor(filters, 'resource');
-					resourceFilters = Search.util.applyTermsFor(resourceFilters, Search.util.getTerms(), 'resource');
 					var token = {};
           token['s'] = 'resource';
           token['f'] = resourceFilters;
-          //token['p'] = {};
-					//token['p']['c'] = 0;
-					//token['p']['s'] = 25;
+          token['p'] = {};
+					token['p']['c'] = 0;
+					token['p']['s'] = 25;
 					token['a'] = {};
-					//token['a']['resource'] = false;
+					token['a']['resource'] = false;
 
           var provider = new Ext.state.Provider();
           var encodedToken = provider.encodeValue(token);
@@ -2330,7 +2304,7 @@ form.init = function() {
               featuredPanel.hide();
             if(page.activePage == 1 && !featuredPanel.isVisible())
               featuredPanel.show();
-            //if(page.activePage == page.pages && Ext.getCmp('search-termPanel-terms').isVisible())
+            //if(page.activePage == page.pages && Ext.getCmp('search-termPanel-'+modName+'-terms').isVisible())
             googleDoSearch(modName);
             //else
             //  $('googleSearch').hide();
@@ -2665,11 +2639,11 @@ data.init = function(){
     }
     ,result: function(value, metadata, record, rowIndex, colIndex, store) {
       
-      var title = String.format('<a href="{0}">{1}</a>', record.data.url, Ext.util.Format.ellipsis(record.data.title, 80));
+      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', record.data.url, Ext.util.Format.ellipsis(record.data.title, 80));
       var imgsrc = "/xwiki/skins/curriki20/curriki/images/groups_default_logo.gif";
       var link = String.format('<a class="preview" href="{0}"><img src="{1}" /></a>', record.data.url, imgsrc);       
       var desc = Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256);
-      var policy = String.format('<span qtip="{1}">{0}</span>', _('search.group.icon.' + record.data.policy), _('search.group.icon.'+record.data.policy+'.rollover'));
+      var policy = String.format('<span ext:qtip="{1}">{0}</span>', _('search.group.icon.' + record.data.policy), _('search.group.icon.'+record.data.policy+'.rollover'));
       
       return String.format('{0}<h4 class="title">{1}</h4>{2}<p class="description">{3}</p>', link, title, policy, desc);
     }
@@ -3435,13 +3409,13 @@ form.init = function(){
 
               // CURRIKI-2873
               // - Force a repaint of the fieldset
-              Ext.getCmp('search-termPanel').el.repaint();
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
             }
           }
           ,'collapse':{
             fn:function(panel){
               Ext.getCmp('search-results-'+modName).getView().refresh();
-              Ext.getCmp('search-termPanel').el.repaint();
+              Ext.getCmp('search-termPanel-'+modName).el.repaint();
             }
           }
         }
@@ -4164,8 +4138,8 @@ Search.init = function(){
       //token['f'] = filterValues;
       //token['p'] = pagerValues;
       //if (Ext.getCmp('search-tabPanel').getActiveTab) {
-      //  token['t'] = Ext.getCmp('search-tabPanel').getActiveTab().id;
-     // }
+        //token['t'] = Ext.getCmp('search-tabPanel').getActiveTab().id;
+      //}
       //token['a'] = panelSettings;
 
       //var provider = new Ext.state.Provider();
@@ -4299,50 +4273,53 @@ Search.init = function(){
         //  }
         //}
 
-        Ext.each(Search.tabList, function(tab){
-          console.log('Updating '+tab);
-          var module = Search.form[tab];
-          if (!Ext.isEmpty(module) && !Ext.isEmpty(module.doSearch) && !Ext.isEmpty(filterValues) && !Ext.isEmpty(filterValues[tab])) {
-            var filterPanel = Ext.getCmp('search-filterPanel-'+tab);
-            if (!Ext.isEmpty(filterPanel)) {
-              var filterForm = filterPanel.getForm();
-              if (!Ext.isEmpty(filterForm)) {
-                try {
-                  filterForm.setValues(filterValues[tab]);                    
-                } catch(e) {
-                  console.log('ERROR Updating '+tab, e);
+        Ext.each(
+          Search.tabList
+          ,function(tab){
+            console.log('Updating '+tab);
+            var module = Search.form[tab];
+            if (!Ext.isEmpty(module) && !Ext.isEmpty(module.doSearch) && !Ext.isEmpty(filterValues) && !Ext.isEmpty(filterValues[tab])) {
+              var filterPanel = Ext.getCmp('search-filterPanel-'+tab);
+              if (!Ext.isEmpty(filterPanel)) {
+                var filterForm = filterPanel.getForm();
+                if (!Ext.isEmpty(filterForm)) {
+                  try {
+                    filterForm.setValues(filterValues[tab]);                    
+                  } catch(e) {
+                    console.log('ERROR Updating '+tab, e);
+                  }
+                }
+              }
+
+              // Open advanced panel if specified
+              if (!Ext.isEmpty(panelSettings) && !Ext.isEmpty(panelSettings[tab]) && panelSettings[tab].a) {
+                var advancedPanel = Ext.getCmp('search-advanced-'+tab);
+                if (!Ext.isEmpty(advancedPanel)) {
+                  advancedPanel.expand(false);
+                }
+              }
+
+              // Set pager values
+              var pagerPanel = Ext.getCmp('search-pager-'+tab);
+              if (!Ext.isEmpty(pagerPanel) && !Ext.isEmpty(pagerValues)) {
+                if (pagerValues[tab]) {
+                  try {
+                    if (pagerValues[tab]['c']) {
+                      pagerPanel.cursor = pagerValues[tab]['c'];
+                    }
+                    if (pagerValues[tab]['s']) {
+                      if (pagerPanel.pageSize != pagerValues[tab]['s']) {
+                        pagerPanel.setPageSize(pagerValues[tab]['s']);
+                      }
+                    }
+                  } catch(e) {
+                    console.log('ERROR Updating '+tab, e);
+                  }
                 }
               }
             }
-
-            // Open advanced panel if specified
-            //if (!Ext.isEmpty(panelSettings) && !Ext.isEmpty(panelSettings[tab]) && panelSettings[tab].a) {
-            //  var advancedPanel = Ext.getCmp('search-advanced-'+tab);
-            //  if (!Ext.isEmpty(advancedPanel)) {
-            //    advancedPanel.expand(false);
-            //  }
-            //}
-
-            // Set pager values
-            //var pagerPanel = Ext.getCmp('search-pager-'+tab);
-            //if (!Ext.isEmpty(pagerPanel) && !Ext.isEmpty(pagerValues)) {
-              //if (pagerValues[tab]) {
-                //try {
-                  //if (pagerValues[tab]['c']) {
-                    //pagerPanel.cursor = pagerValues[tab]['c'];
-                  //}
-                  //if (pagerValues[tab]['s']) {
-                    //if (pagerPanel.pageSize != pagerValues[tab]['s']) {
-                      //pagerPanel.setPageSize(pagerValues[tab]['s']);
-                    //}
-                  //}
-                //} catch(e) {
-                  //console.log('ERROR Updating '+tab, e);
-                //}
-              //}
-            //}
           }
-        });
+        );
 
         if (values['s']) {
           console.log('Starting search');
@@ -4382,8 +4359,16 @@ Search.init = function(){
 
 Search.display = function(){
   Search.init();
+
+  //var s = new Ext.Panel(Search.mainPanel);
+  //s.render();
+  
+  //var filtersPanel = new Ext.Panel(Search.filtersPanel);
+  //var resultsPanel = new Ext.Panel(Search.resultsPanel);
+  //filtersPanel.render();
+  //resultsPanel.render();
+
   Search.history.init();
-  Ext.each(Search.tabList, function(tab){ Search.doSearch(tab); });  
 };
 
 Search.start = function(){
