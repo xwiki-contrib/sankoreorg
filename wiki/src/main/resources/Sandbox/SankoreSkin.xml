@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346429381000</creationDate>
-<date>1346429381000</date>
-<contentUpdateDate>1346429381000</contentUpdateDate>
+<creationDate>1346853964000</creationDate>
+<date>1346853964000</date>
+<contentUpdateDate>1346853964000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreSkin</title>
 <template></template>
@@ -7878,7 +7878,126 @@ fTatdDh6EtXp2hBSEhLuPgEACJiL1hGO8/1MjppNth1dASZDpiLUX1u5tYem2uTSKAAgSIbGCMWr
 TBDmwzBiycUTYyr0/gAAVDwI9Rf9HkEFAKi2IBQZWkf4Dx2Ei2kSAEBVVoRpz3vatZy7PTfDkncA
 QNVUg4n3LMotnzD++uWln838e99T0pNijQMA4LIPwZqWVrl6/Y/PBaHRc+zQsp4jB7ZkujpiNFP1
 6tq/R1QRH6K4/hABqFy/KvUXOX2wPMp2pGbGLElcc73ZW3TX/wQYAJirO+PJv/ytAAAAAElFTkSu
-QmCC</content></attachment>
+QmCC</content></attachment><attachment>
+<filename>spritestars.gif</filename>
+<filesize>6421</filesize>
+<author>XWiki.mstaicu</author>
+<date>1346834955000</date>
+<version>1.1</version>
+<comment></comment><content>R0lGODlhVQAgAffbANjY2Nzc3OZHAOZLANra2uZCANfX18/Pz9XV1dLS0uY5AM/LydTU1ODY1OY7
+AOY0ANDQ0OYuAOYoAMDAwOZBAN/f39PT0+YzAOHZ1eZYEd7W0sLBwdrT0MHAv9fRzsbEw83NzdbW
+1uV0deYAAM3MzMvLy7m4uOYuFOHh4a6uruTEwNrTz9aEjeYiANnSzuVxaOTIwMPBwOPa1uWbieYG
+AOYQAeWYjsrHxtXQza+sq7Curb+/v+AWAL69vdDMyuTY1M7OzuZdLeYmHMXFxeUmAOLa1uMeAOPb
+19IAF80AEtjRzcUAE62treSpoeSupOYeBcPDw+Y+AODg4OZ3WeVtaOZENeYpAOY2AMkADeYtDsrF
+wtbRzqmpqeZgHuUoAOTQyq6treLFw+PQzbCwsNwSJuVgTOZ0PNLNyuTTzsYrQeVvc+YDAOTGwOYy
+CbW0tNvU0OCztdHKx9idoswfN8bFxcfGxt6ztN2ztNIAB+Pj48nIx8bGxuMtO+VlaeZDBOUaDuTX
+0tjRzuVZXeTk5OEVDuZBIeY/G9/X0+YtB7y7u+WHfcbDwt5gaeWGheY0F+YqD+UREbOyseZUMuYx
+COB9gsLBwMbFxOZDNeVlZeYjEs/KyOYyAcvGw9YTHNcTG9XU1OY3F+AXDOYqDOS3tOTW0toUI+J5
+f8bBv+aTdOYlCthASuY8LsXEw+YlFb29vd7V0czLy+SQkt3W0s/JxtbQzd+Qk+MkBeYyF+WCc8TD
+wuEcCOV1Zd8UDeWloNczP7e0s8rKytTPzOZcHuQoBOaJW93U0OS+tM3IxcC/v7OxsN4QDuOXm+S+
+ueZkPuaSauHDwOZGA97e3s7Jx+WPheMaC+SwsOGwsOYoFtLNy96Dh+aTav///wAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94
+cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1w
+bWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4z
+LWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4
+bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
+cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5j
+b20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0v
+IiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNl
+UmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1w
+TU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEMTI5NzFFOERENEYxMUUxQThEQkEwRjQ2QzMzNTQ2RSIg
+eG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEMTI5NzFFOURENEYxMUUxQThEQkEwRjQ2QzMzNTQ2
+RSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQxMjk3MUU2
+REQ0RjExRTFBOERCQTBGNDZDMzM1NDZFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQxMjk3
+MUU3REQ0RjExRTFBOERCQTBGNDZDMzM1NDZFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpS
+REY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s
+6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSz
+srGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6
+eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JB
+QD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkI
+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
+</content></attachment>
 <object>
 <class>
 <name>XWiki.XWikiRights</name>
@@ -11341,20 +11460,21 @@ Add a Resource
   list-style: none;
   padding: 0; margin: 0;
   overflow: hidden;
-  float: left; 
-  width: 80%;
+  float: left;
   font-size: .9em;
   margin: 0px 0px 0px 20px ;
+  width: 630px;
 }
 
 #asset-attribution li {
-  float: left;
   display: inline;
-  width: auto;
+  float: left;
+  width: 200px;
+  height: 50px;
 }
-#asset-attribution li#asset-contributor {width: 250px;}
-#asset-attribution li#asset-review { display: none; }
-#asset-attribution li#asset-rating { width: 200px; height: 22px; overflow: hidden; display: none; /*temp rule*/ }
+#asset-attribution li#asset-contributor {width: 250px; float: left;}
+//#asset-attribution li#asset-review { display: none; }
+#asset-attribution li#asset-rating { width: 130px; height: 22px; overflow: hidden; float: right;/*temp rule*/ }
 
 #asset-flag {
   background: url("/xwiki/bin/download/Sandbox/SankoreSkin/signaler.png") no-repeat top center;
@@ -11366,7 +11486,9 @@ Add a Resource
   margin: -21px 20px 0 0 ;
 }
 
-
+#asset-review {
+  float: left;
+}
 
 #asset-tabs {
   display: none;
@@ -11396,17 +11518,13 @@ Add a Resource
 .popup-info-rollover strong { display: block; padding: 5px 0px; }
 
 .rve-rating-wrapper {
-  clear: both; display: block; overflow: hidden;
-  padding: 5px 20px;
-  display: none;
+  clear: both; display: inline; overflow: hidden;
+  width: 350px;
+  margin: 0 5px 0 0;
 }
 
 #asset-rating {
-  width: 40%; display: inline; float: left;
-}
-
-#member-rating {
-  width: 58%; display: inline; float: left;
+ margin-bottom: 20px;
 }
 
 .sub-asset-wrapper.member-comments-wrapper {

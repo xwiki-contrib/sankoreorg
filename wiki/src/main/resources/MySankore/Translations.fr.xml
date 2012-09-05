@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346407594000</creationDate>
-<date>1346407594000</date>
-<contentUpdateDate>1346407594000</contentUpdateDate>
+<creationDate>1346853957000</creationDate>
+<date>1346853957000</date>
+<contentUpdateDate>1346853957000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -97,7 +97,7 @@ mycurriki.favorites.table.filetype=Type de fichier
 mycurriki.favorites.table.action=Action
 
 mycurriki.favorites.table.action.remove=Supprimer
-mycurriki.favorites.table.action.remove&amp;#95;tooltip=Supprimer cette ressource des favoris
+mycurriki.favorites.table.action.remove_tooltip=Supprimer cette ressource des favoris
 mycurriki.favorites.table.action.remove.confirm=Etes-vous sûr de vouloir supprimer ?
 mycurriki.favorites.removed.comment= La ressource {0} a été supprimée des favoris
 
@@ -109,7 +109,7 @@ mycurriki.favorites.mouseover.level=*Niveaux éducatifs :*
 ##CONTRIBUTIONS TAB
 
 mycurriki.contributions.addButton=Ajouter une ressource
-mycurriki.contributions.addButton&amp;#95;tooltip=Ajouter vos meilleurs ressources ou créer quelque-chose de nouveau
+mycurriki.contributions.addButton_tooltip=Ajouter vos meilleurs ressources ou créer quelque-chose de nouveau
 mycurriki.contributions.table.title=Titre
 mycurriki.contributions.table.ict=Type de ressource
 mycurriki.contributions.table.lastupdated=Date de modification
@@ -124,9 +124,9 @@ mycurriki.collections.titlebar=Collections
 mycurriki.collections.titlebarbutton=Cacher les descriptions
 mycurriki.collections.titlebarbuttonalt=Montrer les descriptions
 mycurriki.collections.add=Ajouter une collection
-mycurriki.collections.add&amp;#95;tooltip=Ajouter une nouvelle collection pour organiser et présenter les ressources
+mycurriki.collections.add_tooltip=Ajouter une nouvelle collection pour organiser et présenter les ressources
 mycurriki.collections.reorder=Organiser les collections
-mycurriki.collections.reorder&amp;#95;tooltip=Organiser les collections
+mycurriki.collections.reorder_tooltip=Organiser les collections
 mycurriki.collections.noresults=
 
 ##REORDER FEATURE
@@ -137,7 +137,7 @@ mycurriki.collections.reorder.checkfirst.dialog=Par défaut, vos collections les
 mycurriki.collections.reorder.checkfirst.cancel.btt=OK
 mycurriki.collections.reorder.checkfirst.next.btt=Annuler
 
-mycurriki.collections.reorder.dialog&amp;#95;title=Organiser vos collections
+mycurriki.collections.reorder.dialog_title=Organiser vos collections
 mycurriki.collections.reorder.guidingquestion=Dans quel ordre souhaitez-vous présenter vos collections
 mycurriki.collections.reorder.instruction=Glissez-déposez vos collections dans l'ordre souhaité, puis cliquez sur Suivant.
 mycurriki.collections.reorder.listheader=
@@ -205,5 +205,11 @@ profile.activity=Mon Activité
 
 ##Groups button
 mycurriki.groups.rejoindre=Rejoindre un groupe
+
+## Email registration
+sankore.registration.email.user=Utilisateur Sankoré
+
+##Rating avis
+rve.title.member.rating.avis=avis
 
 #&lt;/pre&gt;</content></xwikidoc>
