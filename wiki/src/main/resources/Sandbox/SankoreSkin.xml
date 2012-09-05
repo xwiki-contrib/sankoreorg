@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346853964000</creationDate>
-<date>1346853964000</date>
-<contentUpdateDate>1346853964000</contentUpdateDate>
+<creationDate>1346857346000</creationDate>
+<date>1346857346000</date>
+<contentUpdateDate>1346857346000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreSkin</title>
 <template></template>
@@ -11214,10 +11214,10 @@ Resources Page
   font-weight: bold;
   font-size: 1.2em;
 }
-.comment-rating {display: none;}
+
 .comment-text {
-  margin-left: 80px;
   font-size: .95em;
+  float: right;
 }
 
 .comment-text strong {
