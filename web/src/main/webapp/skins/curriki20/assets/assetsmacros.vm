@@ -893,9 +893,9 @@ $asset.use($comment)
   <ul>
   #set($authorDoc = $xwiki.getDocument($asset.getValue("author")))
     <li class="comment-avatar">#curriki_avatar($authorDoc)</li>
+    <li id="comment-text-${comment.number}" class="comment-text">#asset_comment_text($asset $comment)</li>
     <li class="comment-datestamp">$xwiki.formatDate($asset.getValue("date"),$msg.get("mycurriki.datetimeFormat"))</li>
     <li class="comment-username">$!xwiki.getUserName($authorDoc.fullName)</li>    
-    <li id="comment-text-${comment.number}" class="comment-text">#asset_comment_text($asset $comment)</li>
     <li class="comment-action">
     #if(($comment.author == $context.user) || $xwiki.hasAdminRights())
       <a class="comment-edit" href="javascript:void(0)" onclick="editComment('${asset.getJSFullName()}','${comment.number}','comment-text-${comment.number}'); return false;">
