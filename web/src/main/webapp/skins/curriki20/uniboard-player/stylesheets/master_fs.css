@@ -1,4 +1,13 @@
 
+body {
+ position: fixed;
+ overflow: hidden;
+ left: 0;
+ right: 0;
+ top: 0;
+ bottom: 0;
+}
+
 #thumbnails-slider {
  display: none;
 }
@@ -9,10 +18,6 @@
 
 .board {
  padding-bottom: 185px;
-}
-
-body {
- overflow: show;
 }
 
 #thumbnails {

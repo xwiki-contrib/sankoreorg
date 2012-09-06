@@ -7,6 +7,15 @@ UbPlayer.init = function(playerprefix) {
    UbPlayer.playerprefix = playerprefix;
 }
 
+UbPlayer.loadCSS = function(url) {
+ if(document.createStyleSheet) {
+    try { document.createStyleSheet(url); } catch (e) { }
+ } else {
+    var el = jQuery("head");
+    el.append('<link rel=stylesheet type="text/css" href="' + url + '">');
+ }
+}
+
 UbPlayer.launchPlayer = function(file, nbpages, mode) {
         console.log("Player opening");    
 
@@ -40,24 +49,13 @@ UbPlayer.launchPlayer = function(file, nbpages, mode) {
         console.log("Player initial load done");    
 
         // load specific stylesheets according to the window width
-        jQuery("body").append('<link rel=stylesheet type="text/css" href="' + UbPlayer.playerprefix + 'stylesheets/master_' + mode + '.css">');
+        UbPlayer.loadCSS(UbPlayer.playerprefix + 'stylesheets/master_' + mode + '.css');
 
-        if(jQuery("body").width() < 1000){
-            console.log("Player mode embedded");    
-
-            myUbPlayer.state = "embedded";
-            if(!jQuery.browser.msie){
-                jQuery("body").append('<link rel=stylesheet type="text/css" href="' + UbPlayer.playerprefix + 'stylesheets/master_embed.css">');
-            }else{
-
-            }
-        } else {
-            if(!jQuery.browser.msie){
-                console.log("Player non ie mode");    
-
-                if(jQuery.browser.safari) {
-                    jQuery("body").append('<link rel=stylesheet type="text/css" href="' + UbPlayer.playerprefix + 'stylesheets/master_ipad.css">');
-                    addSwipeListener(document.body, function(e) {
+        // TODO: fix detecting iPad and iPhone instead of safari
+        if(jQuery.browser.safari) {
+             UbPlayer.loadCSS(UbPlayer.playerprefix + 'stylesheets/master_ipad.css');
+    
+             addSwipeListener(document.body, function(e) {
                         if(e.direction=="right"){
                             myUbPlayer.goToPage("PREVIOUS");
                         }else if(e.direction=="left"){
@@ -65,23 +63,11 @@ UbPlayer.launchPlayer = function(file, nbpages, mode) {
                         }
                     });
                     jQuery("#boards").addClass("boardsEnableAnimation");
-                }
-            }else{
+         }
+         
+        if(jQuery.browser.ie) { 
                 console.log("Player ie mode");    
-
-                jQuery("body").append('<link rel=stylesheet type="text/css" href="' + UbPlayer.playerprefix + 'stylesheets/master_ie.css">');
-/*
-                if(jQuery.browser.version != "8.0"){
-                    jQuery("#alert").css({"display": "block"});
-                    jQuery("#alert-background").animate({opacity:0.9},500);
-                    jQuery("#alert-box").html('<span>You are running an old version of Internet Explorer. Please update your browser or install Google Chrome Frame. <a href="http://www.google.com/chromeframe">Download Google Chrome Frame</a></span>');
-                }else{
-                    jQuery("#alert").css({"display": "table"});
-                    jQuery("#alert-background").animate({opacity:0.5},500);
-                    jQuery("#alert-box").html('<span>Please start <b>Firefox, Safari</b> or <b>Chrome</b> to view this document, or <a href="http://www.google.com/chromeframe">Download the Google Chrome Frame plugin</a> to view it in Internet Explorer. (<a href="#">close</a>)</span>');
-                }
-*/
-            }
+                UbPlayer.loadCSS(UbPlayer.playerprefix + 'stylesheets/master_ie.css');
         }
 
         jQuery(window).resize(function(){
@@ -128,14 +114,16 @@ UbPlayer.launchPlayer = function(file, nbpages, mode) {
 
                 if(jQuery("body").width() < (jQuery(".page").width() + 76) && myUbPlayer.resizeMode === "V"){
                     myUbPlayer.resizeMode = "H";
-                console.log("switch to H mode");
+                    console.log("switch to H mode");
                     jQuery(window).resize();
                 } else if(jQuery("body").height() < (jQuery(".page").height() + paddingTop + paddingBottom) && myUbPlayer.resizeMode === "H"){
                     myUbPlayer.resizeMode = "V";
-                console.log("switch to V mode");
+                    console.log("switch to V mode");
                     jQuery(window).resize();
                 };
              } // end if mode
+             // force setting page-img size for IE8 standards mode
+             jQuery("#page-img").width(jQuery(".page").width());
         });
 
         jQuery("#alert").click(function(){
@@ -160,6 +148,6 @@ UbPlayer.launchPlayer = function(file, nbpages, mode) {
 
         console.log("Resize done");    
     }); //resize
-
+                    
     console.log("Player activated");    
 } // end function launchPlayer

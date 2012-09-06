@@ -412,7 +412,6 @@ UbPlayer.Player.prototype.switchToFullMode = function(){
   jQuery("#foot").hide();
   jQuery("#head-list-share").css("display", "none");
   jQuery("#head-list-close").css("display", "inline-block");
-  jQuery(window).resize();
   this.mode = "full";
  
   // switching parent to full screen mode
@@ -420,9 +419,16 @@ UbPlayer.Player.prototype.switchToFullMode = function(){
      UbPlayer.mode = "fs"; 
      parent.UbLoader.switchMode("fs");
      // load full screen css
-     jQuery("body").append('<link rel=stylesheet type="text/css" href="' + UbPlayer.playerprefix + 'stylesheets/master_fs.css">');
+     UbPlayer.loadCSS(UbPlayer.playerprefix + 'stylesheets/master_fs.css');
+     // forcing body size to make sure it's done before the resize call
+     jQuery("body").css("position", "fixed");
+     jQuery("body").css("overflow", "hidden");
+     jQuery("body").css("left", "0");
+     jQuery("body").css("right", "0");
+     jQuery("body").css("top", "0");
+     jQuery("body").css("bottom", "0");
+     jQuery(window).resize();
   }
-
 }
 
 UbPlayer.Player.prototype.switchToNormalMode = function(){
@@ -430,12 +436,16 @@ UbPlayer.Player.prototype.switchToNormalMode = function(){
   jQuery("#foot").show();
   jQuery("#head-list-share").css("display", "inline-block");
   jQuery("#head-list-close").css("display", "none");
+  /*
   if(this.thumbsBar.state === "full"){
+  	console.log("here");
     jQuery("#body").css({paddingBottom:110+this.thumbsBar.fullHeightVal});
+    jQuery("#body").css({paddingBottom: 0});
   }else{
+  	console.log("here2");
     jQuery("#body").css({paddingBottom:110});
   }
-  jQuery(window).resize();
+  */
   this.mode = "normal";
 
   // switching parent back to embed mode
@@ -444,10 +454,11 @@ UbPlayer.Player.prototype.switchToNormalMode = function(){
      parent.UbLoader.switchMode("embed");
 
      // load embed css
-     jQuery("body").append('<link rel=stylesheet type="text/css" href="' + UbPlayer.playerprefix + 'stylesheets/master_embed.css">');
+     UbPlayer.loadCSS(UbPlayer.playerprefix + 'stylesheets/master_embed.css');
      // revert manual size setting on current-page div
      jQuery("#current-page").css("width", "");
      jQuery("#current-page").css("height", "");
+     jQuery("#page-img").width("");
   }
 }
 
