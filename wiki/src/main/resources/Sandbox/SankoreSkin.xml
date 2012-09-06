@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346923122000</creationDate>
-<date>1346923122000</date>
-<contentUpdateDate>1346923122000</contentUpdateDate>
+<creationDate>1346943303000</creationDate>
+<date>1346943303000</date>
+<contentUpdateDate>1346943303000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreSkin</title>
 <template></template>
@@ -11217,7 +11217,7 @@ Resources Page
 
 .comment-text {
   font-size: .95em;
-  margin-left: 80px;
+  margin: 0 0 12px 80px;
 }
 
 .comment-icon &gt; .rating-icon {
@@ -11230,17 +11230,55 @@ Resources Page
   display: none;
 }
 
+##Asset star rating CSS
 
+#asset-rating #member-rating .rating-0 .rating-icon {
+  background-position: 0 -125px;
+}
 
+#asset-rating #member-rating .rating-1 .rating-icon {
+  background-position: 0 -100px;
+}
 
+#asset-rating #member-rating .rating-2 .rating-icon {
+  background-position: 0 -75px;
+}
 
+#asset-rating #member-rating .rating-3 .rating-icon {
+  background-position: 0 -50px;
+}
 
+#asset-rating #member-rating .rating-4 .rating-icon {
+  background-position: 0 -25px;
+}
 
+#asset-rating #member-rating .rating-5 .rating-icon {
+  background-position: 0 0;
+}
 
+.rating-0 .comment-icon &gt; .rating-icon {
+  background-position: 0 -125px;
+}
 
+.rating-1 .comment-icon &gt; .rating-icon {
+  background-position: 0 -100px;
+}
 
+.rating-2 .comment-icon &gt; .rating-icon {
+  background-position: 0 -75px;
+}
 
+.rating-3 .comment-icon &gt; .rating-icon {
+  background-position: 0 -50px;
+}
 
+.rating-4 .comment-icon &gt; .rating-icon {
+  background-position: 0 -25px;
+}
+
+.rating-5 .comment-icon &gt; .rating-icon {
+  background-position: 0 0;
+}
 
 /*
 Panels
@@ -11478,9 +11516,9 @@ Add a Resource
   width: 200px;
   height: 50px;
 }
-#asset-attribution li#asset-contributor {width: 170px; float: left;}
+#asset-attribution li#asset-contributor {width: 154px; float: left;}
 //#asset-attribution li#asset-review { display: none; }
-#asset-attribution li#asset-rating { width: 130px; height: 30px; overflow: hidden; float: left;/*temp rule*/ }
+#asset-attribution li#asset-rating { width: 138px; height: 30px; overflow: hidden; float: left;/*temp rule*/ }
 
 #asset-flag {
   background: url("/xwiki/bin/download/Sandbox/SankoreSkin/signaler.png") no-repeat top center;
