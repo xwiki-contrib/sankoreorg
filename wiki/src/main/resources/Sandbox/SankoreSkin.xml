@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346857346000</creationDate>
-<date>1346857346000</date>
-<contentUpdateDate>1346857346000</contentUpdateDate>
+<creationDate>1346923122000</creationDate>
+<date>1346923122000</date>
+<contentUpdateDate>1346923122000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreSkin</title>
 <template></template>
@@ -11217,7 +11217,13 @@ Resources Page
 
 .comment-text {
   font-size: .95em;
+  margin-left: 80px;
+}
+
+.comment-icon &gt; .rating-icon {
+  bottom: 58px;
   float: right;
+  position: relative;
 }
 
 .comment-text strong {
@@ -11472,9 +11478,9 @@ Add a Resource
   width: 200px;
   height: 50px;
 }
-#asset-attribution li#asset-contributor {width: 250px; float: left;}
+#asset-attribution li#asset-contributor {width: 170px; float: left;}
 //#asset-attribution li#asset-review { display: none; }
-#asset-attribution li#asset-rating { width: 130px; height: 22px; overflow: hidden; float: right;/*temp rule*/ }
+#asset-attribution li#asset-rating { width: 130px; height: 30px; overflow: hidden; float: left;/*temp rule*/ }
 
 #asset-flag {
   background: url("/xwiki/bin/download/Sandbox/SankoreSkin/signaler.png") no-repeat top center;
@@ -11483,7 +11489,6 @@ Add a Resource
   width: 100px;
   text-indent: -2000px;
   float: right; clear: right;
-  margin: -21px 20px 0 0 ;
 }
 
 #asset-review {
