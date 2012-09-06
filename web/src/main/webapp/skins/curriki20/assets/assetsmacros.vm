@@ -104,9 +104,10 @@
     #end
   <li id="asset-group">$msg.get("rve.title.attribution.group") <a href="$assetGroupURL" title="$msg.get("rve.title.attribution.group") $assetGroupDisplayName">$assetGroup.getTitle()</a></li>
   #end
-  <li id="asset-contributor">$msg.get("rve.title.attribution.contributor") <a href="$assetAuthorLink" title="$msg.get("rve.title.attribution.contributor") $escapetool.javascript($assetAuthorDisplayName)">$assetAuthorDisplayName</a></li>
+  <li id="asset-contributor">$msg.get("rve.title.attribution.contributor")<br /> <a href="$assetAuthorLink" title="$msg.get("rve.title.attribution.contributor") $escapetool.javascript($assetAuthorDisplayName)">$assetAuthorDisplayName</a></li>
   <li id="asset-review">#crs_icon($asset)</li>
   <li id="asset-rating">#member_rating_icon($asset)</li>
+  <li id="asset-rating">#asset_flag_button($asset)</li>
 </ul>
 #end
 
@@ -330,7 +331,7 @@ Ext.select('div#asset-header h2 a').hover(function(){Ext.select('ul#asset-tabs l
       ##asset_rating($asset)
     ##end
     #asset_attribution($asset)
-    #asset_flag_button($asset)    
+    ##asset_flag_button($asset)    
     #if(!$isPrint)
       #asset_tabs($asset "view")
     #end
@@ -865,7 +866,7 @@ $asset.use("CurrikiCode.AssetClass")
 #set($ret_hasRating = true)
 <div class="comment-rating rating-${r}">
 <strong>$msg.get("rve.comments.commentrating.rating.display_header")</strong>
-<p>
+<p class="comment-icon">
 <img class="rating-icon" src="/xwiki/skins/curriki8/extjs/resources/images/default/s.gif" ext:qtip="${msg.get("rve.title.member.rating.${r}.rollover")}" />
 </p>
 </div>
@@ -893,9 +894,9 @@ $asset.use($comment)
   <ul>
   #set($authorDoc = $xwiki.getDocument($asset.getValue("author")))
     <li class="comment-avatar">#curriki_avatar($authorDoc)</li>
-    <li id="comment-text-${comment.number}" class="comment-text">#asset_comment_text($asset $comment)</li>
     <li class="comment-datestamp">$xwiki.formatDate($asset.getValue("date"),$msg.get("mycurriki.datetimeFormat"))</li>
-    <li class="comment-username">$!xwiki.getUserName($authorDoc.fullName)</li>    
+    <li class="comment-username">$!xwiki.getUserName($authorDoc.fullName)</li>
+    <li id="comment-text-${comment.number}" class="comment-text">#asset_comment_text($asset $comment)</li>
     <li class="comment-action">
     #if(($comment.author == $context.user) || $xwiki.hasAdminRights())
       <a class="comment-edit" href="javascript:void(0)" onclick="editComment('${asset.getJSFullName()}','${comment.number}','comment-text-${comment.number}'); return false;">
