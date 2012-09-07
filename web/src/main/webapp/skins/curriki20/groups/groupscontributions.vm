@@ -166,7 +166,13 @@ Curriki.module.search.start();
 #macro(groups_curriculum)
 #groupsinit()
 #groupsheader("curriculum")
-#groupsdisplaywelcomecolour($msg.get("groups.curriculum.about.title") $spaceName $doc.name "red" $isGroupAdmin)
+##---------------------------------------------------------------------------------------------------------------
+##Start SKE-453
+#if(!$isGuest && $isGroupMember)
+  #groupsdisplaywelcomecolour($msg.get("groups.curriculum.about.title") $spaceName $doc.name "red" $isGroupAdmin)
+#end
+##End SKE-453
+##---------------------------------------------------------------------------------------------------------------
 <div id="groups-search" class="frame">
 #curriki_titlebar($msg.get("groups.curriculum.contributions.title") "" "" "red")
 <div class="frame-content">
