@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344867904000</creationDate>
-<date>1344867904000</date>
-<contentUpdateDate>1344867904000</contentUpdateDate>
+<creationDate>1346457600000</creationDate>
+<date>1346457600000</date>
+<contentUpdateDate>1346457600000</contentUpdateDate>
 <version>1.1</version>
 <title>External</title>
 <template></template>
@@ -351,7 +351,7 @@ $ict:
   #set($ret_parents = "")
   #set($isComposite = $!resource.isFolder())
   #if(!$isComposite)
-    #set($sql = ", BaseObject as composite, BaseObject as subasset, StringProperty as cprops, StringProperty as sprops where doc.name != 'Favorites' and doc.name != 'WebHome' and composite.name=doc.fullName and composite.className='CurrikiCode.CompositeAssetClass' and composite.id=cprops.id.id and cprops.id.name='type' and (cprops.value='collection' or cprops.value='folder') and subasset.name=doc.fullName and subasset.id=sprops.id.id and subasset.className='CurrikiCode.SubAssetClass' and sprops.id.name='assetpage' and sprops.value='${resource.fullName}' order by doc.name")
+    #set($sql = ", BaseObject as composite, BaseObject as subasset, BaseObject as asset, StringProperty as cprops, StringProperty as sprops where doc.name != 'Favorites' and doc.name != 'WebHome' and composite.name=doc.fullName and composite.className='CurrikiCode.CompositeAssetClass' and composite.id=cprops.id.id and cprops.id.name='type' and (cprops.value='collection' or cprops.value='folder') and subasset.name=doc.fullName and subasset.id=sprops.id.id and subasset.className='CurrikiCode.SubAssetClass' and sprops.id.name='assetpage' and sprops.value='${resource.fullName}' order by doc.name")
     #set($parentList = $xwiki.searchDocuments($sql))
     #if($parentList.size() &gt; 0)
       #set($isFirstParent = true)
@@ -464,44 +464,13 @@ $ict:
     #set($limit = $request.limit)
   #end
   ##
-  ## Set sort field
+  ## Set sort fields
   ##
-  #set($sortField1 = 'CurrikiCode.AssetClass.rating')
-  #set($sortField2 = 'title.untokenized')
-  #if($!request.sort != "")
-    #if($request.sort == "title")
-      #set($sortField1 = 'title.untokenized')
-      #set($sortField2 = 'CurrikiCode.AssetClass.rating')
-    #end
-    #if($request.sort == "contributor")
-      #set($sortField1 = 'creator.untokenized')
-      #set($sortField2 = 'CurrikiCode.AssetClass.rating')
-    #end
-    #if($request.sort == "author")
-      #set($sortField1 = 'CurrikiCode.AssetLicenseClass.rightsHolder.untokenized')
-      #set($sortField2 = 'CurrikiCode.AssetClass.rating')
-    #end
-    #if($request.sort == "rating")
-      #set($sortField1 = 'CurrikiCode.AssetClass.rating')
-      #set($sortField2 = 'title.untokenized')
-    #end
-    #if($request.sort == "memberRating")
-      #set($sortField1 = 'CurrikiCode.AssetClass.rating')
-      #set($sortField2 = 'CurrikiCode.AssetClass.rating')
-    #end
-    #if($request.sort == "updated")
-      #set($sortField1 = 'date')
-      #set($sortField2 = 'CurrikiCode.AssetClass.rating')
-    #end
-    #if($request.sort == "creation")
-      #set($sortField1 = 'creationdate')
-      #set($sortField2 = 'CurrikiCode.AssetClass.rating')
-    #end
-  #end
-  #if($!request.dir == "DESC")
-    #set($sortField1 = "-${sortField1}")
-  #end
-  #set($sortFields = "${sortField1},-${sortField2}")
+  ###set($sortFields = ['CRS.CurrikiReviewStatusClass.status', 'CurrikiCode.AssetClass.rating', 'CurrikiCode.AssetClass.rating_count'])
+  #set($sortField1 = 'CRS.CurrikiReviewStatusClass.status')
+  #set($sortField2 = 'CurrikiCode.AssetClass.rating')
+  #set($sortField3 = 'CurrikiCode.AssetClass.rating_count')
+  #set($sortFields = "-${sortField1},-${sortField2},-${sortField3}")
   #set($sortFields = $sortFields.split(","))
   ##
   ## Create query
@@ -645,12 +614,15 @@ $ict:
   #set($searchResults = $lucene.getSearchResults($luceneQuery, $sortFields, $languages))
   #set($results = $searchResults.getResults($start, $limit))
   #set($resultCount = $searchResults.totalHitcount)
-#if($request.debug)
-Query: $luceneQuery
-SortFields: #foreach($field in $sortFields) $field | #end
-Languages: $languages
-Results: $searchResults
-#end
+  ##
+  ## Debug
+  ##
+  #if($request.debug)
+    Query: $luceneQuery
+    SortFields: #foreach($field in $sortFields) $field #end
+    Languages: $languages
+    Results: $searchResults
+  #end
   #set($modifiedCount = 0)
   #if($resultCount)
      #set($modifiedCount = $resultCount)
@@ -664,55 +636,55 @@ Results: $searchResults
   #if("$!resultCount" == "")
     #set($resultCount = 0)
   #end
-#if($request.xpage == "plain")
- #set($ok = $response.setContentType("application/json"))
- #set($ok = $response.setHeader("Access-Control-Allow-Origin", "*"))
-{
-"rows":[
-  #set($first = true)
-  #foreach($result in $results)
-    ##
-    ## Get each result
-    #set($d = $xwiki.curriki.fetchAsset("${result.space}.${result.name}"))
-    #searchResourceInfo($d true)
-    ##
-    ##
-    #if($first)
-      #set($first = false)
-    #else
-,
-    #end
-{ "page":"$escapetool.javascript($escapetool.url($d.fullName))" 
-    ,"title":"$escapetool.javascript($escapetool.xml($ret_title))" 
-    ,"assetType":"$escapetool.javascript($ret_assetType)" 
-    ,"category":"$escapetool.javascript($ret_category)" 
-    ,"subcategory":"$escapetool.javascript($ret_subcategory)"
-    ,"ict":$ret_ict
-    ,"contributor":"$escapetool.javascript($escapetool.url($d.creator))" 
-    ,"contributorName":"$escapetool.javascript($escapetool.xml($ret_cname))" 
-    ,"review":"$!ret_review"
-    ,"rating":"$!ret_rating"
-    ,"ratingCount":"$!ret_ratingCount"
-    ,"description":"$escapetool.javascript($escapetool.xml($ret_desc))" 
-    ,"subjects":$ret_FW
-    ,"levels": $ret_lvl
-    ,"parents": $ret_parents
-    ,"updated":"$escapetool.javascript($date)" 
-    ,"creation":"$escapetool.javascript($d.creationDate)"
-    ,"author":"$escapetool.javascript($escapetool.xml($ret_rightsHolder))"
-    ,"authorName": "$escapetool.javascript($escapetool.xml($ret_rightsHolderName))"
-    ##,"link": "$escapetool.javascript($escapetool.url($ret_link))"
-    ,'link': "$ret_link"
-#if($ret_width!="")
-    ,"width": "$escapetool.javascript($ret_width)"
-    ,"height": "$escapetool.javascript($ret_height)"
-#end
+  #if($request.xpage == "plain")
+    #set($ok = $response.setContentType("application/json"))
+    #set($ok = $response.setHeader("Access-Control-Allow-Origin", "*"))
+    {
+      "rows":[
+        #set($first = true)
+        #foreach($result in $results)
+          ##
+          ## Get each result
+          #set($d = $xwiki.curriki.fetchAsset("${result.space}.${result.name}"))
+          #searchResourceInfo($d true)
+          ##
+          ##
+          #if($first)
+            #set($first = false)
+          #else
+            ,
+          #end
+          { "page":"$escapetool.javascript($escapetool.url($d.fullName))" 
+           ,"title":"$escapetool.javascript($escapetool.xml($ret_title))" 
+           ,"assetType":"$escapetool.javascript($ret_assetType)" 
+           ,"category":"$escapetool.javascript($ret_category)" 
+           ,"subcategory":"$escapetool.javascript($ret_subcategory)"
+           ,"ict":$ret_ict
+           ,"contributor":"$escapetool.javascript($escapetool.url($d.creator))" 
+           ,"contributorName":"$escapetool.javascript($escapetool.xml($ret_cname))" 
+           ,"review":"$!ret_review"
+           ,"rating":"$!ret_rating"
+           ,"ratingCount":"$!ret_ratingCount"
+           ,"description":"$escapetool.javascript($escapetool.xml($ret_desc))" 
+           ,"subjects":$ret_FW
+           ,"levels": $ret_lvl
+           ,"parents": $ret_parents
+           ,"updated":"$escapetool.javascript($date)" 
+           ,"creation":"$escapetool.javascript($d.creationDate)"
+           ,"author":"$escapetool.javascript($escapetool.xml($ret_rightsHolder))"
+           ,"authorName": "$escapetool.javascript($escapetool.xml($ret_rightsHolderName))"
+           ##,"link": "$escapetool.javascript($escapetool.url($ret_link))"
+           ,'link': "$ret_link"
+            #if($ret_width!="")
+              ,"width": "$escapetool.javascript($ret_width)"
+              ,"height": "$escapetool.javascript($ret_height)"
+            #end
+           }
+         #end ## end
+       ]
+      ,"resultCount":"${modifiedCount}"
+      ,"totalResults":"${resultCount}"
     }
-#end ## end
-]
-,"resultCount":"${modifiedCount}"
-,"totalResults":"${resultCount}"
-}
-#end
-#end
+  #end
+#end 
 {/pre}</content></xwikidoc>
