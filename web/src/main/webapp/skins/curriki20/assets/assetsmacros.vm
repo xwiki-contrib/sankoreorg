@@ -882,7 +882,13 @@ $asset.use("CurrikiCode.AssetClass")
 $c
 </p>
 </div>
-#end ##}
+##In order for the action buttons from the comments to be in the right place, we have to insert a line break when we don't have a comment
+#else
+<div class="comment-text">
+<strong>$msg.get("rve.comments.commentrating.comment.display_header")</strong>
+<br />
+</div>
+#end
 #end ##}
 
 #**
