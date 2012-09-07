@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345794502000</creationDate>
-<date>1345794502000</date>
-<contentUpdateDate>1345794502000</contentUpdateDate>
+<creationDate>1347011350000</creationDate>
+<date>1347011350000</date>
+<contentUpdateDate>1347011350000</contentUpdateDate>
 <version>1.1</version>
 <title>Translations</title>
 <template></template>
@@ -705,12 +705,12 @@ group.sri.license.txt=Êtes-vous sûr d'avoir lu et compris les conditions gén�
 groul.sri.license.heading=
 
 
-groups.livetable.doc.name=Title
-groups.livetable.category=Resource Type
-groups.livetable.doc.author=Contributor
-groups.livetable.doc.date=Updated
-groups.livetable.rights=Access
-groups.livetable._actions=Actions
+groups.livetable.doc.name=Titre
+groups.livetable.category=Type de ressource
+groups.livetable.doc.author=Contributeur
+groups.livetable.doc.date=Date de modification
+groups.livetable.rights=Accès
+groups.livetable._actions=Action
 groups.livetable.emptyvalue=
 
 ## ADD GROUP DIALOGS
