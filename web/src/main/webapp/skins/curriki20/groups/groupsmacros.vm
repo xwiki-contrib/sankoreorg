@@ -30,7 +30,11 @@
 ## Groups tab macro
 #macro(groupstabs $curtab)
 ##Removing 'documentation' from the array
-#set($tabs = ["home", "messages", "curriculum", "members"])
+#if($isGroupMember)
+  #set($tabs = ["home", "messages", "curriculum", "members"])
+#else
+  #set($tabs = ["home", "curriculum", "members"])
+#end
 <ul id="groups-tabs" class="tabs">
 #foreach($tab in $tabs)
   #set($tabpage = $msg.get("groups_${tab}_page"))

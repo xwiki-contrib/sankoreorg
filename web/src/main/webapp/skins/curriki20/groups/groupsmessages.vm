@@ -14,9 +14,7 @@
 #if(!$isGroupMember && ($s.policy=="closed") && !$hasGlobalAdmin)
 $msg.get("groups_messages_onlyaccessibletomembers")
 #else
-  #if(!$isGuest && $isGroupMember)
-    #groupsdisplaywelcome($msg.get("groups_messages_about_title") $spaceName $doc.name $isGroupAdmin)
-  #end
+  #groupsdisplaywelcome($msg.get("groups_messages_about_title") $spaceName $doc.name $isGroupAdmin)
 #if($isGroupMember)
 #begingroupsection($msg.get("groups_messages_createmessage_title"),"","","blue",false)
 <a href="$xwiki.getURL("${doc.web}.CreateMessage")">
