@@ -14,7 +14,13 @@
 #if(!$isGroupMember && ($group.policy=="closed") && !$hasGlobalAdmin)
   $msg.get("groups_members_onlyaccessibletomembers")
 #else
-  #groupsdisplaywelcome($msg.get("groups_members_about_title") $spaceName $doc.name $isGroupAdmin)
+  ##----------------------------------------------------------------------------------------------
+  ##Start SKE-454
+  #if(!$isGuest && $isGroupMember)
+    #groupsdisplaywelcome($msg.get("groups_members_about_title") $spaceName $doc.name $isGroupAdmin)
+  #end
+  ##-----------------------------------------------------------------------------------------------
+  ##End SKE-454
   #groups_membershipinfo($groupName)
   #if(!$xwiki.exists("${spaceName}.ManageRoles"))
     #set($discard = $xwiki.copyDocument("Groups_TemplateSpace.ManageRoles", "${spaceName}.ManageRoles"))
