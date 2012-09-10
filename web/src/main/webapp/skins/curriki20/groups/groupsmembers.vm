@@ -16,7 +16,7 @@
 #else
   ##----------------------------------------------------------------------------------------------
   ##Start SKE-454
-  #if(!$isGuest && $isGroupMember)
+  #if($isGroupMember)
     #groupsdisplaywelcome($msg.get("groups_members_about_title") $spaceName $doc.name $isGroupAdmin)
   #end
   ##-----------------------------------------------------------------------------------------------
@@ -136,7 +136,7 @@ $msg.get("groups_home_membership_closed_visitor_btt")
   </div>
   #end
   #set($memberprofile = $membershipManager.getUserProfile($group, $member))  
-  #if($isGroupAdmin || $memberName == $context.user)
+  #if($memberName == $context.user)
   <div class="groups-members-membereditlink">
     <a href="javascript:void()" onclick="editProfile('$memberName','$groupName','$divid'); return false;">$msg.get("groups_members_admin_current_members_editsettings_link")</a>
   </div>
