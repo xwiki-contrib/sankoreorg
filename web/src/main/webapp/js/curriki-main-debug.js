@@ -2281,10 +2281,9 @@ Curriki.data.EventManager.addListener('Curriki.data.education_system:ready', fun
   Curriki.data.education_system.data = [];
   Curriki.data.education_system.list.each(function(item) {
     Curriki.data.education_system.data.push([item.id, _('CurrikiCode.AssetClass_education_system_' + item.id)]);
-    if(item.value.toLowerCase() == XWiki.contextlanguage)
-      Curriki.data.education_system.initial = item.id
   });
   Curriki.data.education_system.international = 'AssetMetadata.InternationalEducation';
+  Curriki.data.education_system.initial = Curriki.data.education_system.international;
   Curriki.data.education_system.store = new Ext.data.SimpleStore({
     fields: ['id', 'education_system'],
     data: Curriki.data.education_system.data
