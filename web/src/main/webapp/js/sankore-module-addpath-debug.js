@@ -603,8 +603,6 @@ Curriki.module.addpath.init = function() {
                         publishbtn.hide();
                         var nextbtn = Ext.getCmp('nextbutton');
                         nextbtn.show();
-                        var progress = Ext.getCmp('addpath-progress');
-                        progress.show();
                         var dialog = Ext.getCmp('MetadataDialogue');
                         //dialog.header.show();
                         dialog.syncSize();
@@ -614,8 +612,6 @@ Curriki.module.addpath.init = function() {
                         publishbtn.show();
                         var nextbtn = Ext.getCmp('nextbutton');
                         nextbtn.hide();
-                        var progress = Ext.getCmp('addpath-progress');
-                        progress.hide();
                         var dialog = Ext.getCmp('MetadataDialogue');
                         //dialog.header.hide();
                         dialog.syncSize();
@@ -958,7 +954,7 @@ Curriki.module.addpath.init = function() {
                 ,id:'metadata-education_system-entry'
                 ,hiddenName:'education_system'
                 ,hideLabel:true
-                ,width:'60%'
+                ,width:250
                 ,mode:'local'
                 ,store:Curriki.data.education_system.store
                 ,displayField:'education_system'
@@ -1011,7 +1007,7 @@ Curriki.module.addpath.init = function() {
                 ,id:'metadata-language-entry'
                 ,hiddenName:'language'
                 ,hideLabel:true
-                ,width:'60%'
+                ,width:250
                 ,mode:'local'
                 ,store:Curriki.data.language.store
                 ,displayField:'language'
@@ -1938,7 +1934,7 @@ Curriki.module.addpath.init = function() {
                 ,id:'metadata-education_system-entry'
                 ,hiddenName:'education_system'
                 ,hideLabel:true
-                ,width:'60%'
+                ,width:250
                 ,mode:'local'
                 ,store:Curriki.data.education_system.store
                 ,displayField:'education_system'
@@ -1991,7 +1987,7 @@ Curriki.module.addpath.init = function() {
                 ,id:'metadata-language-entry'
                 ,hiddenName:'language'
                 ,hideLabel:true
-                ,width:'60%'
+                ,width:250
                 ,mode:'local'
                 ,store:Curriki.data.language.store
                 ,displayField:'language'
@@ -3290,7 +3286,7 @@ Curriki.module.addpath.init = function() {
                 ,id:'metadata-education_system-entry'
                 ,hiddenName:'education_system'
                 ,hideLabel:true
-                ,width:'60%'
+                ,width:250
                 ,mode:'local'
                 ,store:Curriki.data.education_system.store
                 ,displayField:'education_system'
@@ -3343,7 +3339,7 @@ Curriki.module.addpath.init = function() {
                 ,id:'metadata-language-entry'
                 ,hiddenName:'language'
                 ,hideLabel:true
-                ,width:'60%'
+                ,width:250
                 ,mode:'local'
                 ,store:Curriki.data.language.store
                 ,displayField:'language'
@@ -4803,8 +4799,8 @@ Curriki.module.addpath.init = function() {
     AddPath.AssetLink = function(linkMode) {
       var pageName = (Curriki.current.asset&&Curriki.current.asset.assetPage)||Curriki.current.assetName;
       var link = '/xwiki/bin/view/'+pageName.replace('.', '/');
-      //return '<a href="http://sankore.devxwiki.com'+link+'" target="_blank">' + _('add.finalmessage.'+linkMode+'.link') +  '</a>';
-      return '<a href="http://sankore.devxwiki.com'+link+'" target="_blank" id="closebutton" style="width: auto;"><em unselectable="on" class=""><button type="button" class="btn x-btn-text ">'+ _('add.finalmessage.'+linkMode+'.link') +'</button></em></a>';    
+      //return '<a href="http://planete.sankore.org'+link+'" target="_blank">' + _('add.finalmessage.'+linkMode+'.link') +  '</a>';
+      return '<a href="http://planete.sankore.org'+link+'" target="_blank" id="closebutton" style="width: auto;"><em unselectable="on" class=""><button type="button" class="btn x-btn-text ">'+ _('add.finalmessage.'+linkMode+'.link') +'</button></em></a>';    
     }
     AddPath.CloseLink = function() {
       return '<a href="" onclick="console.log(window.document);return false;">'+_('add.finalmessage.close.button')+'</a>';
