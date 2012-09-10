@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1335362438000</creationDate>
-<date>1335362438000</date>
-<contentUpdateDate>1335362438000</contentUpdateDate>
+<creationDate>1347288364000</creationDate>
+<date>1347288364000</date>
+<contentUpdateDate>1347288364000</contentUpdateDate>
 <version>1.1</version>
 <title>Arts</title>
 <template></template>
@@ -33,7 +33,7 @@
 <nameField></nameField>
 <validationScript></validationScript>
 <educational_levels>
-<cache>0</cache>
+<cache>1</cache>
 <classname></classname>
 <customDisplay></customDisplay>
 <disabled>0</disabled>
@@ -99,6 +99,8 @@
 <value>AssetMetadata.FRMaternelle</value>
 <value>AssetMetadata.FRProfessionnel</value>
 <value>AssetMetadata.FRUniversite</value>
+<value>AssetMetadata.HigherEducation</value>
+<value>AssetMetadata.LongLifeLearning</value>
 <value>AssetMetadata.SNCollege</value>
 <value>AssetMetadata.SNElementaire</value>
 <value>AssetMetadata.SNHigherEducation</value>
@@ -106,6 +108,8 @@
 <value>AssetMetadata.SNLycee</value>
 <value>AssetMetadata.SNSpecialEducation</value>
 <value>AssetMetadata.SNSuperiorTechEducation</value>
+<value>AssetMetadata.SpecialEducation</value>
+<value>AssetMetadata.SuperiorTechEducation</value>
 <value>AssetMetadata.US1112</value>
 <value>AssetMetadata.US35</value>
 <value>AssetMetadata.US68</value>

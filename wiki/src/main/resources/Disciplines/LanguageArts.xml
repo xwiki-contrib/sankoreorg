@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1332759914000</creationDate>
-<date>1332759914000</date>
-<contentUpdateDate>1332759914000</contentUpdateDate>
+<creationDate>1347288601000</creationDate>
+<date>1347288601000</date>
+<contentUpdateDate>1347288601000</contentUpdateDate>
 <version>1.1</version>
 <title>Language Arts</title>
 <template></template>
@@ -33,7 +33,7 @@
 <nameField></nameField>
 <validationScript></validationScript>
 <educational_levels>
-<cache>0</cache>
+<cache>1</cache>
 <classname></classname>
 <customDisplay></customDisplay>
 <disabled>0</disabled>
@@ -76,6 +76,21 @@
 <guid>e52c9b3f-bcc0-44cf-b80e-e7b003acd15d</guid>
 <property>
 <educational_levels>
+<value>AssetMetadata.1011</value>
+<value>AssetMetadata.1112</value>
+<value>AssetMetadata.1213</value>
+<value>AssetMetadata.1314</value>
+<value>AssetMetadata.1415</value>
+<value>AssetMetadata.1516</value>
+<value>AssetMetadata.1617</value>
+<value>AssetMetadata.1718</value>
+<value>AssetMetadata.34</value>
+<value>AssetMetadata.45</value>
+<value>AssetMetadata.56</value>
+<value>AssetMetadata.67</value>
+<value>AssetMetadata.78</value>
+<value>AssetMetadata.89</value>
+<value>AssetMetadata.910</value>
 <value>AssetMetadata.FRCollege</value>
 <value>AssetMetadata.FREducationSpecialisee</value>
 <value>AssetMetadata.FRElementaire</value>
@@ -84,6 +99,8 @@
 <value>AssetMetadata.FRMaternelle</value>
 <value>AssetMetadata.FRProfessionnel</value>
 <value>AssetMetadata.FRUniversite</value>
+<value>AssetMetadata.HigherEducation</value>
+<value>AssetMetadata.LongLifeLearning</value>
 <value>AssetMetadata.SNCollege</value>
 <value>AssetMetadata.SNElementaire</value>
 <value>AssetMetadata.SNHigherEducation</value>
@@ -91,6 +108,8 @@
 <value>AssetMetadata.SNLycee</value>
 <value>AssetMetadata.SNSpecialEducation</value>
 <value>AssetMetadata.SNSuperiorTechEducation</value>
+<value>AssetMetadata.SpecialEducation</value>
+<value>AssetMetadata.SuperiorTechEducation</value>
 <value>AssetMetadata.US1112</value>
 <value>AssetMetadata.US35</value>
 <value>AssetMetadata.US68</value>
