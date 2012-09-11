@@ -140,22 +140,35 @@ public class DefaultGroupManager implements GroupManager
         return null;
     }
 
+    private String getUniqueGroupSpaceName(String groupName, String pageName)
+    {
+        XWikiContext context = ContextUtils.getXWikiContext(execution.getContext());
+
+        String groupSpaceName = StringUtils.EMPTY;
+        if (groupName.startsWith("Group_")) {
+            groupSpaceName = StringUtils.substringAfter(groupName, "Group_");
+        }
+        groupSpaceName = "Group_" + context.getWiki().clearName(groupName, context);
+
+        if (context.getWiki().exists(stringDocumentReferenceResolver.resolve(groupSpaceName + '.' + pageName), context)
+                || StringUtils.equals(groupSpaceName, "Group_")) {
+            int i = 0;
+            while (context.getWiki().exists(stringDocumentReferenceResolver.resolve(groupSpaceName + i + '.' + pageName), context)) {
+                i++;
+            }
+            return groupSpaceName + i;
+        }
+
+        return groupSpaceName;
+    }
+
     public Group createGroupFromTemplate(String groupName, String templateName) throws XWikiException
     {
-        String groupSpaceName = StringUtils.EMPTY;
-
-        if (groupName.startsWith("Group_")) {
-            groupSpaceName = groupName;
-        } else {
-            groupSpaceName = "Group_" + groupName;
-        }
+        String groupSpaceName = getUniqueGroupSpaceName(groupName, "WebPreferences");
 
         GroupObjectDocument groupObjectDocument = groupClass.newDocumentObject(
                 stringDocumentReferenceResolver.resolve(groupSpaceName + ".WebPreferences"));
         Group group = new Group(groupObjectDocument, execution.getContext());
-        //if (!group.isNew()) {
-        //    return null;
-        //}
 
         //Space groupSpace = group.getGroupSpace();
         //this.spaceManager.copySpace(this.spaceManager.createSpaceReference(groupSpace.getWiki(), templateName),

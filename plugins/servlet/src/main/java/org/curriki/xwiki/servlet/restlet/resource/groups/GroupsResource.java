@@ -2,6 +2,7 @@ package org.curriki.xwiki.servlet.restlet.resource.groups;
 
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.restlet.resource.Representation;
 import org.restlet.resource.ResourceException;
 import org.restlet.Context;
