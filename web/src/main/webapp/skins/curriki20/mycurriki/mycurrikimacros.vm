@@ -699,7 +699,7 @@ $!desc
 #if($userdoc.attachmentList.size()==0)
   <img src="$xwiki.getSkinFile("noavatar.png")"/>
   #if($context.action=="view" && ($userdoc.fullName == $context.user || $hasGlobalAdmin))
-  <a class="curriki-link" onclick='document.getElementById("attachdiv").attributes["class"].value="visible"; $("mycurriki-main-content").scrollTo(); return false;' href="$userdoc.getURL("attach")">$msg.get('profile.changeMyPhoto')</a>
+  <a class="curriki-link" onclick='document.getElementById("attachdiv").attributes["class"].value="visible"; $("mycurriki-main-content").scrollTo(); return false;'>$msg.get('profile.changeMyPhoto')</a>
   #end
 #else ## attachmentList.size must be > 0
   #foreach ($attach in $userdoc.attachmentList)
@@ -843,7 +843,7 @@ $!desc
         #set($redirect = $xwiki.requestURL)
         <div id="attachdiv" class="hidden">
         <form id="attach" action="$userdoc.getURL('upload')" enctype="multipart/form-data" method="post" name="profilImageAttach">          
-          <input type="hidden" name="xredirect" value="$escapetool.url($redirect)"/>
+          <input type="hidden" name="xredirect" value="$userdoc.getURL()"/>
           <input id="xwikiuploadname" type="hidden" name="filename" value="" size="20"/>
           <fieldset style="width:90%" class="expanded" id="attachform">
             <div><label id="xwikiuploadfilelabel" for="xwikiuploadfile">$msg.get("profile.chooseAPhoto")</label></div>
