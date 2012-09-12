@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346326292000</creationDate>
-<date>1346326292000</date>
-<contentUpdateDate>1346326292000</contentUpdateDate>
+<creationDate>1347454079000</creationDate>
+<date>1347454079000</date>
+<contentUpdateDate>1347454079000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -94,8 +94,8 @@ rve.tab.3.heading=Commentaires
 
 ## CONTENT TAB FUNCTION SECTION*******************************************
 
-rve.content.download_link=Telecharger
-rve.content.edit_rollover=Telecharger
+rve.content.download_link=Télécharger
+rve.content.edit_rollover=Télécharger la ressource
 
 rve.content.edit_link=Modifier
 rve.content.edit_rollover=Revoir le contenu ou mettre à jour cette ressource
