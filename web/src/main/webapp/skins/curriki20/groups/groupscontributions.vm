@@ -168,7 +168,8 @@ Curriki.module.search.start();
 #groupsheader("curriculum")
 ##---------------------------------------------------------------------------------------------------------------
 ##Start SKE-453
-#if(!$isGuest && $isGroupMember)
+#set($welcomeCurriculumContent = $xwiki.getDocument($spaceName, $doc.name).getObject('XWiki.CurrikiWelcomeBlockClass').getProperty('content').getValue().replaceAll("\\s+", ""))
+#if(($isGroupMember && $welcomeCurriculumContent != '') || $isGroupAdmin)
   #groupsdisplaywelcomecolour($msg.get("groups.curriculum.about.title") $spaceName $doc.name "red" $isGroupAdmin)
 #end
 ##End SKE-453
