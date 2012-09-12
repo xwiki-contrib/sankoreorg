@@ -4311,9 +4311,10 @@ Search.init = function(){
               var resourceFilterLevels = ['system', 'level', 'subject', 'type', 'other'];
               for(var i=0; i<resourceFilterLevels.length; i++) {
                 // Check in history if filter level/sublevel were selected
-                if(!Ext.isEmpty(values['f']['resource'][resourceFilterLevels[i]]) || 
-                   !Ext.isEmpty(values['f']['resource']['sub' + resourceFilterLevels[i]])) {
-                  Ext.getCmp('search-advanced-resource-' + resourceFilterLevels[i]).expand();
+                var resourceFilterLevel = resourceFilterLevels[i];
+                if(!Ext.isEmpty(values['f']['resource'][resourceFilterLevel]) || 
+                   !Ext.isEmpty(values['f']['resource']['sub' + resourceFilterLevel])) {
+                  Ext.getCmp('search-advanced-resource-' + resourceFilterLevel).expand();
                 }
               }           
 
