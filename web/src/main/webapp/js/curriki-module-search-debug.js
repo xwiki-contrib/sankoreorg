@@ -1370,7 +1370,7 @@ form.init = function(){
           ,forceSelection:true
         }]
       }]
-  }
+  }  
 
   form.resultsPanel = {
     xtype:'grid'
@@ -4298,6 +4298,24 @@ Search.init = function(){
                   advancedPanel.expand(false);
                 }
               }
+              
+              // Update terms value in the form
+              if (tab === 'resource') {
+                var rTerms = values['f']['resource']['terms'];
+                if(Ext.getCmp('search-termPanel-resource').getForm() && !Ext.isEmpty(rTerms)) {
+                  Ext.getCmp('search-termPanel-resource').getForm().setValues({'terms' : rTerms});
+                }
+              }   
+              
+              // Update filters panel : collapse / expand
+              var resourceFilterLevels = ['system', 'level', 'subject', 'type', 'other'];
+              for(var i=0; i<resourceFilterLevels.length; i++) {
+                // Check in history if filter level/sublevel were selected
+                if(!Ext.isEmpty(values['f']['resource'][resourceFilterLevels[i]]) || 
+                   !Ext.isEmpty(values['f']['resource']['sub' + resourceFilterLevels[i]])) {
+                  Ext.getCmp('search-advanced-resource-' + resourceFilterLevels[i]).expand();
+                }
+              }           
 
               // Set pager values
               var pagerPanel = Ext.getCmp('search-pager-'+tab);
