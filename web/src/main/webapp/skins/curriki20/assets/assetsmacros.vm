@@ -659,6 +659,10 @@ $asset.display('instructional_component', 'view')
     <h3>$msg.get("rve.information.description_title")</h3>    
     <p>$asset.display("description")</p>
   </div>
+  <div class="asset-info-section" style="text-align:center;">
+    <button id="asset-info-moreless" class="button button-more" style="float:none;" onclick='$("asset-info-more").toggle(); if($("asset-info-more").visible()) $("asset-info-moreless").update("$escapetool.xml($msg.get('rve.information.less'))"); else $("asset-info-moreless").update("$escapetool.xml($msg.get('rve.information.more'))");'>$msg.get('rve.information.more')</button>
+  </div>
+  <div id="asset-info-more" style="display:none;">
   <div class="asset-info-section">
     <h3>$msg.get("rve.information.taxonomy_title")</h3>
     <h4>$msg.get("rve.information.education_title")</h4>
@@ -701,7 +705,8 @@ $asset.display('instructional_component', 'view')
         <span>$!asset.display("licenseType")</span>
       </li>
     </ul>
-  </div>         
+  </div>
+  </div> ##asset-info-more
 </div> ##asset-info
 #end
 
