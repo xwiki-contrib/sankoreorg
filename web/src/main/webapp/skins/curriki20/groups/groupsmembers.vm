@@ -16,7 +16,8 @@
 #else
   ##----------------------------------------------------------------------------------------------
   ##Start SKE-454
-  #if($isGroupMember)
+  #set($welcomeDocumentContent = $xwiki.getDocument($spaceName, $doc.name).getObject('XWiki.CurrikiWelcomeBlockClass').getProperty('content').getValue().replaceAll("\\s+", ""))
+  #if(($isGroupMember && $welcomeDocumentContent != '') || $isGroupAdmin)
     #groupsdisplaywelcome($msg.get("groups_members_about_title") $spaceName $doc.name $isGroupAdmin)
   #end
   ##-----------------------------------------------------------------------------------------------

@@ -143,7 +143,7 @@
   #else
     #begingroupsection($title,"","", $colour, false)
     <div id="groups-members-welcomeblock">
-    #groupsdisplaywelcomeblock($wdoc)
+    #groupsdisplaywelcomeblock($doc)
     </div>
     #endgroupsection()
   #end
@@ -153,6 +153,7 @@
   #set($wobj = $wdoc.getObject("XWiki.CurrikiWelcomeBlockClass"))
   ## Hack CURRIKI-3338 Fix paragraph carriage return issues in wiki rendered content
   #set($welcomeContent = $!wobj.display("content", "view").replaceAll("<br/><p/>","<br/>&nbsp;<p/>"))
+  ##set($wContent = $!wobj.getProperty('content').getValue().replaceAll("\\s+", ""))
   #if("$!welcomeContent" == "")
     ## Hack CURRIKI-3338 Fix paragraph carriage return issues in wiki rendered content
     <div class="xwikicontent">
