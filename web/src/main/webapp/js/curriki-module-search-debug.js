@@ -1331,6 +1331,36 @@ form.init = function(){
       }]
     },{
       xtype:'fieldset'
+      ,title:__('search.fieldset-category.label')
+      ,id: 'search-advanced-'+modName+'-category'
+      ,autoHeight: true
+      ,collapsible: true
+      ,collapsed: true
+      ,animCollapse: false
+      ,border: true
+      ,stateful: true
+      ,stateEvents: ['expand','collapse']
+      ,items:[{
+        xtype:'combo'
+        ,id:'combo-category-'+modName
+        ,fieldLabel:'Category'
+        ,hideLabel:true
+        ,hiddenName:'category'
+        ,width:comboWidth
+        ,listWidth:comboListWidth
+        ,mode:'local'
+        ,store:data.filter.store.category
+        ,displayField:'category'
+        ,valueField:'id'
+        //,plugins:new form.categoryCombo()
+        ,typeAhead:true
+        ,triggerAction:'all'
+        ,emptyText:_('CurrikiCode.AssetClass_category_UNSPECIFIED')
+        ,selectOnFocus:true
+        ,forceSelection:true
+      }]
+    },{
+      xtype:'fieldset'
       ,title:__('search.fieldset-other.label')
       ,id: 'search-advanced-'+modName+'-other'
       ,autoHeight: true
