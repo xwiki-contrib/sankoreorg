@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346064332000</creationDate>
-<date>1346064332000</date>
-<contentUpdateDate>1346064332000</contentUpdateDate>
+<creationDate>1347471030000</creationDate>
+<date>1347471030000</date>
+<contentUpdateDate>1347471030000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources</title>
 <template></template>
@@ -2412,6 +2412,347 @@ background-image: url($xwiki.getSkinFile("/images/sprite_crs_ict_group.gif"));
 </property>
 <property>
 <code>#search-results-resource .preview {
+  float:left;
+  padding:10px 20px;
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #9A9B9D;
+  margin-right: 10px;
+}
+#search-results-resource .description {
+  margin-left: 117px;
+  margin-right: 110px;
+  margin-top: 10px;
+}
+
+#search-results-resource .contributor {
+  margin-top: 10px;
+  color:#888888;
+}
+
+#search-results-resource .rating {
+  float:right;
+  clear:right;
+}
+
+img.rating-icon {
+  background-image: url($xwiki.getSkinFile("images/spritestars.png"));
+  background-repeat: no-repeat;
+}
+
+.crs-text{
+  margin-right: 5px;
+}
+
+/** small stars **/
+#search-results-resource img.rating-icon {
+  background-position: 100px 100px;
+  height: 13px;   
+  width: 65px; 
+}
+#search-results-resource .rating-5 img.rating-icon {background-position: 0 -150px;} 
+#search-results-resource .rating-4 img.rating-icon {background-position: 0 -175px;} 
+#search-results-resource .rating-3 img.rating-icon {background-position: 0 -200px;} 
+#search-results-resource .rating-2 img.rating-icon {background-position: 0 -225px;} 
+#search-results-resource .rating-1 img.rating-icon {background-position: 0 -250px;}
+#search-results-resource .rating-0 img.rating-icon {background-position: 0 -275px;}
+#search-results-resource .x-grid3-col-memberRating a:hover {text-decoration: none;}
+#search-results-resource img.rating-icon {
+  margin-right: 3px;
+}
+
+#search-results-resource .x-panel-body {
+  background-color:#EAEAEA;
+}
+#search-results-resource .x-grid3 {
+  background-color:#EAEAEA;
+}
+
+#search-results-resource .x-grid3-header {
+  color:#5A5A5A;
+  background:none;
+  display:none;
+}
+#search-results-resource .x-grid3-header table {
+  background:none;
+}
+
+#search-results-resource {
+  background-color:#EAEAEA;
+  padding:30px;
+}
+
+#search-results-resource .x-panel-header {
+  margin-top:0;
+  color:#424242;
+  text-align:left;
+  font-family: 'Open Sans Condensed',sans-serif;
+  font-size:20px !important;
+  font-weight:700;
+  font-style:normal;
+  letter-spacing:normal;
+  margin-bottom: 20px;
+}
+
+#search-results-resource .x-grid3-row {
+  background:none;
+  border:none;
+}
+
+#search-results-resource h1, #search-results-resource h2, #search-results-resource h3, #search-results-resource h4 {
+  border:none;
+}
+
+#search-results-resource .x-grid3-row-alt {
+  background:none;
+}
+
+#search-tabPanel .x-panel-bbar {
+  background: none repeat scroll 0 0 transparent;
+  margin: 30px 0 0;
+}
+
+.x-panel-bbar .x-toolbar td, .x-panel-bbar .x-toolbar span, .x-panel-bbar .x-toolbar input, .x-panel-bbar .x-toolbar div, .x-panel-bbar .x-toolbar select, .x-panel-bbar .x-toolbar label {
+  font-family: 	sans-serif;
+  font-size: 11px;
+}
+
+#search-results-resource input {
+  margin-bottom:0;
+}
+
+#search-results-statusbar-resource {
+  display: none;
+}
+
+fieldset#search-advanced-resource {
+  margin-top:0;
+  padding:0;
+}
+
+.x-fieldset legend .x-tool-toggle {
+  float: right !important;
+  margin-right:15px;
+}
+
+.x-fieldset legend {
+  font-family: 'Open Sans Condensed',sans-serif;
+}
+
+#search-advanced-resource-other, #search-advanced-resource-type, #search-advanced-resource-subject, #search-advanced-resource-level, #search-advanced-resource-system {
+  border:none;
+}
+
+#search-advanced-resource-other legend, #search-advanced-resource-type legend, #search-advanced-resource-subject legend, #search-advanced-resource-level legend, #search-advanced-resource-system legend, #search-advanced-resource-category legend {
+  background-color:#FFFFFF;
+  color:#CC3300;
+  font-size:12px;
+  border:none;
+  margin-bottom: 0;
+  height:auto;
+  padding-top:10px;
+  padding-left:10px;
+  padding-bottom:10px;
+}
+
+fieldset.x-panel-collapsed {
+  border:none;
+}
+
+.x-fieldset-noborder legend {
+  margin-left:0;
+}
+
+#search-filterPanel-resource {
+  background:none;
+  border:none;
+}
+
+fieldset#search-advanced-resource {
+  background:#FFFFFF;
+}
+
+#search-filters input {
+  margin-bottom:0;
+}
+
+#search-filterPanel-resource {
+  padding:0;
+}
+.expanded .xwikipaneltitle {
+  background:transparent;
+  color:#C32D1E;
+  margin-bottom:10px;
+}
+
+#search-filters fieldset {
+  background-color:#FFFFFF;
+  padding:0;
+}
+
+.x-fieldset-bwrap {
+  padding-left:10px;
+  padding-bottom:5px;
+}
+
+#search-termPanel {
+  margin-left:10px;
+  background-color: #C3D4DA;
+  background-image: -moz-linear-gradient(center top , #CEDCE0, #B3C9D0);
+  background-repeat: repeat-x;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+}
+
+#search-termPanel .x-form-item label.x-form-item-label {
+      background: url("/xwiki/bin/download/Sandbox/SankoreSkin/search.png") no-repeat scroll 0 0 transparent;
+    height: 64px;
+    margin: 17px 0 0 30px;
+    overflow: hidden;
+    text-indent: -2000px;
+ background-position: 0 -64px;
+}
+
+#search-termPanel-button button {
+  background-color: #6E959E;
+  background-image: -moz-linear-gradient(center top , #95B2B9, #336976);
+  background-repeat: repeat-x;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+    color: #FFFFFF;
+    font-family: "HelveticaNeue-CondensedBold","Helvetica Neue";
+    font-size: 24px;
+    font-weight: normal;
+    height: 47px;
+    margin-bottom: 3px;
+    margin-top: 24px;
+    margin-left: 15px;
+    text-shadow: 0.1em 0.1em 0.05em rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-radius: 5px 5px 5px 5px;
+  padding: 9px 14px;
+  border-style: solid;
+    border-width: 1px;
+  vertical-align: middle;
+}
+#*
+#search-termPanel-button button:hover {
+  ##color: #4a4a4a;
+  ##text-decoration: none;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+  /* Buttons in IE7 don't get borders, so darken on hover */
+
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -ms-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+*#
+
+#search-termPanel-terms {
+  background: none repeat scroll 0 0 #F3F3F3;
+    border: 2px solid #F3F3F3;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px #888888 inset;
+    height: 35px;
+    margin-bottom: 3px;
+    margin-top: 20px;
+  
+  width:610px !important;
+  padding: 4px;
+}
+#search-termPanel-form {
+  margin-left:20px;
+}
+
+#search-term-icon {
+  margin: 17px 0 0 30px;
+}
+
+#*
+#search-termPanel-button {
+  margin-left:20px;
+}
+*#
+
+#search-termPanel-form .right {
+  text-align:right;
+  display: none;
+}
+
+.x-form-field {
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#search-termPanel-terms {
+  font-size: 16px;
+  font-style: italic;
+}
+
+#search-filters .x-form-field-trigger-wrap {
+  width: 180px !important;
+}
+
+## paging toolbar
+.x-item-disabled .x-tbar-page-first, .x-tbar-page-first {
+  background-image:none !important;
+  background-color:transparent !important;
+  box-shadow:none;
+  text-shadow:none;
+  font-size: 13px !important;
+}
+
+.x-item-disabled .x-tbar-page-prev, .x-tbar-page-prev {
+  background-image:none !important;
+  background-color:transparent !important;
+  box-shadow:none;
+  text-shadow:none;
+font-size: 13px !important;
+}
+
+.x-item-disabled  .x-tbar-page-next, .x-tbar-page-next {
+  background-image:none !important;
+  background-color:transparent !important;
+  box-shadow:none;
+  text-shadow:none;
+font-size: 13px !important;
+}
+
+}
+
+#search-pager-resource .x-form-trigger {
+  top: 8px !important;
+}
+
+.x-item-disabled .x-tbar-page-last, .x-tbar-page-last {
+  background-image:none !important;
+  background-color:transparent !important;
+  box-shadow:none;
+  text-shadow:none;
+font-size: 13px !important;
+}
+
+#search-pager-resource .x-form-field-trigger-wrap {
+  width:65px !important;
+}
+
+#search-pager-resource input.x-form-text.x-form-field {
+  width:40px !important;
+  padding: 4px 4px !important;
+}
+
+#search-pager-resource .x-tbar-loading {
+  background-image:none !important;
+  background-color:transparent !important;
+  box-shadow:none;
+  text-shadow:none;
+  font-size: 13px !important;
+}
+.x-toolbar .xtb-sep {
+  background-image:none !important;
+}
+
+#search-results-resource .preview {
   float:left;
   padding:10px 20px;
   background: none repeat scroll 0 0 #FFFFFF;

@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346339569000</creationDate>
-<date>1346339569000</date>
-<contentUpdateDate>1346339569000</contentUpdateDate>
+<creationDate>1347470921000</creationDate>
+<date>1347470921000</date>
+<contentUpdateDate>1347470921000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -238,9 +238,9 @@ search.curriki.column.header.text=Texte
 search.curriki.column.header.updated=Updaté
 
 ##SEARCH EXTERNAL
-search.featured-external.grid.title=FICHIERS DE COURS SANKORÉ
-search.external.grid.title=PAGES WEB SIGNALÉES PAR LA COMMUNAUTÉ PLANÈTE SANKORÉ
-search.preview.statusbar.text.external=&lt;a href="#"&gt;&amp;raquo; Tous les résultats des fichiers de cours&lt;/a&gt;
+search.featured-external.grid.title=RESSOURCES (RNE) SÉLECTIONNÉES PAR LA COMMUNAUTÉ SANKORÉ
+search.external.grid.title=URL DE PAGES WEB SIGNALÉES PAR LE BOOKMARKLET SANKORÉ
+search.preview.statusbar.text.external=&lt;a href="#"&gt;&amp;raquo; Tous les résultats RNE&lt;/a&gt;
 search.statusbar.text.resource=&lt;a href="/xwiki/bin/view/Search/URL"&gt;Voir les résultats du bookmarklet Sankoré et de la base des sites pédagogiques sélectionnés&lt;/a&gt;
 
 
@@ -248,5 +248,6 @@ search.combo-system.label=Système éducatif
 search.combo-level.label=Niveau scolaire
 search.combo-subject.label=Discipline
 search.fieldset-type.label=Type de ressource
+search.fieldset-category.label=Type de média
 search.fieldset-other.label=Autres
 &lt;/pre&gt;</content></xwikidoc>
