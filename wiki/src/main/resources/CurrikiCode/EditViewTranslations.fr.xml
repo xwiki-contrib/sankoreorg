@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347545064000</creationDate>
-<date>1347545064000</date>
-<contentUpdateDate>1347545064000</contentUpdateDate>
+<creationDate>1347546829000</creationDate>
+<date>1347546829000</date>
+<contentUpdateDate>1347546829000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -383,12 +383,12 @@ rve.comments.comment.addcomment_rollover=Livrer vos impressions pour cette resso
 
 rve.comments.review.header=EVALUATION PAR LE COMITÉ DE VALIDATION SANKORÉ
 
-rve.comments.review.reviewed.default_text=Cette ressource a été examinée par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; en utilisant la grille de validation ci-dessous le &lt;strong&gt; {1}&lt;/ strong&gt;.
+rve.comments.review.reviewed.default_text=Cette ressource a été examinée par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; en utilisant la grille de validation ci-dessous le &lt;strong&gt; {1}&lt;/strong&gt;.
 rve.comments.review.reviewed.component_title=Notation décomposée :
-rve.comments.review.reviewed.component1=Niveau technique
-rve.comments.review.reviewed.component2=Exactitude du contenu:
-rve.comments.review.reviewed.component3=Pédagogie :
-rve.comments.review.reviewed.reviewtext_title=Commentaires :
+rve.comments.review.reviewed.component1=Niveau technique : 
+rve.comments.review.reviewed.component2=Exactitude du contenu : 
+rve.comments.review.reviewed.component3=Pédagogie : 
+rve.comments.review.reviewed.reviewtext_title=Commentaires : 
 
 rve.comments.review.update_link=Mettre à jour cette révision
 
