@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346064500000</creationDate>
-<date>1346064500000</date>
-<contentUpdateDate>1346064500000</contentUpdateDate>
+<creationDate>1347552158000</creationDate>
+<date>1347552158000</date>
+<contentUpdateDate>1347552158000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources numériques d'enseignement libres sur le web</title>
 <template></template>
@@ -1936,7 +1936,6 @@ ul.menu li {
   border: none;
   color: #749D37;
   font-size: 12px;
-  padding-left: 20px;
 }
 
 #search-results-featured-external .x-panel-body {
@@ -2612,11 +2611,11 @@ fieldset#search-advanced-external {
   font-family: 'Open Sans Condensed',sans-serif;
 }
 
-#search-advanced-external-other, #search-advanced-external-type, #search-advanced-external-subject, #search-advanced-external-level, #search-advanced-external-system {
+#search-advanced-external-other, #search-advanced-external-type, #search-advanced-external-subject, #search-advanced-external-level, #search-advanced-external-system, #search-advanced-external-category {
   border:none;
 }
 
-#search-advanced-external-other legend, #search-advanced-external-type legend, #search-advanced-external-subject legend, #search-advanced-external-level legend, #search-advanced-external-system legend {
+#search-advanced-external-other legend, #search-advanced-external-type legend, #search-advanced-external-subject legend, #search-advanced-external-level legend, #search-advanced-external-system legend, #search-advanced-external-category legend {
   background-color:#FFFFFF;
   color:#CC3300;
   font-size:12px;

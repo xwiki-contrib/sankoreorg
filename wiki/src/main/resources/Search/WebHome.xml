@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347471030000</creationDate>
-<date>1347471030000</date>
-<contentUpdateDate>1347471030000</contentUpdateDate>
+<creationDate>1347552841000</creationDate>
+<date>1347552841000</date>
+<contentUpdateDate>1347552841000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources</title>
 <template></template>
@@ -2422,6 +2422,7 @@ background-image: url($xwiki.getSkinFile("/images/sprite_crs_ict_group.gif"));
   margin-left: 117px;
   margin-right: 110px;
   margin-top: 10px;
+  white-space: pre-wrap;
 }
 
 #search-results-resource .contributor {
