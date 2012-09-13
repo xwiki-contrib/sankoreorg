@@ -1305,10 +1305,15 @@ Ext.extend(Ext.ux.Andrie.pPageSize, Ext.util.Observable, {
     this.pagingToolbar.getPageSize = function() {
       return this.pageSize;
     }
-    this.pagingToolbar.first.setText("« First");
-    this.pagingToolbar.prev.setText("‹ Prev");
-    this.pagingToolbar.next.setText("Next ›");
-    this.pagingToolbar.last.setText("Last »");
+    //this.pagingToolbar.first.setText("« First");
+    //this.pagingToolbar.prev.setText("‹ Prev");
+    //this.pagingToolbar.next.setText("Next ›");
+    //this.pagingToolbar.last.setText("Last »");
+    
+    this.pagingToolbar.first.setText(this.pagingToolbar.firstText);
+    this.pagingToolbar.prev.setText(this.pagingToolbar.prevText);
+    this.pagingToolbar.next.setText(this.pagingToolbar.nextText);
+    this.pagingToolbar.last.setText(this.pagingToolbar.lastText);
     
     this.pagingToolbar.on('render', this.onRender, this);
   },
