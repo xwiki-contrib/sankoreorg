@@ -397,7 +397,7 @@ console.log('removed node', node, oldParent, tree);
 				,listeners:{
 					'render':{
 						fn:function(wnd){
-							Ext.get('organize-confirm-cancel-button').focus();
+							Ext.get('organize-done-btn').focus();
 						}
 						,scope:this
 					}
