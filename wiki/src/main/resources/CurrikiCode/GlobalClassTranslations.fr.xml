@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344263235000</creationDate>
-<date>1344263235000</date>
-<contentUpdateDate>1344263235000</contentUpdateDate>
+<creationDate>1347555783000</creationDate>
+<date>1347555783000</date>
+<contentUpdateDate>1347555783000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -24,14 +24,14 @@
 <hidden>false</hidden>
 <content>## French
 ## Education System (NOT TO translate)
-CurrikiCode.AssetClass_education_system_UNSPECIFIED=Tous
+CurrikiCode.AssetClass_education_system_UNSPECIFIED=Système scolaire: tous
 CurrikiCode.AssetClass_education_system_AssetMetadata.InternationalEducation=International
 CurrikiCode.AssetClass_education_system_AssetMetadata.FranceEducation=France
 CurrikiCode.AssetClass_education_system_AssetMetadata.USAEducation=United States 
 CurrikiCode.AssetClass_education_system_AssetMetadata.SenegalEducation=Sénégal
 
 ## Instructional Component (to translate in all language)
-CurrikiCode.AssetClass_instructional_component_UNSPECIFIED=Type de ressource: Tous
+CurrikiCode.AssetClass_instructional_component_UNSPECIFIED=Type de ressource: tous
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Activity=Activité
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Animation=Animation/Simulation
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Answer=Réponse
@@ -76,11 +76,11 @@ CurrikiCode.AssetClass_instructional_component_AssetMetadata.Widget=Widget
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Workbook=Cahier d'activité
 CurrikiCode.AssetClass_instructional_component_AssetMetadata.Worksheet=Grapheur/Tableur
 
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Activity.UNSPECIFIED=Type de ressource: Tous
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Asset.UNSPECIFIED=Type de ressource: Tous
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Book.UNSPECIFIED=Type de ressource: Tous
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Curriculum.UNSPECIFIED=Type de ressource: Tous
-CurrikiCode.AssetClass_instructional_component_AssetMetadata.Other.UNSPECIFIED=Type de ressource: Tous
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Activity.UNSPECIFIED=Type d'activité: toutes
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Asset.UNSPECIFIED=Type de composant: tous
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Book.UNSPECIFIED=Type de livre: tous
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Curriculum.UNSPECIFIED=Type de parcours: tous
+CurrikiCode.AssetClass_instructional_component_AssetMetadata.Other.UNSPECIFIED=Autres
 
 ## Disciplines (Translation on demand)
 
@@ -302,23 +302,23 @@ CurrikiCode.AssetClass_fw_items_Disciplines.WorldLangWriting=Writing
 CurrikiCode.AssetClass_fw_items_Disciplines.Writing=Découvrir l'écrit
 
 ## Search
-CurrikiCode.AssetClass_fw_items_UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.Arts.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.CareerAndTechnicalEducation.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.EducationalTechnology.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.Education.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.EducationalTechnology.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.Health.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.InformationAndMediaLiteracy.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.Mathematics.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.LanguageArts.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.SocialStudies.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.WorldLanguages.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.SocialStudies.UNSPECIFIED=Tous
-CurrikiCode.AssetClass_fw_items_Disciplines.Science.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_fw_items_UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.Arts.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.CareerAndTechnicalEducation.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.EducationalTechnology.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.Education.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.EducationalTechnology.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.Health.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.InformationAndMediaLiteracy.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.Mathematics.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.LanguageArts.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.SocialStudies.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.WorldLanguages.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.SocialStudies.UNSPECIFIED=Sous-discipline: toutes
+CurrikiCode.AssetClass_fw_items_Disciplines.Science.UNSPECIFIED=Sous-discipline: toutes
 
+CurrikiCode.AssetClass_educational_level_UNSPECIFIED=Niveau scolaire: tous
 ## Educational levels (NOT TO translate)
-CurrikiCode.AssetClass_educational_level_UNSPECIFIED=Tous
 CurrikiCode.AssetClass_educational_level_AssetMetadata.34=Age 3-4
 CurrikiCode.AssetClass_educational_level_AssetMetadata.45=Age 4-5
 CurrikiCode.AssetClass_educational_level_AssetMetadata.56=Age 5-6
@@ -368,13 +368,13 @@ CurrikiCode.AssetClass_educational_level_AssetMetadata.USPreSchool=PreSchool
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USSpecialEducation=Special Education
 CurrikiCode.AssetClass_educational_level_AssetMetadata.USLongLifeLearning=Long Life Learning
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRMaternelle=Maternelle
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FRMaternelle.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRMaternelle.UNSPECIFIED=Sous-niveau: tous
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRElementaire=Elémentaire
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FRElementaire.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRElementaire.UNSPECIFIED=Sous-niveau: tous
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRCollege=Collège
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FRCollege.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRCollege.UNSPECIFIED=Sous-niveau: tous
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRLycee=Lycée
-CurrikiCode.AssetClass_educational_level_AssetMetadata.FRLycee.UNSPECIFIED=Tous
+CurrikiCode.AssetClass_educational_level_AssetMetadata.FRLycee.UNSPECIFIED=Sous-niveau: tous
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRProfessionnel=Bac+2 professionnel
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRUniversite=Classes Préparatoires, Université et Grandes Ecoles
 CurrikiCode.AssetClass_educational_level_AssetMetadata.FRFormationContinue=Formation continue Professionnelle
