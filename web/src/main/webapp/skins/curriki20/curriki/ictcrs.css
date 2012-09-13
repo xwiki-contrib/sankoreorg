@@ -41,15 +41,17 @@ li.crs-icon {
         padding: 5px 0 5px 40px;
 }
 
-li.crs-rating-crs3, #asset-rating a.crs-rating-crs3 {background-position: 0 -180px; height: 36px; width: 36px; float: left; }
-li.crs-rating-crs2, #asset-rating a.crs-rating-crs2 {background-position: 0 -90px; height: 36px; width: 36px; float: left; }
-li.crs-rating-crs1, #asset-rating a.crs-rating-crs1 {background-position: 0 0px; height: 36px; width: 36px; float: left;}
-li.crs-rating-crsp, #asset-rating a.crs-rating-crsp {background-position: 0 -270px; height: 36px; width: 36px; float: left;}
-li.crs-rating-crs3-star, #asset-rating a.crs-rating-crs3-star {background-position: 0 -900px; height: 36px; width: 36px; float: left;}
-li.crs-rating-crs2-star, #asset-rating a.crs-rating-crs2-star {background-position: 0 -810px; height: 36px; width: 36px; float: left;}
-li.crs-rating-crs1-star, #asset-rating a.crs-rating-crs1-star {background-position: 0 -720px; height: 36px; width: 36px; float: left;}
+#asset-review .rve-rating-wrapper #asset-rating a {width: 36px;}
+
+li.crs-rating-crs3, #asset-rating a.crs-rating-crs3 {background-position: 0 -180px; height: 36px; float: left; }
+li.crs-rating-crs2, #asset-rating a.crs-rating-crs2 {background-position: 0 -90px; height: 36px; float: left; }
+li.crs-rating-crs1, #asset-rating a.crs-rating-crs1 {background-position: 0 0px; height: 36px; float: left;}
+li.crs-rating-crsp, #asset-rating a.crs-rating-crsp {background-position: 0 -270px; height: 36px; float: left;}
+li.crs-rating-crs3-star, #asset-rating a.crs-rating-crs3-star {background-position: 0 -900px; height: 36px; float: left;}
+li.crs-rating-crs2-star, #asset-rating a.crs-rating-crs2-star {background-position: 0 -810px; height: 36px; float: left;}
+li.crs-rating-crs1-star, #asset-rating a.crs-rating-crs1-star {background-position: 0 -720px; height: 36px; float: left;}
 li.crs-rating-crsp-star, #asset-rating a.crs-rating-crsp-star {background-position: 0 -990px; height: 36px; width: 36px; float: left;}
-#asset-rating a.crs-rating-unrated {background-position: 0 -5940px; height: 36px; width: 36px; float: left;}
+#asset-rating a.crs-rating-unrated {background-position: 0 -5940px; height: 36px; float: left;}
 
 .crs-icon { width:15px; height:15px; background-repeat:no-repeat; }
 .crs_reviewimage a:hover { text-decoration: none; }
