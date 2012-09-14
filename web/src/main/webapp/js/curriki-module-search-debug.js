@@ -887,7 +887,9 @@ data.init = function(){
       } else if (record.data.category == "external") {
         imgsrc = imgsrc + "weblink_large.gif";
       } else if (record.data.category == "collection") {
-        imgsrc = imgsrc + "collection_large.gif";      
+        imgsrc = imgsrc + "collection_large.gif"; 
+      } else if (record.data.category == "sankore") {
+        imgsrc = imgsrc + "sankore_large.png";      
       } else {
         imgsrc = imgsrc + "archive_large.gif";
       }
@@ -1802,26 +1804,8 @@ data.init = function(){
       
       var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 80));
       var desc = Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256);
-      var imgsrc = "/xwiki/skins/curriki20/icons/mediatype/";
-      if (record.data.category == "text" || record.data.category == "document") {
-        imgsrc = imgsrc + "document_large.gif";
-      } else if (record.data.category == "image") {
-        imgsrc = imgsrc + "image_large.gif";
-      } else if (record.data.category == "audio") {
-        imgsrc = imgsrc + "audio_large.gif";
-      } else if (record.data.category == "video") {
-        imgsrc = imgsrc + "video_large.gif";
-      } else if (record.data.category == "interactive") {
-        imgsrc = imgsrc + "interactive_large.gif";
-      } else if (record.data.category == "archive") {
-        imgsrc = imgsrc + "archive_large.gif";
-      } else if (record.data.category == "external") {
-        imgsrc = imgsrc + "external_large.gif";
-      } else if (record.data.category == "collection") {
-        imgsrc = imgsrc + "collection_large.gif";
-      } else {
-        imgsrc = imgsrc + "archive_large.gif";
-      }
+      var imgsrc = "/xwiki/skins/curriki20/icons/mediatype/";      
+      imgsrc = imgsrc + "sankore_large.png";
       var link = String.format('<a class="preview" href="/xwiki/bin/view/{0}"><img src="{1}" /></a>', page, imgsrc);
       var rating = String.format('');
       if (record.data.memberRating != "") {
