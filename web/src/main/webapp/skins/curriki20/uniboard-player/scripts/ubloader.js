@@ -25,7 +25,7 @@ UbLoader.launchPlayer = function(file, nbpages, mode, elementid) {
         UbLoader.elementid = elementid;
         jQuery(document).ready(function() {
                 var el = jQuery(elementid);
-  		el.append('<div id="sankoreplayer"><div id="sankoreplayer-header"><div><ul id="sankoreplayer-menulist"><li><a href="javascript:void(0)" onclick="UbLoader.closePlayer(); return false">Close</a></li></ul></div></div><iframe id="sankoreplayer-iframe" src="' + UbLoader.playerprefix + 'player.html#' + file + ',' + nbpages + ',' + mode + '" width="100%" height="100%" border="0" frameborder="0"></iframe></div>');
+  		el.append('<div id="sankoreplayer"><div id="sankoreplayer-header"><div><ul id="sankoreplayer-menulist"><li><a href="javascript:void(0)" onclick="UbLoader.closePlayer(); return false">Fermer</a></li></ul></div></div><iframe id="sankoreplayer-iframe" src="' + UbLoader.playerprefix + 'player.html#' + file + ',' + nbpages + ',' + mode + '" width="100%" height="100%" border="0" frameborder="0"></iframe></div>');
  		UbLoader.loadCSS(UbLoader.playerprefix + 'stylesheets/ubloader.css');
  		UbLoader.loadCSS(UbLoader.playerprefix + 'stylesheets/ubloader-' + mode + '.css');
         }); 
@@ -49,6 +49,7 @@ UbLoader.launchPlayer = function(file, nbpages, mode, elementid) {
 UbLoader.closePlayer = function() {
     // hidding the player
     jQuery("#sankoreplayer").remove();
+    jQuery("body").css("overflow", "scroll");
 }
 
 UbLoader.switchMode = function(mode) {
