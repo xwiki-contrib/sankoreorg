@@ -52,6 +52,7 @@ UbPlayer.launchPlayer = function(file, nbpages, mode) {
         UbPlayer.loadCSS(UbPlayer.playerprefix + 'stylesheets/master_' + mode + '.css');
 
         // TODO: fix detecting iPad and iPhone instead of safari
+        /*
         if(jQuery.browser.safari) {
              UbPlayer.loadCSS(UbPlayer.playerprefix + 'stylesheets/master_ipad.css');
     
@@ -64,7 +65,8 @@ UbPlayer.launchPlayer = function(file, nbpages, mode) {
                     });
                     jQuery("#boards").addClass("boardsEnableAnimation");
          }
-         
+        */
+ 
         if(jQuery.browser.ie) { 
                 console.log("Player ie mode");    
                 UbPlayer.loadCSS(UbPlayer.playerprefix + 'stylesheets/master_ie.css');
