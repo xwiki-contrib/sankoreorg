@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347552841000</creationDate>
-<date>1347552841000</date>
-<contentUpdateDate>1347552841000</contentUpdateDate>
+<creationDate>1347635487000</creationDate>
+<date>1347635487000</date>
+<contentUpdateDate>1347635487000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources</title>
 <template></template>
@@ -2539,7 +2539,7 @@ fieldset#search-advanced-resource {
   font-family: 'Open Sans Condensed',sans-serif;
 }
 
-#search-advanced-resource-other, #search-advanced-resource-type, #search-advanced-resource-subject, #search-advanced-resource-level, #search-advanced-resource-system {
+#search-advanced-resource-other, #search-advanced-resource-type, #search-advanced-resource-subject, #search-advanced-resource-level, #search-advanced-resource-system, #search-advanced-resource-category {
   border:none;
 }
 
@@ -3092,6 +3092,10 @@ font-size: 13px !important;
 }
 .x-toolbar .xtb-sep {
   background-image:none !important;
+}
+
+.x-grid3-body .x-grid3-td-expander {
+  background: none;
 }</code>
 </property>
 <property>
