@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317814581000</creationDate>
-<date>1317814581000</date>
-<contentUpdateDate>1317814581000</contentUpdateDate>
+<creationDate>1345798107000</creationDate>
+<date>1345798107000</date>
+<contentUpdateDate>1345798107000</contentUpdateDate>
 <version>1.1</version>
 <title>Collections</title>
 <template></template>
@@ -27,7 +27,7 @@
   *
   *#
 #mycurriki_pageheader("collections" "")
-#mycurriki_collectionbutton($userobj)
+#mycurriki_collections_buttons($userobj)
 #mycurriki_pagecontentheader("collections" "")
 #mycurriki_collections($userdoc $userobj)
 #mycurriki_pagefooter("")</content></xwikidoc>
