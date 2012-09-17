@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334933565000</creationDate>
-<date>1334933565000</date>
-<contentUpdateDate>1334933565000</contentUpdateDate>
+<creationDate>1346751451000</creationDate>
+<date>1346751451000</date>
+<contentUpdateDate>1346751451000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -28830,7 +28830,7 @@ ABUAFQAqBQAAQu0YAAAA</content></attachment>
 {{html clean=false}}
 #if(!$hasSankoreJS)
 #set($hasSankoreJS = true)
-&lt;script type="text/javascript" src="$xwiki.getSkinFile("/js/jquery/jquery.js")"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="$xwiki.getSkinFile("uniboard-player/scripts/jquery.min.js")"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="$xwiki.getSkinFile("uniboard-player/scripts/ubloader.js")"&gt;&lt;/script&gt;
 &lt;link rel=stylesheet type="text/css" href="$xwiki.getSkinFile("uniboard-player/stylesheets/ubloader.css")"&gt;
 #set($url = $doc.getAttachmentURL($xcontext.macro.params.file))
@@ -28862,23 +28862,26 @@ UbLoader.init('/xwiki/skins/curriki20/uniboard-player/');
 #if ($xcontext.macro.params.type == "ubz")
   #set($suffix = ".thumbnail")
 #end
+## HACK: This is how we detect that we are in a collection view to use a different player mode for the asset
+## We had to use this variable set in skins/curriki20/assets/displayer/collection_view.vm as it was the only way to detect this mode
+#if($subAssetList)
 &lt;div id="sankore-preview"&gt;
-&lt;a href="javascript:void(0)" onclick="UbLoader.launchPlayer('${url}', ${nbpages}); return false;" title="$escapetool.xml($msg.get('rve.content.view.preview.previewubwattachment.tooltip'))"&gt;
-&lt;img src="${url}/page001$!{suffix}.jpg" #if($width &amp;&amp; $width!="") width="$width" #end #if($height &amp;&amp; $height!="") height="$height" #end /&gt;
+&lt;!--
+ This loads the UBW file available on http://server:port/player/demo/ubw/
+ You can also specify an absolute URL
+--&gt;
+&lt;a href="javascript:void(0)" onclick="UbLoader.launchPlayer('${url}', $nbpages, 'fs', 'body'); return false;" title="Click to preview"&gt;
+&lt;img src="${url}/page001$!{suffix}.jpg" width="562" height="562" /&gt;
 &lt;/a&gt;
 &lt;/div&gt;
-&lt;div id="sankoreplayer"&gt;
-  &lt;div id="sankoreplayer-header"&gt;
-    &lt;div id="sankoreplayer-links"&gt;
-      &lt;ul id="sankoreplayer-menulist"&gt;
-        &lt;li id="sankoreplayer-menulist-close"&gt;
-          &lt;a id="quitPlayer" href="javascript:void(0)" onclick="UbLoader.closePlayer(); return false"&gt;Close&lt;/a&gt;
-        &lt;/li&gt;        
-      &lt;/ul&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;iframe id="sankoreplayer-iframe" src="" width="100%" height="100%" border="0" frameborder="0" scrolling="no"&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+#else
+&lt;script type="text/javascript"&gt;
+// This loads the UBW file available on http://server:port/player/demo/ubw/
+// You can also specify an absolute URL
+UbLoader.launchPlayer('${url}', $nbpages, "embed", "#sankore-view");
+&lt;/script&gt;
+&lt;div id="sankore-view" style="border: 0px solid; width: 600px; height: 650px; margin: auto;"&gt;&lt;/div&gt;
+#end
 {{/html}}
 {{/velocity}}
 </code></property><property><contentDescription></contentDescription></property><property><contentType>No content</contentType>
