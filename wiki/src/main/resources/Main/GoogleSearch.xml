@@ -6,20 +6,20 @@
 <defaultLanguage>en</defaultLanguage>
 <translation>0</translation>
 <parent></parent>
-<creator>XWiki.FlaviusOlaru</creator>
-<author>XWiki.RalucaStavro</author>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
 <customClass></customClass>
-<contentAuthor>XWiki.RalucaStavro</contentAuthor>
-<creationDate>1317024423000</creationDate>
-<date>1346774044000</date>
-<contentUpdateDate>1346774044000</contentUpdateDate>
-<version>7.110</version>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1347956943000</creationDate>
+<date>1347956943000</date>
+<contentUpdateDate>1347956943000</contentUpdateDate>
+<version>1.1</version>
 <title>GoogleSearch</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
 <comment></comment>
-<minorEdit>true</minorEdit>
+<minorEdit>false</minorEdit>
 <syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
 <object>
@@ -241,6 +241,10 @@ Ext.onReady(function(){
   background: none repeat scroll 0 0 #F2F2F2 !important;
   width: auto;
 }
+#googleSearch {
+  border-top: 0px solid #749D37;
+  margin-top: 40px;
+}
 .cse .gsc-branding,
 .gsc-branding {
   display: none;
@@ -392,7 +396,7 @@ div.gs-title,
   margin-bottom: 0 !important;
 }
 .cse .gsc-webResult.gsc-result {
-  border-top: solid 1px #EDEDED !important;
+  border-top: solid 1px #EDEDED;
 }
 /* Result hover event styling */
 
@@ -630,7 +634,7 @@ div.gs-title,
 }
 
 #googleSearch h4 {
-  color: #749D37 !important;
+  color: #749D37 ;
   font-size: 16px !important;
   letter-spacing:1px !important; 
   font-weight: bold !important;

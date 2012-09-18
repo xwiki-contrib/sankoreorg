@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347460097000</creationDate>
-<date>1347460097000</date>
-<contentUpdateDate>1347460097000</contentUpdateDate>
+<creationDate>1347956589000</creationDate>
+<date>1347956589000</date>
+<contentUpdateDate>1347956589000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreSkin</title>
 <template></template>
@@ -11728,6 +11728,32 @@ Search
   margin-left: 15px;
   margin-top: 5px;
 }
+
+/*
+Search : Results from GOOGLE
+--------------------------------------
+*/
+#googleSearch {
+  color: #424242;
+}
+
+#googleSearch h4 {
+  color: #C32D1E !important;
+}
+
+#googleSearch .gs-title {
+  color: #C32D1E !important;
+  text-decoration: none;
+}
+#googleSearch .gs-title b {
+  color: #C32D1E !important;
+}
+
+#googleSearch .gs-visibleUrl {
+  color: #888888 !important;
+  font-weight: normal;
+}
+
 
 
 /*
