@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347546829000</creationDate>
-<date>1347546829000</date>
-<contentUpdateDate>1347546829000</contentUpdateDate>
+<creationDate>1348129230000</creationDate>
+<date>1348129230000</date>
+<contentUpdateDate>1348129230000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -396,7 +396,7 @@ rve.comments.review.empty.loggedin_message=&lt;strong&gt;Cette ressource n'a pas
 
 rve.comments.review.empty.notloggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été analysée par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; (CVS).&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Des relecteurs experts appliquent les critères du CVS pour aider les utilisateurs à trouver des ressources de hautes qualitées.&lt;br/&gt;&lt;br/&gt;&lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoindre Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; afin de pouvoir demander une évaluation par le CVS.
 
-rve.comments.review.empty.nominated_message=Cette ressource à été retenue pour être analysé par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; (CVS).&lt;br/&gt;&lt;br/&gt;Revenez voir plus tard l'évaluation de cette ressource par le CVS. Vous pouvez tout de même la commenter.
+rve.comments.review.empty.nominated_message=Cette ressource à été retenue pour être analysée par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; (CVS).&lt;br/&gt;&lt;br/&gt;Revenez voir plus tard l'évaluation de cette ressource par le CVS. Vous pouvez tout de même la commenter.
 
 rve.comments.review.asterix.rating_message=Cette ressource a recu un vote spécial (*) parce qu'elle fait partie des ressources évalués. Verifier la section des commentaires des membres pour plus d'informations.&lt;br/&gt;&lt;br/&gt;(Cette ressource peut être selectionnée pour une évaluation complète. Si aucune évaluation n'est planifiée mais que vous le voulez: cliquez sur "Soumettre cette ressource à évaluation" ci-dessus. )
 
