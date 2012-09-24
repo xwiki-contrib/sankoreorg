@@ -631,7 +631,7 @@ data.init = function(){
   f.data.category =  {
     list: Curriki.data.category.list
     ,data: [
-      ['', _('CurrikiCode.AssetClass_category_UNSPECIFIED'), '   ']
+      ['', _('CurrikiCode.AssetClass_category_UNSPECIFIED'), ' ']
     ]
   };
   
@@ -678,7 +678,7 @@ data.init = function(){
 
   f.data.special = {
     list: [
-      'contributions', 'collections', 'updated', 'sankore'
+      'contributions', 'updated'
     ]
     ,data: [
       ['', _('search.resource.special.selector.UNSPECIFIED')]
@@ -797,8 +797,7 @@ data.init = function(){
     ,remoteSort: true
   });
   data.store.results.setDefaultSort('rating', 'desc');
-
-
+  
 
   // Set up renderers
   data.renderer = {
@@ -870,7 +869,7 @@ data.init = function(){
       var page = record.id.replace(/\./, '/');
       
       var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 80));
-      var desc = Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256);
+      var desc = Ext.htmlDecode(Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256));
       var imgsrc = "/xwiki/skins/curriki20/icons/mediatype/";
       if (record.data.category == "text" || record.data.category == "document") {
         imgsrc = imgsrc + "document_large.gif";
@@ -913,6 +912,46 @@ data.init = function(){
       return String.format('{0}{2}{1}<h4 class="title">{3}</h4>{4}<p class="description">{5}</p>', link, rating, review, title, contributor, desc);
     }
   };
+  
+  data.store.featuredResults = new Ext.data.Store({
+    storeId: 'search-store-featured-'+modName
+    ,proxy: new Ext.data.HttpProxy({
+      url: '/xwiki/bin/view/Search/Resources'
+      ,method:'GET'
+    })
+    ,baseParams: { start: '0', limit: '2', xpage: "plain", '_dc':(new Date().getTime()), category:"sankore" }
+
+    ,reader: new Ext.data.JsonReader({
+      root: 'rows'
+      ,totalProperty: 'resultCount'
+      ,id: 'page'
+    }, data.store.record)
+
+    // turn on remote sorting
+    ,remoteSort: true
+  });
+  data.store.featuredResults.setDefaultSort('rating', 'asc');
+
+  // Set up renderers
+  data.featuredRenderer = {
+    result: function(value, metadata, record, rowIndex, colIndex, store) {
+     var page = record.id.replace(/\./, '/');
+      
+      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 80));
+      var desc = Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256);
+      var imgsrc = "/xwiki/skins/curriki20/icons/mediatype/";      
+      imgsrc = imgsrc + "sankore_large.png";
+      var link = String.format('<a class="preview" href="/xwiki/bin/view/{0}"><img src="{1}" /></a>', page, imgsrc);
+      var rating = String.format('');
+      if (record.data.memberRating != "") {
+        rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}">{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a></span>', record.data.memberRating, record.data.ratingCount, page, _('search.resource.rating.'+record.data.memberRating), Ext.BLANK_IMAGE_URL);
+      }
+      var cleanContributorName = '/xwiki/bin/view/' +record.data.contributor.trim().replace('.', '/'); 
+      var contributor = String.format('<a class="contributor" href="{0}">{1}</a>', cleanContributorName, record.data.contributorName);
+      
+      return String.format('{0}{1}<h4 class="title">{2}</h4>{3}<p class="description">{4}</p>', link, rating, title, contributor, desc);
+    }
+  };
 };
 
 Ext.onReady(function(){
@@ -934,7 +973,7 @@ var data = Search.data[modName];
 form.init = function(){
   console.log('form.'+modName+': init');
 
-  var comboWidth = 180;
+  var comboWidth = 195;
   var comboListWidth = 250;
 
 
@@ -971,12 +1010,9 @@ form.init = function(){
         ,store:data.filter.store.category
         ,displayField:'category'
         ,valueField:'id'
-        //,plugins:new form.categoryCombo()
         ,typeAhead:true
         ,triggerAction:'all'
         ,emptyText:_('CurrikiCode.AssetClass_category_UNSPECIFIED')
-        ,selectOnFocus:true
-        ,forceSelection:true
       }]
     },{
       xtype:'fieldset'
@@ -984,7 +1020,7 @@ form.init = function(){
       ,id: 'search-advanced-'+modName+'-system'
       ,autoHeight: true
       ,collapsible: true
-      ,collapsed: true
+      ,collapsed: false
       ,animCollapse: false
       ,border: false
       ,stateful: true
@@ -1003,8 +1039,6 @@ form.init = function(){
         ,valueField:'id'
         ,typeAhead:true
         ,triggerAction:'all'
-        ,selectOnFocus:true
-        ,forceSelection:true
         ,value:Curriki.data.education_system.initial
         ,validator:function(value){
           if(this.store.find('education_system', value) == -1)
@@ -1054,8 +1088,6 @@ form.init = function(){
         ,typeAhead:true
         ,triggerAction:'all'
         ,emptyText:_('CurrikiCode.AssetClass_educational_level_UNSPECIFIED')
-        ,selectOnFocus:true
-        ,forceSelection:true
         ,validator:function(value){
           var system = Ext.getCmp('combo-system-'+modName);                
           this.store.filter('parentItem', system.getValue());
@@ -1103,8 +1135,6 @@ form.init = function(){
         ,typeAhead:true
         ,triggerAction:'all'
         ,emptyText:_('CurrikiCode.AssetClass_educational_level_UNSPECIFIED')
-        ,selectOnFocus:true
-        ,forceSelection:true
         ,lastQuery:''
         ,hidden:true
         ,hideMode:'visibility'
@@ -1161,8 +1191,6 @@ form.init = function(){
         ,typeAhead:true
         ,triggerAction:'all'
         ,emptyText:_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED')
-        ,selectOnFocus:true
-        ,forceSelection:true
         ,validator:function(value){
           var system = Ext.getCmp('combo-system-'+modName);
           var level = Ext.getCmp('combo-level-'+modName);                                                      
@@ -1208,7 +1236,7 @@ form.init = function(){
           ,valueField:'id'
           ,typeAhead:true
           ,triggerAction:'all'
-          ,emptyText:_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED')
+          //,emptyText:_('CurrikiCode.AssetClass_fw_items_UNSPECIFIED')
           ,selectOnFocus:true
           ,forceSelection:true
           ,lastQuery:''
@@ -1285,8 +1313,6 @@ form.init = function(){
           ,typeAhead:true
           ,triggerAction:'all'
           ,emptyText:_('CurrikiCode.AssetClass_instructional_component_UNSPECIFIED')
-          ,selectOnFocus:true
-          ,forceSelection:true
           ,validator:function(value){
             if(this.store.find('ict', value) == -1)
               this.clearValue();
@@ -1317,8 +1343,6 @@ form.init = function(){
           ,typeAhead:true
           ,triggerAction:'all'
           ,emptyText:_('CurrikiCode.AssetClass_instructional_component_UNSPECIFIED')
-          ,selectOnFocus:true
-          ,forceSelection:true
           ,lastQuery:''
           ,hidden:true
           ,hideMode:'visibility'
@@ -1375,8 +1399,6 @@ form.init = function(){
         ,typeAhead:true
         ,triggerAction:'all'
         ,emptyText:_('CurrikiCode.AssetClass_language_UNSPECIFIED')
-        ,selectOnFocus:true
-        ,forceSelection:true
       },/*{
         xtype:'combo'
         ,id:'combo-review-'+modName
@@ -1392,8 +1414,6 @@ form.init = function(){
         ,typeAhead:true
         ,triggerAction:'all'
         ,emptyText:_('search.resource.review.selector.UNSPECIFIED')
-        ,selectOnFocus:true
-        ,forceSelection:true
       },*/{
         xtype:'combo'
         ,id:'combo-special-'+modName
@@ -1409,11 +1429,9 @@ form.init = function(){
         ,typeAhead:true
         ,triggerAction:'all'
         ,emptyText:_('search.resource.special.selector.UNSPECIFIED')
-        ,selectOnFocus:true
-        ,forceSelection:true
       }]
     }]
-  }  
+  }     
   
   form.rowExpander = new Ext.grid.RowExpander({
     tpl: new Ext.XTemplate(
@@ -1480,11 +1498,73 @@ form.init = function(){
     var iconCol = Ext.DomQuery.selectNode('img[class=x-grid3-row-expander]', row);
     Ext.fly(iconCol).set({'ext:qtip':_('search.resource.icon.plus.rollover')});
   });
+  
+  form.featuredPanel = {
+    xtype:'grid'
+    ,id:'search-results-featured-'+modName
+    ,title:__('search.featured-'+modName+'.grid.title')
+    ,renderTo:'featured-results'
+    ,border:false
+    ,autoHeight:true
+    ,width:Search.settings.gridWidth
+    ,autoExpandColumn:'title'
+    ,stateful:true
+    ,frame:false
+    ,stripeRows:true
+    ,hidden:true
+    ,viewConfig: {
+      forceFit:true
+      ,enableRowBody:true
+      ,showPreview:true
+      // Remove the blank space on right of grid (reserved for scrollbar)
+      ,scrollOffset:0
+    }
+    ,listeners:{      
+      beforeshow: {
+        fn:function(grid) {
+          if(grid.getStore().getTotalCount() == 0)
+            return false;
+        }
+      }
+    }   
+    ,columnsText:_('search.columns.menu.columns')
+    ,sortAscText:_('search.columns.menu.sort_ascending')
+    ,sortDescText:_('search.columns.menu.sort_descending')
+    ,store:data.store.featuredResults
+    ,sm:new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
+    ,cm:new Ext.grid.ColumnModel([
+      Ext.apply(
+        form.rowExpander
+        ,{})
+    ,{
+      id:'featured-result'
+      ,sortable:false
+      ,hideable:false
+      ,resizeable:false
+      ,renderer: data.featuredRenderer.result
+      ,width: 553
+      //,tooltip:_('search.preview-external.column.header.preview-result')
+    }])
+    ,loadMask:false
+    ,bbar:new Ext.Toolbar({
+      id:'search-preview-results-statusbar'+modName
+      ,items:['->',{ 
+        text:__('search.preview.statusbar.text.'+modName)
+        ,id:'search-featured-link'
+        ,handler: function() {
+          var category = Ext.getCmp('combo-category-'+modName);
+          category.setValue('sankore');
+          Ext.getCmp('search-advanced-resource-category').expand();
+          form.doSearch();                            
+        }  
+      }]
+    })  
+  };
 
   form.resultsPanel = {
     xtype:'grid'
     ,id:'search-results-'+modName
-    ,title:__('search.'+modName+'.tab.title')
+    ,title:__('search.'+modName+'.grid.title')
     ,border:false
     ,autoHeight:true
     //,width:650
@@ -1545,15 +1625,39 @@ form.init = function(){
       ,nextText: _('search.pagination.next')
       ,lastText: _('search.pagination.last')
       ,refreshText: _('search.pagination.refresh')
+      ,listeners:{
+        'change':{
+          fn:function(toolbar, page) {
+            var featuredPanel = Ext.getCmp('search-results-featured-'+modName);
+            if(page.activePage != 1)
+              featuredPanel.hide();
+            if(page.activePage == 1 && !featuredPanel.isVisible() && Ext.getCmp('combo-category-'+modName).getValue() != 'sankore')
+              featuredPanel.show();
+            if(page.activePage == page.pages)
+              googleDoSearch(modName);
+            else
+              $('googleSearch').hide();
+          }
+        }
+      }
     })
   };
 
   form.doSearch = function(){
+    var filters = Search.util.getFilters(modName);
+    if (filters['category'] != "sankore") {
+      filters['category'] = "sankore";
+      Search.util.doGridSearch(Ext.getCmp('search-results-featured-'+modName), filters);
+    } else {
+      Ext.getCmp('search-results-featured-'+modName).hide();
+    }    
+    
     Search.util.doSearch(modName);
   };
 
-  // Adjust title with count
-  //Search.util.registerTabTitleListener(modName);
+  // Adjust title with count  
+  Search.util.registerStoreListeners('featured-'+modName);
+  Search.util.registerStoreListeners(modName);
 };
 
 Ext.onReady(function(){
