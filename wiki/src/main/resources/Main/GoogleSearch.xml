@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347956943000</creationDate>
-<date>1347956943000</date>
-<contentUpdateDate>1347956943000</contentUpdateDate>
+<creationDate>1348495265000</creationDate>
+<date>1348495265000</date>
+<contentUpdateDate>1348495265000</contentUpdateDate>
 <version>1.1</version>
 <title>GoogleSearch</title>
 <template></template>
@@ -625,22 +625,32 @@ div.gs-title,
   padding: 0 0 0 6px;
 }
 
-.gsc-control-cse .gs-result .gs-title, .gsc-control-cse .gs-result .gs-title * {
-    font-size: 13px !important;
+.gsc-control-cse .gs-result .gs-title, .gsc-control-cse .gs-result .gs-title * {  
+  font-family: 'Open Sans Condensed',sans-serif;
+  font-size: 14px !important;
+  font-weight: 700;
 }
 
 .cse .gs-result .gs-snippet, .gs-result .gs-snippet, .cse .gs-spelling, .gs-spelling {
   font-size: 12px !important;
 }
 
-#googleSearch h4 {
-  color: #749D37 ;
-  font-size: 16px !important;
-  letter-spacing:1px !important; 
-  font-weight: bold !important;
-  text-align: center !important;
-  border-bottom-style: none;
+#googleSearch {
   margin-top: 40px;
+  background-color: #EAEAEA;
+  padding: 30px;
+}
+
+#googleSearch h4 {
+  color: #424242 !important;
+    font-family: 'Open Sans Condensed',sans-serif;
+    font-size: 20px !important;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: normal;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: left;
 }
 
 .cse .gsc-control-cse, .gsc-control-cse {
@@ -655,13 +665,6 @@ div.gs-title,
 
 .gsc-table-result td {
   padding: 0 !important;
-}
-
-.gsc-control-cse .gs-result .gs-title {
-    font-size: 14px !important;
-    margin-bottom: 5px !important;
-    margin-top: 10px !important;
-  color: #663399;
 }
 
 .gs-snippet {
@@ -686,7 +689,7 @@ div.gs-title,
 }
 
 .cse .gs-webResult.gs-result a.gs-title:link, .gs-webResult.gs-result a.gs-title:link, .cse .gs-webResult.gs-result a.gs-title:link b, .gs-webResult.gs-result a.gs-title:link b, .cse .gs-webResult.gs-result a.gs-title:visited, .gs-webResult.gs-result a.gs-title:visited, .cse .gs-webResult.gs-result a.gs-title:visited b, .gs-webResult.gs-result a.gs-title:visited b, .cse .gs-webResult.gs-result a.gs-title:hover, .gs-webResult.gs-result a.gs-title:hover, .cse .gs-webResult.gs-result a.gs-title:hover b, .gs-webResult.gs-result a.gs-title:hover b, .gs-imageResult a.gs-title:link, .gs-imageResult a.gs-title:link b, .gs-imageResult a.gs-title:visited, .gs-imageResult a.gs-title:visited b, .gs-imageResult a.gs-title:hover, .gs-imageResult a.gs-title:hover b, .cse .gsc-cursor-page, .gsc-cursor-page, .cse .gsc-trailing-more-results:link, .gsc-trailing-more-results:link, .cse .gs-spelling a, .gs-spelling a {
-  color: #663399 !important;
+  color: #4A4A4A !important;
 }
 
 .gs-visibleUrl {
@@ -695,21 +698,44 @@ div.gs-title,
 
 .gsc-results .gsc-cursor-box {
   text-align: center !important;
-  color: #663399 !important;
+  color: #4A4A4A !important;  
+  font-family: 'Open Sans Condensed',​​sans-serif';
+  font-size: 13px;
+  margin-top: 20px;
 }
 
 .cse .gsc-results .gsc-cursor-page.gsc-cursor-current-page, .gsc-results .gsc-cursor-page.gsc-cursor-current-page {
   background: none !important;
-  color: #000 !important;
+  color: #4A4A4A !important;
   text-shadow: none !important;
 }
 
-.gsc-above-wrapper-area{
-  visibility: hidden;
+#googleSearch .gs-web-image-box img.gs-image, #googleSearch .gs-promotion-image-box img.gs-promotion-image {
+  max-width: 100px;
+  width: 100px;
 }
 
-.gsc-wrapper{
-  margin: -60px 0 0 0;
+#googleSearch .gs-web-image-box, .gs-promotion-image-box {
+  background: none repeat scroll 0 0 #FFFFFF;
+  width: 100px;
+  border: 1px solid #9A9B9D;
+  margin-right: 10px;
+}
+
+#googleSearch .gsc-result-info {
+  font-family: 	'Open Sans Condensed',​sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #424242;
+  padding-left: 0;
+}
+
+#googleSearch .gsc-cursor-box {
+  display: none;
+}
+
+#googleSearch .gcsc-branding {
+  margin-top: 20px;
 }</code>
 </property>
 <property>
