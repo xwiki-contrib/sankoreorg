@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1348479309000</creationDate>
-<date>1348479309000</date>
-<contentUpdateDate>1348479309000</contentUpdateDate>
+<creationDate>1348580739000</creationDate>
+<date>1348580739000</date>
+<contentUpdateDate>1348580739000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources</title>
 <template></template>
@@ -673,6 +673,22 @@ fieldset#search-advanced-resource {
 
 .x-toolbar .xtb-sep {
   background-image:none !important;
+}
+
+button.x-btn-text {
+    color: white;
+}
+
+button.x-btn-text:hover {
+    color: white;
+}
+
+#search-filterPanel-button {
+  text-align: right;
+}
+
+#search-filterPanel-button button.btn.x-btn-text {
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/buttonbg.jpg") repeat-x scroll center center transparent;
 }</code>
 </property>
 <property>
