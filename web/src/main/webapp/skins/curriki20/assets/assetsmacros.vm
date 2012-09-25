@@ -199,8 +199,17 @@ Ext.select('div#asset-header h2 a').hover(function(){Ext.select('ul#asset-tabs l
   #if($asset.getObject('CurrikiCode.AttachmentAssetClass'))
     #set($assetAttachmentFilename = $asset.attachmentList.get(0).filename)
     #set($assetAttachmentURL = $asset.getAttachmentURL("$assetAttachmentFilename"))
+    #if($asset.file_type == "ubw")
+      #set($filelist = $xwiki.curriki.getFileList($asset, $assetAttachmentFilename))
+      #set($ubz = "")     
+      #foreach($file in $filelist)
+        #if($file.endsWith(".ubz"))
+          #set($ubz = "/$file")    
+        #end
+      #end
+    #end
     <li id="asset-download">
-      <a href="javascript:void(0)" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}'); location = '${assetAttachmentURL}?force%2Ddownload=1'; return false;">$msg.get('rve.content.download_link')</a>
+      <a href="javascript:void(0)" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}'); location = '${assetAttachmentURL}$!{ubz}'; return false;">$msg.get('rve.content.download_link')</a>
     </li>
   #end
 #if(!$isguest)
