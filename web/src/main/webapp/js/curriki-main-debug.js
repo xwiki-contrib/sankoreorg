@@ -4777,3 +4777,5 @@ Ext.override(Ext.Button, {
   }
 });
 //Ext.Button.buttonTemplate.compile();
+
+Ext.WindowMgr.zseed = 10000;
