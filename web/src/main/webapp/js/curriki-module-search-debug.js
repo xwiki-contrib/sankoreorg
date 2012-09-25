@@ -1430,6 +1430,18 @@ form.init = function(){
         ,triggerAction:'all'
         ,emptyText:_('search.resource.special.selector.UNSPECIFIED')
       }]
+    },{
+      xtype:'button'
+      ,id:'search-filterPanel-button'      
+      ,text:_('search.resource.filter.button.text')
+      ,layout:'anchor'
+      ,listeners:{
+        click:{
+          fn: function(){
+            Search.doSearch(modName, true);
+          }
+        }
+      }
     }]
   }     
   
