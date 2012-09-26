@@ -807,6 +807,7 @@ $!desc
 </li>
 </ul>
 </div>
+#if($hasAdmin || ("$!request.user" != "" && "$context.user" == "$request.user"))
 <div class="userPrivacy">
 <h2>$msg.get("profile.section.userPrivacy")</h2>
 <ul>
@@ -820,6 +821,7 @@ $!desc
 </li>
 </ul>
 </div>
+#end
 #end ## end macro
 
 
