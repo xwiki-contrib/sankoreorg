@@ -1703,7 +1703,7 @@ Curriki.module.addpath.init = function() {
                 ,preventMark:true
                 ,hideLabel:true
                 ,width:'72%'
-                ,value: Ext.parseURIQuery(window.location.href)['title']
+                ,value: Curriki.current.sri?Curriki.current.sri.title:''
               }]            
             },{
     // Description
