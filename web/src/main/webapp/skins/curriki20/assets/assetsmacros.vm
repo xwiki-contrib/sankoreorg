@@ -24,7 +24,7 @@
      #if(!$favoritesAsset.subassetList.contains($doc.fullName))
       <li class="tab-first" id="tab-favorite"><a href="javascript:void(0)" onclick="Curriki.module.addpath.startPath('G', {assetName:'${asset.getJSFullName()}', assetTitle:'${asset.getJSTitle()}'}); return false;" title="$msg.get("rve.title.function.favorite.icon.rollover")">$msg.get("rve.title.function.favorite")</a></li>
      #end
-     #set($g_enable_ADDTHIS = true)
+     #set($g_enable_ADDTHIS = true)     
      <li id="tab-email"><a href="http://www.addthis.com/bookmark.php" style="text-decoration:none;" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_sendto()">$msg.get("rve.title.function.email")</a></li>
      <li id="tab-flag"><a href="javascript:void(0)" onclick="Curriki.module.flag.start({resourcePage:'${asset.getJSFullName()}'}); return false;" title="$msg.get("rve.title.function.flag.icon.rollover")">$msg.get("rve.title.function.flag")</a></li>
    #end
@@ -45,7 +45,17 @@
   #set($favoritesAsset = $xwiki.getPlugin("curriki").fetchAssetOrNull("${collSpace}.Favorites"))
 #end
 #set($g_enable_ADDTHIS = true)
-<li id="asset-share"><a href="http://www.addthis.com/bookmark.php" style="text-decoration:none;" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_sendto()">$msg.get("rve.title.function.share")</a></li>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
+<script type="text/javascript">
+  var addthis_config = {
+    services_compact:'twitter,google_plusone_share,facebook'
+    ,services_expanded:'twitter,google_plusone_share,facebook'
+    ,services_expanded:'twitter,google_plusone_share,facebook'
+    ,ui_language:"$!context.language"
+    ,ui_cobrand:"$msg.get('addthis.share.cobrand')"    
+  };
+</script>
+<li id="asset-share"><a href="http://www.addthis.com/bookmark.php" style="text-decoration:none;" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_open(this, '', '[URL]', '[TITLE]')">$msg.get("rve.title.function.share")</a></li>
 ## Check if the current asset is in Favorites folder
 #if(!$favoritesAsset.subassetList.contains($doc.fullName))
 <li id="asset-favorite"><a href="javascript:void(0)" onclick="Curriki.module.addpath.startPath('G', {assetName:'${asset.getJSFullName()}', assetTitle:'${asset.getJSTitle()}'}); return false;" title="$msg.get("rve.title.function.favorite.icon.rollover")">$msg.get("rve.title.function.favorite")</a></li>
