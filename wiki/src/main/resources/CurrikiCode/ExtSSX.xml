@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347278040000</creationDate>
-<date>1347278040000</date>
-<contentUpdateDate>1347278040000</contentUpdateDate>
+<creationDate>1348673254000</creationDate>
+<date>1348673254000</date>
+<contentUpdateDate>1348673254000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -99,7 +99,7 @@
 <className>XWiki.StyleSheetExtension</className>
 <guid>3a9c0423-04d8-4855-8c7f-2c4ec868c386</guid>
 <property>
-<cache>long</cache>
+<cache>default</cache>
 </property>
 <property>
 <code>/*
@@ -885,10 +885,33 @@ img.rating-icon {
 
 .ext-strict .ext-ie  .addpath-tree .x-panel-bwrap {
   overflow: visible !important;
-}</code>
-</property>
-<property>
-<name>SSX</name>
+}
+
+#search-termPanel-external-form .right {
+  display:none;
+}
+
+/*
+Add path upload
+*/
+
+.x-progress-bar {
+  background-color: #E9680D !important;
+  border:none;
+}
+
+.x-progress-wrap {
+  border-color:#CC3300;
+}
+
+.x-progress-text-back {
+  color: #CC3300;
+}
+
+body.x-body-masked .x-window-plain .x-window-mc {
+  background: none;
+}
+</code></property><property><name>SSX</name>
 </property>
 <property>
 <parse>1</parse>
