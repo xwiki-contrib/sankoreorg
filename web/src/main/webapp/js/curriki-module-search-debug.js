@@ -1511,6 +1511,72 @@ form.init = function(){
     Ext.fly(iconCol).set({'ext:qtip':_('search.resource.icon.plus.rollover')});
   });
   
+  form.featuredRowExpander = new Ext.grid.RowExpander({
+    tpl: new Ext.XTemplate(
+      _('search.resource.resource.expanded.title'),
+      '<ul>',
+      '<tpl for="parents">',
+        '<li class="resource-{assetType} category-{category} subcategory-{category}_{subcategory}">',
+          '<a href="{[this.getParentURL(values)]}" ext:qtip="{[this.getQtip(values)]}">',
+            '{title}',
+          '</a>',
+        '</li>',
+      '</tpl>',
+      '</ul>', {
+        getParentURL: function(values){
+          var page = values.page||false;
+          if (page) {
+            return '/xwiki/bin/view/'+page.replace(/\./, '/');
+          } else {
+            return '';
+          }
+        },
+        getQtip: function(values){
+          var f = Curriki.module.search.data.resource.filter;
+
+          var desc = Ext.util.Format.stripTags(values.description||'');
+          desc = Ext.util.Format.ellipsis(desc, 256);
+          desc = Ext.util.Format.htmlEncode(desc);
+
+          var fw = Curriki.data.fw_item.getRolloverDisplay(values.fwItems||[]);
+          var lvl = Curriki.data.el.getRolloverDisplay(values.levels||[]);
+      
+          return String.format("{1}<br />{0}<br /><br />{3}<br />{2}<br />{5}<br />{4}"
+            ,desc,_('global.title.popup.description')
+            ,fw,_('global.title.popup.subject')
+            ,lvl,_('global.title.popup.educationlevel')
+          );
+        }
+      }
+    )
+  });
+
+  form.featuredRowExpander.renderer = function(v, p, record){
+    var cls;
+    if (record.data.parents && record.data.parents.size() > 0) {
+      p.cellAttr = 'rowspan="2"';
+      cls = 'x-grid3-row-expander';
+//      return '<div class="x-grid3-row-expander">&#160;</div>';
+      return String.format('<img class="{0}" src="{1}" ext:qtip="{2}" />', cls, Ext.BLANK_IMAGE_URL, _('search.resource.icon.plus.rollover'));
+    } else {
+      cls = 'x-grid3-row-expander-empty';
+//      return '<div class="x-grid3-row-expander-empty">&#160;</div>';
+      return String.format('<img class="{0}" src="{1}" />', cls, Ext.BLANK_IMAGE_URL);
+    }
+  };
+
+  form.featuredRowExpander.on('expand', function(expander, record, body, idx){
+    var row = expander.grid.view.getRow(idx);
+    var iconCol = Ext.DomQuery.selectNode('img[class=x-grid3-row-expander]', row);
+    Ext.fly(iconCol).set({'ext:qtip':_('search.resource.icon.minus.rollover')});
+  });
+
+  form.featuredRowExpander.on('collapse', function(expander, record, body, idx){
+    var row = expander.grid.view.getRow(idx);
+    var iconCol = Ext.DomQuery.selectNode('img[class=x-grid3-row-expander]', row);
+    Ext.fly(iconCol).set({'ext:qtip':_('search.resource.icon.plus.rollover')});
+  });
+  
   form.featuredPanel = {
     xtype:'grid'
     ,id:'search-results-featured-'+modName
@@ -1546,7 +1612,7 @@ form.init = function(){
     ,sm:new Ext.grid.RowSelectionModel({selectRow:Ext.emptyFn})
     ,cm:new Ext.grid.ColumnModel([
       Ext.apply(
-        form.rowExpander
+        form.featuredRowExpander
         ,{})
     ,{
       id:'featured-result'
@@ -1558,6 +1624,7 @@ form.init = function(){
       //,tooltip:_('search.preview-external.column.header.preview-result')
     }])
     ,loadMask:false
+    ,plugins: form.featuredRowExpander
     ,bbar:new Ext.Toolbar({
       id:'search-preview-results-statusbar'+modName
       ,items:['->',{ 
