@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1348129230000</creationDate>
-<date>1348129230000</date>
-<contentUpdateDate>1348129230000</contentUpdateDate>
+<creationDate>1348678028000</creationDate>
+<date>1348678028000</date>
+<contentUpdateDate>1348678028000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -574,4 +574,7 @@ rve.comments.commentrating.display.delete_link=Supprimer
 
 ## more less
 rve.information.more=Plus d'informations
-rve.information.less=Moins informations</content></xwikidoc>
+rve.information.less=Moins informations
+
+## addthis service
+addthis.share.cobrand=Planète Sankoré</content></xwikidoc>
