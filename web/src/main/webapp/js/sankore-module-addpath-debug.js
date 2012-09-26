@@ -79,7 +79,7 @@ Curriki.module.addpath.init = function() {
           },{
              xtype:'form'
             ,id:'addDialoguePanel'
-            ,formId:'addDialogueForm'
+            ,formId:'addDialogueForm'            
             ,cls:'form-container'
             ,labelWidth:25
             ,autoScroll:false
@@ -199,6 +199,11 @@ Curriki.module.addpath.init = function() {
                 ,hideLabel:true
                 ,hidden:true
                 ,disabled:true
+              },{
+                xtype:'progress'
+                ,id:'file-progress-box'
+                ,animate:true
+                ,hidden:true                
               }]
 
     // VIDITalk Video Upload
@@ -1249,44 +1254,7 @@ Curriki.module.addpath.init = function() {
                 ,scope:this
                 }                  
               }
-            },'->',{
-              xtype: 'tbprogress'
-              ,id:'addpath-progress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM3'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}
-                ]                
-            },'->',{
+            },'->','->',{
                text:_('bookmarklet.add.setrequiredinfo.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
@@ -5165,23 +5133,27 @@ Curriki.module.addpath.init = function() {
     AddPath.PostFile = function(callback){
       Curriki.assets.CreateAsset(Curriki.current.parentAsset, Curriki.current.publishSpace, function(asset){
         Curriki.current.asset = asset;
+        
+        var progress = Ext.getCmp('file-progress-box');
+        progress.show();
+        progress.wait({text:_('add.contributemenu.file.progress.text'), animate:true});             
 
         Ext.Ajax.request({
           url:'/xwiki/bin/upload/'+asset.assetPage.replace('.', '/')
           ,isUpload:true
-          ,form:'addDialogueForm'
+          ,form:'addDialogueForm'          
           ,headers: {
-            'Accept':'application/json'
-          }
-          ,callback:function(options, success, response){
+            'Accept':'application/json'            
+          }          
+          ,callback:function(options, success, response) {
             if (success) {
               callback(asset);
             } else {
               console.log('Upload failed', options, response);
               alert(_('add.servertimedout.message.text'));
             }
-          }
-        });
+          }          
+        });                                 
       });
     }
 
