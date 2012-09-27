@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1348681822000</creationDate>
-<date>1348681822000</date>
-<contentUpdateDate>1348681822000</contentUpdateDate>
+<creationDate>1348740304000</creationDate>
+<date>1348740304000</date>
+<contentUpdateDate>1348740304000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources</title>
 <template></template>
@@ -398,9 +398,6 @@ img.crs-icon {
   box-shadow: none;
   padding:0;
   text-shadow: none;
-}
-
-#search-featured-link button a {
   color:#424242;
   text-decoration: underline;
   font-size: 12px;
