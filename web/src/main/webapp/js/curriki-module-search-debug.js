@@ -351,7 +351,7 @@ module.init = function(){
                 fn: function(){
                   if (modName == 'global') {
                     terms = Ext.getCmp("search-termPanel-terms").getValue(); 
-                    window.location.href = '/xwiki/bin/view/Search/URL#o%3As%3Ds%253Aexternal%5Ef%3Do%253Aexternal%253Do%25253Aterms%25253Ds%2525253A'+terms+'%25255Eother%25253Ds%2525253A%25255Esystem%25253Ds%2525253AAssetMetadata.InternationalEducation%25255Elevel%25253Ds%2525253A%25255Esublevel%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Esubsubject%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Esubict%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Especial%25253Ds%2525253A%5Ep%3Do%253Ac%253Dn%25253A0%255Es%253Dn%25253A25%5Et%3Ds%253Aexternal%5Ea%3Db%253A0';
+                    window.location.href = '/xwiki/bin/view/Search/WebHome#o%3As%3Ds%253Aexternal%5Ef%3Do%253Aexternal%253Do%25253Aterms%25253Ds%2525253A'+terms+'%25255Eother%25253Ds%2525253A%25255Esystem%25253Ds%2525253AAssetMetadata.InternationalEducation%25255Elevel%25253Ds%2525253A%25255Esublevel%25253Ds%2525253A%25255Esubject%25253Ds%2525253A%25255Esubsubject%25253Ds%2525253A%25255Eict%25253Ds%2525253A%25255Esubict%25253Ds%2525253A%25255Elanguage%25253Ds%2525253A%25255Ereview%25253Ds%2525253A%25255Especial%25253Ds%2525253A%5Ep%3Do%253Ac%253Dn%25253A0%255Es%253Dn%25253A25%5Et%3Ds%253Aexternal%5Ea%3Db%253A0';
                   } else{
                     Search.doSearch(modName, true);
                   }
