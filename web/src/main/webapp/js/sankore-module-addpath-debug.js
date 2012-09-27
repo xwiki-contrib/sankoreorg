@@ -200,9 +200,18 @@ Curriki.module.addpath.init = function() {
                 ,hidden:true
                 ,disabled:true
               },{
+               xtype:'box'
+               ,id:'file-progress-tip'
+               ,hidden:true              
+              ,autoEl:{
+                 tag:'div'
+                ,html:_('add.contributemenu.file.progress.label')                
+              }
+            },{
                 xtype:'progress'
                 ,id:'file-progress-box'
-                ,animate:true
+                ,animate:false
+                ,text:_('add.contributemenu.file.progress.text')
                 ,hidden:true                
               }]
 
@@ -5136,7 +5145,8 @@ Curriki.module.addpath.init = function() {
         
         var progress = Ext.getCmp('file-progress-box');
         progress.show();
-        progress.wait({text:_('add.contributemenu.file.progress.text'), animate:true});             
+        var progresstip = Ext.getCmp('file-progress-tip');
+        progresstip.show();                      
 
         Ext.Ajax.request({
           url:'/xwiki/bin/upload/'+asset.assetPage.replace('.', '/')
@@ -5146,6 +5156,8 @@ Curriki.module.addpath.init = function() {
             'Accept':'application/json'            
           }          
           ,callback:function(options, success, response) {
+            progress.hide();
+            progresstip.hide();
             if (success) {
               callback(asset);
             } else {
