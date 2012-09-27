@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1348678028000</creationDate>
-<date>1348678028000</date>
-<contentUpdateDate>1348678028000</contentUpdateDate>
+<creationDate>1348737966000</creationDate>
+<date>1348737966000</date>
+<contentUpdateDate>1348737966000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -392,7 +392,7 @@ rve.comments.review.reviewed.reviewtext_title=Commentaires :
 
 rve.comments.review.update_link=Mettre à jour cette révision
 
-rve.comments.review.empty.loggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été évaluée.&lt;/strong&gt;. Cliquez sur "Soumettre cette ressource à évaluation" ci-dessus pour soumettre cette ressource à évaluation par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; (CVS).
+rve.comments.review.empty.loggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été évaluée.&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt; Cliquez sur "Soumettre cette ressource à évaluation" ci-dessus pour soumettre cette ressource à évaluation par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; (CVS).
 
 rve.comments.review.empty.notloggedin_message=&lt;strong&gt;Cette ressource n'a pas encore été analysée par le &lt;a href="/xwiki/bin/view/Main/AboutCVS"&gt;Comité de Validation Sankoré&lt;/a&gt; (CVS).&lt;/strong&gt;&lt;br/&gt;&lt;br/&gt;Des relecteurs experts appliquent les critères du CVS pour aider les utilisateurs à trouver des ressources de hautes qualitées.&lt;br/&gt;&lt;br/&gt;&lt;a href="/xwiki/bin/view/Main/JoinSankore"&gt;Rejoindre Planète Sankoré&lt;/a&gt; ou &lt;a href="/xwiki/bin/login/XWiki/XWikiLogin"&gt;Identifiez-vous&lt;/a&gt; afin de pouvoir demander une évaluation par le CVS.
 

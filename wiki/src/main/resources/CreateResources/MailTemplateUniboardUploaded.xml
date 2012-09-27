@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347370109000</creationDate>
-<date>1347370109000</date>
-<contentUpdateDate>1347370109000</contentUpdateDate>
+<creationDate>1348749473000</creationDate>
+<date>1348749473000</date>
+<contentUpdateDate>1348749473000</contentUpdateDate>
 <version>1.1</version>
-<title>Resource Open-Sankoré en ligne</title>
+<title>Ressource Open-Sankoré en ligne</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -171,7 +171,7 @@ $url</text>
 </property>
 </object>
 <content>{{velocity}}
-= Cher membre de Planète Sankoré =
+== Cher membre de Planète Sankoré ==
 
 Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.
 
