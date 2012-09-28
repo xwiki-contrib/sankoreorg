@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xwikidoc>
 <web>CurrikiCode</web>
-<name>ViewsSSX</name>
+<name>EditSSX</name>
 <language></language>
-<defaultLanguage></defaultLanguage>
+<defaultLanguage>fr</defaultLanguage>
 <translation>0</translation>
 <parent></parent>
 <creator>XWiki.Admin</creator>
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346676284000</creationDate>
-<date>1346676284000</date>
-<contentUpdateDate>1346676284000</contentUpdateDate>
+<creationDate>1346676242000</creationDate>
+<date>1346676242000</date>
+<contentUpdateDate>1346676242000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -94,50 +94,43 @@
 <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
 </use>
 </class>
-<name>CurrikiCode.ViewsSSX</name>
+<name>CurrikiCode.EditSSX</name>
 <number>0</number>
 <className>XWiki.StyleSheetExtension</className>
-<guid>065ece50-ddb6-4cde-a2ee-94783b732058</guid>
+<guid>71dd6905-31bf-485d-8cae-3ed8ad7a4b53</guid>
 <property>
 <cache>long</cache>
 </property>
 <property>
-<code>.arrow-icon-wrapper {
-    float: left;
-    width: 40px;
+<code>/*
+  colibri override
+*/
+.editor-wiki .alleditcontent, .editor-wysiwyg .alleditcontent {
+  margin-right: 225px;
 }
 
-a.icon-mini {
-  display:none;
+.alleditcontent {
+  margin: 0 25px 25px 0;
 }
 
-#asset-info {
-  background: none repeat scroll 0 0 #FAFAFA;
-    border: 1px solid white;
-    box-shadow: 0 0 5px #CCCCCC;
-    padding: 20px;
-  margin-top:20px;
-  margin-bottom:20px;
-  font-size:12px;
+#xwikieditor {
+  width: 960px;
+  margin: auto;
 }
 
-#asset-info h4 {
-  margin-top: 10px;
+#xwikieditor .buttonwrapper .button {
+  border: none;
+  float: none;
+  font-size: 16px;
+  border-radius: 4px;
 }
 
-#asset-info-taxonomy {
-  margin-top: 10px;
-}
-
-#asset-info-taxonomy h4 {
-  margin-top:0;
-}
-
-#asset-info ul {
-  list-style: none;
-  margin-left:0;
-}
-</code></property><property><name>ViewSSX</name>
+#xwikieditor select {
+  border-radius: 4px;
+}</code>
+</property>
+<property>
+<name></name>
 </property>
 <property>
 <parse>1</parse>
