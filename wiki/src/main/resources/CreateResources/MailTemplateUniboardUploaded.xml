@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1348749473000</creationDate>
-<date>1348749473000</date>
-<contentUpdateDate>1348749473000</contentUpdateDate>
+<creationDate>1348836270000</creationDate>
+<date>1348836270000</date>
+<contentUpdateDate>1348836270000</contentUpdateDate>
 <version>1.1</version>
 <title>Ressource Open-Sankoré en ligne</title>
 <template></template>
@@ -76,9 +76,10 @@
 <className>XWiki.Mail</className>
 <guid>4e51fa6e-7f90-46e8-9836-a3c9e8f89577</guid>
 <property>
-<html>&lt;h1&gt;Cher $user&lt;/h1&gt;
+<html>&lt;h2&gt;Cher $user&lt;/h2&gt;,
 
-&lt;p&gt;Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collection disponible sur la plateforme Planète Sankoré.&lt;/p&gt;
+&lt;p&gt;Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.&lt;/p&gt;
+&lt;br/&gt;
 &lt;p&gt;Pour ce faire, suivez le lien suivant:&lt;/p&gt;
 &lt;a href="$url"&gt;$url&lt;/a&gt;</html>
 </property>
@@ -89,9 +90,10 @@
 <subject>Resource Open-Sankoré en ligne</subject>
 </property>
 <property>
-<text>Cher $user
+<text>Cher $user,
 
-Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collection disponible sur la plateforme Planète Sankoré.
+Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.
+
 Pour ce faire, suivez le lien suivant:
 $url</text>
 </property>
@@ -150,9 +152,10 @@ $url</text>
 <className>XWiki.Mail</className>
 <guid>020bf48e-a84f-4677-8063-7811f08dd942</guid>
 <property>
-<html>&lt;h1&gt;Cher $user&lt;/h1&gt;
+<html>&lt;h2&gt;Cher $user&lt;/h2&gt;,
 
-&lt;p&gt;Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collection disponible sur la plateforme Planète Sankoré.&lt;/p&gt;
+&lt;p&gt;Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.&lt;/p&gt;
+&lt;br/&gt;
 &lt;p&gt;Pour ce faire, suivez le lien suivant:&lt;/p&gt;
 &lt;a href="$url"&gt;$url&lt;/a&gt;</html>
 </property>
@@ -163,15 +166,18 @@ $url</text>
 <subject>Resource Open-Sankoré en ligne</subject>
 </property>
 <property>
-<text>Cher $user
+<text>Cher $user,
 
-Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collection disponible sur la plateforme Planète Sankoré.
+Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.
+
 Pour ce faire, suivez le lien suivant:
 $url</text>
 </property>
 </object>
-<content>{{velocity}}
-== Cher membre de Planète Sankoré ==
+<content>Ce mail est dans les objets de la page
+
+{{velocity}}
+== Cher $user ==
 
 Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.
 
