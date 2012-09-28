@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346668089000</creationDate>
-<date>1346668089000</date>
-<contentUpdateDate>1346668089000</contentUpdateDate>
+<creationDate>1348838442000</creationDate>
+<date>1348838442000</date>
+<contentUpdateDate>1348838442000</contentUpdateDate>
 <version>1.1</version>
 <title>Email envoyé</title>
 <template></template>
@@ -36,7 +36,9 @@
 
 &lt;h3&gt; Confirmez votre inscription sur Planète Sankoré &lt;/h3&gt;
 
-Félicitations *$inviteUser*, vous venez de rejoindre la communauté Planète Sankoré.
+&lt;!-- Félicitations *$inviteUser*, vous venez de rejoindre la communauté Planète Sankoré.
+Vous allez recevoir un email dans quelques minutes. Il ne vous restera plus qu’à cliquer sur le lien pour confirmer votre inscription. --&gt;
+Félicitations, vous venez de rejoindre la communauté Planète Sankoré.
 Vous allez recevoir un email dans quelques minutes. Il ne vous restera plus qu’à cliquer sur le lien pour confirmer votre inscription.
 
 [N’oubliez pas de compléter votre profil une fois connecté ! &gt; MySankore.EditProfile ]
