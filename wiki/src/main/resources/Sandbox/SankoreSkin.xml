@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1348732337000</creationDate>
-<date>1348732337000</date>
-<contentUpdateDate>1348732337000</contentUpdateDate>
+<creationDate>1348828893000</creationDate>
+<date>1348828893000</date>
+<contentUpdateDate>1348828893000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreSkin</title>
 <template></template>
@@ -8968,7 +8968,7 @@ $context.unsetLinksQueryString()
     &lt;div class="span9"&gt;
       &lt;ul class="nav main-nav nav-horizontal"&gt;
         &lt;li&gt;&lt;a class="home" href="http://sankore.org/fr"&gt;&lt;span class="icon home"&gt;Accueil&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="$xwiki.getURL('Search.WebHome', 'view')"&gt;Ressources&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="$xwiki.getURL('Search.WebHome', 'view')"&gt;Les Ressources&lt;/a&gt;&lt;/li&gt;
         &lt;li&gt;&lt;a href="$xwiki.getURL('LaCommunaute.LaCommunaute', 'view')"&gt;La communauté&lt;/a&gt;&lt;/li&gt;
         &lt;!-- &lt;li&gt;&lt;a href="http://sankore.org/fr/logiciel-open-sankore"&gt;Le logiciel&lt;/a&gt;&lt;/li&gt; --&gt;
         &lt;li&gt;&lt;a href="http://open-sankore.org/fr/"&gt;Le logiciel&lt;/a&gt;&lt;/li&gt;
@@ -10504,7 +10504,10 @@ USER PROFILE
   border: none;
 }
 
-#mycurriki-main-content .frame-inset-title a {}
+.frame-inset-title .curriki-link {
+    font-weight: bold;
+}
+
 
 .messages-radio input,
 .messages-radio label {
@@ -11515,11 +11518,10 @@ Add a Resource
   display: inline;
   float: left;
   width: 200px;
-  height: 50px;
+  height: 40px;
 }
 #asset-attribution li#asset-contributor {width: 154px; float: left;}
-//#asset-attribution li#asset-review { display: none; }
-#asset-attribution li#asset-rating { width: 138px; height: 30px; overflow: hidden; float: left;/*temp rule*/ }
+#asset-attribution li#asset-rating { width: 138px; height: 40px; overflow: hidden; float: left;/*temp rule*/ }
 
 #asset-flag {
   background: url("/xwiki/bin/download/Sandbox/SankoreSkin/signaler.png") no-repeat top center;
@@ -11532,6 +11534,10 @@ Add a Resource
 
 #asset-review {
   float: left;
+}
+
+#asset-review .rve-rating-wrapper #asset-rating a {
+  width: 40px;
 }
 
 #asset-tabs {
@@ -11562,13 +11568,11 @@ Add a Resource
 .popup-info-rollover strong { display: block; padding: 5px 0px; }
 
 .rve-rating-wrapper {
-  clear: both; display: inline; overflow: hidden;
-  width: 350px;
-  margin: 0 5px 0 0;
-}
-
-#asset-rating {
- margin-bottom: 20px;
+  clear: both;
+  display: inline;
+  overflow: hidden;
+  width: 200px;
+  margin: 0px;
 }
 
 .sub-asset-wrapper.member-comments-wrapper {
@@ -11813,6 +11817,17 @@ TEMP STUFF
 
 #content {
   font-family: monospace;
+}
+
+/*
+  sprite ict
+ */
+img.subcategory-sankore_ubw, .filetype-ubw a.icon-link {
+  background-position: 0 -6570px;
+}
+
+img.subcategory-sankore_ubz, .filetype-ubz a.icon-link {
+  background-position: 0 -6660px;
 }</style.css>
 </property>
 <property>

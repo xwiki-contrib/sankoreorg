@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347551742000</creationDate>
-<date>1347551742000</date>
-<contentUpdateDate>1347551742000</contentUpdateDate>
+<creationDate>1348828115000</creationDate>
+<date>1348828115000</date>
+<contentUpdateDate>1348828115000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des groupes</title>
 <template></template>
@@ -436,7 +436,7 @@ h3.titleheader {
 .frame-inset .button-links { margin-bottom: 15px; padding-left: 17px; font-size: 0; }
 .frame-inset .button-links a { font-size: 11px; padding: 0 4px; }
 .frame-inset-ict { margin-bottom: 5px; }
-.frame-inset-title { padding: 1px 0 18px; }
+.frame-inset-title { padding: 1px 0 18px; font-weight: bold; }
 
 /** GENERAL */
 
@@ -835,7 +835,7 @@ input.button-cancel:hover, button.button-cancel:hover, a.button-cancel:hover, ta
 }
 
 /** TITLES **/
-#mycurriki-collections .frame-inset-title a, #mycurriki-collections .frame-inset-title a:hover,#groups-collections .frame-inset-title a, #groups-collections .frame-inset-title a:hover {color: #369;}
+#mycurriki-collections .frame-inset-title a, #mycurriki-collections .frame-inset-title a:hover,#groups-collections .frame-inset-title a, #groups-collections .frame-inset-title a:hover {color: #369; font-weight: bold;}
 #mycurriki-collections .frame-inset-ict img.ict-null,  td.table-col-ict img.ict-null {background: none !important;}
 
 /** MY COLLECTIONS LINK PIPES **/
@@ -2723,16 +2723,17 @@ font-size: 13px !important;
   background-color:transparent !important;
   box-shadow:none;
   text-shadow:none;
-font-size: 13px !important;
+  font-size: 13px !important;
 }
 
 #search-pager-group .x-form-field-trigger-wrap {
-  width:65px !important;
+  width: 65px !important;
+  height: 37px !important;
 }
 
 #search-pager-group input.x-form-text.x-form-field {
-  width:40px !important;
-  padding: 4px 4px !important;
+  width: 40px !important;
+  padding: 8px 4px !important;
 }
 
 #search-pager-group .x-tbar-loading {
