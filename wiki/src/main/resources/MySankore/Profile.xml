@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1343836517000</creationDate>
-<date>1343836517000</date>
-<contentUpdateDate>1343836517000</contentUpdateDate>
+<creationDate>1346423006000</creationDate>
+<date>1346423006000</date>
+<contentUpdateDate>1346423006000</contentUpdateDate>
 <version>1.1</version>
 <title>Mon profil</title>
 <template></template>
@@ -28,13 +28,13 @@
 #mycurriki_pagecontentheader("profile" "")
 ##TODO redirect from inline to view
 #mycurriki_viewprofilebox($userdoc $userobj)
-#mycurriki_pagefooter("")
+#mycurriki_pagefooter()
 #if($context.action == "view")
-&lt;div id="myprofile-activity"&gt;
-&lt;h2&gt;$msg.get("profile.activity")&lt;/h2&gt;
-{{include document="MySankore.ActivityStream"/}}
-{{html clean="false"}}
-&lt;/div&gt;
-{{/html}}
+  &lt;div id="myprofile-activity"&gt;
+  &lt;h2&gt;$msg.get("profile.activity")&lt;/h2&gt;
+  {{include document="MySankore.ActivityStream"/}}
+  {{html clean="false"}}
+  &lt;/div&gt;
+  {{/html}}
 #end
 {{/velocity}}</content></xwikidoc>

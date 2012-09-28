@@ -10,11 +10,11 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1317813256000</creationDate>
-<date>1317813256000</date>
-<contentUpdateDate>1317813256000</contentUpdateDate>
+<creationDate>1343748746000</creationDate>
+<date>1343748746000</date>
+<contentUpdateDate>1343748746000</contentUpdateDate>
 <version>1.1</version>
-<title>Ma planete.Sankoré</title>
+<title>Mon compte</title>
 <template></template>
 <defaultTemplate></defaultTemplate>
 <validationScript></validationScript>
@@ -23,13 +23,13 @@
 <syntaxId>xwiki/1.0</syntaxId>
 <hidden>false</hidden>
 <content>#if ("$!request.user" != "")
-#set($userarg = "user=${request.user}")
-$response.sendRedirect($xwiki.getURL('MyCurriki.Profile', 'view', "$userarg"))
+  #set($userarg = "user=${request.user}")
+  $response.sendRedirect($xwiki.getURL('MySankore.Profile', 'view', "$userarg"))
 #elseif("$context.user" == "$!userdoc.fullName")
-$response.sendRedirect($xwiki.getURL('MyCurriki.Profile'))
+  $response.sendRedirect($xwiki.getURL('MySankore.Profile'))
 #elseif ("$!userdoc.space" == "XWiki")
-#set($userarg = "user=${userdoc.fullName}")
-$response.sendRedirect($xwiki.getURL('MyCurriki.Profile', 'view', "$userarg"))
+  #set($userarg = "user=${userdoc.fullName}")
+  $response.sendRedirect($xwiki.getURL('MySankore.Profile', 'view', "$userarg"))
 #else
-$response.sendRedirect($xwiki.getURL('MyCurriki.Profile'))
+  $response.sendRedirect($xwiki.getURL('MySankore.Profile'))
 #end</content></xwikidoc>
