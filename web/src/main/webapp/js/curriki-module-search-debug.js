@@ -1035,14 +1035,14 @@ form.init = function(){
         ,listWidth:comboListWidth
         ,mode:'local'
         ,store:data.filter.store.system
-        ,displayField:'education_system'
-        ,valueField:'id'
         ,typeAhead:true
+        ,valueField:'id'
+        ,displayField:'education_system'               
         ,triggerAction:'all'
-        ,value:Curriki.data.education_system.initial
+        ,value:Curriki.data.education_system.initial        
         ,validator:function(value){
           if(this.store.find('education_system', value) == -1)
-            this.setRawValue(Curriki.data.education_system.initial);
+            this.setValue(Curriki.data.education_system.initial);
           return true;
         }
         ,listeners:{
@@ -3055,44 +3055,42 @@ form.init = function(){
           ,stateful: true
           ,stateEvents: ['expand','collapse']
           ,items:[{
-            xtype:'combo'
-            ,id:'combo-system-'+modName
-            ,fieldLabel:'System'
-            ,hideLabel:true
-            ,hiddenName:'system'
-            ,width:comboWidth
-            ,listWidth:comboListWidth
-            ,mode:'local'
-            ,store:data.filter.store.system
-            ,displayField:'education_system'
-            ,valueField:'id'
-            ,typeAhead:true
-            ,triggerAction:'all'
-            ,selectOnFocus:true
-            ,forceSelection:true
-            ,value:Curriki.data.education_system.international
-            ,validator:function(value){
-              if(this.store.find('education_system', value) == -1)
-                this.setRawValue(Curriki.data.education_system.initial);
-              return true;
+        xtype:'combo'
+        ,id:'combo-system-'+modName
+        ,fieldLabel:'System'
+        ,hideLabel:true
+        ,hiddenName:'system'
+        ,width:comboWidth
+        ,listWidth:comboListWidth
+        ,mode:'local'
+        ,store:data.filter.store.system
+        ,typeAhead:true
+        ,valueField:'id'
+        ,displayField:'education_system'               
+        ,triggerAction:'all'
+        ,value:Curriki.data.education_system.initial        
+        ,validator:function(value){
+          if(this.store.find('education_system', value) == -1)
+            this.setValue(Curriki.data.education_system.initial);
+          return true;
+        }
+        ,listeners:{
+          select:{
+            fn:function(combo, value){
+              var level = Ext.getCmp('combo-level-'+modName);                                      
+              level.clearValue();
+              var sublevel = Ext.getCmp('combo-sublevel-'+modName);                                  
+              sublevel.clearValue();
+              sublevel.hide();
+              var subject = Ext.getCmp('combo-subject-'+modName);                                        
+              subject.clearValue(); 
+              var subsubject = Ext.getCmp('combo-subsubject-'+modName);                                        
+              subsubject.clearValue();  
+              subsubject.hide();                                                      
             }
-            ,listeners:{
-              select:{
-                fn:function(combo, value){
-                  var level = Ext.getCmp('combo-level-'+modName);                                      
-                  level.clearValue();
-                  var sublevel = Ext.getCmp('combo-sublevel-'+modName);                                  
-                  sublevel.clearValue();
-                  sublevel.hide();
-                  var subject = Ext.getCmp('combo-subject-'+modName);                                        
-                  subject.clearValue(); 
-                  var subsubject = Ext.getCmp('combo-subsubject-'+modName);                                        
-                  subsubject.clearValue();  
-                  subsubject.hide();                                                      
-                }
-              }
-            }
-          }]
+          }
+        }
+      }]
         },{
           xtype:'fieldset'
           ,title:__('search.combo-level.label')
