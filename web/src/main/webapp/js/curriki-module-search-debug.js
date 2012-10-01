@@ -938,7 +938,7 @@ data.init = function(){
      var page = record.id.replace(/\./, '/');
       
       var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 80));
-      var desc = Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256);
+      var desc = Ext.htmlDecode(Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256));
       var imgsrc = "/xwiki/skins/curriki20/icons/mediatype/";      
       imgsrc = imgsrc + "sankore_large.png";
       var link = String.format('<a class="preview" href="/xwiki/bin/view/{0}"><img src="{1}" /></a>', page, imgsrc);
@@ -3003,7 +3003,7 @@ data.init = function(){
       var title = String.format('<a href="{0}">{1}</a>', record.data.url, Ext.util.Format.ellipsis(record.data.title, 80));
       var imgsrc = "/xwiki/skins/curriki20/curriki/images/groups_default_logo.gif";
       var link = String.format('<a class="preview" href="{0}"><img src="{1}" /></a>', record.data.url, imgsrc);       
-      var desc = Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256);
+      var desc = Ext.htmlDecode(Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256));
       var policy = String.format('<span qtip="{1}">{0}</span>', _('search.group.icon.' + record.data.policy), _('search.group.icon.'+record.data.policy+'.rollover'));
       
       return String.format('{0}<h4 class="title">{1}</h4>{2}<p class="description">{3}</p>', link, title, policy, desc);
