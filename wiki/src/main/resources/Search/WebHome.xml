@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1348740304000</creationDate>
-<date>1348740304000</date>
-<contentUpdateDate>1348740304000</contentUpdateDate>
+<creationDate>1349173105000</creationDate>
+<date>1349173105000</date>
+<contentUpdateDate>1349173105000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources</title>
 <template></template>
@@ -351,6 +351,11 @@ img.crs-icon {
 }
 #featured-results h1, #featured-results h2, #featured-results h3, #featured-results h4 {
   border:none;
+}
+
+#search-results h4, #featured-results h4 {
+    white-space: pre-wrap;
+    width: 405px;
 }
 
 #search-results .x-grid3-row-alt, #featured-results .x-grid3-row-alt {

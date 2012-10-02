@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1344344173000</creationDate>
-<date>1344344173000</date>
-<contentUpdateDate>1344344173000</contentUpdateDate>
+<creationDate>1349175500000</creationDate>
+<date>1349175500000</date>
+<contentUpdateDate>1349175500000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -55,7 +55,7 @@ curriki.crs.confirmsettopartner=Si vous voulez fixer l'état à Partenaire, cliq
 curriki.crs.confirmunsettopartner=Si vous voulez enlever l'état Partenaire, cliquez Suivant.
 curriki.crs.currikireview=Évaluation Planète Sankoré
 curriki.crs.generatedcomment=&lt;span class\="crs_reviewscontenttext"&gt;Cette ressource a été évaluée par le CVS et a reçu une notation moyenne de &lt;/span&gt;{1}&lt;br /&gt; Le détail est le suivant\:&lt;br /&gt;&lt;br /&gt;&lt;li&gt;Complétude technique\: {2}&lt;/li&gt;&lt;li&gt;Exactitude du contenu\: {3}&lt;/li&gt;&lt;li&gt;Pédagogie appropriée\: {4}&lt;/li&gt;&lt;br /&gt;
-curriki.crs.generatedcommentunrated=Cette ressource a été évaluée par le CVS et a reçu une notation moyenne de {0}&lt;br /&gt; Le détail est le suivant\:&lt;br /&gt;&lt;li&gt;Complétude technique\: {1}&lt;/li&gt;&lt;li&gt;Exactitude du contenu\: {2}&lt;/li&gt;&lt;li&gt;Pédagogie appropriée\: {3}&lt;/li&gt;&lt;br /&gt;
+curriki.crs.generatedcommentunrated=Cette ressource a été évaluée par le Comité d'évaluation et a reçu une notation moyenne de {0}&lt;br /&gt; Le détail est le suivant\:&lt;br /&gt;&lt;li&gt;Complétude technique\: {1}&lt;/li&gt;&lt;li&gt;Exactitude du contenu\: {2}&lt;/li&gt;&lt;li&gt;Pédagogie appropriée\: {3}&lt;/li&gt;&lt;br /&gt;
 curriki.crs.nominate=Soumettre à Évaluation
 curriki.crs.nominate.cancel=Annuler
 curriki.crs.nominate.automatic_due_to_rating.note=
@@ -63,10 +63,10 @@ curriki.crs.nominate.cannotnominatewithoutcomment=Merci d'ajouter un commentaire
 curriki.crs.nominate.comments=&lt;span style="font-weight: bold;"&gt;Entrez un commentaire (optionnel):&lt;/span&gt;
 curriki.crs.nominate.commentsfootertext=Votre proposition ne sera envoyée que lorsque vous cliquerez sur le bouton 'Soumettre'.
 curriki.crs.nominate.commentstext=Par exemple, à quel élément un évaluateur devra porter une attention particulière?&lt;br /&gt;Si vous proposez une ressource réévaluée, à quel niveau la ressource a été modifiée depuis la dernière évaluation?
-curriki.crs.nominate.nominatefollowingresourceforreview=&lt;span style="font-weight: bold;"&gt;Vous êtes sur le point de soumettre à évaluation par le CVS la ressource suivante:&lt;/span&gt;
+curriki.crs.nominate.nominatefollowingresourceforreview=&lt;span style="font-weight: bold;"&gt;Vous êtes sur le point de soumettre à évaluation par le Comité d'évaluation la ressource suivante:&lt;/span&gt;
 curriki.crs.nominate.submit=Soumettre
 curriki.crs.nominate_alreadynominated=Cette ressource est déjà nominée.
-curriki.crs.nominate_thankyou=Merci d''avoir proposé cette ressource pour une évaluation par le Comité de Validation Planète Sankoré.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;La ressource a été ajoutée à la queue et sera examinée par les évaluateurs experts de Planète Sankoré.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;a href\="{0}"&amp;amp;gt;Retour à la ressource proposée&amp;amp;lt;/a&amp;amp;gt;.
+curriki.crs.nominate_thankyou=Merci d''avoir proposé cette ressource pour une évaluation par le Comité d'évaluation.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;La ressource a été ajoutée à la queue et sera examinée par les évaluateurs experts de Planète Sankoré.&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;br /&amp;amp;gt;&amp;amp;lt;a href\="{0}"&amp;amp;gt;Retour à la ressource proposée&amp;amp;lt;/a&amp;amp;gt;.
 curriki.crs.nominate_thankyoufromgwt=Merci pour votre proposition &amp;amp;lt;a href\="javascript\:void()" onclick\="window.close();"&amp;amp;gt;Fermer cette fenêtre&amp;amp;lt;/a&amp;amp;gt;.
 curriki.crs.rating1=Basique
 curriki.crs.rating100=Non évalué/Non évaluable
@@ -129,7 +129,7 @@ curriki.crs.review.submitpreview=Aperçu
 curriki.crs.review.submitreview=Soumettre l'évaluation
 curriki.crs.review.submittedby=Soumis par
 curriki.crs.review.tc=Completude technique
-curriki.crs.review.tooltip=Les ressources trouvées sur Planète Sankoré peuvent être notées par le Comité de Validation Sankoré.
+curriki.crs.review.tooltip=Les ressources trouvées sur Planète Sankoré peuvent être notées par le Comité d'évaluation.
 curriki.crs.review.unnominate=Cette ressource ne peut pas ou ne devrait pas être réévaluée pour l'instant.
 curriki.crs.review.unnominateconfirm=Cliquez OK si vous voulez enlever cette ressource de la liste des évaluations en attente et la faire apparaître comme si elle n'avait pas été encore évaluée, avec un statut "Non évalué/Non évaluable"
 curriki.crs.reviewbackground=Évaluation Planète Sankoré
