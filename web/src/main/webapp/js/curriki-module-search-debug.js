@@ -868,7 +868,7 @@ data.init = function(){
     ,result: function(value, metadata, record, rowIndex, colIndex, store) {
       var page = record.id.replace(/\./, '/');
       
-      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 80));
+      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 160));
       var desc = Ext.htmlDecode(Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256));
       var imgsrc = "/xwiki/skins/curriki20/icons/mediatype/";
       if (record.data.category == "text" || record.data.category == "document") {
@@ -937,7 +937,7 @@ data.init = function(){
     result: function(value, metadata, record, rowIndex, colIndex, store) {
      var page = record.id.replace(/\./, '/');
       
-      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 80));
+      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 160));
       var desc = Ext.htmlDecode(Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256));
       var imgsrc = "/xwiki/skins/curriki20/icons/mediatype/";      
       imgsrc = imgsrc + "sankore_large.png";
