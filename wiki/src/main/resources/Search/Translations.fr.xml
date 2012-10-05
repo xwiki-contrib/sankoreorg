@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1349094986000</creationDate>
-<date>1349094986000</date>
-<contentUpdateDate>1349094986000</contentUpdateDate>
+<creationDate>1349447292000</creationDate>
+<date>1349447292000</date>
+<contentUpdateDate>1349447292000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -133,11 +133,11 @@ search.resource.review.0=Revue à venir
 
 ##For Rating column
 search.resource.rating.0=Pas de note
-search.resource.rating.1=Inutilisable
-search.resource.rating.2=Faible
-search.resource.rating.3=Satisfaisant
-search.resource.rating.4=Solide
-search.resource.rating.5=Exceptionnelle
+search.resource.rating.1=Ressource à améliorer
+search.resource.rating.2=Ressource correcte
+search.resource.rating.3=Ressource intéressante
+search.resource.rating.4=Ressource indispensable
+search.resource.rating.5=Ressource exceptionnelle
 
 ##SPECIAL FILTERS
 ## I don't think there is a Class I can model after here.

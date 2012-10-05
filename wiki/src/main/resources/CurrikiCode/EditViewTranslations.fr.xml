@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1349175860000</creationDate>
-<date>1349175860000</date>
-<contentUpdateDate>1349175860000</contentUpdateDate>
+<creationDate>1349447290000</creationDate>
+<date>1349447290000</date>
+<contentUpdateDate>1349447290000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -64,17 +64,17 @@ rve.title.member.rating.function.add_rating=Évaluer cette ressource en tant que
 rve.title.member.rating.info=A propos de l'évaluation par les membres
 rve.title.member.rating.info.url=/xwiki/bin/view/Main/AboutMemberRating
 
-rve.title.member.rating.1.rollover=Inutilisable
-rve.title.member.rating.2.rollover=Faible
-rve.title.member.rating.3.rollover=Satisfaisante
-rve.title.member.rating.4.rollover=Forte
-rve.title.member.rating.5.rollover=Exceptionnelle
+rve.title.member.rating.1.rollover=Ressource à améliorer
+rve.title.member.rating.2.rollover=Ressource correcte
+rve.title.member.rating.3.rollover=Ressource intéressante
+rve.title.member.rating.4.rollover=Ressource indispensable
+rve.title.member.rating.5.rollover=Ressource exceptionnelle
 
-CurrikiCode.AssetClass_member_rating_1=Inutilisable
-CurrikiCode.AssetClass_member_rating_2=Faible
-CurrikiCode.AssetClass_member_rating_3=Satisfaisante
-CurrikiCode.AssetClass_member_rating_4=Forte
-CurrikiCode.AssetClass_member_rating_5=Exceptionnelle
+CurrikiCode.AssetClass_member_rating_1=Ressource à améliorer
+CurrikiCode.AssetClass_member_rating_2=Ressource correcte
+CurrikiCode.AssetClass_member_rating_3=Ressource intéressante
+CurrikiCode.AssetClass_member_rating_4=Ressource indispensable
+CurrikiCode.AssetClass_member_rating_5=Ressource exceptionnelle
 
 
 
