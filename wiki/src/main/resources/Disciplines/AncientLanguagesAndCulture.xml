@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1334160641000</creationDate>
-<date>1334160641000</date>
-<contentUpdateDate>1334160641000</contentUpdateDate>
+<creationDate>1349800977000</creationDate>
+<date>1349800977000</date>
+<contentUpdateDate>1349800977000</contentUpdateDate>
 <version>1.1</version>
 <title>Langues et cultures de l'Antiquité (latin,grec ancien)</title>
 <template></template>
@@ -33,7 +33,7 @@
 <nameField></nameField>
 <validationScript></validationScript>
 <educational_levels>
-<cache>0</cache>
+<cache>1</cache>
 <classname></classname>
 <customDisplay></customDisplay>
 <disabled>0</disabled>
@@ -76,14 +76,13 @@
 <guid>10cb9158-a178-49e6-9978-ca32ecd9edfc</guid>
 <property>
 <educational_levels>
-<value>AssetMetadata.89</value>
 <value>AssetMetadata.FRCollege</value>
 <value>AssetMetadata.FRLycee</value>
 <value>AssetMetadata.FRProfessionnel</value>
-<value>AssetMetadata.USK2</value>
 <value>AssetMetadata.SNCollege</value>
 <value>AssetMetadata.SNLycee</value>
 <value>AssetMetadata.SNSuperiorTechEducation</value>
+<value>AssetMetadata.USK2</value>
 </educational_levels>
 </property>
 <property>
