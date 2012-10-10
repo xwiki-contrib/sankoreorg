@@ -641,13 +641,14 @@ Curriki.module.addpath.init = function() {
                 ,listeners:{
                   click:{
                     fn: function(){                                        
-                      var form = this.findByType('form')[0].getForm();
-                      Curriki.current.sri1 = form.getValues(false);  
+                      var form = this.findByType('form')[0].getForm();             
                       if(!Curriki.current.sri)
                         Curriki.current.sri = form.getValues(false);
                       else
-                        Ext.apply(Curriki.current.sri, form.getValues(false));                   
+                        Ext.apply(Curriki.current.sri, form.getValues(false));
+                                           
                       this.close();
+                      
                       AddPath.MetadataFinished();                                                      
                     }
                     ,scope:this
@@ -662,13 +663,14 @@ Curriki.module.addpath.init = function() {
                 ,listeners:{
                   click:{
                     fn: function(){
-                      var form = this.findByType('form')[0].getForm();
-                      Curriki.current.sri1 = form.getValues(false);  
+                      var form = this.findByType('form')[0].getForm();                       
                       if(!Curriki.current.sri)
                         Curriki.current.sri = form.getValues(false);
                       else
-                        Ext.apply(Curriki.current.sri, form.getValues(false));      
+                        Ext.apply(Curriki.current.sri, form.getValues(false));
+                              
                       this.close();
+                      
                       var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
                       p.show();
                       Ext.ComponentMgr.register(p);                        
@@ -680,18 +682,6 @@ Curriki.module.addpath.init = function() {
               ]
             }            
             ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-                //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on('bodyresize' ,function(wPanel, width, height){
-                  if (height === 'auto') {
-                    fPanel.setHeight('auto');
-                  } else {
-                    fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
-                  }
-                });
-              }
-            }
             ,items:[{                
               xtype:'textfield'
               ,id:'metadata-link-entry'
@@ -736,7 +726,7 @@ Curriki.module.addpath.init = function() {
                 ,preventMark:true
                 ,hideLabel:true
                 ,width:'72%'
-                ,value: Ext.parseURIQuery(window.location.href)['title']
+                ,value: Curriki.current.sri&&Curriki.current.sri.title?Curriki.current.sri.title:Ext.parseURIQuery(window.location.href)['title']
               }]            
             },{
     // Rating
@@ -856,89 +846,55 @@ Curriki.module.addpath.init = function() {
           title:_('bookmarklet.add.setrequiredinfo.part2.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
             ,autoScroll:true
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               text:_('bookmarklet.add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apUrlM1'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },'->',{
-              xtype: 'tbprogress'
-              ,id:'addpath-progress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+                text:_('bookmarklet.add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
                       this.close();
                       var p = Ext.ComponentMgr.create({'xtype':'apUrlM1'});
                       p.show();
                     }
                     ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'2'}
-                ,{tag:'a', cls:'addpath-page circle', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}
-                ]                
-            },'->',{
-               text:_('bookmarklet.add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();
+                  }                  
+                }
+              },'->','->',{
+                text:_('bookmarklet.add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();
                       Curriki.current.sri2 = form.getValues(false);     
-                      Ext.apply(Curriki.current.sri, form.getValues(false));                   
-
+                      Ext.apply(Curriki.current.sri, form.getValues(false));
+                                       
                       this.close();
 
                       var p = Ext.ComponentMgr.create({'xtype':'apUrlM3'});
                       p.show();
                       Ext.ComponentMgr.register(p);                    
+                    }
+                    ,scope:this
                   }
-                  ,scope:this
                 }
-              }
-            }]
+              }]
             }
             ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
-                    }
-                  }
-                );
-              }
-            }
             ,items:[{
     // Education System
               xtype:'container'
@@ -978,23 +934,11 @@ Curriki.module.addpath.init = function() {
                 ,emptyText:_('bookmarklet.sri.education_system_empty_msg')
                 ,selectOnFocus:true
                 ,forceSelection:true
-                ,value:Curriki.current.sri.education_system?Curriki.current.sri.education_system:Curriki.data.education_system.initial?Curriki.data.education_system.initial:undefined
-                ,listeners:{
-                  render:function(comp){
-                    comp.findParentByType('apUrlM2').on('show', function() {
-                      if (!Ext.isEmpty(Curriki.current.metadata)) {
-                        var md = Curriki.current.metadata;
-                        if (!Ext.isEmpty(md.education_system)){
-                          Ext.getCmp('metadata-education_system-entry').setValue(md.education_system);
-                        }
-                      }
-                    })
-                  }
-                }
+                ,value:Curriki.current.sri.education_system?Curriki.current.sri.education_system:Curriki.data.education_system.initial
               }]
             },{
     // Language
-               xtype:'container'
+              xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
@@ -1031,23 +975,12 @@ Curriki.module.addpath.init = function() {
                 ,emptyText:_('bookmarklet.sri.language_empty_msg')
                 ,selectOnFocus:true
                 ,forceSelection:true
-                ,value:Curriki.current.sri.language?Curriki.current.sri.language:Curriki.data.language.initial?Curriki.data.language.initial:undefined
-                ,listeners:{
-                  render:function(comp){
-                    comp.findParentByType('apUrlM2').on('show', function() {
-                      if (!Ext.isEmpty(Curriki.current.metadata)) {
-                        var md = Curriki.current.metadata;
-                        if (!Ext.isEmpty(md.language)){
-                          Ext.getCmp('metadata-language-entry').setValue(md.language);
-                        }
-                      }
-                    })
-                  }
-                }
+                ,value:Curriki.current.sri.language?Curriki.current.sri.language:Curriki.data.language.initial
               }]
             }]
           }]
         });
+        
         AddPath.UrlMetadata2.superclass.initComponent.call(this);
       }
     });
@@ -1079,6 +1012,10 @@ Curriki.module.addpath.init = function() {
                 ,listeners:{
                   click:{
                     fn: function(e, ev){
+                      var form = this.findByType('form')[0].getForm();                      
+                      Ext.apply(Curriki.current.sri, form.getValues(false));
+                      Curriki.current.sri.educational_level = this.findByType('curriki-treepanel')[0].getChecked('id');
+                                            
                       this.close();
                       var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
                       p.show();
@@ -1086,36 +1023,7 @@ Curriki.module.addpath.init = function() {
                     ,scope:this
                   }                  
                 }
-              },'->',{
-                xtype: 'tbprogress'
-                ,id:'addpath-progress'
-                ,items: [{
-                  tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                    click: {
-                      fn: function(e, ev) {
-                        this.close();
-                        var p = Ext.ComponentMgr.create({'xtype':'apUrlM1'});
-                        p.show();
-                      }
-                      ,scope:this
-                    }
-                  }
-                },{
-                  tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                    click: {
-                      fn: function(e, ev) {
-                        this.close();
-                        var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
-                        p.show();
-                      }
-                      ,scope:this
-                    }
-                  }
-                },{tag:'a', cls:'addpath-page circle addpath-page-current', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}
-                ]                
-              },'->',{
+              },'->','->',{
                 text:_('bookmarklet.add.setrequiredinfo.next.button')
                 ,id:'nextbutton'
                 ,cls:'button button-confirm'
@@ -1124,10 +1032,12 @@ Curriki.module.addpath.init = function() {
                     fn: function(){
                       var form = this.findByType('form')[0].getForm();                      
                       Ext.apply(Curriki.current.sri, form.getValues(false));
-                      Curriki.current.sri.educational_level = this.findByType('curriki-treepanel')[0].getChecked('id');                     
+                      Curriki.current.sri.educational_level = this.findByType('curriki-treepanel')[0].getChecked('id');
+                                           
                       this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM4'});
-                      p.show();
+                      
+                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM4'});                      
+                      p.show();                      
                       Ext.ComponentMgr.register(p);                    
                     }
                     ,scope:this
@@ -1136,21 +1046,6 @@ Curriki.module.addpath.init = function() {
               }]
             }
             ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
-                    }
-                  }
-                );
-              }
-            }
             ,items:[{
     // Educational Level
               xtype:'container'
@@ -1190,9 +1085,10 @@ Curriki.module.addpath.init = function() {
               }
               ,(function(){
                 var checkedCount = 0;
-                var md = Curriki.current.metadata;
+                var elNodes = Curriki.ui.component.asset.filterTreeNodes(Curriki.data.el.elChildren, Curriki.current.sri.education_system);                
+                var md = Curriki.current.sri;                
                 if (md) {
-                  var el = md.educational_level;
+                  var el = md.educational_level;                                 
                   Ext.isArray(el) && (function(ca){
                     var childrenFn = arguments.callee;
                     Ext.each(ca, function(c){
@@ -1206,71 +1102,65 @@ Curriki.module.addpath.init = function() {
                         }
                       }
                     });
-                  })(Curriki.data.el.elChildren);
+                  })(elNodes);
                 }
-                return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(Curriki.current.sri.education_system), {
-                  listeners: {
-                    render:function(comp){
-                      comp.findParentByType('apUrlM3').on('show', function() {
-                        Ext.getCmp('educational_level-validation').setValue(checkedCount)
-                      });
-                    }
-                    ,resize: function(comp) {
-                      var ct = comp.findParentByType('apUrlM3');
-                      ct.syncSize();
-                    }
-                  }
-                })
+                return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(elNodes), {})
               })()] 
             }]
           }]   
         });
+        
         AddPath.UrlMetadata3.superclass.initComponent.call(this);
       }
     });
     Ext.reg('apUrlM3', AddPath.UrlMetadata3);
     
     AddPath.UrlMetadata4 = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('bookmarklet.add.setrequiredinfo.part4.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,autoHeight:true
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               text:_('bookmarklet.add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apUrlM3'});
-                  p.show();
+                text:_('bookmarklet.add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      var form = this.findByType('form')[0].getForm();                                          
+                      Ext.apply(Curriki.current.sri, form.getValues(false));
+                      Curriki.current.sri.fw_items = this.findByType('curriki-treepanel')[0].getChecked('id');
+                      
+                      this.close();
+                      
+                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM3'});
+                      p.show();
+                    }
+                    ,scope:this
+                  }                  
                 }
-                ,scope:this
-                }                  
-              }
-            },'->','->',{
-               text:_('bookmarklet.add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();                                          
+              },'->','->',{
+                text:_('bookmarklet.add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();                                          
                       Ext.apply(Curriki.current.sri, form.getValues(false));
                       Curriki.current.sri.fw_items = this.findByType('curriki-treepanel')[0].getChecked('id');
 
@@ -1279,101 +1169,74 @@ Curriki.module.addpath.init = function() {
                       var p = Ext.ComponentMgr.create({'xtype':'apUrlM5'});
                       p.show();
                       Ext.ComponentMgr.register(p);                    
+                    }
+                    ,scope:this
                   }
-                  ,scope:this
                 }
-              }
-            }]
+              }]
             }
             ,monitorValid:true
-            ,listeners:{              
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
-                    }
-                  }
-                );
-              }
-            }
             ,items:[{
     // Subjects
               xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
-                  // A "TreeCheckBoxGroup" would be nice here
-                   xtype:'numberfield'
-                  ,id:'fw_items-validation'
-                  ,allowBlank:false
-                  ,preventMark:true
-                  ,minValue:1
-                  ,hidden:true
-                  ,listeners:{
-                     valid:function(field){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('fw_items-tree');
-                      fieldset.removeClass('x-form-invalid');
-                      fieldset.el.dom.qtip = '';
+                // A "TreeCheckBoxGroup" would be nice here
+                xtype:'numberfield'
+                ,id:'fw_items-validation'
+                ,allowBlank:false
+                ,preventMark:true
+                ,minValue:1
+                ,hidden:true
+                ,listeners:{
+                  valid:function(field){
+                    if (!this.rendered || this.preventMark) {
+                      return;
                     }
-                    ,invalid:function(field, msg){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('fw_items-tree');
-                      fieldset.addClass('x-form-invalid');
-                      var iMsg = field.invalidText;
-                      fieldset.el.dom.qtip = iMsg;
-                      fieldset.el.dom.qclass = 'x-form-invalid-tip';
-                      if(Ext.QuickTips){ // fix for floating editors interacting with DND
-                        Ext.QuickTips.enable();
-                      }
-
+                    var fieldset = Ext.getCmp('fw_items-tree');
+                    fieldset.removeClass('x-form-invalid');
+                    fieldset.el.dom.qtip = '';
+                  }
+                  ,invalid:function(field, msg){
+                    if (!this.rendered || this.preventMark) {
+                      return;
+                    }
+                    var fieldset = Ext.getCmp('fw_items-tree');
+                    fieldset.addClass('x-form-invalid');
+                    var iMsg = field.invalidText;
+                    fieldset.el.dom.qtip = iMsg;
+                    fieldset.el.dom.qclass = 'x-form-invalid-tip';
+                    if(Ext.QuickTips){ // fix for floating editors interacting with DND
+                      Ext.QuickTips.enable();
                     }
                   }
                 }
-                ,(function(){
-                  var checkedCount = 0;
-                  var md = Curriki.current.metadata;
-                  if (md) {
-                    var fw = md.fw_items;
-                    Ext.isArray(fw) && (function(ca){
-                      var childrenFn = arguments.callee;
-                      Ext.each(ca, function(c){
-                        if (c.id) {
-                          if (c.checked = (fw.indexOf(c.id) !== -1)) {
-                            checkedCount++;
-                          }
-                          if (c.children) {
-                            childrenFn(c.children);
-                          }
+              }
+              ,(function(){
+                var checkedCount = 0;
+                var fwNodes = Curriki.ui.component.asset.filterTreeNodes(Curriki.data.fw_item.fwChildren, Curriki.current.sri.educational_level);
+                var md = Curriki.current.sri;
+                if (md) {
+                  var fw = md.fw_items;                
+                  Ext.isArray(fw) && (function(ca){
+                    var childrenFn = arguments.callee;
+                    Ext.each(ca, function(c){
+                      if (c.id) {
+                        if (c.checked = (fw.indexOf(c.id) !== -1)) {
+                          checkedCount++;
                         }
-                      });
-                    })(Curriki.data.fw_item.fwChildren);
-                  }
-                  return Ext.apply(AddPath.fwTree = Curriki.ui.component.asset.getFwTree(Curriki.current.sri.educational_level), {
-                    listeners: {
-                      render:function(comp){
-                        comp.findParentByType('apUrlM4').on('show', function() {
-                          Ext.getCmp('fw_items-validation').setValue(checkedCount)
-                        });
-                      }                    
-                    ,resize: function(comp) {
-                        var ct = comp.findParentByType('apUrlM4');
-                        ct.syncSize();
+                        if (c.children) {
+                          childrenFn(c.children);
+                        }
                       }
-                    }
-                  })
-                })()]
-              }]
-            }]   
+                    });
+                  })(fwNodes);
+                }
+                return Ext.apply(AddPath.fwTree = Curriki.ui.component.asset.getFwTree(fwNodes), {})
+              })()]
+            }]
+          }]   
         });
 
         AddPath.UrlMetadata4.superclass.initComponent.call(this);
@@ -1384,195 +1247,124 @@ Curriki.module.addpath.init = function() {
     
     
     AddPath.UrlMetadata5 = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('bookmarklet.add.setrequiredinfo.part5.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,autoHeight:true
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
             ,autoScroll:true
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               text:_('bookmarklet.add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apUrlM4'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },'->',{
-              xtype: 'tbprogress'
-              ,id:'addpath-progress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+                text:_('bookmarklet.add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      var form = this.findByType('form')[0].getForm();                                          
+                      Ext.apply(Curriki.current.sri, form.getValues(false));  
+                      Curriki.current.sri.instructional_component = this.findByType('curriki-treepanel')[0].getChecked('id');
+                      
                       this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apUrlM3'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
+                      
                       var p = Ext.ComponentMgr.create({'xtype':'apUrlM4'});
                       p.show();
                     }
                     ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'5'}
-                ]                
-            },'->',{
-               text:_('bookmarklet.add.setrequiredinfo.publish.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();                    
-                      Curriki.current.sri5 = form.getValues(false);
+                  }                  
+                }
+              },'->','->',{
+                text:_('bookmarklet.add.setrequiredinfo.publish.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();                                          
                       Ext.apply(Curriki.current.sri, form.getValues(false));  
                       Curriki.current.sri.instructional_component = this.findByType('curriki-treepanel')[0].getChecked('id');
 
                       this.close();
 
                       AddPath.MetadataFinished();                    
+                    }
+                    ,scope:this
                   }
-                  ,scope:this
                 }
-              }
-            }]
+              }]
             }
             ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
-                    }
-                  }
-                );
-              }
-            }
             ,items:[{
     // Instructional Component Type
-                 xtype:'container'
+              xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
-                  // A "TreeCheckBoxGroup" would be nice here
-                   xtype:'numberfield'
-                  ,id:'instructional_component-validation'
-                  ,allowBlank:false
-                  ,preventMark:true
-                  ,minValue:1
-                  ,hidden:true
-                  ,listeners:{
-                     valid:function(field){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('ict-tree');
-                      fieldset.removeClass('x-form-invalid');
-                      fieldset.el.dom.qtip = '';
+                // A "TreeCheckBoxGroup" would be nice here
+                xtype:'numberfield'
+                ,id:'instructional_component-validation'
+                ,allowBlank:false
+                ,preventMark:true
+                ,minValue:1
+                ,hidden:true
+                ,listeners:{
+                  valid:function(field){
+                    if (!this.rendered || this.preventMark) {
+                      return;
                     }
-                    ,invalid:function(field, msg){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('ict-tree');
-                      fieldset.addClass('x-form-invalid');
-                      var iMsg = field.invalidText;
-                      fieldset.el.dom.qtip = iMsg;
-                      fieldset.el.dom.qclass = 'x-form-invalid-tip';
-                      if(Ext.QuickTips){ // fix for floating editors interacting with DND
-                        Ext.QuickTips.enable();
-                      }
-
+                    var fieldset = Ext.getCmp('ict-tree');
+                    fieldset.removeClass('x-form-invalid');
+                    fieldset.el.dom.qtip = '';
+                  }
+                  ,invalid:function(field, msg){
+                    if (!this.rendered || this.preventMark) {
+                      return;
+                    }
+                    var fieldset = Ext.getCmp('ict-tree');
+                    fieldset.addClass('x-form-invalid');
+                    var iMsg = field.invalidText;
+                    fieldset.el.dom.qtip = iMsg;
+                    fieldset.el.dom.qclass = 'x-form-invalid-tip';
+                    if(Ext.QuickTips){ // fix for floating editors interacting with DND
+                      Ext.QuickTips.enable();
                     }
                   }
                 }
-                ,(function(){
-                  var checkedCount = 0;
-                  var md = Curriki.current.metadata;
-                  if (md) {
-                    var ict = md.instructional_component;
-                    Ext.isArray(ict) && (function(ca){
-                      var childrenFn = arguments.callee;
-                      Ext.each(ca, function(c){
-                        if (c.id) {
-                          if (c.checked = (ict.indexOf(c.id) !== -1)) {
-                            checkedCount++;
-                          }
-                          if (c.children) {
-                            childrenFn(c.children);
-                          }
+              }
+              ,(function(){
+                var checkedCount = 0;
+                var md = Curriki.current.sri;
+                if (md) {
+                  var ict = md.instructional_component;
+                  Ext.isArray(ict) && (function(ca){
+                    var childrenFn = arguments.callee;
+                    Ext.each(ca, function(c){
+                      if (c.id) {
+                        if (c.checked = (ict.indexOf(c.id) !== -1)) {
+                          checkedCount++;
                         }
-                      });
-                    })(Curriki.data.ict.ictChildren);
-                  }
-                  return Ext.apply(AddPath.ictTree = Curriki.ui.component.asset.getIctTree(), {
-                    listeners: {
-                      render:function(comp){
-                        this.offsetWidth = 100;
-                        comp.findParentByType('apUrlM5').on('show', function() {
-                          Ext.getCmp('instructional_component-validation').setValue(checkedCount)
-                        });
+                        if (c.children) {
+                          childrenFn(c.children);
+                        }
                       }
-                      ,resize: function(comp) {
-                        var ct = comp.findParentByType('apUrlM5');
-                        ct.syncSize();
-                      }
-                    }
-                  })
-                })()]
-              }]
-            }]   
+                    });
+                  })(Curriki.data.ict.ictChildren);
+                }
+                return Ext.apply(AddPath.ictTree = Curriki.ui.component.asset.getIctTree(), {})
+              })()]
+            }]
+          }]   
         });
 
         AddPath.UrlMetadata5.superclass.initComponent.call(this);
@@ -1584,22 +1376,22 @@ Curriki.module.addpath.init = function() {
     AddPath.Metadata1 = Ext.extend(Curriki.ui.dialog.Actions, {
       initComponent:function(){
         Ext.apply(this, {
-           title:_('add.setrequiredinfo.part1.title')
+          title:_('add.setrequiredinfo.part1.title')
           ,cls:'addpath addpath-metadata resource resource-add'          
           ,width:800
           ,items:[{
-             xtype:'panel'
+            xtype:'panel'
             ,cls:'guidingquestion-container'
             ,items:[{
-               xtype:'box'
+              xtype:'box'
               ,autoEl:{
-                 tag:'div'
+                tag:'div'
                 ,html:_('add.setrequiredinfo.part1.guidingquestion')+' '+Curriki.data.user.me.fullname
                 ,cls:'guidingquestion'
               }
             }]
           },{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -1608,45 +1400,38 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
                 xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.cancel.button')
-              ,id:'cancelbutton'
-              ,cls:'button button-cancel mgn-rt'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    this.close();
-                    window.location.href = Curriki.current.cameFrom;
+                ,text:_('add.setrequiredinfo.cancel.button')
+                ,id:'cancelbutton'
+                ,cls:'button button-cancel mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      // reset form values
+                      Curriki.current.sri = {};
+                      
+                      this.close();
+                      
+                      //window.location.href = Curriki.current.cameFrom;
+                    }
+                    ,scope:this
                   }
-                  ,scope:this
                 }
-              }
-            },'->',/*{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-current', html:'1'}
-                ,{tag:'a', cls:'addpath-page circle', html:'2'}
-                ,{tag:'a', cls:'addpath-page circle', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}
-                ,{tag:'a', cls:'addpath-page circle', html:'6'}
-                ]                
-            },*/'->',{
-              xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.part1.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();                    
-                      Curriki.current.sri1 = form.getValues(false);
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.part1.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();                                          
                       if(!Curriki.current.sri)
                         Curriki.current.sri = form.getValues(false);
                       else
@@ -1657,30 +1442,15 @@ Curriki.module.addpath.init = function() {
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI2'});
                       p.show();
                       Ext.ComponentMgr.register(p);                    
-                  }
-                  ,scope:this
-                }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
                     }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
-    // Title
+  // Title
               xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
@@ -1715,7 +1485,7 @@ Curriki.module.addpath.init = function() {
                 ,value: Curriki.current.sri?Curriki.current.sri.title:''
               }]            
             },{
-    // Description
+  // Description
               xtype:'container'
               ,cls:'metadata-entry'
               ,items:[{
@@ -1730,43 +1500,43 @@ Curriki.module.addpath.init = function() {
                 ,width:'98%'
               }]
             },{
-    // Keywords
+  // Keywords
               xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
-                xtype: 'box',
-                autoEl: {
-                  tag: 'div',
-                  id: 'metadata-keywords',
-                  cls: 'information-header',
-                  children: [{
-                    tag: 'span',
-                    id: 'metadata-keywords-title',
-                    cls: 'metadata-title',
-                    html: _('bookmarklet.sri.keywords_title')
-                  }, {
-                    tag: 'img',
-                    id: 'metadata-keywords-info',
-                    cls: 'metadata-tooltip',
-                    src: Curriki.ui.InfoImg,
-                    qtip: _('bookmarklet.sri.keywords_tooltip')
+                xtype: 'box'
+                ,autoEl: {
+                  tag: 'div'
+                  ,id: 'metadata-keywords'
+                  ,cls: 'information-header'
+                  ,children: [{
+                    tag: 'span'
+                    ,id: 'metadata-keywords-title'
+                    ,cls: 'metadata-title'
+                    ,html: _('bookmarklet.sri.keywords_title')
+                  },{
+                    tag: 'img'
+                    ,id: 'metadata-keywords-info'
+                    ,cls: 'metadata-tooltip'
+                    ,src: Curriki.ui.InfoImg
+                    ,qtip: _('bookmarklet.sri.keywords_tooltip')
                   }]
                 }
               },{
-                xtype: 'textfield',
-                id: 'metadata-keywords-entry',
-                name: 'keywords',
-                emptyText: _('bookmarklet.sri.keywords.empty_msg'),
-                hideLabel: true,
-                width: '72%',
-                value:Curriki.current.sri?Curriki.current.sri.keywords:'',
-                listeners: {
+                xtype: 'textfield'
+                ,id: 'metadata-keywords-entry'
+                ,name: 'keywords'
+                ,emptyText: _('bookmarklet.sri.keywords.empty_msg')
+                ,hideLabel: true
+                ,width: '72%'
+                ,value:Curriki.current.sri?Curriki.current.sri.keywords:''
+                ,listeners: {
                   render: function(comp){
                     comp.findParentByType('apSRI1').on('show', function(){
                       if (!Ext.isEmpty(Curriki.current.metadata)) {
                         var md = Curriki.current.metadata;
-                          
+                        
                         if (!Ext.isEmpty(md.keywords)) {
                           if (Ext.isArray(md.keywords)) {
                             md.keywords = md.keywords.join(' ');
@@ -1789,13 +1559,13 @@ Curriki.module.addpath.init = function() {
 
 
     AddPath.Metadata2 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part2.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -1804,55 +1574,39 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
                 xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apSRI1'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },'->'/*,{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      var form = this.findByType('form')[0].getForm();                         
+                      Ext.apply(Curriki.current.sri, form.getValues(false));
+                      
                       this.close();
+                      
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI1'});
                       p.show();
                     }
                     ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'2'}
-                ,{tag:'a', cls:'addpath-page circle', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}
-                ,{tag:'a', cls:'addpath-page circle', html:'6'}
-                ]                
-            }*/,'->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();                    
-                      Curriki.current.sri2 = form.getValues(false);     
+                  }                  
+                }
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();                         
                       Ext.apply(Curriki.current.sri, form.getValues(false));                   
 
                       this.close();
@@ -1860,30 +1614,15 @@ Curriki.module.addpath.init = function() {
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI3'});
                       p.show();
                       Ext.ComponentMgr.register(p);                    
-                  }
-                  ,scope:this
-                }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
                     }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
-    // Education System
+  // Education System
               xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
@@ -1921,23 +1660,11 @@ Curriki.module.addpath.init = function() {
                 ,emptyText:_('bookmarklet.sri.education_system_empty_msg')
                 ,selectOnFocus:true
                 ,forceSelection:true
-                ,value:Curriki.current.sri.education_system?Curriki.current.sri.education_system:Curriki.data.education_system.initial?Curriki.data.education_system.initial:undefined
-                ,listeners:{
-                  render:function(comp){
-                    comp.findParentByType('apSRI2').on('show', function() {
-                      if (!Ext.isEmpty(Curriki.current.metadata)) {
-                        var md = Curriki.current.metadata;
-                        if (!Ext.isEmpty(md.education_system)){
-                          Ext.getCmp('metadata-education_system-entry').setValue(md.education_system);
-                        }
-                      }
-                    })
-                  }
-                }
+                ,value:Curriki.current.sri.education_system?Curriki.current.sri.education_system:Curriki.data.education_system.initial?Curriki.data.education_system.initial:undefined                
               }]
             },{
-    // Language
-               xtype:'container'
+  // Language
+              xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
@@ -1974,19 +1701,7 @@ Curriki.module.addpath.init = function() {
                 ,emptyText:_('bookmarklet.sri.language_empty_msg')
                 ,selectOnFocus:true
                 ,forceSelection:true
-                ,value:Curriki.current.sri.language?Curriki.current.sri.language:Curriki.data.language.initial?Curriki.data.language.initial:undefined
-                ,listeners:{
-                  render:function(comp){
-                    comp.findParentByType('apSRI2').on('show', function() {
-                      if (!Ext.isEmpty(Curriki.current.metadata)) {
-                        var md = Curriki.current.metadata;
-                        if (!Ext.isEmpty(md.language)){
-                          Ext.getCmp('metadata-language-entry').setValue(md.language);
-                        }
-                      }
-                    })
-                  }
-                }
+                ,value:Curriki.current.sri.language?Curriki.current.sri.language:Curriki.data.language.initial                
               }]
             }]
           }]
@@ -1998,13 +1713,13 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apSRI2', AddPath.Metadata2);
     
     AddPath.Metadata3 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part3.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -2019,58 +1734,34 @@ Curriki.module.addpath.init = function() {
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apSRI2'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },'->'/*,{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      var form = this.findByType('form')[0].getForm();                                    
+                      Ext.apply(Curriki.current.sri, form.getValues(false));
+                      Curriki.current.sri.educational_level = this.findByType('curriki-treepanel')[0].getChecked('id');
+                      
                       this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
+                      
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI2'});
                       p.show();
                     }
                     ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}
-                ,{tag:'a', cls:'addpath-page circle', html:'6'}
-                ]                
-            }*/,'->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();                    
-                      Curriki.current.sri3 = form.getValues(false); 
+                  }                  
+                }
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();                                    
                       Ext.apply(Curriki.current.sri, form.getValues(false));
                       Curriki.current.sri.educational_level = this.findByType('curriki-treepanel')[0].getChecked('id');                     
 
@@ -2079,30 +1770,15 @@ Curriki.module.addpath.init = function() {
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI4'});
                       p.show();
                       Ext.ComponentMgr.register(p);                   
-                  }
-                  ,scope:this
-                }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
                     }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
-    // Educational Level
+  // Educational Level
               xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
@@ -2140,9 +1816,10 @@ Curriki.module.addpath.init = function() {
               }
               ,(function(){
                 var checkedCount = 0;
-                var md = Curriki.current.metadata;
+                var elNodes = Curriki.ui.component.asset.filterTreeNodes(Curriki.data.el.elChildren, Curriki.current.sri.education_system);                
+                var md = Curriki.current.sri;                
                 if (md) {
-                  var el = md.educational_level;
+                  var el = md.educational_level;                                 
                   Ext.isArray(el) && (function(ca){
                     var childrenFn = arguments.callee;
                     Ext.each(ca, function(c){
@@ -2156,21 +1833,9 @@ Curriki.module.addpath.init = function() {
                         }
                       }
                     });
-                  })(Curriki.data.el.elChildren);
+                  })(elNodes);
                 }
-                return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(Curriki.current.sri.education_system), {
-                  listeners: {
-                    render:function(comp){
-                      comp.findParentByType('apSRI3').on('show', function() {
-                        Ext.getCmp('educational_level-validation').setValue(checkedCount)
-                      });
-                    }
-                    ,resize: function(comp) {
-                      var ct = comp.findParentByType('apSRI3');
-                      ct.syncSize();
-                    }
-                  }
-                })
+                return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(elNodes), { })
               })()] 
             }]
           }]   
@@ -2182,26 +1847,16 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apSRI3', AddPath.Metadata3);
     
     AddPath.Metadata4 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part4.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,autoScroll:false
           ,autoHeight:true
-          ,resizable:false
-          ,listeners: {
-            resize: function(ct) {
-              console.log('window resize');
-              var cmp = ct;
-              }
-            ,bodyresize: function(ct) {
-              console.log('window bodyresize');
-              var cmp = ct;
-              }
-          }
+          ,resizable:false          
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -2213,76 +1868,42 @@ Curriki.module.addpath.init = function() {
                labelSeparator:''
             }
             ,listeners: {
-              resize: function(ct) {
-                console.log("form resize");
+              resize: function(ct) {                
                 var cmp = ct.ownerCt;
-                }                     
+              }                     
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apSRI3'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },'->'/*,{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      var form = this.findByType('form')[0].getForm();                                          
+                      Ext.apply(Curriki.current.sri, form.getValues(false));
+                      Curriki.current.sri.fw_items = this.findByType('curriki-treepanel')[0].getChecked('id');
+                      
                       this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
+                      
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI3'});
                       p.show();
                     }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle', html:'5'}
-                ,{tag:'a', cls:'addpath-page circle', html:'6'}
-                ]                
-            }*/,'->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();                    
-                      Curriki.current.sri4 = form.getValues(false);
+                  ,scope:this
+                  }                  
+                }
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();                                          
                       Ext.apply(Curriki.current.sri, form.getValues(false));
                       Curriki.current.sri.fw_items = this.findByType('curriki-treepanel')[0].getChecked('id');
 
@@ -2291,119 +1912,89 @@ Curriki.module.addpath.init = function() {
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI5'});
                       p.show();
                       Ext.ComponentMgr.register(p);                    
+                    }
+                    ,scope:this
                   }
-                  ,scope:this
                 }
-              }
-            }]
+              }]
             }
-            ,monitorValid:true
-            /*
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    //if (height === 'auto') {
-                      //fPanel.setHeight('auto');
-                   // } else {
-                   //   fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
-                    //}
-                  }
-                );
-              }              
-            }*/
-                ,items:[{
-    // Subjects
+            ,monitorValid:true            
+            ,items:[{
+  // Subjects
               xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
-                  // A "TreeCheckBoxGroup" would be nice here
-                   xtype:'numberfield'
-                  ,id:'fw_items-validation'
-                  ,allowBlank:false
-                  ,preventMark:true
-                  ,minValue:1
-                  ,hidden:true
-                  ,listeners:{
-                     valid:function(field){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('fw_items-tree');
-                      fieldset.removeClass('x-form-invalid');
-                      fieldset.el.dom.qtip = '';
+                // A "TreeCheckBoxGroup" would be nice here
+                xtype:'numberfield'
+                ,id:'fw_items-validation'
+                ,allowBlank:false
+                ,preventMark:true
+                ,minValue:1
+                ,hidden:true
+                ,listeners:{
+                  valid:function(field){
+                    if (!this.rendered || this.preventMark) {
+                      return;
                     }
-                    ,invalid:function(field, msg){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('fw_items-tree');
-                      fieldset.addClass('x-form-invalid');
-                      var iMsg = field.invalidText;
-                      fieldset.el.dom.qtip = iMsg;
-                      fieldset.el.dom.qclass = 'x-form-invalid-tip';
-                      if(Ext.QuickTips){ // fix for floating editors interacting with DND
-                        Ext.QuickTips.enable();
-                      }
-
+                    var fieldset = Ext.getCmp('fw_items-tree');
+                    fieldset.removeClass('x-form-invalid');
+                    fieldset.el.dom.qtip = '';
+                  }
+                  ,invalid:function(field, msg){
+                    if (!this.rendered || this.preventMark) {
+                      return;
+                    }
+                    var fieldset = Ext.getCmp('fw_items-tree');
+                    fieldset.addClass('x-form-invalid');
+                    var iMsg = field.invalidText;
+                    fieldset.el.dom.qtip = iMsg;
+                    fieldset.el.dom.qclass = 'x-form-invalid-tip';
+                    if(Ext.QuickTips){ // fix for floating editors interacting with DND
+                      Ext.QuickTips.enable();
                     }
                   }
                 }
-                ,(function(){
-                  var checkedCount = 0;
-                  var md = Curriki.current.metadata;
-                  if (md) {
-                    var fw = md.fw_items;
-                    Ext.isArray(fw) && (function(ca){
-                      var childrenFn = arguments.callee;
-                      Ext.each(ca, function(c){
-                        if (c.id) {
-                          if (c.checked = (fw.indexOf(c.id) !== -1)) {
-                            checkedCount++;
-                          }
-                          if (c.children) {
-                            childrenFn(c.children);
-                          }
+              }
+              ,(function(){
+                var checkedCount = 0;
+                var fwNodes = Curriki.ui.component.asset.filterTreeNodes(Curriki.data.fw_item.fwChildren, Curriki.current.sri.educational_level);
+                var md = Curriki.current.sri;
+                if (md) {
+                  var fw = md.fw_items;                
+                  Ext.isArray(fw) && (function(ca){
+                    var childrenFn = arguments.callee;
+                    Ext.each(ca, function(c){
+                      if (c.id) {
+                        if (c.checked = (fw.indexOf(c.id) !== -1)) {
+                          checkedCount++;
                         }
-                      });
-                    })(Curriki.data.fw_item.fwChildren);
-                  }
-                  return Ext.apply(AddPath.fwTree = Curriki.ui.component.asset.getFwTree(Curriki.current.sri.educational_level), {
-                    listeners: {
-                      render:function(comp){
-                        comp.findParentByType('apSRI4').on('show', function() {
-                          Ext.getCmp('fw_items-validation').setValue(checkedCount)
-                        });
-                      }                    
-                    ,resize: function(comp) {
-                        var ct = comp.findParentByType('apSRI4');
-                        ct.syncSize();
+                        if (c.children) {
+                          childrenFn(c.children);
+                        }
                       }
-                    }
-                  })
-                })()]
-              }]
-            }]   
+                    });
+                  })(fwNodes);
+                }
+                return Ext.apply(AddPath.fwTree = Curriki.ui.component.asset.getFwTree(fwNodes), { })
+              })()]
+            }]
+          }]   
         });
 
         AddPath.Metadata4.superclass.initComponent.call(this);
       }
     });
     Ext.reg('apSRI4', AddPath.Metadata4);    
-    
-    
-    
+           
     AddPath.Metadata5 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part5.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -2418,76 +2009,34 @@ Curriki.module.addpath.init = function() {
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apSRI4'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },'->'/*,{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      var form = this.findByType('form')[0].getForm();                      
+                      Ext.apply(Curriki.current.sri, form.getValues(false));  
+                      Curriki.current.sri.instructional_component = this.findByType('curriki-treepanel')[0].getChecked('id');
+                      
                       this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI3'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
+                      
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI4'});
                       p.show();
                     }
                     ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'5'}
-                ,{tag:'a', cls:'addpath-page circle', html:'6'}
-                ]                
-            }*/,'->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();                    
-                      Curriki.current.sri5 = form.getValues(false);
+                  }                  
+                }
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();                      
                       Ext.apply(Curriki.current.sri, form.getValues(false));  
                       Curriki.current.sri.instructional_component = this.findByType('curriki-treepanel')[0].getChecked('id');
 
@@ -2496,103 +2045,74 @@ Curriki.module.addpath.init = function() {
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI6'});
                       p.show();
                       Ext.ComponentMgr.register(p);                   
-                  }
-                  ,scope:this
-                }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
                     }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
-    // Instructional Component Type
-                 xtype:'container'
+  // Instructional Component Type
+              xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
-                  // A "TreeCheckBoxGroup" would be nice here
-                   xtype:'numberfield'
-                  ,id:'instructional_component-validation'
-                  ,allowBlank:false
-                  ,preventMark:true
-                  ,minValue:1
-                  ,hidden:true
-                  ,listeners:{
-                     valid:function(field){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('ict-tree');
-                      fieldset.removeClass('x-form-invalid');
-                      fieldset.el.dom.qtip = '';
-                    }
-                    ,invalid:function(field, msg){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('ict-tree');
-                      fieldset.addClass('x-form-invalid');
-                      var iMsg = field.invalidText;
-                      fieldset.el.dom.qtip = iMsg;
-                      fieldset.el.dom.qclass = 'x-form-invalid-tip';
-                      if(Ext.QuickTips){ // fix for floating editors interacting with DND
-                        Ext.QuickTips.enable();
-                      }
-
-                    }
+                // A "TreeCheckBoxGroup" would be nice here
+                xtype:'numberfield'
+                ,id:'instructional_component-validation'
+                ,allowBlank:false
+                ,preventMark:true
+                ,minValue:1
+                ,hidden:true
+                ,listeners:{
+                  valid:function(field){
+                  if (!this.rendered || this.preventMark) {
+                    return;
+                  }
+                  var fieldset = Ext.getCmp('ict-tree');
+                  fieldset.removeClass('x-form-invalid');
+                  fieldset.el.dom.qtip = '';
+                }
+                ,invalid:function(field, msg){
+                  if (!this.rendered || this.preventMark) {
+                    return;
+                  }
+                  var fieldset = Ext.getCmp('ict-tree');
+                  fieldset.addClass('x-form-invalid');
+                  var iMsg = field.invalidText;
+                  fieldset.el.dom.qtip = iMsg;
+                  fieldset.el.dom.qclass = 'x-form-invalid-tip';
+                  if(Ext.QuickTips){ // fix for floating editors interacting with DND
+                    Ext.QuickTips.enable();
                   }
                 }
-                ,(function(){
-                  var checkedCount = 0;
-                  var md = Curriki.current.metadata;
-                  if (md) {
-                    var ict = md.instructional_component;
-                    Ext.isArray(ict) && (function(ca){
-                      var childrenFn = arguments.callee;
-                      Ext.each(ca, function(c){
-                        if (c.id) {
-                          if (c.checked = (ict.indexOf(c.id) !== -1)) {
-                            checkedCount++;
-                          }
-                          if (c.children) {
-                            childrenFn(c.children);
-                          }
-                        }
-                      });
-                    })(Curriki.data.ict.ictChildren);
-                  }
-                  return Ext.apply(AddPath.ictTree = Curriki.ui.component.asset.getIctTree(), {
-                    listeners: {
-                      render:function(comp){
-                        this.offsetWidth = 100;
-                        comp.findParentByType('apSRI5').on('show', function() {
-                          Ext.getCmp('instructional_component-validation').setValue(checkedCount)
-                        });
+              }
+            }
+            ,(function(){
+              var checkedCount = 0;
+              var md = Curriki.current.sri;
+              if (md) {
+                var ict = md.instructional_component;                
+                Ext.isArray(ict) && (function(ca){
+                  var childrenFn = arguments.callee;
+                  Ext.each(ca, function(c){
+                    if (c.id) {
+                      if (c.checked = (ict.indexOf(c.id) !== -1)) {
+                        checkedCount++;
                       }
-                      ,resize: function(comp) {
-                        var ct = comp.findParentByType('apSRI5');
-                        ct.syncSize();
+                      if (c.children) {
+                        childrenFn(c.children);
                       }
                     }
-                  })
-                })()]
-              }]
-            }]   
-        });
+                  });
+                })(Curriki.data.ict.ictChildren);
+              }
+              return Ext.apply(AddPath.ictTree = Curriki.ui.component.asset.getIctTree(), {})
+            })()]
+          }]
+        }]   
+      });
 
         AddPath.Metadata4.superclass.initComponent.call(this);
       }
@@ -2601,13 +2121,13 @@ Curriki.module.addpath.init = function() {
     
     
     AddPath.Metadata6 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part6.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -2616,118 +2136,53 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apSRI5'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },'->'/*,{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      var form = this.findByType('form')[0].getForm();                      
+                      Ext.apply(Curriki.current.sri, form.getValues(false));
+                      Curriki.current.sri.hidden_from_search = this.findById('hidden_from_search-entry').getValue();
+                      
                       this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI3'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apSRI4'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'5', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      this.close();
+                      
                       var p = Ext.ComponentMgr.create({'xtype':'apSRI5'});
                       p.show();
                     }
                     ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'6'}
-                ]                
-            }*/,'->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.publish.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    var form = this.findByType('form')[0].getForm();                    
-                      Curriki.current.sri6 = form.getValues(false);
-                      Ext.apply(Curriki.current.sri, form.getValues(false));  
+                  }                  
+                }
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.publish.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      var form = this.findByType('form')[0].getForm();                      
+                      Ext.apply(Curriki.current.sri, form.getValues(false));
+                      Curriki.current.sri.hidden_from_search = this.findById('hidden_from_search-entry').getValue();  
 
                       this.close();
 
                       AddPath.MetadataFinished();                   
-                  }
-                  ,scope:this
-                }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
                     }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
     // Rights Holder(s)
               xtype:'container'
@@ -2736,7 +2191,7 @@ Curriki.module.addpath.init = function() {
               ,items:[{             
                 xtype:'box'
                 ,autoEl:{
-                   tag:'div'
+                  tag:'div'
                   ,id:'metadata-right_holder'
                   ,cls:'information-header information-header-required'
                   ,children:[{
@@ -2756,24 +2211,11 @@ Curriki.module.addpath.init = function() {
                 xtype:'textfield'
                 ,id:'metadata-right_holder-entry'
                 ,name:'right_holder'
-                ,hideLabel:true
-                ,value:Curriki.data.user.me.fullname
+                ,hideLabel:true                
                 ,allowBlank:false
                 ,preventMark:true
                 ,width:'60%'
-                ,listeners:{
-                  render:function(comp){
-                    comp.findParentByType('apSRI6').on('show', function() {
-                      if (!Ext.isEmpty(Curriki.current.metadata)) {
-                        var md = Curriki.current.metadata;
-
-                        if (!Ext.isEmpty(md.rightsHolder)){
-                          Ext.getCmp('metadata-right_holder-entry').setValue(md.rightsHolder);
-                        }
-                      }
-                    })
-                  }
-                }
+                ,value:Curriki.current.sri.right_holder?Curriki.current.sri.right_holder:Curriki.data.user.me.fullname                
               }]  
             },{
     // License Deed
@@ -2799,20 +2241,7 @@ Curriki.module.addpath.init = function() {
                     ,qtip:_('sri.license_type_tooltip')
                   }]
                 }
-              }/*,{
-                xtype:'box'
-                ,autoEl:{
-                  tag:'div'
-                  ,html:__('sri.license_type_txt')
-                  ,cls:'directions'
-                }
               },{
-                xtype:'box'
-                ,autoEl:{
-                  tag:'div'
-                  ,html:_('sri.license_type_heading')
-                }
-              }*/,{
                 xtype:'combo'
                 ,id:'metadata-license_type-entry'
                 ,hiddenName:'license_type'
@@ -2827,26 +2256,12 @@ Curriki.module.addpath.init = function() {
                 ,emptyText:_('sri.license_type_empty_msg')
                 ,selectOnFocus:true
                 ,forceSelection:true
-                ,value:Curriki.data.license.initial?Curriki.data.license.initial:undefined
-                ,listeners:{
-                  render:function(comp){
-                    comp.findParentByType('apSRI6').on('show', function() {
-                      if (!Ext.isEmpty(Curriki.current.metadata)) {
-                        var md = Curriki.current.metadata;
-
-                        if (!Ext.isEmpty(md.licenseType)){
-                          Ext.getCmp('metadata-license_type-entry').setValue(md.licenseType);
-                        }
-                      }
-                    })
-                  }
-                }
+                ,value:Curriki.current.sri.license_type?Curriki.current.sri.license_type:Curriki.data.license.initial
               }]               
             },{
-    // Access Privileges
+  // Access Privileges
               xtype:'container'
-              ,cls:'metadata-entry'
-              //,layout:'column'
+              ,cls:'metadata-entry'              
               ,items:[{
                 xtype:'box'
                 ,autoEl:{
@@ -2876,25 +2291,12 @@ Curriki.module.addpath.init = function() {
                   name:'rights'
                 }
                 ,items:Curriki.data.rights.data
-                ,listeners:{
-                  render:function(comp){
-                    comp.findParentByType('apSRI6').on('show', function() {
-                      if (!Ext.isEmpty(Curriki.current.metadata)) {
-                        var md = Curriki.current.metadata;
-
-                        if (!Ext.isEmpty(md.rights)){
-                          Ext.getCmp(Ext.select('input[type="radio"][name="rights"][value="'+md.rights+'"]').first().dom.id).setValue(md.rights);
-                        }
-                      }
-                    })
-                  }
-                }
+                ,value:Curriki.current.sri.rights?Curriki.current.sri.rights:Curriki.data.rights.initial                
               }]    
             },{
-    // Hide from Search
+  // Hide from Search
               xtype:'container'
-              ,cls:'metadata-entry'
-              //,layout:'box'
+              ,cls:'metadata-entry'              
               ,items:[{
                 xtype:'box'
                 ,autoEl:{
@@ -2916,8 +2318,10 @@ Curriki.module.addpath.init = function() {
                 }
               },{
                 xtype:'checkbox'
+                ,id:'hidden_from_search-entry'
                 ,name:'hidden_from_search'
-                ,boxLabel:_('sri.hidden_from_search_after')
+                ,boxLabel:_('sri.hidden_from_search_after')                               
+                ,checked:Curriki.current.sri.hidden_from_search?Curriki.current.sri.hidden_from_search:false
               }]
             }]
           }]
@@ -2928,10 +2332,7 @@ Curriki.module.addpath.init = function() {
     });
     Ext.reg('apSRI6', AddPath.Metadata6);
     
-    
-    
-    
-    
+               
     AddPath.EditMetadata = {};
     AddPath.EditMetadata.SetMetadata = function(cmp){
       var form = cmp.findById('MetadataDialoguePanel').getForm();      
@@ -2950,22 +2351,22 @@ Curriki.module.addpath.init = function() {
     AddPath.EditMetadata1 = Ext.extend(Curriki.ui.dialog.Actions, {
       initComponent:function(){
         Ext.apply(this, {
-           title:_('add.setrequiredinfo.part1.title')
+          title:_('add.setrequiredinfo.part1.title')
           ,cls:'addpath addpath-metadata resource resource-add'          
           ,width:800
           ,items:[{
-             xtype:'panel'
+            xtype:'panel'
             ,cls:'guidingquestion-container'
             ,items:[{
-               xtype:'box'
+              xtype:'box'
               ,autoEl:{
-                 tag:'div'
+                tag:'div'
                 ,html:_('add.setrequiredinfo.part1.guidingquestion')+' '+Curriki.data.user.me.fullname
                 ,cls:'guidingquestion'
               }
             }]
           },{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -2974,20 +2375,20 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
                 xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.part1.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                     AddPath.EditMetadata.SetMetadata(this);                                                                               
+                ,text:_('add.setrequiredinfo.part1.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);                                                                               
 
                       this.close();
 
@@ -3000,39 +2401,24 @@ Curriki.module.addpath.init = function() {
                 }
               },'->','->',{
                 xtype: 'tbbutton'
-               ,text:__('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);   
+                ,text:__('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);   
 
-                    this.close();
+                      this.close();
 
-                    AddPath.EditMetadataFinished();                 
-                  }
-                  ,scope:this
-                }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
+                      AddPath.EditMetadataFinished();                 
                     }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
     // Title
               xtype:'container'
@@ -3089,33 +2475,33 @@ Curriki.module.addpath.init = function() {
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
-                xtype: 'box',
-                autoEl: {
-                  tag: 'div',
-                  id: 'metadata-keywords',
-                  cls: 'information-header',
-                  children: [{
-                    tag: 'span',
-                    id: 'metadata-keywords-title',
-                    cls: 'metadata-title',
-                    html: _('bookmarklet.sri.keywords_title')
-                  }, {
-                    tag: 'img',
-                    id: 'metadata-keywords-info',
-                    cls: 'metadata-tooltip',
-                    src: Curriki.ui.InfoImg,
-                    qtip: _('bookmarklet.sri.keywords_tooltip')
+                xtype: 'box'
+                ,autoEl: {
+                  tag: 'div'
+                  ,id: 'metadata-keywords'
+                  ,cls: 'information-header'
+                  ,children: [{
+                    tag: 'span'
+                    ,id: 'metadata-keywords-title'
+                    ,cls: 'metadata-title'
+                    ,html: _('bookmarklet.sri.keywords_title')
+                  },{
+                    tag: 'img'
+                    ,id: 'metadata-keywords-info'
+                    ,cls: 'metadata-tooltip'
+                    ,src: Curriki.ui.InfoImg
+                    ,qtip: _('bookmarklet.sri.keywords_tooltip')
                   }]
                 }
               },{
-                xtype: 'textfield',
-                id: 'metadata-keywords-entry',
-                name: 'keywords',
-                emptyText: _('bookmarklet.sri.keywords.empty_msg'),
-                hideLabel: true,
-                width: '72%',
-                value: Curriki.current.sri?Curriki.current.sri.keywords:'',
-                listeners: {
+                xtype: 'textfield'
+                ,id: 'metadata-keywords-entry'
+                ,name: 'keywords'
+                ,emptyText: _('bookmarklet.sri.keywords.empty_msg')
+                ,hideLabel: true
+                ,width: '72%'
+                ,value: Curriki.current.sri?Curriki.current.sri.keywords:''
+                ,listeners: {
                   render: function(comp){
                     comp.findParentByType('apESRI1').on('show', function(){
                       if (!Ext.isEmpty(Curriki.current.metadata)) {
@@ -3133,7 +2519,7 @@ Curriki.module.addpath.init = function() {
                 }
               }]
             }]
-            }]
+          }]
         });
 
         AddPath.Metadata1.superclass.initComponent.call(this);
@@ -3143,13 +2529,13 @@ Curriki.module.addpath.init = function() {
 
 
     AddPath.EditMetadata2 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part2.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -3158,82 +2544,67 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                    AddPath.EditMetadata.SetMetadata(this); 
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      AddPath.EditMetadata.SetMetadata(this); 
                     
-                    this.close();
-                    var p = Ext.ComponentMgr.create({'xtype':'apESRI1'});
-                    p.show();
-                  }
-                  ,scope:this
-                }                  
-              }
-            },{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);                   
-  
-                    this.close();
-
-                    var p = Ext.ComponentMgr.create({'xtype':'apESRI3'});
-                    p.show();
-                    Ext.ComponentMgr.register(p);                 
-                  }
-                  ,scope:this
-                }
-              }
-            },'->','->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);  
-
-                    this.close();
-
-                    AddPath.EditMetadataFinished();                    
-                  }
-                  ,scope:this
-                }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
+                      this.close();
+                      var p = Ext.ComponentMgr.create({'xtype':'apESRI1'});
+                      p.show();
                     }
+                    ,scope:this
+                  }                  
+                }
+              },{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);                   
+  
+                      this.close();
+
+                      var p = Ext.ComponentMgr.create({'xtype':'apESRI3'});
+                      p.show();
+                      Ext.ComponentMgr.register(p);                 
+                    }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);  
+
+                      this.close();
+
+                      AddPath.EditMetadataFinished();                    
+                    }
+                    ,scope:this
+                  }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
     // Education System
               xtype:'container'
@@ -3289,7 +2660,7 @@ Curriki.module.addpath.init = function() {
               }]
             },{
     // Language
-               xtype:'container'
+              xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
@@ -3350,13 +2721,13 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apESRI2', AddPath.EditMetadata2);      
     
     AddPath.EditMetadata3 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part3.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -3365,142 +2736,67 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                    AddPath.EditMetadata.SetMetadata(this); 
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      AddPath.EditMetadata.SetMetadata(this); 
                     
-                    this.close();
-                    var p = Ext.ComponentMgr.create({'xtype':'apESRI2'});
-                    p.show();
-                  }
-                  ,scope:this
-                }                  
-              }
-            },{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);                    
-
-                    this.close();
-
-                    var p = Ext.ComponentMgr.create({'xtype':'apESRI4'});
-                    p.show();
-                    Ext.ComponentMgr.register(p);                  
-                  }
-                  ,scope:this
-                }
-              }
-            },'->'/*,{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this); 
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apESRI1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this); 
                       this.close();
                       var p = Ext.ComponentMgr.create({'xtype':'apESRI2'});
                       p.show();
                     }
                     ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'3'}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this); 
+                  }                  
+                }
+              },{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);                    
+
                       this.close();
+
                       var p = Ext.ComponentMgr.create({'xtype':'apESRI4'});
                       p.show();
+                      Ext.ComponentMgr.register(p);                  
                     }
                     ,scope:this
                   }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'5', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this); 
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apESRI5'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'6', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this);                       
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apESRI6'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ]                
-            }*/,'->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);  
-
-                    this.close();
-
-                    AddPath.EditMetadataFinished();                    
-                  }
-                  ,scope:this
                 }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);  
+
+                      this.close();
+
+                      AddPath.EditMetadataFinished();                    
                     }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
     // Educational Level
               xtype:'container'
@@ -3540,9 +2836,10 @@ Curriki.module.addpath.init = function() {
               }
               ,(function(){
                 var checkedCount = 0;
-                var md = Curriki.current.metadata;
+                var elNodes = Curriki.ui.component.asset.filterTreeNodes(Curriki.data.el.elChildren, Curriki.current.sri.education_system);                
+                var md = Curriki.current.sri;                
                 if (md) {
-                  var el = md.educational_level;
+                  var el = md.educational_level;                                 
                   Ext.isArray(el) && (function(ca){
                     var childrenFn = arguments.callee;
                     Ext.each(ca, function(c){
@@ -3556,22 +2853,10 @@ Curriki.module.addpath.init = function() {
                         }
                       }
                     });
-                  })(Curriki.data.el.elChildren);
+                  })(elNodes);
                 }
-                return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(Curriki.current.sri.education_system), {
-                  listeners: {
-                    render:function(comp){
-                      comp.findParentByType('apESRI3').on('show', function() {
-                        Ext.getCmp('educational_level-validation').setValue(checkedCount)
-                      });
-                    }
-                    ,resize: function(comp) {
-                      var ct = comp.findParentByType('apUrlM3');
-                      ct.syncSize();
-                    }
-                  }
-                })
-              })()] 
+                return Ext.apply(AddPath.elTree = Curriki.ui.component.asset.getElTree(elNodes), { })
+              })()]  
             }]
           }]   
         });
@@ -3582,26 +2867,16 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apESRI3', AddPath.EditMetadata3);
     
     AddPath.EditMetadata4 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part4.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,autoScroll:false
           ,autoHeight:true
-          ,resizable:false
-          ,listeners: {
-            resize: function(ct) {
-              console.log('window resize');
-              var cmp = ct;
-              }
-            ,bodyresize: function(ct) {
-              console.log('window bodyresize');
-              var cmp = ct;
-              }
-          }
+          ,resizable:false          
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -3610,221 +2885,129 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
-            }
-            ,listeners: {
-              resize: function(ct) {
-                console.log("form resize");
-                var cmp = ct.ownerCt;
-                }                     
-            }
+              labelSeparator:''
+            }            
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                    AddPath.EditMetadata.SetMetadata(this);
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apESRI3'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);                    
-
-                    this.close();
-
-                    var p = Ext.ComponentMgr.create({'xtype':'apESRI5'});
-                    p.show();
-                    Ext.ComponentMgr.register(p);                    
-                  }
-                  ,scope:this
-                }
-              }
-            },'->'/*,{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this); 
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      AddPath.EditMetadata.SetMetadata(this);
+                      
                       this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apESRI1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this); 
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apESRI2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this); 
-                      this.close();
+                  
                       var p = Ext.ComponentMgr.create({'xtype':'apESRI3'});
                       p.show();
                     }
                     ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'4'}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'5', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this); 
+                  }                  
+                }
+              },{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);                    
+
                       this.close();
+
                       var p = Ext.ComponentMgr.create({'xtype':'apESRI5'});
                       p.show();
+                      Ext.ComponentMgr.register(p);                    
                     }
                     ,scope:this
                   }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'6', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this); 
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apESRI6'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ]                
-            }*/,'->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);   
-
-                    this.close();
-
-                    AddPath.EditMetadataFinished();                    
-                  }
-                  ,scope:this
                 }
-              }
-            }]
-            }
-            ,monitorValid:true
-            /*
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    //if (height === 'auto') {
-                      //fPanel.setHeight('auto');
-                   // } else {
-                   //   fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
-                    //}
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);   
+
+                      this.close();
+
+                      AddPath.EditMetadataFinished();                    
+                    }
+                    ,scope:this
                   }
-                );
-              }              
-            }*/
-                ,items:[{
+                }
+              }]
+            }
+            ,monitorValid:true            
+            ,items:[{
     // Subjects
               xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
-                  // A "TreeCheckBoxGroup" would be nice here
-                   xtype:'numberfield'
-                  ,id:'fw_items-validation'
-                  ,allowBlank:false
-                  ,preventMark:true
-                  ,minValue:1
-                  ,hidden:true
-                  ,listeners:{
-                     valid:function(field){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('fw_items-tree');
-                      fieldset.removeClass('x-form-invalid');
-                      fieldset.el.dom.qtip = '';
+                // A "TreeCheckBoxGroup" would be nice here
+                xtype:'numberfield'
+                ,id:'fw_items-validation'
+                ,allowBlank:false
+                ,preventMark:true
+                ,minValue:1
+                ,hidden:true
+                ,listeners:{
+                  valid:function(field){
+                    if (!this.rendered || this.preventMark) {
+                      return;
                     }
-                    ,invalid:function(field, msg){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('fw_items-tree');
-                      fieldset.addClass('x-form-invalid');
-                      var iMsg = field.invalidText;
-                      fieldset.el.dom.qtip = iMsg;
-                      fieldset.el.dom.qclass = 'x-form-invalid-tip';
-                      if(Ext.QuickTips){ // fix for floating editors interacting with DND
-                        Ext.QuickTips.enable();
-                      }
-
+                    var fieldset = Ext.getCmp('fw_items-tree');
+                    fieldset.removeClass('x-form-invalid');
+                    fieldset.el.dom.qtip = '';
+                  }
+                  ,invalid:function(field, msg){
+                    if (!this.rendered || this.preventMark) {
+                      return;
+                    }
+                    var fieldset = Ext.getCmp('fw_items-tree');
+                    fieldset.addClass('x-form-invalid');
+                    var iMsg = field.invalidText;
+                    fieldset.el.dom.qtip = iMsg;
+                    fieldset.el.dom.qclass = 'x-form-invalid-tip';
+                    if(Ext.QuickTips){ // fix for floating editors interacting with DND
+                      Ext.QuickTips.enable();
                     }
                   }
                 }
-                ,(function(){
-                  var checkedCount = 0;
-                  var md = Curriki.current.metadata;
-                  if (md) {
-                    var fw = md.fw_items;
-                    Ext.isArray(fw) && (function(ca){
-                      var childrenFn = arguments.callee;
-                      Ext.each(ca, function(c){
-                        if (c.id) {
-                          if (c.checked = (fw.indexOf(c.id) !== -1)) {
-                            checkedCount++;
-                          }
-                          if (c.children) {
-                            childrenFn(c.children);
-                          }
+              }
+              ,(function(){
+                var checkedCount = 0;
+                var fwNodes = Curriki.ui.component.asset.filterTreeNodes(Curriki.data.fw_item.fwChildren, Curriki.current.sri.educational_level);
+                var md = Curriki.current.sri;
+                if (md) {
+                  var fw = md.fw_items;                
+                  Ext.isArray(fw) && (function(ca){
+                    var childrenFn = arguments.callee;
+                    Ext.each(ca, function(c){
+                      if (c.id) {
+                        if (c.checked = (fw.indexOf(c.id) !== -1)) {
+                          checkedCount++;
                         }
-                      });
-                    })(Curriki.data.fw_item.fwChildren);
-                  }
-                  return Ext.apply(AddPath.fwTree = Curriki.ui.component.asset.getFwTree(Curriki.current.sri.educational_level), {
-                    listeners: {
-                      render:function(comp){
-                        comp.findParentByType('apESRI4').on('show', function() {
-                          Ext.getCmp('fw_items-validation').setValue(checkedCount)
-                        });
-                      }                    
-                    ,resize: function(comp) {
-                        var ct = comp.findParentByType('apESRI4');
-                        ct.syncSize();
+                        if (c.children) {
+                          childrenFn(c.children);
+                        }
                       }
-                    }
-                  })
-                })()]
-              }]
-            }]   
+                    });
+                  })(fwNodes);
+                }
+                return Ext.apply(AddPath.fwTree = Curriki.ui.component.asset.getFwTree(fwNodes), { })
+              })()]
+            }]
+          }]   
         });
 
         AddPath.Metadata4.superclass.initComponent.call(this);
@@ -3833,13 +3016,13 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apESRI4', AddPath.EditMetadata4);    
            
     AddPath.EditMetadata5 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part5.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -3848,215 +3031,128 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                    AddPath.EditMetadata.SetMetadata(this); 
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apESRI4'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.next.button')
-              ,id:'nextbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);                    
-
-                    this.close();
-
-                    var p = Ext.ComponentMgr.create({'xtype':'apESRI6'});
-                    p.show();
-                    Ext.ComponentMgr.register(p);                    
-                  }
-                  ,scope:this
-                }
-              }
-            },'->'/*,{
-              xtype: 'tbprogress'
-              ,items: [
-                {tag:'a', cls:'addpath-page circle addpath-page-previous', html:'1', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this);
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      AddPath.EditMetadata.SetMetadata(this); 
+                  
                       this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apESRI1'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'2', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this);
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apESRI2'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'3', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this);
-                      this.close();
-                      var p = Ext.ComponentMgr.create({'xtype':'apESRI3'});
-                      p.show();
-                    }
-                    ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'4', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this);
-                      this.close();
+                  
                       var p = Ext.ComponentMgr.create({'xtype':'apESRI4'});
                       p.show();
                     }
                     ,scope:this
-                  }
-                }}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-current', html:'5'}
-                ,{tag:'a', cls:'addpath-page circle addpath-page-previous', html:'6', listeners:{
-                  click: {
-                    fn: function(e, ev) {
-                      AddPath.EditMetadata.SetMetadata(this);
+                  }                  
+                }
+              },{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.next.button')
+                ,id:'nextbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);                    
+
                       this.close();
+
                       var p = Ext.ComponentMgr.create({'xtype':'apESRI6'});
                       p.show();
+                      Ext.ComponentMgr.register(p);                    
                     }
                     ,scope:this
                   }
-                }}
-                ]                
-            }*/,'->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);  
-
-                    this.close();
-
-                    AddPath.EditMetadataFinished();                   
-                  }
-                  ,scope:this
                 }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);  
+
+                      this.close();
+
+                      AddPath.EditMetadataFinished();                   
                     }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
     // Instructional Component Type
-                 xtype:'container'
+              xtype:'container'
               ,cls:'metadata-entry'
               ,layout:'column'
               ,items:[{
-                  // A "TreeCheckBoxGroup" would be nice here
-                   xtype:'numberfield'
-                  ,id:'instructional_component-validation'
-                  ,allowBlank:false
-                  ,preventMark:true
-                  ,minValue:1
-                  ,hidden:true
-                  ,listeners:{
-                     valid:function(field){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('ict-tree');
-                      fieldset.removeClass('x-form-invalid');
-                      fieldset.el.dom.qtip = '';
+                // A "TreeCheckBoxGroup" would be nice here
+                xtype:'numberfield'
+                ,id:'instructional_component-validation'
+                ,allowBlank:false
+                ,preventMark:true
+                ,minValue:1
+                ,hidden:true
+                ,listeners:{
+                  valid:function(field){
+                    if (!this.rendered || this.preventMark) {
+                      return;
                     }
-                    ,invalid:function(field, msg){
-                      if (!this.rendered || this.preventMark) {
-                        return;
-                      }
-                      var fieldset = Ext.getCmp('ict-tree');
-                      fieldset.addClass('x-form-invalid');
-                      var iMsg = field.invalidText;
-                      fieldset.el.dom.qtip = iMsg;
-                      fieldset.el.dom.qclass = 'x-form-invalid-tip';
-                      if(Ext.QuickTips){ // fix for floating editors interacting with DND
-                        Ext.QuickTips.enable();
-                      }
-
+                    var fieldset = Ext.getCmp('ict-tree');
+                    fieldset.removeClass('x-form-invalid');
+                    fieldset.el.dom.qtip = '';
+                  }
+                  ,invalid:function(field, msg){
+                    if (!this.rendered || this.preventMark) {
+                      return;
+                    }
+                    var fieldset = Ext.getCmp('ict-tree');
+                    fieldset.addClass('x-form-invalid');
+                    var iMsg = field.invalidText;
+                    fieldset.el.dom.qtip = iMsg;
+                    fieldset.el.dom.qclass = 'x-form-invalid-tip';
+                    if(Ext.QuickTips){ // fix for floating editors interacting with DND
+                      Ext.QuickTips.enable();
                     }
                   }
                 }
-                ,(function(){
-                  var checkedCount = 0;
-                  var md = Curriki.current.metadata;
-                  if (md) {
-                    var ict = md.instructional_component;
-                    Ext.isArray(ict) && (function(ca){
-                      var childrenFn = arguments.callee;
-                      Ext.each(ca, function(c){
-                        if (c.id) {
-                          if (c.checked = (ict.indexOf(c.id) !== -1)) {
-                            checkedCount++;
-                          }
-                          if (c.children) {
-                            childrenFn(c.children);
-                          }
-                        }
-                      });
-                    })(Curriki.data.ict.ictChildren);
-                  }
-                  return Ext.apply(AddPath.ictTree = Curriki.ui.component.asset.getIctTree(), {
-                    listeners: {
-                      render:function(comp){
-                        this.offsetWidth = 100;
-                        comp.findParentByType('apESRI5').on('show', function() {
-                          Ext.getCmp('instructional_component-validation').setValue(checkedCount)
-                        });
+              }
+              ,(function(){
+              var checkedCount = 0;
+              var md = Curriki.current.sri;
+              if (md) {
+                var ict = md.instructional_component;                
+                Ext.isArray(ict) && (function(ca){
+                  var childrenFn = arguments.callee;
+                  Ext.each(ca, function(c){
+                    if (c.id) {
+                      if (c.checked = (ict.indexOf(c.id) !== -1)) {
+                        checkedCount++;
                       }
-                      ,resize: function(comp) {
-                        var ct = comp.findParentByType('apESRI5');
-                        ct.syncSize();
+                      if (c.children) {
+                        childrenFn(c.children);
                       }
                     }
-                  })
-                })()]
-              }]
-            }]   
+                  });
+                })(Curriki.data.ict.ictChildren);
+              }
+              return Ext.apply(AddPath.ictTree = Curriki.ui.component.asset.getIctTree(), {})
+            })()]
+            }]
+          }]   
         });
 
         AddPath.Metadata4.superclass.initComponent.call(this);
@@ -4066,13 +3162,13 @@ Curriki.module.addpath.init = function() {
     
     
     AddPath.EditMetadata6 = Ext.extend(Curriki.ui.dialog.Actions, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
           title:_('add.setrequiredinfo.part6.title')
           ,cls:'addpath addpath-metadata resource resource-add'
           ,width:800
           ,items:[{
-             xtype:'form'
+            xtype:'form'
             ,id:'MetadataDialoguePanel'
             ,formId:'MetadataDialogueForm'
             ,labelWidth:25
@@ -4081,62 +3177,49 @@ Curriki.module.addpath.init = function() {
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:{
               xtype:'toolbar'
               ,layout:'xtoolbar'
               ,items:[{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.previous.button')
-              ,id:'previousbutton'
-              ,cls:'button button-previous mgn-rt'
-              ,listeners:{
-                click:{
-                  fn: function(e, ev){
-                    AddPath.EditMetadata.SetMetadata(this);
-                  this.close();
-                  var p = Ext.ComponentMgr.create({'xtype':'apESRI5'});
-                  p.show();
-                }
-                ,scope:this
-                }                  
-              }
-            },'->','->',{
-               xtype: 'tbbutton'
-               ,text:_('add.setrequiredinfo.publish.button')
-              ,id:'publishbutton'
-              ,cls:'button button-confirm'
-              ,listeners:{
-                click:{
-                   fn: function(){
-                    AddPath.EditMetadata.SetMetadata(this);  
-
-                    this.close();
-
-                    AddPath.EditMetadataFinished();                    
-                  }
-                  ,scope:this
-                }
-              }
-            }]
-            }
-            ,monitorValid:true
-            ,listeners:{
-              render:function(fPanel){
-  //TODO: Try to generalize this (for different # of panels)
-                fPanel.ownerCt.on(
-                  'bodyresize'
-                  ,function(wPanel, width, height){
-                    if (height === 'auto') {
-                      fPanel.setHeight('auto');
-                    } else {
-                      fPanel.setHeight(wPanel.getInnerHeight()-(wPanel.findByType('panel')[0].getBox().height+(Ext.isIE?AddPath.ie_size_shift:0)));
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.previous.button')
+                ,id:'previousbutton'
+                ,cls:'button button-previous mgn-rt'
+                ,listeners:{
+                  click:{
+                    fn: function(e, ev){
+                      AddPath.EditMetadata.SetMetadata(this);
+                  
+                      this.close();
+                  
+                      var p = Ext.ComponentMgr.create({'xtype':'apESRI5'});
+                      p.show();
                     }
+                    ,scope:this
+                  }                   
+                }
+              },'->','->',{
+                xtype: 'tbbutton'
+                ,text:_('add.setrequiredinfo.publish.button')
+                ,id:'publishbutton'
+                ,cls:'button button-confirm'
+                ,listeners:{
+                  click:{
+                    fn: function(){
+                      AddPath.EditMetadata.SetMetadata(this);  
+
+                      this.close();
+
+                      AddPath.EditMetadataFinished();                    
+                    }
+                    ,scope:this
                   }
-                );
-              }
+                }
+              }]
             }
+            ,monitorValid:true            
             ,items:[{
     // Rights Holder(s)
               xtype:'container'
@@ -4145,7 +3228,7 @@ Curriki.module.addpath.init = function() {
               ,items:[{             
                 xtype:'box'
                 ,autoEl:{
-                   tag:'div'
+                  tag:'div'
                   ,id:'metadata-right_holder'
                   ,cls:'information-header information-header-required'
                   ,children:[{
@@ -4208,20 +3291,7 @@ Curriki.module.addpath.init = function() {
                     ,qtip:_('sri.license_type_tooltip')
                   }]
                 }
-              }/*,{
-                xtype:'box'
-                ,autoEl:{
-                  tag:'div'
-                  ,html:__('sri.license_type_txt')
-                  ,cls:'directions'
-                }
               },{
-                xtype:'box'
-                ,autoEl:{
-                  tag:'div'
-                  ,html:_('sri.license_type_heading')
-                }
-              }*/,{
                 xtype:'combo'
                 ,id:'metadata-license_type-entry'
                 ,hiddenName:'license_type'
@@ -4254,8 +3324,7 @@ Curriki.module.addpath.init = function() {
             },{
     // Access Privileges
               xtype:'container'
-              ,cls:'metadata-entry'
-              //,layout:'column'
+              ,cls:'metadata-entry'              
               ,items:[{
                 xtype:'box'
                 ,autoEl:{
@@ -4302,8 +3371,7 @@ Curriki.module.addpath.init = function() {
             },{
     // Hide from Search
               xtype:'container'
-              ,cls:'metadata-entry'
-              //,layout:'box'
+              ,cls:'metadata-entry'              
               ,items:[{
                 xtype:'box'
                 ,autoEl:{
@@ -4578,36 +3646,36 @@ Curriki.module.addpath.init = function() {
 
     AddPath.CloseDone = function(dialog){
       return {
-           text:_('add.finalmessage.close.button')
-          ,id:'closebutton'
-          ,cls:'button button-confirm'
-          ,listeners:{
-            'click':{
-               fn:function(e,evt){
-                this.close();
-                if (!Ext.isEmpty(Curriki.current.cameFrom)){
-                  window.location.href=Curriki.current.cameFrom;
-                }
+        text:_('add.finalmessage.close.button')
+        ,id:'closebutton'
+        ,cls:'button button-confirm'
+        ,listeners:{
+          click:{
+            fn:function(e,evt){
+              this.close();
+              if (!Ext.isEmpty(Curriki.current.cameFrom)){
+                window.location.href=Curriki.current.cameFrom;
               }
-              ,scope:dialog
             }
+            ,scope:dialog
           }
+        }
       };
     }
 
     AddPath.DoneA = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_resource')
+          title:_('add.finalmessage.title_resource')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
-             AddPath.FinalLink('view'),'-'
+            AddPath.FinalLink('view'),'-'
             ,AddPath.FinalLink('add'),'-'
             ,AddPath.FinalLink('contributions'),'->'
             ,AddPath.CloseDone(this)
           ]
           ,items:[
-             AddPath.DoneMessage('resource')
+            AddPath.DoneMessage('resource')
           ]
         });
         AddPath.DoneA.superclass.initComponent.call(this);
@@ -4620,16 +3688,16 @@ Curriki.module.addpath.init = function() {
 
 
     AddPath.DoneC = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_collection')
+          title:_('add.finalmessage.title_collection')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
             AddPath.FinalLink('collections'),'->'
             ,AddPath.CloseDone(this)
           ]
           ,items:[
-             AddPath.DoneMessage('collection')
+            AddPath.DoneMessage('collection')
           ]
         });
         AddPath.DoneC.superclass.initComponent.call(this);
@@ -4639,16 +3707,16 @@ Curriki.module.addpath.init = function() {
 
 
     AddPath.DoneE = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_successful')
+          title:_('add.finalmessage.title_successful')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
-             '->',AddPath.CloseDone(this)
+            '->',AddPath.CloseDone(this)
           ]
           ,items:[
             // This needs arguments for "added {0} into {1}"
-             AddPath.DoneMessage('addto')
+            AddPath.DoneMessage('addto')
           ]
         });
         AddPath.DoneE.superclass.initComponent.call(this);
@@ -4661,16 +3729,16 @@ Curriki.module.addpath.init = function() {
 
 
     AddPath.DoneF = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_successful')
+          title:_('add.finalmessage.title_successful')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
             '->',AddPath.CloseDone(this)
           ]
           ,items:[
             // This needs arguments for "added {0} into {1}"
-             AddPath.DoneMessage('addto')
+            AddPath.DoneMessage('addto')
           ]
         });
         AddPath.DoneF.superclass.initComponent.call(this);
@@ -4681,16 +3749,16 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apDoneL', AddPath.DoneF);
 
     AddPath.DoneFFolder = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_folder')
+          title:_('add.finalmessage.title_folder')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
             '->',AddPath.CloseDone(this)
           ]
           ,items:[
             // This needs arguments for "added {0} into {1}"
-             AddPath.DoneMessage('addto_folder')
+            AddPath.DoneMessage('addto_folder')
           ]
         });
         AddPath.DoneFFolder.superclass.initComponent.call(this);
@@ -4702,16 +3770,16 @@ Curriki.module.addpath.init = function() {
 
 
     AddPath.DoneG = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_successful')
+          title:_('add.finalmessage.title_successful')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
-             AddPath.FinalLink('favorites'),'->'
+            AddPath.FinalLink('favorites'),'->'
             ,AddPath.CloseDone(this)
           ]
           ,items:[
-             AddPath.DoneMessage('favorites')
+            AddPath.DoneMessage('favorites')
           ]
         });
         AddPath.DoneG.superclass.initComponent.call(this);
@@ -4720,15 +3788,15 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apDoneG', AddPath.DoneG);
 
     AddPath.DoneK = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_collection')
+          title:_('add.finalmessage.title_collection')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
-             '->',AddPath.CloseDone(this)
+            '->',AddPath.CloseDone(this)
           ]
           ,items:[
-             AddPath.DoneMessage('collection')
+            AddPath.DoneMessage('collection')
           ]
         });
         AddPath.DoneK.superclass.initComponent.call(this);
@@ -4737,15 +3805,15 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apDoneK', AddPath.DoneK);
 
     AddPath.DoneM = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_collection')
+          title:_('add.finalmessage.title_collection')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
-             '->',AddPath.CloseDone(this)
+            '->',AddPath.CloseDone(this)
           ]
           ,items:[
-             AddPath.DoneMessage('groupcollection')
+            AddPath.DoneMessage('groupcollection')
           ]
         });
         AddPath.DoneM.superclass.initComponent.call(this);
@@ -4754,17 +3822,17 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apDoneM', AddPath.DoneM);
 
     AddPath.DoneI = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_resource')
+          title:_('add.finalmessage.title_resource')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
-             AddPath.FinalLink('view'),'-'
+            AddPath.FinalLink('view'),'-'
             ,AddPath.FinalLink('add'),'->'
             ,AddPath.CloseDone(this)
           ]
           ,items:[
-             AddPath.DoneMessage('resource_simple')
+            AddPath.DoneMessage('resource_simple')
           ]
         });
         AddPath.DoneI.superclass.initComponent.call(this);
@@ -4775,26 +3843,26 @@ Curriki.module.addpath.init = function() {
     
     AddPath.AssetLink = function(linkMode) {
       var pageName = (Curriki.current.asset&&Curriki.current.asset.assetPage)||Curriki.current.assetName;
-      var link = '/xwiki/bin/view/'+pageName.replace('.', '/');
-      //return '<a href="http://planete.sankore.org'+link+'" target="_blank">' + _('add.finalmessage.'+linkMode+'.link') +  '</a>';
-      return '<a href="http://planete.sankore.org'+link+'" target="_blank" id="closebutton" style="width: auto;"><em unselectable="on" class=""><button type="button" class="btn x-btn-text ">'+ _('add.finalmessage.'+linkMode+'.link') +'</button></em></a>';    
+      var link = '/xwiki/bin/view/'+pageName.replace('.', '/');      
+      return '<a href="http://'+XWiki.serverName+link+'" target="_blank" id="closebutton" style="width: auto;"><em unselectable="on" class=""><button type="button" class="btn x-btn-text ">'+ _('add.finalmessage.'+linkMode+'.link') +'</button></em></a>';    
     }
+    
     AddPath.CloseLink = function() {
       return '<a href="" onclick="console.log(window.document);return false;">'+_('add.finalmessage.close.button')+'</a>';
     }
     
     AddPath.DoneBookmarklet = Ext.extend(Curriki.ui.dialog.Bookmarklet, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_resource')
+          title:_('add.finalmessage.title_resource')
           ,cls:'addpath addpath-done resource resource-add'
           ,draggable:false
           ,autoHeight:true
           ,bbar:[
-             AddPath.AssetLink('view'),'->'
+            AddPath.AssetLink('view'),'->'
           ]
           ,items:[
-             AddPath.DoneMessage('resource_simple')
+            AddPath.DoneMessage('resource_simple')
           ]
         });
         AddPath.DoneBookmarklet.superclass.initComponent.call(this);
@@ -4803,18 +3871,18 @@ Curriki.module.addpath.init = function() {
     Ext.reg('apDoneBookmarklet', AddPath.DoneBookmarklet);
 
     AddPath.DoneCopy = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         Ext.apply(this, {
-           title:_('add.finalmessage.title_copied')
+          title:_('add.finalmessage.title_copied')
           ,cls:'addpath addpath-done resource resource-add'
           ,bbar:[
-             AddPath.FinalLink('view'),'-'
+            AddPath.FinalLink('view'),'-'
             ,AddPath.FinalLink('add'),'-'
             ,AddPath.FinalLink('contributions'),'->'
             ,AddPath.CloseDone(this)
           ]
           ,items:[
-             AddPath.DoneMessage('copy')
+            AddPath.DoneMessage('copy')
           ]
         });
         AddPath.DoneCopy.superclass.initComponent.call(this);
@@ -4862,37 +3930,37 @@ Curriki.module.addpath.init = function() {
     }
 
     AddPath.ChooseLocation = Ext.extend(Curriki.ui.dialog.Messages, {
-        initComponent:function(){
+      initComponent:function(){
         var topChildren = [];
         if (Curriki.data.user.collectionChildren.length>0){
           topChildren.push({
-           text:_('panels.myCurriki.myCollections')
-          ,id:'ctv-drop-tree-collection-root'
-          ,cls:'ctv-top ctv-header ctv-collections'
-          ,leaf:false
-          ,allowDrag:false
-          ,allowDrop:true // Needed to auto-expand on hover
-          ,disallowDropping:true // Disable drop on this node
-          ,expanded:(Curriki.data.user.collectionChildren.length < 4)
-          ,children:Curriki.data.user.collectionChildren
+            text:_('panels.myCurriki.myCollections')
+            ,id:'ctv-drop-tree-collection-root'
+            ,cls:'ctv-top ctv-header ctv-collections'
+            ,leaf:false
+            ,allowDrag:false
+            ,allowDrop:true // Needed to auto-expand on hover
+            ,disallowDropping:true // Disable drop on this node
+            ,expanded:(Curriki.data.user.collectionChildren.length < 4)
+            ,children:Curriki.data.user.collectionChildren
           });
         }
         if (Curriki.data.user.groupChildren.length>0){
           topChildren.push({
-           text:_('panels.myCurriki.myGroups')
-          ,id:'ctv-drop-tree-group-root'
-          ,cls:'ctv-top ctv-header ctv-groups'
-          ,leaf:false
-          ,allowDrag:false
-          ,allowDrop:true // Needed to auto-expand on hover
-          ,disallowDropping:true // Disable drop on this node
-          ,expanded:(Curriki.data.user.groupChildren.length < 4)
-          ,children:Curriki.data.user.groupChildren
+            text:_('panels.myCurriki.myGroups')
+            ,id:'ctv-drop-tree-group-root'
+            ,cls:'ctv-top ctv-header ctv-groups'
+            ,leaf:false
+            ,allowDrag:false
+            ,allowDrop:true // Needed to auto-expand on hover
+            ,disallowDropping:true // Disable drop on this node
+            ,expanded:(Curriki.data.user.groupChildren.length < 4)
+            ,children:Curriki.data.user.groupChildren
           });
         }
 
         Ext.apply(this, {
-           id:'ChooseLocationDialogueWindow'
+          id:'ChooseLocationDialogueWindow'
           ,title:_('add.chooselocation.title')
           ,cls:'addpath addpath-ctv resource resource-add'
           ,autoScroll:false
@@ -4901,41 +3969,41 @@ Curriki.module.addpath.init = function() {
           ,collapsible:true
           ,resizeable:true
           ,items:[{
-             xtype:'panel'
+            xtype:'panel'
             ,id:'guidingquestion-container'
             ,cls:'guidingquestion-container'
             ,items:[{
-               xtype:'box'
+              xtype:'box'
               ,autoEl:{
-                 tag:'div'
+                tag:'div'
                 ,html:_('add.chooselocation.guidingquestion')
                 ,cls:'guidingquestion'
               }
             },{
-               xtype:'box'
+              xtype:'box'
               ,autoEl:{
-                 tag:'div'
+                tag:'div'
                 ,html:_('add.chooselocation.instruction')
                 ,cls:'instruction'
               }
             }]
           },{
-             xtype:'form'
+            xtype:'form'
             ,id:'ChooseLocationDialoguePanel'
             ,formId:'ChooseLocationDialogueForm'
             ,labelWidth:25
             ,autoScroll:false
             ,border:false
             ,defaults:{
-               labelSeparator:''
+              labelSeparator:''
             }
             ,bbar:[{
-               text:_('add.chooselocation.cancel.button')
+              text:_('add.chooselocation.cancel.button')
               ,id:'cancelbutton'
               ,cls:'button button-cancel mgn-rt'
               ,listeners:{
                 click:{
-                   fn: function(){
+                  fn: function(){
                     this.close();
                     window.location.href = Curriki.current.cameFrom;
                   }
@@ -4943,13 +4011,13 @@ Curriki.module.addpath.init = function() {
                 }
               }
             },'->',{
-               text:_('add.chooselocation.next.button')
+              text:_('add.chooselocation.next.button')
               ,id:'nextbutton'
               ,cls:'button button-confirm'
               ,disabled:true
               ,listeners:{
                 click:{
-                   fn: function(){
+                  fn: function(){
                     AddPath.AddSubasset(function(){
                       var dlg = Ext.getCmp('ChooseLocationDialogueWindow');
                       if (dlg) {
@@ -4966,19 +4034,19 @@ Curriki.module.addpath.init = function() {
             }
             ,items:[{
     // DRAG BOX
-               xtype:'panel'
+              xtype:'panel'
               ,id:'resource-pickup'
               ,width:360
               ,border:false
               ,items:[{
-                 xtype:'box'
+                xtype:'box'
                 ,autoEl:{
-                   tag:'div'
+                  tag:'div'
                   ,html:_('add.chooselocation.instruction_short')
                   ,cls:'instruction'
                 }
               },{
-                 xtype:'treepanel'
+                xtype:'treepanel'
                 ,loader: new Curriki.ui.treeLoader.Base()
                 ,id:'ctv-from-tree-cmp'
                 ,width:330
@@ -4990,7 +4058,7 @@ Curriki.module.addpath.init = function() {
                 ,enableDrag:true
                 ,rootVisible:false
                 ,root: new Ext.tree.AsyncTreeNode({
-                   text:_('add.chooselocation.pickup_root')
+                  text:_('add.chooselocation.pickup_root')
                   ,id:'ctv-drag-tree-root'
                   ,cls:'ctv-drag-root'
                   ,leaf:false
@@ -5000,7 +4068,7 @@ Curriki.module.addpath.init = function() {
                   ,allowDrop:false
                   ,expanded:true
                   ,children:[{
-                     text:(Curriki.current.asset&&Curriki.current.asset.title)||Curriki.current.assetTitle||'UNKNOWN'
+                    text:(Curriki.current.asset&&Curriki.current.asset.title)||Curriki.current.assetTitle||'UNKNOWN'
                     ,id:'ctv-target-node'
                     ,assetName:(Curriki.current.asset&&Curriki.current.asset.assetPage)||Curriki.current.assetName
                     ,cls:'ctv-target ctv-resource resource-'+((Curriki.current.asset&&Curriki.current.asset.assetType)||Curriki.current.assetType||'UNKNOWN')
@@ -5011,11 +4079,11 @@ Curriki.module.addpath.init = function() {
 
     // DROP TREE
             },{
-               xtype:'panel'
+              xtype:'panel'
               ,id:'resource-drop'
               ,border:false
               ,items:[{
-                 xtype:'treepanel'
+                xtype:'treepanel'
                 ,loader: new Curriki.ui.treeLoader.Base()
                 ,id:'ctv-to-tree-cmp'
                 ,autoScroll:true
@@ -5087,7 +4155,7 @@ Curriki.module.addpath.init = function() {
                   }
                 }
                 ,root: new Ext.tree.AsyncTreeNode({
-                   text:_('add.chooselocation.drop_root')
+                  text:_('add.chooselocation.drop_root')
                   ,id:'ctv-drop-tree-root'
                   ,cls:'ctv-drop-root'
                   ,leaf:false
@@ -5097,7 +4165,6 @@ Curriki.module.addpath.init = function() {
                   ,children:topChildren
                 })
               }]
-
             }]
           }]
         });

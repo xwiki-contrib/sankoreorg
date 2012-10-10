@@ -2595,6 +2595,7 @@ Curriki.data.fw_item.getRolloverDisplay = function(fw_array) {
     fws.shift();
   }
   
+  
   if ("undefined" !== typeof fws && "undefined" !== typeof fws[0]) {
     var fwD = "";
     var fwi = fws[0];
@@ -3028,34 +3029,81 @@ Curriki.data.EventManager.on('Curriki.data.language:ready', function() {
 
 
 Ext.ns('Curriki.ui.component.asset');
-Curriki.ui.component.asset.getFwTree = function(filters) {
+
+Curriki.ui.component.asset.filterTreeNodes = function(nodes, filters) {
+  var filteredNodes = [];
+
+  nodes.each(function(node){
+    var cf = node.filters;
+    if (!cf
+      || cf.length == 0
+      || cf == filters 
+      || filters.indexOf(cf) != -1 
+      || (filters.some 
+        && filters.some(function(f){
+            if(cf.indexOf(f) != -1) 
+              return true; 
+            return false;
+          })
+        )
+      ) {
+       var fnode = {
+         id: node.id
+         ,text: node.text
+         ,checked: node.checked
+         //,listeners: {
+         //  checkchange: Curriki.data.fw_item.fwCheckListener
+         //}       
+       }
+       if (node.children) {
+         fnode.children = Curriki.ui.component.asset.filterTreeNodes(node.children, filters);
+         if (fnode.children.length < 1)
+           fnode.leaf = true;
+       } else {
+         fnode.leaf = true;
+       }
+       
+       filteredNodes.push(fnode);
+     }
+   });
+   
+   return filteredNodes;  
+}
+
+
+Curriki.ui.component.asset.getFwTree = function(fwChildren) {
   return {
-    xtype: 'curriki-treepanel',
-    loader: new Curriki.ui.tree.TreeLoader({
-      preloadChildren: true,
-      filters: filters
-    }),
-    id: 'fw_items-tree',
-    useArrows: true,
-    autoHeight: false,
-    border: false,
-    cls: 'addpath-tree',
-    animate: true,
-    enableDD: false,
-    containerScroll: true,
-    rootVisible: false,
-    root: new Curriki.ui.tree.AsyncTreeNode({
-      text: _('CurrikiCode.AssetClass_fw_items_FW_masterFramework.WebHome'),
-      id: 'FW_masterFramework.WebHome',
-      cls: 'fw-item-top fw-item-parent fw-item',
-      leaf: false,
-      expanded: true,
-      children: Curriki.data.fw_item.fwChildren
+    xtype: 'curriki-treepanel'
+    ,loader: new Curriki.ui.tree.TreeLoader({
+      preloadChildren: true      
     })
+    ,id: 'fw_items-tree'
+    ,useArrows: true
+    ,autoHeight: false
+    ,border: false
+    ,cls: 'addpath-tree'
+    ,animate: true
+    ,enableDD: false
+    ,containerScroll: true
+    ,rootVisible: false
+    ,root: new Curriki.ui.tree.AsyncTreeNode({
+      text: _('CurrikiCode.AssetClass_fw_items_FW_masterFramework.WebHome')
+      ,id: 'FW_masterFramework.WebHome'
+      ,cls: 'fw-item-top fw-item-parent fw-item'
+      ,leaf: false
+      ,expanded: true
+      ,children: fwChildren
+    })
+    ,listeners: {
+      resize: function(comp) {
+        var ct = comp.findParentByType('form').ownerCt;
+        ct.syncSize();
+      }
+    }
   };
 };
 
-Curriki.ui.component.asset.getElTree = function(filters) {
+Curriki.ui.component.asset.getElTree = function(elChildren) {
   return {
     xtype: 'curriki-treepanel'
     ,id: 'el-tree'
@@ -3068,7 +3116,7 @@ Curriki.ui.component.asset.getElTree = function(filters) {
     ,containerScroll: true
     ,loader: new Curriki.ui.tree.TreeLoader({
       preloadChildren: true
-      ,filters: filters
+      //,filters: filters
     })
     ,root: new Curriki.ui.tree.AsyncTreeNode({
       text: _('CurrikiCode.AssetClass_educational_level_AssetMetadata.WebHome')
@@ -3076,9 +3124,15 @@ Curriki.ui.component.asset.getElTree = function(filters) {
       ,cls: 'el-item-top el-item-parent el-item'
       ,leaf: false
       ,expanded: true
-      ,children: Curriki.data.el.elChildren
+      ,children: elChildren
     })
     ,rootVisible: false
+    ,listeners: {
+      resize: function(comp) {
+        var ct = comp.findParentByType('form').ownerCt;
+        ct.syncSize();
+      }
+    }
   };
 };
 
@@ -3105,6 +3159,12 @@ Curriki.ui.component.asset.getIctTree = function() {
       expanded: true,
       children: Curriki.data.ict.ictChildren
     })
+    ,listeners: {
+      resize: function(comp) {
+        var ct = comp.findParentByType('form').ownerCt;
+        ct.syncSize();
+      }
+    }
   };
 };
 
