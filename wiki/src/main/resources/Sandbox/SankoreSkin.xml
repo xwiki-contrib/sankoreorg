@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1349172244000</creationDate>
-<date>1349172244000</date>
-<contentUpdateDate>1349172244000</contentUpdateDate>
+<creationDate>1350047869000</creationDate>
+<date>1350047869000</date>
+<contentUpdateDate>1350047869000</contentUpdateDate>
 <version>1.1</version>
 <title>SankoreSkin</title>
 <template></template>
@@ -8912,8 +8912,8 @@ $context.unsetLinksQueryString()
   
       
   
-  &lt;ul class="nav nav-horizontal"&gt;&lt;li&gt;&lt;a title="" href="/fr/contact"&gt;Contactez-nous&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a title="" href="/fr/charte-des-valeurs-sankore"&gt;Charte Sankoré&lt;/a&gt;&lt;/li&gt;
+  &lt;ul class="nav nav-horizontal"&gt;&lt;li&gt;&lt;a title="" href="http://sankore.org/fr/contact"&gt;Contactez-nous&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a title="" href="http://sankore.org/fr/charte-des-valeurs-sankore"&gt;Charte Sankoré&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a title="" href="http://planete.sankore.org/xwiki/bin/view/Main/Conditions+generales+d+utilisation"&gt;Mentions légales&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a title="" href="http://planete.sankore.org/xwiki/bin/view/Main/Politique+de+confidentialite"&gt;Politique de confidentialité&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -9254,6 +9254,7 @@ $xwiki.jsfx.use('uicomponents/suggest/suggest.js')
 &lt;script type="text/javascript" src="$xwiki.getSkinFile("js/xwiki/xwiki.js", true)"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
 // &lt;![CDATA[
+XWiki.serverName = "${request.serverName}";
 XWiki.webapppath = "${xwiki.webAppPath}";
 XWiki.servletpath = "${xwiki.servletPath}";
 XWiki.contextPath = "${request.contextPath}";
