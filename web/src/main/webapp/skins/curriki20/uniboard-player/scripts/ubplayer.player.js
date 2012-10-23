@@ -165,15 +165,11 @@ UbPlayer.Player = function(args) {
   jQuery("#menu-button-showthumbnails").click(function() { that.showHideThumbnails(); });
 
   // Add the thumbnails
-  var newThumbnail = null;
-  var formattedThumbNumber = null;
   for(var i=0; i<that.documentData.numberOfPages; i++){
-    newThumbnail = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").clone().attr("page", "" + i);
-    formattedThumbNumber = that.formatPageNumber(i+that.firstPageNumber);
-    newThumbnail
-      .find("img").attr("src", that.documentData.pagesBaseUrl + "/page" + formattedThumbNumber + ".thumbnail.jpg")
-      .attr("title", "page " + (i+that.firstPageNumber));
-    jQuery("#thumbnails>#thumbnails-canvas>div:last-child").after(newThumbnail); 
+    var formattedThumbNumber = that.formatPageNumber(i+that.firstPageNumber);
+    var thumburl = that.documentData.pagesBaseUrl + "/page" + formattedThumbNumber + ".thumbnail.jpg";
+    var thumbhtml = '<div class="thumbnail"><img class="thumb-img" src="' + thumburl + '" title="page ' + (i+that.firstPageNumber) + '" alt="thumbnail" height="100%" width="auto"/></div>';
+    jQuery("#thumbnails>#thumbnails-canvas").append(thumbhtml); 
   }
   jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").remove();
 
