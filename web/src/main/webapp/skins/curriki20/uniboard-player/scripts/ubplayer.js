@@ -3,6 +3,33 @@ var UbPlayer = {};
 UbPlayer.playerprefix = "./uniboard-player";
 UbPlayer.mode = "fs";
 
+UbPlayer.messages = {
+  "default" : {
+    "widget.needsfs" : "This widget only works in full screen mode.",
+    "widget.close" : "Close",
+    "fs.close" : "Close"
+   },
+  "fr" : {
+    "widget.needsfs" : "Ce widget ne fonctionne qu'en plein ecran.",
+    "widget.close" : "Close",
+    "fs.close" : "Close"
+  }
+}
+
+UbPlayer.msg = function(key) {
+ var messages = UbPlayer.messages["default"];
+ if (UbPlayer.messages[UbPlayer.language]) {
+   messages = UbPlayer.messages[UbPlayer.language];
+ }
+ if (messages[key]) {
+  return messages[key];
+ } else if (UbPlayer.messages["default"][key]) {
+  return UbPlayer.messages["default"][key];
+ } else {
+  return "";
+ }
+}
+
 UbPlayer.init = function(playerprefix) {
    UbPlayer.playerprefix = playerprefix;
 }
@@ -16,7 +43,7 @@ UbPlayer.loadCSS = function(url) {
  }
 }
 
-UbPlayer.launchPlayer = function(file, nbpages, mode) {
+UbPlayer.launchPlayer = function(file, nbpages, mode, language) {
         console.log("Player opening");    
 
         var myUbPlayer = null;
@@ -24,9 +51,14 @@ UbPlayer.launchPlayer = function(file, nbpages, mode) {
         // set the mode to be used
         UbPlayer.startMode = mode;
         UbPlayer.mode = mode;
+        UbPlayer.language = language;
 
         console.log("Player doc ready");    
         jQuery(document).ready(function(){
+
+        // Update texts in player.html file
+        jQuery("#quitFullScreen").text(UbPlayer.msg("fs.close"));
+        jQuery("#app-viewer-close").text(UbPlayer.msg("widget.close"));
 
         var args = {
                 documentData:{

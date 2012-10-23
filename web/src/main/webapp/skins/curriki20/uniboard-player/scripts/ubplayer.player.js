@@ -1,6 +1,26 @@
+
+// called by widgets to make sure preferences are accessible
+function loaded() {
+ var iframe= document.getElementById('app-viewer-app');
+ var iframewindow= iframe.contentWindow? iframe.contentWindow : iframe.contentDocument.defaultView;
+ iframewindow.sankore = new UbPlayer.SankorePrefs(currentWidget.preferences);
+}
+
+UbPlayer.SankorePrefs = function(args) {
+  this.preference = function(param, defaultValue) {
+    if (args)
+     return args[param];
+    else
+     return "";
+  }
+  this.setPreference = function(param, defaultValue) {
+  }
+};
+
 UbPlayer.Player = function(args) {
   var that = this;
-  
+
+  this.firstPageNumber = 1;  
   this.thumbsBar = { 
     state:"min", 
     fullHeightVal:100, 
@@ -66,10 +86,14 @@ UbPlayer.Player = function(args) {
       jQuery("#thumbnails>#thumbnails-canvas>.thumbnail").each(function(){
         thumbIndex++;
         currentThumb = jQuery(jQuery("#thumbnails>#thumbnails-canvas>.thumbnail")[that.thumbnails.firstVisibleThumb.index()-thumbIndex]);
+        console.log("Thumbnails " + thumbIndex + " " + currentThumb.length);
         if(currentThumb.length > 0){
           jQuery("#thumbnail-next").removeClass("disabled");
+          console.log("Thumbnail showing " + thumbIndex);
           currentThumb.show();
+          console.log("Thumbnail position " + that.thumbnails.firstVisibleThumb.position().top + " " + currentThumb.position().top);
           if(that.thumbnails.firstVisibleThumb.position().top !== currentThumb.position().top) {
+          console.log("Thumbnail showing finished " + that.thumbnails.firstVisibleThumb.position().top + " " + currentThumb.position().top);
             that.thumbnails.firstVisibleThumb = currentThumb;
             return false;
           }
@@ -81,9 +105,17 @@ UbPlayer.Player = function(args) {
      }
     }
   }
+
+  // check if there is a page0. If yes switch firstPageNumber to page 0
+  var page0url =  this.documentData.pagesBaseUrl + "/page000.json";
+  jQuery.getJSON(page0url, function(data) {
+      if(data){
+        that.firstPageNumber = 0;
+      }
+  }).complete(function() {
   // Events binding  
   jQuery("#menu-button-first").click(function(){ that.goToPage("FIRST") });
-  jQuery("#menu-button-previous").click(function(){ alert("here"); that.goToPage("PREVIOUS") });
+  jQuery("#menu-button-previous").click(function(){ that.goToPage("PREVIOUS") });
   jQuery("#menu-button-index").toggle(function(){ that.showIndex() }, function(){ that.hideIndex() });
   jQuery("#menu-button-next").click(function(){ that.goToPage("NEXT") });
   jQuery("#menu-button-last").click(function(){ that.goToPage("LAST") });
@@ -92,9 +124,9 @@ UbPlayer.Player = function(args) {
   jQuery("#menu-button-index-embed").toggle(function(){ that.showIndex() }, function(){ that.hideIndex() });
 
   jQuery("#current-page")
-    .bind("mouseleave", this.boardButtonOutHandler);
+    .bind("mouseleave", that.boardButtonOutHandler);
   jQuery("#boards")
-    .bind("mouseenter", this.boardButtonOutHandler);
+    .bind("mouseenter", that.boardButtonOutHandler);
 
   jQuery("#thumbnail-next").click(function(){ console.log("calling next"); that.thumbnails.next()});
   jQuery("#thumbnail-previous").click(function(){that.thumbnails.previous()});
@@ -132,53 +164,15 @@ UbPlayer.Player = function(args) {
   });
   jQuery("#menu-button-showthumbnails").click(function() { that.showHideThumbnails(); });
 
-  // Constructs the slider
-  var sliderPage = jQuery("#thumbnails-slider>div:first").clone();
-  var sliderPageWidth = (100/this.documentData.numberOfPages) + "%";
-  jQuery("#thumbnails-slider>div:first").remove();
-  for(var i=1; i<=this.documentData.numberOfPages; i++){
-    var newSliderPage = sliderPage.clone();
-    newSliderPage
-      .css({ width:sliderPageWidth })
-      .attr("title", "page " + i)
-      .click(function(){
-        that.goToPage(jQuery(this).index()+1);
-      });
-    if(i===this.documentData.numberOfPages) newSliderPage.addClass("last");
-    jQuery("#thumbnails-slider").append(newSliderPage);
-  }
-
-  // Slider handlera
-/*
-  jQuery("#thumbnails-slider>div:first").append(jQuery("#thumbnails-slider-handler"));
-  jQuery("#thumbnails-slider-handler").draggable({
-    axis: 'x',
-    containment:[ jQuery("#thumbnails-slider>div:first-child").offset().left, 0, 
-                  jQuery("#thumbnails-slider>div:first-child").offset().left + jQuery("#thumbnails-slider>div:first-child").width()*this.documentData.numberOfPages-20, 0  ],
-    start:function(e){
-      jQuery(this).css({left:"0"});
-      jQuery(this).parent("div").css({zIndex:1});
-      that.sliderListener(that.currentPage.number);
-      that.thumbsBar.sliding = true;
-    },
-    stop:function(e){
-      jQuery(this).css({left:"0"});
-      clearTimeout(that.sliderTimer);
-      jQuery(this).appendTo(jQuery("#thumbnails-slider>div")[that.currentPage.number-1]);
-      that.thumbsBar.sliding = false;
-    } 
-  });
-  */
-
   // Add the thumbnails
   var newThumbnail = null;
   var formattedThumbNumber = null;
-  for(var i=0; i<this.documentData.numberOfPages; i++){
+  for(var i=0; i<that.documentData.numberOfPages; i++){
     newThumbnail = jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").clone().attr("page", "" + i);
-    formattedThumbNumber = this.formatPageNumber(i+1);
+    formattedThumbNumber = that.formatPageNumber(i+that.firstPageNumber);
     newThumbnail
-      .find("img").attr("src", this.documentData.pagesBaseUrl + "/page" + formattedThumbNumber + ".thumbnail.jpg")
-      .attr("title", "page " + (i+1));
+      .find("img").attr("src", that.documentData.pagesBaseUrl + "/page" + formattedThumbNumber + ".thumbnail.jpg")
+      .attr("title", "page " + (i+that.firstPageNumber));
     jQuery("#thumbnails>#thumbnails-canvas>div:last-child").after(newThumbnail); 
   }
   jQuery("#thumbnails>#thumbnails-canvas>.thumbnail:first").remove();
@@ -188,75 +182,25 @@ UbPlayer.Player = function(args) {
       function(){ jQuery(this).addClass("selected") },
       function(){ jQuery(this).removeClass("selected") })
     .click(function(){
-      that.goToPage(jQuery(this).index()+1);
+      that.goToPage(jQuery(this).index()+that.firstPageNumber);
       if(jQuery("#description").css("display") != "none"){
         jQuery("#menu-button-showdetails").click();
         jQuery(window).resize();
       }
     });
 
-/*
-  if(!this.documentData.hasPdf){ 
-    jQuery("#menu-export-hasPdf>a").addClass("disabled");
-    jQuery("#menu-export-hasPdf").addClass("disabled");
-  }else{ 
-    jQuery("#menu-export-hasPdf")
-      .hover(
-        function(){
-          jQuery(this).children("a").addClass("over");
-          jQuery(this).addClass("over")}, 
-        function(){
-          jQuery(this).children("a").removeClass("over");
-          jQuery(this).removeClass("over");
-      })
-      .children("a")
-        .attr("href", this.documentData.pagesBaseUrl + "/" + this.documentData.uuid + ".pdf")
-        .attr("target", "_blank");
-  }
-  if(!this.documentData.hasUbz){
-    jQuery("#menu-export-hasUbz>a").addClass("disabled");
-    jQuery("#menu-export-hasUbz").addClass("disabled");
-  }else{ 
-    jQuery("#menu-export-hasUbz")
-      .hover(
-        function(){
-          jQuery(this).children("a").addClass("over");
-          jQuery(this).addClass("over")}, 
-        function(){
-          jQuery(this).children("a").removeClass("over");
-          jQuery(this).removeClass("over");
-      })
-      .children("a")
-        .attr("href", this.documentData.pagesBaseUrl + "/" + this.documentData.uuid + ".ubz")
-        .attr("target", "_blank");
-  }
-
-  jQuery(document).click(function(){
-    if(jQuery("#menu-export-dropdown").css("display") !== "none"){
-      jQuery("#menu-button-export").click();
-    }
-    if(jQuery("#menu-share-dropdown").css("display") !== "none"){
-      if(that.state == "embedded"){
-        jQuery("#menu-list-share").click();
-      }else{
-        jQuery("#shareDoc").click();
-      }
-    }
-  });
-  jQuery("#menu-share-twitter>a").attr("href", "http://twitter.com/home?status=Currently reading " + this.documentData.pagesBaseUrl);
-*/
-  jQuery("#description-text").append("<a href='mailto:" + this.documentData.authorEmail + "'>" + this.documentData.author + 
-                                      "</a><br/>" + this.documentData.title + 
-                                      "<br/>" + this.formatDate(this.documentData.publishedAt) + 
-                                      "<br/><br/>" + this.documentData.description);
-//  jQuery("#menubottom-input").after("/" + this.documentData.numberOfPages);
+  jQuery("#description-text").append("<a href='mailto:" + that.documentData.authorEmail + "'>" + that.documentData.author + 
+                                      "</a><br/>" + that.documentData.title + 
+                                      "<br/>" + that.formatDate(that.documentData.publishedAt) + 
+                                      "<br/><br/>" + that.documentData.description);
   
-  this.openPage(1);
+  that.openPage(1);
   // Load the images
-  for(var i=1; i<=this.documentData.numberOfPages; i++){
-    this.pagesImg[i] = new Image();
-    this.pagesImg[i].src = this.documentData.pagesBaseUrl + "/page" + this.formatPageNumber(i) + ".thumbnail.jpg";
+  for(var i=0; i<that.documentData.numberOfPages; i++){
+    that.pagesImg[i] = new Image();
+    that.pagesImg[i].src = that.documentData.pagesBaseUrl + "/page" + that.formatPageNumber(i+that.firstPageNumber) + ".thumbnail.jpg";
   }
+  });
 };
 
 UbPlayer.Player.prototype.showHideThumbnails = function() {
@@ -328,9 +272,9 @@ UbPlayer.Player.prototype.goToPage = function(pageNumber){
   }else if(pageNumber === "PREVIOUS"){
     pageNumber = this.currentPage.number - 1;
   }else if(pageNumber === "FIRST") {
-    pageNumber = 1;
+    pageNumber = this.firstPageNumber; 
   }else if(pageNumber === "LAST") {
-    pageNumber = this.documentData.numberOfPages;
+    pageNumber = this.documentData.numberOfPages + 1 - this.firstPageNumber;
   }
 
   if(pageNumber > this.currentPage.number){
@@ -342,8 +286,8 @@ UbPlayer.Player.prototype.goToPage = function(pageNumber){
   }
   this.currentPage.number = pageNumber;
 
-  if(this.currentPage.number < 1){
-    this.currentPage.number = 1;
+  if(this.currentPage.number < this.firstPageNumber){
+    this.currentPage.number = this.firstPageNumber;
   }else if(this.currentPage.number > this.documentData.numberOfPages){
     this.currentPage.number = this.documentData.numberOfPages;
   }
@@ -617,7 +561,7 @@ UbPlayer.Player.prototype.openPage = function(pageNumber){
   jQuery("#current-page>img").attr("src", fileName);
   
   // Slider handler
-  if(!this.thumbsBar.sliding)
+  if(this.thumbsBar.sliding)
     jQuery("#thumbnails-slider-handler")
       .appendTo(jQuery("#thumbnails-slider>div")[pageNumber-1])
       .html(pageNumber);
@@ -659,7 +603,12 @@ UbPlayer.Player.prototype.openPage = function(pageNumber){
               left:app.img.leftInPercent + "%"})
             .click(function(app, widget){
               return function(e){
-                that.viewer.show(app.src, widget.nominalWidth, widget.nominalHeight);
+                currentWidget = widget;
+                if (that.mode!="full" && widget.width>600) {
+                   alert(UbPlayer.msg("widget.needsfs"));
+                } else {
+                   that.viewer.show(app.src, widget.nominalWidth, widget.nominalHeight);
+                }
               }
             }(app, widget))
             .hover(

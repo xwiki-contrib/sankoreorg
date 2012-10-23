@@ -24,7 +24,7 @@ if (typeof console == "undefined") {
 UbPlayer.init('./');
 jQuery(document).ready(function() {
    var params = location.hash.substring(1).split(",");
-   UbPlayer.launchPlayer(params[0], params[1], params[2]);
+   UbPlayer.launchPlayer(params[0], params[1], params[2], params[3]);
    });
 </script>
 <link href="stylesheets/master.css" type="text/css" rel="stylesheet" type="text/css" />
@@ -86,7 +86,7 @@ jQuery(document).ready(function() {
                         <div id="app-viewer-button-close-canvas">
                             <div id="app-viewer-button-close"></div>
                         </div>
-                        <a href="#">close</a>
+                        <a href="#" id="app-viewer-close">Fermer</a>
                     </div>
                 </div><!-- vertical and horizontal centered iframe -->
             </div>
