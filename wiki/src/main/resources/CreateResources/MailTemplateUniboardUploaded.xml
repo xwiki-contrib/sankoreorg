@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1348847483000</creationDate>
-<date>1348847483000</date>
-<contentUpdateDate>1348847483000</contentUpdateDate>
+<creationDate>1352722882000</creationDate>
+<date>1352722882000</date>
+<contentUpdateDate>1352722882000</contentUpdateDate>
 <version>1.1</version>
 <title>Ressource Open-Sankoré en ligne</title>
 <template></template>
@@ -78,7 +78,7 @@
 <property>
 <html>&lt;h2&gt;Cher $user&lt;/h2&gt;
 
-&lt;p&gt;Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.&lt;/p&gt;
+&lt;p&gt;Le téléchargement de la ressource Open-Sankoré $asset est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.&lt;/p&gt;
 &lt;br/&gt;
 &lt;p&gt;Pour ce faire, suivez le lien suivant:&lt;/p&gt;
 &lt;a href="$url"&gt;$url&lt;/a&gt;</html>
@@ -92,7 +92,7 @@
 <property>
 <text>Cher $user,
 
-Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.
+Le téléchargement de la ressource Open-Sankoré $asset est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.
 
 Pour ce faire, suivez le lien suivant:
 $url</text>
@@ -179,7 +179,7 @@ $url</text>
 {{velocity}}
 == Cher $user ==
 
-Le téléchargement de la ressource Open-Sankoré est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.
+Le téléchargement de la ressource Open-Sankoré $assetTitle est terminé. La prochaine étape est de remplir les métadonnées de cette ressource et de la relier à une de vos collections disponibles sur la plateforme Planète Sankoré.
 
 Pour ce faire, suivez le lien suivant:
 $assetURL
