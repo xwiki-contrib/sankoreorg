@@ -397,8 +397,8 @@ Ext.select('div#asset-header h2 a').hover(function(){Ext.select('ul#asset-tabs l
   #asset_info_edlevel($asset true)
   <strong>$msg.get("global.title.popup.ict")</strong>
   #asset_info_ict($asset true) 
-  #set($licenseType = $asset.display("licenseType"))
-  <p><strong>$msg.get("global.title.popup.license")</strong>#if($!licenseType != "")$licenseType#else$msg.get('global.title.popup.none.selected')#end</p> 
+  #set($licenseType = $asset.getObject("CurrikiCode.AssetLicenseClass").get("licenseType"))
+  <p><strong>$msg.get("global.title.popup.license")</strong>#if("$!licenseType" != "")$licenseType#else$msg.get('global.title.popup.none.selected')#end</p> 
 </div>
 #end
 
