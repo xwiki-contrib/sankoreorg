@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1338395143000</creationDate>
-<date>1338395143000</date>
-<contentUpdateDate>1338395143000</contentUpdateDate>
+<creationDate>1352891822000</creationDate>
+<date>1352891822000</date>
+<contentUpdateDate>1352891822000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -972,6 +972,7 @@ global.title.popup.description=&lt;strong&gt;Description:&lt;/strong&gt;
 global.title.popup.subject=&lt;strong&gt;Subject(s):&lt;/strong&gt;
 global.title.popup.educationlevel=&lt;strong&gt;Education Level(s):&lt;/strong&gt;
 global.title.popup.ict=&lt;strong&gt;Instructional Component Type(s):&lt;/strong&gt;
+global.title.popup.license=&lt;strong&gt;Licence :&lt;/strong&gt;
 global.title.popup.none.selected=-- None Selected --
 ##Used in left TOC for no ICT value:
 global.title.popup.ict.missing=-- None Selected --

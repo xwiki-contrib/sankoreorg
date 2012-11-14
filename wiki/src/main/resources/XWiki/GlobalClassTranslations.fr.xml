@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347555781000</creationDate>
-<date>1347555781000</date>
-<contentUpdateDate>1347555781000</contentUpdateDate>
+<creationDate>1352890434000</creationDate>
+<date>1352890434000</date>
+<contentUpdateDate>1352890434000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -951,6 +951,7 @@ global.title.popup.description=Description :
 global.title.popup.subject=Sujet(s) :
 global.title.popup.educationlevel=Niveaux Educatifs :
 global.title.popup.ict=Type(s) de ressource(s) :
+global.title.popup.license=Licence :
 
 global.title.popup.none.selected= --Non sélectionné--  
 
