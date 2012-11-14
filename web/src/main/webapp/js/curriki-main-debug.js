@@ -4208,7 +4208,10 @@ Curriki.ui.util.getTitleRollover = function(attr, hasTitle) {
   var lvl = Curriki.data.el.getRolloverDisplay(attr.levels || []);
   var ict = Curriki.data.ict.getRolloverDisplay(attr.ict || []);
   
-  var license = Curriki.data.ict.getRolloverDisplay(attr.license || "");
+  var license = attr.license || '';
+  license = Ext.util.Format.stripTags(license);
+  license = Ext.util.Format.ellipsis(license, 256);
+  license = Ext.util.Format.htmlEncode(license);
   
   if (!hasTitle) {
     qtip = String.format("{3}<br />{2}<br />{5}<br />{4}<br />{7}<br />{6}<br />{9}<br />{8}", desc, _('global.title.popup.description'), fw, _('global.title.popup.subject'), lvl, _('global.title.popup.educationlevel'), ict, _('global.title.popup.ict'), license, _('global.title.popup.license'));
