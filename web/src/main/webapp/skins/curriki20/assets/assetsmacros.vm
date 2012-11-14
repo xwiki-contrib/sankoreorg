@@ -391,18 +391,14 @@ Ext.select('div#asset-header h2 a').hover(function(){Ext.select('ul#asset-tabs l
  *#
 #macro(asset_info_rollover $asset $seccounter)
 <div id="mycurriki-description-${seccounter}" class="popup popup-info-rollover" style="display: none;">
-    ##<p>
-    ##    <strong>$msg.get("global.title.popup.contributor")</strong><span>$!xwiki.getUserName($asset.creator, false)</span>
-    ##</p>
-    <p>
-        <strong>$msg.get("global.title.popup.description")</strong><span>$!asset.display("description")</span>
-    </p>
-    <strong>$msg.get("global.title.popup.subject")</strong>
-    #asset_info_subject($asset true)
-    <strong>$msg.get("global.title.popup.educationlevel")</strong>
-    #asset_info_edlevel($asset true)
-    <strong>$msg.get("global.title.popup.ict")</strong>
-    #asset_info_ict($asset true)
+  <strong>$msg.get("global.title.popup.subject")</strong>
+  #asset_info_subject($asset true)
+  <strong>$msg.get("global.title.popup.educationlevel")</strong>
+  #asset_info_edlevel($asset true)
+  <strong>$msg.get("global.title.popup.ict")</strong>
+  #asset_info_ict($asset true) 
+  #set($licenseType = $asset.display("licenseType"))
+  <p><strong>$msg.get("global.title.popup.license")</strong>#if($!licenseType != "")$licenseType#else$msg.get('global.title.popup.none.selected')#end</p> 
 </div>
 #end
 
@@ -665,7 +661,6 @@ $asset.display('instructional_component', 'view')
 </ul>
 *#
 #end
-
 
 #**
  * Macro to display info tab

@@ -4208,11 +4208,13 @@ Curriki.ui.util.getTitleRollover = function(attr, hasTitle) {
   var lvl = Curriki.data.el.getRolloverDisplay(attr.levels || []);
   var ict = Curriki.data.ict.getRolloverDisplay(attr.ict || []);
   
+  var license = Curriki.data.ict.getRolloverDisplay(attr.license || "");
+  
   if (!hasTitle) {
-    qtip = String.format("{1}<br />{0}<br /><br />{3}<br />{2}<br />{5}<br />{4}<br />{7}<br />{6}", desc, _('global.title.popup.description'), fw, _('global.title.popup.subject'), lvl, _('global.title.popup.educationlevel'), ict, _('global.title.popup.ict'));
+    qtip = String.format("{3}<br />{2}<br />{5}<br />{4}<br />{7}<br />{6}<br />{9}<br />{8}", desc, _('global.title.popup.description'), fw, _('global.title.popup.subject'), lvl, _('global.title.popup.educationlevel'), ict, _('global.title.popup.ict'), license, _('global.title.popup.license'));
   }
   else {
-    qtip = String.format("{1}<br />{0}<br /><br />{3}<br />{2}<br /><br />{5}<br />{4}<br />{7}<br />{6}<br />{9}<br />{8}", title, _('global.title.popup.title'), desc, _('global.title.popup.description'), fw, _('global.title.popup.subject'), lvl, _('global.title.popup.educationlevel'), ict, _('global.title.popup.ict'));
+    qtip = String.format("{5}<br />{4}<br />{7}<br />{6}<br />{9}<br />{8}<br />{11}<br />{10}", title, _('global.title.popup.title'), desc, _('global.title.popup.description'), fw, _('global.title.popup.subject'), lvl, _('global.title.popup.educationlevel'), ict, _('global.title.popup.ict'), license, _('global.title.popup.license'));
   }
   
   return qtip;
