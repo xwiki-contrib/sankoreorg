@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1347546200000</creationDate>
-<date>1347546200000</date>
-<contentUpdateDate>1347546200000</contentUpdateDate>
+<creationDate>1354630681000</creationDate>
+<date>1354630681000</date>
+<contentUpdateDate>1354630681000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -38,6 +38,7 @@ displayer_collection=collection
 displayer_mp3=mp3
 displayer_tif=attachment
 displayer_sankore=attachment
+displayer_widget=attachment
 ## extension to category mapping
 ## this allows to find the category corresponding 
 ## to a file type
@@ -109,6 +110,7 @@ category_mov=video
 category_vidi=video
 category_ubz=sankore
 category_ubw=sankore
+category_wgt=widget
 ## extensions to filetype mapping
 extension_sco=sco
 extension_zip=zip
@@ -181,6 +183,7 @@ extension_xlsx=xlsx
 extension_vidi=vidi
 extension_ubz=ubz
 extension_ubw=ubw
+extension_wgt=wgt
 ## mimetype to filetype mapping
 ## this is unused for now
 mimetype_contentpackage/ims=sco
