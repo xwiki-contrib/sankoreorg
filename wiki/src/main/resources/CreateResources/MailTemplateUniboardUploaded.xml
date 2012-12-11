@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1352722882000</creationDate>
-<date>1352722882000</date>
-<contentUpdateDate>1352722882000</contentUpdateDate>
+<creationDate>1355232276000</creationDate>
+<date>1355232276000</date>
+<contentUpdateDate>1355232276000</contentUpdateDate>
 <version>1.1</version>
 <title>Ressource Open-Sankoré en ligne</title>
 <template></template>
@@ -87,7 +87,7 @@
 <language>en</language>
 </property>
 <property>
-<subject>Resource Open-Sankoré en ligne</subject>
+<subject>Ressource Open-Sankoré en ligne</subject>
 </property>
 <property>
 <text>Cher $user,
@@ -163,7 +163,7 @@ $url</text>
 <language>fr</language>
 </property>
 <property>
-<subject>Resource Open-Sankoré en ligne</subject>
+<subject>Ressource Open-Sankoré en ligne</subject>
 </property>
 <property>
 <text>Cher $user,
