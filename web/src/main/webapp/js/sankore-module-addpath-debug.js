@@ -2321,7 +2321,7 @@ Curriki.module.addpath.init = function() {
                 ,id:'hidden_from_search-entry'
                 ,name:'hidden_from_search'
                 ,boxLabel:_('sri.hidden_from_search_after')                               
-                ,checked:Curriki.current.sri.hidden_from_search?Curriki.current.sri.hidden_from_search:false
+                ,checked:Curriki.current.sri.hidden_from_search?true:false
               }]
             }]
           }]
@@ -3395,6 +3395,7 @@ Curriki.module.addpath.init = function() {
                 xtype:'checkbox'
                 ,name:'hidden_from_search'
                 ,boxLabel:_('sri.hidden_from_search_after')
+                ,checked:Curriki.current.sri.hidden_from_search?true:false
               }]
             }]
           }]
