@@ -20,120 +20,220 @@
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/1.0</syntaxId>
+<syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#if($hasGlobalAdmin)
-#set($asset = $xwiki.curriki.fetchAsset($request.page))
-#includeMacros("CreateResources.StyledMacros")
-1.1 $msg.get("curriki.crs.review"): $asset.getDisplayTitle()
-#if($request.submit)
-  #set($discard = $asset.updateObjectFromRequest("CurrikiCode.AssetClass"))
-  #if(!$asset.getObject("CRS.CurrikiReviewStatusClass"))
-    #set($discard = $asset.newObject("CRS.CurrikiReviewStatusClass"))
-  #end
-  #set($review = $asset.updateObjectFromRequest("CRS.CurrikiReviewClass"))
-  #set($discard = $asset.use($review))
-  #set($comment = $asset.getValue("comment"))
-  #set($tc = $asset.display("technicalcompletness"))
-  #set($ca = $asset.display("contentaccuracy"))
-  #set($ap = $asset.display("appropriatepedagogy"))
-  #set($vtc = $asset.getValue("technicalcompletness"))
-  #set($vca = $asset.getValue("contentaccuracy"))
-  #set($vap = $asset.getValue("appropriatepedagogy"))
-  #set($rating = $asset.calculateRating($vap, $vca, $vtc))
-  #set($discard = $asset.set("rating", $rating))
-  #if($request.confirm)
-    #set($discard = $asset.set("user", $context.user))
-    #set($discard = $asset.set("date", $xwiki.formatDate($xwiki.date, "MM/dd/yyyy HH:mm:ss")))
-    #set($discard = $asset.use("CRS.CurrikiReviewStatusClass"))
-    #if($rating == 1)
-      #set($discard = $asset.set("status", "400"))
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>ReviewSystem.Review</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>1776fda9-7969-4d37-a459-98e70a0f47cc</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code>textarea {
+  width: 100%;
+}</code>
+</property>
+<property>
+<name></name>
+</property>
+<property>
+<parse>0</parse>
+</property>
+<property>
+<use>currentPage</use>
+</property>
+</object>
+<content>{{velocity}}
+{{html wiki=true}}
+#set($asset = $xwiki.curriki.fetchAssetOrNull("$!request.page"))
+#if($hasGlobalAdmin &amp;&amp; $asset)
+=$msg.get("curriki.crs.review"): $asset.getDisplayTitle()=
+  #if($request.submit)
+    #set($discard = $asset.updateObjectFromRequest("CurrikiCode.AssetClass"))
+    #if(!$asset.getObject("CRS.CurrikiReviewStatusClass"))
+      #set($discard = $asset.newObject("CRS.CurrikiReviewStatusClass"))
     #end
-    #if($rating == 2)
-      #set($discard = $asset.set("status", "600"))
-    #end
-    #if($rating == 3)
-      #set($discard = $asset.set("status", "800"))
-    #end
-    #set($discard = $asset.set("lastreview_user", $context.user))
-    #set($discard = $asset.set("lastreview_date", $xwiki.formatDate($xwiki.date, "MM/dd/yyyy HH:mm:ss")))
-    #set($discard = $asset.set("reviewpending", 0))
-    $asset.saveWithProgrammingRights($msg.get("curriki.comment.crsvalueadded", [$rating]))
-    $msg.get("curriki.crs.review.saved") $msg.get("curriki.crs.review.returnto") [$msg.get("curriki.crs.review.document")&gt;$asset.fullName] $msg.get("curriki.crs.review.or") [$msg.get("curriki.crs.review.reviewpage")&gt;Reviews].
-    #set($assetowner = $asset.creator)
-    #if($assetowner&amp;&amp;($assetowner!=""))
-      #set($assetownerdoc = $xwiki.getDocument($assetowner))
-      #set($ok = $assetownerdoc.use("XWiki.XWikiUsers"))
-      #set($optout = $assetownerdoc.getValue("opt_out"))
-      #set($email = $assetownerdoc.getValue("email"))
-      #if("$!optout"!="1"&amp;&amp;$email!="")
-        #set($assettitle = $asset.displayTitle)
-        #set($adminemail = $xwiki.getXWikiPreference("admin_email"))
-        #set($assetrating = $msg.get("CRS.CurrikiReviewStatusClass_status_${rating}"))
-        #set($assetrating = "${rating} - ${assetrating}")
-        #set($assetcommentsurl = $asset.getExternalURL("view", "viewer=comments"))
-        #set($profileurl = $assetownerdoc.getExternalURL())
-        #set($mesg = $xwiki.parseContent($xwiki.getDocument("CRS.ReviewEmail").getContent()))
-        #set($discard = $xwiki.sendMessage($adminemail, $email, $mesg))
-        $msg.get("curriki.crs.review.mailsentto") [$email&gt;$assetowner]:
-      #end
-    #end
-    #if("$!request.xredirect" != "")
-      $response.sendRedirect($request.xredirect)
-    #end
-  #else
-  &lt;form action="" method="post"&gt;
-    &lt;input type="hidden" name="page" value="$!request.page" /&gt;
-    #set($lastreview = $asset.getLastReview())
-    #if(!$lastreview)
-      #set($discard = $asset.newObject("CRS.CurrikiReviewClass"))
-    #end
-    $asset.display("technicalcompletness","hidden")
-    $asset.display("contentaccuracy","hidden")
-    $asset.display("appropriatepedagogy","hidden")
-    #set($rating = $asset.getValue("rating"))
+    #set($review = $asset.updateObjectFromRequest("CRS.CurrikiReviewClass"))
+    #set($discard = $asset.use($review))
+    #set($comment = $asset.getValue("comment"))
+    #set($tc = $asset.display("technicalcompletness"))
+    #set($ca = $asset.display("contentaccuracy"))
+    #set($ap = $asset.display("appropriatepedagogy"))
     #set($vtc = $asset.getValue("technicalcompletness"))
     #set($vca = $asset.getValue("contentaccuracy"))
     #set($vap = $asset.getValue("appropriatepedagogy"))
-    #set($comment = $xwiki.getXMLEncoded($asset.getValue("comment")))
-    #set($comment = $comment.replaceAll('(\w{80})', "$1&lt;wbr&gt;&amp;shy;"))
-    $asset.set("comment", $comment)
-    $asset.display("comment", "hidden")
-    #if(!$vtc||$vtc==""||!$vca||$vca==""||!$vap||$vap=="")
-      $msg.get("curriki.crs.review.incomplete")
-      &lt;input type="submit" name="revise" value="$msg.get("curriki.crs.review.revise")" onclick="history.go(-1); return false;" /&gt;
-    #else
-      $msg.get("curriki.crs.review.preview")
-      #if($rating&amp;&amp;($rating!="0"))
-        {pre}$msg.get("curriki.crs.generatedcomment", [$sict, "#crs_displayCRSIcon('CRSReviewRatingIcon', ${rating})", $vtc, $vca, $vap, $comment]){/pre}
-      #else
-        {pre}$msg.get("curriki.crs.generatedcommentunrated", [$sict, $vtc, $vca, $vap, $comment]){/pre}
+    #set($rating = $asset.calculateRating($vap, $vca, $vtc))
+    #set($discard = $asset.set("rating", $rating))
+    #if($request.confirm)
+      #set($discard = $asset.set("user", $context.user))
+      #set($discard = $asset.set("date", $xwiki.formatDate($xwiki.date, "MM/dd/yyyy HH:mm:ss")))
+      #set($discard = $asset.use("CRS.CurrikiReviewStatusClass"))
+      #if($rating == 1)
+        #set($discard = $asset.set("status", "400"))
       #end
-      &lt;input type="hidden" name="confirm" value="1" /&gt;
-      &lt;input type="submit" name="revise" value="$msg.get("curriki.crs.review.revise")" onclick="history.go(-1); return false;" /&gt;
-      &lt;input type="submit" name="submit" value="$msg.get("curriki.crs.review.submitreview")" /&gt;
-    &lt;/form&gt;
+      #if($rating == 2)
+        #set($discard = $asset.set("status", "600"))
+      #end
+      #if($rating == 3)
+        #set($discard = $asset.set("status", "800"))
+      #end
+      #set($discard = $asset.set("lastreview_user", $context.user))
+      #set($discard = $asset.set("lastreview_date", $xwiki.formatDate($xwiki.date, "MM/dd/yyyy HH:mm:ss")))
+      #set($discard = $asset.set("reviewpending", 0))
+      $asset.saveWithProgrammingRights($msg.get("curriki.comment.crsvalueadded", [$rating]))
+      $msg.get("curriki.crs.review.saved") $msg.get("curriki.crs.review.returnto") [[$msg.get("curriki.crs.review.document")&gt;&gt;$asset.fullName]] $msg.get("curriki.crs.review.or") [[$msg.get("curriki.crs.review.reviewpage")&gt;&gt;Reviews]].
+      #set($assetowner = $asset.creator)
+      #if($assetowner&amp;&amp;($assetowner!=""))
+        #set($assetownerdoc = $xwiki.getDocument($assetowner))
+        #set($ok = $assetownerdoc.use("XWiki.XWikiUsers"))
+        #set($optout = $assetownerdoc.getValue("opt_out"))
+        #set($email = $assetownerdoc.getValue("email"))
+        #if("$!optout"!="1"&amp;&amp;$email!="")
+          #set($assettitle = $asset.displayTitle)
+          #set($adminemail = $xwiki.getXWikiPreference("admin_email"))
+          #set($assetrating = $msg.get("CRS.CurrikiReviewStatusClass_status_${rating}"))
+          #set($assetrating = "${rating} - ${assetrating}")
+          #set($assetcommentsurl = $asset.getExternalURL("view", "viewer=comments"))
+          #set($profileurl = $assetownerdoc.getExternalURL())
+          #set($mesg = $xwiki.parseContent($xwiki.getDocument("CRS.ReviewEmail").getContent()))
+          #set($discard = $xwiki.sendMessage($adminemail, $email, $mesg))
+          $msg.get("curriki.crs.review.mailsentto") [[$email&gt;&gt;$assetowner]]:
+        #end
+      #end
+      #if("$!request.xredirect" != "")
+        $response.sendRedirect($request.xredirect)
+      #end
+    #else
+    &lt;form action="" method="post"&gt;
+      &lt;input type="hidden" name="page" value="$!request.page" /&gt;
+      #set($lastreview = $asset.getLastReview())
+      #if(!$lastreview)
+        #set($lastreview = $asset.newObject("CRS.CurrikiReviewClass"))
+      #end
+      #set($discard = $asset.use($lastreview))
+      $asset.display("technicalcompletness","hidden")
+      $asset.display("contentaccuracy","hidden")
+      $asset.display("appropriatepedagogy","hidden")
+      #set($rating = $asset.getValue("rating"))
+      #set($vtc = $asset.getValue("technicalcompletness"))
+      #set($vca = $asset.getValue("contentaccuracy"))
+      #set($vap = $asset.getValue("appropriatepedagogy"))
+      #set($comment = $xwiki.getXMLEncoded($asset.getValue("comment")))
+      #set($comment = $comment.replaceAll('(\w{80})', "$1&lt;wbr&gt;&amp;shy;"))
+      $asset.set("comment", $comment)
+      $asset.display("comment", "hidden")
+      #if(!$vtc||$vtc==""||!$vca||$vca==""||!$vap||$vap=="")
+        $msg.get("curriki.crs.review.incomplete")
+        &lt;input type="submit" name="revise" value="$msg.get("curriki.crs.review.revise")" onclick="history.go(-1); return false;" /&gt;
+      #else
+        $msg.get("curriki.crs.review.preview")
+        #if($rating&amp;&amp;($rating!="0"))
+          $msg.get("curriki.crs.generatedcomment", [$sict, "#crs_displayCRSIcon('CRSReviewRatingIcon', ${rating})", $vtc, $vca, $vap, $comment])
+        #else
+          $msg.get("curriki.crs.generatedcommentunrated", [$sict, $vtc, $vca, $vap, $comment])
+        #end
+        &lt;input type="hidden" name="confirm" value="1" /&gt;
+        &lt;span class="butonwrapper"&gt;
+          &lt;input class="button" type="submit" name="revise" value="$msg.get("curriki.crs.review.revise")" onclick="history.go(-1); return false;" /&gt;
+        &lt;/span&gt;
+        &lt;span class="butonwrapper"&gt;
+          &lt;input class="button" type="submit" name="submit" value="$msg.get("curriki.crs.review.submitreview")" /&gt;
+        &lt;/span&gt;
+      &lt;/form&gt;
+      #end
     #end
-  #end
-#else
-  #set($discard = $asset.use("CRS.CurrikiReviewStatusClass"))
-  #set($nomdate = $asset.display("nomination_date"))
-  #set($nomuser = $asset.display("nomination_user"))
-  #set($nomcomment = $asset.display("nomination_comment"))
-  #set($lastreview_date = $asset.display("lastreview_date"))
-  #set($lastreview_user = $asset.display("lastreview_user"))
-  #set($status = $asset.display("status"))
-  #set($statusValue = $asset.getValue("status"))
-  &lt;input type="hidden" id="currentStatus" value="$statusValue"/&gt;
-  #if($nomuser!="") 
-    * $msg.get("curriki.crs.review.submittedby"): [$nomuser] $msg.get("curriki.crs.review.on") $nomdate
-  #end 
-  #if($status&amp;&amp;($status!="0")&amp;&amp;($status!=""))
-    * $msg.get("curriki.crs.review.currentrating"): $status
-    * $msg.get("curriki.crs.review.lastreviewed"): $lastreview_date
   #else
-    * $msg.get("curriki.crs.review.currentrating"): $msg.get("curriki.crs.unrated")
-  #end
+    #set($discard = $asset.use("CRS.CurrikiReviewStatusClass"))
+    #set($nomdate = $asset.display("nomination_date"))
+    #set($nomuser = $asset.display("nomination_user"))
+    #set($nomcomment = $asset.display("nomination_comment"))
+    #set($lastreview_date = $asset.display("lastreview_date"))
+    #set($lastreview_user = $asset.display("lastreview_user"))
+    #set($status = $asset.display("status"))
+    #set($statusValue = $asset.getValue("status"))
+    &lt;input type="hidden" id="currentStatus" value="$statusValue"/&gt;
+    #if($nomuser!="") 
+      * $msg.get("curriki.crs.review.submittedby"): $xwiki.getLocalUserName($nomuser, true) $msg.get("curriki.crs.review.on") $nomdate
+    #end 
+    #if($status&amp;&amp;($status!="0")&amp;&amp;($status!=""))
+      * $msg.get("curriki.crs.review.currentrating"): $status
+      * $msg.get("curriki.crs.review.lastreviewed"): $lastreview_date
+    #else
+      * $msg.get("curriki.crs.review.currentrating"): $msg.get("curriki.crs.unrated")
+    #end
 &lt;script type="text/javascript"&gt;
 function clickCheckbox() {
   Curriki.module.unnominate.confirm();
@@ -153,7 +253,7 @@ function clickIsChildCheckbox() {
   }
 }
 function asterixReviewSelected() {
-  if (document.getElementById('asterixReview').value=="")
+  if (document.getElementById('asterixReview').value=="") {
     alert("$msg.get("curriki.crs.review.setas*")"); 
   } else {
     Curriki.module.asterixReview.selectedConfirm(document.getElementById('asterixReview').value,'$asset.getURL("view")');
@@ -163,61 +263,59 @@ function initComponents() {
   document.getElementById('asterixReview').style.display='none';
 }
 &lt;/script&gt;
-  #if($hasGlobalAdmin ||($xwiki.curriki.isMember("XWiki.EditorGroup")) || ($xwiki.curriki.isMember("XWiki.ReviewerGroup")))
-    #curriki_formpart_begin($msg.get("curriki.crs.review.managereviewstatus"))
-    #if(($xwiki.curriki.isMember("XWiki.ReviewerGroup")) || $hasGlobalAdmin)
-      &lt;p&gt;&lt;input type="checkbox" id="unnominate" onclick="clickCheckbox()"&gt;$msg.get("curriki.crs.review.unnominate")&lt;/input&gt;&lt;/p&gt;
-    #end
-    #if(($xwiki.curriki.isMember("XWiki.EditorGroup")) || $hasGlobalAdmin)
-      &lt;p&gt;&lt;input type="checkbox" id="partner" onclick="clickPartnerCheckbox()"&gt;$msg.get("curriki.crs.review.partner")&lt;/input&gt;&lt;/p&gt;
-    #end
-    #if((!$statusValue) || ($statusValue!="800")&amp;&amp;($statusValue!="600")&amp;&amp;($statusValue!="400"))
-      &lt;p&gt;&lt;input type="checkbox" id="isChild" onclick="clickIsChildCheckbox()" #if($statusValue&amp;&amp;($statusValue=="700")||($statusValue=="500")||($statusValue=="300")) checked #end &gt;$msg.get("curriki.crs.review.isChild")&lt;/input&gt;&lt;/p&gt;
-      &lt;select id="asterixReview" onchange="asterixReviewSelected()"&gt;
-        &lt;option value=""&gt;$msg.get("curriki.crs.review.setas*")&lt;/option&gt;
-        &lt;option value="300"&gt;$msg.get("curriki.crs.review.setas300")&lt;/option&gt;
-        &lt;option value="500"&gt;$msg.get("curriki.crs.review.setas500")&lt;/option&gt;
-        &lt;option value="700"&gt;$msg.get("curriki.crs.review.setas700")&lt;/option&gt;
-      &lt;/select&gt;
+    #if($hasGlobalAdmin ||($xwiki.curriki.isMember("XWiki.EditorGroup")) || ($xwiki.curriki.isMember("XWiki.ReviewerGroup")))
+      ==$msg.get("curriki.crs.review.managereviewstatus")==
+      #if(($xwiki.curriki.isMember("XWiki.ReviewerGroup")) || $hasGlobalAdmin)
+        &lt;p&gt;&lt;input type="checkbox" id="unnominate" onclick="clickCheckbox()"&gt;$msg.get("curriki.crs.review.unnominate")&lt;/input&gt;&lt;/p&gt;
+      #end
+      #if(($xwiki.curriki.isMember("XWiki.EditorGroup")) || $hasGlobalAdmin)
+        &lt;p&gt;&lt;input type="checkbox" id="partner" onclick="clickPartnerCheckbox()"&gt;$msg.get("curriki.crs.review.partner")&lt;/input&gt;&lt;/p&gt;
+      #end
+      #if((!$statusValue) || ($statusValue!="800")&amp;&amp;($statusValue!="600")&amp;&amp;($statusValue!="400"))
+        &lt;p&gt;&lt;input type="checkbox" id="isChild" onclick="clickIsChildCheckbox()" #if($statusValue&amp;&amp;($statusValue=="700")||($statusValue=="500")||($statusValue=="300")) checked #end &gt;$msg.get("curriki.crs.review.isChild")&lt;/input&gt;&lt;/p&gt;
+        &lt;select id="asterixReview" onchange="asterixReviewSelected()"&gt;
+          &lt;option value=""&gt;$msg.get("curriki.crs.review.setas*")&lt;/option&gt;
+          &lt;option value="300"&gt;$msg.get("curriki.crs.review.setas300")&lt;/option&gt;
+          &lt;option value="500"&gt;$msg.get("curriki.crs.review.setas500")&lt;/option&gt;
+          &lt;option value="700"&gt;$msg.get("curriki.crs.review.setas700")&lt;/option&gt;
+        &lt;/select&gt;
 &lt;script type="text/javascript"&gt;
   initComponents();
 &lt;/script&gt;
+      #end
     #end
-  #end
-  #curriki_formpart_end()
-  ########################################################
-  #if($xwiki.curriki.isMember("XWiki.ReviewerGroup") || $hasGlobalAdmin)
-    #set($review = $asset.getLastReview())
-    #if(!$review)
-      #set($discard = $asset.newObject("CRS.CurrikiReviewClass"))
-    #end
-    #set($discard = $asset.use($review))
-    &lt;form action="" method="post" onsubmit="return validate();"&gt;
-      &lt;input type="hidden" name="page" value="$!request.page" /&gt;            
-      #######################################################
-      #curriki_formpart_begin($msg.get("curriki.crs.review.tc"))
-      $asset.display("technicalcompletness", "edit")
-      #curriki_formpart_end()
-      #######################################################
-      #curriki_formpart_begin($msg.get("curriki.crs.review.ca"))
-      $asset.display("contentaccuracy", "edit")
-      #curriki_formpart_end()
-      #######################################################
-      #curriki_formpart_begin($msg.get("curriki.crs.review.ap"))
-      $asset.display("appropriatepedagogy", "edit")
-      #curriki_formpart_end()
-      #######################################################
-      #curriki_formpart_begin($msg.get("curriki.crs.review.comments"))
-      #set($commentMaxLength = 1200)
-      $msg.get("curriki.crs.review.commentsdetails", [$commentMaxLength])
-      $asset.display("comment", "edit")
-      &lt;input type="submit" name="submit" value="$msg.get("curriki.crs.review.submitpreview")" /&gt;
-      #curriki_formpart_end()
-      &lt;/form&gt;
-      #set($reviewId = "CRS.CurrikiReviewClass_" + $review.number + "_comment")
-      #set($appropriatepedagogyName = "CRS.CurrikiReviewClass_" + $review.number + "_appropriatepedagogy")
-      #set($contentaccuracyName = "CRS.CurrikiReviewClass_" + $review.number + "_contentaccuracy")
-      #set($technicalcompletnessName = "CRS.CurrikiReviewClass_" + $review.number + "_technicalcompletness")
+    ########################################################
+    #if($xwiki.curriki.isMember("XWiki.ReviewerGroup") || $hasGlobalAdmin)
+      #set($review = $asset.getLastReview())
+      #if(!$review)
+        #set($review = $asset.newObject("CRS.CurrikiReviewClass"))
+      #end
+      #set($discard = $asset.use($review))
+      &lt;form action="" method="post" onsubmit="return validate();"&gt;
+        &lt;input type="hidden" name="page" value="$!request.page" /&gt;            
+        #######################################################
+        ==$msg.get("curriki.crs.review.tc")==
+        $asset.display("technicalcompletness", "edit")
+        #######################################################
+        ==$msg.get("curriki.crs.review.ca")==
+        $asset.display("contentaccuracy", "edit")
+        #######################################################
+        ==$msg.get("curriki.crs.review.ap")==
+        $asset.display("appropriatepedagogy", "edit")
+        #######################################################
+        ==$msg.get("curriki.crs.review.comments")==
+        #set($commentMaxLength = 1200)
+        &lt;p&gt;$msg.get("curriki.crs.review.commentsdetails", [$commentMaxLength])&lt;/p&gt;
+        $asset.display("comment", "edit")
+        &lt;br /&gt;
+        &lt;span class="butonwrapper"&gt;
+          &lt;input class="button" type="submit" name="submit" value="$msg.get("curriki.crs.review.submitpreview")" /&gt;
+        &lt;/span&gt;
+        &lt;/form&gt;
+        #set($reviewId = "CRS.CurrikiReviewClass_" + $review.number + "_comment")
+        #set($appropriatepedagogyName = "CRS.CurrikiReviewClass_" + $review.number + "_appropriatepedagogy")
+        #set($contentaccuracyName = "CRS.CurrikiReviewClass_" + $review.number + "_contentaccuracy")
+        #set($technicalcompletnessName = "CRS.CurrikiReviewClass_" + $review.number + "_technicalcompletness")
 &lt;script type="text/javascript"&gt;
 function validate() {
   var comment = document.getElementById('$commentId');
@@ -230,4 +328,8 @@ function validate() {
 &lt;/script&gt;
     #end
   #end
-#end</content></xwikidoc>
+#else
+  #xwikimessageboxstart($msg.get("error") $msg.get("notallowed"))
+#end
+{{/html}}
+{{/velocity}}</content></xwikidoc>
