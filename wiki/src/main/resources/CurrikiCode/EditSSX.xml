@@ -105,12 +105,9 @@
 <code>/*
   colibri override
 */
-.editor-wiki .alleditcontent, .editor-wysiwyg .alleditcontent {
-  margin-right: 225px;
-}
 
 .alleditcontent {
-  margin: 0 25px 25px 0;
+  margin: 0;
 }
 
 #xwikieditor {
@@ -127,6 +124,121 @@
 
 #xwikieditor select {
   border-radius: 4px;
+  width: 100%;
+}
+
+#xwikieditor label {
+  margin: 0;
+}
+
+.panel input, .panel select, .panel dt, .panel table, .padded label {
+  font-size: 1em;
+  padding: 4px;
+  width: 95%;
+}
+
+.panel h5 {
+  font-size: 16px;
+}
+
+.panel {
+  width: 220px;
+}
+
+.panel dd {
+  margin-left: 0;
+}
+
+input#tags {
+  width: 95%;
+}
+
+
+#editPanels {
+  margin: 0 0 0 -230px;
+  width: 230p
+}
+
+
+#xwikieditcontent textarea#content {
+  box-shadow: none;
+  margin: 0;
+}
+
+#xwikieditor #document-title h1 {
+  font-size: 1.77em;
+  letter-spacing: 0;
+  padding: 0;
+}
+
+#xwikieditor #document-title h1 * {
+  font-family: inherit;
+}
+
+#xwikieditor .xobject-content dt, #xwikieditor .xproperty-content dt {
+  font-size: 12px;
+}
+
+#xwikieditor .xobject-content dd, #xwikieditor .xproperty-content dd {
+  font-size: 12px;
+}
+
+#xwikieditor input {
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+  color: #555555;
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px;
+}
+
+#xwikieditor input[type="submit"] {
+  background: url("/xwiki/bin/download/Sandbox/SankoreSkin/buttonbg.jpg") repeat-x scroll center center transparent;
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    color: white;
+    float: right;
+    font-size: 1.35em;
+    height: 36px;
+    margin-left: 5px;
+    padding: 5px 10px;
+    text-transform: none;
+}
+
+#xwikiobjects select {
+  width: 92%;
+}
+
+.xwiki-livetable td.xwiki-livetable-display-container {
+  border: none;
+}
+
+.rights th, .rights td {
+  border: none;
+}
+
+h2 {
+  line-height: 1.2em;
+}
+
+#xwikieditor .xproperty-title h2 {
+ padding: 4px 20px 4px 34px;
+}
+
+#xwikieditor label {
+  font-size: 12px;
+}
+
+/*
+  Wysiwyg.css
+*/
+.xRichTextEditorTabPanel {
+  background-color: transparent;
+}
+
+table.xRichTextEditorTabPanel td {
+  background-color: transparent;
 }</code>
 </property>
 <property>
