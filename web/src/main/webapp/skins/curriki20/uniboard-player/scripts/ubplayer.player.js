@@ -35,6 +35,13 @@ UbPlayer.Player = function(args) {
   this.adaptPageTimer = null;
   this.sliderTimer = null;
   this.documentData = args.documentData;
+
+  // verify if file is ubz or ubw
+  if (this.documentData.pagesBaseUrl.indexOf(".ubz")!=-1)
+   this.ubz = true;
+  else
+   this.ubz = false;
+
   this.pagesImg = args.pagesImg;
   this.thumbnails = {
     thumbsToHide:[],
@@ -194,7 +201,7 @@ UbPlayer.Player = function(args) {
   // Load the images
   for(var i=0; i<that.documentData.numberOfPages; i++){
     that.pagesImg[i] = new Image();
-    that.pagesImg[i].src = that.documentData.pagesBaseUrl + "/page" + that.formatPageNumber(i+that.firstPageNumber) + ".thumbnail.jpg";
+    that.pagesImg[i].src = that.documentData.pagesBaseUrl + "/page" + that.formatPageNumber(i+that.firstPageNumber) + (this.ubz ? ".thumbnail" : "") + ".jpg";
   }
   });
 };
@@ -542,7 +549,7 @@ UbPlayer.Player.prototype.formatDate = function(date){
 UbPlayer.Player.prototype.openPage = function(pageNumber){
   var that = this;
   var formattedPageNumber = this.formatPageNumber(pageNumber);
-  var fileName = this.documentData.pagesBaseUrl + "/page" + formattedPageNumber + ".thumbnail.jpg";
+  var fileName = this.documentData.pagesBaseUrl + "/page" + formattedPageNumber  + (this.ubz ? ".thumbnail" : "") + ".jpg";
   var jsonName = this.documentData.pagesBaseUrl + "/page" + formattedPageNumber + ".json";
                        
   this.currentPage.number = pageNumber;
