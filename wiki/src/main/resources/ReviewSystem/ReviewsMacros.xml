@@ -32,9 +32,6 @@
 #macro(gridresult $className $collist)
   #gridresultwithfilter($className $collist '' '' [])
 #end
-
-
-
 #**
  * Macro to get the results of a livetable data call.
  * This page is called from live grids via Ajax with the argument xpage=plain. It returns a
@@ -200,9 +197,10 @@
   ## ==============================================
 {
   #if("$!request.sql" == '1')
-    "sql": "$escapetool.javascript($sql)",
-    "countsql": "$escapetool.javascript($countSql)",
-    "params": "$escapetool.javascript($sqlParams)"
+    sql: $sql,
+    countsql: $countSql,
+    params: $sqlParams
+    items: $items
   #end
   "totalrows": $totalItems,
   "matchingtags": {

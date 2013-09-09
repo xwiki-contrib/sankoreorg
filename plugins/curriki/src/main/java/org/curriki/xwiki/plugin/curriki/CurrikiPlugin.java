@@ -200,25 +200,22 @@ public class CurrikiPlugin extends XWikiDefaultPlugin implements XWikiPluginInte
      * @return List of all groups that the specified user is in
      */
     public Map<String,Object> fetchUserGroups(String forUser, XWikiContext context) {
-        /*
         Map<String,Object> groups = new HashMap<String,Object>();
-        CurrikiSpaceManagerPluginApi sm = (CurrikiSpaceManagerPluginApi) context.getWiki().getPluginApi(CurrikiSpaceManager.CURRIKI_SPACEMANAGER_NAME, context);
-        List spaces;
+        GroupManager groupManager = Utils.getComponent(GroupManager.class);
+        List<String> groupNames;
         try {
-            spaces = sm.getSpaceNames(forUser, null);
+            groupNames = groupManager.getGroupNamesFor(forUser);
         } catch (Exception e) {
             // Ignore exception -- just return an empty list
             LOG.error("Error getting user groups", e);
             return null;
         }
 
-        for (Object space : spaces) {
-            if (space instanceof String) {
-                groups.put((String) space, getGroupInfo((String) space, context));
-            }
-        }*/
+        for (String groupName : groupNames) {
+            groups.put((String) groupName, getGroupInfo(groupName, context));
+        }
 
-        return null;
+        return groups;
     }
 
     protected Map<String,Object> getGroupInfo(String groupName, XWikiContext context) {

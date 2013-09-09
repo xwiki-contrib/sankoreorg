@@ -137,7 +137,33 @@ a.icon-mini {
   list-style: none;
   margin-left:0;
 }
-</code></property><property><name>ViewSSX</name>
+
+#body.adminbody.hideright #contentcolumn .main {
+  margin: 0;
+}
+
+#contentcolumn #admin-page-content {
+  background-color: transparent;
+}
+
+.xform h2, .xform legend {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#admin-page-content #packagelist {
+  width: 53%;
+}
+
+#admin-page-content #packagecontainer {
+  width: 44%;
+}
+
+#admin-page-content input.button {
+  float: none;
+}</code>
+</property>
+<property>
+<name>ViewSSX</name>
 </property>
 <property>
 <parse>1</parse>

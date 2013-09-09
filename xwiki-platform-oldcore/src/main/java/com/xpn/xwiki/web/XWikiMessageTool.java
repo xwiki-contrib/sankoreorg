@@ -160,6 +160,10 @@ public class XWikiMessageTool
     {
         String translation = get(key);
         if (params != null) {
+            // escape single quotes
+            // first treat with application resources single quotes escaped.
+            translation = translation.replaceAll("''", "'");
+            translation = translation.replaceAll("'", "''");
             translation = MessageFormat.format(translation, params.toArray());
         }
         return translation;

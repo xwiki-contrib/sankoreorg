@@ -150,6 +150,7 @@ curriki.crs.reviews.ict=Type de ressource
 curriki.crs.reviews.lastreviewed=Dernière évaluation
 curriki.crs.reviews.review=Évaluation
 curriki.crs.reviews.reviewertools=Évaluations en attente
+curriki.crs.reviews.reviewertools.type_of_resource=Type de ressource
 curriki.crs.reviews.view=Voir
 curriki.crs.reviews.viewnominated=Voir les ressources proposées pour le sujet
 curriki.crs.settopartner=Ceci est une ressource Partenaire.

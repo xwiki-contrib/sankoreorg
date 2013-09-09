@@ -34,6 +34,9 @@
 
 #macro(asset_function_links $asset)
 <ul id="asset-function-links">
+#if ($asset.category !="collection" && ("$!asset.filetypeClass" == "ubz" || "$!asset.filetypeClass" == "ubw"))
+  <li id="asset-embed"><a href="javascript:void(0)" onclick="$('asset-display-embed').toggle(); return false;" title="$msg.get("rve.title.function.embed.icon.rollover")">$msg.get("rve.title.function.embed")</a></li>
+#end
 #set($collSpace = "Coll_${context.user.replace('XWiki.', '')}")
 #set($favoritesAsset = $xwiki.curriki.fetchAssetOrNull("${collSpace}.Favorites"))
 #if(!$favoritesAsset)
@@ -489,78 +492,63 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
 </div>
 #end
 
-
-
 #macro(asset_attachments $asset)
 <div class="asset-display-download">
- <div class="asset-display-download-inner">
-#if($asset.getAttachmentList().size()==1)
-#set($msgtext = $msg.get("rve.content.view.download.instruction_title.single_file"))
-#elseif($asset.getAttachmentList().size()>1)
-#set($msgtext = $msg.get("rve.content.view.download.instruction_title.multiple_files"))
-#end
-#if($msgtext)
-<p><strong>$msgtext</strong>
-    <img ext:qtip="$msg.get("rve.content.view.download.instruction_tooltip")" class="tooltip" src="$xwiki.getSkinFile("images/px.gif")" alt="" border="0" height="16" width="16">
-</p>
-#end      
-#foreach($attachment in $asset.getAttachmentList())
-#asset_attachment($asset $attachment)
-#end
- </div>
+  <div class="asset-display-download-inner">
+  #if ($asset.getAttachmentList().size() == 1)
+    <p><strong>$msg.get("rve.content.view.download.instruction_title.single_file")</strong></p>
+    #asset_attachment($asset $asset.attachmentList.get(0))
+  #elseif ($asset.getAttachmentList().size() > 1)
+    <p><strong>$msg.get("rve.content.view.download.instruction_title.multiple_files")</strong></p>
+    #foreach ($attachment in $asset.getAttachmentList())
+      #asset_attachment($asset $attachment)
+    #end
+  #end
+  </div>
 </div>
 #end
 
 #macro(sankore_attachments $asset)
-#if("$!asset.fileType" == "ubw")
-  #if($asset.attachmentList.size()>0)
-    #set($attach = $asset.attachmentList.get(0).filename)
-  #else
-    #set($attach = "")
-  #end
-  #set($filelist = $xwiki.curriki.getFileList($asset, $attach))
-  #set($ubz = "")
-  #set($pdf = "")
-  #foreach($file in $filelist)
-    #if($file.endsWith(".ubz"))
-      #set($ubz = $file)
-    #elseif($file.endsWith(".pdf"))
-      #set($pdf = $file)
+<div id="sankore-download" class="asset-display-download">
+  <div class="asset-display-download-inner">
+  #if ("$!asset.fileType" == "ubw" && $asset.attachmentList.size() > 0)
+    #set ($attachment = $asset.attachmentList.get(0))
+    #set ($filelist = $xwiki.curriki.getFileList($asset, $attachment.filename))
+    #if ($filelist && $filelist.size() > 0)
+      #set ($ubz = "")
+      #set ($pdf = "")
+      #foreach ($file in $filelist)
+        #if ($file.endsWith(".ubz"))
+          #set ($ubz = $file)
+        #elseif ($file.endsWith(".pdf"))
+          #set ($pdf = $file)
+        #end
+      #end
+      <p><strong>$msg.get("rve.content.view.download.instruction_title.multiple_files")</strong></p>
+      #set ($assetAttachmentFilename = $attachment.filename)
+      #set ($assetAttachmentURL = $asset.getAttachmentURL($assetAttachmentFilename))
+      <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.ubz_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${ubz}'); location = '${assetAttachmentURL}/${ubz}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.ubz_download_button")</button>
+      <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.pdf_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${pdf}'); location = '${assetAttachmentURL}/${pdf}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.pdf_download_button")</button>
+    #else
+      <p><strong>$msg.get("rve.content.view.download.instruction_title.no_files")</strong></p>
     #end
   #end
-  <div id="sankore-download" class="asset-display-download">
-  <div class="asset-display-download-inner">
-  #set($msgtext = $msg.get("rve.content.view.download.instruction_title.multiple_files"))
-  #if($msgtext)
-    <p><strong>$msgtext</strong>
-    <img ext:qtip="$msg.get("rve.content.view.download.instruction_tooltip")" class="tooltip" src="$xwiki.getSkinFile("images/px.gif")" alt="" border="0" height="16" width="16">
-    </p>
-  #end
-  #set($assetAttachmentURL = $asset.getAttachmentURL($attach))
-  <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.ubz_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${ubz}'); location = '${assetAttachmentURL}/${ubz}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.ubz_download_button")</button>
-  <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.pdf_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${pdf}'); location = '${assetAttachmentURL}/${pdf}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.pdf_download_button")</button>
   </div>
-  </div>
-#end
+</div>
 #end
 
 #macro(asset_attachment $asset $attachment)
-#set($assetAttachmentFilename = $asset.attachmentList.get(0).filename)
+#set($assetAttachmentFilename = $attachment.filename)
 #set($assetAttachmentURL = $asset.getAttachmentURL("$assetAttachmentFilename"))
- <a class="icon-link downloadbutton" href="$assetAttachmentURL">$msg.get("rve.content.view.download.download_button")</a>
- <p class="text-link">
-     #if($attachment.filesize)
-     #set($filesize = $attachment.filesize / 1024)
-     ##set($filesize = $attachment.filesize)
-     #else
-     #set($filesize = 0)
-     #end
-     <a href="$assetAttachmentURL">$assetAttachmentFilename</a> (${filesize}kb)
- </p>
- <button class="button button-confirm downloadbutton" ext:qtip="$msg.get("rve.content.view.download.download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}'); location = '${assetAttachmentURL}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.download_button")</button>
+#if($attachment.filesize)
+  #set($filesize = $attachment.filesize / 1024)
+#else
+  #set($filesize = 0)
 #end
-
-
+<p class="text-link">
+  <a href="$assetAttachmentURL">$assetAttachmentFilename</a> (${filesize}kb)
+</p>
+#end
 
 #macro(asset_displaycontentheader $style)
 ##if($style)
