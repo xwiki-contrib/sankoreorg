@@ -582,19 +582,17 @@ public class Group extends Api
 
     public String display(String fieldname)
     {
-        Document document = new Document(this.groupObjectDocument.getDocument(), getXWikiContext());
-        return document.display(fieldname);
+        return this.groupObjectDocument.display(fieldname);
     }
 
     public String display(String fieldname, String mode)
     {
-        Document document = new Document(this.groupObjectDocument.getDocument(), getXWikiContext());
-        return document.display(fieldname, mode);
+        return this.groupObjectDocument.display(fieldname, mode);
     }
 
     public Date getCreationDate()
     {
-        return this.groupObjectDocument.getDocument().getCreationDate();
+        return this.groupObjectDocument.getCreationDate();
     }
 
     public String getHomeURL()
