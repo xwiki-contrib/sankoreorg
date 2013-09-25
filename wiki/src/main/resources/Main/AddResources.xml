@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346066012000</creationDate>
-<date>1346066012000</date>
-<contentUpdateDate>1346066012000</contentUpdateDate>
+<creationDate>1363702746000</creationDate>
+<date>1363702746000</date>
+<contentUpdateDate>1363702746000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -25,7 +25,7 @@
 <filename>close.png</filename>
 <filesize>1286</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1345116702000</date>
+<date>1345123902000</date>
 <version>1.4</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAABKhJREFUeNpslVtIZWUUx7+997mpxzOV6GicyVuUzMgwXosiCIOiehG8
@@ -54,7 +54,7 @@ cm313ovgyBW7jDqeYTxpJY/Gh8T6PEA6TAbphzF5A+W//d+FlRVZ8lDqul0s8g76mS9OJ1Pv4JHL
 <filename>planetesankore.png</filename>
 <filesize>7517</filesize>
 <author>XWiki.FlaviusOlaru</author>
-<date>1345128749000</date>
+<date>1345135949000</date>
 <version>1.1</version>
 <comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAEUAAABFCAYAAAAcjSspAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
 bWFnZVJlYWR5ccllPAAAHP9JREFUeNrsXAmUnWV5fr7vX+46d2YyyWRPBkISAiEoRIUQwSiVgNYi
@@ -188,6 +188,127 @@ xSNbEQ0+h3hgHYGuTVCDLxDGGIQgD4ksQNOPyMRRYGj/lFlwOvoYxgsque6sI3nmzYyi2hGK5HEV
 fR6sNewnegBBtUxIN5/2amJZ8Soa49UySutDAHt4CkO16bdts7sTQacWSzRz+Sv/9w1eEng7IEub
 KxYTP4Wxt55Qc5Q99ZqWDp5oIYt2WuL1/6dC9va1+0OacdvaqL3EBDfJiSclHbxX+0u81n+Taaxc
 4Ud6HVdPRkl+nq811Bif6Jld3/uz/Okh/fW/AgwAHDs18vJebaAAAAAASUVORK5CYII=
+</content></attachment><attachment>
+<filename>miniplanetesankore.png</filename>
+<filesize>6553</filesize>
+<author>XWiki.FlaviusOlaru</author>
+<date>1347269993000</date>
+<version>1.1</version>
+<comment></comment><content>iVBORw0KGgoAAAANSUhEUgAAAEUAAABECAYAAADX0fiMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ
+bWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdp
+bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6
+eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0
+NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJo
+dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlw
+dGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAv
+IiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RS
+ZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpD
+cmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNl
+SUQ9InhtcC5paWQ6RUMxMDFFMTZFNUVDMTFFMUJFRjY4NDZDM0ZCRjIyNTQiIHhtcE1NOkRvY3Vt
+ZW50SUQ9InhtcC5kaWQ6RUMxMDFFMTdFNUVDMTFFMUJFRjY4NDZDM0ZCRjIyNTQiPiA8eG1wTU06
+RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFQzEwMUUxNEU1RUMxMUUxQkVG
+Njg0NkMzRkJGMjI1NCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFQzEwMUUxNUU1RUMxMUUx
+QkVGNjg0NkMzRkJGMjI1NCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1w
+bWV0YT4gPD94cGFja2V0IGVuZD0iciI/PrjZDyYAABYNSURBVHja1FwJeFRVlv7fUnulspEESCBA
+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
 </content></attachment>
 <object>
 <class>
@@ -307,7 +428,9 @@ function runthis() {
   
   var url = window.location.href;
   var title = ((document.title) ? document.title : document.location.host);
-  var iframeSrc = 'http://planete.sankore.org/xwiki/bin/view/Main/AddResources?xpage=bookmarklet&amp;url='+escape(url)+'&amp;title='+escape(title);
+  #set($viewUrl = $doc.getExternalURL('view', 'xpage=bookmarklet'))
+  #set($downloadUrl = $doc.getExternalURL('download'))
+  var iframeSrc = "${viewUrl}" + '&amp;url='+escape(url)+'&amp;title='+escape(title);
   var error = false;
     
   if (jQuery("#frame").length === 0) {
@@ -316,7 +439,7 @@ function runthis() {
       error = true;
     }
     if (!error) {
-      jQuery("body").append("&lt;div id='bookmarklet' style='display:none;'&gt;&lt;div id='bookmarklet-overlay' style='position: fixed; width: 100%; height: 100%; top: 0; left: 0; filter: alpha(opacity=30); filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30); -moz-opacity: .30; -khtml-opacity: 0.3; opacity: 0.3; background-color:#000000; cursor: pointer; z-index: 9997;'&gt;&lt;/div&gt;&lt;div  style='color: #666; font: bold 20px/20px Helvetica, sans-serif; position: absolute; top: 50px; left: 50%; width: 10em; margin: -10px auto 0 -5em; text-align: center;'&gt;&lt;p&gt;Loading...&lt;/p&gt;&lt;/div&gt;&lt;div id='bookmarklet-inner' style='display: block; position: absolute; top: 50px; left: 50%;  width: 760px; z-index: 9998; border-color: #666666; border-style: solid; border-width:10px; margin:0 auto;margin-left:-380px;height:100px;'&gt;&lt;div id='bookmarklet-icon' style='background: url(http://planete.sankore.org/xwiki/bin/download/Sandbox/SankoreSkin/miniplanetesankore.png); position: absolute; width: 69px; height: 69px; top: -35px; left: -35px; cursor: pointer; z-index:9999;'&gt;&lt;/div&gt;&lt;div id='bookmarklet-close' style='background: transparent; position: absolute; width: 32px; height: 32px; top: 14px; right: 24px; cursor: pointer; z-index:9999;'&gt;&lt;/div&gt;&lt;div id='bookmarklet-loading' style='position:absolute;top:0;left:0;height:100px;background: url(http://planete.sankore.org/xwiki/resources/icons/xwiki/ajax-loader-large.gif) no-repeat scroll center center #FFF;width:760px;'&gt;&lt;/div&gt;&lt;iframe id='bookmarklet-iframe' style='width: 760px; height:1000px;margin-top:5000px;' src='" + iframeSrc + "' onload=\"\" frameBorder='0'&gt;Enable iFrames.&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;");                    
+      jQuery("body").append("&lt;div id='bookmarklet' style='display:none;'&gt;&lt;div id='bookmarklet-overlay' style='position: fixed; width: 100%; height: 100%; top: 0; left: 0; filter: alpha(opacity=30); filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30); -moz-opacity: .30; -khtml-opacity: 0.3; opacity: 0.3; background-color:#000000; cursor: pointer; z-index: 10998;'&gt;&lt;/div&gt;&lt;div  style='color: #666; font: bold 20px/20px Helvetica, sans-serif; position: absolute; top: 50px; left: 50%; width: 10em; margin: -10px auto 0 -5em; text-align: center;'&gt;&lt;p&gt;Loading...&lt;/p&gt;&lt;/div&gt;&lt;div id='bookmarklet-inner' style='display: block; position: absolute; top: 50px; left: 50%;  width: 760px; z-index: 10999; border-color: #666666; border-style: solid; border-width:10px; margin:0 auto;margin-left:-380px;height:100px;'&gt;&lt;div id='bookmarklet-icon' style='background: url(${downloadUrl}/miniplanetesankore.png); position: absolute; width: 69px; height: 69px; top: -35px; left: -35px; cursor: pointer; z-index:11000;'&gt;&lt;/div&gt;&lt;div id='bookmarklet-close' style='background: transparent; position: absolute; width: 32px; height: 32px; top: 14px; right: 24px; cursor: pointer; z-index:11000;'&gt;&lt;/div&gt;&lt;div id='bookmarklet-loading' style='position:absolute;top:0;left:0;height:100px;background: url(http://${request.serverName}/xwiki/resources/icons/xwiki/ajax-loader-large.gif) no-repeat scroll center center #FFF;width:760px;'&gt;&lt;/div&gt;&lt;iframe id='bookmarklet-iframe' style='width: 760px; height:1000px;margin-top:5000px;' src='" + iframeSrc + "' onload=\"\" frameBorder='0'&gt;Enable iFrames.&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;");                    
       window.setInterval("resizethis()",400);            
       jQuery('#bookmarklet').fadeIn(500);
     }
@@ -334,7 +457,7 @@ if (typeof jQuery == 'undefined') {
   jQ.type = 'text/javascript';
   // IE8 doesn't run onload
   //jQ.onload = runthis;
-  jQ.src = 'http://planete.sankore.org/xwiki/resources/js/jquery/jquery.js';
+  jQ.src = 'http://${request.serverName}/xwiki/resources/js/jquery/jquery.js';
   document.body.appendChild(jQ);
   // IE8 fix for onload
   setTimeout("runthis()", 1000);
@@ -346,10 +469,113 @@ if (typeof jQuery == 'undefined') {
 <name>Bookmarklet JSX</name>
 </property>
 <property>
-<parse>0</parse>
+<parse>1</parse>
 </property>
 <property>
 <use>onDemand</use>
+</property>
+</object>
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>Main.AddResources</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>9e7d737f-feb0-4fda-b76a-36b1a7921908</guid>
+<property>
+<cache>long</cache>
+</property>
+<property>
+<code>#body .ext-el-mask {
+  display: none !important;
+  height: 0 !important;
+}
+
+#MetadataDialogue {
+  position: relative !important;
+}
+
+#dialog-bookmarklet {
+  position: relative !important;
+}</code>
+</property>
+<property>
+<name></name>
+</property>
+<property>
+<parse></parse>
+</property>
+<property>
+<use>currentPage</use>
 </property>
 </object>
 <content>{{velocity}}
