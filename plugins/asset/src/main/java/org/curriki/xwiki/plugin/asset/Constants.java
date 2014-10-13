@@ -92,6 +92,7 @@ public interface Constants {
     String ASSET_CATEGORY_ARCHIVE = "archive";
     String ASSET_CATEGORY_EXTERNAL = "external";
     String ASSET_CATEGORY_COLLECTION = "collection";
+    String ASSET_CATEGORY_SANKORE = "sankore";
 
     String ASSET_CATEGORY_SUBTYPE_UNKNOWN = "unknown";
     String ASSET_CATEGORY_SUBTYPE_PROTECTED = "protected";

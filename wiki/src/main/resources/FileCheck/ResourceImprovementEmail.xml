@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>FileCheck</web>
+<name>ResourceImprovementEmail</name>
+<language></language>
+<defaultLanguage>en</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1355758604000</creationDate>
+<date>1355758604000</date>
+<contentUpdateDate>1355758604000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/1.0</syntaxId>
+<hidden>false</hidden>
+<content>From: filecheck@curriki.org
+To: $email
+Subject: Planète Sankoré - Demande d'amélioration d'une ressource - $assettitle
+
+Cher membre de Planète-Sankoré $membername,
+
+Merci d'avoir proposé la ressource $assettitle à la communauté Sankoré.
+
+Notre vérification préliminaire montre qu'un des points suivants est vrai:
+
+- Vous avez créé une ressource à partir d'une base ou commencé une nouvelle collection mais vous n'avez pas mis de contenu à l’intérieur.
+- Vous avez créé une ressource de test ou un document brouillon, mais celui-ci est trop incomplet.
+- Votre ressource ne fonctionne plus ou le lien est mort.
+- Votre ressource n'est pas directement reliée à l'éducation.
+
+A cause de cela, votre ressource a été définie comme "Privée". Elle ne sera pas accessible par la communauté Sankoré.
+
+Un des objectifs de Planète Sankoré est de trouver rapidement en cherchant des ressources précises avec efficacité. Il serait bien de retourner sur la plateforme et compléter votre ressource. 
+
+Voilà comment faire:
+
+1.    Allez sur Planète Sankoré et identifiez-vous
+
+2.    Allez sur votre profil puis dans Mes ressources.
+3.    Trouvez votre ressource et dans la liste d'action faite "modifier le fichier" et mettez à jour le document avec un autre plus abouti. 
+4.    Validez puis faites "modifier" pour changer la visibilité de la ressource.
+
+Si vous avez besoin de plus d'informations, vous pouvez contacter contact@sankore.org</content></xwikidoc>

@@ -2254,7 +2254,7 @@ Curriki.DataObservable = function() {
     ,'Curriki.data.category:ready': true
     ,'Curriki.data.rights:ready': true
     ,'Curriki.data.access_level:ready': true
-    ,'Curriki.data.policy:ready': true       
+    ,'Curriki.data.policy:ready': true
     ,'Curriki.data.license:ready': true
     ,'Curriki.data.language:ready': true
   });
@@ -2273,6 +2273,34 @@ Ext.extend(Curriki.ModuleObservable, Ext.util.Observable);
 Curriki.module.EventManager = new Curriki.ModuleObservable();
 
 Curriki.data.EventManager.addListener('Curriki.data.language:ready', function() {
+  Curriki.data.language.data = [];
+  Curriki.data.language.initial = XWiki.contextlanguage;
+  Curriki.data.language.list.each(function(lang) {
+    Curriki.data.language.data.push([lang, _('CurrikiCode.AssetClass_language_' + lang)]);
+  });
+  Curriki.data.language.store = new Ext.data.SimpleStore({
+    fields: ['id', 'language'],
+    data: Curriki.data.language.data
+  });
+  Ext.Ajax.request({
+    url: "/xwiki/curriki/metadata/CurrikiCode.AssetLicenseClass/fields/licenseType",
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json'
+    },
+    success: function(response, options) {
+      try {
+        Curriki.data.license.list = Ext.util.JSON.decode(response.responseText).allowedValues;
+      } 
+      catch (e) {
+        console.error('Invalid metadata information', response, options);
+      }
+      Curriki.data.EventManager.fireEvent('Curriki.data.license:ready');
+    },
+    failure: function(response, options) {
+      console.error('Cannot get metadata information', response, options);
+    }
+  });
   Curriki.data.EventManager.fireEvent('Curriki.data:ready');
 });
 
@@ -2958,18 +2986,6 @@ Curriki.data.EventManager.on('Curriki.data.access_level:ready', function() {
 });
 
 Ext.ns('Curriki.data.language');
-Curriki.data.EventManager.addListener('Curriki.data.language:ready', function() {
-  Curriki.data.language.data = [];
-  Curriki.data.language.initial = XWiki.contextlanguage;
-  Curriki.data.language.list.each(function(lang) {
-    Curriki.data.language.data.push([lang, _('CurrikiCode.AssetClass_language_' + lang)]);
-  });
-  Curriki.data.language.store = new Ext.data.SimpleStore({
-    fields: ['id', 'language'],
-    data: Curriki.data.language.data
-  });
-});
-
 Curriki.data.EventManager.on('Curriki.data.policy:ready', function() {
   Ext.Ajax.request({
     url: "/xwiki/curriki/metadata/CurrikiCode.AssetClass/fields/language",
@@ -3005,31 +3021,7 @@ Curriki.data.EventManager.addListener('Curriki.data.license:ready', function() {
   });
 });
 
-Curriki.data.EventManager.on('Curriki.data.language:ready', function() {
-  Ext.Ajax.request({
-    url: "/xwiki/curriki/metadata/CurrikiCode.AssetLicenseClass/fields/licenseType",
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json'
-    },
-    success: function(response, options) {
-      try {
-        Curriki.data.license.list = Ext.util.JSON.decode(response.responseText).allowedValues;
-      } 
-      catch (e) {
-        console.error('Invalid metadata information', response, options);
-      }
-      Curriki.data.EventManager.fireEvent('Curriki.data.license:ready');
-    },
-    failure: function(response, options) {
-      console.error('Cannot get metadata information', response, options);
-    }
-  });
-});
-
-
 Ext.ns('Curriki.ui.component.asset');
-
 Curriki.ui.component.asset.filterTreeNodes = function(nodes, filters) {
   var filteredNodes = [];
 

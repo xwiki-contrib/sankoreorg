@@ -214,15 +214,16 @@ Ext.select('div#asset-header h2 a').hover(function(){Ext.select('ul#asset-tabs l
     #set($assetAttachmentURL = $asset.getAttachmentURL("$assetAttachmentFilename"))
     #if($asset.file_type == "ubw")
       #set($filelist = $xwiki.curriki.getFileList($asset, $assetAttachmentFilename))
-      #set($ubz = "")     
+      #set($ubz = "")
       #foreach($file in $filelist)
         #if($file.endsWith(".ubz"))
-          #set($ubz = "/$file")    
+          #set($ubz = "/$file")
+          #set($assetAttachmentURL = $xwiki.getURL("SankoreCode.DownloadAttachment", "view", "xpage=plain&outputSyntax=plain&document=$!escapetool.url($doc.fullName)&fileExtension=ubz"))
         #end
       #end
     #end
     <li id="asset-download">
-      <a href="javascript:void(0)" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}'); location = '${assetAttachmentURL}$!{ubz}'; return false;">$msg.get('rve.content.download_link')</a>
+      <a href="javascript:void(0)" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}'); location = '${assetAttachmentURL}'; return false;">$msg.get('rve.content.download_link')</a>
     </li>
   #end
 #if(!$isguest)
@@ -232,6 +233,9 @@ Ext.select('div#asset-header h2 a').hover(function(){Ext.select('ul#asset-tabs l
   <li id="asset-edit">
     ##<a href="$asset.getURL("view", "viewer=assetedit&bc=$!{request.bc}")" title="$msg.get('rve.content.edit_rollover')" #if(!$isOriginalAuthorOrAdmin) onclick="return checkEditOrCopy();" #end>$msg.get('rve.content.edit_link')</a>
     <a href="javascript:Curriki.module.addpath.startPath('Metadata', {assetName:'${asset.fullName}'});"  title="$msg.get("rve.information.edit_rollover")" #if(!$isOriginalAuthorOrAdmin) onclick="return checkEditOrCopy();" #end>$msg.get("rve.information.edit_link")</a>
+  </li>
+  <li id="asset-edit2">
+    <a href="$doc.getURL("view", "viewer=edit")"  title="$msg.get("rve.information.editasset_rollover")" #if(!$isOriginalAuthorOrAdmin) onclick="return checkEditOrCopy();" #end>$msg.get("rve.information.editasset_link")</a>
   </li>
   #end
   ## Copy
@@ -527,8 +531,11 @@ showhide${seccounter}.onclick = new Function("toggleSectionVisibility(${seccount
       <p><strong>$msg.get("rve.content.view.download.instruction_title.multiple_files")</strong></p>
       #set ($assetAttachmentFilename = $attachment.filename)
       #set ($assetAttachmentURL = $asset.getAttachmentURL($assetAttachmentFilename))
-      <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.ubz_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${ubz}'); location = '${assetAttachmentURL}/${ubz}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.ubz_download_button")</button>
-      <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.pdf_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${pdf}'); location = '${assetAttachmentURL}/${pdf}?force%2Ddownload=1'; return false;">$msg.get("rve.content.view.download.pdf_download_button")</button>
+      #set($assetAttachmentURL = $asset.getAttachmentURL($assetAttachmentFilename))
+      #set($pdfURL = $xwiki.getURL("SankoreCode.DownloadAttachment", "view", "xpage=plain&outputSyntax=plain&document=$!escapetool.url($doc.fullName)&fileExtension=pdf"))
+      #set($ubzURL = $xwiki.getURL("SankoreCode.DownloadAttachment", "view", "xpage=plain&outputSyntax=plain&document=$!escapetool.url($doc.fullName)&fileExtension=ubz"))
+      <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.ubz_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${ubz}'); location = '${ubzURL}'; return false;">$msg.get("rve.content.view.download.ubz_download_button")</button>
+      <button class="button button-confirm" ext:qtip="$msg.get("rve.content.view.download.pdf_download_button")" onclick="Curriki.logView('/Download/attachment/${asset.space}/${asset.name}/${assetAttachmentFilename}/${pdf}'); location = '${pdfURL}'; return false;">$msg.get("rve.content.view.download.pdf_download_button")</button>
     #else
       <p><strong>$msg.get("rve.content.view.download.instruction_title.no_files")</strong></p>
     #end

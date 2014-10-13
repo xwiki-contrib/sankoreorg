@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346853957000</creationDate>
-<date>1346853957000</date>
-<contentUpdateDate>1346853957000</contentUpdateDate>
+<creationDate>1391527344000</creationDate>
+<date>1391527344000</date>
+<contentUpdateDate>1391527344000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -109,7 +109,7 @@ mycurriki.favorites.mouseover.level=*Niveaux éducatifs :*
 ##CONTRIBUTIONS TAB
 
 mycurriki.contributions.addButton=Ajouter une ressource
-mycurriki.contributions.addButton_tooltip=Ajouter vos meilleurs ressources ou créer quelque-chose de nouveau
+mycurriki.contributions.addButton_tooltip=Ajouter des ressources
 mycurriki.contributions.table.title=Titre
 mycurriki.contributions.table.ict=Type de ressource
 mycurriki.contributions.table.lastupdated=Date de modification

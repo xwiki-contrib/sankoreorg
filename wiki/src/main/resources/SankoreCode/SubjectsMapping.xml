@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>SankoreCode</web>
+<name>SubjectsMapping</name>
+<language></language>
+<defaultLanguage>fr</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1386253769000</creationDate>
+<date>1386253769000</date>
+<contentUpdateDate>1386253769000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>Percevoir, sentir, imaginer, créer=Disciplines.Arts,Disciplines.InfantArts
+Découvrir l'écrit=Disciplines.LanguageArts,Disciplines.Writing
+S'approprier le langage=Disciplines.LanguageArts,Disciplines.Language
+Agir et s'exprimer avec son corps=Disciplines.Health,Disciplines.InfantHealth
+Découvrir le monde=Disciplines.Science,Disciplines.DiscoverTheWorld
+Pratiques artistiques=Disciplines.Arts,Disciplines.ArtsPractices
+Pratiques artistiques - arts visuels=Disciplines.Arts,Disciplines.ArtsArtsVisuels
+Pratiques artistiques - éducation musicale=Disciplines.Arts,Disciplines.ArtsEducationMusicale
+Histoire des arts=Disciplines.Arts,Disciplines.ArtsHistory
+Langues vivantes étrangères=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguages
+Langues vivantes étrangères - anglais=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguagesEnglish
+Langues vivantes étrangères - allemand=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguagesGerman
+Langues vivantes étrangères - espagnol=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguagesSpanish
+Langues vivantes étrangères - italien=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguagesItalian
+Langues vivantes étrangères - néerlandais=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguagesDutch
+Langues vivantes étrangères - chinois=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguagesChinese
+Langues vivantes étrangères - portugais=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguagesPortuguese
+Langues vivantes étrangères - russe=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguagesRussian
+Langues vivantes étrangères - arabe=Disciplines.WorldLanguages,Disciplines.ModernForeignLanguagesArab
+Langues et cultures de l'Antiquité (latin,grec ancien)=Disciplines.WorldLanguages,Disciplines.AncientLanguagesAndCulture
+Langue nationale français=Disciplines.LanguageArts,Disciplines.FrenchLanguage
+Langue nationale français - lecture=Disciplines.LanguageArts,Disciplines.FrenchLanguageReading
+Langue nationale français - écriture=Disciplines.LanguageArts,Disciplines.FrenchLanguageWriting
+Langue nationale français - langage oral=Disciplines.LanguageArts,Disciplines.FrenchLanguageOral
+Langue nationale français - grammaire=Disciplines.LanguageArts,Disciplines.FrenchLanguageGrammar
+Langue nationale français - orthographe=Disciplines.LanguageArts,Disciplines.FrenchLanguageSpelling
+Langue nationale français - vocabulaire=Disciplines.LanguageArts,Disciplines.FrenchLanguageVocabulary
+Mathématiques - informatique=Disciplines.Mathematics,Disciplines.Informatics
+EPS (éducation physique et sportive)=Disciplines.Health,Disciplines.PhysicalEducationAndSports
+Education à la sécurité=Disciplines.Health,Disciplines.SafetyEducation
+Education à la santé=Disciplines.Health,Disciplines.HealthEducation
+SVT (sciences de la vie et de la Terre)=Disciplines.Science,Disciplines.LifeAndEarthSciences
+Sciences physiques et chimiques=Disciplines.Science,Disciplines.PhysicsAndChemistry
+Technologie=Disciplines.Science,Disciplines.Technology
+Culture scientifique et technique=Disciplines.Science,Disciplines.ScientificAndTechnologicalLiteracy
+Découverte du monde=Disciplines.Science,Disciplines.WorldDiscovery
+Sciences expérimentales et technologie=Disciplines.Science,Disciplines.ExperimentalScienceAndTechnology
+Instruction civique et morale=Disciplines.SocialStudies,Disciplines.CivicsAndEthics
+Histoire et géographie=Disciplines.SocialStudies,Disciplines.HistoryAndGeography
+TUIC=Disciplines.EducationalTechnology
+Histoire - éducation civique=Disciplines.SocialStudies,Disciplines.History
+Géographie=Disciplines.SocialStudies,Disciplines.Geography
+EDD (éducation au développement durable)=Disciplines.SocialStudies,Disciplines.EducationForSustainableDevelopment
+Education aux médias=Disciplines.InformationAndMediaLiteracy,Disciplines.MediaEducation
+Enseignements artistiques=Disciplines.Arts,Disciplines.ArtsEducation
+Agriculture=Disciplines.CareerAndTechnicalEducation,Disciplines.proAgriculture
+Arts=Disciplines.CareerAndTechnicalEducation,Disciplines.proArts
+Banque - Assurances - Immobilier=Disciplines.CareerAndTechnicalEducation,Disciplines.proBankInsuranceEstate
+Commerce=Disciplines.CareerAndTechnicalEducation,Disciplines.proCommerce
+Défense publique - Sécurité=Disciplines.CareerAndTechnicalEducation,Disciplines.proPublicDefenderSecurity
+Economie - Droit - Sciences politiques=Disciplines.CareerAndTechnicalEducation,Disciplines.proEconomyLawPoliticalSciences
+Electricité - Electronique=Disciplines.CareerAndTechnicalEducation,Disciplines.proElectricityElectronics
+Environnement - Energies - Aménagement - Propreté=Disciplines.CareerAndTechnicalEducation,Disciplines.proEnvironmentEnergyFacilitiesClean
+Fonction production - Transport=Disciplines.CareerAndTechnicalEducation,Disciplines.proProductionFonctionTransport
+Formation générale - Lettres et langues - Enseignement=Disciplines.CareerAndTechnicalEducation,Disciplines.proGeneralEducation
+Génie civil - Construction - Architecture=Disciplines.CareerAndTechnicalEducation,Disciplines.proCivilEngineeringConstructionArchitecture
+Gestion des entreprises=Disciplines.CareerAndTechnicalEducation,Disciplines.ProGestionEntreprises
+Hôtellerie - Restauration - Tourisme=Disciplines.CareerAndTechnicalEducation,Disciplines.proHotelsRestaurantsTourism
+Information - Communication=Disciplines.CareerAndTechnicalEducation,Disciplines.proInformationCommunication
+Informatique=Disciplines.CareerAndTechnicalEducation,Disciplines.proInformatics
+Mécanique=Disciplines.CareerAndTechnicalEducation,Disciplines.proMechanic
+Santé - Social - Sport=Disciplines.CareerAndTechnicalEducation,Disciplines.proHealthSocialSports
+Sciences=Disciplines.CareerAndTechnicalEducation,Disciplines.proScience
+Sciences humaines et sociales=Disciplines.CareerAndTechnicalEducation,Disciplines.proHumanitiesSocialSciences
+Transformation=Disciplines.CareerAndTechnicalEducation,Disciplines.proTransformation
+Histoire-géographie et éducation civique=Disciplines.SocialStudies,Disciplines.HistoryGeographyAndCivics
+SES (sciences économiques et sociales)=Disciplines.SocialStudies,Disciplines.SocialAndEconomicSciences
+Economie=Disciplines.SocialStudies,Disciplines.Economy
+Droit=Disciplines.SocialStudies,Disciplines.Law
+Philosophie=Disciplines.SocialStudies,Disciplines.Philosophy
+Langues et cultures de l'Antiquité=Disciplines.WorldLanguages,Disciplines.AncientLanguagesAndCulture
+Enseignements artistiques=Disciplines.Arts,Disciplines.ArtsEducation
+Arts=Disciplines.Arts
+Formation Professionnelle=Disciplines.CareerAndTechnicalEducation
+Education=Disciplines.Education
+Technologies de l'Education Disciplines.EducationalTechnology
+Santé=Disciplines.Health
+Informations et Medias=Disciplines.InformationAndMediaLiteracy
+Maîtrise de la langue=Disciplines.LanguageArts
+Mathématiques=Disciplines.Mathematics
+Sciences=Disciplines.Science
+Sciences sociales=Disciplines.SocialStudies
+Langues étrangères=Disciplines.WorldLanguages</content></xwikidoc>

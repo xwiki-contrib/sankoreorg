@@ -1482,7 +1482,7 @@ Curriki.module.addpath.init = function() {
                 ,preventMark:true
                 ,hideLabel:true
                 ,width:'72%'
-                ,value: Curriki.current.sri?Curriki.current.sri.title:''
+                ,value: Curriki.current.sri?Curriki.current.sri.title:Curriki.current.metadata?Curriki.current.metadata.title:''
               }]            
             },{
   // Description
@@ -1496,7 +1496,7 @@ Curriki.module.addpath.init = function() {
                 ,allowBlank:false
                 ,preventMark:true
                 ,hideLabel:true
-                ,value:Curriki.current.sri?Curriki.current.sri.description:''
+                ,value:Curriki.current.sri?Curriki.current.sri.description:Curriki.current.metadata?Curriki.current.metadata.description:''
                 ,width:'98%'
               }]
             },{
@@ -1530,7 +1530,7 @@ Curriki.module.addpath.init = function() {
                 ,emptyText: _('bookmarklet.sri.keywords.empty_msg')
                 ,hideLabel: true
                 ,width: '72%'
-                ,value:Curriki.current.sri?Curriki.current.sri.keywords:''
+                ,value:Curriki.current.sri?Curriki.current.sri.keywords:Curriki.current.metadata?Curriki.current.metadata.keywords:''
                 ,listeners: {
                   render: function(comp){
                     comp.findParentByType('apSRI1').on('show', function(){
@@ -1539,7 +1539,7 @@ Curriki.module.addpath.init = function() {
                         
                         if (!Ext.isEmpty(md.keywords)) {
                           if (Ext.isArray(md.keywords)) {
-                            md.keywords = md.keywords.join(' ');
+                            md.keywords = md.keywords.join(',');
                           }
                           Ext.getCmp('metadata-keywords-entry').setValue(md.keywords);
                         }
@@ -1660,7 +1660,7 @@ Curriki.module.addpath.init = function() {
                 ,emptyText:_('bookmarklet.sri.education_system_empty_msg')
                 ,selectOnFocus:true
                 ,forceSelection:true
-                ,value:Curriki.current.sri.education_system?Curriki.current.sri.education_system:Curriki.data.education_system.initial?Curriki.data.education_system.initial:undefined                
+                ,value:Curriki.current.sri.education_system?Curriki.current.sri.education_system:Curriki.current.metadata?Curriki.current.metadata.education_system:Curriki.data.education_system.initial?Curriki.data.education_system.initial:undefined
               }]
             },{
   // Language
@@ -1701,7 +1701,7 @@ Curriki.module.addpath.init = function() {
                 ,emptyText:_('bookmarklet.sri.language_empty_msg')
                 ,selectOnFocus:true
                 ,forceSelection:true
-                ,value:Curriki.current.sri.language?Curriki.current.sri.language:Curriki.data.language.initial                
+                ,value:Curriki.current.sri.language?Curriki.current.sri.language:Curriki.current.metadata?Curriki.current.metadata.language:Curriki.data.language.initial
               }]
             }]
           }]
@@ -1817,7 +1817,7 @@ Curriki.module.addpath.init = function() {
               ,(function(){
                 var checkedCount = 0;
                 var elNodes = Curriki.ui.component.asset.filterTreeNodes(Curriki.data.el.elChildren, Curriki.current.sri.education_system);                
-                var md = Curriki.current.sri;                
+                var md = Curriki.current.sri.educational_level?Curriki.current.sri:Curriki.current.metadata;
                 if (md) {
                   var el = md.educational_level;                                 
                   Ext.isArray(el) && (function(ca){
@@ -1959,7 +1959,7 @@ Curriki.module.addpath.init = function() {
               ,(function(){
                 var checkedCount = 0;
                 var fwNodes = Curriki.ui.component.asset.filterTreeNodes(Curriki.data.fw_item.fwChildren, Curriki.current.sri.educational_level);
-                var md = Curriki.current.sri;
+                var md = Curriki.current.sri.fw_items?Curriki.current.sri:Curriki.current.metadata;
                 if (md) {
                   var fw = md.fw_items;                
                   Ext.isArray(fw) && (function(ca){
@@ -2091,7 +2091,7 @@ Curriki.module.addpath.init = function() {
             }
             ,(function(){
               var checkedCount = 0;
-              var md = Curriki.current.sri;
+              var md = Curriki.current.sri.instructional_component?Curriki.current.sri:Curriki.current.metadata;
               if (md) {
                 var ict = md.instructional_component;                
                 Ext.isArray(ict) && (function(ca){
@@ -2215,7 +2215,7 @@ Curriki.module.addpath.init = function() {
                 ,allowBlank:false
                 ,preventMark:true
                 ,width:'60%'
-                ,value:Curriki.current.sri.right_holder?Curriki.current.sri.right_holder:Curriki.data.user.me.fullname                
+                ,value:Curriki.current.sri.right_holder?Curriki.current.sri.right_holder:Curriki.current.metadata?Curriki.current.metadata.rightsHolder:Curriki.data.user.me.fullname                
               }]  
             },{
     // License Deed
@@ -2256,7 +2256,7 @@ Curriki.module.addpath.init = function() {
                 ,emptyText:_('sri.license_type_empty_msg')
                 ,selectOnFocus:true
                 ,forceSelection:true
-                ,value:Curriki.current.sri.license_type?Curriki.current.sri.license_type:Curriki.data.license.initial
+                ,value:Curriki.current.sri.license_type?Curriki.current.sri.license_type:Curriki.current.metadata?Curriki.current.metadata.licenseType:Curriki.data.license.initial
               }]               
             },{
   // Access Privileges
@@ -4214,26 +4214,32 @@ Curriki.module.addpath.init = function() {
         var progress = Ext.getCmp('file-progress-box');
         progress.show();
         var progresstip = Ext.getCmp('file-progress-tip');
-        progresstip.show();                      
+        progresstip.show();
 
         Ext.Ajax.request({
           url:'/xwiki/bin/upload/'+asset.assetPage.replace('.', '/')
           ,isUpload:true
-          ,form:'addDialogueForm'          
+          ,form:'addDialogueForm'
           ,headers: {
-            'Accept':'application/json'            
+            'Accept':'application/json'
           }          
           ,callback:function(options, success, response) {
             progress.hide();
             progresstip.hide();
             if (success) {
-              callback(asset);
+              Ext.Ajax.request({
+                url: '/xwiki/bin/view/SankoreCode/ProcessAttachment?asset='+asset.assetPage
+                ,callback:function(options, success, response){
+                  callback(asset);
+                }
+              });
             } else {
               console.log('Upload failed', options, response);
               alert(_('add.servertimedout.message.text'));
             }
-          }          
-        });                                 
+          }
+        });
+        
       });
     }
 

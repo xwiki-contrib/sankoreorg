@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1345798107000</creationDate>
-<date>1345798107000</date>
-<contentUpdateDate>1345798107000</contentUpdateDate>
+<creationDate>1381225985000</creationDate>
+<date>1381225985000</date>
+<contentUpdateDate>1381225985000</contentUpdateDate>
 <version>1.1</version>
 <title>Collections</title>
 <template></template>
@@ -20,14 +20,14 @@
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/1.0</syntaxId>
+<syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#**
-  * Collections Page
-  *
-  *#
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
 #mycurriki_pageheader("collections" "")
 #mycurriki_collections_buttons($userobj)
 #mycurriki_pagecontentheader("collections" "")
 #mycurriki_collections($userdoc $userobj)
-#mycurriki_pagefooter("")</content></xwikidoc>
+#mycurriki_pagefooter("")
+{{/html}}
+{{/velocity}}</content></xwikidoc>

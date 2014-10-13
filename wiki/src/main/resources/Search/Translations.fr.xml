@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1349447292000</creationDate>
-<date>1349447292000</date>
-<contentUpdateDate>1349447292000</contentUpdateDate>
+<creationDate>1412772445000</creationDate>
+<date>1412772445000</date>
+<contentUpdateDate>1412772445000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -106,7 +106,7 @@ search.pagination.refresh=Actualiser
 
 ##RESOURCES TAB
 ##search.resource.tab.title=Bibliothèque de ressources éducatives Sankoré
-search.resource.grid.title=RNE SELECTIONNÉES PAR LA COMMUNAUTÉ SANKORÉ
+search.resource.grid.title=RESSOURCES DE LA COMMUNAUTÉ SANKORÉ
 
 ##REVIEW
 search.resource.review.selector.UNSPECIFIED=Avis: tous
@@ -239,7 +239,7 @@ search.curriki.column.header.text=Texte
 search.curriki.column.header.updated=Updaté
 
 ##SEARCH EXTERNAL
-search.featured-resource.grid.title=RESSOURCES LIBRES CRÉÉES AVEC LE LOGICIEL OPEN-SANKORÉ
+search.featured-resource.grid.title=COURS CRÉÉS AVEC LE LOGICIEL OPEN-SANKORÉ
 search.external.grid.title=URL DE PAGES WEB SIGNALÉES PAR LE BOOKMARKLET SANKORÉ
 search.preview.statusbar.text.resource=&amp;raquo; Voir les résultats des ressources libres créées avec le logiciel Open-Sankoré
 search.statusbar.text.resource=&lt;a href="/xwiki/bin/view/Search/URL"&gt;Voir les résultats du bookmarklet Sankoré et de la base des sites pédagogiques sélectionnés&lt;/a&gt;

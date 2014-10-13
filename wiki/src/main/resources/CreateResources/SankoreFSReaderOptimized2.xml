@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CreateResources</web>
+<name>SankoreFSReaderOptimized2</name>
+<language></language>
+<defaultLanguage>fr</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1410181494000</creationDate>
+<date>1410181494000</date>
+<contentUpdateDate>1410181494000</contentUpdateDate>
+<version>1.1</version>
+<title>Importation of collections and assets from file system</title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<object>
+<class>
+<name>XWiki.StyleSheetExtension</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<cache>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>cache</name>
+<number>5</number>
+<prettyName>Caching policy</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>long|short|default|forbid</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</cache>
+<code>
+<disabled>0</disabled>
+<name>code</name>
+<number>2</number>
+<prettyName>Code</prettyName>
+<rows>20</rows>
+<size>50</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+</code>
+<name>
+<disabled>0</disabled>
+<name>name</name>
+<number>1</number>
+<prettyName>Name</prettyName>
+<size>30</size>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+</name>
+<parse>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>yesno</displayType>
+<name>parse</name>
+<number>4</number>
+<prettyName>Parse content</prettyName>
+<unmodifiable>0</unmodifiable>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</parse>
+<use>
+<cache>0</cache>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>0</multiSelect>
+<name>use</name>
+<number>3</number>
+<prettyName>Use this extension</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators> ,|</separators>
+<size>1</size>
+<unmodifiable>0</unmodifiable>
+<values>currentPage=Always on this page|onDemand=On demand|always=Always on this wiki</values>
+<classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+</use>
+</class>
+<name>CreateResources.SankoreFSReaderOptimized2</name>
+<number>0</number>
+<className>XWiki.StyleSheetExtension</className>
+<guid>4dfbdd9e-0bd4-4fd2-a94c-c5df7b2254d5</guid>
+<property>
+<cache>default</cache>
+</property>
+<property>
+<code>.debug_collection{
+color: white;
+background-color: darkred;
+font-size: 15px;
+padding: 4px;
+margin: 0px;
+}
+.debug_asset{
+color: brown;
+background-color: bisque;
+padding: 5px;
+}
+
+.debug_sucess{
+color:green;
+}
+.debug_failed{
+color: red;
+}
+.xwikicontent ul * {
+line-height: 23px;
+}
+
+input[type=submit]{
+background: url("$xwiki.getSkinFile('buttonbg.jpg')") repeat-x scroll center center transparent;
+padding-left: 10px;
+padding-right: 10px;
+color: white;
+font-family: 'Open Sans Condensed',​sans-serif;
+padding: 5px 10px;
+border-radius: 4px;
+font-size: 18px;
+font-weight: 700;
+height: 37px;
+text-shadow: 0 1px 1px rgba(0,0,0,0.75);
+border: 0;
+}
+#breadcrumbs {
+color: #424242;
+font-family: 'Open Sans Condensed',sans-serif;
+font-size: 20px!important;
+font-weight: 700;
+font-style: normal;
+margin-bottom: 20px;
+}</code>
+</property>
+<property>
+<name>SSX for debug importer</name>
+</property>
+<property>
+<parse>1</parse>
+</property>
+<property>
+<use>currentPage</use>
+</property>
+</object>
+<object>
+<class>
+<name>XWiki.XWikiRights</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<allow>
+<customDisplay></customDisplay>
+<defaultValue>1</defaultValue>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>allow</displayType>
+<name>allow</name>
+<number>4</number>
+<prettyName>Allow/Deny</prettyName>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</allow>
+<groups>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>1</multiSelect>
+<name>groups</name>
+<number>4</number>
+<picker></picker>
+<prettyName>Groups</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators></separators>
+<size>5</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<usesList>0</usesList>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.GroupsClass</classType>
+</groups>
+<levels>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>1</multiSelect>
+<name>levels</name>
+<number>4</number>
+<picker></picker>
+<prettyName>Levels</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators></separators>
+<size>3</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.LevelsClass</classType>
+</levels>
+<users>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>1</multiSelect>
+<name>users</name>
+<number>4</number>
+<picker></picker>
+<prettyName>Users</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators></separators>
+<size>5</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<usesList>0</usesList>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.UsersClass</classType>
+</users>
+</class>
+<name>CreateResources.SankoreFSReaderOptimized2</name>
+<number>1</number>
+<className>XWiki.XWikiRights</className>
+<guid>dfcdba88-92f9-40c6-8a57-f55e9f54d241</guid>
+<property>
+<allow>0</allow>
+</property>
+<property>
+<levels>view</levels>
+</property>
+<property>
+<users>XWiki.XWikiGuest</users>
+</property>
+</object>
+<object>
+<class>
+<name>XWiki.XWikiRights</name>
+<customClass></customClass>
+<customMapping></customMapping>
+<defaultViewSheet></defaultViewSheet>
+<defaultEditSheet></defaultEditSheet>
+<defaultWeb></defaultWeb>
+<nameField></nameField>
+<validationScript></validationScript>
+<allow>
+<customDisplay></customDisplay>
+<defaultValue>1</defaultValue>
+<disabled>0</disabled>
+<displayFormType>select</displayFormType>
+<displayType>allow</displayType>
+<name>allow</name>
+<number>4</number>
+<prettyName>Allow/Deny</prettyName>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+</allow>
+<groups>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>1</multiSelect>
+<name>groups</name>
+<number>4</number>
+<picker></picker>
+<prettyName>Groups</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators></separators>
+<size>5</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<usesList>0</usesList>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.GroupsClass</classType>
+</groups>
+<levels>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>1</multiSelect>
+<name>levels</name>
+<number>4</number>
+<picker></picker>
+<prettyName>Levels</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators></separators>
+<size>3</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.LevelsClass</classType>
+</levels>
+<users>
+<cache>0</cache>
+<customDisplay></customDisplay>
+<disabled>0</disabled>
+<displayType>select</displayType>
+<multiSelect>1</multiSelect>
+<name>users</name>
+<number>4</number>
+<picker></picker>
+<prettyName>Users</prettyName>
+<relationalStorage>0</relationalStorage>
+<separator> </separator>
+<separators></separators>
+<size>5</size>
+<sort>none</sort>
+<tooltip></tooltip>
+<unmodifiable>0</unmodifiable>
+<usesList>0</usesList>
+<validationMessage></validationMessage>
+<validationRegExp></validationRegExp>
+<classType>com.xpn.xwiki.objects.classes.UsersClass</classType>
+</users>
+</class>
+<name>CreateResources.SankoreFSReaderOptimized2</name>
+<number>3</number>
+<className>XWiki.XWikiRights</className>
+<guid>141f3ac2-06a5-4bb6-84fe-3ffd8a372796</guid>
+<property>
+<allow>0</allow>
+</property>
+<property>
+<groups>XWiki.XWikiAllGroup</groups>
+</property>
+<property>
+<levels>view</levels>
+</property>
+</object>
+<content>//{{groovy}}
+// CreateResources/SankoreFSReaderOptimized2
+package com.xwiki.sankore;
+
+import com.xpn.xwiki.XWikiConfig;
+import com.xpn.xwiki.XWikiContext;
+import com.xpn.xwiki.XWikiException;
+import com.xpn.xwiki.api.XWiki;
+import com.xpn.xwiki.doc.XWikiAttachment;
+import com.xpn.xwiki.doc.XWikiDocument;
+import com.xpn.xwiki.objects.BaseObject;
+
+import org.curriki.xwiki.plugin.asset.Asset;
+import org.curriki.xwiki.plugin.asset.AssetManager;
+import org.curriki.xwiki.plugin.asset.Constants;
+import org.curriki.xwiki.plugin.asset.DefaultAssetManager;
+
+import org.curriki.xwiki.plugin.asset.attachment.AttachmentAsset;
+import org.curriki.xwiki.plugin.asset.composite.CollectionCompositeAsset;
+import org.xwiki.model.reference.DocumentReference;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringReader;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Properties;
+import java.util.Scanner;
+import java.text.Normalizer;
+
+class SankoreFSReaderOptimized {
+
+  private static final String COLLECTION_FILE_INFO = "collection.txt";
+
+  private static final String GARDE_LEVEL_MAPPING = "SankoreCode.GradeLevelMapping";
+
+  private static final String LICENSE_MAPPING = "SankoreCode.LicenseMapping";
+
+  private static final String SUBJECTS_MAPPING = "SankoreCode.SubjectsMapping";
+
+  private String debugMessage = "";
+
+  private XWikiDocument docBundle = null;
+
+  private XWikiContext context;
+
+  private XWiki xwiki;
+
+  /**
+   * initialise the created object
+   * 
+   * @param xwiki
+   */
+  public void init(XWiki xwiki, XWikiContext xcontext) {
+
+    context = xcontext;
+    
+    this.xwiki = xwiki;
+
+    try {
+      docBundle = xwiki.getDocument("Admin.SankoreMapping").getDocument();
+    } catch (XWikiException e) {
+
+    }
+
+  }
+
+  /**
+   * create collection and asset related to the directory path
+   * 
+   */
+  public String createCollectionAndAssetsForFolder(String path,
+      CollectionCompositeAsset collectionAsset, boolean createCollection) {
+
+    File folder = new File(path);
+    try {
+      if (folder.exists()) {
+        // First we need to create the collection
+        if (createCollection) {
+          addDebug("* (% class='debug_collection' %) Create Collection for Folder " + folder.getName());
+          collectionAsset = createCollectionForFolder(folder, collectionAsset);
+          addDebug("** (% class='debug_sucess' %) Success Create of Collection : [[${collectionAsset.fullName}]]");
+        }
+
+        // We create the assets of this collections
+        File[] files = folder.listFiles();
+        for (int i = 0; i &lt; files.length; i++) {
+          if (!files[i].isDirectory()) {
+            // if is file we create asset
+            try {
+              if (files[i].getName().endsWith(".ubz")) {
+                addDebug("** (% class='debug_asset' %) Create Asset for file" + files[i].getName());
+                def asset = createAssetForFile(files[i], collectionAsset);
+                if (asset == null)
+                  addDebug("** Fail on Create Asset for file " + files[i].getName());
+                else
+                  addDebug("** Success Create Asset [[${asset.fullName}]]");
+              }
+
+            } catch (Exception e) {
+              addDebug("Exception " + e.getMessage());
+            }
+          } else {
+            // We nedd to create a collection and assets for the current folder
+            createCollectionAndAssetsForFolder(files[i].getPath(), collectionAsset, true);
+            addDebug("** (% style='color:green' %)Success Create collection and asset for folder [[${collectionAsset.fullName}]]");
+          }
+
+        }
+      } else {
+        addDebug("* Cannot find folder ${path}");
+      }
+      return debugMessage;
+    } catch (Exception e) {
+      System.out.println(e);
+      return debugMessage;
+    }
+  }
+
+  /**
+   * Create collection for the concerned folder
+   * 
+   * @param collectionFolder the folder of collection
+   * @param collectionAssetParent the parent of collectionFolder
+   * @return
+   */
+
+  private CollectionCompositeAsset createCollectionForFolder(File collectionFolder,
+      CollectionCompositeAsset collectionAssetParent) {
+
+    String title = collectionFolder.getName();
+    CollectionCompositeAsset collectionForCurrentFolder = null;
+    Asset tempAsset;
+    try {
+
+      String parent = (collectionAssetParent == null) ? "" : collectionAssetParent.getFullName();
+
+      tempAsset = new AssetNewModel(new XWikiDocument(null), context).createTempAsset(parent,
+          "Coll_Sankore", collectionFolder.getName(), context);
+      tempAsset.setCustomClass("org.curriki.xwiki.plugin.asset.Asset");
+
+      collectionForCurrentFolder = tempAsset.makeCollection();
+
+      if (title != null &amp;&amp; !title.isEmpty()) {
+        collectionForCurrentFolder.setTitle(getTranslation(title));
+      }
+
+      // We read the info of collection from the file collection.txt
+      if (new File(collectionFolder.getPath() + "/" + COLLECTION_FILE_INFO).isFile()) {
+        addDebug("** Read the info of collection from the file " + collectionFolder.getPath() + "/"
+            + COLLECTION_FILE_INFO);
+        collectionForCurrentFolder = updateCollectionInfos(collectionForCurrentFolder,
+            collectionFolder.getPath() + "/" + COLLECTION_FILE_INFO);
+      }
+
+      // addDebug("** Saving the new collection  " + collectionForCurrentFolder
+      // + " with parent " + parent);
+
+      collectionForCurrentFolder.save();
+
+      // We add the asset to collection
+      if (collectionAssetParent != null) {
+        addDebug("** add Subasset in createCollectionForFolder: " + collectionForCurrentFolder
+            + " To the collection : " + collectionAssetParent);
+        collectionAssetParent.addSubasset(collectionForCurrentFolder.getFullName());
+        collectionAssetParent.save();
+      }
+      return collectionForCurrentFolder;
+
+    } catch (XWikiException e) {
+      addDebug("Exception " + e.getMessage());
+    }
+
+    return null;
+  }
+
+  /**
+   * I add this function because the text on the collection.txt haven't accent
+   * @param text
+   * @return
+   */
+  private String removeAccents(String text) {
+      return Normalizer.normalize(text, Normalizer.Form.NFD)
+                       .replaceAll("\\p{InCombiningDiacriticalMarks}+", "").replaceAll("\\s+","");
+  }
+  
+  /**
+   * Reading the coresponding value for collection metadata on xwiki
+   * 
+   * @param xvalue
+   * @param docMapping
+   * @return
+   */
+  private String getValueFromMapping(String xvalue,String docMapping)
+  { 
+    String returnedValue = "";
+    try {
+      if (xvalue != null &amp;&amp; !xvalue.isEmpty() &amp;&amp; xwiki.exists(docMapping)) {
+          xvalue = xvalue.trim().replaceAll("\\s+","");
+          // case of multi xvalue separated with ; 
+          List&lt;String&gt; multiXvalue = Arrays.asList(xvalue.split(";"));
+          String mappingString = xwiki.getDocument(docMapping).getContent();
+          Scanner scanner = new Scanner(mappingString);
+          while (scanner.hasNextLine()) {
+
+              String line = scanner.nextLine();
+
+              String[] pair = line.split("=");
+              String key = removeAccents(pair[0]);
+
+              // Check if we have multiXvalue
+              if(multiXvalue.size()&gt;1)
+              {
+                if (multiXvalue.contains(key)) {
+                  addDebug("** Founding corresponding value for xvalue : " + xvalue + " returnedValue " + pair[1]);
+                  for(String elemToAdd : pair[1].split(","))
+                    if(!returnedValue.contains(elemToAdd) &amp;&amp; !elemToAdd.isEmpty())
+                      returnedValue = returnedValue +","+ elemToAdd;
+                }                
+              }
+              else
+              {  
+                if (key.equals(xvalue)) {
+                  addDebug("** Founding corresponding value for xvalue : " + xvalue + " returnedValue " + pair[1]);
+                  returnedValue = pair[1];
+                  scanner.close();
+                  return returnedValue;
+                }
+              }
+          }
+          // replace the first , to don't start with empty value in the case of list
+          returnedValue = returnedValue.replaceFirst(",", "");
+          
+          scanner.close();
+      }
+    } catch (XWikiException e) {
+      addDebug("Exception " + e.getMessage());
+    }
+        return returnedValue;
+  }
+  /**
+   * 
+   * Update the details of collection
+   * 
+   * @param collection  the collection to update
+   * @param collectionFileInfoPath the collection file info path
+   * @return
+   */
+  public CollectionCompositeAsset updateCollectionInfos(CollectionCompositeAsset collection,
+      String collectionFileInfoPath) {
+
+    XWikiConfig collectionFileInfo;
+    try {
+      collectionFileInfo = new XWikiConfig(collectionFileInfoPath);
+
+      collection.set("description", collectionFileInfo.getProperty("description"));
+      collection.set("keywords", collectionFileInfo.getProperty("keywords"));
+           
+      // Set the educational_level field
+      String xvalue = collectionFileInfo.getProperty("gradeLevel");
+      xvalue = getValueFromMapping(xvalue,GARDE_LEVEL_MAPPING);
+ 
+      if (!xvalue.isEmpty()) 
+        collection.set("educational_level", Arrays.asList(xvalue.split(",")));
+      
+      // Set the fw_items field
+      xvalue = collectionFileInfo.getProperty("Subjects");
+      xvalue = getValueFromMapping(xvalue,SUBJECTS_MAPPING);
+      if (xvalue != null &amp;&amp; !xvalue.isEmpty() &amp;&amp; xwiki.exists(SUBJECTS_MAPPING)) 
+        collection.set("fw_items", Arrays.asList(xvalue.split(",")));
+       
+      // Set the licenseType field
+      xvalue = collectionFileInfo.getProperty("Licence");
+      xvalue = getValueFromMapping(xvalue,LICENSE_MAPPING);
+      if (xvalue != null &amp;&amp; !xvalue.isEmpty() &amp;&amp; xwiki.exists(LICENSE_MAPPING))
+        collection.set("licenseType", xvalue);
+      else
+        collection.set("licenseType", "Licences.CreativeCommonsAttributionNon-CommercialShareAlike");
+
+      if (collectionFileInfo.getProperty("title") != null)
+        collection.setTitle(collectionFileInfo.getProperty("title"));
+
+      addDebug("** Succes updateCollectionInfos title : " + collectionFileInfo.getProperty("title"));
+
+    } catch (XWikiException e) {
+      addDebug("Exception " + e.getMessage());
+    }
+
+    return collection;
+  }
+
+  /**
+   * Create one asset for the concerned file
+   * 
+   * @param assetFile to import from FS
+   * @param collectionAssetParent parent of the assetFile
+   * @return
+   */
+
+  private Asset createAssetForFile(File assetFile, CollectionCompositeAsset collectionAssetParent) {
+    InputStream ubz = null;
+    try {
+      ubz = new FileInputStream(assetFile);
+    } catch (FileNotFoundException e) {
+      addDebug("FileNotFoundException " + e.getMessage());
+    }
+    Asset tempAsset = null;
+    try {
+      String parent = (collectionAssetParent == null) ? "" : collectionAssetParent.getFullName();
+
+      tempAsset = new AssetNewModel(new XWikiDocument(null), context).createTempAsset(parent,
+          "Coll_Sankore", assetFile.getName(), context);
+      tempAsset.setCustomClass("org.curriki.xwiki.plugin.asset.Asset");
+
+      // tempAsset = curriki.createAsset(parent, "Coll_Sankore");
+
+      if (ubz != null)
+        tempAsset.addAttachment(ubz, assetFile.getName());
+
+      tempAsset.processAttachment();
+
+      tempAsset.setTitle(tempAsset.getTitle().replaceAll("\n", " "));
+
+      tempAsset.save();
+
+      // We add the asset to collection
+      if (collectionAssetParent != null) {
+        addDebug("** add Subasset  : " + tempAsset + " To the collection : "
+            + collectionAssetParent);
+        collectionAssetParent.addSubasset(tempAsset.getFullName());
+        collectionAssetParent.save();
+      }
+      return tempAsset;
+
+    } catch (XWikiException e) {
+      addDebug("Exception " + e.getMessage());
+    } catch (IOException e) {
+      addDebug("IOException " + e.getMessage());
+    }
+    return null;
+  }
+
+  private void addDebug(String message) {
+    System.out.println(message);
+    debugMessage += message + "\n";
+  }
+
+  /**
+   * Cache properties loaded from the document bundle for maximum efficiency.
+   * where Long is the XWiki document ids.
+   */
+  private Properties propsCache = null;
+
+  /**
+   * Looks for a translation in the document bundle. It first checks if the
+   * translation can be found in the cache.
+   * 
+   * @param key
+   *          the key identifying the translation
+   * @return the translation or null if not found or if the passed key is null
+   * @throws XWikiException
+   */
+  private String getTranslation(String key) {
+    String returnValue = null;
+
+    if (key != null) {
+      if (docBundle != null) {
+        Properties props = null;
+        if (this.propsCache == null) {
+          // Cache needs to be updated
+          props = getDocumentBundleProperties(docBundle);
+          // updates cache
+          this.propsCache = props;
+        } else {
+          // gets from cache
+          props = this.propsCache;
+        }
+
+        returnValue = props.getProperty(key);
+      }
+    }
+    if (returnValue == null)
+      return key;
+
+    return returnValue;
+  }
+
+  /**
+   * @param docBundle
+   *          the document bundle.
+   * @return properties of the document bundle.
+   */
+  private Properties getDocumentBundleProperties(XWikiDocument docBundle) {
+    Properties props = new Properties();
+    String content = docBundle.getContent();
+    try {
+      props.load(new StringReader(content));
+    } catch (IOException e) {
+
+    }
+
+    return props;
+  }
+
+  public class AssetNewModel extends Asset {
+
+    public AssetNewModel(XWikiDocument doc, XWikiContext context) {
+      super(doc, context);
+    }
+
+    public Asset createTempAsset(String parentAsset, String publishSpace, String pageName,
+        XWikiContext context) throws XWikiException {
+
+      pageName = context.getWiki().getUniquePageName(publishSpace, pageName, context);
+
+      XWikiDocument newDoc = context.getWiki().getDocument(
+          new DocumentReference(context.getDatabase(), publishSpace, pageName), context);
+
+      AssetNewModel assetDoc = new AssetNewModel(newDoc, context);
+      assetDoc.setCustomClass("org.curriki.xwiki.plugin.asset.Asset");
+      assetDoc.init(parentAsset, publishSpace);
+      assetDoc.saveDocument(context.getMessageTool().get("curriki.comment.createnewsourceasset"),
+          true);
+
+      return (Asset) assetDoc;
+    }
+
+  }
+
+}
+
+ def sfReader = new SankoreFSReaderOptimized();
+ sfReader.init(xwiki, xcontext.getContext());
+
+ def directory = "/usr/local/tomcat/sankore/test";
+ if (request.directory)
+   directory = request.directory;
+
+if (request.confirm) {
+ println """Importing directory ${directory}"""
+
+ def rslt = sfReader.createCollectionAndAssetsForFolder(directory,null,true) ; println(rslt);
+} else {
+ println """
+{{html clean="false"}}
+&lt;form action=""&gt;
+&lt;input type="text" name="directory" value="${directory}" /&gt;
+&lt;input type="checkbox" name="confirm" value="1" checked /&gt; Confirm
+&lt;input type="submit" value="Import" /&gt;
+&lt;/form&gt;
+{{/html}}
+"""
+}
+{{/groovy}}
+/**/</content></xwikidoc>

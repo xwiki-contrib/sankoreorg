@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1337009871000</creationDate>
-<date>1337009871000</date>
-<contentUpdateDate>1337009871000</contentUpdateDate>
+<creationDate>1404994812000</creationDate>
+<date>1404994812000</date>
+<contentUpdateDate>1404994812000</contentUpdateDate>
 <version>1.1</version>
 <title>Edit And View Resources Translations</title>
 <template></template>
@@ -229,6 +229,9 @@ rve.information.back_to_history_rollover=
 
 rve.information.back_to_information_link=Return to Information
 rve.information.back_to_information_rollover=Go back to the default view of the published resource Information
+
+rve.information.editasset_link=Edit Asset
+rve.information.editasser_rollover=Edit the asset for this resource
 
 ## INFORMATION TAB DEFAULT VIEW**************************************
 
@@ -563,5 +566,4 @@ rve.comments.commentrating.rating.display_header=Rating:
 rve.comments.commentrating.display.edit_link=Edit
 rve.comments.commentrating.display.edit_comment_link=Edit &amp; Comment
 rve.comments.commentrating.display.edit_rate_link=Edit &amp; Rate
-rve.comments.commentrating.display.delete_link=Delete
-</content></xwikidoc>
+rve.comments.commentrating.display.delete_link=Delete</content></xwikidoc>

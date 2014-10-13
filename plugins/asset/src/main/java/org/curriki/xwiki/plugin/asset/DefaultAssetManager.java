@@ -19,7 +19,7 @@ import org.apache.commons.logging.LogFactory;
 /**
  * Created by IntelliJ IDEA.
  * User: ludovic
- * Date: 10 dŽc. 2008
+ * Date: 10 dï¿½c. 2008
  * Time: 19:42:09
  * To change this template use File | Settings | File Templates.
  */
@@ -51,6 +51,7 @@ public abstract class DefaultAssetManager implements AssetManager {
         addAssetSubType(new InteractiveAssetManager());
         addAssetSubType(new ExternalAssetManager());
         addAssetSubType(new CompositeAssetManager());
+        addAssetSubType(new SankoreAssetManager());
 
         // Add asset sub types from config
         String params = context.getWiki().getXWikiPreference("curriki_assetsubtypes", "", context);

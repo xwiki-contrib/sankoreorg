@@ -301,7 +301,7 @@ Solution: Commenting the div element
 #if(!$title || $title.length() == 0) ## {
  #set($title = $msg.get("caption.untitled"))
 #end ## }
-<a class="curriki-link" href="$asset.getURL("view")">{pre}$title{/pre}</a>
+<a class="curriki-link" href="$asset.getURL("view")">verbatim($title)</a>
 #end ## macro ## }
 
 #**
@@ -460,7 +460,9 @@ $xwiki.ssfx.use("curriki/filetypes.css")
 #if($!rollover == "${category}.${subcategory}")
   #set($rollover = $msg.get('search.resource.icon.Unknown.rollover'))
 #end
-{pre}<img id="favorites-filetype-${ftnb}" class="resource-${assetType} category-${category} subcategory-${category}_${subcategory}" src="/xwiki/skins/curriki8/extjs/resources/images/default/s.gif" ext:qtip="${rollover}"/>{/pre}
+#verbatim_start
+<img id="favorites-filetype-${ftnb}" class="resource-${assetType} category-${category} subcategory-${category}_${subcategory}" src="/xwiki/skins/curriki8/extjs/resources/images/default/s.gif" ext:qtip="${rollover}"/>
+#verbatim_end
 #end ## Macro
 
 #**
@@ -955,9 +957,7 @@ $!desc
   * @param $assetList asset list that is displayed
   *#
 #macro(mycurriki_favoritespagination $startIndex $nbToDisplay $assetList) ##{
-  <!-- MySankore Favorites Pagination -->
   #curriki_paginator($msg.get("mycurriki.tab.favorites.label") $startIndex $nbToDisplay $assetList.size())
-  <!-- End MySankore Favorites Pagination -->
 #end ## } end macro mycurriki_favoritespagination
 
 
@@ -994,7 +994,6 @@ $!desc
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_favoritesbox $userdoc $userobj) ##{
-  <!-- MySankore Favorites Box -->
   #set($allcols = false)
   #if($context.user=="XWiki.XWikiGuest") ## {
     ## Settings for guests here
@@ -1052,7 +1051,6 @@ $!desc
   </table>
   ## Pagination here
   #mycurriki_favoritespagination( $startIndex $nbToDisplay $assetList )
-  <!-- End MySankore Favorites Box -->
 #end ##} end macro mycurrikifavoritesbox
 
 
@@ -1122,7 +1120,6 @@ $msg.get("deleted")
   * @param $allcols true if the actions columns are added
   *#
 #macro(mycurriki_contributionsheader $sortBy $sortDir $headerArgs $allcols) ##{
-  <!-- MySankore Contributions Header -->
   <tr>
       #if($sortBy=="title" && $sortDir == "asc") ## {
         #set($url = $xwiki.getURL($doc.fullName, "view", "${headerArgs}sortBy=title&sortDir=desc"))
@@ -1150,7 +1147,6 @@ $msg.get("deleted")
         <th class="table-header table-header-fixed table-col-action">$msg.get('mycurriki.contributions.table.action')</th>
       #end ## if allcols
     </tr>
-    <!-- End MySankore Contributions Header -->
 #end ##} end macro mycurrikicontributionsheader
 
 
@@ -1190,17 +1186,17 @@ $msg.get("deleted")
   * @param $addpath Add path to follow
   * @param $g_userHasCollections Impl param True if the user has collections
   *#
-#macro(mycurriki_action_add $asset $addpath) ##{
+#macro(mycurriki_action_add $asset $addpath)
   ## Not available on "Favorites" page except for owner/admin
   #checkForCollections()
-  #if($g_userHasCollections) ##{
-    #escapeForJS($asset.fullName)
-    #set($escapedFullName = $ret_escaped)
+  #if($g_userHasCollections)
+    #set($escapedFullName = $escapetool.xml($escapetool.javascript($asset.fullName)))
     #asset_findtitle($asset)
-    #escapeForJS($currikiTitle)
-    #set($escapedTitle = $ret_escaped)
-    #if($asset.creator == $context.user || $hasGlobalAdmin || $doc.name != 'Favorites' || ($g_userdoc.fullName == $context.user && $doc.name == 'Favorites'))##{
-    <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {assetName:'$escapedFullName', assetTitle:'$escapedTitle'}); return false;" ext:qtip="$msg.get('mycurriki.link.add.tooltip')">$msg.get('mycurriki.link.add')</a>
+    #set($escapedTitle = $escapetool.xml($escapetool.javascript($currikiTitle)))
+    #if($asset.creator == $context.user || $hasGlobalAdmin || $doc.name != 'Favorites' || ($g_userdoc.fullName == $context.user && $doc.name == 'Favorites'))
+    #verbatim_start
+    <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {assetName:'$escapedFullName', assetTitle:'$escapedTitle'}); return false;" ext:qtip="$escapetool.xml($msg.get('mycurriki.link.add.tooltip'))">$msg.get('mycurriki.link.add')</a>
+    #verbatim_end
     #end##}
   #end##}
 #end ##}
@@ -1247,8 +1243,7 @@ $msg.get("deleted")
   ## File Resources only (not Collections/Folders)
   #checkForCollections()
   #if($asset.getCategory() != 'collection') ##{
-    #escapeForJS($asset.fullName)
-    #set($escapedFullName = $ret_escaped)
+    #set($escapedFullName = $escapetool.xml($escapetool.javascript($asset.fullName)))
     #if($doc.name != 'Favorites' && ($asset.creator == $context.user || $hasGlobalAdmin))##{
     <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {copyOf:'${escapedFullName}'}); return false;" ext:qtip="$msg.get('mycurriki.link.copy.tooltip')">$msg.get('mycurriki.link.copy')</a>
     #end##}
@@ -1295,11 +1290,9 @@ $msg.get("deleted")
   ## ONLY for owner + admin
   ## ONLY Collections
   #if($asset.getCategory() == 'collection') ##{
-    #escapeForJS($asset.fullName)
-    #set($escapedFullName = $ret_escaped)
+    #set($escapedFullName = $escapetool.xml($escapetool.javascript($asset.fullName)))
     #asset_findtitle($asset)
-    #escapeForJS($currikiTitle)
-    #set($escapedTitle = $ret_escaped)
+    #set($escapedTitle = $escapetool.xml($escapetool.javascript($currikiTitle)))
     #assets_userInGroup($asset)
     #if($doc.name != 'Favorites' && ($ret_assetGroupMember || $hasGlobalAdmin))##{
     <a class="button-link#if($g_actionFirst) first-item#set($g_actionFirst = false)#end" href="#" onclick="Curriki.module.addpath.startPath('${addpath}', {parentAsset:'$escapedFullName', parentTitle:'$escapedTitle'}); return false;" ext:qtip="$msg.get('mycurriki.link.buildup.tooltip')">$msg.get('mycurriki.link.buildup')</a>
@@ -1317,13 +1310,10 @@ $msg.get("deleted")
   ## ONLY for owner + admin
   ## ONLY Collections
   #if($asset.getCategory() == 'collection') ##{
-    #escapeForJS($asset.fullName)
-    #set($escapedFullName = $ret_escaped)
+    #set($escapedFullName = $escapetool.xml($escapetool.javascript($asset.fullName)))
     #asset_findtitle($asset)
-    #escapeForJS($currikiTitle)
-    #set($escapedTitle = $ret_escaped)
-    #escapeForJS(${xwiki.getUserName($asset.creator, false)})
-    #set($escapedCreatorName = $ret_escaped)
+    #set($escapedTitle = $escapetool.xml($escapetool.javascript($currikiTitle)))
+    #set($escapedCreatorName = $escapetool.xml($escapetool.javascript($xwiki.getUserName($asset.creator, false))))
     #if($doc.name != 'Favorites' && ($asset.creator == $context.user || $hasGlobalAdmin))##{
       #set($cnt = $asset.as($xwiki.null).getSubassetList().size())
       #if($cnt > 0) ##{
@@ -1342,7 +1332,6 @@ $msg.get("deleted")
   * @param $allcols true if the actions columns are added
   *#
 #macro(mycurriki_contributionsasset $asset $allcols)
-  <!-- MySankore Contributions Asset -->
   #if(!$g_rowCount) ## {
     #set($g_rowCount = 0)
   #end ## }
@@ -1370,7 +1359,6 @@ $msg.get("deleted")
       </td>
     #end ## if allcols
   </tr>
-  <!-- End MySankore Contributions Asset -->
 #end
 
 
@@ -1383,9 +1371,7 @@ $msg.get("deleted")
   * @param $sortArgs The sort arguments for the url
   *#
 #macro(mycurriki_contributionspagination $startIndex $nbToDisplay $showcount $sortArgs) ##{
-  <!-- MySankore Contributions Pagination -->
   #curriki_paginatorargs($msg.get("mycurriki.tab.contributions.label") $startIndex $nbToDisplay $showcount $sortArgs)
-  <!-- End MySankore Contributions Pagination -->
 #end ##} end macro
 
 
@@ -1395,13 +1381,11 @@ $msg.get("deleted")
   * @param $userobj Object of the user
   *#
 #macro(mycurriki_contributionsbutton $userdoc $userobj )
-  <!-- MySankore Contributions Buttons -->
   #if($context.action == "view" && ($context.user==$userdoc.fullName || $hasGlobalAdmin))##{
-    {pre}
+    #verbatim_start
     <a class="button button-confirm" onclick="Curriki.module.addpath.startPath('I', {});" title="$msg.get('mycurriki.contributions.addButton_tooltip')">$msg.get('mycurriki.contributions.addButton')</a>
-    {/pre}
+    #verbatim_end
   #end ##}
-  <!-- End MySankore Contributions Buttons -->
 #end ##} end macro
 
 
@@ -1599,7 +1583,7 @@ $msg.get("deleted")
   #if($multiple)
     #set($reorder = $xwiki.search("select count(*) from XWikiDocument as doc, BaseObject as obj, IntegerProperty as props where obj.id=props.id.id and doc.fullName=obj.name and obj.className='CurrikiCode.CollectionReorderedClass' and doc.fullName='Coll_${shortname}.WebHome' and props.id.name='reordered' and props.value=1").get(0))
     #set($reordered = ($reorder > 0))
-{pre}
+#verbatim_start
 <script type="text/javascript">
 /* <![CDATA[ */
 Curriki.data.reorder = {
@@ -1610,7 +1594,7 @@ Curriki.data.reorder = {
 /* ]]> */
 </script>
 <script type="text/javascript" src="/xwiki/js/curriki-module-reorder.js"></script>
-{/pre}
+#verbatim_end
   #end
 #end
 ## Get collections
@@ -1629,7 +1613,7 @@ Curriki.data.reorder = {
   #set($endIndex = $assetList.size() - 1)
 #end
 ##
-{pre}
+#verbatim_start
 <script type="text/javascript">
 var $hidden = false;
 function toggle_desc(){
@@ -1650,7 +1634,7 @@ function toggle_desc(){
   return false;
 }
 </script>
-{/pre}
+#verbatim_end
 ## row per item -- number of rows configurable
 #set($showcount = 0)
 #foreach($assetPage in $assetList)
@@ -1674,18 +1658,18 @@ function toggle_desc(){
   *#
 #macro(mycurriki_collections_buttons $userobj)
 #if($context.action == "view" && ($context.user==$userdoc.fullName || $hasGlobalAdmin))
-{pre}
+#verbatim_start
 <a class="button button-confirm" onclick="Curriki.module.reorder.start(); return false;" alt="$msg.get('mycurriki.collections.reorder')" title="$msg.get('mycurriki.collections.reorder_tooltip')">$msg.get("mycurriki.collections.reorder")</a>
 <a class="button button-confirm" onclick="Curriki.module.addpath.startPath('K', {});" alt="$msg.get('mycurriki.collections.add')" title="$msg.get('mycurriki.collections.add_tooltip')">$msg.get("mycurriki.collections.add")</a>
-{/pre}
+#verbatim_end
 #end
 #end ## buttonmacro
 
 #macro(mycurriki_groups_join_button $userobj)
   #if($context.action == "view" && ($context.user==$userdoc.fullName || $hasGlobalAdmin))
-    {pre}
+    #verbatim_start
       <a class="button button-confirm" href="$xwiki.getDocument('Search.Groups').getURL()" alt="$msg.get('mycurriki.groups.rejoindre')" title="$msg.get('mycurriki.groups.rejoindre')">$msg.get("mycurriki.groups.rejoindre")</a>
-    {/pre}
+    #verbatim_end
   #end
 #end
 

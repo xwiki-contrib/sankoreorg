@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>CreateResources</web>
+<name>SankoreFolderReaderV2</name>
+<language></language>
+<defaultLanguage>fr</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1402345733000</creationDate>
+<date>1402345733000</date>
+<contentUpdateDate>1402345733000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>// {{groovy}}
+// CreateResources/SankoreFolderReaderV2
+package com.xwiki.sankore;
+
+
+
+
+import com.xpn.xwiki.XWikiException;
+import com.xpn.xwiki.api.XWiki;
+import com.xpn.xwiki.doc.XWikiDocument;
+
+import org.curriki.xwiki.plugin.curriki.CurrikiPluginApi;
+import org.curriki.xwiki.plugin.asset.Asset;
+import org.curriki.xwiki.plugin.asset.composite.CollectionCompositeAsset;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringReader;
+import java.util.Properties;
+
+class SankoreFolderReader {
+
+  private String debugMessage = "";
+
+  private CurrikiPluginApi curriki = null;
+
+  private XWikiDocument docBundle = null;
+
+  /**
+   * intialise the created object
+   * 
+   * @param xwiki
+   */
+  public void init(XWiki xwiki) {
+
+    curriki = (CurrikiPluginApi) xwiki.getPlugin("curriki");
+
+    try {
+      docBundle = xwiki.getDocument("Admin.SankoreMapping").getDocument();
+    } catch (XWikiException e) {
+
+    }
+
+  }
+
+  /**
+   * create collection and asset related to the directory path
+   * 
+   */
+  public String createCollectionAndAssetsForFolder(String path,
+      CollectionCompositeAsset collectionAsset, boolean createCollection) {
+
+    File folder = new File(path);
+    try {
+      if (folder.exists()) {
+        // First we need to create the collection
+        if (createCollection) {
+          addDebug("** Create Collection for Folder " + folder.getName());
+          collectionAsset = createCollectionForFolder(folder, collectionAsset);
+        }
+
+        // We create the assets of this collections
+        File[] files = folder.listFiles();
+        for (int i = 0; i &lt; files.length; i++) {
+          if (!files[i].isDirectory()) {
+            // if is file we create asset
+            try {
+              if (files[i].getName().endsWith(".ubz")) {
+                addDebug("** Create Asset for file" + files[i].getName());
+                createAssetForFile(files[i], collectionAsset);
+                addDebug("** Success Create Asset for file" + files[i].getName());
+
+              }
+
+            } catch (Exception e) {
+              addDebug("Exception " + e.getMessage());
+            }
+          } else {
+            // We nedd to create a collection and assets for the current folder
+            addDebug("* Create collection and asset for folder " + files[i].getName() + " - "  + collectionAsset);
+            createCollectionAndAssetsForFolder(files[i].getPath(), collectionAsset, true);
+            addDebug("** Success Create collection and asset for folder" + files[i].getName());
+          }
+
+        }
+      }
+
+      return debugMessage;
+    } catch (Exception e) {
+      System.out.println(e);
+      return debugMessage;
+    }
+  }
+
+  /**
+   * Create collection for the concerned folder
+   * 
+   * @param folder
+   *          to create from FS
+   * @return
+   */
+
+  private CollectionCompositeAsset createCollectionForFolder(File collectionFolder,
+      CollectionCompositeAsset collectionAssetParent) {
+
+    String title = collectionFolder.getName();
+    CollectionCompositeAsset collectionForCurrentFolder = null;
+    Asset tempAsset;
+    try {
+
+      String parent = (collectionAssetParent == null) ? "" : collectionAssetParent.getFullName();
+
+      tempAsset = curriki.createAsset(parent, "Coll_Sankore");
+
+      collectionForCurrentFolder = tempAsset.makeCollection();
+
+      if (title != null &amp;&amp; !title.isEmpty()) {
+        collectionForCurrentFolder.setTitle(getTranslation(title));
+      }
+      //addDebug("** Saving the new collection  " + collectionForCurrentFolder + " with parent " + parent);
+
+      collectionForCurrentFolder.save();
+
+      // After Saving the tmp collection we publish it
+      collectionForCurrentFolder.publish("Coll_Sankore", title);
+
+      // We add the asset to collection
+      if (collectionAssetParent != null) {
+        //addDebug("** add Subasset  : " + collectionForCurrentFolder + " To the collection : " + collectionAssetParent);
+        collectionAssetParent.addSubasset(collectionForCurrentFolder.getFullName());
+        collectionAssetParent.save();
+      }
+      return collectionForCurrentFolder;
+
+    } catch (XWikiException e) {
+      addDebug("Exception " + e.getMessage());
+    }
+
+    return null;
+  }
+
+  /**
+   * Create one asset for the concerned file
+   * 
+   * @param file
+   *          to import from FS
+   * @return
+   */
+
+  private boolean createAssetForFile(File assetFile, CollectionCompositeAsset collectionAssetParent) {
+    InputStream ubz = null;
+    try {
+      ubz = new FileInputStream(assetFile);
+    } catch (FileNotFoundException e) {
+      addDebug("FileNotFoundException " + e.getMessage());
+    }
+    Asset tempAsset = null;
+    try {
+      String parent = (collectionAssetParent == null) ? "" : collectionAssetParent.getFullName();
+      tempAsset = curriki.createAsset(parent, "Coll_Sankore");
+
+      if (ubz != null)
+        tempAsset.addAttachment(ubz, assetFile.getName());
+
+      tempAsset.processAttachment();
+
+      tempAsset.setTitle(tempAsset.getTitle().replaceAll("\n",""));
+      //addDebug("** Saving the new collection  " + tempAsset + " with parent " + parent);
+      tempAsset.save();
+
+      // After Saving the tmp collection we publish it
+      tempAsset.publish("Coll_Sankore", assetFile.getName());
+
+      // We add the asset to collection
+      if (collectionAssetParent != null) {
+        //addDebug("** add Subasset  : " + tempAsset + " To the collection : " + collectionAssetParent);
+        collectionAssetParent.addSubasset(tempAsset.getFullName());
+        collectionAssetParent.save();
+      }
+      return true;
+
+    } catch (XWikiException e) {
+      addDebug("Exception " + e.getMessage());
+    } catch (IOException e) {
+      addDebug("IOException " + e.getMessage());
+    }
+    return false;
+  }
+
+  private void addDebug(String message) {
+    System.out.println(message);
+    debugMessage += message + "\n";
+  }
+
+  /**
+   * Cache properties loaded from the document bundle for maximum efficiency.
+   * where Long is the XWiki document ids.
+   */
+  private Properties propsCache = null;
+
+  /**
+   * Looks for a translation in the document bundle. It first checks if the
+   * translation can be found in the cache.
+   * 
+   * @param key
+   *          the key identifying the translation
+   * @return the translation or null if not found or if the passed key is null
+   * @throws XWikiException
+   */
+  private String getTranslation(String key) {
+    String returnValue = null;
+
+    if (key != null) {
+      if (docBundle != null) {
+        Properties props = null;
+        if (this.propsCache == null) {
+          // Cache needs to be updated
+          props = getDocumentBundleProperties(docBundle);
+          // updates cache
+          this.propsCache = props;
+        } else {
+          // gets from cache
+          props = this.propsCache;
+        }
+
+        returnValue = props.getProperty(key);
+      }
+    }
+    if (returnValue == null)
+      return key;
+
+    return returnValue;
+  }
+
+  /**
+   * @param docBundle
+   *          the document bundle.
+   * @return properties of the document bundle.
+   */
+  private Properties getDocumentBundleProperties(XWikiDocument docBundle) {
+    Properties props = new Properties();
+    String content = docBundle.getContent();
+    try {
+      props.load(new StringReader(content));
+    } catch (IOException e) {
+
+    }
+
+    return props;
+  }
+
+}
+
+ SankoreFolderReader sfReader = new SankoreFolderReader();
+ sfReader.init(xwiki);
+
+def rslt =
+sfReader.createCollectionAndAssetsForFolder("/usr/local/tomcat/sankore/test",null,false) ; println(rslt);
+
+ {{/groovy}}
+/**/</content></xwikidoc>

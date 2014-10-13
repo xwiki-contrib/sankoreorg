@@ -321,7 +321,7 @@ module.init = function(){
             ,autoEl:{
               tag:'p'
               ,cls:'left'
-              ,html:'Exemples: Pythagore, GÃ©ographie, MathÃ©matiques, Histoire, ...'
+              ,html:'Exemples: Pythagore, Géographie, Mathématiques, Histoire, ...'
             }
           },{
             xtype:'container'
@@ -333,7 +333,7 @@ module.init = function(){
               ,autoEl:{
                 tag:'a'
                 ,href:'#'
-                ,html:'Comment fonctionne le moteur sankorÃ©?'
+                ,html:'Comment fonctionne le moteur sankoré?'
               }
             }]            
           }]
@@ -796,7 +796,7 @@ data.init = function(){
     // turn on remote sorting
     ,remoteSort: true
   });
-  data.store.results.setDefaultSort('rating', 'desc');
+
   
 
   // Set up renderers
@@ -919,7 +919,7 @@ data.init = function(){
       url: '/xwiki/bin/view/Search/Resources'
       ,method:'GET'
     })
-    ,baseParams: { start: '0', limit: '2', xpage: "plain", '_dc':(new Date().getTime()), category:"sankore" }
+    ,baseParams: { start: '0', limit: '2', 'featuredResults': '1', xpage: "plain", '_dc':(new Date().getTime()), category:"sankore" }
 
     ,reader: new Ext.data.JsonReader({
       root: 'rows'
@@ -930,7 +930,7 @@ data.init = function(){
     // turn on remote sorting
     ,remoteSort: true
   });
-  data.store.featuredResults.setDefaultSort('rating', 'asc');
+  data.store.featuredResults.setDefaultSort('updated', 'desc');
 
   // Set up renderers
   data.featuredRenderer = {
@@ -1428,6 +1428,12 @@ form.init = function(){
         ,valueField:'id'
         ,typeAhead:true
         ,triggerAction:'all'
+
+
+
+
+
+
         ,emptyText:_('search.resource.special.selector.UNSPECIFIED')
       }]
     },{

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>SankoreCode</web>
+<name>TypeMapping</name>
+<language></language>
+<defaultLanguage>fr</defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>XWiki.Admin</creator>
+<author>XWiki.Admin</author>
+<customClass></customClass>
+<contentAuthor>XWiki.Admin</contentAuthor>
+<creationDate>1385985404000</creationDate>
+<date>1385985404000</date>
+<contentUpdateDate>1385985404000</contentUpdateDate>
+<version>1.1</version>
+<title></title>
+<template></template>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>false</minorEdit>
+<syntaxId>xwiki/2.0</syntaxId>
+<hidden>false</hidden>
+<content>Activité : Evaluation/Travail à la maison=AssetMetadata.Activity,AssetMetadata.Assigment
+Activité : Exercice=AssetMetadata.Activity,AssetMetadata.Exercise
+Activité : Travaux Pratiques=AssetMetadata.Activity,AssetMetadata.Experiment
+Activité : Jeux=AssetMetadata.Activity,AssetMetadata.Games
+Activité : Grapheur/Tableur=AssetMetadata.Activity,AssetMetadata.Worksheet
+Activité : Collection de sujets=AssetMetadata.Activity,AssetMetadata.ProblemSet
+Activité : WebQuest=AssetMetadata.Activity,AssetMetadata.WebQuest
+Composant : Animation/Simulation=AssetMetadata.Asset,AssetMetadata.Animation
+Composant : Article=AssetMetadata.Asset,AssetMetadata.Article
+Composant : Audio=AssetMetadata.Asset,AssetMetadata.Audio
+Composant : Diagramme/illustration=AssetMetadata.Asset,AssetMetadata.Diagram
+Composant : Glossaire / Liste de vocabulaire=AssetMetadata.Asset,AssetMetadata.Glossary
+Composant : Table des Matières=AssetMetadata.Asset,AssetMetadata.Index
+Composant : Photographie=AssetMetadata.Asset,AssetMetadata.Photograph
+Composant : Référence=AssetMetadata.Asset,AssetMetadata.Reference
+Composant : Scénario=AssetMetadata.Asset,AssetMetadata.Transcript
+Composant : Etude/Données/Recherche=AssetMetadata.Asset,AssetMetadata.Research
+Composant : Graphique/Diagramme=AssetMetadata.Asset,AssetMetadata.Chart
+Composant : Modèle de Document=AssetMetadata.Asset,AssetMetadata.Template
+Composant : Video/Présentation/Diapo=AssetMetadata.Asset,AssetMetadata.Video
+Composant : Webcast/Podcast=AssetMetadata.Asset,AssetMetadata.Webcast
+Livre : Fiction=AssetMetadata.Book,AssetMetadata.Fiction
+Livre : Documentaire=AssetMetadata.Book,AssetMetadata.NonFiction
+Livre : Notes de lecture=AssetMetadata.Book,AssetMetadata.Readings
+Livre : Manuel scolaire=AssetMetadata.Book,AssetMetadata.Textbook
+Parcours : Réponse=AssetMetadata.Curriculum,AssetMetadata.Answer
+Parcours : Evaluation/Test=AssetMetadata.Curriculum,AssetMetadata.Assessment
+Parcours : Cours complet=AssetMetadata.Curriculum,AssetMetadata.FullCourse
+Parcours : Plan de cours=AssetMetadata.Curriculum,AssetMetadata.LessonPlan
+Parcours : Rubrique=AssetMetadata.Curriculum,AssetMetadata.Rubric
+Parcours : Séquence=AssetMetadata.Curriculum,AssetMetadata.Sequence
+Parcours : Standard ou programme=AssetMetadata.Curriculum,AssetMetadata.Standards
+Parcours : Polycopié / notes de cours=AssetMetadata.Curriculum,AssetMetadata.StudyGuide
+Parcours : Programme=AssetMetadata.Curriculum,AssetMetadata.Syllabus
+Parcours : Tutoriel=AssetMetadata.Curriculum,AssetMetadata.Tutorial
+Parcours : Unité pédagogique=AssetMetadata.Curriculum,AssetMetadata.Unit
+Parcours : Cahier d'activité=AssetMetadata.Curriculum,AssetMetadata.Workbook
+Autres=AssetMetadata.Other</content></xwikidoc>

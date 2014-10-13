@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1346407079000</creationDate>
-<date>1346407079000</date>
-<contentUpdateDate>1346407079000</contentUpdateDate>
+<creationDate>1381226147000</creationDate>
+<date>1381226147000</date>
+<contentUpdateDate>1381226147000</contentUpdateDate>
 <version>1.1</version>
 <title>Groupes</title>
 <template></template>
@@ -20,14 +20,14 @@
 <validationScript></validationScript>
 <comment></comment>
 <minorEdit>false</minorEdit>
-<syntaxId>xwiki/1.0</syntaxId>
+<syntaxId>xwiki/2.0</syntaxId>
 <hidden>false</hidden>
-<content>#**
-  * Groups Page
-  *
-  *#
+<content>{{velocity filter="none"}}
+{{html clean="false" wiki="true"}}
 #mycurriki_pageheader("groups" "")
 #mycurriki_groups_join_button($userobj)
 #mycurriki_pagecontentheader("groups" "")
 #mycurriki_grouplist($userdoc $userobj)
-#mycurriki_pagefooter("")</content></xwikidoc>
+#mycurriki_pagefooter("")
+{{/html}}
+{{/velocity}}</content></xwikidoc>

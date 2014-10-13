@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1348479786000</creationDate>
-<date>1348479786000</date>
-<contentUpdateDate>1348479786000</contentUpdateDate>
+<creationDate>1405002171000</creationDate>
+<date>1405002171000</date>
+<contentUpdateDate>1405002171000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -459,8 +459,15 @@ $ict:
   ##
   ## Set sort field
   ##
-  #set($sortField1 = 'CRS.CurrikiReviewStatusClass.status.untokenized')
-  #set($sortField2 = 'CurrikiCode.AssetClass.rating')
+  ## SKE-557 if we have a special filter of recently updated
+  ## then we should use date filter
+  #if($request.special=="updated")
+   #set($sortField1 = '-date')
+   #set($sortField2 = 'CurrikiCode.AssetClass.rating')      
+  #else
+   #set($sortField1 = '-CRS.CurrikiReviewStatusClass.status.untokenized')
+   #set($sortField2 = 'CurrikiCode.AssetClass.rating')      
+  #end
   #if($!request.sort != "")
     #if($request.sort == "title")
       #set($sortField1 = 'title.untokenized')
@@ -495,7 +502,7 @@ $ict:
   #if($!request.dir == "DESC")
     #set($sortField1 = "-${sortField1}")
   #end
-  #set($sortFields = "${sortField1},-${sortField2}")
+  #set($sortFields = "${sortField1},-${sortField2},-date")
   #set($sortFields = $sortFields.split(","))
   ##
   ## Create query
@@ -641,8 +648,16 @@ $ict:
   #if($request.debug)
 Query: $luceneQuery
   #end
+  ## ------------------------------------------------
+  ## Check home page to display two random ubz
+  ## ------------------------------------------------
+  #if("$!request.featuredResults" == "1")
+    ## Getting random number 
+    #set($start = $mathtool.random(1,9))
+  #end
+  ## ------------------------------------------------
   #set($searchResults = $lucene.getSearchResults($luceneQuery, $sortFields, $languages))
-  #set($results = $searchResults.getResults($start, $limit))
+  #set($results = $searchResults.getResults("$start", "$limit"))
   #set($resultCount = $searchResults.totalHitcount)
   #set($modifiedCount = 0)
   #if($resultCount)

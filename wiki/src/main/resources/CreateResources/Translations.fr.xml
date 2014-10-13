@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1349175347000</creationDate>
-<date>1349175347000</date>
-<contentUpdateDate>1349175347000</contentUpdateDate>
+<creationDate>1391527437000</creationDate>
+<date>1391527437000</date>
+<contentUpdateDate>1391527437000</contentUpdateDate>
 <version>1.1</version>
 <title></title>
 <template></template>
@@ -1092,7 +1092,7 @@ add.finalmessage.text_favorites_success=Vous avez ajouté ceci à vos favoris.
 
 ## ADD COLLECTIONS
 
-add.finalmessage.text_collection_success=Vous avez contribué une nouvelle collection avec succès.
+add.finalmessage.text_collection_success=Vous avez contribué à une nouvelle collection avec succès.
 
 add.finalmessage.text_collection_tip1=Cliquez sur "Contribuer" dans "Mes collections" pour ajouter une nouvelle ressource à la collection. Vous pouvez aussi cliquez sur "Classer" dans "Mes contributions" pour classer une ressource dans une collection.
 

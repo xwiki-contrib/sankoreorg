@@ -10,9 +10,9 @@
 <author>XWiki.Admin</author>
 <customClass></customClass>
 <contentAuthor>XWiki.Admin</contentAuthor>
-<creationDate>1350576282000</creationDate>
-<date>1350576282000</date>
-<contentUpdateDate>1350576282000</contentUpdateDate>
+<creationDate>1412771566000</creationDate>
+<date>1412771566000</date>
+<contentUpdateDate>1412771566000</contentUpdateDate>
 <version>1.1</version>
 <title>Rechercher des ressources</title>
 <template></template>
@@ -714,7 +714,8 @@ button.x-btn-text:hover {
 <use>currentPage</use>
 </property>
 </object>
-<content>{pre}
+<content>#includeForm("Search.Message")
+{pre}
 &lt;script type="text/javascript"&gt;
 /* &lt;![CDATA[ */
 Ext.ns('Curriki.userinfo');
