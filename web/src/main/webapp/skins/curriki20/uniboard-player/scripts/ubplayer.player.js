@@ -114,11 +114,17 @@ UbPlayer.Player = function(args) {
   }
 
   // check if there is a page0. If yes switch firstPageNumber to page 0
-  var page0url =  this.documentData.pagesBaseUrl + "/page000.json";
-  jQuery.getJSON(page0url, function(data) {
+  // we need to check for thumbnail so that it works for both ubz and ubw
+  var page0url =  this.documentData.pagesBaseUrl + "/page000.thumbnail.jpg";
+  jQuery.get(page0url, function(data) {
       if(data){
         that.firstPageNumber = 0;
-      }
+		console.log("Found page 0 in sankore file");
+      } 
+  });
+
+  var url =  this.documentData.pagesBaseUrl + "/page00" + that.firstPageNumber + ".json";
+  jQuery.getJSON(url, function(data) {
   }).complete(function() {
   // Events binding  
   jQuery("#menu-button-first").click(function(){ that.goToPage("FIRST") });
