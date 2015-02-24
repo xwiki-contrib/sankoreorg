@@ -8672,7 +8672,7 @@ $context.unsetLinksQueryString()
 <edit.vm></edit.vm>
 </property>
 <property>
-<footer.vm>#if($isInServletMode)## Visible only in a page
+<footer.vm>#if($isInServletMode &amp;&amp; !$isInEmbedMode)## Visible only in a page
 &lt;div id="footerglobal" class="layoutsection"&gt;
 
 &lt;div class="bottom-content"&gt;
@@ -8781,7 +8781,7 @@ $context.unsetLinksQueryString()
 ###
 #if($isInServletMode) ## Visible only in a page
 &lt;div id="headerglobal" class="layoutsection"&gt;
-
+#if(!$isInEmbedMode) ## Embed mode
 &lt;div class="navbar"&gt;
   &lt;div class="navbar-inner"&gt;
     &lt;div class="container"&gt;
@@ -8808,8 +8808,10 @@ $context.unsetLinksQueryString()
     &lt;/div&gt;      
   &lt;/div&gt;
 &lt;/div&gt;
+#end
 &lt;div id="header"&gt;
 &lt;div class="container"&gt;
+#if(!$isInEmbedMode)
   &lt;div class="row"&gt;
     &lt;div class="span3"&gt;
       &lt;h1 class="logo"&gt;&lt;a href="http://sankore.org/fr" title="Sankore.org | Accueil"&gt;&lt;/a&gt;&lt;/h1&gt;
@@ -8825,10 +8827,9 @@ $context.unsetLinksQueryString()
       &lt;/ul&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-
+#end
   &lt;div class="row space"&gt;
     &lt;span class="span12"&gt;
-  
 &lt;!-- BREADCRUMBS --&gt;
 #set($parents = $util.arrayList)
 #set($discard = $parents.add($doc.fullName))
@@ -8875,7 +8876,7 @@ $string
 ##</hierarchy.vm>
 </property>
 <property>
-<htmlfooter.vm>#if($isInServletMode)
+<htmlfooter.vm>#if($isInServletMode &amp;&amp; !$isInEmbedMode)
 #if("$!request.action" != "editinfo" &amp;&amp; "$!context.action" == "view")
 &lt;script src="//assets.zendesk.com/external/zenbox/v2.5/zenbox.js" type="text/javascript"&gt;&lt;/script&gt;
 &lt;style type="text/css" media="screen, projection"&gt;
@@ -8897,7 +8898,15 @@ $string
 &lt;/html&gt;
 #else ## Portlet Mode
 &lt;/div&gt;
-#end</htmlfooter.vm>
+#end
+
+&lt;script&gt;
+//Create global js variable
+var embedLinksQueryString = "";
+#if($isInEmbedMode)
+   embedLinksQueryString = "?xpage=embed_search";
+#end
+&lt;/script&gt;</htmlfooter.vm>
 </property>
 <property>
 <htmlheader.vm>## -------------------------------------------------------------------------------------------------------------------
@@ -9210,6 +9219,10 @@ Event.observe(document, "dom:loaded", prepareCancelEdit);
   #set($displayMainMenu = false)
 #end
 #if(!$hasAdmin)
+  #set($displayMainMenu = false)
+#end
+
+#if($isInEmbedMode)
   #set($displayMainMenu = false)
 #end</layoutExtraVars.vm>
 </property>
