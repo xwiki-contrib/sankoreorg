@@ -321,7 +321,7 @@ module.init = function(){
             ,autoEl:{
               tag:'p'
               ,cls:'left'
-              ,html:'Exemples: Pythagore, Géographie, Mathématiques, Histoire, ...'
+              ,html:'Exemples: Pythagore, GÃ©ographie, MathÃ©matiques, Histoire, ...'
             }
           },{
             xtype:'container'
@@ -333,7 +333,7 @@ module.init = function(){
               ,autoEl:{
                 tag:'a'
                 ,href:'#'
-                ,html:'Comment fonctionne le moteur sankoré?'
+                ,html:'Comment fonctionne le moteur sankorÃ©?'
               }
             }]            
           }]
@@ -796,7 +796,6 @@ data.init = function(){
     // turn on remote sorting
     ,remoteSort: true
   });
-
   
 
   // Set up renderers
@@ -867,8 +866,16 @@ data.init = function(){
     }
     ,result: function(value, metadata, record, rowIndex, colIndex, store) {
       var page = record.id.replace(/\./, '/');
-      
-      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 160));
+
+      // BEGIN SKE-568 Embed mode
+	  if (embedLinksQueryString) {
+	      target = 'target="_blank"';
+	  } else {
+	      target = '';
+	  }
+	  // END SKE-568 Embed mode
+
+      var title = String.format('<a href="/xwiki/bin/view/{0}" ' + target + ' >{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 160));
       var desc = Ext.htmlDecode(Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256));
       var imgsrc = "/xwiki/skins/curriki20/icons/mediatype/";
       if (record.data.category == "text" || record.data.category == "document") {
@@ -892,7 +899,7 @@ data.init = function(){
       } else {
         imgsrc = imgsrc + "archive_large.gif";
       }
-      var link = String.format('<a class="preview" href="/xwiki/bin/view/{0}"><img src="{1}" /></a>', page, imgsrc);
+      var link = String.format('<a class="preview" href="/xwiki/bin/view/{0}" ' + target + ' ><img src="{1}" /></a>', page, imgsrc);
       
       var memberRating = record.data.memberRating;
       if (memberRating == "")
@@ -900,11 +907,11 @@ data.init = function(){
       var ratingCount = record.data.ratingCount;
       if (ratingCount == "")
         ratingCount = "0";        
-      var rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" qtip="{3}">{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" qtip="{3}" /></a></span>', memberRating, ratingCount, page, _('search.resource.rating.'+memberRating), Ext.BLANK_IMAGE_URL);
+      var rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" qtip="{3}" ' + target + ' >{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments" ' + target + ' ><img class="rating-icon" src="{4}" qtip="{3}" /></a></span>', memberRating, ratingCount, page, _('search.resource.rating.'+memberRating), Ext.BLANK_IMAGE_URL);
       
       var review = String.format('');
       if (record.data.rating != "") {
-        review = String.format('<a class="rating review crs-{0}" title="{1}" href="/xwiki/bin/view/{3}?viewer=comments"><span class="crs-text">{1}</span><img class="crs-icon" alt="" src="{2}" /></a>', record.data.rating, _('search.resource.review.'+record.data.rating), Ext.BLANK_IMAGE_URL, page)
+        review = String.format('<a class="rating review crs-{0}" title="{1}" href="/xwiki/bin/view/{3}?viewer=comments" ' + target + ' ><span class="crs-text">{1}</span><img class="crs-icon" alt="" src="{2}" /></a>', record.data.rating, _('search.resource.review.'+record.data.rating), Ext.BLANK_IMAGE_URL, page)
       }  
       var cleanContributorName = '/xwiki/bin/view/' +record.data.contributor.trim().replace('.', '/');  
       var contributor = String.format('<a class="contributor" href="{0}">{1}</a>', cleanContributorName, record.data.contributorName);
@@ -936,18 +943,26 @@ data.init = function(){
   data.featuredRenderer = {
     result: function(value, metadata, record, rowIndex, colIndex, store) {
      var page = record.id.replace(/\./, '/');
-      
-      var title = String.format('<a href="/xwiki/bin/view/{0}">{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 160));
+
+     // BEGIN SKE-568 Embed mode
+	 if (embedLinksQueryString) {
+	     target = 'target="_blank"';
+	 } else {
+	     target = '';
+	 }
+	 // END SKE-568 Embed mode
+
+      var title = String.format('<a href="/xwiki/bin/view/{0}" ' + target + ' >{1}</a>', page, Ext.util.Format.ellipsis(record.data.title, 160));
       var desc = Ext.htmlDecode(Ext.util.Format.ellipsis(Ext.util.Format.stripTags(record.data.description), 256));
       var imgsrc = "/xwiki/skins/curriki20/icons/mediatype/";      
       imgsrc = imgsrc + "sankore_large.png";
-      var link = String.format('<a class="preview" href="/xwiki/bin/view/{0}"><img src="{1}" /></a>', page, imgsrc);
+      var link = String.format('<a class="preview" href="/xwiki/bin/view/{0}" ' + target + ' ><img src="{1}" /></a>', page, imgsrc);
       var rating = String.format('');
       if (record.data.memberRating != "") {
-        rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}">{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments"><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a></span>', record.data.memberRating, record.data.ratingCount, page, _('search.resource.rating.'+record.data.memberRating), Ext.BLANK_IMAGE_URL);
+        rating =  String.format('<span class="rating rating-{0}"><a href="/xwiki/bin/view/{2}?viewer=comments" ext:qtip="{3}" ' + target + ' >{1} avis </a><a href="/xwiki/bin/view/{2}?viewer=comments" ' + target + ' ><img class="rating-icon" src="{4}" ext:qtip="{3}" /></a></span>', record.data.memberRating, record.data.ratingCount, page, _('search.resource.rating.'+record.data.memberRating), Ext.BLANK_IMAGE_URL);
       }
       var cleanContributorName = '/xwiki/bin/view/' +record.data.contributor.trim().replace('.', '/'); 
-      var contributor = String.format('<a class="contributor" href="{0}">{1}</a>', cleanContributorName, record.data.contributorName);
+      var contributor = String.format('<a class="contributor" href="{0}" ' + target + ' >{1}</a>', cleanContributorName, record.data.contributorName);
       
       return String.format('{0}{1}<h4 class="title">{2}</h4>{3}<p class="description">{4}</p>', link, rating, title, contributor, desc);
     }
@@ -1428,12 +1443,6 @@ form.init = function(){
         ,valueField:'id'
         ,typeAhead:true
         ,triggerAction:'all'
-
-
-
-
-
-
         ,emptyText:_('search.resource.special.selector.UNSPECIFIED')
       }]
     },{

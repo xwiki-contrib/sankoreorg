@@ -1,0 +1,61 @@
+#**
+  * Embed entry point. It is called from view.vm
+  * It displays assets in embed mode. Links stay in the same windows
+  *#
+#macro(asset_display_embed $asset $dmode)
+#set($ok = $asset.use("CurrikiCode.AssetClass"))
+<div id="asset-wrapper" class="view-${asset.categoryClass} mode-$dmode">
+  #asset_findmode()
+  #if(!$isEmbed)
+    ##if($dmode!="edit")
+      ##asset_resourcefunctions($asset)
+    ##end
+    ##asset_icontitle($asset)
+    ##if($dmode!="edit")
+      ##asset_rating($asset)
+    ##end
+    ##asset_attribution($asset)
+    ##asset_flag_button($asset)
+    #if(!$isPrint)
+##      #asset_tabs($asset "view")
+    #end
+  #end
+<div id="asset-wrapper-inner" #if($asset.category!="collection") class="filetype-${asset.filetypeClass}" #end >
+  #if($isEmbed)
+##    #asset_icontitle($asset)
+##    #asset_attribution($asset)
+    <a id="powered-by-curriki">$msg.get("mode.embed.powered_txt")</a>
+  #end
+  #if(!$isPrint && !$isEmbed && $dmode != "edit")
+##    #asset_links($asset)
+##    #asset_function_links($asset)
+  #end
+  #if(!$asset.hasAccessLevel("view"))
+    #curriki_noaccess()
+  #else
+    #if($asset.category!="collection")
+    <div class="sub-asset-wrapper category-${asset.categoryClass}">
+      <div class="sub-asset-wrapper-inner filetype-${asset.filetypeClass}">
+    #end
+    $asset.displayAsset($dmode)
+    #if($asset.category!="collection")
+      </div>
+    </div>
+    #end
+  #end
+  #if($isEmbed)
+    <p id="content-licensed">$msg.get("mode.embed.footer_txt")</p>
+  #end
+  </div> ##asset-wrapper-inner
+</div> ##asset-wrapper
+##asset_info($asset)
+#end
+#asset_findtitle($doc)
+#template("xwikivars.vm")
+#template("layoutvars.vm")
+#template("embedheader.vm")
+$context.setLinksQueryString("viewer=embed")
+#set($isEmbed = true)
+#asset_display_embed($doc "view")
+$context.unsetLinksQueryString()
+#template("embedfooter.vm")
