@@ -54,7 +54,7 @@
 #template("xwikivars.vm")
 #template("layoutvars.vm")
 #template("embedheader.vm")
-$context.setLinksQueryString("viewer=embed")
+$context.setLinksQueryString("xpage=embed")
 #set($isEmbed = true)
 #asset_display_embed($doc "view")
 $context.unsetLinksQueryString()
